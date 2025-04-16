@@ -12,30 +12,30 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.comprehendmedical_constants import *
 
-class TraitTypeDef(BaseValidatorModel):
+class Trait(BaseValidatorModel):
     Name: Optional[AttributeNameType] = None
     Score: Optional[float] = None
 
 
-class CharactersTypeDef(BaseValidatorModel):
+class Characters(BaseValidatorModel):
     OriginalTextCharacters: Optional[int] = None
 
 
-class InputDataConfigTypeDef(BaseValidatorModel):
+class InputDataConfig(BaseValidatorModel):
     S3Bucket: str
     S3Key: Optional[str] = None
 
 
-class OutputDataConfigTypeDef(BaseValidatorModel):
+class OutputDataConfig(BaseValidatorModel):
     S3Bucket: str
     S3Key: Optional[str] = None
 
 
-class DescribeEntitiesDetectionV2JobRequestTypeDef(BaseValidatorModel):
+class DescribeEntitiesDetectionV2JobRequest(BaseValidatorModel):
     JobId: str
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -43,93 +43,93 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class DescribeICD10CMInferenceJobRequestTypeDef(BaseValidatorModel):
+class DescribeICD10CMInferenceJobRequest(BaseValidatorModel):
     JobId: str
 
 
-class DescribePHIDetectionJobRequestTypeDef(BaseValidatorModel):
+class DescribePHIDetectionJobRequest(BaseValidatorModel):
     JobId: str
 
 
-class DescribeRxNormInferenceJobRequestTypeDef(BaseValidatorModel):
+class DescribeRxNormInferenceJobRequest(BaseValidatorModel):
     JobId: str
 
 
-class DescribeSNOMEDCTInferenceJobRequestTypeDef(BaseValidatorModel):
+class DescribeSNOMEDCTInferenceJobRequest(BaseValidatorModel):
     JobId: str
 
 
-class ICD10CMTraitTypeDef(BaseValidatorModel):
+class ICD10CMTrait(BaseValidatorModel):
     Name: Optional[ICD10CMTraitNameType] = None
     Score: Optional[float] = None
 
 
-class ICD10CMConceptTypeDef(BaseValidatorModel):
+class ICD10CMConcept(BaseValidatorModel):
     Description: Optional[str] = None
     Code: Optional[str] = None
     Score: Optional[float] = None
 
 
-class SNOMEDCTDetailsTypeDef(BaseValidatorModel):
+class SNOMEDCTDetails(BaseValidatorModel):
     Edition: Optional[str] = None
     Language: Optional[str] = None
     VersionDate: Optional[str] = None
 
 
-class RxNormTraitTypeDef(BaseValidatorModel):
+class RxNormTrait(BaseValidatorModel):
     Name: Optional[RxNormTraitNameType] = None
     Score: Optional[float] = None
 
 
-class RxNormConceptTypeDef(BaseValidatorModel):
+class RxNormConcept(BaseValidatorModel):
     Description: Optional[str] = None
     Code: Optional[str] = None
     Score: Optional[float] = None
 
 
-class SNOMEDCTConceptTypeDef(BaseValidatorModel):
+class SNOMEDCTConcept(BaseValidatorModel):
     Description: Optional[str] = None
     Code: Optional[str] = None
     Score: Optional[float] = None
 
 
-class SNOMEDCTTraitTypeDef(BaseValidatorModel):
+class SNOMEDCTTrait(BaseValidatorModel):
     Name: Optional[SNOMEDCTTraitNameType] = None
     Score: Optional[float] = None
 
 
-class StopEntitiesDetectionV2JobRequestTypeDef(BaseValidatorModel):
+class StopEntitiesDetectionV2JobRequest(BaseValidatorModel):
     JobId: str
 
 
-class StopICD10CMInferenceJobRequestTypeDef(BaseValidatorModel):
+class StopICD10CMInferenceJobRequest(BaseValidatorModel):
     JobId: str
 
 
-class StopPHIDetectionJobRequestTypeDef(BaseValidatorModel):
+class StopPHIDetectionJobRequest(BaseValidatorModel):
     JobId: str
 
 
-class StopRxNormInferenceJobRequestTypeDef(BaseValidatorModel):
+class StopRxNormInferenceJobRequest(BaseValidatorModel):
     JobId: str
 
 
-class StopSNOMEDCTInferenceJobRequestTypeDef(BaseValidatorModel):
+class StopSNOMEDCTInferenceJobRequest(BaseValidatorModel):
     JobId: str
 
 
-class TimestampTypeDef(BaseValidatorModel):
+class Timestamp(BaseValidatorModel):
     pass
 
 
-class ComprehendMedicalAsyncJobFilterTypeDef(BaseValidatorModel):
+class ComprehendMedicalAsyncJobFilter(BaseValidatorModel):
     JobName: Optional[str] = None
     JobStatus: Optional[JobStatusType] = None
-    SubmitTimeBefore: Optional[TimestampTypeDef] = None
-    SubmitTimeAfter: Optional[TimestampTypeDef] = None
+    SubmitTimeBefore: Optional[Timestamp] = None
+    SubmitTimeAfter: Optional[Timestamp] = None
 
 
-class ComprehendMedicalAsyncJobPropertiesTypeDef(BaseValidatorModel):
+class ComprehendMedicalAsyncJobProperties(BaseValidatorModel):
     JobId: Optional[str] = None
     JobName: Optional[str] = None
     JobStatus: Optional[JobStatusType] = None
@@ -137,8 +137,8 @@ class ComprehendMedicalAsyncJobPropertiesTypeDef(BaseValidatorModel):
     SubmitTime: Optional[datetime] = None
     EndTime: Optional[datetime] = None
     ExpirationTime: Optional[datetime] = None
-    InputDataConfig: Optional[InputDataConfigTypeDef] = None
-    OutputDataConfig: Optional[OutputDataConfigTypeDef] = None
+    InputDataConfig: Optional[InputDataConfig] = None
+    OutputDataConfig: Optional[OutputDataConfig] = None
     LanguageCode: Optional[Literal["en"]] = None
     DataAccessRoleArn: Optional[str] = None
     ManifestFilePath: Optional[str] = None
@@ -146,9 +146,9 @@ class ComprehendMedicalAsyncJobPropertiesTypeDef(BaseValidatorModel):
     ModelVersion: Optional[str] = None
 
 
-class StartEntitiesDetectionV2JobRequestTypeDef(BaseValidatorModel):
-    InputDataConfig: InputDataConfigTypeDef
-    OutputDataConfig: OutputDataConfigTypeDef
+class StartEntitiesDetectionV2JobRequest(BaseValidatorModel):
+    InputDataConfig: InputDataConfig
+    OutputDataConfig: OutputDataConfig
     DataAccessRoleArn: str
     LanguageCode: Literal["en"]
     JobName: Optional[str] = None
@@ -156,9 +156,9 @@ class StartEntitiesDetectionV2JobRequestTypeDef(BaseValidatorModel):
     KMSKey: Optional[str] = None
 
 
-class StartICD10CMInferenceJobRequestTypeDef(BaseValidatorModel):
-    InputDataConfig: InputDataConfigTypeDef
-    OutputDataConfig: OutputDataConfigTypeDef
+class StartICD10CMInferenceJobRequest(BaseValidatorModel):
+    InputDataConfig: InputDataConfig
+    OutputDataConfig: OutputDataConfig
     DataAccessRoleArn: str
     LanguageCode: Literal["en"]
     JobName: Optional[str] = None
@@ -166,9 +166,9 @@ class StartICD10CMInferenceJobRequestTypeDef(BaseValidatorModel):
     KMSKey: Optional[str] = None
 
 
-class StartPHIDetectionJobRequestTypeDef(BaseValidatorModel):
-    InputDataConfig: InputDataConfigTypeDef
-    OutputDataConfig: OutputDataConfigTypeDef
+class StartPHIDetectionJobRequest(BaseValidatorModel):
+    InputDataConfig: InputDataConfig
+    OutputDataConfig: OutputDataConfig
     DataAccessRoleArn: str
     LanguageCode: Literal["en"]
     JobName: Optional[str] = None
@@ -176,9 +176,9 @@ class StartPHIDetectionJobRequestTypeDef(BaseValidatorModel):
     KMSKey: Optional[str] = None
 
 
-class StartRxNormInferenceJobRequestTypeDef(BaseValidatorModel):
-    InputDataConfig: InputDataConfigTypeDef
-    OutputDataConfig: OutputDataConfigTypeDef
+class StartRxNormInferenceJobRequest(BaseValidatorModel):
+    InputDataConfig: InputDataConfig
+    OutputDataConfig: OutputDataConfig
     DataAccessRoleArn: str
     LanguageCode: Literal["en"]
     JobName: Optional[str] = None
@@ -186,9 +186,9 @@ class StartRxNormInferenceJobRequestTypeDef(BaseValidatorModel):
     KMSKey: Optional[str] = None
 
 
-class StartSNOMEDCTInferenceJobRequestTypeDef(BaseValidatorModel):
-    InputDataConfig: InputDataConfigTypeDef
-    OutputDataConfig: OutputDataConfigTypeDef
+class StartSNOMEDCTInferenceJobRequest(BaseValidatorModel):
+    InputDataConfig: InputDataConfig
+    OutputDataConfig: OutputDataConfig
     DataAccessRoleArn: str
     LanguageCode: Literal["en"]
     JobName: Optional[str] = None
@@ -196,204 +196,204 @@ class StartSNOMEDCTInferenceJobRequestTypeDef(BaseValidatorModel):
     KMSKey: Optional[str] = None
 
 
-class StartEntitiesDetectionV2JobResponseTypeDef(BaseValidatorModel):
+class StartEntitiesDetectionV2JobResponse(BaseValidatorModel):
     JobId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartICD10CMInferenceJobResponseTypeDef(BaseValidatorModel):
+class StartICD10CMInferenceJobResponse(BaseValidatorModel):
     JobId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartPHIDetectionJobResponseTypeDef(BaseValidatorModel):
+class StartPHIDetectionJobResponse(BaseValidatorModel):
     JobId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartRxNormInferenceJobResponseTypeDef(BaseValidatorModel):
+class StartRxNormInferenceJobResponse(BaseValidatorModel):
     JobId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartSNOMEDCTInferenceJobResponseTypeDef(BaseValidatorModel):
+class StartSNOMEDCTInferenceJobResponse(BaseValidatorModel):
     JobId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StopEntitiesDetectionV2JobResponseTypeDef(BaseValidatorModel):
+class StopEntitiesDetectionV2JobResponse(BaseValidatorModel):
     JobId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StopICD10CMInferenceJobResponseTypeDef(BaseValidatorModel):
+class StopICD10CMInferenceJobResponse(BaseValidatorModel):
     JobId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StopPHIDetectionJobResponseTypeDef(BaseValidatorModel):
+class StopPHIDetectionJobResponse(BaseValidatorModel):
     JobId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StopRxNormInferenceJobResponseTypeDef(BaseValidatorModel):
+class StopRxNormInferenceJobResponse(BaseValidatorModel):
     JobId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StopSNOMEDCTInferenceJobResponseTypeDef(BaseValidatorModel):
+class StopSNOMEDCTInferenceJobResponse(BaseValidatorModel):
     JobId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListEntitiesDetectionV2JobsRequestTypeDef(BaseValidatorModel):
-    Filter: Optional[ComprehendMedicalAsyncJobFilterTypeDef] = None
+class ListEntitiesDetectionV2JobsRequest(BaseValidatorModel):
+    Filter: Optional[ComprehendMedicalAsyncJobFilter] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListICD10CMInferenceJobsRequestTypeDef(BaseValidatorModel):
-    Filter: Optional[ComprehendMedicalAsyncJobFilterTypeDef] = None
+class ListICD10CMInferenceJobsRequest(BaseValidatorModel):
+    Filter: Optional[ComprehendMedicalAsyncJobFilter] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListPHIDetectionJobsRequestTypeDef(BaseValidatorModel):
-    Filter: Optional[ComprehendMedicalAsyncJobFilterTypeDef] = None
+class ListPHIDetectionJobsRequest(BaseValidatorModel):
+    Filter: Optional[ComprehendMedicalAsyncJobFilter] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListRxNormInferenceJobsRequestTypeDef(BaseValidatorModel):
-    Filter: Optional[ComprehendMedicalAsyncJobFilterTypeDef] = None
+class ListRxNormInferenceJobsRequest(BaseValidatorModel):
+    Filter: Optional[ComprehendMedicalAsyncJobFilter] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListSNOMEDCTInferenceJobsRequestTypeDef(BaseValidatorModel):
-    Filter: Optional[ComprehendMedicalAsyncJobFilterTypeDef] = None
+class ListSNOMEDCTInferenceJobsRequest(BaseValidatorModel):
+    Filter: Optional[ComprehendMedicalAsyncJobFilter] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class DescribeEntitiesDetectionV2JobResponseTypeDef(BaseValidatorModel):
-    ComprehendMedicalAsyncJobProperties: ComprehendMedicalAsyncJobPropertiesTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeEntitiesDetectionV2JobResponse(BaseValidatorModel):
+    ComprehendMedicalAsyncJobProperties: ComprehendMedicalAsyncJobProperties
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeICD10CMInferenceJobResponseTypeDef(BaseValidatorModel):
-    ComprehendMedicalAsyncJobProperties: ComprehendMedicalAsyncJobPropertiesTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeICD10CMInferenceJobResponse(BaseValidatorModel):
+    ComprehendMedicalAsyncJobProperties: ComprehendMedicalAsyncJobProperties
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribePHIDetectionJobResponseTypeDef(BaseValidatorModel):
-    ComprehendMedicalAsyncJobProperties: ComprehendMedicalAsyncJobPropertiesTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribePHIDetectionJobResponse(BaseValidatorModel):
+    ComprehendMedicalAsyncJobProperties: ComprehendMedicalAsyncJobProperties
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeRxNormInferenceJobResponseTypeDef(BaseValidatorModel):
-    ComprehendMedicalAsyncJobProperties: ComprehendMedicalAsyncJobPropertiesTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeRxNormInferenceJobResponse(BaseValidatorModel):
+    ComprehendMedicalAsyncJobProperties: ComprehendMedicalAsyncJobProperties
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeSNOMEDCTInferenceJobResponseTypeDef(BaseValidatorModel):
-    ComprehendMedicalAsyncJobProperties: ComprehendMedicalAsyncJobPropertiesTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeSNOMEDCTInferenceJobResponse(BaseValidatorModel):
+    ComprehendMedicalAsyncJobProperties: ComprehendMedicalAsyncJobProperties
+    ResponseMetadata: ResponseMetadata
 
 
-class ListEntitiesDetectionV2JobsResponseTypeDef(BaseValidatorModel):
-    ComprehendMedicalAsyncJobPropertiesList: List[ComprehendMedicalAsyncJobPropertiesTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListEntitiesDetectionV2JobsResponse(BaseValidatorModel):
+    ComprehendMedicalAsyncJobPropertiesList: List[ComprehendMedicalAsyncJobProperties]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListICD10CMInferenceJobsResponseTypeDef(BaseValidatorModel):
-    ComprehendMedicalAsyncJobPropertiesList: List[ComprehendMedicalAsyncJobPropertiesTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListICD10CMInferenceJobsResponse(BaseValidatorModel):
+    ComprehendMedicalAsyncJobPropertiesList: List[ComprehendMedicalAsyncJobProperties]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListPHIDetectionJobsResponseTypeDef(BaseValidatorModel):
-    ComprehendMedicalAsyncJobPropertiesList: List[ComprehendMedicalAsyncJobPropertiesTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListPHIDetectionJobsResponse(BaseValidatorModel):
+    ComprehendMedicalAsyncJobPropertiesList: List[ComprehendMedicalAsyncJobProperties]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListRxNormInferenceJobsResponseTypeDef(BaseValidatorModel):
-    ComprehendMedicalAsyncJobPropertiesList: List[ComprehendMedicalAsyncJobPropertiesTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListRxNormInferenceJobsResponse(BaseValidatorModel):
+    ComprehendMedicalAsyncJobPropertiesList: List[ComprehendMedicalAsyncJobProperties]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListSNOMEDCTInferenceJobsResponseTypeDef(BaseValidatorModel):
-    ComprehendMedicalAsyncJobPropertiesList: List[ComprehendMedicalAsyncJobPropertiesTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListSNOMEDCTInferenceJobsResponse(BaseValidatorModel):
+    ComprehendMedicalAsyncJobPropertiesList: List[ComprehendMedicalAsyncJobProperties]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class EntityTypeDef(BaseValidatorModel):
+class Entity(BaseValidatorModel):
     pass
 
 
-class DetectPHIResponseTypeDef(BaseValidatorModel):
-    Entities: List[EntityTypeDef]
+class DetectPHIResponse(BaseValidatorModel):
+    Entities: List[Entity]
     PaginationToken: str
     ModelVersion: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UnmappedAttributeTypeDef(BaseValidatorModel):
+class UnmappedAttribute(BaseValidatorModel):
     pass
 
 
-class DetectEntitiesResponseTypeDef(BaseValidatorModel):
-    Entities: List[EntityTypeDef]
-    UnmappedAttributes: List[UnmappedAttributeTypeDef]
+class DetectEntitiesResponse(BaseValidatorModel):
+    Entities: List[Entity]
+    UnmappedAttributes: List[UnmappedAttribute]
     PaginationToken: str
     ModelVersion: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DetectEntitiesV2ResponseTypeDef(BaseValidatorModel):
-    Entities: List[EntityTypeDef]
-    UnmappedAttributes: List[UnmappedAttributeTypeDef]
+class DetectEntitiesV2Response(BaseValidatorModel):
+    Entities: List[Entity]
+    UnmappedAttributes: List[UnmappedAttribute]
     PaginationToken: str
     ModelVersion: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ICD10CMEntityTypeDef(BaseValidatorModel):
+class ICD10CMEntity(BaseValidatorModel):
     pass
 
 
-class InferICD10CMResponseTypeDef(BaseValidatorModel):
-    Entities: List[ICD10CMEntityTypeDef]
+class InferICD10CMResponse(BaseValidatorModel):
+    Entities: List[ICD10CMEntity]
     PaginationToken: str
     ModelVersion: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class RxNormEntityTypeDef(BaseValidatorModel):
+class RxNormEntity(BaseValidatorModel):
     pass
 
 
-class InferRxNormResponseTypeDef(BaseValidatorModel):
-    Entities: List[RxNormEntityTypeDef]
+class InferRxNormResponse(BaseValidatorModel):
+    Entities: List[RxNormEntity]
     PaginationToken: str
     ModelVersion: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class SNOMEDCTEntityTypeDef(BaseValidatorModel):
+class SNOMEDCTEntity(BaseValidatorModel):
     pass
 
 
-class InferSNOMEDCTResponseTypeDef(BaseValidatorModel):
-    Entities: List[SNOMEDCTEntityTypeDef]
+class InferSNOMEDCTResponse(BaseValidatorModel):
+    Entities: List[SNOMEDCTEntity]
     PaginationToken: str
     ModelVersion: str
-    SNOMEDCTDetails: SNOMEDCTDetailsTypeDef
-    Characters: CharactersTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    SNOMEDCTDetails: SNOMEDCTDetails
+    Characters: Characters
+    ResponseMetadata: ResponseMetadata
 
 

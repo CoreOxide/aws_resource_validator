@@ -1,13 +1,13 @@
 # Appfabric Classes
 
-# ApiKeyCredentialTypeDef
+# ApiKeyCredential
 
 ### apiKey
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# AppAuthorizationSummaryTypeDef
+# AppAuthorization
 
 ### appAuthorizationArn
 - **Type**: <class 'str'>
@@ -22,34 +22,7 @@
 - **Required**: Yes
 
 ### tenant
-- **Type**: <class 'aws_resource_validator.pydantic_models.appfabric_classes.TenantTypeDef'>
-- **Required**: Yes
-
-### status
-- **Type**: typing.Literal['Connected', 'ConnectionValidationFailed', 'PendingConnect', 'TokenAutoRotationFailed']
-- **Required**: Yes
-
-### updatedAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-
-# AppAuthorizationTypeDef
-
-### appAuthorizationArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### appBundleArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### app
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### tenant
-- **Type**: <class 'aws_resource_validator.pydantic_models.appfabric_classes.TenantTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appfabric_classes.Tenant'>
 - **Required**: Yes
 
 ### authType
@@ -75,14 +48,34 @@
 - **Type**: typing.Optional[str]
 
 
-# AppBundleSummaryTypeDef
+# AppAuthorizationSummary
 
-### arn
+### appAuthorizationArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
+### appBundleArn
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-# AppBundleTypeDef
+### app
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### tenant
+- **Type**: <class 'aws_resource_validator.pydantic_models.appfabric_classes.Tenant'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['Connected', 'ConnectionValidationFailed', 'PendingConnect', 'TokenAutoRotationFailed']
+- **Required**: Yes
+
+### updatedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+
+# AppBundle
 
 ### arn
 - **Type**: <class 'str'>
@@ -92,20 +85,27 @@
 - **Type**: typing.Optional[str]
 
 
-# AuditLogDestinationConfigurationTypeDef
+# AppBundleSummary
 
-### destination
-- **Type**: <class 'aws_resource_validator.pydantic_models.appfabric_classes.DestinationTypeDef'>
+### arn
+- **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# AuditLogProcessingConfigurationTypeDef
+# AuditLogDestinationConfiguration
+
+### destination
+- **Type**: <class 'aws_resource_validator.pydantic_models.appfabric_classes.Destination'>
+- **Required**: Yes
+
+
+# AuditLogProcessingConfiguration
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# AuthRequestTypeDef
+# AuthRequest
 
 ### redirectUri
 - **Type**: <class 'str'>
@@ -122,7 +122,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BatchGetUserAccessTasksRequestTypeDef
+# BatchGetUserAccessTasksRequest
 
 ### appBundleIdentifier
 - **Type**: <class 'str'>
@@ -133,18 +133,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# BatchGetUserAccessTasksResponseTypeDef
+# BatchGetUserAccessTasksResponse
 
 ### userAccessResultsList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.appfabric_classes.UserAccessResultItemTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.appfabric_classes.UserAccessResultItem]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appfabric_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appfabric_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ConnectAppAuthorizationRequestTypeDef
+# ConnectAppAuthorizationRequest
 
 ### appBundleIdentifier
 - **Type**: <class 'str'>
@@ -155,21 +155,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### authRequest
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appfabric_classes.AuthRequestTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appfabric_classes.AuthRequest]
 
 
-# ConnectAppAuthorizationResponseTypeDef
+# ConnectAppAuthorizationResponse
 
 ### appAuthorizationSummary
-- **Type**: <class 'aws_resource_validator.pydantic_models.appfabric_classes.AppAuthorizationSummaryTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appfabric_classes.AppAuthorizationSummary'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appfabric_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appfabric_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateAppAuthorizationRequestTypeDef
+# CreateAppAuthorizationRequest
 
 ### appBundleIdentifier
 - **Type**: <class 'str'>
@@ -180,11 +180,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### credential
-- **Type**: <class 'aws_resource_validator.pydantic_models.appfabric_classes.CredentialTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appfabric_classes.Credential'>
 - **Required**: Yes
 
 ### tenant
-- **Type**: <class 'aws_resource_validator.pydantic_models.appfabric_classes.TenantTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appfabric_classes.Tenant'>
 - **Required**: Yes
 
 ### authType
@@ -195,21 +195,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.appfabric_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.appfabric_classes.Tag]]
 
 
-# CreateAppAuthorizationResponseTypeDef
+# CreateAppAuthorizationResponse
 
 ### appAuthorization
-- **Type**: <class 'aws_resource_validator.pydantic_models.appfabric_classes.AppAuthorizationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appfabric_classes.AppAuthorization'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appfabric_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appfabric_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateAppBundleRequestTypeDef
+# CreateAppBundleRequest
 
 ### clientToken
 - **Type**: typing.Optional[str]
@@ -218,21 +218,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.appfabric_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.appfabric_classes.Tag]]
 
 
-# CreateAppBundleResponseTypeDef
+# CreateAppBundleResponse
 
 ### appBundle
-- **Type**: <class 'aws_resource_validator.pydantic_models.appfabric_classes.AppBundleTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appfabric_classes.AppBundle'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appfabric_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appfabric_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateIngestionDestinationRequestTypeDef
+# CreateIngestionDestinationRequest
 
 ### appBundleIdentifier
 - **Type**: <class 'str'>
@@ -243,32 +243,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### processingConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.appfabric_classes.ProcessingConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appfabric_classes.ProcessingConfiguration'>
 - **Required**: Yes
 
 ### destinationConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.appfabric_classes.DestinationConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appfabric_classes.DestinationConfiguration'>
 - **Required**: Yes
 
 ### clientToken
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.appfabric_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.appfabric_classes.Tag]]
 
 
-# CreateIngestionDestinationResponseTypeDef
+# CreateIngestionDestinationResponse
 
 ### ingestionDestination
-- **Type**: <class 'aws_resource_validator.pydantic_models.appfabric_classes.IngestionDestinationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appfabric_classes.IngestionDestination'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appfabric_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appfabric_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateIngestionRequestTypeDef
+# CreateIngestionRequest
 
 ### appBundleIdentifier
 - **Type**: <class 'str'>
@@ -290,30 +290,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.appfabric_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.appfabric_classes.Tag]]
 
 
-# CreateIngestionResponseTypeDef
+# CreateIngestionResponse
 
 ### ingestion
-- **Type**: <class 'aws_resource_validator.pydantic_models.appfabric_classes.IngestionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appfabric_classes.Ingestion'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appfabric_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appfabric_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CredentialTypeDef
+# Credential
 
 ### oauth2Credential
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appfabric_classes.Oauth2CredentialTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appfabric_classes.Oauth2Credential]
 
 ### apiKeyCredential
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appfabric_classes.ApiKeyCredentialTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appfabric_classes.ApiKeyCredential]
 
 
-# DeleteAppAuthorizationRequestTypeDef
+# DeleteAppAuthorizationRequest
 
 ### appBundleIdentifier
 - **Type**: <class 'str'>
@@ -324,14 +324,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteAppBundleRequestTypeDef
+# DeleteAppBundleRequest
 
 ### appBundleIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteIngestionDestinationRequestTypeDef
+# DeleteIngestionDestinationRequest
 
 ### appBundleIdentifier
 - **Type**: <class 'str'>
@@ -346,7 +346,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteIngestionRequestTypeDef
+# DeleteIngestionRequest
 
 ### appBundleIdentifier
 - **Type**: <class 'str'>
@@ -357,29 +357,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DestinationConfigurationTypeDef
-
-### auditLog
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appfabric_classes.AuditLogDestinationConfigurationTypeDef]
-
-
-# DestinationTypeDef
+# Destination
 
 ### s3Bucket
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appfabric_classes.S3BucketTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appfabric_classes.S3Bucket]
 
 ### firehoseStream
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appfabric_classes.FirehoseStreamTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appfabric_classes.FirehoseStream]
 
 
-# FirehoseStreamTypeDef
+# DestinationConfiguration
+
+### auditLog
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appfabric_classes.AuditLogDestinationConfiguration]
+
+
+# FirehoseStream
 
 ### streamName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetAppAuthorizationRequestTypeDef
+# GetAppAuthorizationRequest
 
 ### appBundleIdentifier
 - **Type**: <class 'str'>
@@ -390,36 +390,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetAppAuthorizationResponseTypeDef
+# GetAppAuthorizationResponse
 
 ### appAuthorization
-- **Type**: <class 'aws_resource_validator.pydantic_models.appfabric_classes.AppAuthorizationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appfabric_classes.AppAuthorization'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appfabric_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appfabric_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetAppBundleRequestTypeDef
+# GetAppBundleRequest
 
 ### appBundleIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetAppBundleResponseTypeDef
+# GetAppBundleResponse
 
 ### appBundle
-- **Type**: <class 'aws_resource_validator.pydantic_models.appfabric_classes.AppBundleTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appfabric_classes.AppBundle'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appfabric_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appfabric_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetIngestionDestinationRequestTypeDef
+# GetIngestionDestinationRequest
 
 ### appBundleIdentifier
 - **Type**: <class 'str'>
@@ -434,18 +434,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetIngestionDestinationResponseTypeDef
+# GetIngestionDestinationResponse
 
 ### ingestionDestination
-- **Type**: <class 'aws_resource_validator.pydantic_models.appfabric_classes.IngestionDestinationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appfabric_classes.IngestionDestination'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appfabric_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appfabric_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetIngestionRequestTypeDef
+# GetIngestionRequest
 
 ### appBundleIdentifier
 - **Type**: <class 'str'>
@@ -456,75 +456,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetIngestionResponseTypeDef
+# GetIngestionResponse
 
 ### ingestion
-- **Type**: <class 'aws_resource_validator.pydantic_models.appfabric_classes.IngestionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appfabric_classes.Ingestion'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appfabric_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appfabric_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# IngestionDestinationSummaryTypeDef
-
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# IngestionDestinationTypeDef
-
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ingestionArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### processingConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.appfabric_classes.ProcessingConfigurationTypeDef'>
-- **Required**: Yes
-
-### destinationConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.appfabric_classes.DestinationConfigurationTypeDef'>
-- **Required**: Yes
-
-### status
-- **Type**: typing.Optional[typing.Literal['Active', 'Failed']]
-
-### statusReason
-- **Type**: typing.Optional[str]
-
-### createdAt
-- **Type**: typing.Optional[datetime.datetime]
-
-### updatedAt
-- **Type**: typing.Optional[datetime.datetime]
-
-
-# IngestionSummaryTypeDef
-
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### app
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### tenantId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### state
-- **Type**: typing.Literal['disabled', 'enabled']
-- **Required**: Yes
-
-
-# IngestionTypeDef
+# Ingestion
 
 ### arn
 - **Type**: <class 'str'>
@@ -559,17 +502,64 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListAppAuthorizationsRequestPaginateTypeDef
+# IngestionDestination
 
-### appBundleIdentifier
+### arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appfabric_classes.PaginatorConfigTypeDef]
+### ingestionArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### processingConfiguration
+- **Type**: <class 'aws_resource_validator.pydantic_models.appfabric_classes.ProcessingConfiguration'>
+- **Required**: Yes
+
+### destinationConfiguration
+- **Type**: <class 'aws_resource_validator.pydantic_models.appfabric_classes.DestinationConfiguration'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Optional[typing.Literal['Active', 'Failed']]
+
+### statusReason
+- **Type**: typing.Optional[str]
+
+### createdAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### updatedAt
+- **Type**: typing.Optional[datetime.datetime]
 
 
-# ListAppAuthorizationsRequestTypeDef
+# IngestionDestinationSummary
+
+### arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# IngestionSummary
+
+### arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### app
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### tenantId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### state
+- **Type**: typing.Literal['disabled', 'enabled']
+- **Required**: Yes
+
+
+# ListAppAuthorizationsRequest
 
 ### appBundleIdentifier
 - **Type**: <class 'str'>
@@ -582,27 +572,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListAppAuthorizationsResponseTypeDef
+# ListAppAuthorizationsRequestPaginate
+
+### appBundleIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appfabric_classes.PaginatorConfig]
+
+
+# ListAppAuthorizationsResponse
 
 ### appAuthorizationSummaryList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.appfabric_classes.AppAuthorizationSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.appfabric_classes.AppAuthorizationSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appfabric_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appfabric_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListAppBundlesRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appfabric_classes.PaginatorConfigTypeDef]
-
-
-# ListAppBundlesRequestTypeDef
+# ListAppBundlesRequest
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -611,35 +605,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListAppBundlesResponseTypeDef
+# ListAppBundlesRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appfabric_classes.PaginatorConfig]
+
+
+# ListAppBundlesResponse
 
 ### appBundleSummaryList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.appfabric_classes.AppBundleSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.appfabric_classes.AppBundleSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appfabric_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appfabric_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListIngestionDestinationsRequestPaginateTypeDef
-
-### appBundleIdentifier
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ingestionIdentifier
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appfabric_classes.PaginatorConfigTypeDef]
-
-
-# ListIngestionDestinationsRequestTypeDef
+# ListIngestionDestinationsRequest
 
 ### appBundleIdentifier
 - **Type**: <class 'str'>
@@ -656,31 +642,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListIngestionDestinationsResponseTypeDef
+# ListIngestionDestinationsRequestPaginate
+
+### appBundleIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ingestionIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appfabric_classes.PaginatorConfig]
+
+
+# ListIngestionDestinationsResponse
 
 ### ingestionDestinations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.appfabric_classes.IngestionDestinationSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.appfabric_classes.IngestionDestinationSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appfabric_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appfabric_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListIngestionsRequestPaginateTypeDef
-
-### appBundleIdentifier
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appfabric_classes.PaginatorConfigTypeDef]
-
-
-# ListIngestionsRequestTypeDef
+# ListIngestionsRequest
 
 ### appBundleIdentifier
 - **Type**: <class 'str'>
@@ -693,39 +683,49 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListIngestionsResponseTypeDef
+# ListIngestionsRequestPaginate
+
+### appBundleIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appfabric_classes.PaginatorConfig]
+
+
+# ListIngestionsResponse
 
 ### ingestions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.appfabric_classes.IngestionSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.appfabric_classes.IngestionSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appfabric_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appfabric_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestTypeDef
+# ListTagsForResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ListTagsForResourceResponseTypeDef
+# ListTagsForResourceResponse
 
 ### tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.appfabric_classes.TagTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.appfabric_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appfabric_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appfabric_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# Oauth2CredentialTypeDef
+# Oauth2Credential
 
 ### clientId
 - **Type**: <class 'str'>
@@ -736,7 +736,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -748,13 +748,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ProcessingConfigurationTypeDef
+# ProcessingConfiguration
 
 ### auditLog
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appfabric_classes.AuditLogProcessingConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appfabric_classes.AuditLogProcessingConfiguration]
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -776,7 +776,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# S3BucketTypeDef
+# S3Bucket
 
 ### bucketName
 - **Type**: <class 'str'>
@@ -786,7 +786,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# StartIngestionRequestTypeDef
+# StartIngestionRequest
 
 ### ingestionIdentifier
 - **Type**: <class 'str'>
@@ -797,7 +797,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StartUserAccessTasksRequestTypeDef
+# StartUserAccessTasksRequest
 
 ### appBundleIdentifier
 - **Type**: <class 'str'>
@@ -808,18 +808,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StartUserAccessTasksResponseTypeDef
+# StartUserAccessTasksResponse
 
 ### userAccessTasksList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.appfabric_classes.UserAccessTaskItemTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.appfabric_classes.UserAccessTaskItem]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appfabric_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appfabric_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# StopIngestionRequestTypeDef
+# StopIngestionRequest
 
 ### ingestionIdentifier
 - **Type**: <class 'str'>
@@ -830,18 +830,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TagResourceRequestTypeDef
-
-### resourceArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.appfabric_classes.TagTypeDef]
-- **Required**: Yes
-
-
-# TagTypeDef
+# Tag
 
 ### key
 - **Type**: <class 'str'>
@@ -852,7 +841,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TaskErrorTypeDef
+# TagResourceRequest
+
+### resourceArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### tags
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.appfabric_classes.Tag]
+- **Required**: Yes
+
+
+# TaskError
 
 ### errorCode
 - **Type**: typing.Optional[str]
@@ -861,7 +861,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TenantTypeDef
+# Tenant
 
 ### tenantIdentifier
 - **Type**: <class 'str'>
@@ -872,7 +872,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceRequestTypeDef
+# UntagResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -883,7 +883,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateAppAuthorizationRequestTypeDef
+# UpdateAppAuthorizationRequest
 
 ### appBundleIdentifier
 - **Type**: <class 'str'>
@@ -894,24 +894,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### credential
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appfabric_classes.CredentialTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appfabric_classes.Credential]
 
 ### tenant
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appfabric_classes.TenantTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appfabric_classes.Tenant]
 
 
-# UpdateAppAuthorizationResponseTypeDef
+# UpdateAppAuthorizationResponse
 
 ### appAuthorization
-- **Type**: <class 'aws_resource_validator.pydantic_models.appfabric_classes.AppAuthorizationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appfabric_classes.AppAuthorization'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appfabric_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appfabric_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateIngestionDestinationRequestTypeDef
+# UpdateIngestionDestinationRequest
 
 ### appBundleIdentifier
 - **Type**: <class 'str'>
@@ -926,22 +926,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### destinationConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.appfabric_classes.DestinationConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appfabric_classes.DestinationConfiguration'>
 - **Required**: Yes
 
 
-# UpdateIngestionDestinationResponseTypeDef
+# UpdateIngestionDestinationResponse
 
 ### ingestionDestination
-- **Type**: <class 'aws_resource_validator.pydantic_models.appfabric_classes.IngestionDestinationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appfabric_classes.IngestionDestination'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appfabric_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appfabric_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UserAccessResultItemTypeDef
+# UserAccessResultItem
 
 ### app
 - **Type**: typing.Optional[str]
@@ -977,10 +977,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### taskError
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appfabric_classes.TaskErrorTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appfabric_classes.TaskError]
 
 
-# UserAccessTaskItemTypeDef
+# UserAccessTaskItem
 
 ### app
 - **Type**: <class 'str'>
@@ -994,6 +994,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### error
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appfabric_classes.TaskErrorTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appfabric_classes.TaskError]
 
 

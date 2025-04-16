@@ -12,75 +12,75 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.iotsitewise_constants import *
 
-class AccessDeniedExceptionTypeDef(BaseValidatorModel):
+class AccessDeniedException(BaseValidatorModel):
     message: Optional[str] = None
 
 
-class ActionDefinitionTypeDef(BaseValidatorModel):
+class ActionDefinition(BaseValidatorModel):
     actionDefinitionId: str
     actionName: str
     actionType: str
 
 
-class ActionPayloadTypeDef(BaseValidatorModel):
+class ActionPayload(BaseValidatorModel):
     stringValue: str
 
 
-class TargetResourceTypeDef(BaseValidatorModel):
+class TargetResource(BaseValidatorModel):
     assetId: str
 
 
-class AlarmsTypeDef(BaseValidatorModel):
+class Alarms(BaseValidatorModel):
     alarmRoleArn: str
     notificationLambdaArn: Optional[str] = None
 
 
-class AssetErrorDetailsTypeDef(BaseValidatorModel):
+class AssetErrorDetails(BaseValidatorModel):
     assetId: str
     code: Literal["INTERNAL_FAILURE"]
     message: str
 
 
-class AssetHierarchyInfoTypeDef(BaseValidatorModel):
+class AssetHierarchyInfo(BaseValidatorModel):
     parentAssetId: Optional[str] = None
     childAssetId: Optional[str] = None
 
 
-class PropertyNotificationTypeDef(BaseValidatorModel):
+class PropertyNotification(BaseValidatorModel):
     topic: str
     state: PropertyNotificationStateType
 
 
-class TimeInNanosTypeDef(BaseValidatorModel):
+class TimeInNanos(BaseValidatorModel):
     timeInSeconds: int
     offsetInNanos: Optional[int] = None
 
 
-class AssociateAssetsRequestTypeDef(BaseValidatorModel):
+class AssociateAssetsRequest(BaseValidatorModel):
     assetId: str
     hierarchyId: str
     childAssetId: str
     clientToken: Optional[str] = None
 
 
-class AssociateTimeSeriesToAssetPropertyRequestTypeDef(BaseValidatorModel):
+class AssociateTimeSeriesToAssetPropertyRequest(BaseValidatorModel):
     alias: str
     assetId: str
     propertyId: str
     clientToken: Optional[str] = None
 
 
-class AttributeTypeDef(BaseValidatorModel):
+class Attribute(BaseValidatorModel):
     defaultValue: Optional[str] = None
 
 
-class BatchAssociateProjectAssetsRequestTypeDef(BaseValidatorModel):
+class BatchAssociateProjectAssetsRequest(BaseValidatorModel):
     projectId: str
     assetIds: Sequence[str]
     clientToken: Optional[str] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -88,78 +88,78 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class BatchDisassociateProjectAssetsRequestTypeDef(BaseValidatorModel):
+class BatchDisassociateProjectAssetsRequest(BaseValidatorModel):
     projectId: str
     assetIds: Sequence[str]
     clientToken: Optional[str] = None
 
 
-class BatchGetAssetPropertyAggregatesErrorEntryTypeDef(BaseValidatorModel):
+class BatchGetAssetPropertyAggregatesErrorEntry(BaseValidatorModel):
     errorCode: BatchGetAssetPropertyAggregatesErrorCodeType
     errorMessage: str
     entryId: str
 
 
-class BatchGetAssetPropertyAggregatesErrorInfoTypeDef(BaseValidatorModel):
+class BatchGetAssetPropertyAggregatesErrorInfo(BaseValidatorModel):
     errorCode: BatchGetAssetPropertyAggregatesErrorCodeType
     errorTimestamp: datetime
 
 
-class BatchGetAssetPropertyValueEntryTypeDef(BaseValidatorModel):
+class BatchGetAssetPropertyValueEntry(BaseValidatorModel):
     entryId: str
     assetId: Optional[str] = None
     propertyId: Optional[str] = None
     propertyAlias: Optional[str] = None
 
 
-class BatchGetAssetPropertyValueErrorEntryTypeDef(BaseValidatorModel):
+class BatchGetAssetPropertyValueErrorEntry(BaseValidatorModel):
     errorCode: BatchGetAssetPropertyValueErrorCodeType
     errorMessage: str
     entryId: str
 
 
-class BatchGetAssetPropertyValueErrorInfoTypeDef(BaseValidatorModel):
+class BatchGetAssetPropertyValueErrorInfo(BaseValidatorModel):
     errorCode: BatchGetAssetPropertyValueErrorCodeType
     errorTimestamp: datetime
 
 
-class BatchGetAssetPropertyValueHistoryErrorEntryTypeDef(BaseValidatorModel):
+class BatchGetAssetPropertyValueHistoryErrorEntry(BaseValidatorModel):
     errorCode: BatchGetAssetPropertyValueHistoryErrorCodeType
     errorMessage: str
     entryId: str
 
 
-class BatchGetAssetPropertyValueHistoryErrorInfoTypeDef(BaseValidatorModel):
+class BatchGetAssetPropertyValueHistoryErrorInfo(BaseValidatorModel):
     errorCode: BatchGetAssetPropertyValueHistoryErrorCodeType
     errorTimestamp: datetime
 
 
-class ContentTypeDef(BaseValidatorModel):
+class Content(BaseValidatorModel):
     text: Optional[str] = None
 
 
-class ColumnTypeTypeDef(BaseValidatorModel):
+class ColumnType(BaseValidatorModel):
     scalarType: Optional[ScalarTypeType] = None
 
 
-class CompositionRelationshipSummaryTypeDef(BaseValidatorModel):
+class CompositionRelationshipSummary(BaseValidatorModel):
     assetModelId: str
     assetModelCompositeModelId: str
     assetModelCompositeModelType: str
 
 
-class ConfigurationErrorDetailsTypeDef(BaseValidatorModel):
+class ConfigurationErrorDetails(BaseValidatorModel):
     code: ErrorCodeType
     message: str
 
 
-class ConflictingOperationExceptionTypeDef(BaseValidatorModel):
+class ConflictingOperationException(BaseValidatorModel):
     message: str
     resourceId: str
     resourceArn: str
 
 
-class CreateAssetRequestTypeDef(BaseValidatorModel):
+class CreateAssetRequest(BaseValidatorModel):
     assetName: str
     assetModelId: str
     clientToken: Optional[str] = None
@@ -169,18 +169,18 @@ class CreateAssetRequestTypeDef(BaseValidatorModel):
     assetExternalId: Optional[str] = None
 
 
-class ErrorReportLocationTypeDef(BaseValidatorModel):
+class ErrorReportLocation(BaseValidatorModel):
     bucket: str
     prefix: str
 
 
-class FileTypeDef(BaseValidatorModel):
+class File(BaseValidatorModel):
     bucket: str
     key: str
     versionId: Optional[str] = None
 
 
-class CreateDashboardRequestTypeDef(BaseValidatorModel):
+class CreateDashboardRequest(BaseValidatorModel):
     projectId: str
     dashboardName: str
     dashboardDefinition: str
@@ -189,7 +189,7 @@ class CreateDashboardRequestTypeDef(BaseValidatorModel):
     tags: Optional[Mapping[str, str]] = None
 
 
-class CreateProjectRequestTypeDef(BaseValidatorModel):
+class CreateProjectRequest(BaseValidatorModel):
     portalId: str
     projectName: str
     projectDescription: Optional[str] = None
@@ -197,46 +197,46 @@ class CreateProjectRequestTypeDef(BaseValidatorModel):
     tags: Optional[Mapping[str, str]] = None
 
 
-class CsvOutputTypeDef(BaseValidatorModel):
+class CsvOutput(BaseValidatorModel):
     columnNames: List[ColumnNameType]
 
 
-class CsvTypeDef(BaseValidatorModel):
+class Csv(BaseValidatorModel):
     columnNames: Sequence[ColumnNameType]
 
 
-class CustomerManagedS3StorageTypeDef(BaseValidatorModel):
+class CustomerManagedS3Storage(BaseValidatorModel):
     s3ResourceArn: str
     roleArn: str
 
 
-class DatumPaginatorTypeDef(BaseValidatorModel):
+class DatumPaginator(BaseValidatorModel):
     scalarValue: Optional[str] = None
     arrayValue: Optional[List[Dict[str, Any]]] = None
     rowValue: Optional[Dict[str, Any]] = None
     nullValue: Optional[bool] = None
 
 
-class DatumTypeDef(BaseValidatorModel):
+class Datum(BaseValidatorModel):
     scalarValue: Optional[str] = None
     arrayValue: Optional[List[Dict[str, Any]]] = None
     rowValue: Optional[Dict[str, Any]] = None
     nullValue: Optional[bool] = None
 
 
-class DatumWaiterTypeDef(BaseValidatorModel):
+class DatumWaiter(BaseValidatorModel):
     scalarValue: Optional[str] = None
     arrayValue: Optional[List[Dict[str, Any]]] = None
     rowValue: Optional[Dict[str, Any]] = None
     nullValue: Optional[bool] = None
 
 
-class DeleteAccessPolicyRequestTypeDef(BaseValidatorModel):
+class DeleteAccessPolicyRequest(BaseValidatorModel):
     accessPolicyId: str
     clientToken: Optional[str] = None
 
 
-class DeleteAssetModelCompositeModelRequestTypeDef(BaseValidatorModel):
+class DeleteAssetModelCompositeModelRequest(BaseValidatorModel):
     assetModelId: str
     assetModelCompositeModelId: str
     clientToken: Optional[str] = None
@@ -245,7 +245,7 @@ class DeleteAssetModelCompositeModelRequestTypeDef(BaseValidatorModel):
     matchForVersionType: Optional[AssetModelVersionTypeType] = None
 
 
-class DeleteAssetModelRequestTypeDef(BaseValidatorModel):
+class DeleteAssetModelRequest(BaseValidatorModel):
     assetModelId: str
     clientToken: Optional[str] = None
     ifMatch: Optional[str] = None
@@ -253,227 +253,227 @@ class DeleteAssetModelRequestTypeDef(BaseValidatorModel):
     matchForVersionType: Optional[AssetModelVersionTypeType] = None
 
 
-class DeleteAssetRequestTypeDef(BaseValidatorModel):
+class DeleteAssetRequest(BaseValidatorModel):
     assetId: str
     clientToken: Optional[str] = None
 
 
-class DeleteDashboardRequestTypeDef(BaseValidatorModel):
+class DeleteDashboardRequest(BaseValidatorModel):
     dashboardId: str
     clientToken: Optional[str] = None
 
 
-class DeleteDatasetRequestTypeDef(BaseValidatorModel):
+class DeleteDatasetRequest(BaseValidatorModel):
     datasetId: str
     clientToken: Optional[str] = None
 
 
-class DeleteGatewayRequestTypeDef(BaseValidatorModel):
+class DeleteGatewayRequest(BaseValidatorModel):
     gatewayId: str
 
 
-class DeletePortalRequestTypeDef(BaseValidatorModel):
+class DeletePortalRequest(BaseValidatorModel):
     portalId: str
     clientToken: Optional[str] = None
 
 
-class DeleteProjectRequestTypeDef(BaseValidatorModel):
+class DeleteProjectRequest(BaseValidatorModel):
     projectId: str
     clientToken: Optional[str] = None
 
 
-class DeleteTimeSeriesRequestTypeDef(BaseValidatorModel):
+class DeleteTimeSeriesRequest(BaseValidatorModel):
     alias: Optional[str] = None
     assetId: Optional[str] = None
     propertyId: Optional[str] = None
     clientToken: Optional[str] = None
 
 
-class DescribeAccessPolicyRequestTypeDef(BaseValidatorModel):
+class DescribeAccessPolicyRequest(BaseValidatorModel):
     accessPolicyId: str
 
 
-class DescribeActionRequestTypeDef(BaseValidatorModel):
+class DescribeActionRequest(BaseValidatorModel):
     actionId: str
 
 
-class DescribeAssetCompositeModelRequestTypeDef(BaseValidatorModel):
+class DescribeAssetCompositeModelRequest(BaseValidatorModel):
     assetId: str
     assetCompositeModelId: str
 
 
-class DescribeAssetModelCompositeModelRequestTypeDef(BaseValidatorModel):
+class DescribeAssetModelCompositeModelRequest(BaseValidatorModel):
     assetModelId: str
     assetModelCompositeModelId: str
     assetModelVersion: Optional[str] = None
 
 
-class DescribeAssetModelRequestTypeDef(BaseValidatorModel):
+class DescribeAssetModelRequest(BaseValidatorModel):
     assetModelId: str
     excludeProperties: Optional[bool] = None
     assetModelVersion: Optional[str] = None
 
 
-class WaiterConfigTypeDef(BaseValidatorModel):
+class WaiterConfig(BaseValidatorModel):
     Delay: Optional[int] = None
     MaxAttempts: Optional[int] = None
 
 
-class DescribeAssetPropertyRequestTypeDef(BaseValidatorModel):
+class DescribeAssetPropertyRequest(BaseValidatorModel):
     assetId: str
     propertyId: str
 
 
-class DescribeAssetRequestTypeDef(BaseValidatorModel):
+class DescribeAssetRequest(BaseValidatorModel):
     assetId: str
     excludeProperties: Optional[bool] = None
 
 
-class DescribeBulkImportJobRequestTypeDef(BaseValidatorModel):
+class DescribeBulkImportJobRequest(BaseValidatorModel):
     jobId: str
 
 
-class DescribeDashboardRequestTypeDef(BaseValidatorModel):
+class DescribeDashboardRequest(BaseValidatorModel):
     dashboardId: str
 
 
-class DescribeDatasetRequestTypeDef(BaseValidatorModel):
+class DescribeDatasetRequest(BaseValidatorModel):
     datasetId: str
 
 
-class DescribeGatewayCapabilityConfigurationRequestTypeDef(BaseValidatorModel):
+class DescribeGatewayCapabilityConfigurationRequest(BaseValidatorModel):
     gatewayId: str
     capabilityNamespace: str
 
 
-class DescribeGatewayRequestTypeDef(BaseValidatorModel):
+class DescribeGatewayRequest(BaseValidatorModel):
     gatewayId: str
 
 
-class GatewayCapabilitySummaryTypeDef(BaseValidatorModel):
+class GatewayCapabilitySummary(BaseValidatorModel):
     capabilityNamespace: str
     capabilitySyncStatus: CapabilitySyncStatusType
 
 
-class LoggingOptionsTypeDef(BaseValidatorModel):
+class LoggingOptions(BaseValidatorModel):
     level: LoggingLevelType
 
 
-class DescribePortalRequestTypeDef(BaseValidatorModel):
+class DescribePortalRequest(BaseValidatorModel):
     portalId: str
 
 
-class PortalTypeEntryOutputTypeDef(BaseValidatorModel):
+class PortalTypeEntryOutput(BaseValidatorModel):
     portalTools: Optional[List[str]] = None
 
 
-class DescribeProjectRequestTypeDef(BaseValidatorModel):
+class DescribeProjectRequest(BaseValidatorModel):
     projectId: str
 
 
-class RetentionPeriodTypeDef(BaseValidatorModel):
+class RetentionPeriod(BaseValidatorModel):
     numberOfDays: Optional[int] = None
     unlimited: Optional[bool] = None
 
 
-class WarmTierRetentionPeriodTypeDef(BaseValidatorModel):
+class WarmTierRetentionPeriod(BaseValidatorModel):
     numberOfDays: Optional[int] = None
     unlimited: Optional[bool] = None
 
 
-class DescribeTimeSeriesRequestTypeDef(BaseValidatorModel):
+class DescribeTimeSeriesRequest(BaseValidatorModel):
     alias: Optional[str] = None
     assetId: Optional[str] = None
     propertyId: Optional[str] = None
 
 
-class DetailedErrorTypeDef(BaseValidatorModel):
+class DetailedError(BaseValidatorModel):
     code: DetailedErrorCodeType
     message: str
 
 
-class DisassociateAssetsRequestTypeDef(BaseValidatorModel):
+class DisassociateAssetsRequest(BaseValidatorModel):
     assetId: str
     hierarchyId: str
     childAssetId: str
     clientToken: Optional[str] = None
 
 
-class DisassociateTimeSeriesFromAssetPropertyRequestTypeDef(BaseValidatorModel):
+class DisassociateTimeSeriesFromAssetPropertyRequest(BaseValidatorModel):
     alias: str
     assetId: str
     propertyId: str
     clientToken: Optional[str] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ExecuteQueryRequestTypeDef(BaseValidatorModel):
+class ExecuteQueryRequest(BaseValidatorModel):
     queryStatement: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     clientToken: Optional[str] = None
 
 
-class ForwardingConfigTypeDef(BaseValidatorModel):
+class ForwardingConfig(BaseValidatorModel):
     state: ForwardingConfigStateType
 
 
-class GreengrassTypeDef(BaseValidatorModel):
+class Greengrass(BaseValidatorModel):
     groupArn: str
 
 
-class GreengrassV2TypeDef(BaseValidatorModel):
+class GreengrassV2(BaseValidatorModel):
     coreDeviceThingName: str
     coreDeviceOperatingSystem: Optional[CoreDeviceOperatingSystemType] = None
 
 
-class SiemensIETypeDef(BaseValidatorModel):
+class SiemensIE(BaseValidatorModel):
     iotCoreThingName: str
 
 
-class GetAssetPropertyValueRequestTypeDef(BaseValidatorModel):
+class GetAssetPropertyValueRequest(BaseValidatorModel):
     assetId: Optional[str] = None
     propertyId: Optional[str] = None
     propertyAlias: Optional[str] = None
 
 
-class IAMRoleIdentityTypeDef(BaseValidatorModel):
+class IAMRoleIdentity(BaseValidatorModel):
     arn: str
 
 
-class IAMUserIdentityTypeDef(BaseValidatorModel):
+class IAMUserIdentity(BaseValidatorModel):
     arn: str
 
 
-class InternalFailureExceptionTypeDef(BaseValidatorModel):
+class InternalFailureException(BaseValidatorModel):
     message: str
 
 
-class InvalidRequestExceptionTypeDef(BaseValidatorModel):
+class InvalidRequestException(BaseValidatorModel):
     message: str
 
 
-class InvokeAssistantRequestTypeDef(BaseValidatorModel):
+class InvokeAssistantRequest(BaseValidatorModel):
     message: str
     conversationId: Optional[str] = None
     enableTrace: Optional[bool] = None
 
 
-class KendraSourceDetailTypeDef(BaseValidatorModel):
+class KendraSourceDetail(BaseValidatorModel):
     knowledgeBaseArn: str
     roleArn: str
 
 
-class LimitExceededExceptionTypeDef(BaseValidatorModel):
+class LimitExceededException(BaseValidatorModel):
     message: str
 
 
-class ListAccessPoliciesRequestTypeDef(BaseValidatorModel):
+class ListAccessPoliciesRequest(BaseValidatorModel):
     identityType: Optional[IdentityTypeType] = None
     identityId: Optional[str] = None
     resourceType: Optional[ResourceTypeType] = None
@@ -483,35 +483,35 @@ class ListAccessPoliciesRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
-class ListActionsRequestTypeDef(BaseValidatorModel):
+class ListActionsRequest(BaseValidatorModel):
     targetResourceType: Literal["ASSET"]
     targetResourceId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListAssetModelCompositeModelsRequestTypeDef(BaseValidatorModel):
+class ListAssetModelCompositeModelsRequest(BaseValidatorModel):
     assetModelId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     assetModelVersion: Optional[str] = None
 
 
-class ListAssetModelsRequestTypeDef(BaseValidatorModel):
+class ListAssetModelsRequest(BaseValidatorModel):
     assetModelTypes: Optional[Sequence[AssetModelTypeType]] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     assetModelVersion: Optional[str] = None
 
 
-class ListAssetRelationshipsRequestTypeDef(BaseValidatorModel):
+class ListAssetRelationshipsRequest(BaseValidatorModel):
     assetId: str
     traversalType: Literal["PATH_TO_ROOT"]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListAssociatedAssetsRequestTypeDef(BaseValidatorModel):
+class ListAssociatedAssetsRequest(BaseValidatorModel):
     assetId: str
     hierarchyId: Optional[str] = None
     traversalDirection: Optional[TraversalDirectionType] = None
@@ -519,51 +519,51 @@ class ListAssociatedAssetsRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
-class ListCompositionRelationshipsRequestTypeDef(BaseValidatorModel):
+class ListCompositionRelationshipsRequest(BaseValidatorModel):
     assetModelId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListDashboardsRequestTypeDef(BaseValidatorModel):
+class ListDashboardsRequest(BaseValidatorModel):
     projectId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListDatasetsRequestTypeDef(BaseValidatorModel):
+class ListDatasetsRequest(BaseValidatorModel):
     sourceType: Literal["KENDRA"]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListGatewaysRequestTypeDef(BaseValidatorModel):
+class ListGatewaysRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListPortalsRequestTypeDef(BaseValidatorModel):
+class ListPortalsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListProjectAssetsRequestTypeDef(BaseValidatorModel):
+class ListProjectAssetsRequest(BaseValidatorModel):
     projectId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListProjectsRequestTypeDef(BaseValidatorModel):
+class ListProjectsRequest(BaseValidatorModel):
     portalId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
 
-class ListTimeSeriesRequestTypeDef(BaseValidatorModel):
+class ListTimeSeriesRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     assetId: Optional[str] = None
@@ -571,7 +571,7 @@ class ListTimeSeriesRequestTypeDef(BaseValidatorModel):
     timeSeriesType: Optional[ListTimeSeriesTypeType] = None
 
 
-class TimeSeriesSummaryTypeDef(BaseValidatorModel):
+class TimeSeriesSummary(BaseValidatorModel):
     timeSeriesId: str
     dataType: PropertyDataTypeType
     timeSeriesCreationDate: datetime
@@ -583,60 +583,60 @@ class TimeSeriesSummaryTypeDef(BaseValidatorModel):
     dataTypeSpec: Optional[str] = None
 
 
-class LocationTypeDef(BaseValidatorModel):
+class Location(BaseValidatorModel):
     uri: Optional[str] = None
 
 
-class MetricProcessingConfigTypeDef(BaseValidatorModel):
+class MetricProcessingConfig(BaseValidatorModel):
     computeLocation: ComputeLocationType
 
 
-class TumblingWindowTypeDef(BaseValidatorModel):
+class TumblingWindow(BaseValidatorModel):
     interval: str
     offset: Optional[str] = None
 
 
-class MonitorErrorDetailsTypeDef(BaseValidatorModel):
+class MonitorErrorDetails(BaseValidatorModel):
     code: Optional[MonitorErrorCodeType] = None
     message: Optional[str] = None
 
 
-class PortalTypeEntryTypeDef(BaseValidatorModel):
+class PortalTypeEntry(BaseValidatorModel):
     portalTools: Optional[Sequence[str]] = None
 
 
-class PropertyValueNullValueTypeDef(BaseValidatorModel):
+class PropertyValueNullValue(BaseValidatorModel):
     valueType: RawValueTypeType
 
 
-class PutDefaultEncryptionConfigurationRequestTypeDef(BaseValidatorModel):
+class PutDefaultEncryptionConfigurationRequest(BaseValidatorModel):
     encryptionType: EncryptionTypeType
     kmsKeyId: Optional[str] = None
 
 
-class ResourceNotFoundExceptionTypeDef(BaseValidatorModel):
+class ResourceNotFoundException(BaseValidatorModel):
     message: str
 
 
-class ThrottlingExceptionTypeDef(BaseValidatorModel):
+class ThrottlingException(BaseValidatorModel):
     message: str
 
 
-class TraceTypeDef(BaseValidatorModel):
+class Trace(BaseValidatorModel):
     text: Optional[str] = None
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
 
-class UpdateAssetPropertyRequestTypeDef(BaseValidatorModel):
+class UpdateAssetPropertyRequest(BaseValidatorModel):
     assetId: str
     propertyId: str
     propertyAlias: Optional[str] = None
@@ -645,7 +645,7 @@ class UpdateAssetPropertyRequestTypeDef(BaseValidatorModel):
     propertyUnit: Optional[str] = None
 
 
-class UpdateAssetRequestTypeDef(BaseValidatorModel):
+class UpdateAssetRequest(BaseValidatorModel):
     assetId: str
     assetName: str
     clientToken: Optional[str] = None
@@ -653,7 +653,7 @@ class UpdateAssetRequestTypeDef(BaseValidatorModel):
     assetExternalId: Optional[str] = None
 
 
-class UpdateDashboardRequestTypeDef(BaseValidatorModel):
+class UpdateDashboardRequest(BaseValidatorModel):
     dashboardId: str
     dashboardName: str
     dashboardDefinition: str
@@ -661,125 +661,125 @@ class UpdateDashboardRequestTypeDef(BaseValidatorModel):
     clientToken: Optional[str] = None
 
 
-class UpdateGatewayCapabilityConfigurationRequestTypeDef(BaseValidatorModel):
+class UpdateGatewayCapabilityConfigurationRequest(BaseValidatorModel):
     gatewayId: str
     capabilityNamespace: str
     capabilityConfiguration: str
 
 
-class UpdateGatewayRequestTypeDef(BaseValidatorModel):
+class UpdateGatewayRequest(BaseValidatorModel):
     gatewayId: str
     gatewayName: str
 
 
-class UpdateProjectRequestTypeDef(BaseValidatorModel):
+class UpdateProjectRequest(BaseValidatorModel):
     projectId: str
     projectName: str
     projectDescription: Optional[str] = None
     clientToken: Optional[str] = None
 
 
-class ActionSummaryTypeDef(BaseValidatorModel):
+class ActionSummary(BaseValidatorModel):
     actionId: Optional[str] = None
     actionDefinitionId: Optional[str] = None
-    targetResource: Optional[TargetResourceTypeDef] = None
+    targetResource: Optional[TargetResource] = None
 
 
-class ExecuteActionRequestTypeDef(BaseValidatorModel):
-    targetResource: TargetResourceTypeDef
+class ExecuteActionRequest(BaseValidatorModel):
+    targetResource: TargetResource
     actionDefinitionId: str
-    actionPayload: ActionPayloadTypeDef
+    actionPayload: ActionPayload
     clientToken: Optional[str] = None
 
 
-class AggregatesTypeDef(BaseValidatorModel):
+class Aggregates(BaseValidatorModel):
     pass
 
 
-class AggregatedValueTypeDef(BaseValidatorModel):
+class AggregatedValue(BaseValidatorModel):
     timestamp: datetime
-    value: AggregatesTypeDef
+    value: Aggregates
     quality: Optional[QualityType] = None
 
 
-class AssetRelationshipSummaryTypeDef(BaseValidatorModel):
+class AssetRelationshipSummary(BaseValidatorModel):
     relationshipType: Literal["HIERARCHY"]
-    hierarchyInfo: Optional[AssetHierarchyInfoTypeDef] = None
+    hierarchyInfo: Optional[AssetHierarchyInfo] = None
 
 
-class AssetModelPropertyPathSegmentTypeDef(BaseValidatorModel):
+class AssetModelPropertyPathSegment(BaseValidatorModel):
     pass
 
 
-class VariableValueOutputTypeDef(BaseValidatorModel):
+class VariableValueOutput(BaseValidatorModel):
     propertyId: Optional[str] = None
     hierarchyId: Optional[str] = None
-    propertyPath: Optional[List[AssetModelPropertyPathSegmentTypeDef]] = None
+    propertyPath: Optional[List[AssetModelPropertyPathSegment]] = None
 
 
-class VariableValueTypeDef(BaseValidatorModel):
+class VariableValue(BaseValidatorModel):
     propertyId: Optional[str] = None
     hierarchyId: Optional[str] = None
-    propertyPath: Optional[Sequence[AssetModelPropertyPathSegmentTypeDef]] = None
+    propertyPath: Optional[Sequence[AssetModelPropertyPathSegment]] = None
 
 
-class BatchPutAssetPropertyErrorTypeDef(BaseValidatorModel):
+class BatchPutAssetPropertyError(BaseValidatorModel):
     errorCode: BatchPutAssetPropertyValueErrorCodeType
     errorMessage: str
-    timestamps: List[TimeInNanosTypeDef]
+    timestamps: List[TimeInNanos]
 
 
-class BatchAssociateProjectAssetsResponseTypeDef(BaseValidatorModel):
-    errors: List[AssetErrorDetailsTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchAssociateProjectAssetsResponse(BaseValidatorModel):
+    errors: List[AssetErrorDetails]
+    ResponseMetadata: ResponseMetadata
 
 
-class BatchDisassociateProjectAssetsResponseTypeDef(BaseValidatorModel):
-    errors: List[AssetErrorDetailsTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchDisassociateProjectAssetsResponse(BaseValidatorModel):
+    errors: List[AssetErrorDetails]
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateAccessPolicyResponseTypeDef(BaseValidatorModel):
+class CreateAccessPolicyResponse(BaseValidatorModel):
     accessPolicyId: str
     accessPolicyArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateBulkImportJobResponseTypeDef(BaseValidatorModel):
+class CreateBulkImportJobResponse(BaseValidatorModel):
     jobId: str
     jobName: str
     jobStatus: JobStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateDashboardResponseTypeDef(BaseValidatorModel):
+class CreateDashboardResponse(BaseValidatorModel):
     dashboardId: str
     dashboardArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateGatewayResponseTypeDef(BaseValidatorModel):
+class CreateGatewayResponse(BaseValidatorModel):
     gatewayId: str
     gatewayArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateProjectResponseTypeDef(BaseValidatorModel):
+class CreateProjectResponse(BaseValidatorModel):
     projectId: str
     projectArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeActionResponseTypeDef(BaseValidatorModel):
+class DescribeActionResponse(BaseValidatorModel):
     actionId: str
-    targetResource: TargetResourceTypeDef
+    targetResource: TargetResource
     actionDefinitionId: str
-    actionPayload: ActionPayloadTypeDef
+    actionPayload: ActionPayload
     executionTime: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeDashboardResponseTypeDef(BaseValidatorModel):
+class DescribeDashboardResponse(BaseValidatorModel):
     dashboardId: str
     dashboardArn: str
     dashboardName: str
@@ -788,18 +788,18 @@ class DescribeDashboardResponseTypeDef(BaseValidatorModel):
     dashboardDefinition: str
     dashboardCreationDate: datetime
     dashboardLastUpdateDate: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeGatewayCapabilityConfigurationResponseTypeDef(BaseValidatorModel):
+class DescribeGatewayCapabilityConfigurationResponse(BaseValidatorModel):
     gatewayId: str
     capabilityNamespace: str
     capabilityConfiguration: str
     capabilitySyncStatus: CapabilitySyncStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeProjectResponseTypeDef(BaseValidatorModel):
+class DescribeProjectResponse(BaseValidatorModel):
     projectId: str
     projectArn: str
     projectName: str
@@ -807,10 +807,10 @@ class DescribeProjectResponseTypeDef(BaseValidatorModel):
     projectDescription: str
     projectCreationDate: datetime
     projectLastUpdateDate: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeTimeSeriesResponseTypeDef(BaseValidatorModel):
+class DescribeTimeSeriesResponse(BaseValidatorModel):
     assetId: str
     propertyId: str
     alias: str
@@ -820,45 +820,45 @@ class DescribeTimeSeriesResponseTypeDef(BaseValidatorModel):
     timeSeriesCreationDate: datetime
     timeSeriesLastUpdateDate: datetime
     timeSeriesArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class EmptyResponseMetadataTypeDef(BaseValidatorModel):
-    ResponseMetadata: ResponseMetadataTypeDef
+class EmptyResponseMetadata(BaseValidatorModel):
+    ResponseMetadata: ResponseMetadata
 
 
-class ExecuteActionResponseTypeDef(BaseValidatorModel):
+class ExecuteActionResponse(BaseValidatorModel):
     actionId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListProjectAssetsResponseTypeDef(BaseValidatorModel):
+class ListProjectAssetsResponse(BaseValidatorModel):
     assetIds: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
+class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateGatewayCapabilityConfigurationResponseTypeDef(BaseValidatorModel):
+class UpdateGatewayCapabilityConfigurationResponse(BaseValidatorModel):
     capabilityNamespace: str
     capabilitySyncStatus: CapabilitySyncStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class TimestampTypeDef(BaseValidatorModel):
+class Timestamp(BaseValidatorModel):
     pass
 
 
-class BatchGetAssetPropertyAggregatesEntryTypeDef(BaseValidatorModel):
+class BatchGetAssetPropertyAggregatesEntry(BaseValidatorModel):
     entryId: str
     aggregateTypes: Sequence[AggregateTypeType]
     resolution: str
-    startDate: TimestampTypeDef
-    endDate: TimestampTypeDef
+    startDate: Timestamp
+    endDate: Timestamp
     assetId: Optional[str] = None
     propertyId: Optional[str] = None
     propertyAlias: Optional[str] = None
@@ -866,22 +866,22 @@ class BatchGetAssetPropertyAggregatesEntryTypeDef(BaseValidatorModel):
     timeOrdering: Optional[TimeOrderingType] = None
 
 
-class BatchGetAssetPropertyValueHistoryEntryTypeDef(BaseValidatorModel):
+class BatchGetAssetPropertyValueHistoryEntry(BaseValidatorModel):
     entryId: str
     assetId: Optional[str] = None
     propertyId: Optional[str] = None
     propertyAlias: Optional[str] = None
-    startDate: Optional[TimestampTypeDef] = None
-    endDate: Optional[TimestampTypeDef] = None
+    startDate: Optional[Timestamp] = None
+    endDate: Optional[Timestamp] = None
     qualities: Optional[Sequence[QualityType]] = None
     timeOrdering: Optional[TimeOrderingType] = None
 
 
-class GetAssetPropertyAggregatesRequestTypeDef(BaseValidatorModel):
+class GetAssetPropertyAggregatesRequest(BaseValidatorModel):
     aggregateTypes: Sequence[AggregateTypeType]
     resolution: str
-    startDate: TimestampTypeDef
-    endDate: TimestampTypeDef
+    startDate: Timestamp
+    endDate: Timestamp
     assetId: Optional[str] = None
     propertyId: Optional[str] = None
     propertyAlias: Optional[str] = None
@@ -891,603 +891,603 @@ class GetAssetPropertyAggregatesRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
-class GetAssetPropertyValueHistoryRequestTypeDef(BaseValidatorModel):
+class GetAssetPropertyValueHistoryRequest(BaseValidatorModel):
     assetId: Optional[str] = None
     propertyId: Optional[str] = None
     propertyAlias: Optional[str] = None
-    startDate: Optional[TimestampTypeDef] = None
-    endDate: Optional[TimestampTypeDef] = None
+    startDate: Optional[Timestamp] = None
+    endDate: Optional[Timestamp] = None
     qualities: Optional[Sequence[QualityType]] = None
     timeOrdering: Optional[TimeOrderingType] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class BatchGetAssetPropertyAggregatesSkippedEntryTypeDef(BaseValidatorModel):
+class BatchGetAssetPropertyAggregatesSkippedEntry(BaseValidatorModel):
     entryId: str
     completionStatus: BatchEntryCompletionStatusType
-    errorInfo: Optional[BatchGetAssetPropertyAggregatesErrorInfoTypeDef] = None
+    errorInfo: Optional[BatchGetAssetPropertyAggregatesErrorInfo] = None
 
 
-class BatchGetAssetPropertyValueRequestTypeDef(BaseValidatorModel):
-    entries: Sequence[BatchGetAssetPropertyValueEntryTypeDef]
+class BatchGetAssetPropertyValueRequest(BaseValidatorModel):
+    entries: Sequence[BatchGetAssetPropertyValueEntry]
     nextToken: Optional[str] = None
 
 
-class BatchGetAssetPropertyValueSkippedEntryTypeDef(BaseValidatorModel):
+class BatchGetAssetPropertyValueSkippedEntry(BaseValidatorModel):
     entryId: str
     completionStatus: BatchEntryCompletionStatusType
-    errorInfo: Optional[BatchGetAssetPropertyValueErrorInfoTypeDef] = None
+    errorInfo: Optional[BatchGetAssetPropertyValueErrorInfo] = None
 
 
-class BatchGetAssetPropertyValueHistorySkippedEntryTypeDef(BaseValidatorModel):
+class BatchGetAssetPropertyValueHistorySkippedEntry(BaseValidatorModel):
     entryId: str
     completionStatus: BatchEntryCompletionStatusType
-    errorInfo: Optional[BatchGetAssetPropertyValueHistoryErrorInfoTypeDef] = None
+    errorInfo: Optional[BatchGetAssetPropertyValueHistoryErrorInfo] = None
 
 
-class CompositionRelationshipItemTypeDef(BaseValidatorModel):
+class CompositionRelationshipItem(BaseValidatorModel):
     pass
 
 
-class CompositionDetailsTypeDef(BaseValidatorModel):
-    compositionRelationship: Optional[List[CompositionRelationshipItemTypeDef]] = None
+class CompositionDetails(BaseValidatorModel):
+    compositionRelationship: Optional[List[CompositionRelationshipItem]] = None
 
 
-class ListCompositionRelationshipsResponseTypeDef(BaseValidatorModel):
-    compositionRelationshipSummaries: List[CompositionRelationshipSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListCompositionRelationshipsResponse(BaseValidatorModel):
+    compositionRelationshipSummaries: List[CompositionRelationshipSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ConfigurationStatusTypeDef(BaseValidatorModel):
+class ConfigurationStatus(BaseValidatorModel):
     state: ConfigurationStateType
-    error: Optional[ConfigurationErrorDetailsTypeDef] = None
+    error: Optional[ConfigurationErrorDetails] = None
 
 
-class FileFormatOutputTypeDef(BaseValidatorModel):
-    csv: Optional[CsvOutputTypeDef] = None
+class FileFormatOutput(BaseValidatorModel):
+    csv: Optional[CsvOutput] = None
     parquet: Optional[Dict[str, Any]] = None
 
 
-class FileFormatTypeDef(BaseValidatorModel):
-    csv: Optional[CsvTypeDef] = None
+class FileFormat(BaseValidatorModel):
+    csv: Optional[Csv] = None
     parquet: Optional[Mapping[str, Any]] = None
 
 
-class MultiLayerStorageTypeDef(BaseValidatorModel):
-    customerManagedS3Storage: CustomerManagedS3StorageTypeDef
+class MultiLayerStorage(BaseValidatorModel):
+    customerManagedS3Storage: CustomerManagedS3Storage
 
 
-class DashboardSummaryTypeDef(BaseValidatorModel):
+class DashboardSummary(BaseValidatorModel):
     pass
 
 
-class ListDashboardsResponseTypeDef(BaseValidatorModel):
-    dashboardSummaries: List[DashboardSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListDashboardsResponse(BaseValidatorModel):
+    dashboardSummaries: List[DashboardSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class RowPaginatorTypeDef(BaseValidatorModel):
-    data: List[DatumPaginatorTypeDef]
+class RowPaginator(BaseValidatorModel):
+    data: List[DatumPaginator]
 
 
-class RowTypeDef(BaseValidatorModel):
-    data: List[DatumTypeDef]
+class Row(BaseValidatorModel):
+    data: List[Datum]
 
 
-class RowWaiterTypeDef(BaseValidatorModel):
-    data: List[DatumWaiterTypeDef]
+class RowWaiter(BaseValidatorModel):
+    data: List[DatumWaiter]
 
 
-class DescribeAssetModelRequestWaitExtraTypeDef(BaseValidatorModel):
+class DescribeAssetModelRequestWaitExtra(BaseValidatorModel):
     assetModelId: str
     excludeProperties: Optional[bool] = None
     assetModelVersion: Optional[str] = None
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class DescribeAssetModelRequestWaitTypeDef(BaseValidatorModel):
+class DescribeAssetModelRequestWait(BaseValidatorModel):
     assetModelId: str
     excludeProperties: Optional[bool] = None
     assetModelVersion: Optional[str] = None
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class DescribeAssetRequestWaitExtraTypeDef(BaseValidatorModel):
+class DescribeAssetRequestWaitExtra(BaseValidatorModel):
     assetId: str
     excludeProperties: Optional[bool] = None
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class DescribeAssetRequestWaitTypeDef(BaseValidatorModel):
+class DescribeAssetRequestWait(BaseValidatorModel):
     assetId: str
     excludeProperties: Optional[bool] = None
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class DescribePortalRequestWaitExtraTypeDef(BaseValidatorModel):
+class DescribePortalRequestWaitExtra(BaseValidatorModel):
     portalId: str
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class DescribePortalRequestWaitTypeDef(BaseValidatorModel):
+class DescribePortalRequestWait(BaseValidatorModel):
     portalId: str
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class DescribeLoggingOptionsResponseTypeDef(BaseValidatorModel):
-    loggingOptions: LoggingOptionsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeLoggingOptionsResponse(BaseValidatorModel):
+    loggingOptions: LoggingOptions
+    ResponseMetadata: ResponseMetadata
 
 
-class PutLoggingOptionsRequestTypeDef(BaseValidatorModel):
-    loggingOptions: LoggingOptionsTypeDef
+class PutLoggingOptionsRequest(BaseValidatorModel):
+    loggingOptions: LoggingOptions
 
 
-class ErrorDetailsTypeDef(BaseValidatorModel):
+class ErrorDetails(BaseValidatorModel):
     code: ErrorCodeType
     message: str
-    details: Optional[List[DetailedErrorTypeDef]] = None
+    details: Optional[List[DetailedError]] = None
 
 
-class ExecuteQueryRequestPaginateTypeDef(BaseValidatorModel):
+class ExecuteQueryRequestPaginate(BaseValidatorModel):
     queryStatement: str
     clientToken: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class GetAssetPropertyAggregatesRequestPaginateTypeDef(BaseValidatorModel):
+class GetAssetPropertyAggregatesRequestPaginate(BaseValidatorModel):
     aggregateTypes: Sequence[AggregateTypeType]
     resolution: str
-    startDate: TimestampTypeDef
-    endDate: TimestampTypeDef
+    startDate: Timestamp
+    endDate: Timestamp
     assetId: Optional[str] = None
     propertyId: Optional[str] = None
     propertyAlias: Optional[str] = None
     qualities: Optional[Sequence[QualityType]] = None
     timeOrdering: Optional[TimeOrderingType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class GetAssetPropertyValueHistoryRequestPaginateTypeDef(BaseValidatorModel):
+class GetAssetPropertyValueHistoryRequestPaginate(BaseValidatorModel):
     assetId: Optional[str] = None
     propertyId: Optional[str] = None
     propertyAlias: Optional[str] = None
-    startDate: Optional[TimestampTypeDef] = None
-    endDate: Optional[TimestampTypeDef] = None
+    startDate: Optional[Timestamp] = None
+    endDate: Optional[Timestamp] = None
     qualities: Optional[Sequence[QualityType]] = None
     timeOrdering: Optional[TimeOrderingType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListAccessPoliciesRequestPaginateTypeDef(BaseValidatorModel):
+class ListAccessPoliciesRequestPaginate(BaseValidatorModel):
     identityType: Optional[IdentityTypeType] = None
     identityId: Optional[str] = None
     resourceType: Optional[ResourceTypeType] = None
     resourceId: Optional[str] = None
     iamArn: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListActionsRequestPaginateTypeDef(BaseValidatorModel):
+class ListActionsRequestPaginate(BaseValidatorModel):
     targetResourceType: Literal["ASSET"]
     targetResourceId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListAssetModelCompositeModelsRequestPaginateTypeDef(BaseValidatorModel):
+class ListAssetModelCompositeModelsRequestPaginate(BaseValidatorModel):
     assetModelId: str
     assetModelVersion: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListAssetModelsRequestPaginateTypeDef(BaseValidatorModel):
+class ListAssetModelsRequestPaginate(BaseValidatorModel):
     assetModelTypes: Optional[Sequence[AssetModelTypeType]] = None
     assetModelVersion: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListAssetRelationshipsRequestPaginateTypeDef(BaseValidatorModel):
+class ListAssetRelationshipsRequestPaginate(BaseValidatorModel):
     assetId: str
     traversalType: Literal["PATH_TO_ROOT"]
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListAssociatedAssetsRequestPaginateTypeDef(BaseValidatorModel):
+class ListAssociatedAssetsRequestPaginate(BaseValidatorModel):
     assetId: str
     hierarchyId: Optional[str] = None
     traversalDirection: Optional[TraversalDirectionType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListCompositionRelationshipsRequestPaginateTypeDef(BaseValidatorModel):
+class ListCompositionRelationshipsRequestPaginate(BaseValidatorModel):
     assetModelId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListDashboardsRequestPaginateTypeDef(BaseValidatorModel):
+class ListDashboardsRequestPaginate(BaseValidatorModel):
     projectId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListDatasetsRequestPaginateTypeDef(BaseValidatorModel):
+class ListDatasetsRequestPaginate(BaseValidatorModel):
     sourceType: Literal["KENDRA"]
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListGatewaysRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListGatewaysRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListPortalsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListPortalsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListProjectAssetsRequestPaginateTypeDef(BaseValidatorModel):
+class ListProjectAssetsRequestPaginate(BaseValidatorModel):
     projectId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListProjectsRequestPaginateTypeDef(BaseValidatorModel):
+class ListProjectsRequestPaginate(BaseValidatorModel):
     portalId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListTimeSeriesRequestPaginateTypeDef(BaseValidatorModel):
+class ListTimeSeriesRequestPaginate(BaseValidatorModel):
     assetId: Optional[str] = None
     aliasPrefix: Optional[str] = None
     timeSeriesType: Optional[ListTimeSeriesTypeType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class MeasurementProcessingConfigTypeDef(BaseValidatorModel):
-    forwardingConfig: ForwardingConfigTypeDef
+class MeasurementProcessingConfig(BaseValidatorModel):
+    forwardingConfig: ForwardingConfig
 
 
-class TransformProcessingConfigTypeDef(BaseValidatorModel):
+class TransformProcessingConfig(BaseValidatorModel):
     computeLocation: ComputeLocationType
-    forwardingConfig: Optional[ForwardingConfigTypeDef] = None
+    forwardingConfig: Optional[ForwardingConfig] = None
 
 
-class GatewayPlatformTypeDef(BaseValidatorModel):
-    greengrass: Optional[GreengrassTypeDef] = None
-    greengrassV2: Optional[GreengrassV2TypeDef] = None
-    siemensIE: Optional[SiemensIETypeDef] = None
+class GatewayPlatform(BaseValidatorModel):
+    greengrass: Optional[Greengrass] = None
+    greengrassV2: Optional[GreengrassV2] = None
+    siemensIE: Optional[SiemensIE] = None
 
 
-class GroupIdentityTypeDef(BaseValidatorModel):
+class GroupIdentity(BaseValidatorModel):
     pass
 
 
-class UserIdentityTypeDef(BaseValidatorModel):
+class UserIdentity(BaseValidatorModel):
     pass
 
 
-class IdentityTypeDef(BaseValidatorModel):
-    user: Optional[UserIdentityTypeDef] = None
-    group: Optional[GroupIdentityTypeDef] = None
-    iamUser: Optional[IAMUserIdentityTypeDef] = None
-    iamRole: Optional[IAMRoleIdentityTypeDef] = None
+class Identity(BaseValidatorModel):
+    user: Optional[UserIdentity] = None
+    group: Optional[GroupIdentity] = None
+    iamUser: Optional[IAMUserIdentity] = None
+    iamRole: Optional[IAMRoleIdentity] = None
 
 
-class JobSummaryTypeDef(BaseValidatorModel):
+class JobSummary(BaseValidatorModel):
     pass
 
 
-class ListBulkImportJobsResponseTypeDef(BaseValidatorModel):
-    jobSummaries: List[JobSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListBulkImportJobsResponse(BaseValidatorModel):
+    jobSummaries: List[JobSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class SourceDetailTypeDef(BaseValidatorModel):
-    kendra: Optional[KendraSourceDetailTypeDef] = None
+class SourceDetail(BaseValidatorModel):
+    kendra: Optional[KendraSourceDetail] = None
 
 
-class ProjectSummaryTypeDef(BaseValidatorModel):
+class ProjectSummary(BaseValidatorModel):
     pass
 
 
-class ListProjectsResponseTypeDef(BaseValidatorModel):
-    projectSummaries: List[ProjectSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListProjectsResponse(BaseValidatorModel):
+    projectSummaries: List[ProjectSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListTimeSeriesResponseTypeDef(BaseValidatorModel):
-    TimeSeriesSummaries: List[TimeSeriesSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListTimeSeriesResponse(BaseValidatorModel):
+    TimeSeriesSummaries: List[TimeSeriesSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class SourceTypeDef(BaseValidatorModel):
+class Source(BaseValidatorModel):
     arn: Optional[str] = None
-    location: Optional[LocationTypeDef] = None
+    location: Optional[Location] = None
 
 
-class MetricWindowTypeDef(BaseValidatorModel):
-    tumbling: Optional[TumblingWindowTypeDef] = None
+class MetricWindow(BaseValidatorModel):
+    tumbling: Optional[TumblingWindow] = None
 
 
-class PortalStatusTypeDef(BaseValidatorModel):
+class PortalStatus(BaseValidatorModel):
     state: PortalStateType
-    error: Optional[MonitorErrorDetailsTypeDef] = None
+    error: Optional[MonitorErrorDetails] = None
 
 
-class ProjectResourceTypeDef(BaseValidatorModel):
+class ProjectResource(BaseValidatorModel):
     pass
 
 
-class PortalResourceTypeDef(BaseValidatorModel):
+class PortalResource(BaseValidatorModel):
     pass
 
 
-class ResourceTypeDef(BaseValidatorModel):
-    portal: Optional[PortalResourceTypeDef] = None
-    project: Optional[ProjectResourceTypeDef] = None
+class Resource(BaseValidatorModel):
+    portal: Optional[PortalResource] = None
+    project: Optional[ProjectResource] = None
 
 
-class VariantTypeDef(BaseValidatorModel):
+class Variant(BaseValidatorModel):
     stringValue: Optional[str] = None
     integerValue: Optional[int] = None
     doubleValue: Optional[float] = None
     booleanValue: Optional[bool] = None
-    nullValue: Optional[PropertyValueNullValueTypeDef] = None
+    nullValue: Optional[PropertyValueNullValue] = None
 
 
-class ListActionsResponseTypeDef(BaseValidatorModel):
-    actionSummaries: List[ActionSummaryTypeDef]
+class ListActionsResponse(BaseValidatorModel):
+    actionSummaries: List[ActionSummary]
     nextToken: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class BatchGetAssetPropertyAggregatesSuccessEntryTypeDef(BaseValidatorModel):
+class BatchGetAssetPropertyAggregatesSuccessEntry(BaseValidatorModel):
     entryId: str
-    aggregatedValues: List[AggregatedValueTypeDef]
+    aggregatedValues: List[AggregatedValue]
 
 
-class GetAssetPropertyAggregatesResponseTypeDef(BaseValidatorModel):
-    aggregatedValues: List[AggregatedValueTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetAssetPropertyAggregatesResponse(BaseValidatorModel):
+    aggregatedValues: List[AggregatedValue]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListAssetRelationshipsResponseTypeDef(BaseValidatorModel):
-    assetRelationshipSummaries: List[AssetRelationshipSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAssetRelationshipsResponse(BaseValidatorModel):
+    assetRelationshipSummaries: List[AssetRelationshipSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class AssetModelCompositeModelSummaryTypeDef(BaseValidatorModel):
+class AssetModelCompositeModelSummary(BaseValidatorModel):
     pass
 
 
-class ListAssetModelCompositeModelsResponseTypeDef(BaseValidatorModel):
-    assetModelCompositeModelSummaries: List[AssetModelCompositeModelSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAssetModelCompositeModelsResponse(BaseValidatorModel):
+    assetModelCompositeModelSummaries: List[AssetModelCompositeModelSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ExpressionVariableOutputTypeDef(BaseValidatorModel):
+class ExpressionVariableOutput(BaseValidatorModel):
     name: str
-    value: VariableValueOutputTypeDef
+    value: VariableValueOutput
 
 
-class AssetPropertySummaryTypeDef(BaseValidatorModel):
+class AssetPropertySummary(BaseValidatorModel):
     pass
 
 
-class ListAssetPropertiesResponseTypeDef(BaseValidatorModel):
-    assetPropertySummaries: List[AssetPropertySummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAssetPropertiesResponse(BaseValidatorModel):
+    assetPropertySummaries: List[AssetPropertySummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class AssetPropertyTypeDef(BaseValidatorModel):
+class AssetProperty(BaseValidatorModel):
     pass
 
 
-class AssetCompositeModelSummaryTypeDef(BaseValidatorModel):
+class AssetCompositeModelSummary(BaseValidatorModel):
     pass
 
 
-class AssetCompositeModelPathSegmentTypeDef(BaseValidatorModel):
+class AssetCompositeModelPathSegment(BaseValidatorModel):
     pass
 
 
-class DescribeAssetCompositeModelResponseTypeDef(BaseValidatorModel):
+class DescribeAssetCompositeModelResponse(BaseValidatorModel):
     assetId: str
     assetCompositeModelId: str
     assetCompositeModelExternalId: str
-    assetCompositeModelPath: List[AssetCompositeModelPathSegmentTypeDef]
+    assetCompositeModelPath: List[AssetCompositeModelPathSegment]
     assetCompositeModelName: str
     assetCompositeModelDescription: str
     assetCompositeModelType: str
-    assetCompositeModelProperties: List[AssetPropertyTypeDef]
-    assetCompositeModelSummaries: List[AssetCompositeModelSummaryTypeDef]
-    actionDefinitions: List[ActionDefinitionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    assetCompositeModelProperties: List[AssetProperty]
+    assetCompositeModelSummaries: List[AssetCompositeModelSummary]
+    actionDefinitions: List[ActionDefinition]
+    ResponseMetadata: ResponseMetadata
 
 
-class BatchPutAssetPropertyErrorEntryTypeDef(BaseValidatorModel):
+class BatchPutAssetPropertyErrorEntry(BaseValidatorModel):
     entryId: str
-    errors: List[BatchPutAssetPropertyErrorTypeDef]
+    errors: List[BatchPutAssetPropertyError]
 
 
-class BatchGetAssetPropertyAggregatesRequestTypeDef(BaseValidatorModel):
-    entries: Sequence[BatchGetAssetPropertyAggregatesEntryTypeDef]
+class BatchGetAssetPropertyAggregatesRequest(BaseValidatorModel):
+    entries: Sequence[BatchGetAssetPropertyAggregatesEntry]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class BatchGetAssetPropertyValueHistoryRequestTypeDef(BaseValidatorModel):
-    entries: Sequence[BatchGetAssetPropertyValueHistoryEntryTypeDef]
+class BatchGetAssetPropertyValueHistoryRequest(BaseValidatorModel):
+    entries: Sequence[BatchGetAssetPropertyValueHistoryEntry]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class DescribeDefaultEncryptionConfigurationResponseTypeDef(BaseValidatorModel):
+class DescribeDefaultEncryptionConfigurationResponse(BaseValidatorModel):
     encryptionType: EncryptionTypeType
     kmsKeyArn: str
-    configurationStatus: ConfigurationStatusTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    configurationStatus: ConfigurationStatus
+    ResponseMetadata: ResponseMetadata
 
 
-class PutDefaultEncryptionConfigurationResponseTypeDef(BaseValidatorModel):
+class PutDefaultEncryptionConfigurationResponse(BaseValidatorModel):
     encryptionType: EncryptionTypeType
     kmsKeyArn: str
-    configurationStatus: ConfigurationStatusTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    configurationStatus: ConfigurationStatus
+    ResponseMetadata: ResponseMetadata
 
 
-class JobConfigurationOutputTypeDef(BaseValidatorModel):
-    fileFormat: FileFormatOutputTypeDef
+class JobConfigurationOutput(BaseValidatorModel):
+    fileFormat: FileFormatOutput
 
 
-class JobConfigurationTypeDef(BaseValidatorModel):
-    fileFormat: FileFormatTypeDef
+class JobConfiguration(BaseValidatorModel):
+    fileFormat: FileFormat
 
 
-class DescribeStorageConfigurationResponseTypeDef(BaseValidatorModel):
+class DescribeStorageConfigurationResponse(BaseValidatorModel):
     storageType: StorageTypeType
-    multiLayerStorage: MultiLayerStorageTypeDef
+    multiLayerStorage: MultiLayerStorage
     disassociatedDataStorage: DisassociatedDataStorageStateType
-    retentionPeriod: RetentionPeriodTypeDef
-    configurationStatus: ConfigurationStatusTypeDef
+    retentionPeriod: RetentionPeriod
+    configurationStatus: ConfigurationStatus
     lastUpdateDate: datetime
     warmTier: WarmTierStateType
-    warmTierRetentionPeriod: WarmTierRetentionPeriodTypeDef
+    warmTierRetentionPeriod: WarmTierRetentionPeriod
     disallowIngestNullNaN: bool
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class PutStorageConfigurationRequestTypeDef(BaseValidatorModel):
+class PutStorageConfigurationRequest(BaseValidatorModel):
     storageType: StorageTypeType
-    multiLayerStorage: Optional[MultiLayerStorageTypeDef] = None
+    multiLayerStorage: Optional[MultiLayerStorage] = None
     disassociatedDataStorage: Optional[DisassociatedDataStorageStateType] = None
-    retentionPeriod: Optional[RetentionPeriodTypeDef] = None
+    retentionPeriod: Optional[RetentionPeriod] = None
     warmTier: Optional[WarmTierStateType] = None
-    warmTierRetentionPeriod: Optional[WarmTierRetentionPeriodTypeDef] = None
+    warmTierRetentionPeriod: Optional[WarmTierRetentionPeriod] = None
     disallowIngestNullNaN: Optional[bool] = None
 
 
-class PutStorageConfigurationResponseTypeDef(BaseValidatorModel):
+class PutStorageConfigurationResponse(BaseValidatorModel):
     storageType: StorageTypeType
-    multiLayerStorage: MultiLayerStorageTypeDef
+    multiLayerStorage: MultiLayerStorage
     disassociatedDataStorage: DisassociatedDataStorageStateType
-    retentionPeriod: RetentionPeriodTypeDef
-    configurationStatus: ConfigurationStatusTypeDef
+    retentionPeriod: RetentionPeriod
+    configurationStatus: ConfigurationStatus
     warmTier: WarmTierStateType
-    warmTierRetentionPeriod: WarmTierRetentionPeriodTypeDef
+    warmTierRetentionPeriod: WarmTierRetentionPeriod
     disallowIngestNullNaN: bool
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ColumnInfoTypeDef(BaseValidatorModel):
+class ColumnInfo(BaseValidatorModel):
     pass
 
 
-class ExecuteQueryResponsePaginatorTypeDef(BaseValidatorModel):
-    columns: List[ColumnInfoTypeDef]
-    rows: List[RowPaginatorTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ExecuteQueryResponsePaginator(BaseValidatorModel):
+    columns: List[ColumnInfo]
+    rows: List[RowPaginator]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ExecuteQueryResponseTypeDef(BaseValidatorModel):
-    columns: List[ColumnInfoTypeDef]
-    rows: List[RowTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ExecuteQueryResponse(BaseValidatorModel):
+    columns: List[ColumnInfo]
+    rows: List[Row]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ExecuteQueryResponseWaiterTypeDef(BaseValidatorModel):
-    columns: List[ColumnInfoTypeDef]
-    rows: List[RowWaiterTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ExecuteQueryResponseWaiter(BaseValidatorModel):
+    columns: List[ColumnInfo]
+    rows: List[RowWaiter]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class AssetModelStatusTypeDef(BaseValidatorModel):
+class AssetModelStatus(BaseValidatorModel):
     state: AssetModelStateType
-    error: Optional[ErrorDetailsTypeDef] = None
+    error: Optional[ErrorDetails] = None
 
 
-class AssetStatusTypeDef(BaseValidatorModel):
+class AssetStatus(BaseValidatorModel):
     state: AssetStateType
-    error: Optional[ErrorDetailsTypeDef] = None
+    error: Optional[ErrorDetails] = None
 
 
-class DatasetStatusTypeDef(BaseValidatorModel):
+class DatasetStatus(BaseValidatorModel):
     state: DatasetStateType
-    error: Optional[ErrorDetailsTypeDef] = None
+    error: Optional[ErrorDetails] = None
 
 
-class MeasurementTypeDef(BaseValidatorModel):
-    processingConfig: Optional[MeasurementProcessingConfigTypeDef] = None
+class Measurement(BaseValidatorModel):
+    processingConfig: Optional[MeasurementProcessingConfig] = None
 
 
-class CreateGatewayRequestTypeDef(BaseValidatorModel):
+class CreateGatewayRequest(BaseValidatorModel):
     gatewayName: str
-    gatewayPlatform: GatewayPlatformTypeDef
+    gatewayPlatform: GatewayPlatform
     gatewayVersion: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
 
-class DescribeGatewayResponseTypeDef(BaseValidatorModel):
+class DescribeGatewayResponse(BaseValidatorModel):
     gatewayId: str
     gatewayName: str
     gatewayArn: str
-    gatewayPlatform: GatewayPlatformTypeDef
+    gatewayPlatform: GatewayPlatform
     gatewayVersion: str
-    gatewayCapabilitySummaries: List[GatewayCapabilitySummaryTypeDef]
+    gatewayCapabilitySummaries: List[GatewayCapabilitySummary]
     creationDate: datetime
     lastUpdateDate: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GatewaySummaryTypeDef(BaseValidatorModel):
+class GatewaySummary(BaseValidatorModel):
     gatewayId: str
     gatewayName: str
     creationDate: datetime
     lastUpdateDate: datetime
-    gatewayPlatform: Optional[GatewayPlatformTypeDef] = None
+    gatewayPlatform: Optional[GatewayPlatform] = None
     gatewayVersion: Optional[str] = None
-    gatewayCapabilitySummaries: Optional[List[GatewayCapabilitySummaryTypeDef]] = None
+    gatewayCapabilitySummaries: Optional[List[GatewayCapabilitySummary]] = None
 
 
-class DatasetSourceTypeDef(BaseValidatorModel):
+class DatasetSource(BaseValidatorModel):
     sourceType: Literal["KENDRA"]
     sourceFormat: Literal["KNOWLEDGE_BASE"]
-    sourceDetail: Optional[SourceDetailTypeDef] = None
+    sourceDetail: Optional[SourceDetail] = None
 
 
-class DataSetReferenceTypeDef(BaseValidatorModel):
+class DataSetReference(BaseValidatorModel):
     datasetArn: Optional[str] = None
-    source: Optional[SourceTypeDef] = None
+    source: Optional[Source] = None
 
 
-class CreatePortalResponseTypeDef(BaseValidatorModel):
+class CreatePortalResponse(BaseValidatorModel):
     portalId: str
     portalArn: str
     portalStartUrl: str
-    portalStatus: PortalStatusTypeDef
+    portalStatus: PortalStatus
     ssoApplicationId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeletePortalResponseTypeDef(BaseValidatorModel):
-    portalStatus: PortalStatusTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeletePortalResponse(BaseValidatorModel):
+    portalStatus: PortalStatus
+    ResponseMetadata: ResponseMetadata
 
 
-class ImageLocationTypeDef(BaseValidatorModel):
+class ImageLocation(BaseValidatorModel):
     pass
 
 
-class DescribePortalResponseTypeDef(BaseValidatorModel):
+class DescribePortalResponse(BaseValidatorModel):
     portalId: str
     portalArn: str
     portalName: str
@@ -1495,569 +1495,569 @@ class DescribePortalResponseTypeDef(BaseValidatorModel):
     portalClientId: str
     portalStartUrl: str
     portalContactEmail: str
-    portalStatus: PortalStatusTypeDef
+    portalStatus: PortalStatus
     portalCreationDate: datetime
     portalLastUpdateDate: datetime
-    portalLogoImageLocation: ImageLocationTypeDef
+    portalLogoImageLocation: ImageLocation
     roleArn: str
     portalAuthMode: AuthModeType
     notificationSenderEmail: str
-    alarms: AlarmsTypeDef
+    alarms: Alarms
     portalType: PortalTypeType
-    portalTypeConfiguration: Dict[str, PortalTypeEntryOutputTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    portalTypeConfiguration: Dict[str, PortalTypeEntryOutput]
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdatePortalResponseTypeDef(BaseValidatorModel):
-    portalStatus: PortalStatusTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdatePortalResponse(BaseValidatorModel):
+    portalStatus: PortalStatus
+    ResponseMetadata: ResponseMetadata
 
 
-class PortalTypeEntryUnionTypeDef(BaseValidatorModel):
+class PortalTypeEntryUnion(BaseValidatorModel):
     pass
 
 
-class ImageFileTypeDef(BaseValidatorModel):
+class ImageFile(BaseValidatorModel):
     pass
 
 
-class CreatePortalRequestTypeDef(BaseValidatorModel):
+class CreatePortalRequest(BaseValidatorModel):
     portalName: str
     portalContactEmail: str
     roleArn: str
     portalDescription: Optional[str] = None
     clientToken: Optional[str] = None
-    portalLogoImageFile: Optional[ImageFileTypeDef] = None
+    portalLogoImageFile: Optional[ImageFile] = None
     tags: Optional[Mapping[str, str]] = None
     portalAuthMode: Optional[AuthModeType] = None
     notificationSenderEmail: Optional[str] = None
-    alarms: Optional[AlarmsTypeDef] = None
+    alarms: Optional[Alarms] = None
     portalType: Optional[PortalTypeType] = None
-    portalTypeConfiguration: Optional[Mapping[str, PortalTypeEntryUnionTypeDef]] = None
+    portalTypeConfiguration: Optional[Mapping[str, PortalTypeEntryUnion]] = None
 
 
-class CreateAccessPolicyRequestTypeDef(BaseValidatorModel):
-    accessPolicyIdentity: IdentityTypeDef
-    accessPolicyResource: ResourceTypeDef
+class CreateAccessPolicyRequest(BaseValidatorModel):
+    accessPolicyIdentity: Identity
+    accessPolicyResource: Resource
     accessPolicyPermission: PermissionType
     clientToken: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
 
-class DescribeAccessPolicyResponseTypeDef(BaseValidatorModel):
+class DescribeAccessPolicyResponse(BaseValidatorModel):
     accessPolicyId: str
     accessPolicyArn: str
-    accessPolicyIdentity: IdentityTypeDef
-    accessPolicyResource: ResourceTypeDef
+    accessPolicyIdentity: Identity
+    accessPolicyResource: Resource
     accessPolicyPermission: PermissionType
     accessPolicyCreationDate: datetime
     accessPolicyLastUpdateDate: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateAccessPolicyRequestTypeDef(BaseValidatorModel):
+class UpdateAccessPolicyRequest(BaseValidatorModel):
     accessPolicyId: str
-    accessPolicyIdentity: IdentityTypeDef
-    accessPolicyResource: ResourceTypeDef
+    accessPolicyIdentity: Identity
+    accessPolicyResource: Resource
     accessPolicyPermission: PermissionType
     clientToken: Optional[str] = None
 
 
-class AssetPropertyValueTypeDef(BaseValidatorModel):
-    value: VariantTypeDef
-    timestamp: TimeInNanosTypeDef
+class AssetPropertyValue(BaseValidatorModel):
+    value: Variant
+    timestamp: TimeInNanos
     quality: Optional[QualityType] = None
 
 
-class InterpolatedAssetPropertyValueTypeDef(BaseValidatorModel):
-    timestamp: TimeInNanosTypeDef
-    value: VariantTypeDef
+class InterpolatedAssetPropertyValue(BaseValidatorModel):
+    timestamp: TimeInNanos
+    value: Variant
 
 
-class BatchGetAssetPropertyAggregatesResponseTypeDef(BaseValidatorModel):
-    errorEntries: List[BatchGetAssetPropertyAggregatesErrorEntryTypeDef]
-    successEntries: List[BatchGetAssetPropertyAggregatesSuccessEntryTypeDef]
-    skippedEntries: List[BatchGetAssetPropertyAggregatesSkippedEntryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchGetAssetPropertyAggregatesResponse(BaseValidatorModel):
+    errorEntries: List[BatchGetAssetPropertyAggregatesErrorEntry]
+    successEntries: List[BatchGetAssetPropertyAggregatesSuccessEntry]
+    skippedEntries: List[BatchGetAssetPropertyAggregatesSkippedEntry]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class MetricOutputTypeDef(BaseValidatorModel):
+class MetricOutput(BaseValidatorModel):
     expression: str
-    variables: List[ExpressionVariableOutputTypeDef]
-    window: MetricWindowTypeDef
-    processingConfig: Optional[MetricProcessingConfigTypeDef] = None
+    variables: List[ExpressionVariableOutput]
+    window: MetricWindow
+    processingConfig: Optional[MetricProcessingConfig] = None
 
 
-class TransformOutputTypeDef(BaseValidatorModel):
+class TransformOutput(BaseValidatorModel):
     expression: str
-    variables: List[ExpressionVariableOutputTypeDef]
-    processingConfig: Optional[TransformProcessingConfigTypeDef] = None
+    variables: List[ExpressionVariableOutput]
+    processingConfig: Optional[TransformProcessingConfig] = None
 
 
-class VariableValueUnionTypeDef(BaseValidatorModel):
+class VariableValueUnion(BaseValidatorModel):
     pass
 
 
-class ExpressionVariableTypeDef(BaseValidatorModel):
+class ExpressionVariable(BaseValidatorModel):
     name: str
-    value: VariableValueUnionTypeDef
+    value: VariableValueUnion
 
 
-class BatchPutAssetPropertyValueResponseTypeDef(BaseValidatorModel):
-    errorEntries: List[BatchPutAssetPropertyErrorEntryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchPutAssetPropertyValueResponse(BaseValidatorModel):
+    errorEntries: List[BatchPutAssetPropertyErrorEntry]
+    ResponseMetadata: ResponseMetadata
 
 
-class ImageTypeDef(BaseValidatorModel):
+class Image(BaseValidatorModel):
     pass
 
 
-class UpdatePortalRequestTypeDef(BaseValidatorModel):
+class UpdatePortalRequest(BaseValidatorModel):
     portalId: str
     portalName: str
     portalContactEmail: str
     roleArn: str
     portalDescription: Optional[str] = None
-    portalLogoImage: Optional[ImageTypeDef] = None
+    portalLogoImage: Optional[Image] = None
     clientToken: Optional[str] = None
     notificationSenderEmail: Optional[str] = None
-    alarms: Optional[AlarmsTypeDef] = None
+    alarms: Optional[Alarms] = None
     portalType: Optional[PortalTypeType] = None
-    portalTypeConfiguration: Optional[Mapping[str, PortalTypeEntryUnionTypeDef]] = None
+    portalTypeConfiguration: Optional[Mapping[str, PortalTypeEntryUnion]] = None
 
 
-class DescribeBulkImportJobResponseTypeDef(BaseValidatorModel):
+class DescribeBulkImportJobResponse(BaseValidatorModel):
     jobId: str
     jobName: str
     jobStatus: JobStatusType
     jobRoleArn: str
-    files: List[FileTypeDef]
-    errorReportLocation: ErrorReportLocationTypeDef
-    jobConfiguration: JobConfigurationOutputTypeDef
+    files: List[File]
+    errorReportLocation: ErrorReportLocation
+    jobConfiguration: JobConfigurationOutput
     jobCreationDate: datetime
     jobLastUpdateDate: datetime
     adaptiveIngestion: bool
     deleteFilesAfterImport: bool
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class AssetModelCompositeModelPathSegmentTypeDef(BaseValidatorModel):
+class AssetModelCompositeModelPathSegment(BaseValidatorModel):
     pass
 
 
-class CreateAssetModelCompositeModelResponseTypeDef(BaseValidatorModel):
+class CreateAssetModelCompositeModelResponse(BaseValidatorModel):
     assetModelCompositeModelId: str
-    assetModelCompositeModelPath: List[AssetModelCompositeModelPathSegmentTypeDef]
-    assetModelStatus: AssetModelStatusTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    assetModelCompositeModelPath: List[AssetModelCompositeModelPathSegment]
+    assetModelStatus: AssetModelStatus
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateAssetModelResponseTypeDef(BaseValidatorModel):
+class CreateAssetModelResponse(BaseValidatorModel):
     assetModelId: str
     assetModelArn: str
-    assetModelStatus: AssetModelStatusTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    assetModelStatus: AssetModelStatus
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteAssetModelCompositeModelResponseTypeDef(BaseValidatorModel):
-    assetModelStatus: AssetModelStatusTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeleteAssetModelCompositeModelResponse(BaseValidatorModel):
+    assetModelStatus: AssetModelStatus
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteAssetModelResponseTypeDef(BaseValidatorModel):
-    assetModelStatus: AssetModelStatusTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeleteAssetModelResponse(BaseValidatorModel):
+    assetModelStatus: AssetModelStatus
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateAssetModelCompositeModelResponseTypeDef(BaseValidatorModel):
-    assetModelCompositeModelPath: List[AssetModelCompositeModelPathSegmentTypeDef]
-    assetModelStatus: AssetModelStatusTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateAssetModelCompositeModelResponse(BaseValidatorModel):
+    assetModelCompositeModelPath: List[AssetModelCompositeModelPathSegment]
+    assetModelStatus: AssetModelStatus
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateAssetModelResponseTypeDef(BaseValidatorModel):
-    assetModelStatus: AssetModelStatusTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateAssetModelResponse(BaseValidatorModel):
+    assetModelStatus: AssetModelStatus
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateAssetResponseTypeDef(BaseValidatorModel):
+class CreateAssetResponse(BaseValidatorModel):
     assetId: str
     assetArn: str
-    assetStatus: AssetStatusTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    assetStatus: AssetStatus
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteAssetResponseTypeDef(BaseValidatorModel):
-    assetStatus: AssetStatusTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeleteAssetResponse(BaseValidatorModel):
+    assetStatus: AssetStatus
+    ResponseMetadata: ResponseMetadata
 
 
-class AssetHierarchyTypeDef(BaseValidatorModel):
+class AssetHierarchy(BaseValidatorModel):
     pass
 
 
-class AssetCompositeModelTypeDef(BaseValidatorModel):
+class AssetCompositeModel(BaseValidatorModel):
     pass
 
 
-class DescribeAssetResponseTypeDef(BaseValidatorModel):
+class DescribeAssetResponse(BaseValidatorModel):
     assetId: str
     assetArn: str
     assetName: str
     assetModelId: str
-    assetProperties: List[AssetPropertyTypeDef]
-    assetHierarchies: List[AssetHierarchyTypeDef]
-    assetCompositeModels: List[AssetCompositeModelTypeDef]
+    assetProperties: List[AssetProperty]
+    assetHierarchies: List[AssetHierarchy]
+    assetCompositeModels: List[AssetCompositeModel]
     assetCreationDate: datetime
     assetLastUpdateDate: datetime
-    assetStatus: AssetStatusTypeDef
+    assetStatus: AssetStatus
     assetDescription: str
-    assetCompositeModelSummaries: List[AssetCompositeModelSummaryTypeDef]
+    assetCompositeModelSummaries: List[AssetCompositeModelSummary]
     assetExternalId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateAssetResponseTypeDef(BaseValidatorModel):
-    assetStatus: AssetStatusTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateAssetResponse(BaseValidatorModel):
+    assetStatus: AssetStatus
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateDatasetResponseTypeDef(BaseValidatorModel):
+class CreateDatasetResponse(BaseValidatorModel):
     datasetId: str
     datasetArn: str
-    datasetStatus: DatasetStatusTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    datasetStatus: DatasetStatus
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteDatasetResponseTypeDef(BaseValidatorModel):
-    datasetStatus: DatasetStatusTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeleteDatasetResponse(BaseValidatorModel):
+    datasetStatus: DatasetStatus
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateDatasetResponseTypeDef(BaseValidatorModel):
+class UpdateDatasetResponse(BaseValidatorModel):
     datasetId: str
     datasetArn: str
-    datasetStatus: DatasetStatusTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    datasetStatus: DatasetStatus
+    ResponseMetadata: ResponseMetadata
 
 
-class ListGatewaysResponseTypeDef(BaseValidatorModel):
-    gatewaySummaries: List[GatewaySummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListGatewaysResponse(BaseValidatorModel):
+    gatewaySummaries: List[GatewaySummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class CreateDatasetRequestTypeDef(BaseValidatorModel):
+class CreateDatasetRequest(BaseValidatorModel):
     datasetName: str
-    datasetSource: DatasetSourceTypeDef
+    datasetSource: DatasetSource
     datasetId: Optional[str] = None
     datasetDescription: Optional[str] = None
     clientToken: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
 
-class DescribeDatasetResponseTypeDef(BaseValidatorModel):
+class DescribeDatasetResponse(BaseValidatorModel):
     datasetId: str
     datasetArn: str
     datasetName: str
     datasetDescription: str
-    datasetSource: DatasetSourceTypeDef
-    datasetStatus: DatasetStatusTypeDef
+    datasetSource: DatasetSource
+    datasetStatus: DatasetStatus
     datasetCreationDate: datetime
     datasetLastUpdateDate: datetime
     datasetVersion: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateDatasetRequestTypeDef(BaseValidatorModel):
+class UpdateDatasetRequest(BaseValidatorModel):
     datasetId: str
     datasetName: str
-    datasetSource: DatasetSourceTypeDef
+    datasetSource: DatasetSource
     datasetDescription: Optional[str] = None
     clientToken: Optional[str] = None
 
 
-class ReferenceTypeDef(BaseValidatorModel):
-    dataset: Optional[DataSetReferenceTypeDef] = None
+class Reference(BaseValidatorModel):
+    dataset: Optional[DataSetReference] = None
 
 
-class PortalSummaryTypeDef(BaseValidatorModel):
+class PortalSummary(BaseValidatorModel):
     pass
 
 
-class ListPortalsResponseTypeDef(BaseValidatorModel):
-    portalSummaries: List[PortalSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListPortalsResponse(BaseValidatorModel):
+    portalSummaries: List[PortalSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class AccessPolicySummaryTypeDef(BaseValidatorModel):
+class AccessPolicySummary(BaseValidatorModel):
     pass
 
 
-class ListAccessPoliciesResponseTypeDef(BaseValidatorModel):
-    accessPolicySummaries: List[AccessPolicySummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAccessPoliciesResponse(BaseValidatorModel):
+    accessPolicySummaries: List[AccessPolicySummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class BatchGetAssetPropertyValueHistorySuccessEntryTypeDef(BaseValidatorModel):
+class BatchGetAssetPropertyValueHistorySuccessEntry(BaseValidatorModel):
     entryId: str
-    assetPropertyValueHistory: List[AssetPropertyValueTypeDef]
+    assetPropertyValueHistory: List[AssetPropertyValue]
 
 
-class BatchGetAssetPropertyValueSuccessEntryTypeDef(BaseValidatorModel):
+class BatchGetAssetPropertyValueSuccessEntry(BaseValidatorModel):
     entryId: str
-    assetPropertyValue: Optional[AssetPropertyValueTypeDef] = None
+    assetPropertyValue: Optional[AssetPropertyValue] = None
 
 
-class GetAssetPropertyValueHistoryResponseTypeDef(BaseValidatorModel):
-    assetPropertyValueHistory: List[AssetPropertyValueTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetAssetPropertyValueHistoryResponse(BaseValidatorModel):
+    assetPropertyValueHistory: List[AssetPropertyValue]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class GetAssetPropertyValueResponseTypeDef(BaseValidatorModel):
-    propertyValue: AssetPropertyValueTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetAssetPropertyValueResponse(BaseValidatorModel):
+    propertyValue: AssetPropertyValue
+    ResponseMetadata: ResponseMetadata
 
 
-class PutAssetPropertyValueEntryTypeDef(BaseValidatorModel):
+class PutAssetPropertyValueEntry(BaseValidatorModel):
     entryId: str
-    propertyValues: Sequence[AssetPropertyValueTypeDef]
+    propertyValues: Sequence[AssetPropertyValue]
     assetId: Optional[str] = None
     propertyId: Optional[str] = None
     propertyAlias: Optional[str] = None
 
 
-class GetInterpolatedAssetPropertyValuesResponseTypeDef(BaseValidatorModel):
-    interpolatedAssetPropertyValues: List[InterpolatedAssetPropertyValueTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetInterpolatedAssetPropertyValuesResponse(BaseValidatorModel):
+    interpolatedAssetPropertyValues: List[InterpolatedAssetPropertyValue]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class PropertyTypeOutputTypeDef(BaseValidatorModel):
-    attribute: Optional[AttributeTypeDef] = None
-    measurement: Optional[MeasurementTypeDef] = None
-    transform: Optional[TransformOutputTypeDef] = None
-    metric: Optional[MetricOutputTypeDef] = None
+class PropertyTypeOutput(BaseValidatorModel):
+    attribute: Optional[Attribute] = None
+    measurement: Optional[Measurement] = None
+    transform: Optional[TransformOutput] = None
+    metric: Optional[MetricOutput] = None
 
 
-class JobConfigurationUnionTypeDef(BaseValidatorModel):
+class JobConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class CreateBulkImportJobRequestTypeDef(BaseValidatorModel):
+class CreateBulkImportJobRequest(BaseValidatorModel):
     jobName: str
     jobRoleArn: str
-    files: Sequence[FileTypeDef]
-    errorReportLocation: ErrorReportLocationTypeDef
-    jobConfiguration: JobConfigurationUnionTypeDef
+    files: Sequence[File]
+    errorReportLocation: ErrorReportLocation
+    jobConfiguration: JobConfigurationUnion
     adaptiveIngestion: Optional[bool] = None
     deleteFilesAfterImport: Optional[bool] = None
 
 
-class AssetModelSummaryTypeDef(BaseValidatorModel):
+class AssetModelSummary(BaseValidatorModel):
     pass
 
 
-class ListAssetModelsResponseTypeDef(BaseValidatorModel):
-    assetModelSummaries: List[AssetModelSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAssetModelsResponse(BaseValidatorModel):
+    assetModelSummaries: List[AssetModelSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class AssetSummaryTypeDef(BaseValidatorModel):
+class AssetSummary(BaseValidatorModel):
     pass
 
 
-class ListAssetsResponseTypeDef(BaseValidatorModel):
-    assetSummaries: List[AssetSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAssetsResponse(BaseValidatorModel):
+    assetSummaries: List[AssetSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class AssociatedAssetsSummaryTypeDef(BaseValidatorModel):
+class AssociatedAssetsSummary(BaseValidatorModel):
     pass
 
 
-class ListAssociatedAssetsResponseTypeDef(BaseValidatorModel):
-    assetSummaries: List[AssociatedAssetsSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAssociatedAssetsResponse(BaseValidatorModel):
+    assetSummaries: List[AssociatedAssetsSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class DatasetSummaryTypeDef(BaseValidatorModel):
+class DatasetSummary(BaseValidatorModel):
     pass
 
 
-class ListDatasetsResponseTypeDef(BaseValidatorModel):
-    datasetSummaries: List[DatasetSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListDatasetsResponse(BaseValidatorModel):
+    datasetSummaries: List[DatasetSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class CitationTypeDef(BaseValidatorModel):
-    reference: Optional[ReferenceTypeDef] = None
-    content: Optional[ContentTypeDef] = None
+class Citation(BaseValidatorModel):
+    reference: Optional[Reference] = None
+    content: Optional[Content] = None
 
 
-class BatchGetAssetPropertyValueHistoryResponseTypeDef(BaseValidatorModel):
-    errorEntries: List[BatchGetAssetPropertyValueHistoryErrorEntryTypeDef]
-    successEntries: List[BatchGetAssetPropertyValueHistorySuccessEntryTypeDef]
-    skippedEntries: List[BatchGetAssetPropertyValueHistorySkippedEntryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchGetAssetPropertyValueHistoryResponse(BaseValidatorModel):
+    errorEntries: List[BatchGetAssetPropertyValueHistoryErrorEntry]
+    successEntries: List[BatchGetAssetPropertyValueHistorySuccessEntry]
+    skippedEntries: List[BatchGetAssetPropertyValueHistorySkippedEntry]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class BatchGetAssetPropertyValueResponseTypeDef(BaseValidatorModel):
-    errorEntries: List[BatchGetAssetPropertyValueErrorEntryTypeDef]
-    successEntries: List[BatchGetAssetPropertyValueSuccessEntryTypeDef]
-    skippedEntries: List[BatchGetAssetPropertyValueSkippedEntryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchGetAssetPropertyValueResponse(BaseValidatorModel):
+    errorEntries: List[BatchGetAssetPropertyValueErrorEntry]
+    successEntries: List[BatchGetAssetPropertyValueSuccessEntry]
+    skippedEntries: List[BatchGetAssetPropertyValueSkippedEntry]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class BatchPutAssetPropertyValueRequestTypeDef(BaseValidatorModel):
-    entries: Sequence[PutAssetPropertyValueEntryTypeDef]
+class BatchPutAssetPropertyValueRequest(BaseValidatorModel):
+    entries: Sequence[PutAssetPropertyValueEntry]
     enablePartialEntryProcessing: Optional[bool] = None
 
 
-class ExpressionVariableUnionTypeDef(BaseValidatorModel):
+class ExpressionVariableUnion(BaseValidatorModel):
     pass
 
 
-class MetricTypeDef(BaseValidatorModel):
+class Metric(BaseValidatorModel):
     expression: str
-    variables: Sequence[ExpressionVariableUnionTypeDef]
-    window: MetricWindowTypeDef
-    processingConfig: Optional[MetricProcessingConfigTypeDef] = None
+    variables: Sequence[ExpressionVariableUnion]
+    window: MetricWindow
+    processingConfig: Optional[MetricProcessingConfig] = None
 
 
-class TransformTypeDef(BaseValidatorModel):
+class Transform(BaseValidatorModel):
     expression: str
-    variables: Sequence[ExpressionVariableUnionTypeDef]
-    processingConfig: Optional[TransformProcessingConfigTypeDef] = None
+    variables: Sequence[ExpressionVariableUnion]
+    processingConfig: Optional[TransformProcessingConfig] = None
 
 
-class InvocationOutputTypeDef(BaseValidatorModel):
+class InvocationOutput(BaseValidatorModel):
     message: Optional[str] = None
-    citations: Optional[List[CitationTypeDef]] = None
+    citations: Optional[List[Citation]] = None
 
 
-class AssetModelPropertyOutputTypeDef(BaseValidatorModel):
+class AssetModelPropertyOutput(BaseValidatorModel):
     pass
 
 
-class DescribeAssetModelCompositeModelResponseTypeDef(BaseValidatorModel):
+class DescribeAssetModelCompositeModelResponse(BaseValidatorModel):
     assetModelId: str
     assetModelCompositeModelId: str
     assetModelCompositeModelExternalId: str
-    assetModelCompositeModelPath: List[AssetModelCompositeModelPathSegmentTypeDef]
+    assetModelCompositeModelPath: List[AssetModelCompositeModelPathSegment]
     assetModelCompositeModelName: str
     assetModelCompositeModelDescription: str
     assetModelCompositeModelType: str
-    assetModelCompositeModelProperties: List[AssetModelPropertyOutputTypeDef]
-    compositionDetails: CompositionDetailsTypeDef
-    assetModelCompositeModelSummaries: List[AssetModelCompositeModelSummaryTypeDef]
-    actionDefinitions: List[ActionDefinitionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    assetModelCompositeModelProperties: List[AssetModelPropertyOutput]
+    compositionDetails: CompositionDetails
+    assetModelCompositeModelSummaries: List[AssetModelCompositeModelSummary]
+    actionDefinitions: List[ActionDefinition]
+    ResponseMetadata: ResponseMetadata
 
 
-class AssetModelPropertySummaryTypeDef(BaseValidatorModel):
+class AssetModelPropertySummary(BaseValidatorModel):
     pass
 
 
-class ListAssetModelPropertiesResponseTypeDef(BaseValidatorModel):
-    assetModelPropertySummaries: List[AssetModelPropertySummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAssetModelPropertiesResponse(BaseValidatorModel):
+    assetModelPropertySummaries: List[AssetModelPropertySummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ResponseStreamTypeDef(BaseValidatorModel):
-    trace: Optional[TraceTypeDef] = None
-    output: Optional[InvocationOutputTypeDef] = None
-    accessDeniedException: Optional[AccessDeniedExceptionTypeDef] = None
-    conflictingOperationException: Optional[ConflictingOperationExceptionTypeDef] = None
-    internalFailureException: Optional[InternalFailureExceptionTypeDef] = None
-    invalidRequestException: Optional[InvalidRequestExceptionTypeDef] = None
-    limitExceededException: Optional[LimitExceededExceptionTypeDef] = None
-    resourceNotFoundException: Optional[ResourceNotFoundExceptionTypeDef] = None
-    throttlingException: Optional[ThrottlingExceptionTypeDef] = None
+class ResponseStream(BaseValidatorModel):
+    trace: Optional[Trace] = None
+    output: Optional[InvocationOutput] = None
+    accessDeniedException: Optional[AccessDeniedException] = None
+    conflictingOperationException: Optional[ConflictingOperationException] = None
+    internalFailureException: Optional[InternalFailureException] = None
+    invalidRequestException: Optional[InvalidRequestException] = None
+    limitExceededException: Optional[LimitExceededException] = None
+    resourceNotFoundException: Optional[ResourceNotFoundException] = None
+    throttlingException: Optional[ThrottlingException] = None
 
 
-class AssetModelCompositeModelOutputTypeDef(BaseValidatorModel):
+class AssetModelCompositeModelOutput(BaseValidatorModel):
     pass
 
 
-class AssetModelHierarchyTypeDef(BaseValidatorModel):
+class AssetModelHierarchy(BaseValidatorModel):
     pass
 
 
-class DescribeAssetModelResponseTypeDef(BaseValidatorModel):
+class DescribeAssetModelResponse(BaseValidatorModel):
     assetModelId: str
     assetModelExternalId: str
     assetModelArn: str
     assetModelName: str
     assetModelType: AssetModelTypeType
     assetModelDescription: str
-    assetModelProperties: List[AssetModelPropertyOutputTypeDef]
-    assetModelHierarchies: List[AssetModelHierarchyTypeDef]
-    assetModelCompositeModels: List[AssetModelCompositeModelOutputTypeDef]
-    assetModelCompositeModelSummaries: List[AssetModelCompositeModelSummaryTypeDef]
+    assetModelProperties: List[AssetModelPropertyOutput]
+    assetModelHierarchies: List[AssetModelHierarchy]
+    assetModelCompositeModels: List[AssetModelCompositeModelOutput]
+    assetModelCompositeModelSummaries: List[AssetModelCompositeModelSummary]
     assetModelCreationDate: datetime
     assetModelLastUpdateDate: datetime
-    assetModelStatus: AssetModelStatusTypeDef
+    assetModelStatus: AssetModelStatus
     assetModelVersion: str
     eTag: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class PropertyTypeDef(BaseValidatorModel):
+class Property(BaseValidatorModel):
     pass
 
 
-class CompositeModelPropertyTypeDef(BaseValidatorModel):
+class CompositeModelProperty(BaseValidatorModel):
     pass
 
 
-class DescribeAssetPropertyResponseTypeDef(BaseValidatorModel):
+class DescribeAssetPropertyResponse(BaseValidatorModel):
     assetId: str
     assetName: str
     assetModelId: str
-    assetProperty: PropertyTypeDef
-    compositeModel: CompositeModelPropertyTypeDef
+    assetProperty: Property
+    compositeModel: CompositeModelProperty
     assetExternalId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class TransformUnionTypeDef(BaseValidatorModel):
+class TransformUnion(BaseValidatorModel):
     pass
 
 
-class MetricUnionTypeDef(BaseValidatorModel):
+class MetricUnion(BaseValidatorModel):
     pass
 
 
-class PropertyTypeTypeDef(BaseValidatorModel):
-    attribute: Optional[AttributeTypeDef] = None
-    measurement: Optional[MeasurementTypeDef] = None
-    transform: Optional[TransformUnionTypeDef] = None
-    metric: Optional[MetricUnionTypeDef] = None
+class PropertyType(BaseValidatorModel):
+    attribute: Optional[Attribute] = None
+    measurement: Optional[Measurement] = None
+    transform: Optional[TransformUnion] = None
+    metric: Optional[MetricUnion] = None
 
 
-class InvokeAssistantResponseTypeDef(BaseValidatorModel):
-    body: EventStream[ResponseStreamTypeDef]
+class InvokeAssistantResponse(BaseValidatorModel):
+    body: EventStream[ResponseStream]
     conversationId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class AssetModelPropertyDefinitionTypeDef(BaseValidatorModel):
+class AssetModelPropertyDefinition(BaseValidatorModel):
     pass
 
 
-class CreateAssetModelCompositeModelRequestTypeDef(BaseValidatorModel):
+class CreateAssetModelCompositeModelRequest(BaseValidatorModel):
     assetModelId: str
     assetModelCompositeModelName: str
     assetModelCompositeModelType: str
@@ -2067,62 +2067,62 @@ class CreateAssetModelCompositeModelRequestTypeDef(BaseValidatorModel):
     assetModelCompositeModelDescription: Optional[str] = None
     clientToken: Optional[str] = None
     composedAssetModelId: Optional[str] = None
-    assetModelCompositeModelProperties: Optional[Sequence[AssetModelPropertyDefinitionTypeDef]] = None
+    assetModelCompositeModelProperties: Optional[Sequence[AssetModelPropertyDefinition]] = None
     ifMatch: Optional[str] = None
     ifNoneMatch: Optional[str] = None
     matchForVersionType: Optional[AssetModelVersionTypeType] = None
 
 
-class AssetModelHierarchyDefinitionTypeDef(BaseValidatorModel):
+class AssetModelHierarchyDefinition(BaseValidatorModel):
     pass
 
 
-class AssetModelCompositeModelDefinitionTypeDef(BaseValidatorModel):
+class AssetModelCompositeModelDefinition(BaseValidatorModel):
     pass
 
 
-class CreateAssetModelRequestTypeDef(BaseValidatorModel):
+class CreateAssetModelRequest(BaseValidatorModel):
     assetModelName: str
     assetModelType: Optional[AssetModelTypeType] = None
     assetModelId: Optional[str] = None
     assetModelExternalId: Optional[str] = None
     assetModelDescription: Optional[str] = None
-    assetModelProperties: Optional[Sequence[AssetModelPropertyDefinitionTypeDef]] = None
-    assetModelHierarchies: Optional[Sequence[AssetModelHierarchyDefinitionTypeDef]] = None
-    assetModelCompositeModels: Optional[Sequence[AssetModelCompositeModelDefinitionTypeDef]] = None
+    assetModelProperties: Optional[Sequence[AssetModelPropertyDefinition]] = None
+    assetModelHierarchies: Optional[Sequence[AssetModelHierarchyDefinition]] = None
+    assetModelCompositeModels: Optional[Sequence[AssetModelCompositeModelDefinition]] = None
     clientToken: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
 
-class AssetModelPropertyUnionTypeDef(BaseValidatorModel):
+class AssetModelPropertyUnion(BaseValidatorModel):
     pass
 
 
-class UpdateAssetModelCompositeModelRequestTypeDef(BaseValidatorModel):
+class UpdateAssetModelCompositeModelRequest(BaseValidatorModel):
     assetModelId: str
     assetModelCompositeModelId: str
     assetModelCompositeModelName: str
     assetModelCompositeModelExternalId: Optional[str] = None
     assetModelCompositeModelDescription: Optional[str] = None
     clientToken: Optional[str] = None
-    assetModelCompositeModelProperties: Optional[Sequence[AssetModelPropertyUnionTypeDef]] = None
+    assetModelCompositeModelProperties: Optional[Sequence[AssetModelPropertyUnion]] = None
     ifMatch: Optional[str] = None
     ifNoneMatch: Optional[str] = None
     matchForVersionType: Optional[AssetModelVersionTypeType] = None
 
 
-class AssetModelCompositeModelUnionTypeDef(BaseValidatorModel):
+class AssetModelCompositeModelUnion(BaseValidatorModel):
     pass
 
 
-class UpdateAssetModelRequestTypeDef(BaseValidatorModel):
+class UpdateAssetModelRequest(BaseValidatorModel):
     assetModelId: str
     assetModelName: str
     assetModelExternalId: Optional[str] = None
     assetModelDescription: Optional[str] = None
-    assetModelProperties: Optional[Sequence[AssetModelPropertyUnionTypeDef]] = None
-    assetModelHierarchies: Optional[Sequence[AssetModelHierarchyTypeDef]] = None
-    assetModelCompositeModels: Optional[Sequence[AssetModelCompositeModelUnionTypeDef]] = None
+    assetModelProperties: Optional[Sequence[AssetModelPropertyUnion]] = None
+    assetModelHierarchies: Optional[Sequence[AssetModelHierarchy]] = None
+    assetModelCompositeModels: Optional[Sequence[AssetModelCompositeModelUnion]] = None
     clientToken: Optional[str] = None
     ifMatch: Optional[str] = None
     ifNoneMatch: Optional[str] = None

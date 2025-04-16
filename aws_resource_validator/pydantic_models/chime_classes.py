@@ -12,38 +12,38 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.chime_constants import *
 
-class AccountSettingsTypeDef(BaseValidatorModel):
+class AccountSettings(BaseValidatorModel):
     DisableRemoteControl: Optional[bool] = None
     EnableDialOut: Optional[bool] = None
 
 
-class SigninDelegateGroupTypeDef(BaseValidatorModel):
+class SigninDelegateGroup(BaseValidatorModel):
     GroupName: Optional[str] = None
 
 
-class AlexaForBusinessMetadataTypeDef(BaseValidatorModel):
+class AlexaForBusinessMetadata(BaseValidatorModel):
     IsAlexaForBusinessEnabled: Optional[bool] = None
     AlexaForBusinessRoomArn: Optional[str] = None
 
 
-class AssociatePhoneNumberWithUserRequestTypeDef(BaseValidatorModel):
+class AssociatePhoneNumberWithUserRequest(BaseValidatorModel):
     AccountId: str
     UserId: str
     E164PhoneNumber: str
 
 
-class MembershipItemTypeDef(BaseValidatorModel):
+class MembershipItem(BaseValidatorModel):
     MemberId: Optional[str] = None
     Role: Optional[RoomMembershipRoleType] = None
 
 
-class MemberErrorTypeDef(BaseValidatorModel):
+class MemberError(BaseValidatorModel):
     MemberId: Optional[str] = None
     ErrorCode: Optional[ErrorCodeType] = None
     ErrorMessage: Optional[str] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -51,39 +51,39 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class BatchDeletePhoneNumberRequestTypeDef(BaseValidatorModel):
+class BatchDeletePhoneNumberRequest(BaseValidatorModel):
     PhoneNumberIds: Sequence[str]
 
 
-class PhoneNumberErrorTypeDef(BaseValidatorModel):
+class PhoneNumberError(BaseValidatorModel):
     PhoneNumberId: Optional[str] = None
     ErrorCode: Optional[ErrorCodeType] = None
     ErrorMessage: Optional[str] = None
 
 
-class BatchSuspendUserRequestTypeDef(BaseValidatorModel):
+class BatchSuspendUserRequest(BaseValidatorModel):
     AccountId: str
     UserIdList: Sequence[str]
 
 
-class UserErrorTypeDef(BaseValidatorModel):
+class UserError(BaseValidatorModel):
     UserId: Optional[str] = None
     ErrorCode: Optional[ErrorCodeType] = None
     ErrorMessage: Optional[str] = None
 
 
-class BatchUnsuspendUserRequestTypeDef(BaseValidatorModel):
+class BatchUnsuspendUserRequest(BaseValidatorModel):
     AccountId: str
     UserIdList: Sequence[str]
 
 
-class UpdatePhoneNumberRequestItemTypeDef(BaseValidatorModel):
+class UpdatePhoneNumberRequestItem(BaseValidatorModel):
     PhoneNumberId: str
     ProductType: Optional[PhoneNumberProductTypeType] = None
     CallingName: Optional[str] = None
 
 
-class BotTypeDef(BaseValidatorModel):
+class Bot(BaseValidatorModel):
     BotId: Optional[str] = None
     UserId: Optional[str] = None
     DisplayName: Optional[str] = None
@@ -95,50 +95,50 @@ class BotTypeDef(BaseValidatorModel):
     SecurityToken: Optional[str] = None
 
 
-class BusinessCallingSettingsTypeDef(BaseValidatorModel):
+class BusinessCallingSettings(BaseValidatorModel):
     CdrBucket: Optional[str] = None
 
 
-class ConversationRetentionSettingsTypeDef(BaseValidatorModel):
+class ConversationRetentionSettings(BaseValidatorModel):
     RetentionDays: Optional[int] = None
 
 
-class CreateAccountRequestTypeDef(BaseValidatorModel):
+class CreateAccountRequest(BaseValidatorModel):
     Name: str
 
 
-class CreateBotRequestTypeDef(BaseValidatorModel):
+class CreateBotRequest(BaseValidatorModel):
     AccountId: str
     DisplayName: str
     Domain: Optional[str] = None
 
 
-class CreateMeetingDialOutRequestTypeDef(BaseValidatorModel):
+class CreateMeetingDialOutRequest(BaseValidatorModel):
     MeetingId: str
     FromPhoneNumber: str
     ToPhoneNumber: str
     JoinToken: str
 
 
-class CreatePhoneNumberOrderRequestTypeDef(BaseValidatorModel):
+class CreatePhoneNumberOrderRequest(BaseValidatorModel):
     ProductType: PhoneNumberProductTypeType
     E164PhoneNumbers: Sequence[str]
 
 
-class CreateRoomMembershipRequestTypeDef(BaseValidatorModel):
+class CreateRoomMembershipRequest(BaseValidatorModel):
     AccountId: str
     RoomId: str
     MemberId: str
     Role: Optional[RoomMembershipRoleType] = None
 
 
-class CreateRoomRequestTypeDef(BaseValidatorModel):
+class CreateRoomRequest(BaseValidatorModel):
     AccountId: str
     Name: str
     ClientRequestToken: Optional[str] = None
 
 
-class RoomTypeDef(BaseValidatorModel):
+class Room(BaseValidatorModel):
     RoomId: Optional[str] = None
     Name: Optional[str] = None
     AccountId: Optional[str] = None
@@ -147,140 +147,140 @@ class RoomTypeDef(BaseValidatorModel):
     UpdatedTimestamp: Optional[datetime] = None
 
 
-class CreateUserRequestTypeDef(BaseValidatorModel):
+class CreateUserRequest(BaseValidatorModel):
     AccountId: str
     Username: Optional[str] = None
     Email: Optional[str] = None
     UserType: Optional[UserTypeType] = None
 
 
-class DeleteAccountRequestTypeDef(BaseValidatorModel):
+class DeleteAccountRequest(BaseValidatorModel):
     AccountId: str
 
 
-class DeleteEventsConfigurationRequestTypeDef(BaseValidatorModel):
+class DeleteEventsConfigurationRequest(BaseValidatorModel):
     AccountId: str
     BotId: str
 
 
-class DeletePhoneNumberRequestTypeDef(BaseValidatorModel):
+class DeletePhoneNumberRequest(BaseValidatorModel):
     PhoneNumberId: str
 
 
-class DeleteRoomMembershipRequestTypeDef(BaseValidatorModel):
+class DeleteRoomMembershipRequest(BaseValidatorModel):
     AccountId: str
     RoomId: str
     MemberId: str
 
 
-class DeleteRoomRequestTypeDef(BaseValidatorModel):
+class DeleteRoomRequest(BaseValidatorModel):
     AccountId: str
     RoomId: str
 
 
-class DisassociatePhoneNumberFromUserRequestTypeDef(BaseValidatorModel):
+class DisassociatePhoneNumberFromUserRequest(BaseValidatorModel):
     AccountId: str
     UserId: str
 
 
-class DisassociateSigninDelegateGroupsFromAccountRequestTypeDef(BaseValidatorModel):
+class DisassociateSigninDelegateGroupsFromAccountRequest(BaseValidatorModel):
     AccountId: str
     GroupNames: Sequence[str]
 
 
-class EventsConfigurationTypeDef(BaseValidatorModel):
+class EventsConfiguration(BaseValidatorModel):
     BotId: Optional[str] = None
     OutboundEventsHTTPSEndpoint: Optional[str] = None
     LambdaFunctionArn: Optional[str] = None
 
 
-class GetAccountRequestTypeDef(BaseValidatorModel):
+class GetAccountRequest(BaseValidatorModel):
     AccountId: str
 
 
-class GetAccountSettingsRequestTypeDef(BaseValidatorModel):
+class GetAccountSettingsRequest(BaseValidatorModel):
     AccountId: str
 
 
-class GetBotRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    BotId: str
-
-
-class GetEventsConfigurationRequestTypeDef(BaseValidatorModel):
+class GetBotRequest(BaseValidatorModel):
     AccountId: str
     BotId: str
 
 
-class VoiceConnectorSettingsTypeDef(BaseValidatorModel):
+class GetEventsConfigurationRequest(BaseValidatorModel):
+    AccountId: str
+    BotId: str
+
+
+class VoiceConnectorSettings(BaseValidatorModel):
     CdrBucket: Optional[str] = None
 
 
-class GetPhoneNumberOrderRequestTypeDef(BaseValidatorModel):
+class GetPhoneNumberOrderRequest(BaseValidatorModel):
     PhoneNumberOrderId: str
 
 
-class GetPhoneNumberRequestTypeDef(BaseValidatorModel):
+class GetPhoneNumberRequest(BaseValidatorModel):
     PhoneNumberId: str
 
 
-class GetRetentionSettingsRequestTypeDef(BaseValidatorModel):
+class GetRetentionSettingsRequest(BaseValidatorModel):
     AccountId: str
 
 
-class GetRoomRequestTypeDef(BaseValidatorModel):
+class GetRoomRequest(BaseValidatorModel):
     AccountId: str
     RoomId: str
 
 
-class GetUserRequestTypeDef(BaseValidatorModel):
+class GetUserRequest(BaseValidatorModel):
     AccountId: str
     UserId: str
 
 
-class GetUserSettingsRequestTypeDef(BaseValidatorModel):
+class GetUserSettingsRequest(BaseValidatorModel):
     AccountId: str
     UserId: str
 
 
-class InviteTypeDef(BaseValidatorModel):
+class Invite(BaseValidatorModel):
     InviteId: Optional[str] = None
     Status: Optional[InviteStatusType] = None
     EmailAddress: Optional[str] = None
     EmailStatus: Optional[EmailStatusType] = None
 
 
-class InviteUsersRequestTypeDef(BaseValidatorModel):
+class InviteUsersRequest(BaseValidatorModel):
     AccountId: str
     UserEmailList: Sequence[str]
     UserType: Optional[UserTypeType] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListAccountsRequestTypeDef(BaseValidatorModel):
+class ListAccountsRequest(BaseValidatorModel):
     Name: Optional[str] = None
     UserEmail: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListBotsRequestTypeDef(BaseValidatorModel):
+class ListBotsRequest(BaseValidatorModel):
     AccountId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListPhoneNumberOrdersRequestTypeDef(BaseValidatorModel):
+class ListPhoneNumberOrdersRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListPhoneNumbersRequestTypeDef(BaseValidatorModel):
+class ListPhoneNumbersRequest(BaseValidatorModel):
     Status: Optional[PhoneNumberStatusType] = None
     ProductType: Optional[PhoneNumberProductTypeType] = None
     FilterName: Optional[PhoneNumberAssociationNameType] = None
@@ -289,30 +289,30 @@ class ListPhoneNumbersRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
-class ListRoomMembershipsRequestTypeDef(BaseValidatorModel):
+class ListRoomMembershipsRequest(BaseValidatorModel):
     AccountId: str
     RoomId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListRoomsRequestTypeDef(BaseValidatorModel):
+class ListRoomsRequest(BaseValidatorModel):
     AccountId: str
     MemberId: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListSupportedPhoneNumberCountriesRequestTypeDef(BaseValidatorModel):
+class ListSupportedPhoneNumberCountriesRequest(BaseValidatorModel):
     ProductType: PhoneNumberProductTypeType
 
 
-class PhoneNumberCountryTypeDef(BaseValidatorModel):
+class PhoneNumberCountry(BaseValidatorModel):
     CountryCode: Optional[str] = None
     SupportedPhoneNumberTypes: Optional[List[PhoneNumberTypeType]] = None
 
 
-class ListUsersRequestTypeDef(BaseValidatorModel):
+class ListUsersRequest(BaseValidatorModel):
     AccountId: str
     UserEmail: Optional[str] = None
     UserType: Optional[UserTypeType] = None
@@ -320,12 +320,12 @@ class ListUsersRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
-class LogoutUserRequestTypeDef(BaseValidatorModel):
+class LogoutUserRequest(BaseValidatorModel):
     AccountId: str
     UserId: str
 
 
-class MemberTypeDef(BaseValidatorModel):
+class Member(BaseValidatorModel):
     MemberId: Optional[str] = None
     MemberType: Optional[MemberTypeType] = None
     Email: Optional[str] = None
@@ -333,18 +333,18 @@ class MemberTypeDef(BaseValidatorModel):
     AccountId: Optional[str] = None
 
 
-class OrderedPhoneNumberTypeDef(BaseValidatorModel):
+class OrderedPhoneNumber(BaseValidatorModel):
     E164PhoneNumber: Optional[str] = None
     Status: Optional[OrderedPhoneNumberStatusType] = None
 
 
-class PhoneNumberAssociationTypeDef(BaseValidatorModel):
+class PhoneNumberAssociation(BaseValidatorModel):
     Value: Optional[str] = None
     Name: Optional[PhoneNumberAssociationNameType] = None
     AssociatedTimestamp: Optional[datetime] = None
 
 
-class PhoneNumberCapabilitiesTypeDef(BaseValidatorModel):
+class PhoneNumberCapabilities(BaseValidatorModel):
     InboundCall: Optional[bool] = None
     OutboundCall: Optional[bool] = None
     InboundSMS: Optional[bool] = None
@@ -353,44 +353,44 @@ class PhoneNumberCapabilitiesTypeDef(BaseValidatorModel):
     OutboundMMS: Optional[bool] = None
 
 
-class PutEventsConfigurationRequestTypeDef(BaseValidatorModel):
+class PutEventsConfigurationRequest(BaseValidatorModel):
     AccountId: str
     BotId: str
     OutboundEventsHTTPSEndpoint: Optional[str] = None
     LambdaFunctionArn: Optional[str] = None
 
 
-class RedactConversationMessageRequestTypeDef(BaseValidatorModel):
+class RedactConversationMessageRequest(BaseValidatorModel):
     AccountId: str
     ConversationId: str
     MessageId: str
 
 
-class RedactRoomMessageRequestTypeDef(BaseValidatorModel):
+class RedactRoomMessageRequest(BaseValidatorModel):
     AccountId: str
     RoomId: str
     MessageId: str
 
 
-class RegenerateSecurityTokenRequestTypeDef(BaseValidatorModel):
+class RegenerateSecurityTokenRequest(BaseValidatorModel):
     AccountId: str
     BotId: str
 
 
-class ResetPersonalPINRequestTypeDef(BaseValidatorModel):
+class ResetPersonalPINRequest(BaseValidatorModel):
     AccountId: str
     UserId: str
 
 
-class RestorePhoneNumberRequestTypeDef(BaseValidatorModel):
+class RestorePhoneNumberRequest(BaseValidatorModel):
     PhoneNumberId: str
 
 
-class RoomRetentionSettingsTypeDef(BaseValidatorModel):
+class RoomRetentionSettings(BaseValidatorModel):
     RetentionDays: Optional[int] = None
 
 
-class SearchAvailablePhoneNumbersRequestTypeDef(BaseValidatorModel):
+class SearchAvailablePhoneNumbersRequest(BaseValidatorModel):
     AreaCode: Optional[str] = None
     City: Optional[str] = None
     Country: Optional[str] = None
@@ -401,53 +401,53 @@ class SearchAvailablePhoneNumbersRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
-class TelephonySettingsTypeDef(BaseValidatorModel):
+class TelephonySettings(BaseValidatorModel):
     InboundCalling: bool
     OutboundCalling: bool
     SMS: bool
 
 
-class UpdateAccountRequestTypeDef(BaseValidatorModel):
+class UpdateAccountRequest(BaseValidatorModel):
     AccountId: str
     Name: Optional[str] = None
     DefaultLicense: Optional[LicenseType] = None
 
 
-class UpdateBotRequestTypeDef(BaseValidatorModel):
+class UpdateBotRequest(BaseValidatorModel):
     AccountId: str
     BotId: str
     Disabled: Optional[bool] = None
 
 
-class UpdatePhoneNumberRequestTypeDef(BaseValidatorModel):
+class UpdatePhoneNumberRequest(BaseValidatorModel):
     PhoneNumberId: str
     ProductType: Optional[PhoneNumberProductTypeType] = None
     CallingName: Optional[str] = None
 
 
-class UpdatePhoneNumberSettingsRequestTypeDef(BaseValidatorModel):
+class UpdatePhoneNumberSettingsRequest(BaseValidatorModel):
     CallingName: str
 
 
-class UpdateRoomMembershipRequestTypeDef(BaseValidatorModel):
+class UpdateRoomMembershipRequest(BaseValidatorModel):
     AccountId: str
     RoomId: str
     MemberId: str
     Role: Optional[RoomMembershipRoleType] = None
 
 
-class UpdateRoomRequestTypeDef(BaseValidatorModel):
+class UpdateRoomRequest(BaseValidatorModel):
     AccountId: str
     RoomId: str
     Name: Optional[str] = None
 
 
-class UpdateAccountSettingsRequestTypeDef(BaseValidatorModel):
+class UpdateAccountSettingsRequest(BaseValidatorModel):
     AccountId: str
-    AccountSettings: AccountSettingsTypeDef
+    AccountSettings: AccountSettings
 
 
-class AccountTypeDef(BaseValidatorModel):
+class Account(BaseValidatorModel):
     AwsAccountId: str
     AccountId: str
     Name: str
@@ -456,339 +456,339 @@ class AccountTypeDef(BaseValidatorModel):
     DefaultLicense: Optional[LicenseType] = None
     SupportedLicenses: Optional[List[LicenseType]] = None
     AccountStatus: Optional[AccountStatusType] = None
-    SigninDelegateGroups: Optional[List[SigninDelegateGroupTypeDef]] = None
+    SigninDelegateGroups: Optional[List[SigninDelegateGroup]] = None
 
 
-class AssociateSigninDelegateGroupsWithAccountRequestTypeDef(BaseValidatorModel):
+class AssociateSigninDelegateGroupsWithAccountRequest(BaseValidatorModel):
     AccountId: str
-    SigninDelegateGroups: Sequence[SigninDelegateGroupTypeDef]
+    SigninDelegateGroups: Sequence[SigninDelegateGroup]
 
 
-class BatchCreateRoomMembershipRequestTypeDef(BaseValidatorModel):
+class BatchCreateRoomMembershipRequest(BaseValidatorModel):
     AccountId: str
     RoomId: str
-    MembershipItemList: Sequence[MembershipItemTypeDef]
+    MembershipItemList: Sequence[MembershipItem]
 
 
-class BatchCreateRoomMembershipResponseTypeDef(BaseValidatorModel):
-    Errors: List[MemberErrorTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchCreateRoomMembershipResponse(BaseValidatorModel):
+    Errors: List[MemberError]
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateMeetingDialOutResponseTypeDef(BaseValidatorModel):
+class CreateMeetingDialOutResponse(BaseValidatorModel):
     TransactionId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class EmptyResponseMetadataTypeDef(BaseValidatorModel):
-    ResponseMetadata: ResponseMetadataTypeDef
+class EmptyResponseMetadata(BaseValidatorModel):
+    ResponseMetadata: ResponseMetadata
 
 
-class GetAccountSettingsResponseTypeDef(BaseValidatorModel):
-    AccountSettings: AccountSettingsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetAccountSettingsResponse(BaseValidatorModel):
+    AccountSettings: AccountSettings
+    ResponseMetadata: ResponseMetadata
 
 
-class GetPhoneNumberSettingsResponseTypeDef(BaseValidatorModel):
+class GetPhoneNumberSettingsResponse(BaseValidatorModel):
     CallingName: str
     CallingNameUpdatedTimestamp: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class SearchAvailablePhoneNumbersResponseTypeDef(BaseValidatorModel):
+class SearchAvailablePhoneNumbersResponse(BaseValidatorModel):
     E164PhoneNumbers: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class BatchDeletePhoneNumberResponseTypeDef(BaseValidatorModel):
-    PhoneNumberErrors: List[PhoneNumberErrorTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchDeletePhoneNumberResponse(BaseValidatorModel):
+    PhoneNumberErrors: List[PhoneNumberError]
+    ResponseMetadata: ResponseMetadata
 
 
-class BatchUpdatePhoneNumberResponseTypeDef(BaseValidatorModel):
-    PhoneNumberErrors: List[PhoneNumberErrorTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchUpdatePhoneNumberResponse(BaseValidatorModel):
+    PhoneNumberErrors: List[PhoneNumberError]
+    ResponseMetadata: ResponseMetadata
 
 
-class BatchSuspendUserResponseTypeDef(BaseValidatorModel):
-    UserErrors: List[UserErrorTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchSuspendUserResponse(BaseValidatorModel):
+    UserErrors: List[UserError]
+    ResponseMetadata: ResponseMetadata
 
 
-class BatchUnsuspendUserResponseTypeDef(BaseValidatorModel):
-    UserErrors: List[UserErrorTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchUnsuspendUserResponse(BaseValidatorModel):
+    UserErrors: List[UserError]
+    ResponseMetadata: ResponseMetadata
 
 
-class BatchUpdateUserResponseTypeDef(BaseValidatorModel):
-    UserErrors: List[UserErrorTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchUpdateUserResponse(BaseValidatorModel):
+    UserErrors: List[UserError]
+    ResponseMetadata: ResponseMetadata
 
 
-class BatchUpdatePhoneNumberRequestTypeDef(BaseValidatorModel):
-    UpdatePhoneNumberRequestItems: Sequence[UpdatePhoneNumberRequestItemTypeDef]
+class BatchUpdatePhoneNumberRequest(BaseValidatorModel):
+    UpdatePhoneNumberRequestItems: Sequence[UpdatePhoneNumberRequestItem]
 
 
-class CreateBotResponseTypeDef(BaseValidatorModel):
-    Bot: BotTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateBotResponse(BaseValidatorModel):
+    Bot: Bot
+    ResponseMetadata: ResponseMetadata
 
 
-class GetBotResponseTypeDef(BaseValidatorModel):
-    Bot: BotTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetBotResponse(BaseValidatorModel):
+    Bot: Bot
+    ResponseMetadata: ResponseMetadata
 
 
-class ListBotsResponseTypeDef(BaseValidatorModel):
-    Bots: List[BotTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListBotsResponse(BaseValidatorModel):
+    Bots: List[Bot]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class RegenerateSecurityTokenResponseTypeDef(BaseValidatorModel):
-    Bot: BotTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class RegenerateSecurityTokenResponse(BaseValidatorModel):
+    Bot: Bot
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateBotResponseTypeDef(BaseValidatorModel):
-    Bot: BotTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateBotResponse(BaseValidatorModel):
+    Bot: Bot
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateRoomResponseTypeDef(BaseValidatorModel):
-    Room: RoomTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateRoomResponse(BaseValidatorModel):
+    Room: Room
+    ResponseMetadata: ResponseMetadata
 
 
-class GetRoomResponseTypeDef(BaseValidatorModel):
-    Room: RoomTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetRoomResponse(BaseValidatorModel):
+    Room: Room
+    ResponseMetadata: ResponseMetadata
 
 
-class ListRoomsResponseTypeDef(BaseValidatorModel):
-    Rooms: List[RoomTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListRoomsResponse(BaseValidatorModel):
+    Rooms: List[Room]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class UpdateRoomResponseTypeDef(BaseValidatorModel):
-    Room: RoomTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateRoomResponse(BaseValidatorModel):
+    Room: Room
+    ResponseMetadata: ResponseMetadata
 
 
-class GetEventsConfigurationResponseTypeDef(BaseValidatorModel):
-    EventsConfiguration: EventsConfigurationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetEventsConfigurationResponse(BaseValidatorModel):
+    EventsConfiguration: EventsConfiguration
+    ResponseMetadata: ResponseMetadata
 
 
-class PutEventsConfigurationResponseTypeDef(BaseValidatorModel):
-    EventsConfiguration: EventsConfigurationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class PutEventsConfigurationResponse(BaseValidatorModel):
+    EventsConfiguration: EventsConfiguration
+    ResponseMetadata: ResponseMetadata
 
 
-class GetGlobalSettingsResponseTypeDef(BaseValidatorModel):
-    BusinessCalling: BusinessCallingSettingsTypeDef
-    VoiceConnector: VoiceConnectorSettingsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetGlobalSettingsResponse(BaseValidatorModel):
+    BusinessCalling: BusinessCallingSettings
+    VoiceConnector: VoiceConnectorSettings
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateGlobalSettingsRequestTypeDef(BaseValidatorModel):
-    BusinessCalling: Optional[BusinessCallingSettingsTypeDef] = None
-    VoiceConnector: Optional[VoiceConnectorSettingsTypeDef] = None
+class UpdateGlobalSettingsRequest(BaseValidatorModel):
+    BusinessCalling: Optional[BusinessCallingSettings] = None
+    VoiceConnector: Optional[VoiceConnectorSettings] = None
 
 
-class InviteUsersResponseTypeDef(BaseValidatorModel):
-    Invites: List[InviteTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class InviteUsersResponse(BaseValidatorModel):
+    Invites: List[Invite]
+    ResponseMetadata: ResponseMetadata
 
 
-class ListAccountsRequestPaginateTypeDef(BaseValidatorModel):
+class ListAccountsRequestPaginate(BaseValidatorModel):
     Name: Optional[str] = None
     UserEmail: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListUsersRequestPaginateTypeDef(BaseValidatorModel):
+class ListUsersRequestPaginate(BaseValidatorModel):
     AccountId: str
     UserEmail: Optional[str] = None
     UserType: Optional[UserTypeType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListSupportedPhoneNumberCountriesResponseTypeDef(BaseValidatorModel):
-    PhoneNumberCountries: List[PhoneNumberCountryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListSupportedPhoneNumberCountriesResponse(BaseValidatorModel):
+    PhoneNumberCountries: List[PhoneNumberCountry]
+    ResponseMetadata: ResponseMetadata
 
 
-class RoomMembershipTypeDef(BaseValidatorModel):
+class RoomMembership(BaseValidatorModel):
     RoomId: Optional[str] = None
-    Member: Optional[MemberTypeDef] = None
+    Member: Optional[Member] = None
     Role: Optional[RoomMembershipRoleType] = None
     InvitedBy: Optional[str] = None
     UpdatedTimestamp: Optional[datetime] = None
 
 
-class PhoneNumberOrderTypeDef(BaseValidatorModel):
+class PhoneNumberOrder(BaseValidatorModel):
     PhoneNumberOrderId: Optional[str] = None
     ProductType: Optional[PhoneNumberProductTypeType] = None
     Status: Optional[PhoneNumberOrderStatusType] = None
-    OrderedPhoneNumbers: Optional[List[OrderedPhoneNumberTypeDef]] = None
+    OrderedPhoneNumbers: Optional[List[OrderedPhoneNumber]] = None
     CreatedTimestamp: Optional[datetime] = None
     UpdatedTimestamp: Optional[datetime] = None
 
 
-class RetentionSettingsTypeDef(BaseValidatorModel):
-    RoomRetentionSettings: Optional[RoomRetentionSettingsTypeDef] = None
-    ConversationRetentionSettings: Optional[ConversationRetentionSettingsTypeDef] = None
+class RetentionSettings(BaseValidatorModel):
+    RoomRetentionSettings: Optional[RoomRetentionSettings] = None
+    ConversationRetentionSettings: Optional[ConversationRetentionSettings] = None
 
 
-class UserSettingsTypeDef(BaseValidatorModel):
-    Telephony: TelephonySettingsTypeDef
+class UserSettings(BaseValidatorModel):
+    Telephony: TelephonySettings
 
 
-class CreateAccountResponseTypeDef(BaseValidatorModel):
-    Account: AccountTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateAccountResponse(BaseValidatorModel):
+    Account: Account
+    ResponseMetadata: ResponseMetadata
 
 
-class GetAccountResponseTypeDef(BaseValidatorModel):
-    Account: AccountTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetAccountResponse(BaseValidatorModel):
+    Account: Account
+    ResponseMetadata: ResponseMetadata
 
 
-class ListAccountsResponseTypeDef(BaseValidatorModel):
-    Accounts: List[AccountTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAccountsResponse(BaseValidatorModel):
+    Accounts: List[Account]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class UpdateAccountResponseTypeDef(BaseValidatorModel):
-    Account: AccountTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateAccountResponse(BaseValidatorModel):
+    Account: Account
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateUserRequestItemTypeDef(BaseValidatorModel):
+class UpdateUserRequestItem(BaseValidatorModel):
     pass
 
 
-class BatchUpdateUserRequestTypeDef(BaseValidatorModel):
+class BatchUpdateUserRequest(BaseValidatorModel):
     AccountId: str
-    UpdateUserRequestItems: Sequence[UpdateUserRequestItemTypeDef]
+    UpdateUserRequestItems: Sequence[UpdateUserRequestItem]
 
 
-class UserTypeDef(BaseValidatorModel):
+class User(BaseValidatorModel):
     pass
 
 
-class CreateUserResponseTypeDef(BaseValidatorModel):
-    User: UserTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateUserResponse(BaseValidatorModel):
+    User: User
+    ResponseMetadata: ResponseMetadata
 
 
-class GetUserResponseTypeDef(BaseValidatorModel):
-    User: UserTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetUserResponse(BaseValidatorModel):
+    User: User
+    ResponseMetadata: ResponseMetadata
 
 
-class ListUsersResponseTypeDef(BaseValidatorModel):
-    Users: List[UserTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListUsersResponse(BaseValidatorModel):
+    Users: List[User]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ResetPersonalPINResponseTypeDef(BaseValidatorModel):
-    User: UserTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class ResetPersonalPINResponse(BaseValidatorModel):
+    User: User
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateUserResponseTypeDef(BaseValidatorModel):
-    User: UserTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateUserResponse(BaseValidatorModel):
+    User: User
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateRoomMembershipResponseTypeDef(BaseValidatorModel):
-    RoomMembership: RoomMembershipTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateRoomMembershipResponse(BaseValidatorModel):
+    RoomMembership: RoomMembership
+    ResponseMetadata: ResponseMetadata
 
 
-class ListRoomMembershipsResponseTypeDef(BaseValidatorModel):
-    RoomMemberships: List[RoomMembershipTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListRoomMembershipsResponse(BaseValidatorModel):
+    RoomMemberships: List[RoomMembership]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class UpdateRoomMembershipResponseTypeDef(BaseValidatorModel):
-    RoomMembership: RoomMembershipTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateRoomMembershipResponse(BaseValidatorModel):
+    RoomMembership: RoomMembership
+    ResponseMetadata: ResponseMetadata
 
 
-class CreatePhoneNumberOrderResponseTypeDef(BaseValidatorModel):
-    PhoneNumberOrder: PhoneNumberOrderTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreatePhoneNumberOrderResponse(BaseValidatorModel):
+    PhoneNumberOrder: PhoneNumberOrder
+    ResponseMetadata: ResponseMetadata
 
 
-class GetPhoneNumberOrderResponseTypeDef(BaseValidatorModel):
-    PhoneNumberOrder: PhoneNumberOrderTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetPhoneNumberOrderResponse(BaseValidatorModel):
+    PhoneNumberOrder: PhoneNumberOrder
+    ResponseMetadata: ResponseMetadata
 
 
-class ListPhoneNumberOrdersResponseTypeDef(BaseValidatorModel):
-    PhoneNumberOrders: List[PhoneNumberOrderTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListPhoneNumberOrdersResponse(BaseValidatorModel):
+    PhoneNumberOrders: List[PhoneNumberOrder]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class PhoneNumberTypeDef(BaseValidatorModel):
+class PhoneNumber(BaseValidatorModel):
     pass
 
 
-class GetPhoneNumberResponseTypeDef(BaseValidatorModel):
-    PhoneNumber: PhoneNumberTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetPhoneNumberResponse(BaseValidatorModel):
+    PhoneNumber: PhoneNumber
+    ResponseMetadata: ResponseMetadata
 
 
-class ListPhoneNumbersResponseTypeDef(BaseValidatorModel):
-    PhoneNumbers: List[PhoneNumberTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListPhoneNumbersResponse(BaseValidatorModel):
+    PhoneNumbers: List[PhoneNumber]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class RestorePhoneNumberResponseTypeDef(BaseValidatorModel):
-    PhoneNumber: PhoneNumberTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class RestorePhoneNumberResponse(BaseValidatorModel):
+    PhoneNumber: PhoneNumber
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdatePhoneNumberResponseTypeDef(BaseValidatorModel):
-    PhoneNumber: PhoneNumberTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdatePhoneNumberResponse(BaseValidatorModel):
+    PhoneNumber: PhoneNumber
+    ResponseMetadata: ResponseMetadata
 
 
-class GetRetentionSettingsResponseTypeDef(BaseValidatorModel):
-    RetentionSettings: RetentionSettingsTypeDef
+class GetRetentionSettingsResponse(BaseValidatorModel):
+    RetentionSettings: RetentionSettings
     InitiateDeletionTimestamp: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class PutRetentionSettingsRequestTypeDef(BaseValidatorModel):
+class PutRetentionSettingsRequest(BaseValidatorModel):
     AccountId: str
-    RetentionSettings: RetentionSettingsTypeDef
+    RetentionSettings: RetentionSettings
 
 
-class PutRetentionSettingsResponseTypeDef(BaseValidatorModel):
-    RetentionSettings: RetentionSettingsTypeDef
+class PutRetentionSettingsResponse(BaseValidatorModel):
+    RetentionSettings: RetentionSettings
     InitiateDeletionTimestamp: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetUserSettingsResponseTypeDef(BaseValidatorModel):
-    UserSettings: UserSettingsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetUserSettingsResponse(BaseValidatorModel):
+    UserSettings: UserSettings
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateUserSettingsRequestTypeDef(BaseValidatorModel):
+class UpdateUserSettingsRequest(BaseValidatorModel):
     AccountId: str
     UserId: str
-    UserSettings: UserSettingsTypeDef
+    UserSettings: UserSettings
 
 

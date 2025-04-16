@@ -12,21 +12,21 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.codedeploy_constants import *
 
-class TagTypeDef(BaseValidatorModel):
+class Tag(BaseValidatorModel):
     Key: Optional[str] = None
     Value: Optional[str] = None
 
 
-class AlarmTypeDef(BaseValidatorModel):
+class Alarm(BaseValidatorModel):
     name: Optional[str] = None
 
 
-class AppSpecContentTypeDef(BaseValidatorModel):
+class AppSpecContent(BaseValidatorModel):
     content: Optional[str] = None
     sha256: Optional[str] = None
 
 
-class ApplicationInfoTypeDef(BaseValidatorModel):
+class ApplicationInfo(BaseValidatorModel):
     applicationId: Optional[str] = None
     applicationName: Optional[str] = None
     createTime: Optional[datetime] = None
@@ -35,23 +35,23 @@ class ApplicationInfoTypeDef(BaseValidatorModel):
     computePlatform: Optional[ComputePlatformType] = None
 
 
-class AutoRollbackConfigurationOutputTypeDef(BaseValidatorModel):
+class AutoRollbackConfigurationOutput(BaseValidatorModel):
     enabled: Optional[bool] = None
     events: Optional[List[AutoRollbackEventType]] = None
 
 
-class AutoRollbackConfigurationTypeDef(BaseValidatorModel):
+class AutoRollbackConfiguration(BaseValidatorModel):
     enabled: Optional[bool] = None
     events: Optional[Sequence[AutoRollbackEventType]] = None
 
 
-class AutoScalingGroupTypeDef(BaseValidatorModel):
+class AutoScalingGroup(BaseValidatorModel):
     name: Optional[str] = None
     hook: Optional[str] = None
     terminationHook: Optional[str] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -59,97 +59,97 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class BatchGetApplicationsInputTypeDef(BaseValidatorModel):
+class BatchGetApplicationsInput(BaseValidatorModel):
     applicationNames: Sequence[str]
 
 
-class BatchGetDeploymentGroupsInputTypeDef(BaseValidatorModel):
+class BatchGetDeploymentGroupsInput(BaseValidatorModel):
     applicationName: str
     deploymentGroupNames: Sequence[str]
 
 
-class BatchGetDeploymentInstancesInputTypeDef(BaseValidatorModel):
+class BatchGetDeploymentInstancesInput(BaseValidatorModel):
     deploymentId: str
     instanceIds: Sequence[str]
 
 
-class BatchGetDeploymentTargetsInputTypeDef(BaseValidatorModel):
+class BatchGetDeploymentTargetsInput(BaseValidatorModel):
     deploymentId: str
     targetIds: Sequence[str]
 
 
-class BatchGetDeploymentsInputTypeDef(BaseValidatorModel):
+class BatchGetDeploymentsInput(BaseValidatorModel):
     deploymentIds: Sequence[str]
 
 
-class BatchGetOnPremisesInstancesInputTypeDef(BaseValidatorModel):
+class BatchGetOnPremisesInstancesInput(BaseValidatorModel):
     instanceNames: Sequence[str]
 
 
-class BlueInstanceTerminationOptionTypeDef(BaseValidatorModel):
+class BlueInstanceTerminationOption(BaseValidatorModel):
     action: Optional[InstanceActionType] = None
     terminationWaitTimeInMinutes: Optional[int] = None
 
 
-class DeploymentReadyOptionTypeDef(BaseValidatorModel):
+class DeploymentReadyOption(BaseValidatorModel):
     actionOnTimeout: Optional[DeploymentReadyActionType] = None
     waitTimeInMinutes: Optional[int] = None
 
 
-class GreenFleetProvisioningOptionTypeDef(BaseValidatorModel):
+class GreenFleetProvisioningOption(BaseValidatorModel):
     action: Optional[GreenFleetProvisioningActionType] = None
 
 
-class ContinueDeploymentInputTypeDef(BaseValidatorModel):
+class ContinueDeploymentInput(BaseValidatorModel):
     deploymentId: Optional[str] = None
     deploymentWaitType: Optional[DeploymentWaitTypeType] = None
 
 
-class DeploymentStyleTypeDef(BaseValidatorModel):
+class DeploymentStyle(BaseValidatorModel):
     deploymentType: Optional[DeploymentTypeType] = None
     deploymentOption: Optional[DeploymentOptionType] = None
 
 
-class ECSServiceTypeDef(BaseValidatorModel):
+class ECSService(BaseValidatorModel):
     serviceName: Optional[str] = None
     clusterName: Optional[str] = None
 
 
-class DeleteApplicationInputTypeDef(BaseValidatorModel):
+class DeleteApplicationInput(BaseValidatorModel):
     applicationName: str
 
 
-class DeleteDeploymentConfigInputTypeDef(BaseValidatorModel):
+class DeleteDeploymentConfigInput(BaseValidatorModel):
     deploymentConfigName: str
 
 
-class DeleteDeploymentGroupInputTypeDef(BaseValidatorModel):
+class DeleteDeploymentGroupInput(BaseValidatorModel):
     applicationName: str
     deploymentGroupName: str
 
 
-class DeleteGitHubAccountTokenInputTypeDef(BaseValidatorModel):
+class DeleteGitHubAccountTokenInput(BaseValidatorModel):
     tokenName: Optional[str] = None
 
 
-class DeleteResourcesByExternalIdInputTypeDef(BaseValidatorModel):
+class DeleteResourcesByExternalIdInput(BaseValidatorModel):
     externalId: Optional[str] = None
 
 
-class LastDeploymentInfoTypeDef(BaseValidatorModel):
+class LastDeploymentInfo(BaseValidatorModel):
     deploymentId: Optional[str] = None
     status: Optional[DeploymentStatusType] = None
     endTime: Optional[datetime] = None
     createTime: Optional[datetime] = None
 
 
-class TriggerConfigOutputTypeDef(BaseValidatorModel):
+class TriggerConfigOutput(BaseValidatorModel):
     triggerName: Optional[str] = None
     triggerTargetArn: Optional[str] = None
     triggerEvents: Optional[List[TriggerEventTypeType]] = None
 
 
-class DeploymentOverviewTypeDef(BaseValidatorModel):
+class DeploymentOverview(BaseValidatorModel):
     Pending: Optional[int] = None
     InProgress: Optional[int] = None
     Succeeded: Optional[int] = None
@@ -158,42 +158,42 @@ class DeploymentOverviewTypeDef(BaseValidatorModel):
     Ready: Optional[int] = None
 
 
-class ErrorInformationTypeDef(BaseValidatorModel):
+class ErrorInformation(BaseValidatorModel):
     code: Optional[ErrorCodeType] = None
     message: Optional[str] = None
 
 
-class RelatedDeploymentsTypeDef(BaseValidatorModel):
+class RelatedDeployments(BaseValidatorModel):
     autoUpdateOutdatedInstancesRootDeploymentId: Optional[str] = None
     autoUpdateOutdatedInstancesDeploymentIds: Optional[List[str]] = None
 
 
-class RollbackInfoTypeDef(BaseValidatorModel):
+class RollbackInfo(BaseValidatorModel):
     rollbackDeploymentId: Optional[str] = None
     rollbackTriggeringDeploymentId: Optional[str] = None
     rollbackMessage: Optional[str] = None
 
 
-class DeregisterOnPremisesInstanceInputTypeDef(BaseValidatorModel):
+class DeregisterOnPremisesInstanceInput(BaseValidatorModel):
     instanceName: str
 
 
-class DiagnosticsTypeDef(BaseValidatorModel):
+class Diagnostics(BaseValidatorModel):
     errorCode: Optional[LifecycleErrorCodeType] = None
     scriptName: Optional[str] = None
     message: Optional[str] = None
     logTail: Optional[str] = None
 
 
-class TargetGroupInfoTypeDef(BaseValidatorModel):
+class TargetGroupInfo(BaseValidatorModel):
     name: Optional[str] = None
 
 
-class ELBInfoTypeDef(BaseValidatorModel):
+class ELBInfo(BaseValidatorModel):
     name: Optional[str] = None
 
 
-class GenericRevisionInfoTypeDef(BaseValidatorModel):
+class GenericRevisionInfo(BaseValidatorModel):
     description: Optional[str] = None
     deploymentGroups: Optional[List[str]] = None
     firstUsedTime: Optional[datetime] = None
@@ -201,48 +201,48 @@ class GenericRevisionInfoTypeDef(BaseValidatorModel):
     registerTime: Optional[datetime] = None
 
 
-class GetApplicationInputTypeDef(BaseValidatorModel):
+class GetApplicationInput(BaseValidatorModel):
     applicationName: str
 
 
-class GetDeploymentConfigInputTypeDef(BaseValidatorModel):
+class GetDeploymentConfigInput(BaseValidatorModel):
     deploymentConfigName: str
 
 
-class GetDeploymentGroupInputTypeDef(BaseValidatorModel):
+class GetDeploymentGroupInput(BaseValidatorModel):
     applicationName: str
     deploymentGroupName: str
 
 
-class GetDeploymentInputTypeDef(BaseValidatorModel):
+class GetDeploymentInput(BaseValidatorModel):
     deploymentId: str
 
 
-class WaiterConfigTypeDef(BaseValidatorModel):
+class WaiterConfig(BaseValidatorModel):
     Delay: Optional[int] = None
     MaxAttempts: Optional[int] = None
 
 
-class GetDeploymentInstanceInputTypeDef(BaseValidatorModel):
+class GetDeploymentInstanceInput(BaseValidatorModel):
     deploymentId: str
     instanceId: str
 
 
-class GetDeploymentTargetInputTypeDef(BaseValidatorModel):
+class GetDeploymentTargetInput(BaseValidatorModel):
     deploymentId: str
     targetId: str
 
 
-class GetOnPremisesInstanceInputTypeDef(BaseValidatorModel):
+class GetOnPremisesInstanceInput(BaseValidatorModel):
     instanceName: str
 
 
-class GitHubLocationTypeDef(BaseValidatorModel):
+class GitHubLocation(BaseValidatorModel):
     repository: Optional[str] = None
     commitId: Optional[str] = None
 
 
-class LambdaFunctionInfoTypeDef(BaseValidatorModel):
+class LambdaFunctionInfo(BaseValidatorModel):
     functionName: Optional[str] = None
     functionAlias: Optional[str] = None
     currentVersion: Optional[str] = None
@@ -250,13 +250,13 @@ class LambdaFunctionInfoTypeDef(BaseValidatorModel):
     targetVersionWeight: Optional[float] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListApplicationRevisionsInputTypeDef(BaseValidatorModel):
+class ListApplicationRevisionsInput(BaseValidatorModel):
     applicationName: str
     sortBy: Optional[ApplicationRevisionSortByType] = None
     sortOrder: Optional[SortOrderType] = None
@@ -266,59 +266,59 @@ class ListApplicationRevisionsInputTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
-class ListApplicationsInputTypeDef(BaseValidatorModel):
+class ListApplicationsInput(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
-class ListDeploymentConfigsInputTypeDef(BaseValidatorModel):
+class ListDeploymentConfigsInput(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
-class ListDeploymentGroupsInputTypeDef(BaseValidatorModel):
+class ListDeploymentGroupsInput(BaseValidatorModel):
     applicationName: str
     nextToken: Optional[str] = None
 
 
-class ListDeploymentInstancesInputTypeDef(BaseValidatorModel):
+class ListDeploymentInstancesInput(BaseValidatorModel):
     deploymentId: str
     nextToken: Optional[str] = None
     instanceStatusFilter: Optional[Sequence[InstanceStatusType]] = None
     instanceTypeFilter: Optional[Sequence[InstanceTypeType]] = None
 
 
-class ListDeploymentTargetsInputTypeDef(BaseValidatorModel):
+class ListDeploymentTargetsInput(BaseValidatorModel):
     deploymentId: str
     nextToken: Optional[str] = None
     targetFilters: Optional[Mapping[TargetFilterNameType, Sequence[str]]] = None
 
 
-class ListGitHubAccountTokenNamesInputTypeDef(BaseValidatorModel):
+class ListGitHubAccountTokenNamesInput(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
-class ListTagsForResourceInputTypeDef(BaseValidatorModel):
+class ListTagsForResourceInput(BaseValidatorModel):
     ResourceArn: str
     NextToken: Optional[str] = None
 
 
-class PutLifecycleEventHookExecutionStatusInputTypeDef(BaseValidatorModel):
+class PutLifecycleEventHookExecutionStatusInput(BaseValidatorModel):
     deploymentId: Optional[str] = None
     lifecycleEventHookExecutionId: Optional[str] = None
     status: Optional[LifecycleEventStatusType] = None
 
 
-class RawStringTypeDef(BaseValidatorModel):
+class RawString(BaseValidatorModel):
     content: Optional[str] = None
     sha256: Optional[str] = None
 
 
-class RegisterOnPremisesInstanceInputTypeDef(BaseValidatorModel):
+class RegisterOnPremisesInstanceInput(BaseValidatorModel):
     instanceName: str
     iamSessionArn: Optional[str] = None
     iamUserArn: Optional[str] = None
 
 
-class S3LocationTypeDef(BaseValidatorModel):
+class S3Location(BaseValidatorModel):
     bucket: Optional[str] = None
     key: Optional[str] = None
     bundleType: Optional[BundleTypeType] = None
@@ -326,717 +326,717 @@ class S3LocationTypeDef(BaseValidatorModel):
     eTag: Optional[str] = None
 
 
-class SkipWaitTimeForInstanceTerminationInputTypeDef(BaseValidatorModel):
+class SkipWaitTimeForInstanceTerminationInput(BaseValidatorModel):
     deploymentId: Optional[str] = None
 
 
-class StopDeploymentInputTypeDef(BaseValidatorModel):
+class StopDeploymentInput(BaseValidatorModel):
     deploymentId: str
     autoRollbackEnabled: Optional[bool] = None
 
 
-class TrafficRouteOutputTypeDef(BaseValidatorModel):
+class TrafficRouteOutput(BaseValidatorModel):
     listenerArns: Optional[List[str]] = None
 
 
-class TrafficRouteTypeDef(BaseValidatorModel):
+class TrafficRoute(BaseValidatorModel):
     listenerArns: Optional[Sequence[str]] = None
 
 
-class TimeBasedCanaryTypeDef(BaseValidatorModel):
+class TimeBasedCanary(BaseValidatorModel):
     canaryPercentage: Optional[int] = None
     canaryInterval: Optional[int] = None
 
 
-class TimeBasedLinearTypeDef(BaseValidatorModel):
+class TimeBasedLinear(BaseValidatorModel):
     linearPercentage: Optional[int] = None
     linearInterval: Optional[int] = None
 
 
-class TriggerConfigTypeDef(BaseValidatorModel):
+class TriggerConfig(BaseValidatorModel):
     triggerName: Optional[str] = None
     triggerTargetArn: Optional[str] = None
     triggerEvents: Optional[Sequence[TriggerEventTypeType]] = None
 
 
-class UntagResourceInputTypeDef(BaseValidatorModel):
+class UntagResourceInput(BaseValidatorModel):
     ResourceArn: str
     TagKeys: Sequence[str]
 
 
-class UpdateApplicationInputTypeDef(BaseValidatorModel):
+class UpdateApplicationInput(BaseValidatorModel):
     applicationName: Optional[str] = None
     newApplicationName: Optional[str] = None
 
 
-class AddTagsToOnPremisesInstancesInputTypeDef(BaseValidatorModel):
-    tags: Sequence[TagTypeDef]
+class AddTagsToOnPremisesInstancesInput(BaseValidatorModel):
+    tags: Sequence[Tag]
     instanceNames: Sequence[str]
 
 
-class CreateApplicationInputTypeDef(BaseValidatorModel):
+class CreateApplicationInput(BaseValidatorModel):
     applicationName: str
     computePlatform: Optional[ComputePlatformType] = None
-    tags: Optional[Sequence[TagTypeDef]] = None
+    tags: Optional[Sequence[Tag]] = None
 
 
-class InstanceInfoTypeDef(BaseValidatorModel):
+class InstanceInfo(BaseValidatorModel):
     instanceName: Optional[str] = None
     iamSessionArn: Optional[str] = None
     iamUserArn: Optional[str] = None
     instanceArn: Optional[str] = None
     registerTime: Optional[datetime] = None
     deregisterTime: Optional[datetime] = None
-    tags: Optional[List[TagTypeDef]] = None
+    tags: Optional[List[Tag]] = None
 
 
-class RemoveTagsFromOnPremisesInstancesInputTypeDef(BaseValidatorModel):
-    tags: Sequence[TagTypeDef]
+class RemoveTagsFromOnPremisesInstancesInput(BaseValidatorModel):
+    tags: Sequence[Tag]
     instanceNames: Sequence[str]
 
 
-class TagResourceInputTypeDef(BaseValidatorModel):
+class TagResourceInput(BaseValidatorModel):
     ResourceArn: str
-    Tags: Sequence[TagTypeDef]
+    Tags: Sequence[Tag]
 
 
-class AlarmConfigurationOutputTypeDef(BaseValidatorModel):
+class AlarmConfigurationOutput(BaseValidatorModel):
     enabled: Optional[bool] = None
     ignorePollAlarmFailure: Optional[bool] = None
-    alarms: Optional[List[AlarmTypeDef]] = None
+    alarms: Optional[List[Alarm]] = None
 
 
-class AlarmConfigurationTypeDef(BaseValidatorModel):
+class AlarmConfiguration(BaseValidatorModel):
     enabled: Optional[bool] = None
     ignorePollAlarmFailure: Optional[bool] = None
-    alarms: Optional[Sequence[AlarmTypeDef]] = None
+    alarms: Optional[Sequence[Alarm]] = None
 
 
-class BatchGetApplicationsOutputTypeDef(BaseValidatorModel):
-    applicationsInfo: List[ApplicationInfoTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchGetApplicationsOutput(BaseValidatorModel):
+    applicationsInfo: List[ApplicationInfo]
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateApplicationOutputTypeDef(BaseValidatorModel):
+class CreateApplicationOutput(BaseValidatorModel):
     applicationId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateDeploymentConfigOutputTypeDef(BaseValidatorModel):
+class CreateDeploymentConfigOutput(BaseValidatorModel):
     deploymentConfigId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateDeploymentGroupOutputTypeDef(BaseValidatorModel):
+class CreateDeploymentGroupOutput(BaseValidatorModel):
     deploymentGroupId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateDeploymentOutputTypeDef(BaseValidatorModel):
+class CreateDeploymentOutput(BaseValidatorModel):
     deploymentId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteDeploymentGroupOutputTypeDef(BaseValidatorModel):
-    hooksNotCleanedUp: List[AutoScalingGroupTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeleteDeploymentGroupOutput(BaseValidatorModel):
+    hooksNotCleanedUp: List[AutoScalingGroup]
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteGitHubAccountTokenOutputTypeDef(BaseValidatorModel):
+class DeleteGitHubAccountTokenOutput(BaseValidatorModel):
     tokenName: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class EmptyResponseMetadataTypeDef(BaseValidatorModel):
-    ResponseMetadata: ResponseMetadataTypeDef
+class EmptyResponseMetadata(BaseValidatorModel):
+    ResponseMetadata: ResponseMetadata
 
 
-class GetApplicationOutputTypeDef(BaseValidatorModel):
-    application: ApplicationInfoTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetApplicationOutput(BaseValidatorModel):
+    application: ApplicationInfo
+    ResponseMetadata: ResponseMetadata
 
 
-class ListApplicationsOutputTypeDef(BaseValidatorModel):
+class ListApplicationsOutput(BaseValidatorModel):
     applications: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListDeploymentConfigsOutputTypeDef(BaseValidatorModel):
+class ListDeploymentConfigsOutput(BaseValidatorModel):
     deploymentConfigsList: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListDeploymentGroupsOutputTypeDef(BaseValidatorModel):
+class ListDeploymentGroupsOutput(BaseValidatorModel):
     applicationName: str
     deploymentGroups: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListDeploymentInstancesOutputTypeDef(BaseValidatorModel):
+class ListDeploymentInstancesOutput(BaseValidatorModel):
     instancesList: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListDeploymentTargetsOutputTypeDef(BaseValidatorModel):
+class ListDeploymentTargetsOutput(BaseValidatorModel):
     targetIds: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListDeploymentsOutputTypeDef(BaseValidatorModel):
+class ListDeploymentsOutput(BaseValidatorModel):
     deployments: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListGitHubAccountTokenNamesOutputTypeDef(BaseValidatorModel):
+class ListGitHubAccountTokenNamesOutput(BaseValidatorModel):
     tokenNameList: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListOnPremisesInstancesOutputTypeDef(BaseValidatorModel):
+class ListOnPremisesInstancesOutput(BaseValidatorModel):
     instanceNames: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListTagsForResourceOutputTypeDef(BaseValidatorModel):
-    Tags: List[TagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListTagsForResourceOutput(BaseValidatorModel):
+    Tags: List[Tag]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class PutLifecycleEventHookExecutionStatusOutputTypeDef(BaseValidatorModel):
+class PutLifecycleEventHookExecutionStatusOutput(BaseValidatorModel):
     lifecycleEventHookExecutionId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StopDeploymentOutputTypeDef(BaseValidatorModel):
+class StopDeploymentOutput(BaseValidatorModel):
     status: StopStatusType
     statusMessage: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateDeploymentGroupOutputTypeDef(BaseValidatorModel):
-    hooksNotCleanedUp: List[AutoScalingGroupTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateDeploymentGroupOutput(BaseValidatorModel):
+    hooksNotCleanedUp: List[AutoScalingGroup]
+    ResponseMetadata: ResponseMetadata
 
 
-class BlueGreenDeploymentConfigurationTypeDef(BaseValidatorModel):
-    terminateBlueInstancesOnDeploymentSuccess: Optional[BlueInstanceTerminationOptionTypeDef] = None
-    deploymentReadyOption: Optional[DeploymentReadyOptionTypeDef] = None
-    greenFleetProvisioningOption: Optional[GreenFleetProvisioningOptionTypeDef] = None
+class BlueGreenDeploymentConfiguration(BaseValidatorModel):
+    terminateBlueInstancesOnDeploymentSuccess: Optional[BlueInstanceTerminationOption] = None
+    deploymentReadyOption: Optional[DeploymentReadyOption] = None
+    greenFleetProvisioningOption: Optional[GreenFleetProvisioningOption] = None
 
 
-class EC2TagFilterTypeDef(BaseValidatorModel):
+class EC2TagFilter(BaseValidatorModel):
     pass
 
 
-class EC2TagSetOutputTypeDef(BaseValidatorModel):
-    ec2TagSetList: Optional[List[List[EC2TagFilterTypeDef]]] = None
+class EC2TagSetOutput(BaseValidatorModel):
+    ec2TagSetList: Optional[List[List[EC2TagFilter]]] = None
 
 
-class EC2TagSetTypeDef(BaseValidatorModel):
-    ec2TagSetList: Optional[Sequence[Sequence[EC2TagFilterTypeDef]]] = None
+class EC2TagSet(BaseValidatorModel):
+    ec2TagSetList: Optional[Sequence[Sequence[EC2TagFilter]]] = None
 
 
-class TagFilterTypeDef(BaseValidatorModel):
+class TagFilter(BaseValidatorModel):
     pass
 
 
-class ListOnPremisesInstancesInputTypeDef(BaseValidatorModel):
+class ListOnPremisesInstancesInput(BaseValidatorModel):
     registrationStatus: Optional[RegistrationStatusType] = None
-    tagFilters: Optional[Sequence[TagFilterTypeDef]] = None
+    tagFilters: Optional[Sequence[TagFilter]] = None
     nextToken: Optional[str] = None
 
 
-class OnPremisesTagSetOutputTypeDef(BaseValidatorModel):
-    onPremisesTagSetList: Optional[List[List[TagFilterTypeDef]]] = None
+class OnPremisesTagSetOutput(BaseValidatorModel):
+    onPremisesTagSetList: Optional[List[List[TagFilter]]] = None
 
 
-class OnPremisesTagSetTypeDef(BaseValidatorModel):
-    onPremisesTagSetList: Optional[Sequence[Sequence[TagFilterTypeDef]]] = None
+class OnPremisesTagSet(BaseValidatorModel):
+    onPremisesTagSetList: Optional[Sequence[Sequence[TagFilter]]] = None
 
 
-class LifecycleEventTypeDef(BaseValidatorModel):
+class LifecycleEvent(BaseValidatorModel):
     lifecycleEventName: Optional[str] = None
-    diagnostics: Optional[DiagnosticsTypeDef] = None
+    diagnostics: Optional[Diagnostics] = None
     startTime: Optional[datetime] = None
     endTime: Optional[datetime] = None
     status: Optional[LifecycleEventStatusType] = None
 
 
-class ECSTaskSetTypeDef(BaseValidatorModel):
+class ECSTaskSet(BaseValidatorModel):
     identifer: Optional[str] = None
     desiredCount: Optional[int] = None
     pendingCount: Optional[int] = None
     runningCount: Optional[int] = None
     status: Optional[str] = None
     trafficWeight: Optional[float] = None
-    targetGroup: Optional[TargetGroupInfoTypeDef] = None
+    targetGroup: Optional[TargetGroupInfo] = None
     taskSetLabel: Optional[TargetLabelType] = None
 
 
-class GetDeploymentInputWaitTypeDef(BaseValidatorModel):
+class GetDeploymentInputWait(BaseValidatorModel):
     deploymentId: str
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class ListApplicationRevisionsInputPaginateTypeDef(BaseValidatorModel):
+class ListApplicationRevisionsInputPaginate(BaseValidatorModel):
     applicationName: str
     sortBy: Optional[ApplicationRevisionSortByType] = None
     sortOrder: Optional[SortOrderType] = None
     s3Bucket: Optional[str] = None
     s3KeyPrefix: Optional[str] = None
     deployed: Optional[ListStateFilterActionType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListApplicationsInputPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListApplicationsInputPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListDeploymentConfigsInputPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListDeploymentConfigsInputPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListDeploymentGroupsInputPaginateTypeDef(BaseValidatorModel):
+class ListDeploymentGroupsInputPaginate(BaseValidatorModel):
     applicationName: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListDeploymentInstancesInputPaginateTypeDef(BaseValidatorModel):
+class ListDeploymentInstancesInputPaginate(BaseValidatorModel):
     deploymentId: str
     instanceStatusFilter: Optional[Sequence[InstanceStatusType]] = None
     instanceTypeFilter: Optional[Sequence[InstanceTypeType]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListDeploymentTargetsInputPaginateTypeDef(BaseValidatorModel):
+class ListDeploymentTargetsInputPaginate(BaseValidatorModel):
     deploymentId: str
     targetFilters: Optional[Mapping[TargetFilterNameType, Sequence[str]]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListGitHubAccountTokenNamesInputPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListGitHubAccountTokenNamesInputPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListOnPremisesInstancesInputPaginateTypeDef(BaseValidatorModel):
+class ListOnPremisesInstancesInputPaginate(BaseValidatorModel):
     registrationStatus: Optional[RegistrationStatusType] = None
-    tagFilters: Optional[Sequence[TagFilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    tagFilters: Optional[Sequence[TagFilter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class MinimumHealthyHostsPerZoneTypeDef(BaseValidatorModel):
+class MinimumHealthyHostsPerZone(BaseValidatorModel):
     pass
 
 
-class ZonalConfigTypeDef(BaseValidatorModel):
+class ZonalConfig(BaseValidatorModel):
     firstZoneMonitorDurationInSeconds: Optional[int] = None
     monitorDurationInSeconds: Optional[int] = None
-    minimumHealthyHostsPerZone: Optional[MinimumHealthyHostsPerZoneTypeDef] = None
+    minimumHealthyHostsPerZone: Optional[MinimumHealthyHostsPerZone] = None
 
 
-class RevisionLocationTypeDef(BaseValidatorModel):
+class RevisionLocation(BaseValidatorModel):
     revisionType: Optional[RevisionLocationTypeType] = None
-    s3Location: Optional[S3LocationTypeDef] = None
-    gitHubLocation: Optional[GitHubLocationTypeDef] = None
-    string: Optional[RawStringTypeDef] = None
-    appSpecContent: Optional[AppSpecContentTypeDef] = None
+    s3Location: Optional[S3Location] = None
+    gitHubLocation: Optional[GitHubLocation] = None
+    string: Optional[RawString] = None
+    appSpecContent: Optional[AppSpecContent] = None
 
 
-class TargetGroupPairInfoOutputTypeDef(BaseValidatorModel):
-    targetGroups: Optional[List[TargetGroupInfoTypeDef]] = None
-    prodTrafficRoute: Optional[TrafficRouteOutputTypeDef] = None
-    testTrafficRoute: Optional[TrafficRouteOutputTypeDef] = None
+class TargetGroupPairInfoOutput(BaseValidatorModel):
+    targetGroups: Optional[List[TargetGroupInfo]] = None
+    prodTrafficRoute: Optional[TrafficRouteOutput] = None
+    testTrafficRoute: Optional[TrafficRouteOutput] = None
 
 
-class TargetGroupPairInfoTypeDef(BaseValidatorModel):
-    targetGroups: Optional[Sequence[TargetGroupInfoTypeDef]] = None
-    prodTrafficRoute: Optional[TrafficRouteTypeDef] = None
-    testTrafficRoute: Optional[TrafficRouteTypeDef] = None
+class TargetGroupPairInfo(BaseValidatorModel):
+    targetGroups: Optional[Sequence[TargetGroupInfo]] = None
+    prodTrafficRoute: Optional[TrafficRoute] = None
+    testTrafficRoute: Optional[TrafficRoute] = None
 
 
-class TimestampTypeDef(BaseValidatorModel):
+class Timestamp(BaseValidatorModel):
     pass
 
 
-class TimeRangeTypeDef(BaseValidatorModel):
-    start: Optional[TimestampTypeDef] = None
-    end: Optional[TimestampTypeDef] = None
+class TimeRange(BaseValidatorModel):
+    start: Optional[Timestamp] = None
+    end: Optional[Timestamp] = None
 
 
-class BatchGetOnPremisesInstancesOutputTypeDef(BaseValidatorModel):
-    instanceInfos: List[InstanceInfoTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchGetOnPremisesInstancesOutput(BaseValidatorModel):
+    instanceInfos: List[InstanceInfo]
+    ResponseMetadata: ResponseMetadata
 
 
-class GetOnPremisesInstanceOutputTypeDef(BaseValidatorModel):
-    instanceInfo: InstanceInfoTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetOnPremisesInstanceOutput(BaseValidatorModel):
+    instanceInfo: InstanceInfo
+    ResponseMetadata: ResponseMetadata
 
 
-class TargetInstancesOutputTypeDef(BaseValidatorModel):
-    tagFilters: Optional[List[EC2TagFilterTypeDef]] = None
+class TargetInstancesOutput(BaseValidatorModel):
+    tagFilters: Optional[List[EC2TagFilter]] = None
     autoScalingGroups: Optional[List[str]] = None
-    ec2TagSet: Optional[EC2TagSetOutputTypeDef] = None
+    ec2TagSet: Optional[EC2TagSetOutput] = None
 
 
-class TargetInstancesTypeDef(BaseValidatorModel):
-    tagFilters: Optional[Sequence[EC2TagFilterTypeDef]] = None
+class TargetInstances(BaseValidatorModel):
+    tagFilters: Optional[Sequence[EC2TagFilter]] = None
     autoScalingGroups: Optional[Sequence[str]] = None
-    ec2TagSet: Optional[EC2TagSetTypeDef] = None
+    ec2TagSet: Optional[EC2TagSet] = None
 
 
-class CloudFormationTargetTypeDef(BaseValidatorModel):
+class CloudFormationTarget(BaseValidatorModel):
     deploymentId: Optional[str] = None
     targetId: Optional[str] = None
     lastUpdatedAt: Optional[datetime] = None
-    lifecycleEvents: Optional[List[LifecycleEventTypeDef]] = None
+    lifecycleEvents: Optional[List[LifecycleEvent]] = None
     status: Optional[TargetStatusType] = None
     resourceType: Optional[str] = None
     targetVersionWeight: Optional[float] = None
 
 
-class InstanceSummaryTypeDef(BaseValidatorModel):
+class InstanceSummary(BaseValidatorModel):
     deploymentId: Optional[str] = None
     instanceId: Optional[str] = None
     status: Optional[InstanceStatusType] = None
     lastUpdatedAt: Optional[datetime] = None
-    lifecycleEvents: Optional[List[LifecycleEventTypeDef]] = None
+    lifecycleEvents: Optional[List[LifecycleEvent]] = None
     instanceType: Optional[InstanceTypeType] = None
 
 
-class InstanceTargetTypeDef(BaseValidatorModel):
+class InstanceTarget(BaseValidatorModel):
     deploymentId: Optional[str] = None
     targetId: Optional[str] = None
     targetArn: Optional[str] = None
     status: Optional[TargetStatusType] = None
     lastUpdatedAt: Optional[datetime] = None
-    lifecycleEvents: Optional[List[LifecycleEventTypeDef]] = None
+    lifecycleEvents: Optional[List[LifecycleEvent]] = None
     instanceLabel: Optional[TargetLabelType] = None
 
 
-class LambdaTargetTypeDef(BaseValidatorModel):
+class LambdaTarget(BaseValidatorModel):
     deploymentId: Optional[str] = None
     targetId: Optional[str] = None
     targetArn: Optional[str] = None
     status: Optional[TargetStatusType] = None
     lastUpdatedAt: Optional[datetime] = None
-    lifecycleEvents: Optional[List[LifecycleEventTypeDef]] = None
-    lambdaFunctionInfo: Optional[LambdaFunctionInfoTypeDef] = None
+    lifecycleEvents: Optional[List[LifecycleEvent]] = None
+    lambdaFunctionInfo: Optional[LambdaFunctionInfo] = None
 
 
-class ECSTargetTypeDef(BaseValidatorModel):
+class ECSTarget(BaseValidatorModel):
     deploymentId: Optional[str] = None
     targetId: Optional[str] = None
     targetArn: Optional[str] = None
     lastUpdatedAt: Optional[datetime] = None
-    lifecycleEvents: Optional[List[LifecycleEventTypeDef]] = None
+    lifecycleEvents: Optional[List[LifecycleEvent]] = None
     status: Optional[TargetStatusType] = None
-    taskSetsInfo: Optional[List[ECSTaskSetTypeDef]] = None
+    taskSetsInfo: Optional[List[ECSTaskSet]] = None
 
 
-class BatchGetApplicationRevisionsInputTypeDef(BaseValidatorModel):
+class BatchGetApplicationRevisionsInput(BaseValidatorModel):
     applicationName: str
-    revisions: Sequence[RevisionLocationTypeDef]
+    revisions: Sequence[RevisionLocation]
 
 
-class GetApplicationRevisionInputTypeDef(BaseValidatorModel):
+class GetApplicationRevisionInput(BaseValidatorModel):
     applicationName: str
-    revision: RevisionLocationTypeDef
+    revision: RevisionLocation
 
 
-class GetApplicationRevisionOutputTypeDef(BaseValidatorModel):
+class GetApplicationRevisionOutput(BaseValidatorModel):
     applicationName: str
-    revision: RevisionLocationTypeDef
-    revisionInfo: GenericRevisionInfoTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    revision: RevisionLocation
+    revisionInfo: GenericRevisionInfo
+    ResponseMetadata: ResponseMetadata
 
 
-class ListApplicationRevisionsOutputTypeDef(BaseValidatorModel):
-    revisions: List[RevisionLocationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListApplicationRevisionsOutput(BaseValidatorModel):
+    revisions: List[RevisionLocation]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class RegisterApplicationRevisionInputTypeDef(BaseValidatorModel):
+class RegisterApplicationRevisionInput(BaseValidatorModel):
     applicationName: str
-    revision: RevisionLocationTypeDef
+    revision: RevisionLocation
     description: Optional[str] = None
 
 
-class RevisionInfoTypeDef(BaseValidatorModel):
-    revisionLocation: Optional[RevisionLocationTypeDef] = None
-    genericRevisionInfo: Optional[GenericRevisionInfoTypeDef] = None
+class RevisionInfo(BaseValidatorModel):
+    revisionLocation: Optional[RevisionLocation] = None
+    genericRevisionInfo: Optional[GenericRevisionInfo] = None
 
 
-class LoadBalancerInfoOutputTypeDef(BaseValidatorModel):
-    elbInfoList: Optional[List[ELBInfoTypeDef]] = None
-    targetGroupInfoList: Optional[List[TargetGroupInfoTypeDef]] = None
-    targetGroupPairInfoList: Optional[List[TargetGroupPairInfoOutputTypeDef]] = None
+class LoadBalancerInfoOutput(BaseValidatorModel):
+    elbInfoList: Optional[List[ELBInfo]] = None
+    targetGroupInfoList: Optional[List[TargetGroupInfo]] = None
+    targetGroupPairInfoList: Optional[List[TargetGroupPairInfoOutput]] = None
 
 
-class LoadBalancerInfoTypeDef(BaseValidatorModel):
-    elbInfoList: Optional[Sequence[ELBInfoTypeDef]] = None
-    targetGroupInfoList: Optional[Sequence[TargetGroupInfoTypeDef]] = None
-    targetGroupPairInfoList: Optional[Sequence[TargetGroupPairInfoTypeDef]] = None
+class LoadBalancerInfo(BaseValidatorModel):
+    elbInfoList: Optional[Sequence[ELBInfo]] = None
+    targetGroupInfoList: Optional[Sequence[TargetGroupInfo]] = None
+    targetGroupPairInfoList: Optional[Sequence[TargetGroupPairInfo]] = None
 
 
-class TrafficRoutingConfigTypeDef(BaseValidatorModel):
+class TrafficRoutingConfig(BaseValidatorModel):
     pass
 
 
-class MinimumHealthyHostsTypeDef(BaseValidatorModel):
+class MinimumHealthyHosts(BaseValidatorModel):
     pass
 
 
-class CreateDeploymentConfigInputTypeDef(BaseValidatorModel):
+class CreateDeploymentConfigInput(BaseValidatorModel):
     deploymentConfigName: str
-    minimumHealthyHosts: Optional[MinimumHealthyHostsTypeDef] = None
-    trafficRoutingConfig: Optional[TrafficRoutingConfigTypeDef] = None
+    minimumHealthyHosts: Optional[MinimumHealthyHosts] = None
+    trafficRoutingConfig: Optional[TrafficRoutingConfig] = None
     computePlatform: Optional[ComputePlatformType] = None
-    zonalConfig: Optional[ZonalConfigTypeDef] = None
+    zonalConfig: Optional[ZonalConfig] = None
 
 
-class DeploymentConfigInfoTypeDef(BaseValidatorModel):
+class DeploymentConfigInfo(BaseValidatorModel):
     deploymentConfigId: Optional[str] = None
     deploymentConfigName: Optional[str] = None
-    minimumHealthyHosts: Optional[MinimumHealthyHostsTypeDef] = None
+    minimumHealthyHosts: Optional[MinimumHealthyHosts] = None
     createTime: Optional[datetime] = None
     computePlatform: Optional[ComputePlatformType] = None
-    trafficRoutingConfig: Optional[TrafficRoutingConfigTypeDef] = None
-    zonalConfig: Optional[ZonalConfigTypeDef] = None
+    trafficRoutingConfig: Optional[TrafficRoutingConfig] = None
+    zonalConfig: Optional[ZonalConfig] = None
 
 
-class ListDeploymentsInputPaginateTypeDef(BaseValidatorModel):
+class ListDeploymentsInputPaginate(BaseValidatorModel):
     applicationName: Optional[str] = None
     deploymentGroupName: Optional[str] = None
     externalId: Optional[str] = None
     includeOnlyStatuses: Optional[Sequence[DeploymentStatusType]] = None
-    createTimeRange: Optional[TimeRangeTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    createTimeRange: Optional[TimeRange] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListDeploymentsInputTypeDef(BaseValidatorModel):
+class ListDeploymentsInput(BaseValidatorModel):
     applicationName: Optional[str] = None
     deploymentGroupName: Optional[str] = None
     externalId: Optional[str] = None
     includeOnlyStatuses: Optional[Sequence[DeploymentStatusType]] = None
-    createTimeRange: Optional[TimeRangeTypeDef] = None
+    createTimeRange: Optional[TimeRange] = None
     nextToken: Optional[str] = None
 
 
-class BatchGetDeploymentInstancesOutputTypeDef(BaseValidatorModel):
-    instancesSummary: List[InstanceSummaryTypeDef]
+class BatchGetDeploymentInstancesOutput(BaseValidatorModel):
+    instancesSummary: List[InstanceSummary]
     errorMessage: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetDeploymentInstanceOutputTypeDef(BaseValidatorModel):
-    instanceSummary: InstanceSummaryTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetDeploymentInstanceOutput(BaseValidatorModel):
+    instanceSummary: InstanceSummary
+    ResponseMetadata: ResponseMetadata
 
 
-class DeploymentTargetTypeDef(BaseValidatorModel):
+class DeploymentTarget(BaseValidatorModel):
     deploymentTargetType: Optional[DeploymentTargetTypeType] = None
-    instanceTarget: Optional[InstanceTargetTypeDef] = None
-    lambdaTarget: Optional[LambdaTargetTypeDef] = None
-    ecsTarget: Optional[ECSTargetTypeDef] = None
-    cloudFormationTarget: Optional[CloudFormationTargetTypeDef] = None
+    instanceTarget: Optional[InstanceTarget] = None
+    lambdaTarget: Optional[LambdaTarget] = None
+    ecsTarget: Optional[ECSTarget] = None
+    cloudFormationTarget: Optional[CloudFormationTarget] = None
 
 
-class BatchGetApplicationRevisionsOutputTypeDef(BaseValidatorModel):
+class BatchGetApplicationRevisionsOutput(BaseValidatorModel):
     applicationName: str
     errorMessage: str
-    revisions: List[RevisionInfoTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    revisions: List[RevisionInfo]
+    ResponseMetadata: ResponseMetadata
 
 
-class DeploymentGroupInfoTypeDef(BaseValidatorModel):
+class DeploymentGroupInfo(BaseValidatorModel):
     applicationName: Optional[str] = None
     deploymentGroupId: Optional[str] = None
     deploymentGroupName: Optional[str] = None
     deploymentConfigName: Optional[str] = None
-    ec2TagFilters: Optional[List[EC2TagFilterTypeDef]] = None
-    onPremisesInstanceTagFilters: Optional[List[TagFilterTypeDef]] = None
-    autoScalingGroups: Optional[List[AutoScalingGroupTypeDef]] = None
+    ec2TagFilters: Optional[List[EC2TagFilter]] = None
+    onPremisesInstanceTagFilters: Optional[List[TagFilter]] = None
+    autoScalingGroups: Optional[List[AutoScalingGroup]] = None
     serviceRoleArn: Optional[str] = None
-    targetRevision: Optional[RevisionLocationTypeDef] = None
-    triggerConfigurations: Optional[List[TriggerConfigOutputTypeDef]] = None
-    alarmConfiguration: Optional[AlarmConfigurationOutputTypeDef] = None
-    autoRollbackConfiguration: Optional[AutoRollbackConfigurationOutputTypeDef] = None
-    deploymentStyle: Optional[DeploymentStyleTypeDef] = None
+    targetRevision: Optional[RevisionLocation] = None
+    triggerConfigurations: Optional[List[TriggerConfigOutput]] = None
+    alarmConfiguration: Optional[AlarmConfigurationOutput] = None
+    autoRollbackConfiguration: Optional[AutoRollbackConfigurationOutput] = None
+    deploymentStyle: Optional[DeploymentStyle] = None
     outdatedInstancesStrategy: Optional[OutdatedInstancesStrategyType] = None
-    blueGreenDeploymentConfiguration: Optional[BlueGreenDeploymentConfigurationTypeDef] = None
-    loadBalancerInfo: Optional[LoadBalancerInfoOutputTypeDef] = None
-    lastSuccessfulDeployment: Optional[LastDeploymentInfoTypeDef] = None
-    lastAttemptedDeployment: Optional[LastDeploymentInfoTypeDef] = None
-    ec2TagSet: Optional[EC2TagSetOutputTypeDef] = None
-    onPremisesTagSet: Optional[OnPremisesTagSetOutputTypeDef] = None
+    blueGreenDeploymentConfiguration: Optional[BlueGreenDeploymentConfiguration] = None
+    loadBalancerInfo: Optional[LoadBalancerInfoOutput] = None
+    lastSuccessfulDeployment: Optional[LastDeploymentInfo] = None
+    lastAttemptedDeployment: Optional[LastDeploymentInfo] = None
+    ec2TagSet: Optional[EC2TagSetOutput] = None
+    onPremisesTagSet: Optional[OnPremisesTagSetOutput] = None
     computePlatform: Optional[ComputePlatformType] = None
-    ecsServices: Optional[List[ECSServiceTypeDef]] = None
+    ecsServices: Optional[List[ECSService]] = None
     terminationHookEnabled: Optional[bool] = None
 
 
-class DeploymentInfoTypeDef(BaseValidatorModel):
+class DeploymentInfo(BaseValidatorModel):
     applicationName: Optional[str] = None
     deploymentGroupName: Optional[str] = None
     deploymentConfigName: Optional[str] = None
     deploymentId: Optional[str] = None
-    previousRevision: Optional[RevisionLocationTypeDef] = None
-    revision: Optional[RevisionLocationTypeDef] = None
+    previousRevision: Optional[RevisionLocation] = None
+    revision: Optional[RevisionLocation] = None
     status: Optional[DeploymentStatusType] = None
-    errorInformation: Optional[ErrorInformationTypeDef] = None
+    errorInformation: Optional[ErrorInformation] = None
     createTime: Optional[datetime] = None
     startTime: Optional[datetime] = None
     completeTime: Optional[datetime] = None
-    deploymentOverview: Optional[DeploymentOverviewTypeDef] = None
+    deploymentOverview: Optional[DeploymentOverview] = None
     description: Optional[str] = None
     creator: Optional[DeploymentCreatorType] = None
     ignoreApplicationStopFailures: Optional[bool] = None
-    autoRollbackConfiguration: Optional[AutoRollbackConfigurationOutputTypeDef] = None
+    autoRollbackConfiguration: Optional[AutoRollbackConfigurationOutput] = None
     updateOutdatedInstancesOnly: Optional[bool] = None
-    rollbackInfo: Optional[RollbackInfoTypeDef] = None
-    deploymentStyle: Optional[DeploymentStyleTypeDef] = None
-    targetInstances: Optional[TargetInstancesOutputTypeDef] = None
+    rollbackInfo: Optional[RollbackInfo] = None
+    deploymentStyle: Optional[DeploymentStyle] = None
+    targetInstances: Optional[TargetInstancesOutput] = None
     instanceTerminationWaitTimeStarted: Optional[bool] = None
-    blueGreenDeploymentConfiguration: Optional[BlueGreenDeploymentConfigurationTypeDef] = None
-    loadBalancerInfo: Optional[LoadBalancerInfoOutputTypeDef] = None
+    blueGreenDeploymentConfiguration: Optional[BlueGreenDeploymentConfiguration] = None
+    loadBalancerInfo: Optional[LoadBalancerInfoOutput] = None
     additionalDeploymentStatusInfo: Optional[str] = None
     fileExistsBehavior: Optional[FileExistsBehaviorType] = None
     deploymentStatusMessages: Optional[List[str]] = None
     computePlatform: Optional[ComputePlatformType] = None
     externalId: Optional[str] = None
-    relatedDeployments: Optional[RelatedDeploymentsTypeDef] = None
-    overrideAlarmConfiguration: Optional[AlarmConfigurationOutputTypeDef] = None
+    relatedDeployments: Optional[RelatedDeployments] = None
+    overrideAlarmConfiguration: Optional[AlarmConfigurationOutput] = None
 
 
-class GetDeploymentConfigOutputTypeDef(BaseValidatorModel):
-    deploymentConfigInfo: DeploymentConfigInfoTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetDeploymentConfigOutput(BaseValidatorModel):
+    deploymentConfigInfo: DeploymentConfigInfo
+    ResponseMetadata: ResponseMetadata
 
 
-class AutoRollbackConfigurationUnionTypeDef(BaseValidatorModel):
+class AutoRollbackConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class AlarmConfigurationUnionTypeDef(BaseValidatorModel):
+class AlarmConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class TargetInstancesUnionTypeDef(BaseValidatorModel):
+class TargetInstancesUnion(BaseValidatorModel):
     pass
 
 
-class CreateDeploymentInputTypeDef(BaseValidatorModel):
+class CreateDeploymentInput(BaseValidatorModel):
     applicationName: str
     deploymentGroupName: Optional[str] = None
-    revision: Optional[RevisionLocationTypeDef] = None
+    revision: Optional[RevisionLocation] = None
     deploymentConfigName: Optional[str] = None
     description: Optional[str] = None
     ignoreApplicationStopFailures: Optional[bool] = None
-    targetInstances: Optional[TargetInstancesUnionTypeDef] = None
-    autoRollbackConfiguration: Optional[AutoRollbackConfigurationUnionTypeDef] = None
+    targetInstances: Optional[TargetInstancesUnion] = None
+    autoRollbackConfiguration: Optional[AutoRollbackConfigurationUnion] = None
     updateOutdatedInstancesOnly: Optional[bool] = None
     fileExistsBehavior: Optional[FileExistsBehaviorType] = None
-    overrideAlarmConfiguration: Optional[AlarmConfigurationUnionTypeDef] = None
+    overrideAlarmConfiguration: Optional[AlarmConfigurationUnion] = None
 
 
-class BatchGetDeploymentTargetsOutputTypeDef(BaseValidatorModel):
-    deploymentTargets: List[DeploymentTargetTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchGetDeploymentTargetsOutput(BaseValidatorModel):
+    deploymentTargets: List[DeploymentTarget]
+    ResponseMetadata: ResponseMetadata
 
 
-class GetDeploymentTargetOutputTypeDef(BaseValidatorModel):
-    deploymentTarget: DeploymentTargetTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetDeploymentTargetOutput(BaseValidatorModel):
+    deploymentTarget: DeploymentTarget
+    ResponseMetadata: ResponseMetadata
 
 
-class BatchGetDeploymentGroupsOutputTypeDef(BaseValidatorModel):
-    deploymentGroupsInfo: List[DeploymentGroupInfoTypeDef]
+class BatchGetDeploymentGroupsOutput(BaseValidatorModel):
+    deploymentGroupsInfo: List[DeploymentGroupInfo]
     errorMessage: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetDeploymentGroupOutputTypeDef(BaseValidatorModel):
-    deploymentGroupInfo: DeploymentGroupInfoTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetDeploymentGroupOutput(BaseValidatorModel):
+    deploymentGroupInfo: DeploymentGroupInfo
+    ResponseMetadata: ResponseMetadata
 
 
-class BatchGetDeploymentsOutputTypeDef(BaseValidatorModel):
-    deploymentsInfo: List[DeploymentInfoTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchGetDeploymentsOutput(BaseValidatorModel):
+    deploymentsInfo: List[DeploymentInfo]
+    ResponseMetadata: ResponseMetadata
 
 
-class GetDeploymentOutputTypeDef(BaseValidatorModel):
-    deploymentInfo: DeploymentInfoTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetDeploymentOutput(BaseValidatorModel):
+    deploymentInfo: DeploymentInfo
+    ResponseMetadata: ResponseMetadata
 
 
-class LoadBalancerInfoUnionTypeDef(BaseValidatorModel):
+class LoadBalancerInfoUnion(BaseValidatorModel):
     pass
 
 
-class OnPremisesTagSetUnionTypeDef(BaseValidatorModel):
+class OnPremisesTagSetUnion(BaseValidatorModel):
     pass
 
 
-class TriggerConfigUnionTypeDef(BaseValidatorModel):
+class TriggerConfigUnion(BaseValidatorModel):
     pass
 
 
-class EC2TagSetUnionTypeDef(BaseValidatorModel):
+class EC2TagSetUnion(BaseValidatorModel):
     pass
 
 
-class CreateDeploymentGroupInputTypeDef(BaseValidatorModel):
+class CreateDeploymentGroupInput(BaseValidatorModel):
     applicationName: str
     deploymentGroupName: str
     serviceRoleArn: str
     deploymentConfigName: Optional[str] = None
-    ec2TagFilters: Optional[Sequence[EC2TagFilterTypeDef]] = None
-    onPremisesInstanceTagFilters: Optional[Sequence[TagFilterTypeDef]] = None
+    ec2TagFilters: Optional[Sequence[EC2TagFilter]] = None
+    onPremisesInstanceTagFilters: Optional[Sequence[TagFilter]] = None
     autoScalingGroups: Optional[Sequence[str]] = None
-    triggerConfigurations: Optional[Sequence[TriggerConfigUnionTypeDef]] = None
-    alarmConfiguration: Optional[AlarmConfigurationUnionTypeDef] = None
-    autoRollbackConfiguration: Optional[AutoRollbackConfigurationUnionTypeDef] = None
+    triggerConfigurations: Optional[Sequence[TriggerConfigUnion]] = None
+    alarmConfiguration: Optional[AlarmConfigurationUnion] = None
+    autoRollbackConfiguration: Optional[AutoRollbackConfigurationUnion] = None
     outdatedInstancesStrategy: Optional[OutdatedInstancesStrategyType] = None
-    deploymentStyle: Optional[DeploymentStyleTypeDef] = None
-    blueGreenDeploymentConfiguration: Optional[BlueGreenDeploymentConfigurationTypeDef] = None
-    loadBalancerInfo: Optional[LoadBalancerInfoUnionTypeDef] = None
-    ec2TagSet: Optional[EC2TagSetUnionTypeDef] = None
-    ecsServices: Optional[Sequence[ECSServiceTypeDef]] = None
-    onPremisesTagSet: Optional[OnPremisesTagSetUnionTypeDef] = None
-    tags: Optional[Sequence[TagTypeDef]] = None
+    deploymentStyle: Optional[DeploymentStyle] = None
+    blueGreenDeploymentConfiguration: Optional[BlueGreenDeploymentConfiguration] = None
+    loadBalancerInfo: Optional[LoadBalancerInfoUnion] = None
+    ec2TagSet: Optional[EC2TagSetUnion] = None
+    ecsServices: Optional[Sequence[ECSService]] = None
+    onPremisesTagSet: Optional[OnPremisesTagSetUnion] = None
+    tags: Optional[Sequence[Tag]] = None
     terminationHookEnabled: Optional[bool] = None
 
 
-class UpdateDeploymentGroupInputTypeDef(BaseValidatorModel):
+class UpdateDeploymentGroupInput(BaseValidatorModel):
     applicationName: str
     currentDeploymentGroupName: str
     newDeploymentGroupName: Optional[str] = None
     deploymentConfigName: Optional[str] = None
-    ec2TagFilters: Optional[Sequence[EC2TagFilterTypeDef]] = None
-    onPremisesInstanceTagFilters: Optional[Sequence[TagFilterTypeDef]] = None
+    ec2TagFilters: Optional[Sequence[EC2TagFilter]] = None
+    onPremisesInstanceTagFilters: Optional[Sequence[TagFilter]] = None
     autoScalingGroups: Optional[Sequence[str]] = None
     serviceRoleArn: Optional[str] = None
-    triggerConfigurations: Optional[Sequence[TriggerConfigUnionTypeDef]] = None
-    alarmConfiguration: Optional[AlarmConfigurationUnionTypeDef] = None
-    autoRollbackConfiguration: Optional[AutoRollbackConfigurationUnionTypeDef] = None
+    triggerConfigurations: Optional[Sequence[TriggerConfigUnion]] = None
+    alarmConfiguration: Optional[AlarmConfigurationUnion] = None
+    autoRollbackConfiguration: Optional[AutoRollbackConfigurationUnion] = None
     outdatedInstancesStrategy: Optional[OutdatedInstancesStrategyType] = None
-    deploymentStyle: Optional[DeploymentStyleTypeDef] = None
-    blueGreenDeploymentConfiguration: Optional[BlueGreenDeploymentConfigurationTypeDef] = None
-    loadBalancerInfo: Optional[LoadBalancerInfoUnionTypeDef] = None
-    ec2TagSet: Optional[EC2TagSetUnionTypeDef] = None
-    ecsServices: Optional[Sequence[ECSServiceTypeDef]] = None
-    onPremisesTagSet: Optional[OnPremisesTagSetUnionTypeDef] = None
+    deploymentStyle: Optional[DeploymentStyle] = None
+    blueGreenDeploymentConfiguration: Optional[BlueGreenDeploymentConfiguration] = None
+    loadBalancerInfo: Optional[LoadBalancerInfoUnion] = None
+    ec2TagSet: Optional[EC2TagSetUnion] = None
+    ecsServices: Optional[Sequence[ECSService]] = None
+    onPremisesTagSet: Optional[OnPremisesTagSetUnion] = None
     terminationHookEnabled: Optional[bool] = None
 
 

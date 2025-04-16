@@ -1,12 +1,12 @@
 # Xray Classes
 
-# AliasTypeDef
+# Alias
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# AnnotationValueTypeDef
+# AnnotationValue
 
 ### NumberValue
 - **Type**: typing.Optional[float]
@@ -18,19 +18,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# AnomalousServiceTypeDef
+# AnomalousService
 
 ### ServiceId
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.xray_classes.ServiceIdTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# AvailabilityZoneDetailTypeDef
+# AvailabilityZoneDetail
 
 ### Name
 - **Type**: typing.Optional[str]
 
 
-# BackendConnectionErrorsTypeDef
+# BackendConnectionErrors
 
 ### TimeoutCount
 - **Type**: typing.Optional[int]
@@ -57,17 +57,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BatchGetTracesRequestPaginateTypeDef
-
-### TraceIds
-- **Type**: typing.Sequence[str]
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.xray_classes.PaginatorConfigTypeDef]
-
-
-# BatchGetTracesRequestTypeDef
+# BatchGetTracesRequest
 
 ### TraceIds
 - **Type**: typing.Sequence[str]
@@ -77,10 +67,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# BatchGetTracesResultTypeDef
+# BatchGetTracesRequestPaginate
+
+### TraceIds
+- **Type**: typing.Sequence[str]
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.xray_classes.PaginatorConfig]
+
+
+# BatchGetTracesResult
 
 ### Traces
-- **Type**: typing.List[aws_resource_validator.pydantic_models.xray_classes.TraceTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.xray_classes.Trace]
 - **Required**: Yes
 
 ### UnprocessedTraceIds
@@ -88,21 +88,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# CancelTraceRetrievalRequestTypeDef
+# CancelTraceRetrievalRequest
 
 ### RetrievalToken
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# CreateGroupRequestTypeDef
+# CreateGroupRequest
 
 ### GroupName
 - **Type**: <class 'str'>
@@ -112,45 +112,45 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### InsightsConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.xray_classes.InsightsConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.xray_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.xray_classes.Tag]]
 
 
-# CreateGroupResultTypeDef
+# CreateGroupResult
 
 ### Group
-- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.GroupTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.Group'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateSamplingRuleRequestTypeDef
+# CreateSamplingRuleRequest
 
 ### SamplingRule
-- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.SamplingRuleUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.SamplingRuleUnion'>
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.xray_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.xray_classes.Tag]]
 
 
-# CreateSamplingRuleResultTypeDef
+# CreateSamplingRuleResult
 
 ### SamplingRuleRecord
-- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.SamplingRuleRecordTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.SamplingRuleRecord'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteGroupRequestTypeDef
+# DeleteGroupRequest
 
 ### GroupName
 - **Type**: typing.Optional[str]
@@ -159,7 +159,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteResourcePolicyRequestTypeDef
+# DeleteResourcePolicyRequest
 
 ### PolicyName
 - **Type**: <class 'str'>
@@ -169,7 +169,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteSamplingRuleRequestTypeDef
+# DeleteSamplingRuleRequest
 
 ### RuleName
 - **Type**: typing.Optional[str]
@@ -178,36 +178,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteSamplingRuleResultTypeDef
+# DeleteSamplingRuleResult
 
 ### SamplingRuleRecord
-- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.SamplingRuleRecordTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.SamplingRuleRecord'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# EdgeStatisticsTypeDef
-
-### OkCount
-- **Type**: typing.Optional[int]
-
-### ErrorStatistics
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.xray_classes.ErrorStatisticsTypeDef]
-
-### FaultStatistics
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.xray_classes.FaultStatisticsTypeDef]
-
-### TotalCount
-- **Type**: typing.Optional[int]
-
-### TotalResponseTime
-- **Type**: typing.Optional[float]
-
-
-# EdgeTypeDef
+# Edge
 
 ### ReferenceId
 - **Type**: typing.Optional[int]
@@ -219,55 +201,73 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### SummaryStatistics
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.xray_classes.EdgeStatisticsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.xray_classes.EdgeStatistics]
 
 ### ResponseTimeHistogram
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.xray_classes.HistogramEntryTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.xray_classes.HistogramEntry]]
 
 ### Aliases
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.xray_classes.AliasTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.xray_classes.Alias]]
 
 ### EdgeType
 - **Type**: typing.Optional[str]
 
 ### ReceivedEventAgeHistogram
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.xray_classes.HistogramEntryTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.xray_classes.HistogramEntry]]
 
 
-# EncryptionConfigTypeDef
+# EdgeStatistics
+
+### OkCount
+- **Type**: typing.Optional[int]
+
+### ErrorStatistics
+- **Type**: <class 'NoneType'>
+
+### FaultStatistics
+- **Type**: <class 'NoneType'>
+
+### TotalCount
+- **Type**: typing.Optional[int]
+
+### TotalResponseTime
+- **Type**: typing.Optional[float]
+
+
+# EncryptionConfig
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ErrorRootCauseEntityTypeDef
-
-### Name
-- **Type**: typing.Optional[str]
-
-### Exceptions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.xray_classes.RootCauseExceptionTypeDef]]
-
-### Remote
-- **Type**: typing.Optional[bool]
-
-
-# ErrorRootCauseServiceTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# ErrorRootCauseTypeDef
+# ErrorRootCause
 
 ### Services
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.xray_classes.ErrorRootCauseServiceTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.xray_classes.ErrorRootCauseService]]
 
 ### ClientImpacting
 - **Type**: typing.Optional[bool]
 
 
-# ErrorStatisticsTypeDef
+# ErrorRootCauseEntity
+
+### Name
+- **Type**: typing.Optional[str]
+
+### Exceptions
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.xray_classes.RootCauseException]]
+
+### Remote
+- **Type**: typing.Optional[bool]
+
+
+# ErrorRootCauseService
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# ErrorStatistics
 
 ### ThrottleCount
 - **Type**: typing.Optional[int]
@@ -279,34 +279,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# FaultRootCauseEntityTypeDef
-
-### Name
-- **Type**: typing.Optional[str]
-
-### Exceptions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.xray_classes.RootCauseExceptionTypeDef]]
-
-### Remote
-- **Type**: typing.Optional[bool]
-
-
-# FaultRootCauseServiceTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# FaultRootCauseTypeDef
+# FaultRootCause
 
 ### Services
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.xray_classes.FaultRootCauseServiceTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.xray_classes.FaultRootCauseService]]
 
 ### ClientImpacting
 - **Type**: typing.Optional[bool]
 
 
-# FaultStatisticsTypeDef
+# FaultRootCauseEntity
+
+### Name
+- **Type**: typing.Optional[str]
+
+### Exceptions
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.xray_classes.RootCauseException]]
+
+### Remote
+- **Type**: typing.Optional[bool]
+
+
+# FaultRootCauseService
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# FaultStatistics
 
 ### OtherCount
 - **Type**: typing.Optional[int]
@@ -315,7 +315,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ForecastStatisticsTypeDef
+# ForecastStatistics
 
 ### FaultCountHigh
 - **Type**: typing.Optional[int]
@@ -324,18 +324,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# GetEncryptionConfigResultTypeDef
+# GetEncryptionConfigResult
 
 ### EncryptionConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.EncryptionConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.EncryptionConfig'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetGroupRequestTypeDef
+# GetGroupRequest
 
 ### GroupName
 - **Type**: typing.Optional[str]
@@ -344,64 +344,64 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetGroupResultTypeDef
+# GetGroupResult
 
 ### Group
-- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.GroupTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.Group'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetGroupsRequestPaginateTypeDef
+# GetGroupsRequest
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# GetGroupsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.xray_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.xray_classes.PaginatorConfig]
 
 
-# GetGroupsRequestTypeDef
-
-### NextToken
-- **Type**: typing.Optional[str]
-
-
-# GetGroupsResultTypeDef
+# GetGroupsResult
 
 ### Groups
-- **Type**: typing.List[aws_resource_validator.pydantic_models.xray_classes.GroupSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.xray_classes.GroupSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# GetIndexingRulesRequestTypeDef
+# GetIndexingRulesRequest
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# GetIndexingRulesResultTypeDef
+# GetIndexingRulesResult
 
 ### IndexingRules
-- **Type**: typing.List[aws_resource_validator.pydantic_models.xray_classes.IndexingRuleTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.xray_classes.IndexingRule]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# GetInsightEventsRequestTypeDef
+# GetInsightEventsRequest
 
 ### InsightId
 - **Type**: <class 'str'>
@@ -414,39 +414,39 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetInsightEventsResultTypeDef
+# GetInsightEventsResult
 
 ### InsightEvents
-- **Type**: typing.List[aws_resource_validator.pydantic_models.xray_classes.InsightEventTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.xray_classes.InsightEvent]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# GetInsightImpactGraphRequestTypeDef
+# GetInsightImpactGraphRequest
 
 ### InsightId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### StartTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.TimestampTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.Timestamp'>
 - **Required**: Yes
 
 ### EndTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.TimestampTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.Timestamp'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# GetInsightImpactGraphResultTypeDef
+# GetInsightImpactGraphResult
 
 ### InsightId
 - **Type**: <class 'str'>
@@ -469,43 +469,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Services
-- **Type**: typing.List[aws_resource_validator.pydantic_models.xray_classes.InsightImpactGraphServiceTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.xray_classes.InsightImpactGraphService]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# GetInsightRequestTypeDef
+# GetInsightRequest
 
 ### InsightId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetInsightResultTypeDef
+# GetInsightResult
 
 ### Insight
-- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.InsightTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.Insight'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetInsightSummariesRequestTypeDef
+# GetInsightSummariesRequest
 
 ### StartTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.TimestampTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.Timestamp'>
 - **Required**: Yes
 
 ### EndTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.TimestampTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.Timestamp'>
 - **Required**: Yes
 
 ### States
@@ -524,21 +524,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetInsightSummariesResultTypeDef
+# GetInsightSummariesResult
 
 ### InsightSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.xray_classes.InsightSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.xray_classes.InsightSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# GetRetrievedTracesGraphRequestTypeDef
+# GetRetrievedTracesGraphRequest
 
 ### RetrievalToken
 - **Type**: <class 'str'>
@@ -548,87 +548,87 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetRetrievedTracesGraphResultTypeDef
+# GetRetrievedTracesGraphResult
 
 ### RetrievalStatus
 - **Type**: typing.Literal['CANCELLED', 'COMPLETE', 'FAILED', 'RUNNING', 'SCHEDULED', 'TIMEOUT']
 - **Required**: Yes
 
 ### Services
-- **Type**: typing.List[aws_resource_validator.pydantic_models.xray_classes.RetrievedServiceTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.xray_classes.RetrievedService]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# GetSamplingRulesRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.xray_classes.PaginatorConfigTypeDef]
-
-
-# GetSamplingRulesRequestTypeDef
+# GetSamplingRulesRequest
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# GetSamplingRulesResultTypeDef
+# GetSamplingRulesRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.xray_classes.PaginatorConfig]
+
+
+# GetSamplingRulesResult
 
 ### SamplingRuleRecords
-- **Type**: typing.List[aws_resource_validator.pydantic_models.xray_classes.SamplingRuleRecordTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.xray_classes.SamplingRuleRecord]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# GetSamplingStatisticSummariesRequestPaginateTypeDef
+# GetSamplingStatisticSummariesRequest
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# GetSamplingStatisticSummariesRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.xray_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.xray_classes.PaginatorConfig]
 
 
-# GetSamplingStatisticSummariesRequestTypeDef
-
-### NextToken
-- **Type**: typing.Optional[str]
-
-
-# GetSamplingStatisticSummariesResultTypeDef
+# GetSamplingStatisticSummariesResult
 
 ### SamplingStatisticSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.xray_classes.SamplingStatisticSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.xray_classes.SamplingStatisticSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# GetSamplingTargetsRequestTypeDef
+# GetSamplingTargetsRequest
 
 ### SamplingStatisticsDocuments
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.xray_classes.SamplingStatisticsDocumentTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.xray_classes.SamplingStatisticsDocument]
 - **Required**: Yes
 
 
-# GetSamplingTargetsResultTypeDef
+# GetSamplingTargetsResult
 
 ### SamplingTargetDocuments
-- **Type**: typing.List[aws_resource_validator.pydantic_models.xray_classes.SamplingTargetDocumentTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.xray_classes.SamplingTargetDocument]
 - **Required**: Yes
 
 ### LastRuleModification
@@ -636,42 +636,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### UnprocessedStatistics
-- **Type**: typing.List[aws_resource_validator.pydantic_models.xray_classes.UnprocessedStatisticsTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.xray_classes.UnprocessedStatistics]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetServiceGraphRequestPaginateTypeDef
+# GetServiceGraphRequest
 
 ### StartTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.TimestampTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.Timestamp'>
 - **Required**: Yes
 
 ### EndTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.TimestampTypeDef'>
-- **Required**: Yes
-
-### GroupName
-- **Type**: typing.Optional[str]
-
-### GroupARN
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.xray_classes.PaginatorConfigTypeDef]
-
-
-# GetServiceGraphRequestTypeDef
-
-### StartTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.TimestampTypeDef'>
-- **Required**: Yes
-
-### EndTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.TimestampTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.Timestamp'>
 - **Required**: Yes
 
 ### GroupName
@@ -684,7 +664,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetServiceGraphResultTypeDef
+# GetServiceGraphRequestPaginate
+
+### StartTime
+- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.Timestamp'>
+- **Required**: Yes
+
+### EndTime
+- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.Timestamp'>
+- **Required**: Yes
+
+### GroupName
+- **Type**: typing.Optional[str]
+
+### GroupARN
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.xray_classes.PaginatorConfig]
+
+
+# GetServiceGraphResult
 
 ### StartTime
 - **Type**: <class 'datetime.datetime'>
@@ -695,7 +695,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Services
-- **Type**: typing.List[aws_resource_validator.pydantic_models.xray_classes.ServiceTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.xray_classes.Service]
 - **Required**: Yes
 
 ### ContainsOldGroupVersions
@@ -703,21 +703,50 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# GetTimeSeriesServiceStatisticsRequestPaginateTypeDef
+# GetTimeSeriesServiceStatisticsRequest
 
 ### StartTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.TimestampTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.Timestamp'>
 - **Required**: Yes
 
 ### EndTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.TimestampTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.Timestamp'>
+- **Required**: Yes
+
+### GroupName
+- **Type**: typing.Optional[str]
+
+### GroupARN
+- **Type**: typing.Optional[str]
+
+### EntitySelectorExpression
+- **Type**: typing.Optional[str]
+
+### Period
+- **Type**: typing.Optional[int]
+
+### ForecastStatistics
+- **Type**: typing.Optional[bool]
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# GetTimeSeriesServiceStatisticsRequestPaginate
+
+### StartTime
+- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.Timestamp'>
+- **Required**: Yes
+
+### EndTime
+- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.Timestamp'>
 - **Required**: Yes
 
 ### GroupName
@@ -736,42 +765,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.xray_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.xray_classes.PaginatorConfig]
 
 
-# GetTimeSeriesServiceStatisticsRequestTypeDef
-
-### StartTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.TimestampTypeDef'>
-- **Required**: Yes
-
-### EndTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.TimestampTypeDef'>
-- **Required**: Yes
-
-### GroupName
-- **Type**: typing.Optional[str]
-
-### GroupARN
-- **Type**: typing.Optional[str]
-
-### EntitySelectorExpression
-- **Type**: typing.Optional[str]
-
-### Period
-- **Type**: typing.Optional[int]
-
-### ForecastStatistics
-- **Type**: typing.Optional[bool]
-
-### NextToken
-- **Type**: typing.Optional[str]
-
-
-# GetTimeSeriesServiceStatisticsResultTypeDef
+# GetTimeSeriesServiceStatisticsResult
 
 ### TimeSeriesServiceStatistics
-- **Type**: typing.List[aws_resource_validator.pydantic_models.xray_classes.TimeSeriesServiceStatisticsTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.xray_classes.TimeSeriesServiceStatistics]
 - **Required**: Yes
 
 ### ContainsOldGroupVersions
@@ -779,48 +779,48 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# GetTraceGraphRequestPaginateTypeDef
+# GetTraceGraphRequest
+
+### TraceIds
+- **Type**: typing.Sequence[str]
+- **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# GetTraceGraphRequestPaginate
 
 ### TraceIds
 - **Type**: typing.Sequence[str]
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.xray_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.xray_classes.PaginatorConfig]
 
 
-# GetTraceGraphRequestTypeDef
-
-### TraceIds
-- **Type**: typing.Sequence[str]
-- **Required**: Yes
-
-### NextToken
-- **Type**: typing.Optional[str]
-
-
-# GetTraceGraphResultTypeDef
+# GetTraceGraphResult
 
 ### Services
-- **Type**: typing.List[aws_resource_validator.pydantic_models.xray_classes.ServiceTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.xray_classes.Service]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# GetTraceSegmentDestinationResultTypeDef
+# GetTraceSegmentDestinationResult
 
 ### Destination
 - **Type**: typing.Literal['CloudWatchLogs', 'XRay']
@@ -831,18 +831,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetTraceSummariesRequestPaginateTypeDef
+# GetTraceSummariesRequest
 
 ### StartTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.TimestampTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.Timestamp'>
 - **Required**: Yes
 
 ### EndTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.TimestampTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.Timestamp'>
 - **Required**: Yes
 
 ### TimeRangeType
@@ -852,33 +852,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### SamplingStrategy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.xray_classes.SamplingStrategyTypeDef]
-
-### FilterExpression
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.xray_classes.PaginatorConfigTypeDef]
-
-
-# GetTraceSummariesRequestTypeDef
-
-### StartTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.TimestampTypeDef'>
-- **Required**: Yes
-
-### EndTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.TimestampTypeDef'>
-- **Required**: Yes
-
-### TimeRangeType
-- **Type**: typing.Optional[typing.Literal['Event', 'Service', 'TraceId']]
-
-### Sampling
-- **Type**: typing.Optional[bool]
-
-### SamplingStrategy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.xray_classes.SamplingStrategyTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### FilterExpression
 - **Type**: typing.Optional[str]
@@ -887,10 +861,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetTraceSummariesResultTypeDef
+# GetTraceSummariesRequestPaginate
+
+### StartTime
+- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.Timestamp'>
+- **Required**: Yes
+
+### EndTime
+- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.Timestamp'>
+- **Required**: Yes
+
+### TimeRangeType
+- **Type**: typing.Optional[typing.Literal['Event', 'Service', 'TraceId']]
+
+### Sampling
+- **Type**: typing.Optional[bool]
+
+### SamplingStrategy
+- **Type**: <class 'NoneType'>
+
+### FilterExpression
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.xray_classes.PaginatorConfig]
+
+
+# GetTraceSummariesResult
 
 ### TraceSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.xray_classes.TraceSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.xray_classes.TraceSummary]
 - **Required**: Yes
 
 ### ApproximateTime
@@ -902,14 +902,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# GraphLinkTypeDef
+# GraphLink
 
 ### ReferenceType
 - **Type**: typing.Optional[str]
@@ -921,7 +921,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# GroupSummaryTypeDef
+# Group
 
 ### GroupName
 - **Type**: typing.Optional[str]
@@ -933,10 +933,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### InsightsConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.xray_classes.InsightsConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# GroupTypeDef
+# GroupSummary
 
 ### GroupName
 - **Type**: typing.Optional[str]
@@ -948,10 +948,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### InsightsConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.xray_classes.InsightsConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# HistogramEntryTypeDef
+# HistogramEntry
 
 ### Value
 - **Type**: typing.Optional[float]
@@ -960,7 +960,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# HttpTypeDef
+# Http
 
 ### HttpURL
 - **Type**: typing.Optional[str]
@@ -978,7 +978,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# IndexingRuleTypeDef
+# IndexingRule
 
 ### Name
 - **Type**: typing.Optional[str]
@@ -987,22 +987,61 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### Rule
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.xray_classes.IndexingRuleValueTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.xray_classes.IndexingRuleValue]
 
 
-# IndexingRuleValueTypeDef
-
-### Probabilistic
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.xray_classes.ProbabilisticRuleValueTypeDef]
-
-
-# IndexingRuleValueUpdateTypeDef
+# IndexingRuleValue
 
 ### Probabilistic
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.xray_classes.ProbabilisticRuleValueUpdateTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.xray_classes.ProbabilisticRuleValue]
 
 
-# InsightEventTypeDef
+# IndexingRuleValueUpdate
+
+### Probabilistic
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.xray_classes.ProbabilisticRuleValueUpdate]
+
+
+# Insight
+
+### InsightId
+- **Type**: typing.Optional[str]
+
+### GroupARN
+- **Type**: typing.Optional[str]
+
+### GroupName
+- **Type**: typing.Optional[str]
+
+### RootCauseServiceId
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.xray_classes.ServiceId]
+
+### Categories
+- **Type**: typing.Optional[typing.List[typing.Literal['FAULT']]]
+
+### State
+- **Type**: typing.Optional[typing.Literal['ACTIVE', 'CLOSED']]
+
+### StartTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### EndTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### Summary
+- **Type**: typing.Optional[str]
+
+### ClientRequestImpactStatistics
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.xray_classes.RequestImpactStatistics]
+
+### RootCauseServiceRequestImpactStatistics
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.xray_classes.RequestImpactStatistics]
+
+### TopAnomalousServices
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.xray_classes.AnomalousService]]
+
+
+# InsightEvent
 
 ### Summary
 - **Type**: typing.Optional[str]
@@ -1011,28 +1050,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### ClientRequestImpactStatistics
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.xray_classes.RequestImpactStatisticsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.xray_classes.RequestImpactStatistics]
 
 ### RootCauseServiceRequestImpactStatistics
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.xray_classes.RequestImpactStatisticsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.xray_classes.RequestImpactStatistics]
 
 ### TopAnomalousServices
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.xray_classes.AnomalousServiceTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.xray_classes.AnomalousService]]
 
 
-# InsightImpactGraphEdgeTypeDef
+# InsightImpactGraphEdge
 
 ### ReferenceId
 - **Type**: typing.Optional[int]
 
 
-# InsightImpactGraphServiceTypeDef
+# InsightImpactGraphService
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# InsightSummaryTypeDef
+# InsightSummary
 
 ### InsightId
 - **Type**: typing.Optional[str]
@@ -1044,7 +1083,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### RootCauseServiceId
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.xray_classes.ServiceIdTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.xray_classes.ServiceId]
 
 ### Categories
 - **Type**: typing.Optional[typing.List[typing.Literal['FAULT']]]
@@ -1062,58 +1101,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ClientRequestImpactStatistics
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.xray_classes.RequestImpactStatisticsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.xray_classes.RequestImpactStatistics]
 
 ### RootCauseServiceRequestImpactStatistics
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.xray_classes.RequestImpactStatisticsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.xray_classes.RequestImpactStatistics]
 
 ### TopAnomalousServices
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.xray_classes.AnomalousServiceTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.xray_classes.AnomalousService]]
 
 ### LastUpdateTime
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# InsightTypeDef
-
-### InsightId
-- **Type**: typing.Optional[str]
-
-### GroupARN
-- **Type**: typing.Optional[str]
-
-### GroupName
-- **Type**: typing.Optional[str]
-
-### RootCauseServiceId
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.xray_classes.ServiceIdTypeDef]
-
-### Categories
-- **Type**: typing.Optional[typing.List[typing.Literal['FAULT']]]
-
-### State
-- **Type**: typing.Optional[typing.Literal['ACTIVE', 'CLOSED']]
-
-### StartTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### EndTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### Summary
-- **Type**: typing.Optional[str]
-
-### ClientRequestImpactStatistics
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.xray_classes.RequestImpactStatisticsTypeDef]
-
-### RootCauseServiceRequestImpactStatistics
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.xray_classes.RequestImpactStatisticsTypeDef]
-
-### TopAnomalousServices
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.xray_classes.AnomalousServiceTypeDef]]
-
-
-# InsightsConfigurationTypeDef
+# InsightsConfiguration
 
 ### InsightsEnabled
 - **Type**: typing.Optional[bool]
@@ -1122,39 +1122,39 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# InstanceIdDetailTypeDef
+# InstanceIdDetail
 
 ### Id
 - **Type**: typing.Optional[str]
 
 
-# ListResourcePoliciesRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.xray_classes.PaginatorConfigTypeDef]
-
-
-# ListResourcePoliciesRequestTypeDef
+# ListResourcePoliciesRequest
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListResourcePoliciesResultTypeDef
+# ListResourcePoliciesRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.xray_classes.PaginatorConfig]
+
+
+# ListResourcePoliciesResult
 
 ### ResourcePolicies
-- **Type**: typing.List[aws_resource_validator.pydantic_models.xray_classes.ResourcePolicyTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.xray_classes.ResourcePolicy]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListRetrievedTracesRequestTypeDef
+# ListRetrievedTracesRequest
 
 ### RetrievalToken
 - **Type**: <class 'str'>
@@ -1167,7 +1167,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListRetrievedTracesResultTypeDef
+# ListRetrievedTracesResult
 
 ### RetrievalStatus
 - **Type**: typing.Literal['CANCELLED', 'COMPLETE', 'FAILED', 'RUNNING', 'SCHEDULED', 'TIMEOUT']
@@ -1178,52 +1178,52 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Traces
-- **Type**: typing.List[aws_resource_validator.pydantic_models.xray_classes.RetrievedTraceTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.xray_classes.RetrievedTrace]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestPaginateTypeDef
+# ListTagsForResourceRequest
+
+### ResourceARN
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# ListTagsForResourceRequestPaginate
 
 ### ResourceARN
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.xray_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.xray_classes.PaginatorConfig]
 
 
-# ListTagsForResourceRequestTypeDef
-
-### ResourceARN
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### NextToken
-- **Type**: typing.Optional[str]
-
-
-# ListTagsForResourceResponseTypeDef
+# ListTagsForResourceResponse
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.xray_classes.TagTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.xray_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -1235,7 +1235,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ProbabilisticRuleValueTypeDef
+# ProbabilisticRuleValue
 
 ### DesiredSamplingPercentage
 - **Type**: <class 'float'>
@@ -1245,25 +1245,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# ProbabilisticRuleValueUpdateTypeDef
+# ProbabilisticRuleValueUpdate
 
 ### DesiredSamplingPercentage
 - **Type**: <class 'float'>
 - **Required**: Yes
 
 
-# PutEncryptionConfigResultTypeDef
+# PutEncryptionConfigResult
 
 ### EncryptionConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.EncryptionConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.EncryptionConfig'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# PutResourcePolicyRequestTypeDef
+# PutResourcePolicyRequest
 
 ### PolicyName
 - **Type**: <class 'str'>
@@ -1280,21 +1280,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# PutResourcePolicyResultTypeDef
+# PutResourcePolicyResult
 
 ### ResourcePolicy
-- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.ResourcePolicyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.ResourcePolicy'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# PutTelemetryRecordsRequestTypeDef
+# PutTelemetryRecordsRequest
 
 ### TelemetryRecords
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.xray_classes.TelemetryRecordTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.xray_classes.TelemetryRecord]
 - **Required**: Yes
 
 ### EC2InstanceId
@@ -1307,25 +1307,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PutTraceSegmentsRequestTypeDef
+# PutTraceSegmentsRequest
 
 ### TraceSegmentDocuments
 - **Type**: typing.Sequence[str]
 - **Required**: Yes
 
 
-# PutTraceSegmentsResultTypeDef
+# PutTraceSegmentsResult
 
 ### UnprocessedTraceSegments
-- **Type**: typing.List[aws_resource_validator.pydantic_models.xray_classes.UnprocessedTraceSegmentTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.xray_classes.UnprocessedTraceSegment]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# RequestImpactStatisticsTypeDef
+# RequestImpactStatistics
 
 ### FaultCount
 - **Type**: typing.Optional[int]
@@ -1337,13 +1337,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ResourceARNDetailTypeDef
+# ResourceARNDetail
 
 ### ARN
 - **Type**: typing.Optional[str]
 
 
-# ResourcePolicyTypeDef
+# ResourcePolicy
 
 ### PolicyName
 - **Type**: typing.Optional[str]
@@ -1358,7 +1358,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -1380,7 +1380,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ResponseTimeRootCauseEntityTypeDef
+# ResponseTimeRootCause
+
+### Services
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.xray_classes.ResponseTimeRootCauseService]]
+
+### ClientImpacting
+- **Type**: typing.Optional[bool]
+
+
+# ResponseTimeRootCauseEntity
 
 ### Name
 - **Type**: typing.Optional[str]
@@ -1392,31 +1401,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# ResponseTimeRootCauseServiceTypeDef
+# ResponseTimeRootCauseService
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ResponseTimeRootCauseTypeDef
-
-### Services
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.xray_classes.ResponseTimeRootCauseServiceTypeDef]]
-
-### ClientImpacting
-- **Type**: typing.Optional[bool]
-
-
-# RetrievedServiceTypeDef
+# RetrievedService
 
 ### Service
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.xray_classes.ServiceTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### Links
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.xray_classes.GraphLinkTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.xray_classes.GraphLink]]
 
 
-# RetrievedTraceTypeDef
+# RetrievedTrace
 
 ### Id
 - **Type**: typing.Optional[str]
@@ -1425,10 +1425,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 ### Spans
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.xray_classes.SpanTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.xray_classes.Span]]
 
 
-# RootCauseExceptionTypeDef
+# RootCauseException
 
 ### Name
 - **Type**: typing.Optional[str]
@@ -1437,16 +1437,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SamplingRuleOutputTypeDef
+# SamplingRuleOutput
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# SamplingRuleRecordTypeDef
+# SamplingRuleRecord
 
 ### SamplingRule
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.xray_classes.SamplingRuleOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.xray_classes.SamplingRuleOutput]
 
 ### CreatedAt
 - **Type**: typing.Optional[datetime.datetime]
@@ -1455,19 +1455,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# SamplingRuleUnionTypeDef
+# SamplingRuleUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# SamplingRuleUpdateTypeDef
+# SamplingRuleUpdate
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# SamplingStatisticSummaryTypeDef
+# SamplingStatisticSummary
 
 ### RuleName
 - **Type**: typing.Optional[str]
@@ -1485,7 +1485,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# SamplingStatisticsDocumentTypeDef
+# SamplingStatisticsDocument
 
 ### RuleName
 - **Type**: <class 'str'>
@@ -1496,7 +1496,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Timestamp
-- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.TimestampTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.Timestamp'>
 - **Required**: Yes
 
 ### RequestCount
@@ -1511,7 +1511,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# SamplingStrategyTypeDef
+# SamplingStrategy
 
 ### Name
 - **Type**: typing.Optional[typing.Literal['FixedRate', 'PartialScan']]
@@ -1520,7 +1520,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# SamplingTargetDocumentTypeDef
+# SamplingTargetDocument
 
 ### RuleName
 - **Type**: typing.Optional[str]
@@ -1538,7 +1538,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# SegmentTypeDef
+# Segment
 
 ### Id
 - **Type**: typing.Optional[str]
@@ -1547,22 +1547,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ServiceIdTypeDef
+# Service
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ServiceStatisticsTypeDef
+# ServiceId
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# ServiceStatistics
 
 ### OkCount
 - **Type**: typing.Optional[int]
 
 ### ErrorStatistics
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.xray_classes.ErrorStatisticsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### FaultStatistics
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.xray_classes.FaultStatisticsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### TotalCount
 - **Type**: typing.Optional[int]
@@ -1571,13 +1577,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# ServiceTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# SpanTypeDef
+# Span
 
 ### Id
 - **Type**: typing.Optional[str]
@@ -1586,44 +1586,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# StartTraceRetrievalRequestTypeDef
+# StartTraceRetrievalRequest
 
 ### TraceIds
 - **Type**: typing.Sequence[str]
 - **Required**: Yes
 
 ### StartTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.TimestampTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.Timestamp'>
 - **Required**: Yes
 
 ### EndTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.TimestampTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.Timestamp'>
 - **Required**: Yes
 
 
-# StartTraceRetrievalResultTypeDef
+# StartTraceRetrievalResult
 
 ### RetrievalToken
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# TagResourceRequestTypeDef
-
-### ResourceARN
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.xray_classes.TagTypeDef]
-- **Required**: Yes
-
-
-# TagTypeDef
+# Tag
 
 ### Key
 - **Type**: <class 'str'>
@@ -1634,10 +1623,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TelemetryRecordTypeDef
+# TagResourceRequest
+
+### ResourceARN
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Tags
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.xray_classes.Tag]
+- **Required**: Yes
+
+
+# TelemetryRecord
 
 ### Timestamp
-- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.TimestampTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.Timestamp'>
 - **Required**: Yes
 
 ### SegmentsReceivedCount
@@ -1653,34 +1653,49 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### BackendConnectionErrors
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.xray_classes.BackendConnectionErrorsTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# TimeSeriesServiceStatisticsTypeDef
+# TimeSeriesServiceStatistics
 
 ### Timestamp
 - **Type**: typing.Optional[datetime.datetime]
 
 ### EdgeSummaryStatistics
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.xray_classes.EdgeStatisticsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.xray_classes.EdgeStatistics]
 
 ### ServiceSummaryStatistics
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.xray_classes.ServiceStatisticsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.xray_classes.ServiceStatistics]
 
 ### ServiceForecastStatistics
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.xray_classes.ForecastStatisticsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.xray_classes.ForecastStatistics]
 
 ### ResponseTimeHistogram
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.xray_classes.HistogramEntryTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.xray_classes.HistogramEntry]]
 
 
-# TimestampTypeDef
+# Timestamp
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# TraceSummaryTypeDef
+# Trace
+
+### Id
+- **Type**: typing.Optional[str]
+
+### Duration
+- **Type**: typing.Optional[float]
+
+### LimitExceeded
+- **Type**: typing.Optional[bool]
+
+### Segments
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.xray_classes.Segment]]
+
+
+# TraceSummary
 
 ### Id
 - **Type**: typing.Optional[str]
@@ -1707,37 +1722,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### Http
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.xray_classes.HttpTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### Annotations
-- **Type**: typing.Optional[typing.Dict[str, typing.List[aws_resource_validator.pydantic_models.xray_classes.ValueWithServiceIdsTypeDef]]]
+- **Type**: typing.Optional[typing.Dict[str, typing.List[aws_resource_validator.pydantic_models.xray_classes.ValueWithServiceIds]]]
 
 ### Users
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.xray_classes.TraceUserTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.xray_classes.TraceUser]]
 
 ### ServiceIds
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.xray_classes.ServiceIdTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.xray_classes.ServiceId]]
 
 ### ResourceARNs
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.xray_classes.ResourceARNDetailTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.xray_classes.ResourceARNDetail]]
 
 ### InstanceIds
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.xray_classes.InstanceIdDetailTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.xray_classes.InstanceIdDetail]]
 
 ### AvailabilityZones
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.xray_classes.AvailabilityZoneDetailTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.xray_classes.AvailabilityZoneDetail]]
 
 ### EntryPoint
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.xray_classes.ServiceIdTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.xray_classes.ServiceId]
 
 ### FaultRootCauses
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.xray_classes.FaultRootCauseTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.xray_classes.FaultRootCause]]
 
 ### ErrorRootCauses
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.xray_classes.ErrorRootCauseTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.xray_classes.ErrorRootCause]]
 
 ### ResponseTimeRootCauses
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.xray_classes.ResponseTimeRootCauseTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.xray_classes.ResponseTimeRootCause]]
 
 ### Revision
 - **Type**: typing.Optional[int]
@@ -1746,31 +1761,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# TraceTypeDef
-
-### Id
-- **Type**: typing.Optional[str]
-
-### Duration
-- **Type**: typing.Optional[float]
-
-### LimitExceeded
-- **Type**: typing.Optional[bool]
-
-### Segments
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.xray_classes.SegmentTypeDef]]
-
-
-# TraceUserTypeDef
+# TraceUser
 
 ### UserName
 - **Type**: typing.Optional[str]
 
 ### ServiceIds
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.xray_classes.ServiceIdTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.xray_classes.ServiceId]]
 
 
-# UnprocessedStatisticsTypeDef
+# UnprocessedStatistics
 
 ### RuleName
 - **Type**: typing.Optional[str]
@@ -1782,7 +1782,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UnprocessedTraceSegmentTypeDef
+# UnprocessedTraceSegment
 
 ### Id
 - **Type**: typing.Optional[str]
@@ -1794,7 +1794,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UntagResourceRequestTypeDef
+# UntagResourceRequest
 
 ### ResourceARN
 - **Type**: <class 'str'>
@@ -1805,7 +1805,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateGroupRequestTypeDef
+# UpdateGroupRequest
 
 ### GroupName
 - **Type**: typing.Optional[str]
@@ -1817,67 +1817,67 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### InsightsConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.xray_classes.InsightsConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# UpdateGroupResultTypeDef
+# UpdateGroupResult
 
 ### Group
-- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.GroupTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.Group'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateIndexingRuleRequestTypeDef
+# UpdateIndexingRuleRequest
 
 ### Name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Rule
-- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.IndexingRuleValueUpdateTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.IndexingRuleValueUpdate'>
 - **Required**: Yes
 
 
-# UpdateIndexingRuleResultTypeDef
+# UpdateIndexingRuleResult
 
 ### IndexingRule
-- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.IndexingRuleTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.IndexingRule'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateSamplingRuleRequestTypeDef
+# UpdateSamplingRuleRequest
 
 ### SamplingRuleUpdate
-- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.SamplingRuleUpdateTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.SamplingRuleUpdate'>
 - **Required**: Yes
 
 
-# UpdateSamplingRuleResultTypeDef
+# UpdateSamplingRuleResult
 
 ### SamplingRuleRecord
-- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.SamplingRuleRecordTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.SamplingRuleRecord'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateTraceSegmentDestinationRequestTypeDef
+# UpdateTraceSegmentDestinationRequest
 
 ### Destination
 - **Type**: typing.Optional[typing.Literal['CloudWatchLogs', 'XRay']]
 
 
-# UpdateTraceSegmentDestinationResultTypeDef
+# UpdateTraceSegmentDestinationResult
 
 ### Destination
 - **Type**: typing.Literal['CloudWatchLogs', 'XRay']
@@ -1888,16 +1888,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.xray_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ValueWithServiceIdsTypeDef
+# ValueWithServiceIds
 
 ### AnnotationValue
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.xray_classes.AnnotationValueTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### ServiceIds
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.xray_classes.ServiceIdTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.xray_classes.ServiceId]]
 
 

@@ -1,12 +1,12 @@
 # Chime Sdk Messaging Classes
 
-# AppInstanceUserMembershipSummaryTypeDef
+# AppInstanceUserMembershipSummary
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# AssociateChannelFlowRequestTypeDef
+# AssociateChannelFlowRequest
 
 ### ChannelArn
 - **Type**: <class 'str'>
@@ -27,13 +27,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BatchChannelMembershipsTypeDef
+# BatchChannelMemberships
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BatchCreateChannelMembershipErrorTypeDef
+# BatchCreateChannelMembershipError
 
 ### MemberArn
 - **Type**: typing.Optional[str]
@@ -45,22 +45,61 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# BatchCreateChannelMembershipResponseTypeDef
+# BatchCreateChannelMembershipResponse
 
 ### BatchChannelMemberships
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.BatchChannelMembershipsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.BatchChannelMemberships'>
 - **Required**: Yes
 
 ### Errors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.BatchCreateChannelMembershipErrorTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.BatchCreateChannelMembershipError]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ChannelAssociatedWithFlowSummaryTypeDef
+# Channel
+
+### Name
+- **Type**: typing.Optional[str]
+
+### ChannelArn
+- **Type**: typing.Optional[str]
+
+### Mode
+- **Type**: typing.Optional[typing.Literal['RESTRICTED', 'UNRESTRICTED']]
+
+### Privacy
+- **Type**: typing.Optional[typing.Literal['PRIVATE', 'PUBLIC']]
+
+### Metadata
+- **Type**: typing.Optional[str]
+
+### CreatedBy
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.Identity]
+
+### CreatedTimestamp
+- **Type**: typing.Optional[datetime.datetime]
+
+### LastMessageTimestamp
+- **Type**: typing.Optional[datetime.datetime]
+
+### LastUpdatedTimestamp
+- **Type**: typing.Optional[datetime.datetime]
+
+### ChannelFlowArn
+- **Type**: typing.Optional[str]
+
+### ElasticChannelConfiguration
+- **Type**: <class 'NoneType'>
+
+### ExpirationSettings
+- **Type**: <class 'NoneType'>
+
+
+# ChannelAssociatedWithFlowSummary
 
 ### Name
 - **Type**: typing.Optional[str]
@@ -78,16 +117,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ChannelBanSummaryTypeDef
+# ChannelBan
 
 ### Member
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.IdentityTypeDef]
-
-
-# ChannelBanTypeDef
-
-### Member
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.IdentityTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.Identity]
 
 ### ChannelArn
 - **Type**: typing.Optional[str]
@@ -96,61 +129,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### CreatedBy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.IdentityTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.Identity]
 
 
-# ChannelFlowCallbackRequestTypeDef
+# ChannelBanSummary
 
-### CallbackId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ChannelArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ChannelMessage
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ChannelMessageCallbackTypeDef'>
-- **Required**: Yes
-
-### DeleteResource
-- **Type**: typing.Optional[bool]
+### Member
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.Identity]
 
 
-# ChannelFlowCallbackResponseTypeDef
-
-### ChannelArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### CallbackId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# ChannelFlowSummaryTypeDef
-
-### ChannelFlowArn
-- **Type**: typing.Optional[str]
-
-### Name
-- **Type**: typing.Optional[str]
-
-### Processors
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ProcessorTypeDef]]
-
-
-# ChannelFlowTypeDef
+# ChannelFlow
 
 ### ChannelFlowArn
 - **Type**: typing.Optional[str]
 
 ### Processors
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ProcessorTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.Processor]]
 
 ### Name
 - **Type**: typing.Optional[str]
@@ -162,34 +156,85 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# ChannelMembershipForAppInstanceUserSummaryTypeDef
+# ChannelFlowCallbackRequest
 
-### ChannelSummary
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ChannelSummaryTypeDef]
+### CallbackId
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-### AppInstanceUserMembershipSummary
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.AppInstanceUserMembershipSummaryTypeDef]
+### ChannelArn
+- **Type**: <class 'str'>
+- **Required**: Yes
 
+### ChannelMessage
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ChannelMessageCallback'>
+- **Required**: Yes
 
-# ChannelMembershipPreferencesTypeDef
-
-### PushNotifications
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.PushNotificationPreferencesTypeDef]
-
-
-# ChannelMembershipSummaryTypeDef
-
-### Member
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.IdentityTypeDef]
+### DeleteResource
+- **Type**: typing.Optional[bool]
 
 
-# ChannelMembershipTypeDef
+# ChannelFlowCallbackResponse
+
+### ChannelArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### CallbackId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
+# ChannelFlowSummary
+
+### ChannelFlowArn
+- **Type**: typing.Optional[str]
+
+### Name
+- **Type**: typing.Optional[str]
+
+### Processors
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.Processor]]
+
+
+# ChannelMembership
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ChannelMessageCallbackTypeDef
+# ChannelMembershipForAppInstanceUserSummary
+
+### ChannelSummary
+- **Type**: <class 'NoneType'>
+
+### AppInstanceUserMembershipSummary
+- **Type**: <class 'NoneType'>
+
+
+# ChannelMembershipPreferences
+
+### PushNotifications
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.PushNotificationPreferences]
+
+
+# ChannelMembershipSummary
+
+### Member
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.Identity]
+
+
+# ChannelMessage
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# ChannelMessageCallback
 
 ### MessageId
 - **Type**: <class 'str'>
@@ -202,10 +247,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PushNotification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.PushNotificationConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.PushNotificationConfiguration]
 
 ### MessageAttributes
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.MessageAttributeValueUnionTypeDef]]
+- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.MessageAttributeValueUnion]]
 
 ### SubChannelId
 - **Type**: typing.Optional[str]
@@ -214,7 +259,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ChannelMessageStatusStructureTypeDef
+# ChannelMessageStatusStructure
 
 ### Value
 - **Type**: typing.Optional[typing.Literal['DENIED', 'FAILED', 'PENDING', 'SENT']]
@@ -223,34 +268,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ChannelMessageSummaryTypeDef
+# ChannelMessageSummary
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ChannelMessageTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# ChannelModeratedByAppInstanceUserSummaryTypeDef
+# ChannelModeratedByAppInstanceUserSummary
 
 ### ChannelSummary
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ChannelSummaryTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# ChannelModeratorSummaryTypeDef
-
-### Moderator
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.IdentityTypeDef]
-
-
-# ChannelModeratorTypeDef
+# ChannelModerator
 
 ### Moderator
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.IdentityTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.Identity]
 
 ### ChannelArn
 - **Type**: typing.Optional[str]
@@ -259,10 +292,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### CreatedBy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.IdentityTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.Identity]
 
 
-# ChannelSummaryTypeDef
+# ChannelModeratorSummary
+
+### Moderator
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.Identity]
+
+
+# ChannelSummary
 
 ### Name
 - **Type**: typing.Optional[str]
@@ -283,46 +322,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# ChannelTypeDef
-
-### Name
-- **Type**: typing.Optional[str]
-
-### ChannelArn
-- **Type**: typing.Optional[str]
-
-### Mode
-- **Type**: typing.Optional[typing.Literal['RESTRICTED', 'UNRESTRICTED']]
-
-### Privacy
-- **Type**: typing.Optional[typing.Literal['PRIVATE', 'PUBLIC']]
-
-### Metadata
-- **Type**: typing.Optional[str]
-
-### CreatedBy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.IdentityTypeDef]
-
-### CreatedTimestamp
-- **Type**: typing.Optional[datetime.datetime]
-
-### LastMessageTimestamp
-- **Type**: typing.Optional[datetime.datetime]
-
-### LastUpdatedTimestamp
-- **Type**: typing.Optional[datetime.datetime]
-
-### ChannelFlowArn
-- **Type**: typing.Optional[str]
-
-### ElasticChannelConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ElasticChannelConfigurationTypeDef]
-
-### ExpirationSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ExpirationSettingsTypeDef]
-
-
-# CreateChannelBanRequestTypeDef
+# CreateChannelBanRequest
 
 ### ChannelArn
 - **Type**: <class 'str'>
@@ -337,29 +337,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateChannelBanResponseTypeDef
+# CreateChannelBanResponse
 
 ### ChannelArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Member
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.IdentityTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.Identity'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateChannelFlowRequestTypeDef
+# CreateChannelFlowRequest
 
 ### AppInstanceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Processors
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ProcessorTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.Processor]
 - **Required**: Yes
 
 ### Name
@@ -371,28 +371,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.Tag]]
 
 
-# CreateChannelFlowResponseTypeDef
+# CreateChannelFlowResponse
 
 ### ChannelFlowArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateChannelMembershipResponseTypeDef
+# CreateChannelMembershipResponse
 
 ### ChannelArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Member
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.IdentityTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.Identity'>
 - **Required**: Yes
 
 ### SubChannelId
@@ -400,11 +400,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateChannelModeratorRequestTypeDef
+# CreateChannelModeratorRequest
 
 ### ChannelArn
 - **Type**: <class 'str'>
@@ -419,22 +419,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateChannelModeratorResponseTypeDef
+# CreateChannelModeratorResponse
 
 ### ChannelArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ChannelModerator
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.IdentityTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.Identity'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateChannelRequestTypeDef
+# CreateChannelRequest
 
 ### AppInstanceArn
 - **Type**: <class 'str'>
@@ -462,7 +462,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.Tag]]
 
 ### ChannelId
 - **Type**: typing.Optional[str]
@@ -474,24 +474,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### ElasticChannelConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ElasticChannelConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### ExpirationSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ExpirationSettingsTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# CreateChannelResponseTypeDef
+# CreateChannelResponse
 
 ### ChannelArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteChannelBanRequestTypeDef
+# DeleteChannelBanRequest
 
 ### ChannelArn
 - **Type**: <class 'str'>
@@ -506,14 +506,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteChannelFlowRequestTypeDef
+# DeleteChannelFlowRequest
 
 ### ChannelFlowArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteChannelMembershipRequestTypeDef
+# DeleteChannelMembershipRequest
 
 ### ChannelArn
 - **Type**: <class 'str'>
@@ -531,7 +531,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteChannelMessageRequestTypeDef
+# DeleteChannelMessageRequest
 
 ### ChannelArn
 - **Type**: <class 'str'>
@@ -549,7 +549,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteChannelModeratorRequestTypeDef
+# DeleteChannelModeratorRequest
 
 ### ChannelArn
 - **Type**: <class 'str'>
@@ -564,7 +564,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteChannelRequestTypeDef
+# DeleteChannelRequest
 
 ### ChannelArn
 - **Type**: <class 'str'>
@@ -575,14 +575,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteMessagingStreamingConfigurationsRequestTypeDef
+# DeleteMessagingStreamingConfigurationsRequest
 
 ### AppInstanceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeChannelBanRequestTypeDef
+# DescribeChannelBanRequest
 
 ### ChannelArn
 - **Type**: <class 'str'>
@@ -597,36 +597,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeChannelBanResponseTypeDef
+# DescribeChannelBanResponse
 
 ### ChannelBan
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ChannelBanTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ChannelBan'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeChannelFlowRequestTypeDef
+# DescribeChannelFlowRequest
 
 ### ChannelFlowArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeChannelFlowResponseTypeDef
+# DescribeChannelFlowResponse
 
 ### ChannelFlow
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ChannelFlowTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ChannelFlow'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeChannelMembershipForAppInstanceUserRequestTypeDef
+# DescribeChannelMembershipForAppInstanceUserRequest
 
 ### ChannelArn
 - **Type**: <class 'str'>
@@ -641,18 +641,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeChannelMembershipForAppInstanceUserResponseTypeDef
+# DescribeChannelMembershipForAppInstanceUserResponse
 
 ### ChannelMembership
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ChannelMembershipForAppInstanceUserSummaryTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ChannelMembershipForAppInstanceUserSummary'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeChannelMembershipRequestTypeDef
+# DescribeChannelMembershipRequest
 
 ### ChannelArn
 - **Type**: <class 'str'>
@@ -670,18 +670,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeChannelMembershipResponseTypeDef
+# DescribeChannelMembershipResponse
 
 ### ChannelMembership
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ChannelMembershipTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ChannelMembership'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeChannelModeratedByAppInstanceUserRequestTypeDef
+# DescribeChannelModeratedByAppInstanceUserRequest
 
 ### ChannelArn
 - **Type**: <class 'str'>
@@ -696,18 +696,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeChannelModeratedByAppInstanceUserResponseTypeDef
+# DescribeChannelModeratedByAppInstanceUserResponse
 
 ### Channel
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ChannelModeratedByAppInstanceUserSummaryTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ChannelModeratedByAppInstanceUserSummary'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeChannelModeratorRequestTypeDef
+# DescribeChannelModeratorRequest
 
 ### ChannelArn
 - **Type**: <class 'str'>
@@ -722,18 +722,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeChannelModeratorResponseTypeDef
+# DescribeChannelModeratorResponse
 
 ### ChannelModerator
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ChannelModeratorTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ChannelModerator'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeChannelRequestTypeDef
+# DescribeChannelRequest
 
 ### ChannelArn
 - **Type**: <class 'str'>
@@ -744,18 +744,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeChannelResponseTypeDef
+# DescribeChannelResponse
 
 ### Channel
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ChannelTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.Channel'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DisassociateChannelFlowRequestTypeDef
+# DisassociateChannelFlowRequest
 
 ### ChannelArn
 - **Type**: <class 'str'>
@@ -770,7 +770,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ElasticChannelConfigurationTypeDef
+# ElasticChannelConfiguration
 
 ### MaximumSubChannels
 - **Type**: <class 'int'>
@@ -785,14 +785,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# EmptyResponseMetadataTypeDef
+# EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ExpirationSettingsTypeDef
+# ExpirationSettings
 
 ### ExpirationDays
 - **Type**: <class 'int'>
@@ -803,7 +803,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetChannelMembershipPreferencesRequestTypeDef
+# GetChannelMembershipPreferencesRequest
 
 ### ChannelArn
 - **Type**: <class 'str'>
@@ -818,26 +818,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetChannelMembershipPreferencesResponseTypeDef
+# GetChannelMembershipPreferencesResponse
 
 ### ChannelArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Member
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.IdentityTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.Identity'>
 - **Required**: Yes
 
 ### Preferences
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ChannelMembershipPreferencesTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ChannelMembershipPreferences'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetChannelMessageRequestTypeDef
+# GetChannelMessageRequest
 
 ### ChannelArn
 - **Type**: <class 'str'>
@@ -855,18 +855,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetChannelMessageResponseTypeDef
+# GetChannelMessageResponse
 
 ### ChannelMessage
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ChannelMessageTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ChannelMessage'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetChannelMessageStatusRequestTypeDef
+# GetChannelMessageStatusRequest
 
 ### ChannelArn
 - **Type**: <class 'str'>
@@ -884,47 +884,47 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetChannelMessageStatusResponseTypeDef
+# GetChannelMessageStatusResponse
 
 ### Status
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ChannelMessageStatusStructureTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ChannelMessageStatusStructure'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetMessagingSessionEndpointResponseTypeDef
+# GetMessagingSessionEndpointResponse
 
 ### Endpoint
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.MessagingSessionEndpointTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.MessagingSessionEndpoint'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetMessagingStreamingConfigurationsRequestTypeDef
+# GetMessagingStreamingConfigurationsRequest
 
 ### AppInstanceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetMessagingStreamingConfigurationsResponseTypeDef
+# GetMessagingStreamingConfigurationsResponse
 
 ### StreamingConfigurations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.StreamingConfigurationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.StreamingConfiguration]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# IdentityTypeDef
+# Identity
 
 ### Arn
 - **Type**: typing.Optional[str]
@@ -933,7 +933,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# LambdaConfigurationTypeDef
+# LambdaConfiguration
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -944,7 +944,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListChannelBansRequestTypeDef
+# ListChannelBansRequest
 
 ### ChannelArn
 - **Type**: <class 'str'>
@@ -961,25 +961,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListChannelBansResponseTypeDef
+# ListChannelBansResponse
 
 ### ChannelArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ChannelBans
-- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ChannelBanSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ChannelBanSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListChannelFlowsRequestTypeDef
+# ListChannelFlowsRequest
 
 ### AppInstanceArn
 - **Type**: <class 'str'>
@@ -992,21 +992,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListChannelFlowsResponseTypeDef
+# ListChannelFlowsResponse
 
 ### ChannelFlows
-- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ChannelFlowSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ChannelFlowSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListChannelMembershipsForAppInstanceUserRequestTypeDef
+# ListChannelMembershipsForAppInstanceUserRequest
 
 ### ChimeBearer
 - **Type**: <class 'str'>
@@ -1022,39 +1022,39 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListChannelMembershipsForAppInstanceUserResponseTypeDef
+# ListChannelMembershipsForAppInstanceUserResponse
 
 ### ChannelMemberships
-- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ChannelMembershipForAppInstanceUserSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ChannelMembershipForAppInstanceUserSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListChannelMembershipsResponseTypeDef
+# ListChannelMembershipsResponse
 
 ### ChannelArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ChannelMemberships
-- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ChannelMembershipSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ChannelMembershipSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListChannelMessagesRequestTypeDef
+# ListChannelMessagesRequest
 
 ### ChannelArn
 - **Type**: <class 'str'>
@@ -1068,10 +1068,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ASCENDING', 'DESCENDING']]
 
 ### NotBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.Timestamp]
 
 ### NotAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.Timestamp]
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1083,14 +1083,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListChannelMessagesResponseTypeDef
+# ListChannelMessagesResponse
 
 ### ChannelArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ChannelMessages
-- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ChannelMessageSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ChannelMessageSummary]
 - **Required**: Yes
 
 ### SubChannelId
@@ -1098,14 +1098,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListChannelModeratorsRequestTypeDef
+# ListChannelModeratorsRequest
 
 ### ChannelArn
 - **Type**: <class 'str'>
@@ -1122,25 +1122,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListChannelModeratorsResponseTypeDef
+# ListChannelModeratorsResponse
 
 ### ChannelArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ChannelModerators
-- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ChannelModeratorSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ChannelModeratorSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListChannelsAssociatedWithChannelFlowRequestTypeDef
+# ListChannelsAssociatedWithChannelFlowRequest
 
 ### ChannelFlowArn
 - **Type**: <class 'str'>
@@ -1153,21 +1153,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListChannelsAssociatedWithChannelFlowResponseTypeDef
+# ListChannelsAssociatedWithChannelFlowResponse
 
 ### Channels
-- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ChannelAssociatedWithFlowSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ChannelAssociatedWithFlowSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListChannelsModeratedByAppInstanceUserRequestTypeDef
+# ListChannelsModeratedByAppInstanceUserRequest
 
 ### ChimeBearer
 - **Type**: <class 'str'>
@@ -1183,21 +1183,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListChannelsModeratedByAppInstanceUserResponseTypeDef
+# ListChannelsModeratedByAppInstanceUserResponse
 
 ### Channels
-- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ChannelModeratedByAppInstanceUserSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ChannelModeratedByAppInstanceUserSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListChannelsRequestTypeDef
+# ListChannelsRequest
 
 ### AppInstanceArn
 - **Type**: <class 'str'>
@@ -1217,21 +1217,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListChannelsResponseTypeDef
+# ListChannelsResponse
 
 ### Channels
-- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ChannelSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ChannelSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListSubChannelsRequestTypeDef
+# ListSubChannelsRequest
 
 ### ChannelArn
 - **Type**: <class 'str'>
@@ -1248,81 +1248,74 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListSubChannelsResponseTypeDef
+# ListSubChannelsResponse
 
 ### ChannelArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### SubChannels
-- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.SubChannelSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.SubChannelSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestTypeDef
+# ListTagsForResourceRequest
 
 ### ResourceARN
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ListTagsForResourceResponseTypeDef
+# ListTagsForResourceResponse
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.TagTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# MessageAttributeValueOutputTypeDef
-
-### StringValues
-- **Type**: typing.Optional[typing.List[str]]
-
-
-# MessageAttributeValueTypeDef
+# MessageAttributeValue
 
 ### StringValues
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# MessageAttributeValueUnionTypeDef
+# MessageAttributeValueOutput
+
+### StringValues
+- **Type**: typing.Optional[typing.List[str]]
+
+
+# MessageAttributeValueUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# MessagingSessionEndpointTypeDef
+# MessagingSessionEndpoint
 
 ### Url
 - **Type**: typing.Optional[str]
 
 
-# ProcessorConfigurationTypeDef
-
-### Lambda
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.LambdaConfigurationTypeDef'>
-- **Required**: Yes
-
-
-# ProcessorTypeDef
+# Processor
 
 ### Name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Configuration
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ProcessorConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ProcessorConfiguration'>
 - **Required**: Yes
 
 ### ExecutionOrder
@@ -1334,13 +1327,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PushNotificationConfigurationTypeDef
+# ProcessorConfiguration
+
+### Lambda
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.LambdaConfiguration'>
+- **Required**: Yes
+
+
+# PushNotificationConfiguration
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# PushNotificationPreferencesTypeDef
+# PushNotificationPreferences
 
 ### AllowNotifications
 - **Type**: typing.Literal['ALL', 'FILTERED', 'NONE']
@@ -1350,7 +1350,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PutChannelExpirationSettingsRequestTypeDef
+# PutChannelExpirationSettingsRequest
 
 ### ChannelArn
 - **Type**: <class 'str'>
@@ -1360,25 +1360,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ExpirationSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ExpirationSettingsTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# PutChannelExpirationSettingsResponseTypeDef
+# PutChannelExpirationSettingsResponse
 
 ### ChannelArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ExpirationSettings
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ExpirationSettingsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ExpirationSettings'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# PutChannelMembershipPreferencesRequestTypeDef
+# PutChannelMembershipPreferencesRequest
 
 ### ChannelArn
 - **Type**: <class 'str'>
@@ -1393,52 +1393,52 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Preferences
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ChannelMembershipPreferencesTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ChannelMembershipPreferences'>
 - **Required**: Yes
 
 
-# PutChannelMembershipPreferencesResponseTypeDef
+# PutChannelMembershipPreferencesResponse
 
 ### ChannelArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Member
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.IdentityTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.Identity'>
 - **Required**: Yes
 
 ### Preferences
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ChannelMembershipPreferencesTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ChannelMembershipPreferences'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# PutMessagingStreamingConfigurationsRequestTypeDef
+# PutMessagingStreamingConfigurationsRequest
 
 ### AppInstanceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### StreamingConfigurations
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.StreamingConfigurationTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.StreamingConfiguration]
 - **Required**: Yes
 
 
-# PutMessagingStreamingConfigurationsResponseTypeDef
+# PutMessagingStreamingConfigurationsResponse
 
 ### StreamingConfigurations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.StreamingConfigurationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.StreamingConfiguration]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# RedactChannelMessageRequestTypeDef
+# RedactChannelMessageRequest
 
 ### ChannelArn
 - **Type**: <class 'str'>
@@ -1456,7 +1456,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RedactChannelMessageResponseTypeDef
+# RedactChannelMessageResponse
 
 ### ChannelArn
 - **Type**: <class 'str'>
@@ -1471,11 +1471,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -1497,10 +1497,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SearchChannelsRequestTypeDef
+# SearchChannelsRequest
 
 ### Fields
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.SearchFieldTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.SearchField]
 - **Required**: Yes
 
 ### ChimeBearer
@@ -1513,21 +1513,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SearchChannelsResponseTypeDef
+# SearchChannelsResponse
 
 ### Channels
-- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ChannelSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ChannelSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# SearchFieldTypeDef
+# SearchField
 
 ### Key
 - **Type**: typing.Literal['MEMBERS']
@@ -1542,7 +1542,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SendChannelMessageResponseTypeDef
+# SendChannelMessageResponse
 
 ### ChannelArn
 - **Type**: <class 'str'>
@@ -1553,7 +1553,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Status
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ChannelMessageStatusStructureTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ChannelMessageStatusStructure'>
 - **Required**: Yes
 
 ### SubChannelId
@@ -1561,11 +1561,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# StreamingConfigurationTypeDef
+# StreamingConfiguration
 
 ### DataType
 - **Type**: typing.Literal['Channel', 'ChannelMessage']
@@ -1576,7 +1576,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SubChannelSummaryTypeDef
+# SubChannelSummary
 
 ### SubChannelId
 - **Type**: typing.Optional[str]
@@ -1585,18 +1585,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# TagResourceRequestTypeDef
-
-### ResourceARN
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.TagTypeDef]
-- **Required**: Yes
-
-
-# TagTypeDef
+# Tag
 
 ### Key
 - **Type**: <class 'str'>
@@ -1607,19 +1596,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TargetTypeDef
+# TagResourceRequest
+
+### ResourceARN
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Tags
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.Tag]
+- **Required**: Yes
+
+
+# Target
 
 ### MemberArn
 - **Type**: typing.Optional[str]
 
 
-# TimestampTypeDef
+# Timestamp
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# UntagResourceRequestTypeDef
+# UntagResourceRequest
 
 ### ResourceARN
 - **Type**: <class 'str'>
@@ -1630,14 +1630,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateChannelFlowRequestTypeDef
+# UpdateChannelFlowRequest
 
 ### ChannelFlowArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Processors
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ProcessorTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.Processor]
 - **Required**: Yes
 
 ### Name
@@ -1645,18 +1645,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateChannelFlowResponseTypeDef
+# UpdateChannelFlowResponse
 
 ### ChannelFlowArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateChannelMessageRequestTypeDef
+# UpdateChannelMessageRequest
 
 ### ChannelArn
 - **Type**: <class 'str'>
@@ -1684,7 +1684,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateChannelMessageResponseTypeDef
+# UpdateChannelMessageResponse
 
 ### ChannelArn
 - **Type**: <class 'str'>
@@ -1695,7 +1695,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Status
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ChannelMessageStatusStructureTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ChannelMessageStatusStructure'>
 - **Required**: Yes
 
 ### SubChannelId
@@ -1703,11 +1703,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateChannelReadMarkerRequestTypeDef
+# UpdateChannelReadMarkerRequest
 
 ### ChannelArn
 - **Type**: <class 'str'>
@@ -1718,18 +1718,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateChannelReadMarkerResponseTypeDef
+# UpdateChannelReadMarkerResponse
 
 ### ChannelArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateChannelRequestTypeDef
+# UpdateChannelRequest
 
 ### ChannelArn
 - **Type**: <class 'str'>
@@ -1749,14 +1749,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateChannelResponseTypeDef
+# UpdateChannelResponse
 
 ### ChannelArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_messaging_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

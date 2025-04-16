@@ -1,12 +1,12 @@
 # Vpc Lattice Classes
 
-# AccessLogSubscriptionSummaryTypeDef
+# AccessLogSubscriptionSummary
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ArnResourceTypeDef
+# ArnResource
 
 ### arn
 - **Type**: typing.Optional[str]
@@ -18,14 +18,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BatchUpdateRuleRequestTypeDef
+# BatchUpdateRuleRequest
 
 ### listenerIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### rules
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.vpc_lattice_classes.RuleUpdateTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.vpc_lattice_classes.RuleUpdate]
 - **Required**: Yes
 
 ### serviceIdentifier
@@ -33,22 +33,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# BatchUpdateRuleResponseTypeDef
+# BatchUpdateRuleResponse
 
 ### successful
-- **Type**: typing.List[aws_resource_validator.pydantic_models.vpc_lattice_classes.RuleUpdateSuccessTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.vpc_lattice_classes.RuleUpdateSuccess]
 - **Required**: Yes
 
 ### unsuccessful
-- **Type**: typing.List[aws_resource_validator.pydantic_models.vpc_lattice_classes.RuleUpdateFailureTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.vpc_lattice_classes.RuleUpdateFailure]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.vpc_lattice_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.vpc_lattice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateAccessLogSubscriptionRequestTypeDef
+# CreateAccessLogSubscriptionRequest
 
 ### destinationArn
 - **Type**: <class 'str'>
@@ -68,10 +68,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateListenerRequestTypeDef
+# CreateListenerRequest
 
 ### defaultAction
-- **Type**: <class 'aws_resource_validator.pydantic_models.vpc_lattice_classes.RuleActionUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.vpc_lattice_classes.RuleActionUnion'>
 - **Required**: Yes
 
 ### name
@@ -96,7 +96,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateResourceGatewayRequestTypeDef
+# CreateResourceGatewayRequest
 
 ### name
 - **Type**: <class 'str'>
@@ -123,10 +123,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateRuleRequestTypeDef
+# CreateRuleRequest
 
 ### action
-- **Type**: <class 'aws_resource_validator.pydantic_models.vpc_lattice_classes.RuleActionUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.vpc_lattice_classes.RuleActionUnion'>
 - **Required**: Yes
 
 ### listenerIdentifier
@@ -134,7 +134,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### match
-- **Type**: <class 'aws_resource_validator.pydantic_models.vpc_lattice_classes.RuleMatchUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.vpc_lattice_classes.RuleMatchUnion'>
 - **Required**: Yes
 
 ### name
@@ -156,7 +156,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateServiceNetworkRequestTypeDef
+# CreateServiceNetworkRequest
 
 ### name
 - **Type**: <class 'str'>
@@ -169,13 +169,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### sharingConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.vpc_lattice_classes.SharingConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.vpc_lattice_classes.SharingConfig]
 
 ### tags
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateServiceNetworkResourceAssociationRequestTypeDef
+# CreateServiceNetworkResourceAssociationRequest
 
 ### resourceConfigurationIdentifier
 - **Type**: <class 'str'>
@@ -192,7 +192,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateServiceNetworkServiceAssociationRequestTypeDef
+# CreateServiceNetworkServiceAssociationRequest
 
 ### serviceIdentifier
 - **Type**: <class 'str'>
@@ -209,7 +209,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateServiceNetworkVpcAssociationRequestTypeDef
+# CreateServiceNetworkVpcAssociationRequest
 
 ### serviceNetworkIdentifier
 - **Type**: <class 'str'>
@@ -229,7 +229,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateServiceRequestTypeDef
+# CreateServiceRequest
 
 ### name
 - **Type**: <class 'str'>
@@ -251,21 +251,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# DeleteAccessLogSubscriptionRequestTypeDef
+# DeleteAccessLogSubscriptionRequest
 
 ### accessLogSubscriptionIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteAuthPolicyRequestTypeDef
+# DeleteAuthPolicyRequest
 
 ### resourceIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteListenerRequestTypeDef
+# DeleteListenerRequest
 
 ### listenerIdentifier
 - **Type**: <class 'str'>
@@ -276,35 +276,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteResourceConfigurationRequestTypeDef
+# DeleteResourceConfigurationRequest
 
 ### resourceConfigurationIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteResourceEndpointAssociationRequestTypeDef
+# DeleteResourceEndpointAssociationRequest
 
 ### resourceEndpointAssociationIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteResourceGatewayRequestTypeDef
+# DeleteResourceGatewayRequest
 
 ### resourceGatewayIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteResourcePolicyRequestTypeDef
+# DeleteResourcePolicyRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteRuleRequestTypeDef
+# DeleteRuleRequest
 
 ### listenerIdentifier
 - **Type**: <class 'str'>
@@ -319,75 +319,75 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteServiceNetworkRequestTypeDef
+# DeleteServiceNetworkRequest
 
 ### serviceNetworkIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteServiceNetworkResourceAssociationRequestTypeDef
+# DeleteServiceNetworkResourceAssociationRequest
 
 ### serviceNetworkResourceAssociationIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteServiceNetworkServiceAssociationRequestTypeDef
+# DeleteServiceNetworkServiceAssociationRequest
 
 ### serviceNetworkServiceAssociationIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteServiceNetworkVpcAssociationRequestTypeDef
+# DeleteServiceNetworkVpcAssociationRequest
 
 ### serviceNetworkVpcAssociationIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteServiceRequestTypeDef
+# DeleteServiceRequest
 
 ### serviceIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteTargetGroupRequestTypeDef
+# DeleteTargetGroupRequest
 
 ### targetGroupIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeregisterTargetsRequestTypeDef
+# DeregisterTargetsRequest
 
 ### targetGroupIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### targets
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.vpc_lattice_classes.TargetTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.vpc_lattice_classes.Target]
 - **Required**: Yes
 
 
-# DeregisterTargetsResponseTypeDef
+# DeregisterTargetsResponse
 
 ### successful
-- **Type**: typing.List[aws_resource_validator.pydantic_models.vpc_lattice_classes.TargetTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.vpc_lattice_classes.Target]
 - **Required**: Yes
 
 ### unsuccessful
-- **Type**: typing.List[aws_resource_validator.pydantic_models.vpc_lattice_classes.TargetFailureTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.vpc_lattice_classes.TargetFailure]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.vpc_lattice_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.vpc_lattice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DnsEntryTypeDef
+# DnsEntry
 
 ### domainName
 - **Type**: typing.Optional[str]
@@ -396,7 +396,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DnsResourceTypeDef
+# DnsResource
 
 ### domainName
 - **Type**: typing.Optional[str]
@@ -405,48 +405,48 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DUALSTACK', 'IPV4', 'IPV6']]
 
 
-# FixedResponseActionTypeDef
+# FixedResponseAction
 
 ### statusCode
 - **Type**: <class 'int'>
 - **Required**: Yes
 
 
-# ForwardActionOutputTypeDef
+# ForwardAction
 
 ### targetGroups
-- **Type**: typing.List[aws_resource_validator.pydantic_models.vpc_lattice_classes.WeightedTargetGroupTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.vpc_lattice_classes.WeightedTargetGroup]
 - **Required**: Yes
 
 
-# ForwardActionTypeDef
+# ForwardActionOutput
 
 ### targetGroups
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.vpc_lattice_classes.WeightedTargetGroupTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.vpc_lattice_classes.WeightedTargetGroup]
 - **Required**: Yes
 
 
-# ForwardActionUnionTypeDef
+# ForwardActionUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# GetAccessLogSubscriptionRequestTypeDef
+# GetAccessLogSubscriptionRequest
 
 ### accessLogSubscriptionIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetAuthPolicyRequestTypeDef
+# GetAuthPolicyRequest
 
 ### resourceIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetAuthPolicyResponseTypeDef
+# GetAuthPolicyResponse
 
 ### createdAt
 - **Type**: <class 'datetime.datetime'>
@@ -465,11 +465,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.vpc_lattice_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.vpc_lattice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetListenerRequestTypeDef
+# GetListenerRequest
 
 ### listenerIdentifier
 - **Type**: <class 'str'>
@@ -480,39 +480,39 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetResourceConfigurationRequestTypeDef
+# GetResourceConfigurationRequest
 
 ### resourceConfigurationIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetResourceGatewayRequestTypeDef
+# GetResourceGatewayRequest
 
 ### resourceGatewayIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetResourcePolicyRequestTypeDef
+# GetResourcePolicyRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetResourcePolicyResponseTypeDef
+# GetResourcePolicyResponse
 
 ### policy
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.vpc_lattice_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.vpc_lattice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetRuleRequestTypeDef
+# GetRuleRequest
 
 ### listenerIdentifier
 - **Type**: <class 'str'>
@@ -527,52 +527,52 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetServiceNetworkRequestTypeDef
+# GetServiceNetworkRequest
 
 ### serviceNetworkIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetServiceNetworkResourceAssociationRequestTypeDef
+# GetServiceNetworkResourceAssociationRequest
 
 ### serviceNetworkResourceAssociationIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetServiceNetworkServiceAssociationRequestTypeDef
+# GetServiceNetworkServiceAssociationRequest
 
 ### serviceNetworkServiceAssociationIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetServiceNetworkVpcAssociationRequestTypeDef
+# GetServiceNetworkVpcAssociationRequest
 
 ### serviceNetworkVpcAssociationIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetServiceRequestTypeDef
+# GetServiceRequest
 
 ### serviceIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetTargetGroupRequestTypeDef
+# GetTargetGroupRequest
 
 ### targetGroupIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# HeaderMatchTypeDef
+# HeaderMatch
 
 ### match
-- **Type**: <class 'aws_resource_validator.pydantic_models.vpc_lattice_classes.HeaderMatchTypeTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.vpc_lattice_classes.HeaderMatchType'>
 - **Required**: Yes
 
 ### name
@@ -583,7 +583,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# HeaderMatchTypeTypeDef
+# HeaderMatchType
 
 ### contains
 - **Type**: typing.Optional[str]
@@ -595,7 +595,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# HealthCheckConfigTypeDef
+# HealthCheckConfig
 
 ### enabled
 - **Type**: typing.Optional[bool]
@@ -610,7 +610,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### matcher
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.vpc_lattice_classes.MatcherTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.vpc_lattice_classes.Matcher]
 
 ### path
 - **Type**: typing.Optional[str]
@@ -628,53 +628,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# HttpMatchOutputTypeDef
+# HttpMatch
 
 ### headerMatches
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.vpc_lattice_classes.HeaderMatchTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.vpc_lattice_classes.HeaderMatch]]
 
 ### method
 - **Type**: typing.Optional[str]
 
 ### pathMatch
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.vpc_lattice_classes.PathMatchTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.vpc_lattice_classes.PathMatch]
 
 
-# HttpMatchTypeDef
+# HttpMatchOutput
 
 ### headerMatches
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.vpc_lattice_classes.HeaderMatchTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.vpc_lattice_classes.HeaderMatch]]
 
 ### method
 - **Type**: typing.Optional[str]
 
 ### pathMatch
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.vpc_lattice_classes.PathMatchTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.vpc_lattice_classes.PathMatch]
 
 
-# HttpMatchUnionTypeDef
+# HttpMatchUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# IpResourceTypeDef
+# IpResource
 
 ### ipAddress
 - **Type**: typing.Optional[str]
 
 
-# ListAccessLogSubscriptionsRequestPaginateTypeDef
-
-### resourceIdentifier
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.vpc_lattice_classes.PaginatorConfigTypeDef]
-
-
-# ListAccessLogSubscriptionsRequestTypeDef
+# ListAccessLogSubscriptionsRequest
 
 ### resourceIdentifier
 - **Type**: <class 'str'>
@@ -687,31 +677,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListAccessLogSubscriptionsResponseTypeDef
+# ListAccessLogSubscriptionsRequestPaginate
+
+### resourceIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.vpc_lattice_classes.PaginatorConfig]
+
+
+# ListAccessLogSubscriptionsResponse
 
 ### items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.vpc_lattice_classes.AccessLogSubscriptionSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.vpc_lattice_classes.AccessLogSubscriptionSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.vpc_lattice_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.vpc_lattice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListListenersRequestPaginateTypeDef
-
-### serviceIdentifier
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.vpc_lattice_classes.PaginatorConfigTypeDef]
-
-
-# ListListenersRequestTypeDef
+# ListListenersRequest
 
 ### serviceIdentifier
 - **Type**: <class 'str'>
@@ -724,33 +714,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListListenersResponseTypeDef
+# ListListenersRequestPaginate
+
+### serviceIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.vpc_lattice_classes.PaginatorConfig]
+
+
+# ListListenersResponse
 
 ### items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.vpc_lattice_classes.ListenerSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.vpc_lattice_classes.ListenerSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.vpc_lattice_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.vpc_lattice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListResourceConfigurationsRequestPaginateTypeDef
-
-### resourceConfigurationGroupIdentifier
-- **Type**: typing.Optional[str]
-
-### resourceGatewayIdentifier
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.vpc_lattice_classes.PaginatorConfigTypeDef]
-
-
-# ListResourceConfigurationsRequestTypeDef
+# ListResourceConfigurationsRequest
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -765,40 +753,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListResourceConfigurationsResponseTypeDef
+# ListResourceConfigurationsRequestPaginate
+
+### resourceConfigurationGroupIdentifier
+- **Type**: typing.Optional[str]
+
+### resourceGatewayIdentifier
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.vpc_lattice_classes.PaginatorConfig]
+
+
+# ListResourceConfigurationsResponse
 
 ### items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.vpc_lattice_classes.ResourceConfigurationSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.vpc_lattice_classes.ResourceConfigurationSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.vpc_lattice_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.vpc_lattice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListResourceEndpointAssociationsRequestPaginateTypeDef
-
-### resourceConfigurationIdentifier
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### resourceEndpointAssociationIdentifier
-- **Type**: typing.Optional[str]
-
-### vpcEndpointId
-- **Type**: typing.Optional[str]
-
-### vpcEndpointOwner
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.vpc_lattice_classes.PaginatorConfigTypeDef]
-
-
-# ListResourceEndpointAssociationsRequestTypeDef
+# ListResourceEndpointAssociationsRequest
 
 ### resourceConfigurationIdentifier
 - **Type**: <class 'str'>
@@ -820,27 +801,40 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListResourceEndpointAssociationsResponseTypeDef
+# ListResourceEndpointAssociationsRequestPaginate
+
+### resourceConfigurationIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### resourceEndpointAssociationIdentifier
+- **Type**: typing.Optional[str]
+
+### vpcEndpointId
+- **Type**: typing.Optional[str]
+
+### vpcEndpointOwner
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.vpc_lattice_classes.PaginatorConfig]
+
+
+# ListResourceEndpointAssociationsResponse
 
 ### items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.vpc_lattice_classes.ResourceEndpointAssociationSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.vpc_lattice_classes.ResourceEndpointAssociationSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.vpc_lattice_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.vpc_lattice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListResourceGatewaysRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.vpc_lattice_classes.PaginatorConfigTypeDef]
-
-
-# ListResourceGatewaysRequestTypeDef
+# ListResourceGatewaysRequest
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -849,21 +843,44 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListResourceGatewaysResponseTypeDef
+# ListResourceGatewaysRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.vpc_lattice_classes.PaginatorConfig]
+
+
+# ListResourceGatewaysResponse
 
 ### items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.vpc_lattice_classes.ResourceGatewaySummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.vpc_lattice_classes.ResourceGatewaySummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.vpc_lattice_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.vpc_lattice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListRulesRequestPaginateTypeDef
+# ListRulesRequest
+
+### listenerIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### serviceIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### maxResults
+- **Type**: typing.Optional[int]
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+
+# ListRulesRequestPaginate
 
 ### listenerIdentifier
 - **Type**: <class 'str'>
@@ -874,53 +891,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.vpc_lattice_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.vpc_lattice_classes.PaginatorConfig]
 
 
-# ListRulesRequestTypeDef
-
-### listenerIdentifier
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### serviceIdentifier
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### maxResults
-- **Type**: typing.Optional[int]
-
-### nextToken
-- **Type**: typing.Optional[str]
-
-
-# ListRulesResponseTypeDef
+# ListRulesResponse
 
 ### items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.vpc_lattice_classes.RuleSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.vpc_lattice_classes.RuleSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.vpc_lattice_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.vpc_lattice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListServiceNetworkResourceAssociationsRequestPaginateTypeDef
-
-### resourceConfigurationIdentifier
-- **Type**: typing.Optional[str]
-
-### serviceNetworkIdentifier
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.vpc_lattice_classes.PaginatorConfigTypeDef]
-
-
-# ListServiceNetworkResourceAssociationsRequestTypeDef
+# ListServiceNetworkResourceAssociationsRequest
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -935,33 +923,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListServiceNetworkResourceAssociationsResponseTypeDef
+# ListServiceNetworkResourceAssociationsRequestPaginate
 
-### items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.vpc_lattice_classes.ServiceNetworkResourceAssociationSummaryTypeDef]
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.vpc_lattice_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-### nextToken
-- **Type**: typing.Optional[str]
-
-
-# ListServiceNetworkServiceAssociationsRequestPaginateTypeDef
-
-### serviceIdentifier
+### resourceConfigurationIdentifier
 - **Type**: typing.Optional[str]
 
 ### serviceNetworkIdentifier
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.vpc_lattice_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.vpc_lattice_classes.PaginatorConfig]
 
 
-# ListServiceNetworkServiceAssociationsRequestTypeDef
+# ListServiceNetworkResourceAssociationsResponse
+
+### items
+- **Type**: typing.List[aws_resource_validator.pydantic_models.vpc_lattice_classes.ServiceNetworkResourceAssociationSummary]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.vpc_lattice_classes.ResponseMetadata'>
+- **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+
+# ListServiceNetworkServiceAssociationsRequest
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -976,33 +964,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListServiceNetworkServiceAssociationsResponseTypeDef
+# ListServiceNetworkServiceAssociationsRequestPaginate
+
+### serviceIdentifier
+- **Type**: typing.Optional[str]
+
+### serviceNetworkIdentifier
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.vpc_lattice_classes.PaginatorConfig]
+
+
+# ListServiceNetworkServiceAssociationsResponse
 
 ### items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.vpc_lattice_classes.ServiceNetworkServiceAssociationSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.vpc_lattice_classes.ServiceNetworkServiceAssociationSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.vpc_lattice_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.vpc_lattice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListServiceNetworkVpcAssociationsRequestPaginateTypeDef
-
-### serviceNetworkIdentifier
-- **Type**: typing.Optional[str]
-
-### vpcIdentifier
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.vpc_lattice_classes.PaginatorConfigTypeDef]
-
-
-# ListServiceNetworkVpcAssociationsRequestTypeDef
+# ListServiceNetworkVpcAssociationsRequest
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -1017,35 +1005,70 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListServiceNetworkVpcAssociationsResponseTypeDef
+# ListServiceNetworkVpcAssociationsRequestPaginate
+
+### serviceNetworkIdentifier
+- **Type**: typing.Optional[str]
+
+### vpcIdentifier
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.vpc_lattice_classes.PaginatorConfig]
+
+
+# ListServiceNetworkVpcAssociationsResponse
 
 ### items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.vpc_lattice_classes.ServiceNetworkVpcAssociationSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.vpc_lattice_classes.ServiceNetworkVpcAssociationSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.vpc_lattice_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.vpc_lattice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListServiceNetworkVpcEndpointAssociationsRequestPaginateTypeDef
+# ListServiceNetworkVpcEndpointAssociationsRequest
+
+### serviceNetworkIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### maxResults
+- **Type**: typing.Optional[int]
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+
+# ListServiceNetworkVpcEndpointAssociationsRequestPaginate
 
 ### serviceNetworkIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.vpc_lattice_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.vpc_lattice_classes.PaginatorConfig]
 
 
-# ListServiceNetworkVpcEndpointAssociationsRequestTypeDef
+# ListServiceNetworkVpcEndpointAssociationsResponse
 
-### serviceNetworkIdentifier
-- **Type**: <class 'str'>
+### items
+- **Type**: typing.List[aws_resource_validator.pydantic_models.vpc_lattice_classes.ServiceNetworkEndpointAssociation]
 - **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.vpc_lattice_classes.ResponseMetadata'>
+- **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+
+# ListServiceNetworksRequest
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -1054,27 +1077,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListServiceNetworkVpcEndpointAssociationsResponseTypeDef
-
-### items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.vpc_lattice_classes.ServiceNetworkEndpointAssociationTypeDef]
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.vpc_lattice_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-### nextToken
-- **Type**: typing.Optional[str]
-
-
-# ListServiceNetworksRequestPaginateTypeDef
+# ListServiceNetworksRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.vpc_lattice_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.vpc_lattice_classes.PaginatorConfig]
 
 
-# ListServiceNetworksRequestTypeDef
+# ListServiceNetworksResponse
+
+### items
+- **Type**: typing.List[aws_resource_validator.pydantic_models.vpc_lattice_classes.ServiceNetworkSummary]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.vpc_lattice_classes.ResponseMetadata'>
+- **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+
+# ListServicesRequest
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -1083,80 +1106,45 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListServiceNetworksResponseTypeDef
-
-### items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.vpc_lattice_classes.ServiceNetworkSummaryTypeDef]
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.vpc_lattice_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-### nextToken
-- **Type**: typing.Optional[str]
-
-
-# ListServicesRequestPaginateTypeDef
+# ListServicesRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.vpc_lattice_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.vpc_lattice_classes.PaginatorConfig]
 
 
-# ListServicesRequestTypeDef
-
-### maxResults
-- **Type**: typing.Optional[int]
-
-### nextToken
-- **Type**: typing.Optional[str]
-
-
-# ListServicesResponseTypeDef
+# ListServicesResponse
 
 ### items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.vpc_lattice_classes.ServiceSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.vpc_lattice_classes.ServiceSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.vpc_lattice_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.vpc_lattice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestTypeDef
+# ListTagsForResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ListTagsForResourceResponseTypeDef
+# ListTagsForResourceResponse
 
 ### tags
 - **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.vpc_lattice_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.vpc_lattice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListTargetGroupsRequestPaginateTypeDef
-
-### targetGroupType
-- **Type**: typing.Optional[typing.Literal['ALB', 'INSTANCE', 'IP', 'LAMBDA']]
-
-### vpcIdentifier
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.vpc_lattice_classes.PaginatorConfigTypeDef]
-
-
-# ListTargetGroupsRequestTypeDef
+# ListTargetGroupsRequest
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -1171,34 +1159,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListTargetGroupsResponseTypeDef
+# ListTargetGroupsRequestPaginate
+
+### targetGroupType
+- **Type**: typing.Optional[typing.Literal['ALB', 'INSTANCE', 'IP', 'LAMBDA']]
+
+### vpcIdentifier
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.vpc_lattice_classes.PaginatorConfig]
+
+
+# ListTargetGroupsResponse
 
 ### items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.vpc_lattice_classes.TargetGroupSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.vpc_lattice_classes.TargetGroupSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.vpc_lattice_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.vpc_lattice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTargetsRequestPaginateTypeDef
-
-### targetGroupIdentifier
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### targets
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.vpc_lattice_classes.TargetTypeDef]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.vpc_lattice_classes.PaginatorConfigTypeDef]
-
-
-# ListTargetsRequestTypeDef
+# ListTargetsRequest
 
 ### targetGroupIdentifier
 - **Type**: <class 'str'>
@@ -1211,36 +1198,49 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### targets
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.vpc_lattice_classes.TargetTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.vpc_lattice_classes.Target]]
 
 
-# ListTargetsResponseTypeDef
+# ListTargetsRequestPaginate
+
+### targetGroupIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### targets
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.vpc_lattice_classes.Target]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.vpc_lattice_classes.PaginatorConfig]
+
+
+# ListTargetsResponse
 
 ### items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.vpc_lattice_classes.TargetSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.vpc_lattice_classes.TargetSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.vpc_lattice_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.vpc_lattice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListenerSummaryTypeDef
+# ListenerSummary
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# MatcherTypeDef
+# Matcher
 
 ### httpCode
 - **Type**: typing.Optional[str]
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -1252,17 +1252,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PathMatchTypeDef
+# PathMatch
 
 ### match
-- **Type**: <class 'aws_resource_validator.pydantic_models.vpc_lattice_classes.PathMatchTypeTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.vpc_lattice_classes.PathMatchType'>
 - **Required**: Yes
 
 ### caseSensitive
 - **Type**: typing.Optional[bool]
 
 
-# PathMatchTypeTypeDef
+# PathMatchType
 
 ### exact
 - **Type**: typing.Optional[str]
@@ -1271,7 +1271,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PutAuthPolicyRequestTypeDef
+# PutAuthPolicyRequest
 
 ### policy
 - **Type**: <class 'str'>
@@ -1282,7 +1282,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutAuthPolicyResponseTypeDef
+# PutAuthPolicyResponse
 
 ### policy
 - **Type**: <class 'str'>
@@ -1293,11 +1293,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.vpc_lattice_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.vpc_lattice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# PutResourcePolicyRequestTypeDef
+# PutResourcePolicyRequest
 
 ### policy
 - **Type**: <class 'str'>
@@ -1308,63 +1308,63 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RegisterTargetsRequestTypeDef
+# RegisterTargetsRequest
 
 ### targetGroupIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### targets
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.vpc_lattice_classes.TargetTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.vpc_lattice_classes.Target]
 - **Required**: Yes
 
 
-# RegisterTargetsResponseTypeDef
+# RegisterTargetsResponse
 
 ### successful
-- **Type**: typing.List[aws_resource_validator.pydantic_models.vpc_lattice_classes.TargetTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.vpc_lattice_classes.Target]
 - **Required**: Yes
 
 ### unsuccessful
-- **Type**: typing.List[aws_resource_validator.pydantic_models.vpc_lattice_classes.TargetFailureTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.vpc_lattice_classes.TargetFailure]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.vpc_lattice_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.vpc_lattice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ResourceConfigurationDefinitionTypeDef
+# ResourceConfigurationDefinition
 
 ### arnResource
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.vpc_lattice_classes.ArnResourceTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.vpc_lattice_classes.ArnResource]
 
 ### dnsResource
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.vpc_lattice_classes.DnsResourceTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.vpc_lattice_classes.DnsResource]
 
 ### ipResource
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.vpc_lattice_classes.IpResourceTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.vpc_lattice_classes.IpResource]
 
 
-# ResourceConfigurationSummaryTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# ResourceEndpointAssociationSummaryTypeDef
+# ResourceConfigurationSummary
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ResourceGatewaySummaryTypeDef
+# ResourceEndpointAssociationSummary
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ResponseMetadataTypeDef
+# ResourceGatewaySummary
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -1386,55 +1386,71 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RuleActionOutputTypeDef
+# RuleAction
 
 ### fixedResponse
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.vpc_lattice_classes.FixedResponseActionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.vpc_lattice_classes.FixedResponseAction]
 
 ### forward
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.vpc_lattice_classes.ForwardActionOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.vpc_lattice_classes.ForwardActionUnion]
 
 
-# RuleActionTypeDef
+# RuleActionOutput
 
 ### fixedResponse
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.vpc_lattice_classes.FixedResponseActionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.vpc_lattice_classes.FixedResponseAction]
 
 ### forward
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.vpc_lattice_classes.ForwardActionUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.vpc_lattice_classes.ForwardActionOutput]
 
 
-# RuleActionUnionTypeDef
+# RuleActionUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# RuleMatchOutputTypeDef
+# RuleMatch
 
 ### httpMatch
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.vpc_lattice_classes.HttpMatchOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.vpc_lattice_classes.HttpMatchUnion]
 
 
-# RuleMatchTypeDef
+# RuleMatchOutput
 
 ### httpMatch
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.vpc_lattice_classes.HttpMatchUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.vpc_lattice_classes.HttpMatchOutput]
 
 
-# RuleMatchUnionTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# RuleSummaryTypeDef
+# RuleMatchUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# RuleUpdateFailureTypeDef
+# RuleSummary
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# RuleUpdate
+
+### ruleIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### action
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.vpc_lattice_classes.RuleActionUnion]
+
+### match
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.vpc_lattice_classes.RuleMatchUnion]
+
+### priority
+- **Type**: typing.Optional[int]
+
+
+# RuleUpdateFailure
 
 ### failureCode
 - **Type**: typing.Optional[str]
@@ -1446,71 +1462,55 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RuleUpdateSuccessTypeDef
+# RuleUpdateSuccess
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# RuleUpdateTypeDef
-
-### ruleIdentifier
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### action
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.vpc_lattice_classes.RuleActionUnionTypeDef]
-
-### match
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.vpc_lattice_classes.RuleMatchUnionTypeDef]
-
-### priority
-- **Type**: typing.Optional[int]
-
-
-# ServiceNetworkEndpointAssociationTypeDef
+# ServiceNetworkEndpointAssociation
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ServiceNetworkResourceAssociationSummaryTypeDef
+# ServiceNetworkResourceAssociationSummary
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ServiceNetworkServiceAssociationSummaryTypeDef
+# ServiceNetworkServiceAssociationSummary
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ServiceNetworkSummaryTypeDef
+# ServiceNetworkSummary
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ServiceNetworkVpcAssociationSummaryTypeDef
+# ServiceNetworkVpcAssociationSummary
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ServiceSummaryTypeDef
+# ServiceSummary
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# SharingConfigTypeDef
+# SharingConfig
 
 ### enabled
 - **Type**: typing.Optional[bool]
 
 
-# TagResourceRequestTypeDef
+# TagResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -1521,16 +1521,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TargetFailureTypeDef
+# Target
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# TargetGroupConfigTypeDef
+# TargetFailure
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# TargetGroupConfig
 
 ### healthCheck
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.vpc_lattice_classes.HealthCheckConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.vpc_lattice_classes.HealthCheckConfig]
 
 ### ipAddressType
 - **Type**: typing.Optional[typing.Literal['IPV4', 'IPV6']]
@@ -1551,25 +1557,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TargetGroupSummaryTypeDef
+# TargetGroupSummary
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# TargetSummaryTypeDef
+# TargetSummary
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# TargetTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# UntagResourceRequestTypeDef
+# UntagResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -1580,7 +1580,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateAccessLogSubscriptionRequestTypeDef
+# UpdateAccessLogSubscriptionRequest
 
 ### accessLogSubscriptionIdentifier
 - **Type**: <class 'str'>
@@ -1591,10 +1591,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateListenerRequestTypeDef
+# UpdateListenerRequest
 
 ### defaultAction
-- **Type**: <class 'aws_resource_validator.pydantic_models.vpc_lattice_classes.RuleActionUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.vpc_lattice_classes.RuleActionUnion'>
 - **Required**: Yes
 
 ### listenerIdentifier
@@ -1606,7 +1606,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateResourceConfigurationRequestTypeDef
+# UpdateResourceConfigurationRequest
 
 ### resourceConfigurationIdentifier
 - **Type**: <class 'str'>
@@ -1619,10 +1619,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### resourceConfigurationDefinition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.vpc_lattice_classes.ResourceConfigurationDefinitionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.vpc_lattice_classes.ResourceConfigurationDefinition]
 
 
-# UpdateResourceGatewayRequestTypeDef
+# UpdateResourceGatewayRequest
 
 ### resourceGatewayIdentifier
 - **Type**: <class 'str'>
@@ -1632,7 +1632,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# UpdateRuleRequestTypeDef
+# UpdateRuleRequest
 
 ### listenerIdentifier
 - **Type**: <class 'str'>
@@ -1647,16 +1647,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### action
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.vpc_lattice_classes.RuleActionUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.vpc_lattice_classes.RuleActionUnion]
 
 ### match
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.vpc_lattice_classes.RuleMatchUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.vpc_lattice_classes.RuleMatchUnion]
 
 ### priority
 - **Type**: typing.Optional[int]
 
 
-# UpdateServiceNetworkRequestTypeDef
+# UpdateServiceNetworkRequest
 
 ### authType
 - **Type**: typing.Literal['AWS_IAM', 'NONE']
@@ -1667,7 +1667,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateServiceNetworkVpcAssociationRequestTypeDef
+# UpdateServiceNetworkVpcAssociationRequest
 
 ### securityGroupIds
 - **Type**: typing.Sequence[str]
@@ -1678,7 +1678,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateServiceRequestTypeDef
+# UpdateServiceRequest
 
 ### serviceIdentifier
 - **Type**: <class 'str'>
@@ -1691,10 +1691,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateTargetGroupRequestTypeDef
+# UpdateTargetGroupRequest
 
 ### healthCheck
-- **Type**: <class 'aws_resource_validator.pydantic_models.vpc_lattice_classes.HealthCheckConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.vpc_lattice_classes.HealthCheckConfig'>
 - **Required**: Yes
 
 ### targetGroupIdentifier
@@ -1702,7 +1702,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# WeightedTargetGroupTypeDef
+# WeightedTargetGroup
 
 ### targetGroupIdentifier
 - **Type**: <class 'str'>

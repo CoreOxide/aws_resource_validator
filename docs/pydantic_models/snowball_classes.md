@@ -1,6 +1,6 @@
 # Snowball Classes
 
-# AddressTypeDef
+# Address
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
@@ -12,21 +12,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CancelClusterRequestTypeDef
+# CancelClusterRequest
 
 ### ClusterId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# CancelJobRequestTypeDef
+# CancelJobRequest
 
 ### JobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ClusterListEntryTypeDef
+# ClusterListEntry
 
 ### ClusterId
 - **Type**: typing.Optional[str]
@@ -41,7 +41,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ClusterMetadataTypeDef
+# ClusterMetadata
 
 ### ClusterId
 - **Type**: typing.Optional[str]
@@ -68,7 +68,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### Resources
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snowball_classes.JobResourceOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snowball_classes.JobResourceOutput]
 
 ### AddressId
 - **Type**: typing.Optional[str]
@@ -77,19 +77,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['EXPRESS', 'NEXT_DAY', 'SECOND_DAY', 'STANDARD']]
 
 ### Notification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snowball_classes.NotificationOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snowball_classes.NotificationOutput]
 
 ### ForwardingAddressId
 - **Type**: typing.Optional[str]
 
 ### TaxDocuments
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snowball_classes.TaxDocumentsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### OnDeviceServiceConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snowball_classes.OnDeviceServiceConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# CompatibleImageTypeDef
+# CompatibleImage
 
 ### AmiId
 - **Type**: typing.Optional[str]
@@ -98,25 +98,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateAddressRequestTypeDef
+# CreateAddressRequest
 
 ### Address
-- **Type**: <class 'aws_resource_validator.pydantic_models.snowball_classes.AddressTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.snowball_classes.Address'>
 - **Required**: Yes
 
 
-# CreateAddressResultTypeDef
+# CreateAddressResult
 
 ### AddressId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.snowball_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.snowball_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateClusterRequestTypeDef
+# CreateClusterRequest
 
 ### JobType
 - **Type**: typing.Literal['EXPORT', 'IMPORT', 'LOCAL_USE']
@@ -135,10 +135,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Resources
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snowball_classes.JobResourceUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snowball_classes.JobResourceUnion]
 
 ### OnDeviceServiceConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snowball_classes.OnDeviceServiceConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### Description
 - **Type**: typing.Optional[str]
@@ -150,13 +150,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Notification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snowball_classes.NotificationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snowball_classes.NotificationUnion]
 
 ### ForwardingAddressId
 - **Type**: typing.Optional[str]
 
 ### TaxDocuments
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snowball_classes.TaxDocumentsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### RemoteManagement
 - **Type**: typing.Optional[typing.Literal['INSTALLED_AUTOSTART', 'INSTALLED_ONLY', 'NOT_INSTALLED']]
@@ -174,31 +174,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['NoPreference', 'T100', 'T13', 'T14', 'T240', 'T32', 'T42', 'T50', 'T8', 'T80', 'T98']]
 
 
-# CreateClusterResultTypeDef
+# CreateClusterResult
 
 ### ClusterId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### JobListEntries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.snowball_classes.JobListEntryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.snowball_classes.JobListEntry]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.snowball_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.snowball_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateJobRequestTypeDef
+# CreateJobRequest
 
 ### JobType
 - **Type**: typing.Optional[typing.Literal['EXPORT', 'IMPORT', 'LOCAL_USE']]
 
 ### Resources
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snowball_classes.JobResourceUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snowball_classes.JobResourceUnion]
 
 ### OnDeviceServiceConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snowball_classes.OnDeviceServiceConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### Description
 - **Type**: typing.Optional[str]
@@ -219,7 +219,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['EXPRESS', 'NEXT_DAY', 'SECOND_DAY', 'STANDARD']]
 
 ### Notification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snowball_classes.NotificationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snowball_classes.NotificationUnion]
 
 ### ClusterId
 - **Type**: typing.Optional[str]
@@ -231,10 +231,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### TaxDocuments
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snowball_classes.TaxDocumentsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### DeviceConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snowball_classes.DeviceConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### RemoteManagement
 - **Type**: typing.Optional[typing.Literal['INSTALLED_AUTOSTART', 'INSTALLED_ONLY', 'NOT_INSTALLED']]
@@ -246,21 +246,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['IL2', 'IL4', 'IL5', 'IL6', 'IL99']]
 
 ### PickupDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snowball_classes.PickupDetailsUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snowball_classes.PickupDetailsUnion]
 
 
-# CreateJobResultTypeDef
+# CreateJobResult
 
 ### JobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.snowball_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.snowball_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateLongTermPricingRequestTypeDef
+# CreateLongTermPricingRequest
 
 ### LongTermPricingType
 - **Type**: typing.Literal['OneMonth', 'OneYear', 'ThreeYear']
@@ -274,18 +274,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# CreateLongTermPricingResultTypeDef
+# CreateLongTermPricingResult
 
 ### LongTermPricingId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.snowball_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.snowball_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateReturnShippingLabelRequestTypeDef
+# CreateReturnShippingLabelRequest
 
 ### JobId
 - **Type**: <class 'str'>
@@ -295,18 +295,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['EXPRESS', 'NEXT_DAY', 'SECOND_DAY', 'STANDARD']]
 
 
-# CreateReturnShippingLabelResultTypeDef
+# CreateReturnShippingLabelResult
 
 ### Status
 - **Type**: typing.Literal['Failed', 'InProgress', 'Succeeded', 'TimedOut']
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.snowball_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.snowball_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DataTransferTypeDef
+# DataTransfer
 
 ### BytesTransferred
 - **Type**: typing.Optional[int]
@@ -321,31 +321,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# DescribeAddressRequestTypeDef
+# DescribeAddressRequest
 
 ### AddressId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeAddressResultTypeDef
+# DescribeAddressResult
 
 ### Address
-- **Type**: <class 'aws_resource_validator.pydantic_models.snowball_classes.AddressTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.snowball_classes.Address'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.snowball_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.snowball_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeAddressesRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snowball_classes.PaginatorConfigTypeDef]
-
-
-# DescribeAddressesRequestTypeDef
+# DescribeAddressesRequest
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -354,68 +348,74 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeAddressesResultTypeDef
+# DescribeAddressesRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snowball_classes.PaginatorConfig]
+
+
+# DescribeAddressesResult
 
 ### Addresses
-- **Type**: typing.List[aws_resource_validator.pydantic_models.snowball_classes.AddressTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.snowball_classes.Address]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.snowball_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.snowball_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# DescribeClusterRequestTypeDef
+# DescribeClusterRequest
 
 ### ClusterId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeClusterResultTypeDef
+# DescribeClusterResult
 
 ### ClusterMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.snowball_classes.ClusterMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.snowball_classes.ClusterMetadata'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.snowball_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.snowball_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeJobRequestTypeDef
+# DescribeJobRequest
 
 ### JobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeJobResultTypeDef
+# DescribeJobResult
 
 ### JobMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.snowball_classes.JobMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.snowball_classes.JobMetadata'>
 - **Required**: Yes
 
 ### SubJobMetadata
-- **Type**: typing.List[aws_resource_validator.pydantic_models.snowball_classes.JobMetadataTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.snowball_classes.JobMetadata]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.snowball_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.snowball_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeReturnShippingLabelRequestTypeDef
+# DescribeReturnShippingLabelRequest
 
 ### JobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeReturnShippingLabelResultTypeDef
+# DescribeReturnShippingLabelResult
 
 ### Status
 - **Type**: typing.Literal['Failed', 'InProgress', 'Succeeded', 'TimedOut']
@@ -430,17 +430,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.snowball_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.snowball_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeviceConfigurationTypeDef
+# DeviceConfiguration
 
 ### SnowconeDeviceConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snowball_classes.SnowconeDeviceConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# EKSOnDeviceServiceConfigurationTypeDef
+# EKSOnDeviceServiceConfiguration
 
 ### KubernetesVersion
 - **Type**: typing.Optional[str]
@@ -449,7 +449,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# Ec2AmiResourceTypeDef
+# Ec2AmiResource
 
 ### AmiId
 - **Type**: <class 'str'>
@@ -459,49 +459,49 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# EventTriggerDefinitionTypeDef
+# EventTriggerDefinition
 
 ### EventResourceARN
 - **Type**: typing.Optional[str]
 
 
-# GetJobManifestRequestTypeDef
+# GetJobManifestRequest
 
 ### JobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetJobManifestResultTypeDef
+# GetJobManifestResult
 
 ### ManifestURI
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.snowball_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.snowball_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetJobUnlockCodeRequestTypeDef
+# GetJobUnlockCodeRequest
 
 ### JobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetJobUnlockCodeResultTypeDef
+# GetJobUnlockCodeResult
 
 ### UnlockCode
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.snowball_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.snowball_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetSnowballUsageResultTypeDef
+# GetSnowballUsageResult
 
 ### SnowballLimit
 - **Type**: <class 'int'>
@@ -512,35 +512,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.snowball_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.snowball_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetSoftwareUpdatesRequestTypeDef
+# GetSoftwareUpdatesRequest
 
 ### JobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetSoftwareUpdatesResultTypeDef
+# GetSoftwareUpdatesResult
 
 ### UpdatesURI
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.snowball_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.snowball_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# INDTaxDocumentsTypeDef
+# INDTaxDocuments
 
 ### GSTIN
 - **Type**: typing.Optional[str]
 
 
-# JobListEntryTypeDef
+# JobListEntry
 
 ### JobId
 - **Type**: typing.Optional[str]
@@ -564,7 +564,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# JobLogsTypeDef
+# JobLogs
 
 ### JobCompletionReportURI
 - **Type**: typing.Optional[str]
@@ -576,7 +576,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# JobMetadataTypeDef
+# JobMetadata
 
 ### JobId
 - **Type**: typing.Optional[str]
@@ -594,7 +594,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### Resources
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snowball_classes.JobResourceOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snowball_classes.JobResourceOutput]
 
 ### Description
 - **Type**: typing.Optional[str]
@@ -609,19 +609,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ShippingDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snowball_classes.ShippingDetailsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### SnowballCapacityPreference
 - **Type**: typing.Optional[typing.Literal['NoPreference', 'T100', 'T13', 'T14', 'T240', 'T32', 'T42', 'T50', 'T8', 'T80', 'T98']]
 
 ### Notification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snowball_classes.NotificationOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snowball_classes.NotificationOutput]
 
 ### DataTransferProgress
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snowball_classes.DataTransferTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snowball_classes.DataTransfer]
 
 ### JobLogInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snowball_classes.JobLogsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snowball_classes.JobLogs]
 
 ### ClusterId
 - **Type**: typing.Optional[str]
@@ -630,10 +630,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### TaxDocuments
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snowball_classes.TaxDocumentsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### DeviceConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snowball_classes.DeviceConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### RemoteManagement
 - **Type**: typing.Optional[typing.Literal['INSTALLED_AUTOSTART', 'INSTALLED_ONLY', 'NOT_INSTALLED']]
@@ -642,49 +642,49 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### OnDeviceServiceConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snowball_classes.OnDeviceServiceConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### ImpactLevel
 - **Type**: typing.Optional[typing.Literal['IL2', 'IL4', 'IL5', 'IL6', 'IL99']]
 
 ### PickupDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snowball_classes.PickupDetailsOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snowball_classes.PickupDetailsOutput]
 
 ### SnowballId
 - **Type**: typing.Optional[str]
 
 
-# JobResourceOutputTypeDef
+# JobResource
 
 ### S3Resources
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.snowball_classes.S3ResourceOutputTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.snowball_classes.S3Resource]]
 
 ### LambdaResources
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.snowball_classes.LambdaResourceOutputTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.snowball_classes.LambdaResource]]
 
 ### Ec2AmiResources
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.snowball_classes.Ec2AmiResourceTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.snowball_classes.Ec2AmiResource]]
 
 
-# JobResourceTypeDef
+# JobResourceOutput
 
 ### S3Resources
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.snowball_classes.S3ResourceTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.snowball_classes.S3ResourceOutput]]
 
 ### LambdaResources
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.snowball_classes.LambdaResourceTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.snowball_classes.LambdaResourceOutput]]
 
 ### Ec2AmiResources
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.snowball_classes.Ec2AmiResourceTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.snowball_classes.Ec2AmiResource]]
 
 
-# JobResourceUnionTypeDef
+# JobResourceUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# KeyRangeTypeDef
+# KeyRange
 
 ### BeginMarker
 - **Type**: typing.Optional[str]
@@ -693,35 +693,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# LambdaResourceOutputTypeDef
+# LambdaResource
 
 ### LambdaArn
 - **Type**: typing.Optional[str]
 
 ### EventTriggers
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.snowball_classes.EventTriggerDefinitionTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.snowball_classes.EventTriggerDefinition]]
 
 
-# LambdaResourceTypeDef
+# LambdaResourceOutput
 
 ### LambdaArn
 - **Type**: typing.Optional[str]
 
 ### EventTriggers
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.snowball_classes.EventTriggerDefinitionTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.snowball_classes.EventTriggerDefinition]]
 
 
-# ListClusterJobsRequestPaginateTypeDef
-
-### ClusterId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snowball_classes.PaginatorConfigTypeDef]
-
-
-# ListClusterJobsRequestTypeDef
+# ListClusterJobsRequest
 
 ### ClusterId
 - **Type**: <class 'str'>
@@ -734,27 +724,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListClusterJobsResultTypeDef
+# ListClusterJobsRequestPaginate
+
+### ClusterId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snowball_classes.PaginatorConfig]
+
+
+# ListClusterJobsResult
 
 ### JobListEntries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.snowball_classes.JobListEntryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.snowball_classes.JobListEntry]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.snowball_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.snowball_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListClustersRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snowball_classes.PaginatorConfigTypeDef]
-
-
-# ListClustersRequestTypeDef
+# ListClustersRequest
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -763,27 +757,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListClustersResultTypeDef
+# ListClustersRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snowball_classes.PaginatorConfig]
+
+
+# ListClustersResult
 
 ### ClusterListEntries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.snowball_classes.ClusterListEntryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.snowball_classes.ClusterListEntry]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.snowball_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.snowball_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListCompatibleImagesRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snowball_classes.PaginatorConfigTypeDef]
-
-
-# ListCompatibleImagesRequestTypeDef
+# ListCompatibleImagesRequest
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -792,27 +786,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListCompatibleImagesResultTypeDef
+# ListCompatibleImagesRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snowball_classes.PaginatorConfig]
+
+
+# ListCompatibleImagesResult
 
 ### CompatibleImages
-- **Type**: typing.List[aws_resource_validator.pydantic_models.snowball_classes.CompatibleImageTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.snowball_classes.CompatibleImage]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.snowball_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.snowball_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListJobsRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snowball_classes.PaginatorConfigTypeDef]
-
-
-# ListJobsRequestTypeDef
+# ListJobsRequest
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -821,50 +815,56 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListJobsResultTypeDef
+# ListJobsRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snowball_classes.PaginatorConfig]
+
+
+# ListJobsResult
 
 ### JobListEntries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.snowball_classes.JobListEntryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.snowball_classes.JobListEntry]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.snowball_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.snowball_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListLongTermPricingRequestPaginateTypeDef
+# ListLongTermPricingRequest
+
+### MaxResults
+- **Type**: typing.Optional[int]
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# ListLongTermPricingRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snowball_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snowball_classes.PaginatorConfig]
 
 
-# ListLongTermPricingRequestTypeDef
-
-### MaxResults
-- **Type**: typing.Optional[int]
-
-### NextToken
-- **Type**: typing.Optional[str]
-
-
-# ListLongTermPricingResultTypeDef
+# ListLongTermPricingResult
 
 ### LongTermPricingEntries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.snowball_classes.LongTermPricingListEntryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.snowball_classes.LongTermPricingListEntry]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.snowball_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.snowball_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListPickupLocationsRequestTypeDef
+# ListPickupLocationsRequest
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -873,21 +873,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListPickupLocationsResultTypeDef
+# ListPickupLocationsResult
 
 ### Addresses
-- **Type**: typing.List[aws_resource_validator.pydantic_models.snowball_classes.AddressTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.snowball_classes.Address]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.snowball_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.snowball_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# LongTermPricingListEntryTypeDef
+# LongTermPricingListEntry
 
 ### LongTermPricingId
 - **Type**: typing.Optional[str]
@@ -920,7 +920,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# NFSOnDeviceServiceConfigurationTypeDef
+# NFSOnDeviceServiceConfiguration
 
 ### StorageLimit
 - **Type**: typing.Optional[int]
@@ -929,22 +929,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['TB']]
 
 
-# NotificationOutputTypeDef
-
-### SnsTopicARN
-- **Type**: typing.Optional[str]
-
-### JobStatesToNotify
-- **Type**: typing.Optional[typing.List[typing.Literal['Cancelled', 'Complete', 'InProgress', 'InTransitToAWS', 'InTransitToCustomer', 'Listing', 'New', 'Pending', 'PreparingAppliance', 'PreparingShipment', 'WithAWS', 'WithAWSSortingFacility', 'WithCustomer']]]
-
-### NotifyAll
-- **Type**: typing.Optional[bool]
-
-### DevicePickupSnsTopicARN
-- **Type**: typing.Optional[str]
-
-
-# NotificationTypeDef
+# Notification
 
 ### SnsTopicARN
 - **Type**: typing.Optional[str]
@@ -959,28 +944,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# NotificationUnionTypeDef
+# NotificationOutput
+
+### SnsTopicARN
+- **Type**: typing.Optional[str]
+
+### JobStatesToNotify
+- **Type**: typing.Optional[typing.List[typing.Literal['Cancelled', 'Complete', 'InProgress', 'InTransitToAWS', 'InTransitToCustomer', 'Listing', 'New', 'Pending', 'PreparingAppliance', 'PreparingShipment', 'WithAWS', 'WithAWSSortingFacility', 'WithCustomer']]]
+
+### NotifyAll
+- **Type**: typing.Optional[bool]
+
+### DevicePickupSnsTopicARN
+- **Type**: typing.Optional[str]
+
+
+# NotificationUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# OnDeviceServiceConfigurationTypeDef
+# OnDeviceServiceConfiguration
 
 ### NFSOnDeviceService
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snowball_classes.NFSOnDeviceServiceConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snowball_classes.NFSOnDeviceServiceConfiguration]
 
 ### TGWOnDeviceService
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snowball_classes.TGWOnDeviceServiceConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snowball_classes.TGWOnDeviceServiceConfiguration]
 
 ### EKSOnDeviceService
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snowball_classes.EKSOnDeviceServiceConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snowball_classes.EKSOnDeviceServiceConfiguration]
 
 ### S3OnDeviceService
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snowball_classes.S3OnDeviceServiceConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snowball_classes.S3OnDeviceServiceConfiguration]
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -992,7 +992,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PickupDetailsOutputTypeDef
+# PickupDetails
+
+### Name
+- **Type**: typing.Optional[str]
+
+### PhoneNumber
+- **Type**: typing.Optional[str]
+
+### Email
+- **Type**: typing.Optional[str]
+
+### IdentificationNumber
+- **Type**: typing.Optional[str]
+
+### IdentificationExpirationDate
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snowball_classes.Timestamp]
+
+### IdentificationIssuingOrg
+- **Type**: typing.Optional[str]
+
+### DevicePickupId
+- **Type**: typing.Optional[str]
+
+
+# PickupDetailsOutput
 
 ### Name
 - **Type**: typing.Optional[str]
@@ -1016,37 +1040,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PickupDetailsTypeDef
-
-### Name
-- **Type**: typing.Optional[str]
-
-### PhoneNumber
-- **Type**: typing.Optional[str]
-
-### Email
-- **Type**: typing.Optional[str]
-
-### IdentificationNumber
-- **Type**: typing.Optional[str]
-
-### IdentificationExpirationDate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snowball_classes.TimestampTypeDef]
-
-### IdentificationIssuingOrg
-- **Type**: typing.Optional[str]
-
-### DevicePickupId
-- **Type**: typing.Optional[str]
-
-
-# PickupDetailsUnionTypeDef
+# PickupDetailsUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -1068,7 +1068,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# S3OnDeviceServiceConfigurationTypeDef
+# S3OnDeviceServiceConfiguration
 
 ### StorageLimit
 - **Type**: typing.Optional[float]
@@ -1083,37 +1083,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# S3ResourceOutputTypeDef
+# S3Resource
 
 ### BucketArn
 - **Type**: typing.Optional[str]
 
 ### KeyRange
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snowball_classes.KeyRangeTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### TargetOnDeviceServices
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.snowball_classes.TargetOnDeviceServiceTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.snowball_classes.TargetOnDeviceService]]
 
 
-# S3ResourceTypeDef
+# S3ResourceOutput
 
 ### BucketArn
 - **Type**: typing.Optional[str]
 
 ### KeyRange
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snowball_classes.KeyRangeTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### TargetOnDeviceServices
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.snowball_classes.TargetOnDeviceServiceTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.snowball_classes.TargetOnDeviceService]]
 
 
-# ServiceVersionTypeDef
+# ServiceVersion
 
 ### Version
 - **Type**: typing.Optional[str]
 
 
-# ShipmentTypeDef
+# Shipment
 
 ### Status
 - **Type**: typing.Optional[str]
@@ -1122,25 +1122,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ShippingDetailsTypeDef
+# ShippingDetails
 
 ### ShippingOption
 - **Type**: typing.Optional[typing.Literal['EXPRESS', 'NEXT_DAY', 'SECOND_DAY', 'STANDARD']]
 
 ### InboundShipment
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snowball_classes.ShipmentTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snowball_classes.Shipment]
 
 ### OutboundShipment
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snowball_classes.ShipmentTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snowball_classes.Shipment]
 
 
-# SnowconeDeviceConfigurationTypeDef
+# SnowconeDeviceConfiguration
 
 ### WirelessConnection
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snowball_classes.WirelessConnectionTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# TGWOnDeviceServiceConfigurationTypeDef
+# TGWOnDeviceServiceConfiguration
 
 ### StorageLimit
 - **Type**: typing.Optional[int]
@@ -1149,25 +1149,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['TB']]
 
 
-# TargetOnDeviceServiceTypeDef
+# TargetOnDeviceService
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# TaxDocumentsTypeDef
+# TaxDocuments
 
 ### IND
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snowball_classes.INDTaxDocumentsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snowball_classes.INDTaxDocuments]
 
 
-# TimestampTypeDef
+# Timestamp
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# UpdateClusterRequestTypeDef
+# UpdateClusterRequest
 
 ### ClusterId
 - **Type**: <class 'str'>
@@ -1180,10 +1180,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Resources
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snowball_classes.JobResourceUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snowball_classes.JobResourceUnion]
 
 ### OnDeviceServiceConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snowball_classes.OnDeviceServiceConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### AddressId
 - **Type**: typing.Optional[str]
@@ -1192,13 +1192,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['EXPRESS', 'NEXT_DAY', 'SECOND_DAY', 'STANDARD']]
 
 ### Notification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snowball_classes.NotificationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snowball_classes.NotificationUnion]
 
 ### ForwardingAddressId
 - **Type**: typing.Optional[str]
 
 
-# UpdateJobRequestTypeDef
+# UpdateJobRequest
 
 ### JobId
 - **Type**: <class 'str'>
@@ -1208,13 +1208,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Notification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snowball_classes.NotificationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snowball_classes.NotificationUnion]
 
 ### Resources
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snowball_classes.JobResourceUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snowball_classes.JobResourceUnion]
 
 ### OnDeviceServiceConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snowball_classes.OnDeviceServiceConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### AddressId
 - **Type**: typing.Optional[str]
@@ -1232,10 +1232,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PickupDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snowball_classes.PickupDetailsUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snowball_classes.PickupDetailsUnion]
 
 
-# UpdateJobShipmentStateRequestTypeDef
+# UpdateJobShipmentStateRequest
 
 ### JobId
 - **Type**: <class 'str'>
@@ -1246,7 +1246,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateLongTermPricingRequestTypeDef
+# UpdateLongTermPricingRequest
 
 ### LongTermPricingId
 - **Type**: <class 'str'>
@@ -1259,7 +1259,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# WirelessConnectionTypeDef
+# WirelessConnection
 
 ### IsWifiEnabled
 - **Type**: typing.Optional[bool]

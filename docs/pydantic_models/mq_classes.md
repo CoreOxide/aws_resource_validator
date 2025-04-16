@@ -1,6 +1,6 @@
 # Mq Classes
 
-# ActionRequiredTypeDef
+# ActionRequired
 
 ### ActionRequiredCode
 - **Type**: typing.Optional[str]
@@ -9,7 +9,7 @@
 - **Type**: typing.Optional[str]
 
 
-# AvailabilityZoneTypeDef
+# AvailabilityZone
 
 ### Name
 - **Type**: typing.Optional[str]
@@ -21,19 +21,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BrokerEngineTypeTypeDef
+# BrokerEngineType
 
 ### EngineType
 - **Type**: typing.Optional[typing.Literal['ACTIVEMQ', 'RABBITMQ']]
 
 ### EngineVersions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mq_classes.EngineVersionTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mq_classes.EngineVersion]]
 
 
-# BrokerInstanceOptionTypeDef
+# BrokerInstance
+
+### ConsoleURL
+- **Type**: typing.Optional[str]
+
+### Endpoints
+- **Type**: typing.Optional[typing.List[str]]
+
+### IpAddress
+- **Type**: typing.Optional[str]
+
+
+# BrokerInstanceOption
 
 ### AvailabilityZones
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mq_classes.AvailabilityZoneTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mq_classes.AvailabilityZone]]
 
 ### EngineType
 - **Type**: typing.Optional[typing.Literal['ACTIVEMQ', 'RABBITMQ']]
@@ -51,19 +63,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# BrokerInstanceTypeDef
-
-### ConsoleURL
-- **Type**: typing.Optional[str]
-
-### Endpoints
-- **Type**: typing.Optional[typing.List[str]]
-
-### IpAddress
-- **Type**: typing.Optional[str]
-
-
-# BrokerSummaryTypeDef
+# BrokerSummary
 
 ### DeploymentMode
 - **Type**: typing.Literal['ACTIVE_STANDBY_MULTI_AZ', 'CLUSTER_MULTI_AZ', 'SINGLE_INSTANCE']
@@ -92,31 +92,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ConfigurationIdTypeDef
-
-### Id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Revision
-- **Type**: typing.Optional[int]
-
-
-# ConfigurationRevisionTypeDef
-
-### Created
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### Revision
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### Description
-- **Type**: typing.Optional[str]
-
-
-# ConfigurationTypeDef
+# Configuration
 
 ### Arn
 - **Type**: <class 'str'>
@@ -147,7 +123,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LatestRevision
-- **Type**: <class 'aws_resource_validator.pydantic_models.mq_classes.ConfigurationRevisionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mq_classes.ConfigurationRevision'>
 - **Required**: Yes
 
 ### Name
@@ -158,19 +134,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 
-# ConfigurationsTypeDef
+# ConfigurationId
+
+### Id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Revision
+- **Type**: typing.Optional[int]
+
+
+# ConfigurationRevision
+
+### Created
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### Revision
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### Description
+- **Type**: typing.Optional[str]
+
+
+# Configurations
 
 ### Current
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mq_classes.ConfigurationIdTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mq_classes.ConfigurationId]
 
 ### History
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mq_classes.ConfigurationIdTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mq_classes.ConfigurationId]]
 
 ### Pending
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mq_classes.ConfigurationIdTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mq_classes.ConfigurationId]
 
 
-# CreateBrokerRequestTypeDef
+# CreateBrokerRequest
 
 ### BrokerName
 - **Type**: <class 'str'>
@@ -193,7 +193,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Users
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.mq_classes.UserTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.mq_classes.User]
 - **Required**: Yes
 
 ### AuthenticationStrategy
@@ -203,25 +203,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### Configuration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mq_classes.ConfigurationIdTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mq_classes.ConfigurationId]
 
 ### CreatorRequestId
 - **Type**: typing.Optional[str]
 
 ### EncryptionOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mq_classes.EncryptionOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### EngineVersion
 - **Type**: typing.Optional[str]
 
 ### LdapServerMetadata
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mq_classes.LdapServerMetadataInputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mq_classes.LdapServerMetadataInput]
 
 ### Logs
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mq_classes.LogsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### MaintenanceWindowStartTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mq_classes.WeeklyStartTimeTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mq_classes.WeeklyStartTime]
 
 ### SecurityGroups
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -242,7 +242,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateBrokerResponseTypeDef
+# CreateBrokerResponse
 
 ### BrokerArn
 - **Type**: <class 'str'>
@@ -253,11 +253,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mq_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mq_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateConfigurationRequestTypeDef
+# CreateConfigurationRequest
 
 ### EngineType
 - **Type**: typing.Literal['ACTIVEMQ', 'RABBITMQ']
@@ -277,7 +277,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateConfigurationResponseTypeDef
+# CreateConfigurationResponse
 
 ### Arn
 - **Type**: <class 'str'>
@@ -296,7 +296,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LatestRevision
-- **Type**: <class 'aws_resource_validator.pydantic_models.mq_classes.ConfigurationRevisionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mq_classes.ConfigurationRevision'>
 - **Required**: Yes
 
 ### Name
@@ -304,11 +304,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mq_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mq_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateTagsRequestTypeDef
+# CreateTagsRequest
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -318,7 +318,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateUserRequestTypeDef
+# CreateUserRequest
 
 ### BrokerId
 - **Type**: <class 'str'>
@@ -342,7 +342,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# DataReplicationCounterpartTypeDef
+# DataReplicationCounterpart
 
 ### BrokerId
 - **Type**: <class 'str'>
@@ -353,35 +353,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DataReplicationMetadataOutputTypeDef
+# DataReplicationMetadataOutput
 
 ### DataReplicationRole
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### DataReplicationCounterpart
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mq_classes.DataReplicationCounterpartTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# DeleteBrokerRequestTypeDef
+# DeleteBrokerRequest
 
 ### BrokerId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteBrokerResponseTypeDef
+# DeleteBrokerResponse
 
 ### BrokerId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mq_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mq_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteTagsRequestTypeDef
+# DeleteTagsRequest
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -392,7 +392,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteUserRequestTypeDef
+# DeleteUserRequest
 
 ### BrokerId
 - **Type**: <class 'str'>
@@ -403,7 +403,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeBrokerEngineTypesRequestTypeDef
+# DescribeBrokerEngineTypesRequest
 
 ### EngineType
 - **Type**: typing.Optional[str]
@@ -415,10 +415,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeBrokerEngineTypesResponseTypeDef
+# DescribeBrokerEngineTypesResponse
 
 ### BrokerEngineTypes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mq_classes.BrokerEngineTypeTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mq_classes.BrokerEngineType]
 - **Required**: Yes
 
 ### MaxResults
@@ -426,14 +426,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mq_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mq_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# DescribeBrokerInstanceOptionsRequestTypeDef
+# DescribeBrokerInstanceOptionsRequest
 
 ### EngineType
 - **Type**: typing.Optional[str]
@@ -451,10 +451,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeBrokerInstanceOptionsResponseTypeDef
+# DescribeBrokerInstanceOptionsResponse
 
 ### BrokerInstanceOptions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mq_classes.BrokerInstanceOptionTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mq_classes.BrokerInstanceOption]
 - **Required**: Yes
 
 ### MaxResults
@@ -462,24 +462,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mq_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mq_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# DescribeBrokerRequestTypeDef
+# DescribeBrokerRequest
 
 ### BrokerId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeBrokerResponseTypeDef
+# DescribeBrokerResponse
 
 ### ActionsRequired
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mq_classes.ActionRequiredTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mq_classes.ActionRequired]
 - **Required**: Yes
 
 ### AuthenticationStrategy
@@ -499,7 +499,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### BrokerInstances
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mq_classes.BrokerInstanceTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mq_classes.BrokerInstance]
 - **Required**: Yes
 
 ### BrokerName
@@ -511,7 +511,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Configurations
-- **Type**: <class 'aws_resource_validator.pydantic_models.mq_classes.ConfigurationsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mq_classes.Configurations'>
 - **Required**: Yes
 
 ### Created
@@ -523,7 +523,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### EncryptionOptions
-- **Type**: <class 'aws_resource_validator.pydantic_models.mq_classes.EncryptionOptionsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mq_classes.EncryptionOptions'>
 - **Required**: Yes
 
 ### EngineType
@@ -539,15 +539,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LdapServerMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mq_classes.LdapServerMetadataOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mq_classes.LdapServerMetadataOutput'>
 - **Required**: Yes
 
 ### Logs
-- **Type**: <class 'aws_resource_validator.pydantic_models.mq_classes.LogsSummaryTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mq_classes.LogsSummary'>
 - **Required**: Yes
 
 ### MaintenanceWindowStartTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.mq_classes.WeeklyStartTimeTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mq_classes.WeeklyStartTime'>
 - **Required**: Yes
 
 ### PendingAuthenticationStrategy
@@ -563,7 +563,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PendingLdapServerMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mq_classes.LdapServerMetadataOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mq_classes.LdapServerMetadataOutput'>
 - **Required**: Yes
 
 ### PendingSecurityGroups
@@ -591,11 +591,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Users
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mq_classes.UserSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mq_classes.UserSummary]
 - **Required**: Yes
 
 ### DataReplicationMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mq_classes.DataReplicationMetadataOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mq_classes.DataReplicationMetadataOutput'>
 - **Required**: Yes
 
 ### DataReplicationMode
@@ -603,7 +603,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PendingDataReplicationMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mq_classes.DataReplicationMetadataOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mq_classes.DataReplicationMetadataOutput'>
 - **Required**: Yes
 
 ### PendingDataReplicationMode
@@ -611,18 +611,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mq_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mq_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeConfigurationRequestTypeDef
+# DescribeConfigurationRequest
 
 ### ConfigurationId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeConfigurationResponseTypeDef
+# DescribeConfigurationResponse
 
 ### Arn
 - **Type**: <class 'str'>
@@ -653,7 +653,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LatestRevision
-- **Type**: <class 'aws_resource_validator.pydantic_models.mq_classes.ConfigurationRevisionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mq_classes.ConfigurationRevision'>
 - **Required**: Yes
 
 ### Name
@@ -665,11 +665,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mq_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mq_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeConfigurationRevisionRequestTypeDef
+# DescribeConfigurationRevisionRequest
 
 ### ConfigurationId
 - **Type**: <class 'str'>
@@ -680,7 +680,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeConfigurationRevisionResponseTypeDef
+# DescribeConfigurationRevisionResponse
 
 ### ConfigurationId
 - **Type**: <class 'str'>
@@ -699,11 +699,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mq_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mq_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeUserRequestTypeDef
+# DescribeUserRequest
 
 ### BrokerId
 - **Type**: <class 'str'>
@@ -714,7 +714,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeUserResponseTypeDef
+# DescribeUserResponse
 
 ### BrokerId
 - **Type**: <class 'str'>
@@ -729,7 +729,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Pending
-- **Type**: <class 'aws_resource_validator.pydantic_models.mq_classes.UserPendingChangesTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mq_classes.UserPendingChanges'>
 - **Required**: Yes
 
 ### Username
@@ -741,18 +741,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mq_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mq_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# EmptyResponseMetadataTypeDef
+# EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mq_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mq_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# EncryptionOptionsTypeDef
+# EncryptionOptions
 
 ### UseAwsOwnedKey
 - **Type**: <class 'bool'>
@@ -762,13 +762,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# EngineVersionTypeDef
+# EngineVersion
 
 ### Name
 - **Type**: typing.Optional[str]
 
 
-# LdapServerMetadataInputTypeDef
+# LdapServerMetadataInput
 
 ### Hosts
 - **Type**: typing.Sequence[str]
@@ -811,7 +811,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# LdapServerMetadataOutputTypeDef
+# LdapServerMetadataOutput
 
 ### Hosts
 - **Type**: typing.List[str]
@@ -850,13 +850,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# ListBrokersRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mq_classes.PaginatorConfigTypeDef]
-
-
-# ListBrokersRequestTypeDef
+# ListBrokersRequest
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -865,21 +859,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListBrokersResponseTypeDef
+# ListBrokersRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mq_classes.PaginatorConfig]
+
+
+# ListBrokersResponse
 
 ### BrokerSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mq_classes.BrokerSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mq_classes.BrokerSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mq_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mq_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListConfigurationRevisionsRequestTypeDef
+# ListConfigurationRevisionsRequest
 
 ### ConfigurationId
 - **Type**: <class 'str'>
@@ -892,7 +892,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListConfigurationRevisionsResponseTypeDef
+# ListConfigurationRevisionsResponse
 
 ### ConfigurationId
 - **Type**: <class 'str'>
@@ -903,18 +903,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Revisions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mq_classes.ConfigurationRevisionTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mq_classes.ConfigurationRevision]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mq_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mq_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListConfigurationsRequestTypeDef
+# ListConfigurationsRequest
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -923,10 +923,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListConfigurationsResponseTypeDef
+# ListConfigurationsResponse
 
 ### Configurations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mq_classes.ConfigurationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mq_classes.Configuration]
 - **Required**: Yes
 
 ### MaxResults
@@ -934,32 +934,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mq_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mq_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsRequestTypeDef
+# ListTagsRequest
 
 ### ResourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ListTagsResponseTypeDef
+# ListTagsResponse
 
 ### Tags
 - **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mq_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mq_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListUsersRequestTypeDef
+# ListUsersRequest
 
 ### BrokerId
 - **Type**: <class 'str'>
@@ -972,7 +972,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListUsersResponseTypeDef
+# ListUsersResponse
 
 ### BrokerId
 - **Type**: <class 'str'>
@@ -983,18 +983,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Users
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mq_classes.UserSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mq_classes.UserSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mq_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mq_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# LogsSummaryTypeDef
+# Logs
+
+### Audit
+- **Type**: typing.Optional[bool]
+
+### General
+- **Type**: typing.Optional[bool]
+
+
+# LogsSummary
 
 ### General
 - **Type**: <class 'bool'>
@@ -1011,19 +1020,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Pending
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mq_classes.PendingLogsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mq_classes.PendingLogs]
 
 
-# LogsTypeDef
-
-### Audit
-- **Type**: typing.Optional[bool]
-
-### General
-- **Type**: typing.Optional[bool]
-
-
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -1035,7 +1035,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PendingLogsTypeDef
+# PendingLogs
 
 ### Audit
 - **Type**: typing.Optional[bool]
@@ -1044,7 +1044,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# PromoteRequestTypeDef
+# PromoteRequest
 
 ### BrokerId
 - **Type**: <class 'str'>
@@ -1055,25 +1055,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PromoteResponseTypeDef
+# PromoteResponse
 
 ### BrokerId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mq_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mq_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# RebootBrokerRequestTypeDef
+# RebootBrokerRequest
 
 ### BrokerId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -1095,7 +1095,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SanitizationWarningTypeDef
+# SanitizationWarning
 
 ### Reason
 - **Type**: typing.Literal['DISALLOWED_ATTRIBUTE_REMOVED', 'DISALLOWED_ELEMENT_REMOVED', 'INVALID_ATTRIBUTE_VALUE_REMOVED']
@@ -1108,7 +1108,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateBrokerRequestTypeDef
+# UpdateBrokerRequest
 
 ### BrokerId
 - **Type**: <class 'str'>
@@ -1121,7 +1121,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### Configuration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mq_classes.ConfigurationIdTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mq_classes.ConfigurationId]
 
 ### EngineVersion
 - **Type**: typing.Optional[str]
@@ -1130,13 +1130,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### LdapServerMetadata
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mq_classes.LdapServerMetadataInputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mq_classes.LdapServerMetadataInput]
 
 ### Logs
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mq_classes.LogsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### MaintenanceWindowStartTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mq_classes.WeeklyStartTimeTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mq_classes.WeeklyStartTime]
 
 ### SecurityGroups
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -1145,7 +1145,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CRDR', 'NONE']]
 
 
-# UpdateBrokerResponseTypeDef
+# UpdateBrokerResponse
 
 ### AuthenticationStrategy
 - **Type**: typing.Literal['LDAP', 'SIMPLE']
@@ -1160,7 +1160,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Configuration
-- **Type**: <class 'aws_resource_validator.pydantic_models.mq_classes.ConfigurationIdTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mq_classes.ConfigurationId'>
 - **Required**: Yes
 
 ### EngineVersion
@@ -1172,15 +1172,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LdapServerMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mq_classes.LdapServerMetadataOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mq_classes.LdapServerMetadataOutput'>
 - **Required**: Yes
 
 ### Logs
-- **Type**: <class 'aws_resource_validator.pydantic_models.mq_classes.LogsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mq_classes.Logs'>
 - **Required**: Yes
 
 ### MaintenanceWindowStartTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.mq_classes.WeeklyStartTimeTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mq_classes.WeeklyStartTime'>
 - **Required**: Yes
 
 ### SecurityGroups
@@ -1188,7 +1188,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DataReplicationMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mq_classes.DataReplicationMetadataOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mq_classes.DataReplicationMetadataOutput'>
 - **Required**: Yes
 
 ### DataReplicationMode
@@ -1196,7 +1196,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PendingDataReplicationMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mq_classes.DataReplicationMetadataOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mq_classes.DataReplicationMetadataOutput'>
 - **Required**: Yes
 
 ### PendingDataReplicationMode
@@ -1204,11 +1204,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mq_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mq_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateConfigurationRequestTypeDef
+# UpdateConfigurationRequest
 
 ### ConfigurationId
 - **Type**: <class 'str'>
@@ -1222,7 +1222,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateConfigurationResponseTypeDef
+# UpdateConfigurationResponse
 
 ### Arn
 - **Type**: <class 'str'>
@@ -1237,7 +1237,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LatestRevision
-- **Type**: <class 'aws_resource_validator.pydantic_models.mq_classes.ConfigurationRevisionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mq_classes.ConfigurationRevision'>
 - **Required**: Yes
 
 ### Name
@@ -1245,15 +1245,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Warnings
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mq_classes.SanitizationWarningTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mq_classes.SanitizationWarning]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mq_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mq_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateUserRequestTypeDef
+# UpdateUserRequest
 
 ### BrokerId
 - **Type**: <class 'str'>
@@ -1276,30 +1276,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# UserPendingChangesTypeDef
-
-### PendingChange
-- **Type**: typing.Literal['CREATE', 'DELETE', 'UPDATE']
-- **Required**: Yes
-
-### ConsoleAccess
-- **Type**: typing.Optional[bool]
-
-### Groups
-- **Type**: typing.Optional[typing.List[str]]
-
-
-# UserSummaryTypeDef
-
-### Username
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PendingChange
-- **Type**: typing.Optional[typing.Literal['CREATE', 'DELETE', 'UPDATE']]
-
-
-# UserTypeDef
+# User
 
 ### Password
 - **Type**: <class 'str'>
@@ -1319,7 +1296,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# WeeklyStartTimeTypeDef
+# UserPendingChanges
+
+### PendingChange
+- **Type**: typing.Literal['CREATE', 'DELETE', 'UPDATE']
+- **Required**: Yes
+
+### ConsoleAccess
+- **Type**: typing.Optional[bool]
+
+### Groups
+- **Type**: typing.Optional[typing.List[str]]
+
+
+# UserSummary
+
+### Username
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PendingChange
+- **Type**: typing.Optional[typing.Literal['CREATE', 'DELETE', 'UPDATE']]
+
+
+# WeeklyStartTime
 
 ### DayOfWeek
 - **Type**: typing.Literal['FRIDAY', 'MONDAY', 'SATURDAY', 'SUNDAY', 'THURSDAY', 'TUESDAY', 'WEDNESDAY']

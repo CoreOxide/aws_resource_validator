@@ -1,6 +1,6 @@
 # Outposts Classes
 
-# AddressTypeDef
+# Address
 
 ### AddressLine1
 - **Type**: <class 'str'>
@@ -41,7 +41,7 @@
 - **Type**: typing.Optional[str]
 
 
-# AssetInfoTypeDef
+# AssetInfo
 
 ### AssetId
 - **Type**: typing.Optional[str]
@@ -53,24 +53,13 @@
 - **Type**: typing.Optional[typing.Literal['COMPUTE']]
 
 ### ComputeAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.outposts_classes.ComputeAttributesTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### AssetLocation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.outposts_classes.AssetLocationTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# AssetInstanceTypeCapacityTypeDef
-
-### InstanceType
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Count
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-
-# AssetInstanceTypeDef
+# AssetInstance
 
 ### InstanceId
 - **Type**: typing.Optional[str]
@@ -88,7 +77,18 @@
 - **Type**: typing.Optional[typing.Literal['AWS', 'EC2', 'ELASTICACHE', 'ELB', 'RDS', 'ROUTE53']]
 
 
-# AssetLocationTypeDef
+# AssetInstanceTypeCapacity
+
+### InstanceType
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Count
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+
+# AssetLocation
 
 ### RackElevation
 - **Type**: typing.Optional[float]
@@ -100,7 +100,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BlockingInstanceTypeDef
+# BlockingInstance
 
 ### InstanceId
 - **Type**: typing.Optional[str]
@@ -112,7 +112,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['AWS', 'EC2', 'ELASTICACHE', 'ELB', 'RDS', 'ROUTE53']]
 
 
-# CancelCapacityTaskInputTypeDef
+# CancelCapacityTaskInput
 
 ### CapacityTaskId
 - **Type**: <class 'str'>
@@ -123,20 +123,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CancelOrderInputTypeDef
+# CancelOrderInput
 
 ### OrderId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# CapacityTaskFailureTypeDef
+# CapacityTaskFailure
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CapacityTaskSummaryTypeDef
+# CapacityTaskSummary
 
 ### CapacityTaskId
 - **Type**: typing.Optional[str]
@@ -160,7 +160,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# CatalogItemTypeDef
+# CatalogItem
 
 ### CatalogItemId
 - **Type**: typing.Optional[str]
@@ -169,7 +169,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['AVAILABLE', 'DISCONTINUED']]
 
 ### EC2Capacities
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.outposts_classes.EC2CapacityTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.outposts_classes.EC2Capacity]]
 
 ### PowerKva
 - **Type**: typing.Optional[float]
@@ -184,7 +184,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[typing.Literal['EBS', 'S3']]]
 
 
-# ComputeAttributesTypeDef
+# ComputeAttributes
 
 ### HostId
 - **Type**: typing.Optional[str]
@@ -196,13 +196,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 ### InstanceTypeCapacities
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.outposts_classes.AssetInstanceTypeCapacityTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.outposts_classes.AssetInstanceTypeCapacity]]
 
 ### MaxVcpus
 - **Type**: typing.Optional[int]
 
 
-# ConnectionDetailsTypeDef
+# ConnectionDetails
 
 ### ClientPublicKey
 - **Type**: typing.Optional[str]
@@ -223,14 +223,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# CreateOrderInputTypeDef
+# CreateOrderInput
 
 ### OutpostIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### LineItems
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.outposts_classes.LineItemRequestTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.outposts_classes.LineItemRequest]
 - **Required**: Yes
 
 ### PaymentOption
@@ -241,18 +241,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['FIVE_YEARS', 'ONE_YEAR', 'THREE_YEARS']]
 
 
-# CreateOrderOutputTypeDef
+# CreateOrderOutput
 
 ### Order
-- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.OrderTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.Order'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateOutpostInputTypeDef
+# CreateOutpostInput
 
 ### Name
 - **Type**: <class 'str'>
@@ -278,18 +278,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['RACK', 'SERVER']]
 
 
-# CreateOutpostOutputTypeDef
+# CreateOutpostOutput
 
 ### Outpost
-- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.OutpostTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.Outpost'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateSiteInputTypeDef
+# CreateSiteInput
 
 ### Name
 - **Type**: <class 'str'>
@@ -305,41 +305,41 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 ### OperatingAddress
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.outposts_classes.AddressTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.outposts_classes.Address]
 
 ### ShippingAddress
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.outposts_classes.AddressTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.outposts_classes.Address]
 
 ### RackPhysicalProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.outposts_classes.RackPhysicalPropertiesTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# CreateSiteOutputTypeDef
+# CreateSiteOutput
 
 ### Site
-- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.SiteTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.Site'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteOutpostInputTypeDef
+# DeleteOutpostInput
 
 ### OutpostId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteSiteInputTypeDef
+# DeleteSiteInput
 
 ### SiteId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# EC2CapacityTypeDef
+# EC2Capacity
 
 ### Family
 - **Type**: typing.Optional[str]
@@ -351,7 +351,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetCapacityTaskInputTypeDef
+# GetCapacityTaskInput
 
 ### CapacityTaskId
 - **Type**: <class 'str'>
@@ -362,7 +362,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetCapacityTaskOutputTypeDef
+# GetCapacityTaskOutput
 
 ### CapacityTaskId
 - **Type**: <class 'str'>
@@ -377,11 +377,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### RequestedInstancePools
-- **Type**: typing.List[aws_resource_validator.pydantic_models.outposts_classes.InstanceTypeCapacityTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.outposts_classes.InstanceTypeCapacity]
 - **Required**: Yes
 
 ### InstancesToExclude
-- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.InstancesToExcludeOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.InstancesToExcludeOutput'>
 - **Required**: Yes
 
 ### DryRun
@@ -393,7 +393,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Failed
-- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.CapacityTaskFailureTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.CapacityTaskFailure'>
 - **Required**: Yes
 
 ### CreationDate
@@ -413,86 +413,76 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetCatalogItemInputTypeDef
+# GetCatalogItemInput
 
 ### CatalogItemId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetCatalogItemOutputTypeDef
+# GetCatalogItemOutput
 
 ### CatalogItem
-- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.CatalogItemTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.CatalogItem'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetConnectionRequestTypeDef
+# GetConnectionRequest
 
 ### ConnectionId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetConnectionResponseTypeDef
+# GetConnectionResponse
 
 ### ConnectionId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ConnectionDetails
-- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.ConnectionDetailsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.ConnectionDetails'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetOrderInputTypeDef
+# GetOrderInput
 
 ### OrderId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetOrderOutputTypeDef
+# GetOrderOutput
 
 ### Order
-- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.OrderTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.Order'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetOutpostInputTypeDef
+# GetOutpostInput
 
 ### OutpostId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetOutpostInstanceTypesInputPaginateTypeDef
-
-### OutpostId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.outposts_classes.PaginatorConfigTypeDef]
-
-
-# GetOutpostInstanceTypesInputTypeDef
+# GetOutpostInstanceTypesInput
 
 ### OutpostId
 - **Type**: <class 'str'>
@@ -505,10 +495,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# GetOutpostInstanceTypesOutputTypeDef
+# GetOutpostInstanceTypesInputPaginate
+
+### OutpostId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.outposts_classes.PaginatorConfig]
+
+
+# GetOutpostInstanceTypesOutput
 
 ### InstanceTypes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.outposts_classes.InstanceTypeItemTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.outposts_classes.InstanceTypeItem]
 - **Required**: Yes
 
 ### OutpostId
@@ -520,38 +520,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# GetOutpostOutputTypeDef
+# GetOutpostOutput
 
 ### Outpost
-- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.OutpostTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.Outpost'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetOutpostSupportedInstanceTypesInputPaginateTypeDef
-
-### OutpostIdentifier
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### OrderId
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.outposts_classes.PaginatorConfigTypeDef]
-
-
-# GetOutpostSupportedInstanceTypesInputTypeDef
+# GetOutpostSupportedInstanceTypesInput
 
 ### OutpostIdentifier
 - **Type**: <class 'str'>
@@ -567,21 +554,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetOutpostSupportedInstanceTypesOutputTypeDef
+# GetOutpostSupportedInstanceTypesInputPaginate
+
+### OutpostIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### OrderId
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.outposts_classes.PaginatorConfig]
+
+
+# GetOutpostSupportedInstanceTypesOutput
 
 ### InstanceTypes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.outposts_classes.InstanceTypeItemTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.outposts_classes.InstanceTypeItem]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# GetSiteAddressInputTypeDef
+# GetSiteAddressInput
 
 ### SiteId
 - **Type**: <class 'str'>
@@ -592,7 +592,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetSiteAddressOutputTypeDef
+# GetSiteAddressOutput
 
 ### SiteId
 - **Type**: <class 'str'>
@@ -603,33 +603,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Address
-- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.AddressTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.Address'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetSiteInputTypeDef
+# GetSiteInput
 
 ### SiteId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetSiteOutputTypeDef
+# GetSiteOutput
 
 ### Site
-- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.SiteTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.Site'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# InstanceTypeCapacityTypeDef
+# InstanceTypeCapacity
 
 ### InstanceType
 - **Type**: <class 'str'>
@@ -640,7 +640,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# InstanceTypeItemTypeDef
+# InstanceTypeItem
 
 ### InstanceType
 - **Type**: typing.Optional[str]
@@ -649,19 +649,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# InstancesToExcludeOutputTypeDef
-
-### Instances
-- **Type**: typing.Optional[typing.List[str]]
-
-### AccountIds
-- **Type**: typing.Optional[typing.List[str]]
-
-### Services
-- **Type**: typing.Optional[typing.List[typing.Literal['AWS', 'EC2', 'ELASTICACHE', 'ELB', 'RDS', 'ROUTE53']]]
-
-
-# InstancesToExcludeTypeDef
+# InstancesToExclude
 
 ### Instances
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -673,31 +661,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['AWS', 'EC2', 'ELASTICACHE', 'ELB', 'RDS', 'ROUTE53']]]
 
 
-# InstancesToExcludeUnionTypeDef
+# InstancesToExcludeOutput
+
+### Instances
+- **Type**: typing.Optional[typing.List[str]]
+
+### AccountIds
+- **Type**: typing.Optional[typing.List[str]]
+
+### Services
+- **Type**: typing.Optional[typing.List[typing.Literal['AWS', 'EC2', 'ELASTICACHE', 'ELB', 'RDS', 'ROUTE53']]]
+
+
+# InstancesToExcludeUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# LineItemAssetInformationTypeDef
-
-### AssetId
-- **Type**: typing.Optional[str]
-
-### MacAddressList
-- **Type**: typing.Optional[typing.List[str]]
-
-
-# LineItemRequestTypeDef
-
-### CatalogItemId
-- **Type**: typing.Optional[str]
-
-### Quantity
-- **Type**: typing.Optional[int]
-
-
-# LineItemTypeDef
+# LineItem
 
 ### CatalogItemId
 - **Type**: typing.Optional[str]
@@ -712,10 +694,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['BUILDING', 'CANCELLED', 'DELIVERED', 'ERROR', 'INSTALLED', 'INSTALLING', 'PREPARING', 'REPLACED', 'SHIPPED']]
 
 ### ShipmentInformation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.outposts_classes.ShipmentInformationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### AssetInformationList
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.outposts_classes.LineItemAssetInformationTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.outposts_classes.LineItemAssetInformation]]
 
 ### PreviousLineItemId
 - **Type**: typing.Optional[str]
@@ -724,29 +706,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListAssetInstancesInputPaginateTypeDef
+# LineItemAssetInformation
 
-### OutpostIdentifier
-- **Type**: <class 'str'>
-- **Required**: Yes
+### AssetId
+- **Type**: typing.Optional[str]
 
-### AssetIdFilter
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### InstanceTypeFilter
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### AccountIdFilter
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### AwsServiceFilter
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['AWS', 'EC2', 'ELASTICACHE', 'ELB', 'RDS', 'ROUTE53']]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.outposts_classes.PaginatorConfigTypeDef]
+### MacAddressList
+- **Type**: typing.Optional[typing.List[str]]
 
 
-# ListAssetInstancesInputTypeDef
+# LineItemRequest
+
+### CatalogItemId
+- **Type**: typing.Optional[str]
+
+### Quantity
+- **Type**: typing.Optional[int]
+
+
+# ListAssetInstancesInput
 
 ### OutpostIdentifier
 - **Type**: <class 'str'>
@@ -771,37 +749,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListAssetInstancesOutputTypeDef
+# ListAssetInstancesInputPaginate
+
+### OutpostIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### AssetIdFilter
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### InstanceTypeFilter
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### AccountIdFilter
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### AwsServiceFilter
+- **Type**: typing.Optional[typing.Sequence[typing.Literal['AWS', 'EC2', 'ELASTICACHE', 'ELB', 'RDS', 'ROUTE53']]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.outposts_classes.PaginatorConfig]
+
+
+# ListAssetInstancesOutput
 
 ### AssetInstances
-- **Type**: typing.List[aws_resource_validator.pydantic_models.outposts_classes.AssetInstanceTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.outposts_classes.AssetInstance]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListAssetsInputPaginateTypeDef
-
-### OutpostIdentifier
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### HostIdFilter
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### StatusFilter
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['ACTIVE', 'ISOLATED', 'RETIRING']]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.outposts_classes.PaginatorConfigTypeDef]
-
-
-# ListAssetsInputTypeDef
+# ListAssetsInput
 
 ### OutpostIdentifier
 - **Type**: <class 'str'>
@@ -820,35 +804,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['ACTIVE', 'ISOLATED', 'RETIRING']]]
 
 
-# ListAssetsOutputTypeDef
+# ListAssetsInputPaginate
+
+### OutpostIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### HostIdFilter
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### StatusFilter
+- **Type**: typing.Optional[typing.Sequence[typing.Literal['ACTIVE', 'ISOLATED', 'RETIRING']]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.outposts_classes.PaginatorConfig]
+
+
+# ListAssetsOutput
 
 ### Assets
-- **Type**: typing.List[aws_resource_validator.pydantic_models.outposts_classes.AssetInfoTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.outposts_classes.AssetInfo]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListBlockingInstancesForCapacityTaskInputPaginateTypeDef
-
-### OutpostIdentifier
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### CapacityTaskId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.outposts_classes.PaginatorConfigTypeDef]
-
-
-# ListBlockingInstancesForCapacityTaskInputTypeDef
+# ListBlockingInstancesForCapacityTaskInput
 
 ### OutpostIdentifier
 - **Type**: <class 'str'>
@@ -865,33 +851,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListBlockingInstancesForCapacityTaskOutputTypeDef
+# ListBlockingInstancesForCapacityTaskInputPaginate
+
+### OutpostIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### CapacityTaskId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.outposts_classes.PaginatorConfig]
+
+
+# ListBlockingInstancesForCapacityTaskOutput
 
 ### BlockingInstances
-- **Type**: typing.List[aws_resource_validator.pydantic_models.outposts_classes.BlockingInstanceTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.outposts_classes.BlockingInstance]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListCapacityTasksInputPaginateTypeDef
-
-### OutpostIdentifierFilter
-- **Type**: typing.Optional[str]
-
-### CapacityTaskStatusFilter
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['CANCELLATION_IN_PROGRESS', 'CANCELLED', 'COMPLETED', 'FAILED', 'IN_PROGRESS', 'REQUESTED', 'WAITING_FOR_EVACUATION']]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.outposts_classes.PaginatorConfigTypeDef]
-
-
-# ListCapacityTasksInputTypeDef
+# ListCapacityTasksInput
 
 ### OutpostIdentifierFilter
 - **Type**: typing.Optional[str]
@@ -906,36 +894,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['CANCELLATION_IN_PROGRESS', 'CANCELLED', 'COMPLETED', 'FAILED', 'IN_PROGRESS', 'REQUESTED', 'WAITING_FOR_EVACUATION']]]
 
 
-# ListCapacityTasksOutputTypeDef
+# ListCapacityTasksInputPaginate
+
+### OutpostIdentifierFilter
+- **Type**: typing.Optional[str]
+
+### CapacityTaskStatusFilter
+- **Type**: typing.Optional[typing.Sequence[typing.Literal['CANCELLATION_IN_PROGRESS', 'CANCELLED', 'COMPLETED', 'FAILED', 'IN_PROGRESS', 'REQUESTED', 'WAITING_FOR_EVACUATION']]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.outposts_classes.PaginatorConfig]
+
+
+# ListCapacityTasksOutput
 
 ### CapacityTasks
-- **Type**: typing.List[aws_resource_validator.pydantic_models.outposts_classes.CapacityTaskSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.outposts_classes.CapacityTaskSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListCatalogItemsInputPaginateTypeDef
-
-### ItemClassFilter
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['RACK', 'SERVER']]]
-
-### SupportedStorageFilter
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['EBS', 'S3']]]
-
-### EC2FamilyFilter
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.outposts_classes.PaginatorConfigTypeDef]
-
-
-# ListCatalogItemsInputTypeDef
+# ListCatalogItemsInput
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -953,30 +938,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# ListCatalogItemsOutputTypeDef
+# ListCatalogItemsInputPaginate
+
+### ItemClassFilter
+- **Type**: typing.Optional[typing.Sequence[typing.Literal['RACK', 'SERVER']]]
+
+### SupportedStorageFilter
+- **Type**: typing.Optional[typing.Sequence[typing.Literal['EBS', 'S3']]]
+
+### EC2FamilyFilter
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.outposts_classes.PaginatorConfig]
+
+
+# ListCatalogItemsOutput
 
 ### CatalogItems
-- **Type**: typing.List[aws_resource_validator.pydantic_models.outposts_classes.CatalogItemTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.outposts_classes.CatalogItem]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListOrdersInputPaginateTypeDef
-
-### OutpostIdentifierFilter
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.outposts_classes.PaginatorConfigTypeDef]
-
-
-# ListOrdersInputTypeDef
+# ListOrdersInput
 
 ### OutpostIdentifierFilter
 - **Type**: typing.Optional[str]
@@ -988,36 +979,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListOrdersOutputTypeDef
+# ListOrdersInputPaginate
+
+### OutpostIdentifierFilter
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.outposts_classes.PaginatorConfig]
+
+
+# ListOrdersOutput
 
 ### Orders
-- **Type**: typing.List[aws_resource_validator.pydantic_models.outposts_classes.OrderSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.outposts_classes.OrderSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListOutpostsInputPaginateTypeDef
-
-### LifeCycleStatusFilter
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### AvailabilityZoneFilter
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### AvailabilityZoneIdFilter
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.outposts_classes.PaginatorConfigTypeDef]
-
-
-# ListOutpostsInputTypeDef
+# ListOutpostsInput
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -1035,36 +1020,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# ListOutpostsOutputTypeDef
+# ListOutpostsInputPaginate
+
+### LifeCycleStatusFilter
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### AvailabilityZoneFilter
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### AvailabilityZoneIdFilter
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.outposts_classes.PaginatorConfig]
+
+
+# ListOutpostsOutput
 
 ### Outposts
-- **Type**: typing.List[aws_resource_validator.pydantic_models.outposts_classes.OutpostTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.outposts_classes.Outpost]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListSitesInputPaginateTypeDef
-
-### OperatingAddressCountryCodeFilter
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### OperatingAddressStateOrRegionFilter
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### OperatingAddressCityFilter
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.outposts_classes.PaginatorConfigTypeDef]
-
-
-# ListSitesInputTypeDef
+# ListSitesInput
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -1082,39 +1067,84 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# ListSitesOutputTypeDef
+# ListSitesInputPaginate
+
+### OperatingAddressCountryCodeFilter
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### OperatingAddressStateOrRegionFilter
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### OperatingAddressCityFilter
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.outposts_classes.PaginatorConfig]
+
+
+# ListSitesOutput
 
 ### Sites
-- **Type**: typing.List[aws_resource_validator.pydantic_models.outposts_classes.SiteTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.outposts_classes.Site]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestTypeDef
+# ListTagsForResourceRequest
 
 ### ResourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ListTagsForResourceResponseTypeDef
+# ListTagsForResourceResponse
 
 ### Tags
 - **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# OrderSummaryTypeDef
+# Order
+
+### OutpostId
+- **Type**: typing.Optional[str]
+
+### OrderId
+- **Type**: typing.Optional[str]
+
+### Status
+- **Type**: typing.Optional[typing.Literal['CANCELLED', 'COMPLETED', 'DELIVERED', 'ERROR', 'FULFILLED', 'INSTALLING', 'IN_PROGRESS', 'PENDING', 'PREPARING', 'PROCESSING', 'RECEIVED']]
+
+### LineItems
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.outposts_classes.LineItem]]
+
+### PaymentOption
+- **Type**: typing.Optional[typing.Literal['ALL_UPFRONT', 'NO_UPFRONT', 'PARTIAL_UPFRONT']]
+
+### OrderSubmissionDate
+- **Type**: typing.Optional[datetime.datetime]
+
+### OrderFulfilledDate
+- **Type**: typing.Optional[datetime.datetime]
+
+### PaymentTerm
+- **Type**: typing.Optional[typing.Literal['FIVE_YEARS', 'ONE_YEAR', 'THREE_YEARS']]
+
+### OrderType
+- **Type**: typing.Optional[typing.Literal['OUTPOST', 'REPLACEMENT']]
+
+
+# OrderSummary
 
 ### OutpostId
 - **Type**: typing.Optional[str]
@@ -1138,37 +1168,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# OrderTypeDef
-
-### OutpostId
-- **Type**: typing.Optional[str]
-
-### OrderId
-- **Type**: typing.Optional[str]
-
-### Status
-- **Type**: typing.Optional[typing.Literal['CANCELLED', 'COMPLETED', 'DELIVERED', 'ERROR', 'FULFILLED', 'INSTALLING', 'IN_PROGRESS', 'PENDING', 'PREPARING', 'PROCESSING', 'RECEIVED']]
-
-### LineItems
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.outposts_classes.LineItemTypeDef]]
-
-### PaymentOption
-- **Type**: typing.Optional[typing.Literal['ALL_UPFRONT', 'NO_UPFRONT', 'PARTIAL_UPFRONT']]
-
-### OrderSubmissionDate
-- **Type**: typing.Optional[datetime.datetime]
-
-### OrderFulfilledDate
-- **Type**: typing.Optional[datetime.datetime]
-
-### PaymentTerm
-- **Type**: typing.Optional[typing.Literal['FIVE_YEARS', 'ONE_YEAR', 'THREE_YEARS']]
-
-### OrderType
-- **Type**: typing.Optional[typing.Literal['OUTPOST', 'REPLACEMENT']]
-
-
-# OutpostTypeDef
+# Outpost
 
 ### OutpostId
 - **Type**: typing.Optional[str]
@@ -1207,7 +1207,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['RACK', 'SERVER']]
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -1219,7 +1219,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RackPhysicalPropertiesTypeDef
+# RackPhysicalProperties
 
 ### PowerDrawKva
 - **Type**: typing.Optional[typing.Literal['POWER_10_KVA', 'POWER_15_KVA', 'POWER_30_KVA', 'POWER_5_KVA']]
@@ -1249,7 +1249,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['MAX_1400_LBS', 'MAX_1600_LBS', 'MAX_1800_LBS', 'MAX_2000_LBS', 'NO_LIMIT']]
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -1271,7 +1271,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ShipmentInformationTypeDef
+# ShipmentInformation
 
 ### ShipmentTrackingNumber
 - **Type**: typing.Optional[str]
@@ -1280,7 +1280,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DBS', 'DHL', 'EXPEDITORS', 'FEDEX', 'UPS']]
 
 
-# SiteTypeDef
+# Site
 
 ### SiteId
 - **Type**: typing.Optional[str]
@@ -1313,24 +1313,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### RackPhysicalProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.outposts_classes.RackPhysicalPropertiesTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# StartCapacityTaskInputTypeDef
+# StartCapacityTaskInput
 
 ### OutpostIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### InstancePools
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.outposts_classes.InstanceTypeCapacityTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.outposts_classes.InstanceTypeCapacity]
 - **Required**: Yes
 
 ### OrderId
 - **Type**: typing.Optional[str]
 
 ### InstancesToExclude
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.outposts_classes.InstancesToExcludeUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.outposts_classes.InstancesToExcludeUnion]
 
 ### DryRun
 - **Type**: typing.Optional[bool]
@@ -1339,7 +1339,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['FAIL_TASK', 'WAIT_FOR_EVACUATION']]
 
 
-# StartCapacityTaskOutputTypeDef
+# StartCapacityTaskOutput
 
 ### CapacityTaskId
 - **Type**: <class 'str'>
@@ -1354,11 +1354,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### RequestedInstancePools
-- **Type**: typing.List[aws_resource_validator.pydantic_models.outposts_classes.InstanceTypeCapacityTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.outposts_classes.InstanceTypeCapacity]
 - **Required**: Yes
 
 ### InstancesToExclude
-- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.InstancesToExcludeOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.InstancesToExcludeOutput'>
 - **Required**: Yes
 
 ### DryRun
@@ -1370,7 +1370,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Failed
-- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.CapacityTaskFailureTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.CapacityTaskFailure'>
 - **Required**: Yes
 
 ### CreationDate
@@ -1390,11 +1390,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# StartConnectionRequestTypeDef
+# StartConnectionRequest
 
 ### AssetId
 - **Type**: <class 'str'>
@@ -1412,7 +1412,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# StartConnectionResponseTypeDef
+# StartConnectionResponse
 
 ### ConnectionId
 - **Type**: <class 'str'>
@@ -1423,11 +1423,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# TagResourceRequestTypeDef
+# TagResourceRequest
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -1438,7 +1438,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceRequestTypeDef
+# UntagResourceRequest
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -1449,7 +1449,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateOutpostInputTypeDef
+# UpdateOutpostInput
 
 ### OutpostId
 - **Type**: <class 'str'>
@@ -1465,18 +1465,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['RACK', 'SERVER']]
 
 
-# UpdateOutpostOutputTypeDef
+# UpdateOutpostOutput
 
 ### Outpost
-- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.OutpostTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.Outpost'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateSiteAddressInputTypeDef
+# UpdateSiteAddressInput
 
 ### SiteId
 - **Type**: <class 'str'>
@@ -1487,26 +1487,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Address
-- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.AddressTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.Address'>
 - **Required**: Yes
 
 
-# UpdateSiteAddressOutputTypeDef
+# UpdateSiteAddressOutput
 
 ### AddressType
 - **Type**: typing.Literal['OPERATING_ADDRESS', 'SHIPPING_ADDRESS']
 - **Required**: Yes
 
 ### Address
-- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.AddressTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.Address'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateSiteInputTypeDef
+# UpdateSiteInput
 
 ### SiteId
 - **Type**: <class 'str'>
@@ -1522,18 +1522,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateSiteOutputTypeDef
+# UpdateSiteOutput
 
 ### Site
-- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.SiteTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.Site'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateSiteRackPhysicalPropertiesInputTypeDef
+# UpdateSiteRackPhysicalPropertiesInput
 
 ### SiteId
 - **Type**: <class 'str'>
@@ -1567,14 +1567,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['MAX_1400_LBS', 'MAX_1600_LBS', 'MAX_1800_LBS', 'MAX_2000_LBS', 'NO_LIMIT']]
 
 
-# UpdateSiteRackPhysicalPropertiesOutputTypeDef
+# UpdateSiteRackPhysicalPropertiesOutput
 
 ### Site
-- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.SiteTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.Site'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.outposts_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

@@ -12,27 +12,27 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.cloudfront_constants import *
 
-class AliasICPRecordalTypeDef(BaseValidatorModel):
+class AliasICPRecordal(BaseValidatorModel):
     CNAME: Optional[str] = None
     ICPRecordalStatus: Optional[ICPRecordalStatusType] = None
 
 
-class AliasesOutputTypeDef(BaseValidatorModel):
+class AliasesOutput(BaseValidatorModel):
     Quantity: int
     Items: Optional[List[str]] = None
 
 
-class AliasesTypeDef(BaseValidatorModel):
+class Aliases(BaseValidatorModel):
     Quantity: int
     Items: Optional[Sequence[str]] = None
 
 
-class CachedMethodsOutputTypeDef(BaseValidatorModel):
+class CachedMethodsOutput(BaseValidatorModel):
     Quantity: int
     Items: List[MethodType]
 
 
-class AnycastIpListSummaryTypeDef(BaseValidatorModel):
+class AnycastIpListSummary(BaseValidatorModel):
     Id: str
     Name: str
     Status: str
@@ -41,7 +41,7 @@ class AnycastIpListSummaryTypeDef(BaseValidatorModel):
     LastModifiedTime: datetime
 
 
-class AnycastIpListTypeDef(BaseValidatorModel):
+class AnycastIpList(BaseValidatorModel):
     Id: str
     Name: str
     Status: str
@@ -51,106 +51,106 @@ class AnycastIpListTypeDef(BaseValidatorModel):
     LastModifiedTime: datetime
 
 
-class AssociateAliasRequestTypeDef(BaseValidatorModel):
+class AssociateAliasRequest(BaseValidatorModel):
     TargetDistributionId: str
     Alias: str
 
 
-class GrpcConfigTypeDef(BaseValidatorModel):
+class GrpcConfig(BaseValidatorModel):
     Enabled: bool
 
 
-class TrustedKeyGroupsOutputTypeDef(BaseValidatorModel):
-    Enabled: bool
-    Quantity: int
-    Items: Optional[List[str]] = None
-
-
-class TrustedSignersOutputTypeDef(BaseValidatorModel):
+class TrustedKeyGroupsOutput(BaseValidatorModel):
     Enabled: bool
     Quantity: int
     Items: Optional[List[str]] = None
 
 
-class CookieNamesOutputTypeDef(BaseValidatorModel):
+class TrustedSignersOutput(BaseValidatorModel):
+    Enabled: bool
     Quantity: int
     Items: Optional[List[str]] = None
 
 
-class CookieNamesTypeDef(BaseValidatorModel):
-    Quantity: int
-    Items: Optional[Sequence[str]] = None
-
-
-class HeadersOutputTypeDef(BaseValidatorModel):
+class CookieNamesOutput(BaseValidatorModel):
     Quantity: int
     Items: Optional[List[str]] = None
 
 
-class HeadersTypeDef(BaseValidatorModel):
+class CookieNames(BaseValidatorModel):
     Quantity: int
     Items: Optional[Sequence[str]] = None
 
 
-class QueryStringNamesOutputTypeDef(BaseValidatorModel):
+class HeadersOutput(BaseValidatorModel):
     Quantity: int
     Items: Optional[List[str]] = None
 
 
-class QueryStringNamesTypeDef(BaseValidatorModel):
+class Headers(BaseValidatorModel):
     Quantity: int
     Items: Optional[Sequence[str]] = None
 
 
-class CachedMethodsTypeDef(BaseValidatorModel):
+class QueryStringNamesOutput(BaseValidatorModel):
+    Quantity: int
+    Items: Optional[List[str]] = None
+
+
+class QueryStringNames(BaseValidatorModel):
+    Quantity: int
+    Items: Optional[Sequence[str]] = None
+
+
+class CachedMethods(BaseValidatorModel):
     Quantity: int
     Items: Sequence[MethodType]
 
 
-class CloudFrontOriginAccessIdentityConfigTypeDef(BaseValidatorModel):
+class CloudFrontOriginAccessIdentityConfig(BaseValidatorModel):
     CallerReference: str
     Comment: str
 
 
-class CloudFrontOriginAccessIdentitySummaryTypeDef(BaseValidatorModel):
+class CloudFrontOriginAccessIdentitySummary(BaseValidatorModel):
     Id: str
     S3CanonicalUserId: str
     Comment: str
 
 
-class ConflictingAliasTypeDef(BaseValidatorModel):
+class ConflictingAlias(BaseValidatorModel):
     Alias: Optional[str] = None
     DistributionId: Optional[str] = None
     AccountId: Optional[str] = None
 
 
-class ContentTypeProfileTypeDef(BaseValidatorModel):
+class ContentTypeProfile(BaseValidatorModel):
     Format: Literal["URLEncoded"]
     ContentType: str
     ProfileId: Optional[str] = None
 
 
-class StagingDistributionDnsNamesOutputTypeDef(BaseValidatorModel):
+class StagingDistributionDnsNamesOutput(BaseValidatorModel):
     Quantity: int
     Items: Optional[List[str]] = None
 
 
-class StagingDistributionDnsNamesTypeDef(BaseValidatorModel):
+class StagingDistributionDnsNames(BaseValidatorModel):
     Quantity: int
     Items: Optional[Sequence[str]] = None
 
 
-class ContinuousDeploymentSingleHeaderConfigTypeDef(BaseValidatorModel):
+class ContinuousDeploymentSingleHeaderConfig(BaseValidatorModel):
     Header: str
     Value: str
 
 
-class SessionStickinessConfigTypeDef(BaseValidatorModel):
+class SessionStickinessConfig(BaseValidatorModel):
     IdleTTL: int
     MaximumTTL: int
 
 
-class CopyDistributionRequestTypeDef(BaseValidatorModel):
+class CopyDistributionRequest(BaseValidatorModel):
     PrimaryDistributionId: str
     CallerReference: str
     Staging: Optional[bool] = None
@@ -158,7 +158,7 @@ class CopyDistributionRequestTypeDef(BaseValidatorModel):
     Enabled: Optional[bool] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -166,12 +166,12 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class ImportSourceTypeDef(BaseValidatorModel):
+class ImportSource(BaseValidatorModel):
     SourceType: Literal["S3"]
     SourceARN: str
 
 
-class KeyValueStoreTypeDef(BaseValidatorModel):
+class KeyValueStore(BaseValidatorModel):
     Name: str
     Id: str
     Comment: str
@@ -180,7 +180,7 @@ class KeyValueStoreTypeDef(BaseValidatorModel):
     Status: Optional[str] = None
 
 
-class OriginAccessControlConfigTypeDef(BaseValidatorModel):
+class OriginAccessControlConfig(BaseValidatorModel):
     Name: str
     SigningProtocol: Literal["sigv4"]
     SigningBehavior: OriginAccessControlSigningBehaviorsType
@@ -188,136 +188,136 @@ class OriginAccessControlConfigTypeDef(BaseValidatorModel):
     Description: Optional[str] = None
 
 
-class PublicKeyConfigTypeDef(BaseValidatorModel):
+class PublicKeyConfig(BaseValidatorModel):
     CallerReference: str
     Name: str
     EncodedKey: str
     Comment: Optional[str] = None
 
 
-class CustomErrorResponseTypeDef(BaseValidatorModel):
+class CustomErrorResponse(BaseValidatorModel):
     ErrorCode: int
     ResponsePagePath: Optional[str] = None
     ResponseCode: Optional[str] = None
     ErrorCachingMinTTL: Optional[int] = None
 
 
-class OriginCustomHeaderTypeDef(BaseValidatorModel):
+class OriginCustomHeader(BaseValidatorModel):
     HeaderName: str
     HeaderValue: str
 
 
-class OriginSslProtocolsOutputTypeDef(BaseValidatorModel):
+class OriginSslProtocolsOutput(BaseValidatorModel):
     Quantity: int
     Items: List[SslProtocolType]
 
 
-class DeleteAnycastIpListRequestTypeDef(BaseValidatorModel):
+class DeleteAnycastIpListRequest(BaseValidatorModel):
     Id: str
     IfMatch: str
 
 
-class DeleteCachePolicyRequestTypeDef(BaseValidatorModel):
+class DeleteCachePolicyRequest(BaseValidatorModel):
     Id: str
     IfMatch: Optional[str] = None
 
 
-class DeleteCloudFrontOriginAccessIdentityRequestTypeDef(BaseValidatorModel):
+class DeleteCloudFrontOriginAccessIdentityRequest(BaseValidatorModel):
     Id: str
     IfMatch: Optional[str] = None
 
 
-class DeleteContinuousDeploymentPolicyRequestTypeDef(BaseValidatorModel):
+class DeleteContinuousDeploymentPolicyRequest(BaseValidatorModel):
     Id: str
     IfMatch: Optional[str] = None
 
 
-class DeleteDistributionRequestTypeDef(BaseValidatorModel):
+class DeleteDistributionRequest(BaseValidatorModel):
     Id: str
     IfMatch: Optional[str] = None
 
 
-class DeleteFieldLevelEncryptionConfigRequestTypeDef(BaseValidatorModel):
+class DeleteFieldLevelEncryptionConfigRequest(BaseValidatorModel):
     Id: str
     IfMatch: Optional[str] = None
 
 
-class DeleteFieldLevelEncryptionProfileRequestTypeDef(BaseValidatorModel):
+class DeleteFieldLevelEncryptionProfileRequest(BaseValidatorModel):
     Id: str
     IfMatch: Optional[str] = None
 
 
-class DeleteFunctionRequestTypeDef(BaseValidatorModel):
+class DeleteFunctionRequest(BaseValidatorModel):
     Name: str
     IfMatch: str
 
 
-class DeleteKeyGroupRequestTypeDef(BaseValidatorModel):
+class DeleteKeyGroupRequest(BaseValidatorModel):
     Id: str
     IfMatch: Optional[str] = None
 
 
-class DeleteKeyValueStoreRequestTypeDef(BaseValidatorModel):
+class DeleteKeyValueStoreRequest(BaseValidatorModel):
     Name: str
     IfMatch: str
 
 
-class DeleteMonitoringSubscriptionRequestTypeDef(BaseValidatorModel):
+class DeleteMonitoringSubscriptionRequest(BaseValidatorModel):
     DistributionId: str
 
 
-class DeleteOriginAccessControlRequestTypeDef(BaseValidatorModel):
+class DeleteOriginAccessControlRequest(BaseValidatorModel):
     Id: str
     IfMatch: Optional[str] = None
 
 
-class DeleteOriginRequestPolicyRequestTypeDef(BaseValidatorModel):
+class DeleteOriginRequestPolicyRequest(BaseValidatorModel):
     Id: str
     IfMatch: Optional[str] = None
 
 
-class DeletePublicKeyRequestTypeDef(BaseValidatorModel):
+class DeletePublicKeyRequest(BaseValidatorModel):
     Id: str
     IfMatch: Optional[str] = None
 
 
-class DeleteRealtimeLogConfigRequestTypeDef(BaseValidatorModel):
+class DeleteRealtimeLogConfigRequest(BaseValidatorModel):
     Name: Optional[str] = None
     ARN: Optional[str] = None
 
 
-class DeleteResponseHeadersPolicyRequestTypeDef(BaseValidatorModel):
+class DeleteResponseHeadersPolicyRequest(BaseValidatorModel):
     Id: str
     IfMatch: Optional[str] = None
 
 
-class DeleteStreamingDistributionRequestTypeDef(BaseValidatorModel):
+class DeleteStreamingDistributionRequest(BaseValidatorModel):
     Id: str
     IfMatch: Optional[str] = None
 
 
-class DeleteVpcOriginRequestTypeDef(BaseValidatorModel):
+class DeleteVpcOriginRequest(BaseValidatorModel):
     Id: str
     IfMatch: str
 
 
-class DescribeFunctionRequestTypeDef(BaseValidatorModel):
+class DescribeFunctionRequest(BaseValidatorModel):
     Name: str
     Stage: Optional[FunctionStageType] = None
 
 
-class DescribeKeyValueStoreRequestTypeDef(BaseValidatorModel):
+class DescribeKeyValueStoreRequest(BaseValidatorModel):
     Name: str
 
 
-class LoggingConfigTypeDef(BaseValidatorModel):
+class LoggingConfig(BaseValidatorModel):
     Enabled: Optional[bool] = None
     IncludeCookies: Optional[bool] = None
     Bucket: Optional[str] = None
     Prefix: Optional[str] = None
 
 
-class ViewerCertificateTypeDef(BaseValidatorModel):
+class ViewerCertificate(BaseValidatorModel):
     CloudFrontDefaultCertificate: Optional[bool] = None
     IAMCertificateId: Optional[str] = None
     ACMCertificateArn: Optional[str] = None
@@ -327,7 +327,7 @@ class ViewerCertificateTypeDef(BaseValidatorModel):
     CertificateSource: Optional[CertificateSourceType] = None
 
 
-class DistributionIdListTypeDef(BaseValidatorModel):
+class DistributionIdList(BaseValidatorModel):
     Marker: str
     MaxItems: int
     IsTruncated: bool
@@ -336,370 +336,370 @@ class DistributionIdListTypeDef(BaseValidatorModel):
     Items: Optional[List[str]] = None
 
 
-class FieldPatternsOutputTypeDef(BaseValidatorModel):
+class FieldPatternsOutput(BaseValidatorModel):
     Quantity: int
     Items: Optional[List[str]] = None
 
 
-class FieldPatternsTypeDef(BaseValidatorModel):
+class FieldPatterns(BaseValidatorModel):
     Quantity: int
     Items: Optional[Sequence[str]] = None
 
 
-class KinesisStreamConfigTypeDef(BaseValidatorModel):
+class KinesisStreamConfig(BaseValidatorModel):
     RoleARN: str
     StreamARN: str
 
 
-class QueryStringCacheKeysOutputTypeDef(BaseValidatorModel):
+class QueryStringCacheKeysOutput(BaseValidatorModel):
     Quantity: int
     Items: Optional[List[str]] = None
 
 
-class FunctionAssociationTypeDef(BaseValidatorModel):
+class FunctionAssociation(BaseValidatorModel):
     FunctionARN: str
     EventType: EventTypeType
 
 
-class FunctionMetadataTypeDef(BaseValidatorModel):
+class FunctionMetadata(BaseValidatorModel):
     FunctionARN: str
     LastModifiedTime: datetime
     Stage: Optional[FunctionStageType] = None
     CreatedTime: Optional[datetime] = None
 
 
-class GeoRestrictionOutputTypeDef(BaseValidatorModel):
+class GeoRestrictionOutput(BaseValidatorModel):
     RestrictionType: GeoRestrictionTypeType
     Quantity: int
     Items: Optional[List[str]] = None
 
 
-class GeoRestrictionTypeDef(BaseValidatorModel):
+class GeoRestriction(BaseValidatorModel):
     RestrictionType: GeoRestrictionTypeType
     Quantity: int
     Items: Optional[Sequence[str]] = None
 
 
-class GetAnycastIpListRequestTypeDef(BaseValidatorModel):
+class GetAnycastIpListRequest(BaseValidatorModel):
     Id: str
 
 
-class GetCachePolicyConfigRequestTypeDef(BaseValidatorModel):
+class GetCachePolicyConfigRequest(BaseValidatorModel):
     Id: str
 
 
-class GetCachePolicyRequestTypeDef(BaseValidatorModel):
+class GetCachePolicyRequest(BaseValidatorModel):
     Id: str
 
 
-class GetCloudFrontOriginAccessIdentityConfigRequestTypeDef(BaseValidatorModel):
+class GetCloudFrontOriginAccessIdentityConfigRequest(BaseValidatorModel):
     Id: str
 
 
-class GetCloudFrontOriginAccessIdentityRequestTypeDef(BaseValidatorModel):
+class GetCloudFrontOriginAccessIdentityRequest(BaseValidatorModel):
     Id: str
 
 
-class GetContinuousDeploymentPolicyConfigRequestTypeDef(BaseValidatorModel):
+class GetContinuousDeploymentPolicyConfigRequest(BaseValidatorModel):
     Id: str
 
 
-class GetContinuousDeploymentPolicyRequestTypeDef(BaseValidatorModel):
+class GetContinuousDeploymentPolicyRequest(BaseValidatorModel):
     Id: str
 
 
-class GetDistributionConfigRequestTypeDef(BaseValidatorModel):
+class GetDistributionConfigRequest(BaseValidatorModel):
     Id: str
 
 
-class GetDistributionRequestTypeDef(BaseValidatorModel):
+class GetDistributionRequest(BaseValidatorModel):
     Id: str
 
 
-class WaiterConfigTypeDef(BaseValidatorModel):
+class WaiterConfig(BaseValidatorModel):
     Delay: Optional[int] = None
     MaxAttempts: Optional[int] = None
 
 
-class GetFieldLevelEncryptionConfigRequestTypeDef(BaseValidatorModel):
+class GetFieldLevelEncryptionConfigRequest(BaseValidatorModel):
     Id: str
 
 
-class GetFieldLevelEncryptionProfileConfigRequestTypeDef(BaseValidatorModel):
+class GetFieldLevelEncryptionProfileConfigRequest(BaseValidatorModel):
     Id: str
 
 
-class GetFieldLevelEncryptionProfileRequestTypeDef(BaseValidatorModel):
+class GetFieldLevelEncryptionProfileRequest(BaseValidatorModel):
     Id: str
 
 
-class GetFieldLevelEncryptionRequestTypeDef(BaseValidatorModel):
+class GetFieldLevelEncryptionRequest(BaseValidatorModel):
     Id: str
 
 
-class GetFunctionRequestTypeDef(BaseValidatorModel):
+class GetFunctionRequest(BaseValidatorModel):
     Name: str
     Stage: Optional[FunctionStageType] = None
 
 
-class GetInvalidationRequestTypeDef(BaseValidatorModel):
+class GetInvalidationRequest(BaseValidatorModel):
     DistributionId: str
     Id: str
 
 
-class GetKeyGroupConfigRequestTypeDef(BaseValidatorModel):
+class GetKeyGroupConfigRequest(BaseValidatorModel):
     Id: str
 
 
-class KeyGroupConfigOutputTypeDef(BaseValidatorModel):
+class KeyGroupConfigOutput(BaseValidatorModel):
     Name: str
     Items: List[str]
     Comment: Optional[str] = None
 
 
-class GetKeyGroupRequestTypeDef(BaseValidatorModel):
+class GetKeyGroupRequest(BaseValidatorModel):
     Id: str
 
 
-class GetMonitoringSubscriptionRequestTypeDef(BaseValidatorModel):
+class GetMonitoringSubscriptionRequest(BaseValidatorModel):
     DistributionId: str
 
 
-class GetOriginAccessControlConfigRequestTypeDef(BaseValidatorModel):
+class GetOriginAccessControlConfigRequest(BaseValidatorModel):
     Id: str
 
 
-class GetOriginAccessControlRequestTypeDef(BaseValidatorModel):
+class GetOriginAccessControlRequest(BaseValidatorModel):
     Id: str
 
 
-class GetOriginRequestPolicyConfigRequestTypeDef(BaseValidatorModel):
+class GetOriginRequestPolicyConfigRequest(BaseValidatorModel):
     Id: str
 
 
-class GetOriginRequestPolicyRequestTypeDef(BaseValidatorModel):
+class GetOriginRequestPolicyRequest(BaseValidatorModel):
     Id: str
 
 
-class GetPublicKeyConfigRequestTypeDef(BaseValidatorModel):
+class GetPublicKeyConfigRequest(BaseValidatorModel):
     Id: str
 
 
-class GetPublicKeyRequestTypeDef(BaseValidatorModel):
+class GetPublicKeyRequest(BaseValidatorModel):
     Id: str
 
 
-class GetRealtimeLogConfigRequestTypeDef(BaseValidatorModel):
+class GetRealtimeLogConfigRequest(BaseValidatorModel):
     Name: Optional[str] = None
     ARN: Optional[str] = None
 
 
-class GetResponseHeadersPolicyConfigRequestTypeDef(BaseValidatorModel):
+class GetResponseHeadersPolicyConfigRequest(BaseValidatorModel):
     Id: str
 
 
-class GetResponseHeadersPolicyRequestTypeDef(BaseValidatorModel):
+class GetResponseHeadersPolicyRequest(BaseValidatorModel):
     Id: str
 
 
-class GetStreamingDistributionConfigRequestTypeDef(BaseValidatorModel):
+class GetStreamingDistributionConfigRequest(BaseValidatorModel):
     Id: str
 
 
-class GetStreamingDistributionRequestTypeDef(BaseValidatorModel):
+class GetStreamingDistributionRequest(BaseValidatorModel):
     Id: str
 
 
-class GetVpcOriginRequestTypeDef(BaseValidatorModel):
+class GetVpcOriginRequest(BaseValidatorModel):
     Id: str
 
 
-class PathsOutputTypeDef(BaseValidatorModel):
+class PathsOutput(BaseValidatorModel):
     Quantity: int
     Items: Optional[List[str]] = None
 
 
-class PathsTypeDef(BaseValidatorModel):
+class Paths(BaseValidatorModel):
     Quantity: int
     Items: Optional[Sequence[str]] = None
 
 
-class InvalidationSummaryTypeDef(BaseValidatorModel):
+class InvalidationSummary(BaseValidatorModel):
     Id: str
     CreateTime: datetime
     Status: str
 
 
-class KeyPairIdsTypeDef(BaseValidatorModel):
+class KeyPairIds(BaseValidatorModel):
     Quantity: int
     Items: Optional[List[str]] = None
 
 
-class KeyGroupConfigTypeDef(BaseValidatorModel):
+class KeyGroupConfig(BaseValidatorModel):
     Name: str
     Items: Sequence[str]
     Comment: Optional[str] = None
 
 
-class KeyValueStoreAssociationTypeDef(BaseValidatorModel):
+class KeyValueStoreAssociation(BaseValidatorModel):
     KeyValueStoreARN: str
 
 
-class LambdaFunctionAssociationTypeDef(BaseValidatorModel):
+class LambdaFunctionAssociation(BaseValidatorModel):
     LambdaFunctionARN: str
     EventType: EventTypeType
     IncludeBody: Optional[bool] = None
 
 
-class ListAnycastIpListsRequestTypeDef(BaseValidatorModel):
+class ListAnycastIpListsRequest(BaseValidatorModel):
     Marker: Optional[str] = None
     MaxItems: Optional[int] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListCloudFrontOriginAccessIdentitiesRequestTypeDef(BaseValidatorModel):
+class ListCloudFrontOriginAccessIdentitiesRequest(BaseValidatorModel):
     Marker: Optional[str] = None
     MaxItems: Optional[str] = None
 
 
-class ListConflictingAliasesRequestTypeDef(BaseValidatorModel):
+class ListConflictingAliasesRequest(BaseValidatorModel):
     DistributionId: str
     Alias: str
     Marker: Optional[str] = None
     MaxItems: Optional[int] = None
 
 
-class ListContinuousDeploymentPoliciesRequestTypeDef(BaseValidatorModel):
+class ListContinuousDeploymentPoliciesRequest(BaseValidatorModel):
     Marker: Optional[str] = None
     MaxItems: Optional[str] = None
 
 
-class ListDistributionsByAnycastIpListIdRequestTypeDef(BaseValidatorModel):
+class ListDistributionsByAnycastIpListIdRequest(BaseValidatorModel):
     AnycastIpListId: str
     Marker: Optional[str] = None
     MaxItems: Optional[str] = None
 
 
-class ListDistributionsByCachePolicyIdRequestTypeDef(BaseValidatorModel):
+class ListDistributionsByCachePolicyIdRequest(BaseValidatorModel):
     CachePolicyId: str
     Marker: Optional[str] = None
     MaxItems: Optional[str] = None
 
 
-class ListDistributionsByKeyGroupRequestTypeDef(BaseValidatorModel):
+class ListDistributionsByKeyGroupRequest(BaseValidatorModel):
     KeyGroupId: str
     Marker: Optional[str] = None
     MaxItems: Optional[str] = None
 
 
-class ListDistributionsByOriginRequestPolicyIdRequestTypeDef(BaseValidatorModel):
+class ListDistributionsByOriginRequestPolicyIdRequest(BaseValidatorModel):
     OriginRequestPolicyId: str
     Marker: Optional[str] = None
     MaxItems: Optional[str] = None
 
 
-class ListDistributionsByRealtimeLogConfigRequestTypeDef(BaseValidatorModel):
+class ListDistributionsByRealtimeLogConfigRequest(BaseValidatorModel):
     Marker: Optional[str] = None
     MaxItems: Optional[str] = None
     RealtimeLogConfigName: Optional[str] = None
     RealtimeLogConfigArn: Optional[str] = None
 
 
-class ListDistributionsByResponseHeadersPolicyIdRequestTypeDef(BaseValidatorModel):
+class ListDistributionsByResponseHeadersPolicyIdRequest(BaseValidatorModel):
     ResponseHeadersPolicyId: str
     Marker: Optional[str] = None
     MaxItems: Optional[str] = None
 
 
-class ListDistributionsByVpcOriginIdRequestTypeDef(BaseValidatorModel):
+class ListDistributionsByVpcOriginIdRequest(BaseValidatorModel):
     VpcOriginId: str
     Marker: Optional[str] = None
     MaxItems: Optional[str] = None
 
 
-class ListDistributionsByWebACLIdRequestTypeDef(BaseValidatorModel):
+class ListDistributionsByWebACLIdRequest(BaseValidatorModel):
     WebACLId: str
     Marker: Optional[str] = None
     MaxItems: Optional[str] = None
 
 
-class ListDistributionsRequestTypeDef(BaseValidatorModel):
+class ListDistributionsRequest(BaseValidatorModel):
     Marker: Optional[str] = None
     MaxItems: Optional[str] = None
 
 
-class ListFieldLevelEncryptionConfigsRequestTypeDef(BaseValidatorModel):
+class ListFieldLevelEncryptionConfigsRequest(BaseValidatorModel):
     Marker: Optional[str] = None
     MaxItems: Optional[str] = None
 
 
-class ListFieldLevelEncryptionProfilesRequestTypeDef(BaseValidatorModel):
+class ListFieldLevelEncryptionProfilesRequest(BaseValidatorModel):
     Marker: Optional[str] = None
     MaxItems: Optional[str] = None
 
 
-class ListFunctionsRequestTypeDef(BaseValidatorModel):
+class ListFunctionsRequest(BaseValidatorModel):
     Marker: Optional[str] = None
     MaxItems: Optional[str] = None
     Stage: Optional[FunctionStageType] = None
 
 
-class ListInvalidationsRequestTypeDef(BaseValidatorModel):
+class ListInvalidationsRequest(BaseValidatorModel):
     DistributionId: str
     Marker: Optional[str] = None
     MaxItems: Optional[str] = None
 
 
-class ListKeyGroupsRequestTypeDef(BaseValidatorModel):
+class ListKeyGroupsRequest(BaseValidatorModel):
     Marker: Optional[str] = None
     MaxItems: Optional[str] = None
 
 
-class ListKeyValueStoresRequestTypeDef(BaseValidatorModel):
+class ListKeyValueStoresRequest(BaseValidatorModel):
     Marker: Optional[str] = None
     MaxItems: Optional[str] = None
     Status: Optional[str] = None
 
 
-class ListOriginAccessControlsRequestTypeDef(BaseValidatorModel):
+class ListOriginAccessControlsRequest(BaseValidatorModel):
     Marker: Optional[str] = None
     MaxItems: Optional[str] = None
 
 
-class ListPublicKeysRequestTypeDef(BaseValidatorModel):
+class ListPublicKeysRequest(BaseValidatorModel):
     Marker: Optional[str] = None
     MaxItems: Optional[str] = None
 
 
-class ListRealtimeLogConfigsRequestTypeDef(BaseValidatorModel):
+class ListRealtimeLogConfigsRequest(BaseValidatorModel):
     MaxItems: Optional[str] = None
     Marker: Optional[str] = None
 
 
-class ListStreamingDistributionsRequestTypeDef(BaseValidatorModel):
+class ListStreamingDistributionsRequest(BaseValidatorModel):
     Marker: Optional[str] = None
     MaxItems: Optional[str] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     Resource: str
 
 
-class ListVpcOriginsRequestTypeDef(BaseValidatorModel):
+class ListVpcOriginsRequest(BaseValidatorModel):
     Marker: Optional[str] = None
     MaxItems: Optional[str] = None
 
 
-class RealtimeMetricsSubscriptionConfigTypeDef(BaseValidatorModel):
+class RealtimeMetricsSubscriptionConfig(BaseValidatorModel):
     RealtimeMetricsSubscriptionStatus: RealtimeMetricsSubscriptionStatusType
 
 
-class OriginAccessControlSummaryTypeDef(BaseValidatorModel):
+class OriginAccessControlSummary(BaseValidatorModel):
     Id: str
     Description: str
     Name: str
@@ -708,36 +708,36 @@ class OriginAccessControlSummaryTypeDef(BaseValidatorModel):
     OriginAccessControlOriginType: OriginAccessControlOriginTypesType
 
 
-class StatusCodesOutputTypeDef(BaseValidatorModel):
+class StatusCodesOutput(BaseValidatorModel):
     Quantity: int
     Items: List[int]
 
 
-class OriginGroupMemberTypeDef(BaseValidatorModel):
+class OriginGroupMember(BaseValidatorModel):
     OriginId: str
 
 
-class OriginShieldTypeDef(BaseValidatorModel):
+class OriginShield(BaseValidatorModel):
     Enabled: bool
     OriginShieldRegion: Optional[str] = None
 
 
-class S3OriginConfigTypeDef(BaseValidatorModel):
+class S3OriginConfig(BaseValidatorModel):
     OriginAccessIdentity: str
 
 
-class VpcOriginConfigTypeDef(BaseValidatorModel):
+class VpcOriginConfig(BaseValidatorModel):
     VpcOriginId: str
     OriginReadTimeout: Optional[int] = None
     OriginKeepaliveTimeout: Optional[int] = None
 
 
-class OriginSslProtocolsTypeDef(BaseValidatorModel):
+class OriginSslProtocols(BaseValidatorModel):
     Quantity: int
     Items: Sequence[SslProtocolType]
 
 
-class PublicKeySummaryTypeDef(BaseValidatorModel):
+class PublicKeySummary(BaseValidatorModel):
     Id: str
     Name: str
     CreatedTime: datetime
@@ -745,159 +745,159 @@ class PublicKeySummaryTypeDef(BaseValidatorModel):
     Comment: Optional[str] = None
 
 
-class PublishFunctionRequestTypeDef(BaseValidatorModel):
+class PublishFunctionRequest(BaseValidatorModel):
     Name: str
     IfMatch: str
 
 
-class QueryArgProfileTypeDef(BaseValidatorModel):
+class QueryArgProfile(BaseValidatorModel):
     QueryArg: str
     ProfileId: str
 
 
-class QueryStringCacheKeysTypeDef(BaseValidatorModel):
+class QueryStringCacheKeys(BaseValidatorModel):
     Quantity: int
     Items: Optional[Sequence[str]] = None
 
 
-class ResponseHeadersPolicyAccessControlAllowHeadersOutputTypeDef(BaseValidatorModel):
+class ResponseHeadersPolicyAccessControlAllowHeadersOutput(BaseValidatorModel):
     Quantity: int
     Items: List[str]
 
 
-class ResponseHeadersPolicyAccessControlAllowHeadersTypeDef(BaseValidatorModel):
+class ResponseHeadersPolicyAccessControlAllowHeaders(BaseValidatorModel):
     Quantity: int
     Items: Sequence[str]
 
 
-class ResponseHeadersPolicyAccessControlAllowMethodsOutputTypeDef(BaseValidatorModel):
+class ResponseHeadersPolicyAccessControlAllowMethodsOutput(BaseValidatorModel):
     Quantity: int
     Items: List[ResponseHeadersPolicyAccessControlAllowMethodsValuesType]
 
 
-class ResponseHeadersPolicyAccessControlAllowMethodsTypeDef(BaseValidatorModel):
+class ResponseHeadersPolicyAccessControlAllowMethods(BaseValidatorModel):
     Quantity: int
     Items: Sequence[ResponseHeadersPolicyAccessControlAllowMethodsValuesType]
 
 
-class ResponseHeadersPolicyAccessControlAllowOriginsOutputTypeDef(BaseValidatorModel):
+class ResponseHeadersPolicyAccessControlAllowOriginsOutput(BaseValidatorModel):
     Quantity: int
     Items: List[str]
 
 
-class ResponseHeadersPolicyAccessControlAllowOriginsTypeDef(BaseValidatorModel):
+class ResponseHeadersPolicyAccessControlAllowOrigins(BaseValidatorModel):
     Quantity: int
     Items: Sequence[str]
 
 
-class ResponseHeadersPolicyAccessControlExposeHeadersOutputTypeDef(BaseValidatorModel):
+class ResponseHeadersPolicyAccessControlExposeHeadersOutput(BaseValidatorModel):
     Quantity: int
     Items: Optional[List[str]] = None
 
 
-class ResponseHeadersPolicyAccessControlExposeHeadersTypeDef(BaseValidatorModel):
+class ResponseHeadersPolicyAccessControlExposeHeaders(BaseValidatorModel):
     Quantity: int
     Items: Optional[Sequence[str]] = None
 
 
-class ResponseHeadersPolicyServerTimingHeadersConfigTypeDef(BaseValidatorModel):
+class ResponseHeadersPolicyServerTimingHeadersConfig(BaseValidatorModel):
     Enabled: bool
     SamplingRate: Optional[float] = None
 
 
-class ResponseHeadersPolicyContentSecurityPolicyTypeDef(BaseValidatorModel):
+class ResponseHeadersPolicyContentSecurityPolicy(BaseValidatorModel):
     Override: bool
     ContentSecurityPolicy: str
 
 
-class ResponseHeadersPolicyContentTypeOptionsTypeDef(BaseValidatorModel):
+class ResponseHeadersPolicyContentTypeOptions(BaseValidatorModel):
     Override: bool
 
 
-class ResponseHeadersPolicyCustomHeaderTypeDef(BaseValidatorModel):
+class ResponseHeadersPolicyCustomHeader(BaseValidatorModel):
     Header: str
     Value: str
     Override: bool
 
 
-class ResponseHeadersPolicyFrameOptionsTypeDef(BaseValidatorModel):
+class ResponseHeadersPolicyFrameOptions(BaseValidatorModel):
     Override: bool
     FrameOption: FrameOptionsListType
 
 
-class ResponseHeadersPolicyReferrerPolicyTypeDef(BaseValidatorModel):
+class ResponseHeadersPolicyReferrerPolicy(BaseValidatorModel):
     Override: bool
     ReferrerPolicy: ReferrerPolicyListType
 
 
-class ResponseHeadersPolicyRemoveHeaderTypeDef(BaseValidatorModel):
+class ResponseHeadersPolicyRemoveHeader(BaseValidatorModel):
     Header: str
 
 
-class ResponseHeadersPolicyStrictTransportSecurityTypeDef(BaseValidatorModel):
+class ResponseHeadersPolicyStrictTransportSecurity(BaseValidatorModel):
     Override: bool
     AccessControlMaxAgeSec: int
     IncludeSubdomains: Optional[bool] = None
     Preload: Optional[bool] = None
 
 
-class ResponseHeadersPolicyXSSProtectionTypeDef(BaseValidatorModel):
+class ResponseHeadersPolicyXSSProtection(BaseValidatorModel):
     Override: bool
     Protection: bool
     ModeBlock: Optional[bool] = None
     ReportUri: Optional[str] = None
 
 
-class S3OriginTypeDef(BaseValidatorModel):
+class S3Origin(BaseValidatorModel):
     DomainName: str
     OriginAccessIdentity: str
 
 
-class StatusCodesTypeDef(BaseValidatorModel):
+class StatusCodes(BaseValidatorModel):
     Quantity: int
     Items: Sequence[int]
 
 
-class StreamingLoggingConfigTypeDef(BaseValidatorModel):
+class StreamingLoggingConfig(BaseValidatorModel):
     Enabled: bool
     Bucket: str
     Prefix: str
 
 
-class TagKeysTypeDef(BaseValidatorModel):
+class TagKeys(BaseValidatorModel):
     Items: Optional[Sequence[str]] = None
 
 
-class TagTypeDef(BaseValidatorModel):
+class Tag(BaseValidatorModel):
     Key: str
     Value: Optional[str] = None
 
 
-class TrustedKeyGroupsTypeDef(BaseValidatorModel):
+class TrustedKeyGroups(BaseValidatorModel):
     Enabled: bool
     Quantity: int
     Items: Optional[Sequence[str]] = None
 
 
-class TrustedSignersTypeDef(BaseValidatorModel):
+class TrustedSigners(BaseValidatorModel):
     Enabled: bool
     Quantity: int
     Items: Optional[Sequence[str]] = None
 
 
-class UpdateDistributionWithStagingConfigRequestTypeDef(BaseValidatorModel):
+class UpdateDistributionWithStagingConfigRequest(BaseValidatorModel):
     Id: str
     StagingDistributionId: Optional[str] = None
     IfMatch: Optional[str] = None
 
 
-class UpdateKeyValueStoreRequestTypeDef(BaseValidatorModel):
+class UpdateKeyValueStoreRequest(BaseValidatorModel):
     Name: str
     Comment: str
     IfMatch: str
 
 
-class VpcOriginSummaryTypeDef(BaseValidatorModel):
+class VpcOriginSummary(BaseValidatorModel):
     Id: str
     Name: str
     Status: str
@@ -907,1602 +907,1602 @@ class VpcOriginSummaryTypeDef(BaseValidatorModel):
     OriginEndpointArn: str
 
 
-class AllowedMethodsOutputTypeDef(BaseValidatorModel):
+class AllowedMethodsOutput(BaseValidatorModel):
     Quantity: int
     Items: List[MethodType]
-    CachedMethods: Optional[CachedMethodsOutputTypeDef] = None
+    CachedMethods: Optional[CachedMethodsOutput] = None
 
 
-class AnycastIpListCollectionTypeDef(BaseValidatorModel):
+class AnycastIpListCollection(BaseValidatorModel):
     Marker: str
     MaxItems: int
     IsTruncated: bool
     Quantity: int
-    Items: Optional[List[AnycastIpListSummaryTypeDef]] = None
+    Items: Optional[List[AnycastIpListSummary]] = None
     NextMarker: Optional[str] = None
 
 
-class BlobTypeDef(BaseValidatorModel):
+class Blob(BaseValidatorModel):
     pass
 
 
-class TestFunctionRequestTypeDef(BaseValidatorModel):
+class TestFunctionRequest(BaseValidatorModel):
     Name: str
     IfMatch: str
-    EventObject: BlobTypeDef
+    EventObject: Blob
     Stage: Optional[FunctionStageType] = None
 
 
-class CachePolicyCookiesConfigOutputTypeDef(BaseValidatorModel):
+class CachePolicyCookiesConfigOutput(BaseValidatorModel):
     CookieBehavior: CachePolicyCookieBehaviorType
-    Cookies: Optional[CookieNamesOutputTypeDef] = None
+    Cookies: Optional[CookieNamesOutput] = None
 
 
-class CookiePreferenceOutputTypeDef(BaseValidatorModel):
+class CookiePreferenceOutput(BaseValidatorModel):
     Forward: ItemSelectionType
-    WhitelistedNames: Optional[CookieNamesOutputTypeDef] = None
+    WhitelistedNames: Optional[CookieNamesOutput] = None
 
 
-class OriginRequestPolicyCookiesConfigOutputTypeDef(BaseValidatorModel):
+class OriginRequestPolicyCookiesConfigOutput(BaseValidatorModel):
     CookieBehavior: OriginRequestPolicyCookieBehaviorType
-    Cookies: Optional[CookieNamesOutputTypeDef] = None
+    Cookies: Optional[CookieNamesOutput] = None
 
 
-class CachePolicyCookiesConfigTypeDef(BaseValidatorModel):
+class CachePolicyCookiesConfig(BaseValidatorModel):
     CookieBehavior: CachePolicyCookieBehaviorType
-    Cookies: Optional[CookieNamesTypeDef] = None
+    Cookies: Optional[CookieNames] = None
 
 
-class OriginRequestPolicyCookiesConfigTypeDef(BaseValidatorModel):
+class OriginRequestPolicyCookiesConfig(BaseValidatorModel):
     CookieBehavior: OriginRequestPolicyCookieBehaviorType
-    Cookies: Optional[CookieNamesTypeDef] = None
+    Cookies: Optional[CookieNames] = None
 
 
-class CachePolicyHeadersConfigOutputTypeDef(BaseValidatorModel):
+class CachePolicyHeadersConfigOutput(BaseValidatorModel):
     HeaderBehavior: CachePolicyHeaderBehaviorType
-    Headers: Optional[HeadersOutputTypeDef] = None
+    Headers: Optional[HeadersOutput] = None
 
 
-class OriginRequestPolicyHeadersConfigOutputTypeDef(BaseValidatorModel):
+class OriginRequestPolicyHeadersConfigOutput(BaseValidatorModel):
     HeaderBehavior: OriginRequestPolicyHeaderBehaviorType
-    Headers: Optional[HeadersOutputTypeDef] = None
+    Headers: Optional[HeadersOutput] = None
 
 
-class CachePolicyHeadersConfigTypeDef(BaseValidatorModel):
+class CachePolicyHeadersConfig(BaseValidatorModel):
     HeaderBehavior: CachePolicyHeaderBehaviorType
-    Headers: Optional[HeadersTypeDef] = None
+    Headers: Optional[Headers] = None
 
 
-class OriginRequestPolicyHeadersConfigTypeDef(BaseValidatorModel):
+class OriginRequestPolicyHeadersConfig(BaseValidatorModel):
     HeaderBehavior: OriginRequestPolicyHeaderBehaviorType
-    Headers: Optional[HeadersTypeDef] = None
+    Headers: Optional[Headers] = None
 
 
-class CachePolicyQueryStringsConfigOutputTypeDef(BaseValidatorModel):
+class CachePolicyQueryStringsConfigOutput(BaseValidatorModel):
     QueryStringBehavior: CachePolicyQueryStringBehaviorType
-    QueryStrings: Optional[QueryStringNamesOutputTypeDef] = None
+    QueryStrings: Optional[QueryStringNamesOutput] = None
 
 
-class OriginRequestPolicyQueryStringsConfigOutputTypeDef(BaseValidatorModel):
+class OriginRequestPolicyQueryStringsConfigOutput(BaseValidatorModel):
     QueryStringBehavior: OriginRequestPolicyQueryStringBehaviorType
-    QueryStrings: Optional[QueryStringNamesOutputTypeDef] = None
+    QueryStrings: Optional[QueryStringNamesOutput] = None
 
 
-class CachePolicyQueryStringsConfigTypeDef(BaseValidatorModel):
+class CachePolicyQueryStringsConfig(BaseValidatorModel):
     QueryStringBehavior: CachePolicyQueryStringBehaviorType
-    QueryStrings: Optional[QueryStringNamesTypeDef] = None
+    QueryStrings: Optional[QueryStringNames] = None
 
 
-class OriginRequestPolicyQueryStringsConfigTypeDef(BaseValidatorModel):
+class OriginRequestPolicyQueryStringsConfig(BaseValidatorModel):
     QueryStringBehavior: OriginRequestPolicyQueryStringBehaviorType
-    QueryStrings: Optional[QueryStringNamesTypeDef] = None
+    QueryStrings: Optional[QueryStringNames] = None
 
 
-class CloudFrontOriginAccessIdentityTypeDef(BaseValidatorModel):
+class CloudFrontOriginAccessIdentity(BaseValidatorModel):
     Id: str
     S3CanonicalUserId: str
-    CloudFrontOriginAccessIdentityConfig: Optional[CloudFrontOriginAccessIdentityConfigTypeDef] = None
+    CloudFrontOriginAccessIdentityConfig: Optional[CloudFrontOriginAccessIdentityConfig] = None
 
 
-class CreateCloudFrontOriginAccessIdentityRequestTypeDef(BaseValidatorModel):
-    CloudFrontOriginAccessIdentityConfig: CloudFrontOriginAccessIdentityConfigTypeDef
+class CreateCloudFrontOriginAccessIdentityRequest(BaseValidatorModel):
+    CloudFrontOriginAccessIdentityConfig: CloudFrontOriginAccessIdentityConfig
 
 
-class UpdateCloudFrontOriginAccessIdentityRequestTypeDef(BaseValidatorModel):
-    CloudFrontOriginAccessIdentityConfig: CloudFrontOriginAccessIdentityConfigTypeDef
+class UpdateCloudFrontOriginAccessIdentityRequest(BaseValidatorModel):
+    CloudFrontOriginAccessIdentityConfig: CloudFrontOriginAccessIdentityConfig
     Id: str
     IfMatch: Optional[str] = None
 
 
-class CloudFrontOriginAccessIdentityListTypeDef(BaseValidatorModel):
+class CloudFrontOriginAccessIdentityList(BaseValidatorModel):
     Marker: str
     MaxItems: int
     IsTruncated: bool
     Quantity: int
     NextMarker: Optional[str] = None
-    Items: Optional[List[CloudFrontOriginAccessIdentitySummaryTypeDef]] = None
+    Items: Optional[List[CloudFrontOriginAccessIdentitySummary]] = None
 
 
-class ConflictingAliasesListTypeDef(BaseValidatorModel):
+class ConflictingAliasesList(BaseValidatorModel):
     NextMarker: Optional[str] = None
     MaxItems: Optional[int] = None
     Quantity: Optional[int] = None
-    Items: Optional[List[ConflictingAliasTypeDef]] = None
+    Items: Optional[List[ConflictingAlias]] = None
 
 
-class ContentTypeProfilesOutputTypeDef(BaseValidatorModel):
+class ContentTypeProfilesOutput(BaseValidatorModel):
     Quantity: int
-    Items: Optional[List[ContentTypeProfileTypeDef]] = None
+    Items: Optional[List[ContentTypeProfile]] = None
 
 
-class ContentTypeProfilesTypeDef(BaseValidatorModel):
+class ContentTypeProfiles(BaseValidatorModel):
     Quantity: int
-    Items: Optional[Sequence[ContentTypeProfileTypeDef]] = None
+    Items: Optional[Sequence[ContentTypeProfile]] = None
 
 
-class ContinuousDeploymentSingleWeightConfigTypeDef(BaseValidatorModel):
+class ContinuousDeploymentSingleWeightConfig(BaseValidatorModel):
     Weight: float
-    SessionStickinessConfig: Optional[SessionStickinessConfigTypeDef] = None
+    SessionStickinessConfig: Optional[SessionStickinessConfig] = None
 
 
-class CreateAnycastIpListResultTypeDef(BaseValidatorModel):
-    AnycastIpList: AnycastIpListTypeDef
+class CreateAnycastIpListResult(BaseValidatorModel):
+    AnycastIpList: AnycastIpList
     ETag: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class EmptyResponseMetadataTypeDef(BaseValidatorModel):
-    ResponseMetadata: ResponseMetadataTypeDef
+class EmptyResponseMetadata(BaseValidatorModel):
+    ResponseMetadata: ResponseMetadata
 
 
-class GetAnycastIpListResultTypeDef(BaseValidatorModel):
-    AnycastIpList: AnycastIpListTypeDef
+class GetAnycastIpListResult(BaseValidatorModel):
+    AnycastIpList: AnycastIpList
     ETag: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetCloudFrontOriginAccessIdentityConfigResultTypeDef(BaseValidatorModel):
-    CloudFrontOriginAccessIdentityConfig: CloudFrontOriginAccessIdentityConfigTypeDef
+class GetCloudFrontOriginAccessIdentityConfigResult(BaseValidatorModel):
+    CloudFrontOriginAccessIdentityConfig: CloudFrontOriginAccessIdentityConfig
     ETag: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetFunctionResultTypeDef(BaseValidatorModel):
+class GetFunctionResult(BaseValidatorModel):
     FunctionCode: StreamingBody
     ETag: str
     ContentType: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateKeyValueStoreRequestTypeDef(BaseValidatorModel):
+class CreateKeyValueStoreRequest(BaseValidatorModel):
     Name: str
     Comment: Optional[str] = None
-    ImportSource: Optional[ImportSourceTypeDef] = None
+    ImportSource: Optional[ImportSource] = None
 
 
-class CreateKeyValueStoreResultTypeDef(BaseValidatorModel):
-    KeyValueStore: KeyValueStoreTypeDef
+class CreateKeyValueStoreResult(BaseValidatorModel):
+    KeyValueStore: KeyValueStore
     ETag: str
     Location: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeKeyValueStoreResultTypeDef(BaseValidatorModel):
-    KeyValueStore: KeyValueStoreTypeDef
+class DescribeKeyValueStoreResult(BaseValidatorModel):
+    KeyValueStore: KeyValueStore
     ETag: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class KeyValueStoreListTypeDef(BaseValidatorModel):
+class KeyValueStoreList(BaseValidatorModel):
     MaxItems: int
     Quantity: int
     NextMarker: Optional[str] = None
-    Items: Optional[List[KeyValueStoreTypeDef]] = None
+    Items: Optional[List[KeyValueStore]] = None
 
 
-class UpdateKeyValueStoreResultTypeDef(BaseValidatorModel):
-    KeyValueStore: KeyValueStoreTypeDef
+class UpdateKeyValueStoreResult(BaseValidatorModel):
+    KeyValueStore: KeyValueStore
     ETag: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateOriginAccessControlRequestTypeDef(BaseValidatorModel):
-    OriginAccessControlConfig: OriginAccessControlConfigTypeDef
+class CreateOriginAccessControlRequest(BaseValidatorModel):
+    OriginAccessControlConfig: OriginAccessControlConfig
 
 
-class GetOriginAccessControlConfigResultTypeDef(BaseValidatorModel):
-    OriginAccessControlConfig: OriginAccessControlConfigTypeDef
+class GetOriginAccessControlConfigResult(BaseValidatorModel):
+    OriginAccessControlConfig: OriginAccessControlConfig
     ETag: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class OriginAccessControlTypeDef(BaseValidatorModel):
+class OriginAccessControl(BaseValidatorModel):
     Id: str
-    OriginAccessControlConfig: Optional[OriginAccessControlConfigTypeDef] = None
+    OriginAccessControlConfig: Optional[OriginAccessControlConfig] = None
 
 
-class UpdateOriginAccessControlRequestTypeDef(BaseValidatorModel):
-    OriginAccessControlConfig: OriginAccessControlConfigTypeDef
+class UpdateOriginAccessControlRequest(BaseValidatorModel):
+    OriginAccessControlConfig: OriginAccessControlConfig
     Id: str
     IfMatch: Optional[str] = None
 
 
-class CreatePublicKeyRequestTypeDef(BaseValidatorModel):
-    PublicKeyConfig: PublicKeyConfigTypeDef
+class CreatePublicKeyRequest(BaseValidatorModel):
+    PublicKeyConfig: PublicKeyConfig
 
 
-class GetPublicKeyConfigResultTypeDef(BaseValidatorModel):
-    PublicKeyConfig: PublicKeyConfigTypeDef
+class GetPublicKeyConfigResult(BaseValidatorModel):
+    PublicKeyConfig: PublicKeyConfig
     ETag: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class PublicKeyTypeDef(BaseValidatorModel):
+class PublicKey(BaseValidatorModel):
     Id: str
     CreatedTime: datetime
-    PublicKeyConfig: PublicKeyConfigTypeDef
+    PublicKeyConfig: PublicKeyConfig
 
 
-class UpdatePublicKeyRequestTypeDef(BaseValidatorModel):
-    PublicKeyConfig: PublicKeyConfigTypeDef
+class UpdatePublicKeyRequest(BaseValidatorModel):
+    PublicKeyConfig: PublicKeyConfig
     Id: str
     IfMatch: Optional[str] = None
 
 
-class CustomErrorResponsesOutputTypeDef(BaseValidatorModel):
+class CustomErrorResponsesOutput(BaseValidatorModel):
     Quantity: int
-    Items: Optional[List[CustomErrorResponseTypeDef]] = None
+    Items: Optional[List[CustomErrorResponse]] = None
 
 
-class CustomErrorResponsesTypeDef(BaseValidatorModel):
+class CustomErrorResponses(BaseValidatorModel):
     Quantity: int
-    Items: Optional[Sequence[CustomErrorResponseTypeDef]] = None
+    Items: Optional[Sequence[CustomErrorResponse]] = None
 
 
-class CustomHeadersOutputTypeDef(BaseValidatorModel):
+class CustomHeadersOutput(BaseValidatorModel):
     Quantity: int
-    Items: Optional[List[OriginCustomHeaderTypeDef]] = None
+    Items: Optional[List[OriginCustomHeader]] = None
 
 
-class CustomHeadersTypeDef(BaseValidatorModel):
+class CustomHeaders(BaseValidatorModel):
     Quantity: int
-    Items: Optional[Sequence[OriginCustomHeaderTypeDef]] = None
+    Items: Optional[Sequence[OriginCustomHeader]] = None
 
 
-class CustomOriginConfigOutputTypeDef(BaseValidatorModel):
+class CustomOriginConfigOutput(BaseValidatorModel):
     HTTPPort: int
     HTTPSPort: int
     OriginProtocolPolicy: OriginProtocolPolicyType
-    OriginSslProtocols: Optional[OriginSslProtocolsOutputTypeDef] = None
+    OriginSslProtocols: Optional[OriginSslProtocolsOutput] = None
     OriginReadTimeout: Optional[int] = None
     OriginKeepaliveTimeout: Optional[int] = None
 
 
-class VpcOriginEndpointConfigOutputTypeDef(BaseValidatorModel):
+class VpcOriginEndpointConfigOutput(BaseValidatorModel):
     Name: str
     Arn: str
     HTTPPort: int
     HTTPSPort: int
     OriginProtocolPolicy: OriginProtocolPolicyType
-    OriginSslProtocols: Optional[OriginSslProtocolsOutputTypeDef] = None
+    OriginSslProtocols: Optional[OriginSslProtocolsOutput] = None
 
 
-class ListDistributionsByCachePolicyIdResultTypeDef(BaseValidatorModel):
-    DistributionIdList: DistributionIdListTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListDistributionsByCachePolicyIdResult(BaseValidatorModel):
+    DistributionIdList: DistributionIdList
+    ResponseMetadata: ResponseMetadata
 
 
-class ListDistributionsByKeyGroupResultTypeDef(BaseValidatorModel):
-    DistributionIdList: DistributionIdListTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListDistributionsByKeyGroupResult(BaseValidatorModel):
+    DistributionIdList: DistributionIdList
+    ResponseMetadata: ResponseMetadata
 
 
-class ListDistributionsByOriginRequestPolicyIdResultTypeDef(BaseValidatorModel):
-    DistributionIdList: DistributionIdListTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListDistributionsByOriginRequestPolicyIdResult(BaseValidatorModel):
+    DistributionIdList: DistributionIdList
+    ResponseMetadata: ResponseMetadata
 
 
-class ListDistributionsByResponseHeadersPolicyIdResultTypeDef(BaseValidatorModel):
-    DistributionIdList: DistributionIdListTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListDistributionsByResponseHeadersPolicyIdResult(BaseValidatorModel):
+    DistributionIdList: DistributionIdList
+    ResponseMetadata: ResponseMetadata
 
 
-class ListDistributionsByVpcOriginIdResultTypeDef(BaseValidatorModel):
-    DistributionIdList: DistributionIdListTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListDistributionsByVpcOriginIdResult(BaseValidatorModel):
+    DistributionIdList: DistributionIdList
+    ResponseMetadata: ResponseMetadata
 
 
-class EncryptionEntityOutputTypeDef(BaseValidatorModel):
+class EncryptionEntityOutput(BaseValidatorModel):
     PublicKeyId: str
     ProviderId: str
-    FieldPatterns: FieldPatternsOutputTypeDef
+    FieldPatterns: FieldPatternsOutput
 
 
-class EncryptionEntityTypeDef(BaseValidatorModel):
+class EncryptionEntity(BaseValidatorModel):
     PublicKeyId: str
     ProviderId: str
-    FieldPatterns: FieldPatternsTypeDef
+    FieldPatterns: FieldPatterns
 
 
-class EndPointTypeDef(BaseValidatorModel):
+class EndPoint(BaseValidatorModel):
     StreamType: str
-    KinesisStreamConfig: Optional[KinesisStreamConfigTypeDef] = None
+    KinesisStreamConfig: Optional[KinesisStreamConfig] = None
 
 
-class FunctionAssociationsOutputTypeDef(BaseValidatorModel):
+class FunctionAssociationsOutput(BaseValidatorModel):
     Quantity: int
-    Items: Optional[List[FunctionAssociationTypeDef]] = None
+    Items: Optional[List[FunctionAssociation]] = None
 
 
-class FunctionAssociationsTypeDef(BaseValidatorModel):
+class FunctionAssociations(BaseValidatorModel):
     Quantity: int
-    Items: Optional[Sequence[FunctionAssociationTypeDef]] = None
+    Items: Optional[Sequence[FunctionAssociation]] = None
 
 
-class RestrictionsOutputTypeDef(BaseValidatorModel):
-    GeoRestriction: GeoRestrictionOutputTypeDef
+class RestrictionsOutput(BaseValidatorModel):
+    GeoRestriction: GeoRestrictionOutput
 
 
-class GetDistributionRequestWaitTypeDef(BaseValidatorModel):
+class GetDistributionRequestWait(BaseValidatorModel):
     Id: str
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class GetInvalidationRequestWaitTypeDef(BaseValidatorModel):
+class GetInvalidationRequestWait(BaseValidatorModel):
     DistributionId: str
     Id: str
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class GetStreamingDistributionRequestWaitTypeDef(BaseValidatorModel):
+class GetStreamingDistributionRequestWait(BaseValidatorModel):
     Id: str
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class GetKeyGroupConfigResultTypeDef(BaseValidatorModel):
-    KeyGroupConfig: KeyGroupConfigOutputTypeDef
+class GetKeyGroupConfigResult(BaseValidatorModel):
+    KeyGroupConfig: KeyGroupConfigOutput
     ETag: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class KeyGroupTypeDef(BaseValidatorModel):
+class KeyGroup(BaseValidatorModel):
     Id: str
     LastModifiedTime: datetime
-    KeyGroupConfig: KeyGroupConfigOutputTypeDef
+    KeyGroupConfig: KeyGroupConfigOutput
 
 
-class InvalidationBatchOutputTypeDef(BaseValidatorModel):
-    Paths: PathsOutputTypeDef
+class InvalidationBatchOutput(BaseValidatorModel):
+    Paths: PathsOutput
     CallerReference: str
 
 
-class InvalidationBatchTypeDef(BaseValidatorModel):
-    Paths: PathsTypeDef
+class InvalidationBatch(BaseValidatorModel):
+    Paths: Paths
     CallerReference: str
 
 
-class InvalidationListTypeDef(BaseValidatorModel):
+class InvalidationList(BaseValidatorModel):
     Marker: str
     MaxItems: int
     IsTruncated: bool
     Quantity: int
     NextMarker: Optional[str] = None
-    Items: Optional[List[InvalidationSummaryTypeDef]] = None
+    Items: Optional[List[InvalidationSummary]] = None
 
 
-class KGKeyPairIdsTypeDef(BaseValidatorModel):
+class KGKeyPairIds(BaseValidatorModel):
     KeyGroupId: Optional[str] = None
-    KeyPairIds: Optional[KeyPairIdsTypeDef] = None
+    KeyPairIds: Optional[KeyPairIds] = None
 
 
-class SignerTypeDef(BaseValidatorModel):
+class Signer(BaseValidatorModel):
     AwsAccountNumber: Optional[str] = None
-    KeyPairIds: Optional[KeyPairIdsTypeDef] = None
+    KeyPairIds: Optional[KeyPairIds] = None
 
 
-class KeyValueStoreAssociationsOutputTypeDef(BaseValidatorModel):
+class KeyValueStoreAssociationsOutput(BaseValidatorModel):
     Quantity: int
-    Items: Optional[List[KeyValueStoreAssociationTypeDef]] = None
+    Items: Optional[List[KeyValueStoreAssociation]] = None
 
 
-class KeyValueStoreAssociationsTypeDef(BaseValidatorModel):
+class KeyValueStoreAssociations(BaseValidatorModel):
     Quantity: int
-    Items: Optional[Sequence[KeyValueStoreAssociationTypeDef]] = None
+    Items: Optional[Sequence[KeyValueStoreAssociation]] = None
 
 
-class LambdaFunctionAssociationsOutputTypeDef(BaseValidatorModel):
+class LambdaFunctionAssociationsOutput(BaseValidatorModel):
     Quantity: int
-    Items: Optional[List[LambdaFunctionAssociationTypeDef]] = None
+    Items: Optional[List[LambdaFunctionAssociation]] = None
 
 
-class LambdaFunctionAssociationsTypeDef(BaseValidatorModel):
+class LambdaFunctionAssociations(BaseValidatorModel):
     Quantity: int
-    Items: Optional[Sequence[LambdaFunctionAssociationTypeDef]] = None
+    Items: Optional[Sequence[LambdaFunctionAssociation]] = None
 
 
-class ListCloudFrontOriginAccessIdentitiesRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListCloudFrontOriginAccessIdentitiesRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListDistributionsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListDistributionsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListInvalidationsRequestPaginateTypeDef(BaseValidatorModel):
+class ListInvalidationsRequestPaginate(BaseValidatorModel):
     DistributionId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListKeyValueStoresRequestPaginateTypeDef(BaseValidatorModel):
+class ListKeyValueStoresRequestPaginate(BaseValidatorModel):
     Status: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListPublicKeysRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListPublicKeysRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListStreamingDistributionsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListStreamingDistributionsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class MonitoringSubscriptionTypeDef(BaseValidatorModel):
-    RealtimeMetricsSubscriptionConfig: Optional[RealtimeMetricsSubscriptionConfigTypeDef] = None
+class MonitoringSubscription(BaseValidatorModel):
+    RealtimeMetricsSubscriptionConfig: Optional[RealtimeMetricsSubscriptionConfig] = None
 
 
-class OriginAccessControlListTypeDef(BaseValidatorModel):
+class OriginAccessControlList(BaseValidatorModel):
     Marker: str
     MaxItems: int
     IsTruncated: bool
     Quantity: int
     NextMarker: Optional[str] = None
-    Items: Optional[List[OriginAccessControlSummaryTypeDef]] = None
+    Items: Optional[List[OriginAccessControlSummary]] = None
 
 
-class OriginGroupFailoverCriteriaOutputTypeDef(BaseValidatorModel):
-    StatusCodes: StatusCodesOutputTypeDef
+class OriginGroupFailoverCriteriaOutput(BaseValidatorModel):
+    StatusCodes: StatusCodesOutput
 
 
-class OriginGroupMembersOutputTypeDef(BaseValidatorModel):
+class OriginGroupMembersOutput(BaseValidatorModel):
     Quantity: int
-    Items: List[OriginGroupMemberTypeDef]
+    Items: List[OriginGroupMember]
 
 
-class OriginGroupMembersTypeDef(BaseValidatorModel):
+class OriginGroupMembers(BaseValidatorModel):
     Quantity: int
-    Items: Sequence[OriginGroupMemberTypeDef]
+    Items: Sequence[OriginGroupMember]
 
 
-class VpcOriginEndpointConfigTypeDef(BaseValidatorModel):
+class VpcOriginEndpointConfig(BaseValidatorModel):
     Name: str
     Arn: str
     HTTPPort: int
     HTTPSPort: int
     OriginProtocolPolicy: OriginProtocolPolicyType
-    OriginSslProtocols: Optional[OriginSslProtocolsTypeDef] = None
+    OriginSslProtocols: Optional[OriginSslProtocols] = None
 
 
-class PublicKeyListTypeDef(BaseValidatorModel):
+class PublicKeyList(BaseValidatorModel):
     MaxItems: int
     Quantity: int
     NextMarker: Optional[str] = None
-    Items: Optional[List[PublicKeySummaryTypeDef]] = None
+    Items: Optional[List[PublicKeySummary]] = None
 
 
-class QueryArgProfilesOutputTypeDef(BaseValidatorModel):
+class QueryArgProfilesOutput(BaseValidatorModel):
     Quantity: int
-    Items: Optional[List[QueryArgProfileTypeDef]] = None
+    Items: Optional[List[QueryArgProfile]] = None
 
 
-class QueryArgProfilesTypeDef(BaseValidatorModel):
+class QueryArgProfiles(BaseValidatorModel):
     Quantity: int
-    Items: Optional[Sequence[QueryArgProfileTypeDef]] = None
+    Items: Optional[Sequence[QueryArgProfile]] = None
 
 
-class ResponseHeadersPolicyCorsConfigOutputTypeDef(BaseValidatorModel):
-    AccessControlAllowOrigins: ResponseHeadersPolicyAccessControlAllowOriginsOutputTypeDef
-    AccessControlAllowHeaders: ResponseHeadersPolicyAccessControlAllowHeadersOutputTypeDef
-    AccessControlAllowMethods: ResponseHeadersPolicyAccessControlAllowMethodsOutputTypeDef
+class ResponseHeadersPolicyCorsConfigOutput(BaseValidatorModel):
+    AccessControlAllowOrigins: ResponseHeadersPolicyAccessControlAllowOriginsOutput
+    AccessControlAllowHeaders: ResponseHeadersPolicyAccessControlAllowHeadersOutput
+    AccessControlAllowMethods: ResponseHeadersPolicyAccessControlAllowMethodsOutput
     AccessControlAllowCredentials: bool
     OriginOverride: bool
-    AccessControlExposeHeaders: Optional[ ResponseHeadersPolicyAccessControlExposeHeadersOutputTypeDef ] = None
+    AccessControlExposeHeaders: Optional[ ResponseHeadersPolicyAccessControlExposeHeadersOutput ] = None
     AccessControlMaxAgeSec: Optional[int] = None
 
 
-class ResponseHeadersPolicyCorsConfigTypeDef(BaseValidatorModel):
-    AccessControlAllowOrigins: ResponseHeadersPolicyAccessControlAllowOriginsTypeDef
-    AccessControlAllowHeaders: ResponseHeadersPolicyAccessControlAllowHeadersTypeDef
-    AccessControlAllowMethods: ResponseHeadersPolicyAccessControlAllowMethodsTypeDef
+class ResponseHeadersPolicyCorsConfig(BaseValidatorModel):
+    AccessControlAllowOrigins: ResponseHeadersPolicyAccessControlAllowOrigins
+    AccessControlAllowHeaders: ResponseHeadersPolicyAccessControlAllowHeaders
+    AccessControlAllowMethods: ResponseHeadersPolicyAccessControlAllowMethods
     AccessControlAllowCredentials: bool
     OriginOverride: bool
-    AccessControlExposeHeaders: Optional[ResponseHeadersPolicyAccessControlExposeHeadersTypeDef] = None
+    AccessControlExposeHeaders: Optional[ResponseHeadersPolicyAccessControlExposeHeaders] = None
     AccessControlMaxAgeSec: Optional[int] = None
 
 
-class ResponseHeadersPolicyCustomHeadersConfigOutputTypeDef(BaseValidatorModel):
+class ResponseHeadersPolicyCustomHeadersConfigOutput(BaseValidatorModel):
     Quantity: int
-    Items: Optional[List[ResponseHeadersPolicyCustomHeaderTypeDef]] = None
+    Items: Optional[List[ResponseHeadersPolicyCustomHeader]] = None
 
 
-class ResponseHeadersPolicyCustomHeadersConfigTypeDef(BaseValidatorModel):
+class ResponseHeadersPolicyCustomHeadersConfig(BaseValidatorModel):
     Quantity: int
-    Items: Optional[Sequence[ResponseHeadersPolicyCustomHeaderTypeDef]] = None
+    Items: Optional[Sequence[ResponseHeadersPolicyCustomHeader]] = None
 
 
-class ResponseHeadersPolicyRemoveHeadersConfigOutputTypeDef(BaseValidatorModel):
+class ResponseHeadersPolicyRemoveHeadersConfigOutput(BaseValidatorModel):
     Quantity: int
-    Items: Optional[List[ResponseHeadersPolicyRemoveHeaderTypeDef]] = None
+    Items: Optional[List[ResponseHeadersPolicyRemoveHeader]] = None
 
 
-class ResponseHeadersPolicyRemoveHeadersConfigTypeDef(BaseValidatorModel):
+class ResponseHeadersPolicyRemoveHeadersConfig(BaseValidatorModel):
     Quantity: int
-    Items: Optional[Sequence[ResponseHeadersPolicyRemoveHeaderTypeDef]] = None
+    Items: Optional[Sequence[ResponseHeadersPolicyRemoveHeader]] = None
 
 
-class ResponseHeadersPolicySecurityHeadersConfigTypeDef(BaseValidatorModel):
-    XSSProtection: Optional[ResponseHeadersPolicyXSSProtectionTypeDef] = None
-    FrameOptions: Optional[ResponseHeadersPolicyFrameOptionsTypeDef] = None
-    ReferrerPolicy: Optional[ResponseHeadersPolicyReferrerPolicyTypeDef] = None
-    ContentSecurityPolicy: Optional[ResponseHeadersPolicyContentSecurityPolicyTypeDef] = None
-    ContentTypeOptions: Optional[ResponseHeadersPolicyContentTypeOptionsTypeDef] = None
-    StrictTransportSecurity: Optional[ResponseHeadersPolicyStrictTransportSecurityTypeDef] = None
+class ResponseHeadersPolicySecurityHeadersConfig(BaseValidatorModel):
+    XSSProtection: Optional[ResponseHeadersPolicyXSSProtection] = None
+    FrameOptions: Optional[ResponseHeadersPolicyFrameOptions] = None
+    ReferrerPolicy: Optional[ResponseHeadersPolicyReferrerPolicy] = None
+    ContentSecurityPolicy: Optional[ResponseHeadersPolicyContentSecurityPolicy] = None
+    ContentTypeOptions: Optional[ResponseHeadersPolicyContentTypeOptions] = None
+    StrictTransportSecurity: Optional[ResponseHeadersPolicyStrictTransportSecurity] = None
 
 
-class StreamingDistributionSummaryTypeDef(BaseValidatorModel):
+class StreamingDistributionSummary(BaseValidatorModel):
     Id: str
     ARN: str
     Status: str
     LastModifiedTime: datetime
     DomainName: str
-    S3Origin: S3OriginTypeDef
-    Aliases: AliasesOutputTypeDef
-    TrustedSigners: TrustedSignersOutputTypeDef
+    S3Origin: S3Origin
+    Aliases: AliasesOutput
+    TrustedSigners: TrustedSignersOutput
     Comment: str
     PriceClass: PriceClassType
     Enabled: bool
 
 
-class StreamingDistributionConfigOutputTypeDef(BaseValidatorModel):
+class StreamingDistributionConfigOutput(BaseValidatorModel):
     CallerReference: str
-    S3Origin: S3OriginTypeDef
+    S3Origin: S3Origin
     Comment: str
-    TrustedSigners: TrustedSignersOutputTypeDef
+    TrustedSigners: TrustedSignersOutput
     Enabled: bool
-    Aliases: Optional[AliasesOutputTypeDef] = None
-    Logging: Optional[StreamingLoggingConfigTypeDef] = None
+    Aliases: Optional[AliasesOutput] = None
+    Logging: Optional[StreamingLoggingConfig] = None
     PriceClass: Optional[PriceClassType] = None
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     Resource: str
-    TagKeys: TagKeysTypeDef
+    TagKeys: TagKeys
 
 
-class TagsOutputTypeDef(BaseValidatorModel):
-    Items: Optional[List[TagTypeDef]] = None
+class TagsOutput(BaseValidatorModel):
+    Items: Optional[List[Tag]] = None
 
 
-class TagsTypeDef(BaseValidatorModel):
-    Items: Optional[Sequence[TagTypeDef]] = None
+class Tags(BaseValidatorModel):
+    Items: Optional[Sequence[Tag]] = None
 
 
-class VpcOriginListTypeDef(BaseValidatorModel):
+class VpcOriginList(BaseValidatorModel):
     Marker: str
     MaxItems: int
     IsTruncated: bool
     Quantity: int
     NextMarker: Optional[str] = None
-    Items: Optional[List[VpcOriginSummaryTypeDef]] = None
+    Items: Optional[List[VpcOriginSummary]] = None
 
 
-class ListAnycastIpListsResultTypeDef(BaseValidatorModel):
-    AnycastIpLists: AnycastIpListCollectionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAnycastIpListsResult(BaseValidatorModel):
+    AnycastIpLists: AnycastIpListCollection
+    ResponseMetadata: ResponseMetadata
 
 
-class ForwardedValuesOutputTypeDef(BaseValidatorModel):
+class ForwardedValuesOutput(BaseValidatorModel):
     QueryString: bool
-    Cookies: CookiePreferenceOutputTypeDef
-    Headers: Optional[HeadersOutputTypeDef] = None
-    QueryStringCacheKeys: Optional[QueryStringCacheKeysOutputTypeDef] = None
+    Cookies: CookiePreferenceOutput
+    Headers: Optional[HeadersOutput] = None
+    QueryStringCacheKeys: Optional[QueryStringCacheKeysOutput] = None
 
 
-class CookieNamesUnionTypeDef(BaseValidatorModel):
+class CookieNamesUnion(BaseValidatorModel):
     pass
 
 
-class CookiePreferenceTypeDef(BaseValidatorModel):
+class CookiePreference(BaseValidatorModel):
     Forward: ItemSelectionType
-    WhitelistedNames: Optional[CookieNamesUnionTypeDef] = None
+    WhitelistedNames: Optional[CookieNamesUnion] = None
 
 
-class ParametersInCacheKeyAndForwardedToOriginOutputTypeDef(BaseValidatorModel):
+class ParametersInCacheKeyAndForwardedToOriginOutput(BaseValidatorModel):
     EnableAcceptEncodingGzip: bool
-    HeadersConfig: CachePolicyHeadersConfigOutputTypeDef
-    CookiesConfig: CachePolicyCookiesConfigOutputTypeDef
-    QueryStringsConfig: CachePolicyQueryStringsConfigOutputTypeDef
+    HeadersConfig: CachePolicyHeadersConfigOutput
+    CookiesConfig: CachePolicyCookiesConfigOutput
+    QueryStringsConfig: CachePolicyQueryStringsConfigOutput
     EnableAcceptEncodingBrotli: Optional[bool] = None
 
 
-class OriginRequestPolicyConfigOutputTypeDef(BaseValidatorModel):
+class OriginRequestPolicyConfigOutput(BaseValidatorModel):
     Name: str
-    HeadersConfig: OriginRequestPolicyHeadersConfigOutputTypeDef
-    CookiesConfig: OriginRequestPolicyCookiesConfigOutputTypeDef
-    QueryStringsConfig: OriginRequestPolicyQueryStringsConfigOutputTypeDef
+    HeadersConfig: OriginRequestPolicyHeadersConfigOutput
+    CookiesConfig: OriginRequestPolicyCookiesConfigOutput
+    QueryStringsConfig: OriginRequestPolicyQueryStringsConfigOutput
     Comment: Optional[str] = None
 
 
-class ParametersInCacheKeyAndForwardedToOriginTypeDef(BaseValidatorModel):
+class ParametersInCacheKeyAndForwardedToOrigin(BaseValidatorModel):
     EnableAcceptEncodingGzip: bool
-    HeadersConfig: CachePolicyHeadersConfigTypeDef
-    CookiesConfig: CachePolicyCookiesConfigTypeDef
-    QueryStringsConfig: CachePolicyQueryStringsConfigTypeDef
+    HeadersConfig: CachePolicyHeadersConfig
+    CookiesConfig: CachePolicyCookiesConfig
+    QueryStringsConfig: CachePolicyQueryStringsConfig
     EnableAcceptEncodingBrotli: Optional[bool] = None
 
 
-class OriginRequestPolicyConfigTypeDef(BaseValidatorModel):
+class OriginRequestPolicyConfig(BaseValidatorModel):
     Name: str
-    HeadersConfig: OriginRequestPolicyHeadersConfigTypeDef
-    CookiesConfig: OriginRequestPolicyCookiesConfigTypeDef
-    QueryStringsConfig: OriginRequestPolicyQueryStringsConfigTypeDef
+    HeadersConfig: OriginRequestPolicyHeadersConfig
+    CookiesConfig: OriginRequestPolicyCookiesConfig
+    QueryStringsConfig: OriginRequestPolicyQueryStringsConfig
     Comment: Optional[str] = None
 
 
-class CachedMethodsUnionTypeDef(BaseValidatorModel):
+class CachedMethodsUnion(BaseValidatorModel):
     pass
 
 
-class AllowedMethodsTypeDef(BaseValidatorModel):
+class AllowedMethods(BaseValidatorModel):
     Quantity: int
     Items: Sequence[MethodType]
-    CachedMethods: Optional[CachedMethodsUnionTypeDef] = None
+    CachedMethods: Optional[CachedMethodsUnion] = None
 
 
-class CreateCloudFrontOriginAccessIdentityResultTypeDef(BaseValidatorModel):
-    CloudFrontOriginAccessIdentity: CloudFrontOriginAccessIdentityTypeDef
+class CreateCloudFrontOriginAccessIdentityResult(BaseValidatorModel):
+    CloudFrontOriginAccessIdentity: CloudFrontOriginAccessIdentity
     Location: str
     ETag: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetCloudFrontOriginAccessIdentityResultTypeDef(BaseValidatorModel):
-    CloudFrontOriginAccessIdentity: CloudFrontOriginAccessIdentityTypeDef
+class GetCloudFrontOriginAccessIdentityResult(BaseValidatorModel):
+    CloudFrontOriginAccessIdentity: CloudFrontOriginAccessIdentity
     ETag: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateCloudFrontOriginAccessIdentityResultTypeDef(BaseValidatorModel):
-    CloudFrontOriginAccessIdentity: CloudFrontOriginAccessIdentityTypeDef
+class UpdateCloudFrontOriginAccessIdentityResult(BaseValidatorModel):
+    CloudFrontOriginAccessIdentity: CloudFrontOriginAccessIdentity
     ETag: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListCloudFrontOriginAccessIdentitiesResultTypeDef(BaseValidatorModel):
-    CloudFrontOriginAccessIdentityList: CloudFrontOriginAccessIdentityListTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListCloudFrontOriginAccessIdentitiesResult(BaseValidatorModel):
+    CloudFrontOriginAccessIdentityList: CloudFrontOriginAccessIdentityList
+    ResponseMetadata: ResponseMetadata
 
 
-class ListConflictingAliasesResultTypeDef(BaseValidatorModel):
-    ConflictingAliasesList: ConflictingAliasesListTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListConflictingAliasesResult(BaseValidatorModel):
+    ConflictingAliasesList: ConflictingAliasesList
+    ResponseMetadata: ResponseMetadata
 
 
-class ContentTypeProfileConfigOutputTypeDef(BaseValidatorModel):
+class ContentTypeProfileConfigOutput(BaseValidatorModel):
     ForwardWhenContentTypeIsUnknown: bool
-    ContentTypeProfiles: Optional[ContentTypeProfilesOutputTypeDef] = None
+    ContentTypeProfiles: Optional[ContentTypeProfilesOutput] = None
 
 
-class ContentTypeProfileConfigTypeDef(BaseValidatorModel):
+class ContentTypeProfileConfig(BaseValidatorModel):
     ForwardWhenContentTypeIsUnknown: bool
-    ContentTypeProfiles: Optional[ContentTypeProfilesTypeDef] = None
+    ContentTypeProfiles: Optional[ContentTypeProfiles] = None
 
 
-class ListKeyValueStoresResultTypeDef(BaseValidatorModel):
-    KeyValueStoreList: KeyValueStoreListTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListKeyValueStoresResult(BaseValidatorModel):
+    KeyValueStoreList: KeyValueStoreList
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateOriginAccessControlResultTypeDef(BaseValidatorModel):
-    OriginAccessControl: OriginAccessControlTypeDef
+class CreateOriginAccessControlResult(BaseValidatorModel):
+    OriginAccessControl: OriginAccessControl
     Location: str
     ETag: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetOriginAccessControlResultTypeDef(BaseValidatorModel):
-    OriginAccessControl: OriginAccessControlTypeDef
+class GetOriginAccessControlResult(BaseValidatorModel):
+    OriginAccessControl: OriginAccessControl
     ETag: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateOriginAccessControlResultTypeDef(BaseValidatorModel):
-    OriginAccessControl: OriginAccessControlTypeDef
+class UpdateOriginAccessControlResult(BaseValidatorModel):
+    OriginAccessControl: OriginAccessControl
     ETag: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreatePublicKeyResultTypeDef(BaseValidatorModel):
-    PublicKey: PublicKeyTypeDef
+class CreatePublicKeyResult(BaseValidatorModel):
+    PublicKey: PublicKey
     Location: str
     ETag: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetPublicKeyResultTypeDef(BaseValidatorModel):
-    PublicKey: PublicKeyTypeDef
+class GetPublicKeyResult(BaseValidatorModel):
+    PublicKey: PublicKey
     ETag: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdatePublicKeyResultTypeDef(BaseValidatorModel):
-    PublicKey: PublicKeyTypeDef
+class UpdatePublicKeyResult(BaseValidatorModel):
+    PublicKey: PublicKey
     ETag: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class OriginOutputTypeDef(BaseValidatorModel):
+class OriginOutput(BaseValidatorModel):
     Id: str
     DomainName: str
     OriginPath: Optional[str] = None
-    CustomHeaders: Optional[CustomHeadersOutputTypeDef] = None
-    S3OriginConfig: Optional[S3OriginConfigTypeDef] = None
-    CustomOriginConfig: Optional[CustomOriginConfigOutputTypeDef] = None
-    VpcOriginConfig: Optional[VpcOriginConfigTypeDef] = None
+    CustomHeaders: Optional[CustomHeadersOutput] = None
+    S3OriginConfig: Optional[S3OriginConfig] = None
+    CustomOriginConfig: Optional[CustomOriginConfigOutput] = None
+    VpcOriginConfig: Optional[VpcOriginConfig] = None
     ConnectionAttempts: Optional[int] = None
     ConnectionTimeout: Optional[int] = None
-    OriginShield: Optional[OriginShieldTypeDef] = None
+    OriginShield: Optional[OriginShield] = None
     OriginAccessControlId: Optional[str] = None
 
 
-class VpcOriginTypeDef(BaseValidatorModel):
+class VpcOrigin(BaseValidatorModel):
     Id: str
     Arn: str
     Status: str
     CreatedTime: datetime
     LastModifiedTime: datetime
-    VpcOriginEndpointConfig: VpcOriginEndpointConfigOutputTypeDef
+    VpcOriginEndpointConfig: VpcOriginEndpointConfigOutput
 
 
-class EncryptionEntitiesOutputTypeDef(BaseValidatorModel):
+class EncryptionEntitiesOutput(BaseValidatorModel):
     Quantity: int
-    Items: Optional[List[EncryptionEntityOutputTypeDef]] = None
+    Items: Optional[List[EncryptionEntityOutput]] = None
 
 
-class EncryptionEntitiesTypeDef(BaseValidatorModel):
+class EncryptionEntities(BaseValidatorModel):
     Quantity: int
-    Items: Optional[Sequence[EncryptionEntityTypeDef]] = None
+    Items: Optional[Sequence[EncryptionEntity]] = None
 
 
-class CreateRealtimeLogConfigRequestTypeDef(BaseValidatorModel):
-    EndPoints: Sequence[EndPointTypeDef]
+class CreateRealtimeLogConfigRequest(BaseValidatorModel):
+    EndPoints: Sequence[EndPoint]
     Fields: Sequence[str]
     Name: str
     SamplingRate: int
 
 
-class RealtimeLogConfigTypeDef(BaseValidatorModel):
+class RealtimeLogConfig(BaseValidatorModel):
     ARN: str
     Name: str
     SamplingRate: int
-    EndPoints: List[EndPointTypeDef]
+    EndPoints: List[EndPoint]
     Fields: List[str]
 
 
-class UpdateRealtimeLogConfigRequestTypeDef(BaseValidatorModel):
-    EndPoints: Optional[Sequence[EndPointTypeDef]] = None
+class UpdateRealtimeLogConfigRequest(BaseValidatorModel):
+    EndPoints: Optional[Sequence[EndPoint]] = None
     Fields: Optional[Sequence[str]] = None
     Name: Optional[str] = None
     ARN: Optional[str] = None
     SamplingRate: Optional[int] = None
 
 
-class GeoRestrictionUnionTypeDef(BaseValidatorModel):
+class GeoRestrictionUnion(BaseValidatorModel):
     pass
 
 
-class RestrictionsTypeDef(BaseValidatorModel):
-    GeoRestriction: GeoRestrictionUnionTypeDef
+class Restrictions(BaseValidatorModel):
+    GeoRestriction: GeoRestrictionUnion
 
 
-class CreateKeyGroupResultTypeDef(BaseValidatorModel):
-    KeyGroup: KeyGroupTypeDef
+class CreateKeyGroupResult(BaseValidatorModel):
+    KeyGroup: KeyGroup
     Location: str
     ETag: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetKeyGroupResultTypeDef(BaseValidatorModel):
-    KeyGroup: KeyGroupTypeDef
+class GetKeyGroupResult(BaseValidatorModel):
+    KeyGroup: KeyGroup
     ETag: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class KeyGroupSummaryTypeDef(BaseValidatorModel):
-    KeyGroup: KeyGroupTypeDef
+class KeyGroupSummary(BaseValidatorModel):
+    KeyGroup: KeyGroup
 
 
-class UpdateKeyGroupResultTypeDef(BaseValidatorModel):
-    KeyGroup: KeyGroupTypeDef
+class UpdateKeyGroupResult(BaseValidatorModel):
+    KeyGroup: KeyGroup
     ETag: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class InvalidationTypeDef(BaseValidatorModel):
+class Invalidation(BaseValidatorModel):
     Id: str
     Status: str
     CreateTime: datetime
-    InvalidationBatch: InvalidationBatchOutputTypeDef
+    InvalidationBatch: InvalidationBatchOutput
 
 
-class ListInvalidationsResultTypeDef(BaseValidatorModel):
-    InvalidationList: InvalidationListTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListInvalidationsResult(BaseValidatorModel):
+    InvalidationList: InvalidationList
+    ResponseMetadata: ResponseMetadata
 
 
-class ActiveTrustedKeyGroupsTypeDef(BaseValidatorModel):
+class ActiveTrustedKeyGroups(BaseValidatorModel):
     Enabled: bool
     Quantity: int
-    Items: Optional[List[KGKeyPairIdsTypeDef]] = None
+    Items: Optional[List[KGKeyPairIds]] = None
 
 
-class ActiveTrustedSignersTypeDef(BaseValidatorModel):
+class ActiveTrustedSigners(BaseValidatorModel):
     Enabled: bool
     Quantity: int
-    Items: Optional[List[SignerTypeDef]] = None
+    Items: Optional[List[Signer]] = None
 
 
-class KeyGroupConfigUnionTypeDef(BaseValidatorModel):
+class KeyGroupConfigUnion(BaseValidatorModel):
     pass
 
 
-class CreateKeyGroupRequestTypeDef(BaseValidatorModel):
-    KeyGroupConfig: KeyGroupConfigUnionTypeDef
+class CreateKeyGroupRequest(BaseValidatorModel):
+    KeyGroupConfig: KeyGroupConfigUnion
 
 
-class UpdateKeyGroupRequestTypeDef(BaseValidatorModel):
-    KeyGroupConfig: KeyGroupConfigUnionTypeDef
+class UpdateKeyGroupRequest(BaseValidatorModel):
+    KeyGroupConfig: KeyGroupConfigUnion
     Id: str
     IfMatch: Optional[str] = None
 
 
-class FunctionConfigOutputTypeDef(BaseValidatorModel):
+class FunctionConfigOutput(BaseValidatorModel):
     Comment: str
     Runtime: FunctionRuntimeType
-    KeyValueStoreAssociations: Optional[KeyValueStoreAssociationsOutputTypeDef] = None
+    KeyValueStoreAssociations: Optional[KeyValueStoreAssociationsOutput] = None
 
 
-class FunctionConfigTypeDef(BaseValidatorModel):
+class FunctionConfig(BaseValidatorModel):
     Comment: str
     Runtime: FunctionRuntimeType
-    KeyValueStoreAssociations: Optional[KeyValueStoreAssociationsTypeDef] = None
+    KeyValueStoreAssociations: Optional[KeyValueStoreAssociations] = None
 
 
-class CreateMonitoringSubscriptionRequestTypeDef(BaseValidatorModel):
+class CreateMonitoringSubscriptionRequest(BaseValidatorModel):
     DistributionId: str
-    MonitoringSubscription: MonitoringSubscriptionTypeDef
+    MonitoringSubscription: MonitoringSubscription
 
 
-class CreateMonitoringSubscriptionResultTypeDef(BaseValidatorModel):
-    MonitoringSubscription: MonitoringSubscriptionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateMonitoringSubscriptionResult(BaseValidatorModel):
+    MonitoringSubscription: MonitoringSubscription
+    ResponseMetadata: ResponseMetadata
 
 
-class GetMonitoringSubscriptionResultTypeDef(BaseValidatorModel):
-    MonitoringSubscription: MonitoringSubscriptionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetMonitoringSubscriptionResult(BaseValidatorModel):
+    MonitoringSubscription: MonitoringSubscription
+    ResponseMetadata: ResponseMetadata
 
 
-class ListOriginAccessControlsResultTypeDef(BaseValidatorModel):
-    OriginAccessControlList: OriginAccessControlListTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListOriginAccessControlsResult(BaseValidatorModel):
+    OriginAccessControlList: OriginAccessControlList
+    ResponseMetadata: ResponseMetadata
 
 
-class OriginGroupOutputTypeDef(BaseValidatorModel):
+class OriginGroupOutput(BaseValidatorModel):
     Id: str
-    FailoverCriteria: OriginGroupFailoverCriteriaOutputTypeDef
-    Members: OriginGroupMembersOutputTypeDef
+    FailoverCriteria: OriginGroupFailoverCriteriaOutput
+    Members: OriginGroupMembersOutput
     SelectionCriteria: Optional[OriginGroupSelectionCriteriaType] = None
 
 
-class OriginSslProtocolsUnionTypeDef(BaseValidatorModel):
+class OriginSslProtocolsUnion(BaseValidatorModel):
     pass
 
 
-class CustomOriginConfigTypeDef(BaseValidatorModel):
+class CustomOriginConfig(BaseValidatorModel):
     HTTPPort: int
     HTTPSPort: int
     OriginProtocolPolicy: OriginProtocolPolicyType
-    OriginSslProtocols: Optional[OriginSslProtocolsUnionTypeDef] = None
+    OriginSslProtocols: Optional[OriginSslProtocolsUnion] = None
     OriginReadTimeout: Optional[int] = None
     OriginKeepaliveTimeout: Optional[int] = None
 
 
-class ListPublicKeysResultTypeDef(BaseValidatorModel):
-    PublicKeyList: PublicKeyListTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListPublicKeysResult(BaseValidatorModel):
+    PublicKeyList: PublicKeyList
+    ResponseMetadata: ResponseMetadata
 
 
-class QueryArgProfileConfigOutputTypeDef(BaseValidatorModel):
+class QueryArgProfileConfigOutput(BaseValidatorModel):
     ForwardWhenQueryArgProfileIsUnknown: bool
-    QueryArgProfiles: Optional[QueryArgProfilesOutputTypeDef] = None
+    QueryArgProfiles: Optional[QueryArgProfilesOutput] = None
 
 
-class QueryArgProfileConfigTypeDef(BaseValidatorModel):
+class QueryArgProfileConfig(BaseValidatorModel):
     ForwardWhenQueryArgProfileIsUnknown: bool
-    QueryArgProfiles: Optional[QueryArgProfilesTypeDef] = None
+    QueryArgProfiles: Optional[QueryArgProfiles] = None
 
 
-class ResponseHeadersPolicyConfigOutputTypeDef(BaseValidatorModel):
+class ResponseHeadersPolicyConfigOutput(BaseValidatorModel):
     Name: str
     Comment: Optional[str] = None
-    CorsConfig: Optional[ResponseHeadersPolicyCorsConfigOutputTypeDef] = None
-    SecurityHeadersConfig: Optional[ResponseHeadersPolicySecurityHeadersConfigTypeDef] = None
-    ServerTimingHeadersConfig: Optional[ResponseHeadersPolicyServerTimingHeadersConfigTypeDef] = None
-    CustomHeadersConfig: Optional[ResponseHeadersPolicyCustomHeadersConfigOutputTypeDef] = None
-    RemoveHeadersConfig: Optional[ResponseHeadersPolicyRemoveHeadersConfigOutputTypeDef] = None
+    CorsConfig: Optional[ResponseHeadersPolicyCorsConfigOutput] = None
+    SecurityHeadersConfig: Optional[ResponseHeadersPolicySecurityHeadersConfig] = None
+    ServerTimingHeadersConfig: Optional[ResponseHeadersPolicyServerTimingHeadersConfig] = None
+    CustomHeadersConfig: Optional[ResponseHeadersPolicyCustomHeadersConfigOutput] = None
+    RemoveHeadersConfig: Optional[ResponseHeadersPolicyRemoveHeadersConfigOutput] = None
 
 
-class ResponseHeadersPolicyConfigTypeDef(BaseValidatorModel):
+class ResponseHeadersPolicyConfig(BaseValidatorModel):
     Name: str
     Comment: Optional[str] = None
-    CorsConfig: Optional[ResponseHeadersPolicyCorsConfigTypeDef] = None
-    SecurityHeadersConfig: Optional[ResponseHeadersPolicySecurityHeadersConfigTypeDef] = None
-    ServerTimingHeadersConfig: Optional[ResponseHeadersPolicyServerTimingHeadersConfigTypeDef] = None
-    CustomHeadersConfig: Optional[ResponseHeadersPolicyCustomHeadersConfigTypeDef] = None
-    RemoveHeadersConfig: Optional[ResponseHeadersPolicyRemoveHeadersConfigTypeDef] = None
+    CorsConfig: Optional[ResponseHeadersPolicyCorsConfig] = None
+    SecurityHeadersConfig: Optional[ResponseHeadersPolicySecurityHeadersConfig] = None
+    ServerTimingHeadersConfig: Optional[ResponseHeadersPolicyServerTimingHeadersConfig] = None
+    CustomHeadersConfig: Optional[ResponseHeadersPolicyCustomHeadersConfig] = None
+    RemoveHeadersConfig: Optional[ResponseHeadersPolicyRemoveHeadersConfig] = None
 
 
-class StreamingDistributionListTypeDef(BaseValidatorModel):
+class StreamingDistributionList(BaseValidatorModel):
     Marker: str
     MaxItems: int
     IsTruncated: bool
     Quantity: int
     NextMarker: Optional[str] = None
-    Items: Optional[List[StreamingDistributionSummaryTypeDef]] = None
+    Items: Optional[List[StreamingDistributionSummary]] = None
 
 
-class StatusCodesUnionTypeDef(BaseValidatorModel):
+class StatusCodesUnion(BaseValidatorModel):
     pass
 
 
-class OriginGroupFailoverCriteriaTypeDef(BaseValidatorModel):
-    StatusCodes: StatusCodesUnionTypeDef
+class OriginGroupFailoverCriteria(BaseValidatorModel):
+    StatusCodes: StatusCodesUnion
 
 
-class GetStreamingDistributionConfigResultTypeDef(BaseValidatorModel):
-    StreamingDistributionConfig: StreamingDistributionConfigOutputTypeDef
+class GetStreamingDistributionConfigResult(BaseValidatorModel):
+    StreamingDistributionConfig: StreamingDistributionConfigOutput
     ETag: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListTagsForResourceResultTypeDef(BaseValidatorModel):
-    Tags: TagsOutputTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListTagsForResourceResult(BaseValidatorModel):
+    Tags: TagsOutput
+    ResponseMetadata: ResponseMetadata
 
 
-class TrustedSignersUnionTypeDef(BaseValidatorModel):
+class TrustedSignersUnion(BaseValidatorModel):
     pass
 
 
-class AliasesUnionTypeDef(BaseValidatorModel):
+class AliasesUnion(BaseValidatorModel):
     pass
 
 
-class StreamingDistributionConfigTypeDef(BaseValidatorModel):
+class StreamingDistributionConfig(BaseValidatorModel):
     CallerReference: str
-    S3Origin: S3OriginTypeDef
+    S3Origin: S3Origin
     Comment: str
-    TrustedSigners: TrustedSignersUnionTypeDef
+    TrustedSigners: TrustedSignersUnion
     Enabled: bool
-    Aliases: Optional[AliasesUnionTypeDef] = None
-    Logging: Optional[StreamingLoggingConfigTypeDef] = None
+    Aliases: Optional[AliasesUnion] = None
+    Logging: Optional[StreamingLoggingConfig] = None
     PriceClass: Optional[PriceClassType] = None
 
 
-class ListVpcOriginsResultTypeDef(BaseValidatorModel):
-    VpcOriginList: VpcOriginListTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListVpcOriginsResult(BaseValidatorModel):
+    VpcOriginList: VpcOriginList
+    ResponseMetadata: ResponseMetadata
 
 
-class CacheBehaviorOutputTypeDef(BaseValidatorModel):
+class CacheBehaviorOutput(BaseValidatorModel):
     PathPattern: str
     TargetOriginId: str
     ViewerProtocolPolicy: ViewerProtocolPolicyType
-    TrustedSigners: Optional[TrustedSignersOutputTypeDef] = None
-    TrustedKeyGroups: Optional[TrustedKeyGroupsOutputTypeDef] = None
-    AllowedMethods: Optional[AllowedMethodsOutputTypeDef] = None
+    TrustedSigners: Optional[TrustedSignersOutput] = None
+    TrustedKeyGroups: Optional[TrustedKeyGroupsOutput] = None
+    AllowedMethods: Optional[AllowedMethodsOutput] = None
     SmoothStreaming: Optional[bool] = None
     Compress: Optional[bool] = None
-    LambdaFunctionAssociations: Optional[LambdaFunctionAssociationsOutputTypeDef] = None
-    FunctionAssociations: Optional[FunctionAssociationsOutputTypeDef] = None
+    LambdaFunctionAssociations: Optional[LambdaFunctionAssociationsOutput] = None
+    FunctionAssociations: Optional[FunctionAssociationsOutput] = None
     FieldLevelEncryptionId: Optional[str] = None
     RealtimeLogConfigArn: Optional[str] = None
     CachePolicyId: Optional[str] = None
     OriginRequestPolicyId: Optional[str] = None
     ResponseHeadersPolicyId: Optional[str] = None
-    GrpcConfig: Optional[GrpcConfigTypeDef] = None
-    ForwardedValues: Optional[ForwardedValuesOutputTypeDef] = None
+    GrpcConfig: Optional[GrpcConfig] = None
+    ForwardedValues: Optional[ForwardedValuesOutput] = None
     MinTTL: Optional[int] = None
     DefaultTTL: Optional[int] = None
     MaxTTL: Optional[int] = None
 
 
-class DefaultCacheBehaviorOutputTypeDef(BaseValidatorModel):
+class DefaultCacheBehaviorOutput(BaseValidatorModel):
     TargetOriginId: str
     ViewerProtocolPolicy: ViewerProtocolPolicyType
-    TrustedSigners: Optional[TrustedSignersOutputTypeDef] = None
-    TrustedKeyGroups: Optional[TrustedKeyGroupsOutputTypeDef] = None
-    AllowedMethods: Optional[AllowedMethodsOutputTypeDef] = None
+    TrustedSigners: Optional[TrustedSignersOutput] = None
+    TrustedKeyGroups: Optional[TrustedKeyGroupsOutput] = None
+    AllowedMethods: Optional[AllowedMethodsOutput] = None
     SmoothStreaming: Optional[bool] = None
     Compress: Optional[bool] = None
-    LambdaFunctionAssociations: Optional[LambdaFunctionAssociationsOutputTypeDef] = None
-    FunctionAssociations: Optional[FunctionAssociationsOutputTypeDef] = None
+    LambdaFunctionAssociations: Optional[LambdaFunctionAssociationsOutput] = None
+    FunctionAssociations: Optional[FunctionAssociationsOutput] = None
     FieldLevelEncryptionId: Optional[str] = None
     RealtimeLogConfigArn: Optional[str] = None
     CachePolicyId: Optional[str] = None
     OriginRequestPolicyId: Optional[str] = None
     ResponseHeadersPolicyId: Optional[str] = None
-    GrpcConfig: Optional[GrpcConfigTypeDef] = None
-    ForwardedValues: Optional[ForwardedValuesOutputTypeDef] = None
+    GrpcConfig: Optional[GrpcConfig] = None
+    ForwardedValues: Optional[ForwardedValuesOutput] = None
     MinTTL: Optional[int] = None
     DefaultTTL: Optional[int] = None
     MaxTTL: Optional[int] = None
 
 
-class CachePolicyConfigOutputTypeDef(BaseValidatorModel):
+class CachePolicyConfigOutput(BaseValidatorModel):
     Name: str
     MinTTL: int
     Comment: Optional[str] = None
     DefaultTTL: Optional[int] = None
     MaxTTL: Optional[int] = None
-    ParametersInCacheKeyAndForwardedToOrigin: Optional[ ParametersInCacheKeyAndForwardedToOriginOutputTypeDef ] = None
+    ParametersInCacheKeyAndForwardedToOrigin: Optional[ ParametersInCacheKeyAndForwardedToOriginOutput ] = None
 
 
-class GetOriginRequestPolicyConfigResultTypeDef(BaseValidatorModel):
-    OriginRequestPolicyConfig: OriginRequestPolicyConfigOutputTypeDef
+class GetOriginRequestPolicyConfigResult(BaseValidatorModel):
+    OriginRequestPolicyConfig: OriginRequestPolicyConfigOutput
     ETag: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class OriginRequestPolicyTypeDef(BaseValidatorModel):
+class OriginRequestPolicy(BaseValidatorModel):
     Id: str
     LastModifiedTime: datetime
-    OriginRequestPolicyConfig: OriginRequestPolicyConfigOutputTypeDef
+    OriginRequestPolicyConfig: OriginRequestPolicyConfigOutput
 
 
-class CachePolicyConfigTypeDef(BaseValidatorModel):
+class CachePolicyConfig(BaseValidatorModel):
     Name: str
     MinTTL: int
     Comment: Optional[str] = None
     DefaultTTL: Optional[int] = None
     MaxTTL: Optional[int] = None
-    ParametersInCacheKeyAndForwardedToOrigin: Optional[ ParametersInCacheKeyAndForwardedToOriginTypeDef ] = None
+    ParametersInCacheKeyAndForwardedToOrigin: Optional[ ParametersInCacheKeyAndForwardedToOrigin ] = None
 
 
-class TrafficConfigTypeDef(BaseValidatorModel):
+class TrafficConfig(BaseValidatorModel):
     pass
 
 
-class ContinuousDeploymentPolicyConfigOutputTypeDef(BaseValidatorModel):
-    StagingDistributionDnsNames: StagingDistributionDnsNamesOutputTypeDef
+class ContinuousDeploymentPolicyConfigOutput(BaseValidatorModel):
+    StagingDistributionDnsNames: StagingDistributionDnsNamesOutput
     Enabled: bool
-    TrafficConfig: Optional[TrafficConfigTypeDef] = None
+    TrafficConfig: Optional[TrafficConfig] = None
 
 
-class ContinuousDeploymentPolicyConfigTypeDef(BaseValidatorModel):
-    StagingDistributionDnsNames: StagingDistributionDnsNamesTypeDef
+class ContinuousDeploymentPolicyConfig(BaseValidatorModel):
+    StagingDistributionDnsNames: StagingDistributionDnsNames
     Enabled: bool
-    TrafficConfig: Optional[TrafficConfigTypeDef] = None
+    TrafficConfig: Optional[TrafficConfig] = None
 
 
-class OriginsOutputTypeDef(BaseValidatorModel):
+class OriginsOutput(BaseValidatorModel):
     Quantity: int
-    Items: List[OriginOutputTypeDef]
+    Items: List[OriginOutput]
 
 
-class CreateVpcOriginResultTypeDef(BaseValidatorModel):
-    VpcOrigin: VpcOriginTypeDef
+class CreateVpcOriginResult(BaseValidatorModel):
+    VpcOrigin: VpcOrigin
     Location: str
     ETag: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteVpcOriginResultTypeDef(BaseValidatorModel):
-    VpcOrigin: VpcOriginTypeDef
+class DeleteVpcOriginResult(BaseValidatorModel):
+    VpcOrigin: VpcOrigin
     ETag: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetVpcOriginResultTypeDef(BaseValidatorModel):
-    VpcOrigin: VpcOriginTypeDef
+class GetVpcOriginResult(BaseValidatorModel):
+    VpcOrigin: VpcOrigin
     ETag: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateVpcOriginResultTypeDef(BaseValidatorModel):
-    VpcOrigin: VpcOriginTypeDef
+class UpdateVpcOriginResult(BaseValidatorModel):
+    VpcOrigin: VpcOrigin
     ETag: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class FieldLevelEncryptionProfileConfigOutputTypeDef(BaseValidatorModel):
+class FieldLevelEncryptionProfileConfigOutput(BaseValidatorModel):
     Name: str
     CallerReference: str
-    EncryptionEntities: EncryptionEntitiesOutputTypeDef
+    EncryptionEntities: EncryptionEntitiesOutput
     Comment: Optional[str] = None
 
 
-class FieldLevelEncryptionProfileSummaryTypeDef(BaseValidatorModel):
+class FieldLevelEncryptionProfileSummary(BaseValidatorModel):
     Id: str
     LastModifiedTime: datetime
     Name: str
-    EncryptionEntities: EncryptionEntitiesOutputTypeDef
+    EncryptionEntities: EncryptionEntitiesOutput
     Comment: Optional[str] = None
 
 
-class FieldLevelEncryptionProfileConfigTypeDef(BaseValidatorModel):
+class FieldLevelEncryptionProfileConfig(BaseValidatorModel):
     Name: str
     CallerReference: str
-    EncryptionEntities: EncryptionEntitiesTypeDef
+    EncryptionEntities: EncryptionEntities
     Comment: Optional[str] = None
 
 
-class CreateRealtimeLogConfigResultTypeDef(BaseValidatorModel):
-    RealtimeLogConfig: RealtimeLogConfigTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateRealtimeLogConfigResult(BaseValidatorModel):
+    RealtimeLogConfig: RealtimeLogConfig
+    ResponseMetadata: ResponseMetadata
 
 
-class GetRealtimeLogConfigResultTypeDef(BaseValidatorModel):
-    RealtimeLogConfig: RealtimeLogConfigTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetRealtimeLogConfigResult(BaseValidatorModel):
+    RealtimeLogConfig: RealtimeLogConfig
+    ResponseMetadata: ResponseMetadata
 
 
-class RealtimeLogConfigsTypeDef(BaseValidatorModel):
+class RealtimeLogConfigs(BaseValidatorModel):
     MaxItems: int
     IsTruncated: bool
     Marker: str
-    Items: Optional[List[RealtimeLogConfigTypeDef]] = None
+    Items: Optional[List[RealtimeLogConfig]] = None
     NextMarker: Optional[str] = None
 
 
-class UpdateRealtimeLogConfigResultTypeDef(BaseValidatorModel):
-    RealtimeLogConfig: RealtimeLogConfigTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateRealtimeLogConfigResult(BaseValidatorModel):
+    RealtimeLogConfig: RealtimeLogConfig
+    ResponseMetadata: ResponseMetadata
 
 
-class KeyGroupListTypeDef(BaseValidatorModel):
+class KeyGroupList(BaseValidatorModel):
     MaxItems: int
     Quantity: int
     NextMarker: Optional[str] = None
-    Items: Optional[List[KeyGroupSummaryTypeDef]] = None
+    Items: Optional[List[KeyGroupSummary]] = None
 
 
-class CreateInvalidationResultTypeDef(BaseValidatorModel):
+class CreateInvalidationResult(BaseValidatorModel):
     Location: str
-    Invalidation: InvalidationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    Invalidation: Invalidation
+    ResponseMetadata: ResponseMetadata
 
 
-class GetInvalidationResultTypeDef(BaseValidatorModel):
-    Invalidation: InvalidationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetInvalidationResult(BaseValidatorModel):
+    Invalidation: Invalidation
+    ResponseMetadata: ResponseMetadata
 
 
-class InvalidationBatchUnionTypeDef(BaseValidatorModel):
+class InvalidationBatchUnion(BaseValidatorModel):
     pass
 
 
-class CreateInvalidationRequestTypeDef(BaseValidatorModel):
+class CreateInvalidationRequest(BaseValidatorModel):
     DistributionId: str
-    InvalidationBatch: InvalidationBatchUnionTypeDef
+    InvalidationBatch: InvalidationBatchUnion
 
 
-class StreamingDistributionTypeDef(BaseValidatorModel):
+class StreamingDistribution(BaseValidatorModel):
     Id: str
     ARN: str
     Status: str
     DomainName: str
-    ActiveTrustedSigners: ActiveTrustedSignersTypeDef
-    StreamingDistributionConfig: StreamingDistributionConfigOutputTypeDef
+    ActiveTrustedSigners: ActiveTrustedSigners
+    StreamingDistributionConfig: StreamingDistributionConfigOutput
     LastModifiedTime: Optional[datetime] = None
 
 
-class FunctionSummaryTypeDef(BaseValidatorModel):
+class FunctionSummary(BaseValidatorModel):
     Name: str
-    FunctionConfig: FunctionConfigOutputTypeDef
-    FunctionMetadata: FunctionMetadataTypeDef
+    FunctionConfig: FunctionConfigOutput
+    FunctionMetadata: FunctionMetadata
     Status: Optional[str] = None
 
 
-class OriginGroupsOutputTypeDef(BaseValidatorModel):
+class OriginGroupsOutput(BaseValidatorModel):
     Quantity: int
-    Items: Optional[List[OriginGroupOutputTypeDef]] = None
+    Items: Optional[List[OriginGroupOutput]] = None
 
 
-class VpcOriginEndpointConfigUnionTypeDef(BaseValidatorModel):
+class VpcOriginEndpointConfigUnion(BaseValidatorModel):
     pass
 
 
-class UpdateVpcOriginRequestTypeDef(BaseValidatorModel):
-    VpcOriginEndpointConfig: VpcOriginEndpointConfigUnionTypeDef
+class UpdateVpcOriginRequest(BaseValidatorModel):
+    VpcOriginEndpointConfig: VpcOriginEndpointConfigUnion
     Id: str
     IfMatch: str
 
 
-class FieldLevelEncryptionConfigOutputTypeDef(BaseValidatorModel):
+class FieldLevelEncryptionConfigOutput(BaseValidatorModel):
     CallerReference: str
     Comment: Optional[str] = None
-    QueryArgProfileConfig: Optional[QueryArgProfileConfigOutputTypeDef] = None
-    ContentTypeProfileConfig: Optional[ContentTypeProfileConfigOutputTypeDef] = None
+    QueryArgProfileConfig: Optional[QueryArgProfileConfigOutput] = None
+    ContentTypeProfileConfig: Optional[ContentTypeProfileConfigOutput] = None
 
 
-class FieldLevelEncryptionSummaryTypeDef(BaseValidatorModel):
+class FieldLevelEncryptionSummary(BaseValidatorModel):
     Id: str
     LastModifiedTime: datetime
     Comment: Optional[str] = None
-    QueryArgProfileConfig: Optional[QueryArgProfileConfigOutputTypeDef] = None
-    ContentTypeProfileConfig: Optional[ContentTypeProfileConfigOutputTypeDef] = None
+    QueryArgProfileConfig: Optional[QueryArgProfileConfigOutput] = None
+    ContentTypeProfileConfig: Optional[ContentTypeProfileConfigOutput] = None
 
 
-class FieldLevelEncryptionConfigTypeDef(BaseValidatorModel):
+class FieldLevelEncryptionConfig(BaseValidatorModel):
     CallerReference: str
     Comment: Optional[str] = None
-    QueryArgProfileConfig: Optional[QueryArgProfileConfigTypeDef] = None
-    ContentTypeProfileConfig: Optional[ContentTypeProfileConfigTypeDef] = None
+    QueryArgProfileConfig: Optional[QueryArgProfileConfig] = None
+    ContentTypeProfileConfig: Optional[ContentTypeProfileConfig] = None
 
 
-class GetResponseHeadersPolicyConfigResultTypeDef(BaseValidatorModel):
-    ResponseHeadersPolicyConfig: ResponseHeadersPolicyConfigOutputTypeDef
+class GetResponseHeadersPolicyConfigResult(BaseValidatorModel):
+    ResponseHeadersPolicyConfig: ResponseHeadersPolicyConfigOutput
     ETag: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ResponseHeadersPolicyTypeDef(BaseValidatorModel):
+class ResponseHeadersPolicy(BaseValidatorModel):
     Id: str
     LastModifiedTime: datetime
-    ResponseHeadersPolicyConfig: ResponseHeadersPolicyConfigOutputTypeDef
+    ResponseHeadersPolicyConfig: ResponseHeadersPolicyConfigOutput
 
 
-class ListStreamingDistributionsResultTypeDef(BaseValidatorModel):
-    StreamingDistributionList: StreamingDistributionListTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListStreamingDistributionsResult(BaseValidatorModel):
+    StreamingDistributionList: StreamingDistributionList
+    ResponseMetadata: ResponseMetadata
 
 
-class TagsUnionTypeDef(BaseValidatorModel):
+class TagsUnion(BaseValidatorModel):
     pass
 
 
-class CreateAnycastIpListRequestTypeDef(BaseValidatorModel):
+class CreateAnycastIpListRequest(BaseValidatorModel):
     Name: str
     IpCount: int
-    Tags: Optional[TagsUnionTypeDef] = None
+    Tags: Optional[TagsUnion] = None
 
 
-class CreateVpcOriginRequestTypeDef(BaseValidatorModel):
-    VpcOriginEndpointConfig: VpcOriginEndpointConfigUnionTypeDef
-    Tags: Optional[TagsUnionTypeDef] = None
+class CreateVpcOriginRequest(BaseValidatorModel):
+    VpcOriginEndpointConfig: VpcOriginEndpointConfigUnion
+    Tags: Optional[TagsUnion] = None
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     Resource: str
-    Tags: TagsUnionTypeDef
+    Tags: TagsUnion
 
 
-class CacheBehaviorsOutputTypeDef(BaseValidatorModel):
+class CacheBehaviorsOutput(BaseValidatorModel):
     Quantity: int
-    Items: Optional[List[CacheBehaviorOutputTypeDef]] = None
+    Items: Optional[List[CacheBehaviorOutput]] = None
 
 
-class QueryStringCacheKeysUnionTypeDef(BaseValidatorModel):
+class QueryStringCacheKeysUnion(BaseValidatorModel):
     pass
 
 
-class CookiePreferenceUnionTypeDef(BaseValidatorModel):
+class CookiePreferenceUnion(BaseValidatorModel):
     pass
 
 
-class HeadersUnionTypeDef(BaseValidatorModel):
+class HeadersUnion(BaseValidatorModel):
     pass
 
 
-class ForwardedValuesTypeDef(BaseValidatorModel):
+class ForwardedValues(BaseValidatorModel):
     QueryString: bool
-    Cookies: CookiePreferenceUnionTypeDef
-    Headers: Optional[HeadersUnionTypeDef] = None
-    QueryStringCacheKeys: Optional[QueryStringCacheKeysUnionTypeDef] = None
+    Cookies: CookiePreferenceUnion
+    Headers: Optional[HeadersUnion] = None
+    QueryStringCacheKeys: Optional[QueryStringCacheKeysUnion] = None
 
 
-class CachePolicyTypeDef(BaseValidatorModel):
+class CachePolicy(BaseValidatorModel):
     Id: str
     LastModifiedTime: datetime
-    CachePolicyConfig: CachePolicyConfigOutputTypeDef
+    CachePolicyConfig: CachePolicyConfigOutput
 
 
-class GetCachePolicyConfigResultTypeDef(BaseValidatorModel):
-    CachePolicyConfig: CachePolicyConfigOutputTypeDef
+class GetCachePolicyConfigResult(BaseValidatorModel):
+    CachePolicyConfig: CachePolicyConfigOutput
     ETag: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateOriginRequestPolicyResultTypeDef(BaseValidatorModel):
-    OriginRequestPolicy: OriginRequestPolicyTypeDef
+class CreateOriginRequestPolicyResult(BaseValidatorModel):
+    OriginRequestPolicy: OriginRequestPolicy
     Location: str
     ETag: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetOriginRequestPolicyResultTypeDef(BaseValidatorModel):
-    OriginRequestPolicy: OriginRequestPolicyTypeDef
+class GetOriginRequestPolicyResult(BaseValidatorModel):
+    OriginRequestPolicy: OriginRequestPolicy
     ETag: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateOriginRequestPolicyResultTypeDef(BaseValidatorModel):
-    OriginRequestPolicy: OriginRequestPolicyTypeDef
+class UpdateOriginRequestPolicyResult(BaseValidatorModel):
+    OriginRequestPolicy: OriginRequestPolicy
     ETag: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class OriginRequestPolicyConfigUnionTypeDef(BaseValidatorModel):
+class OriginRequestPolicyConfigUnion(BaseValidatorModel):
     pass
 
 
-class CreateOriginRequestPolicyRequestTypeDef(BaseValidatorModel):
-    OriginRequestPolicyConfig: OriginRequestPolicyConfigUnionTypeDef
+class CreateOriginRequestPolicyRequest(BaseValidatorModel):
+    OriginRequestPolicyConfig: OriginRequestPolicyConfigUnion
 
 
-class UpdateOriginRequestPolicyRequestTypeDef(BaseValidatorModel):
-    OriginRequestPolicyConfig: OriginRequestPolicyConfigUnionTypeDef
+class UpdateOriginRequestPolicyRequest(BaseValidatorModel):
+    OriginRequestPolicyConfig: OriginRequestPolicyConfigUnion
     Id: str
     IfMatch: Optional[str] = None
 
 
-class ContinuousDeploymentPolicyTypeDef(BaseValidatorModel):
+class ContinuousDeploymentPolicy(BaseValidatorModel):
     Id: str
     LastModifiedTime: datetime
-    ContinuousDeploymentPolicyConfig: ContinuousDeploymentPolicyConfigOutputTypeDef
+    ContinuousDeploymentPolicyConfig: ContinuousDeploymentPolicyConfigOutput
 
 
-class GetContinuousDeploymentPolicyConfigResultTypeDef(BaseValidatorModel):
-    ContinuousDeploymentPolicyConfig: ContinuousDeploymentPolicyConfigOutputTypeDef
+class GetContinuousDeploymentPolicyConfigResult(BaseValidatorModel):
+    ContinuousDeploymentPolicyConfig: ContinuousDeploymentPolicyConfigOutput
     ETag: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class FieldLevelEncryptionProfileTypeDef(BaseValidatorModel):
+class FieldLevelEncryptionProfile(BaseValidatorModel):
     Id: str
     LastModifiedTime: datetime
-    FieldLevelEncryptionProfileConfig: FieldLevelEncryptionProfileConfigOutputTypeDef
+    FieldLevelEncryptionProfileConfig: FieldLevelEncryptionProfileConfigOutput
 
 
-class GetFieldLevelEncryptionProfileConfigResultTypeDef(BaseValidatorModel):
-    FieldLevelEncryptionProfileConfig: FieldLevelEncryptionProfileConfigOutputTypeDef
+class GetFieldLevelEncryptionProfileConfigResult(BaseValidatorModel):
+    FieldLevelEncryptionProfileConfig: FieldLevelEncryptionProfileConfigOutput
     ETag: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class FieldLevelEncryptionProfileListTypeDef(BaseValidatorModel):
+class FieldLevelEncryptionProfileList(BaseValidatorModel):
     MaxItems: int
     Quantity: int
     NextMarker: Optional[str] = None
-    Items: Optional[List[FieldLevelEncryptionProfileSummaryTypeDef]] = None
+    Items: Optional[List[FieldLevelEncryptionProfileSummary]] = None
 
 
-class ListRealtimeLogConfigsResultTypeDef(BaseValidatorModel):
-    RealtimeLogConfigs: RealtimeLogConfigsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListRealtimeLogConfigsResult(BaseValidatorModel):
+    RealtimeLogConfigs: RealtimeLogConfigs
+    ResponseMetadata: ResponseMetadata
 
 
-class ListKeyGroupsResultTypeDef(BaseValidatorModel):
-    KeyGroupList: KeyGroupListTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListKeyGroupsResult(BaseValidatorModel):
+    KeyGroupList: KeyGroupList
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateStreamingDistributionResultTypeDef(BaseValidatorModel):
-    StreamingDistribution: StreamingDistributionTypeDef
+class CreateStreamingDistributionResult(BaseValidatorModel):
+    StreamingDistribution: StreamingDistribution
     Location: str
     ETag: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateStreamingDistributionWithTagsResultTypeDef(BaseValidatorModel):
-    StreamingDistribution: StreamingDistributionTypeDef
+class CreateStreamingDistributionWithTagsResult(BaseValidatorModel):
+    StreamingDistribution: StreamingDistribution
     Location: str
     ETag: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetStreamingDistributionResultTypeDef(BaseValidatorModel):
-    StreamingDistribution: StreamingDistributionTypeDef
+class GetStreamingDistributionResult(BaseValidatorModel):
+    StreamingDistribution: StreamingDistribution
     ETag: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateStreamingDistributionResultTypeDef(BaseValidatorModel):
-    StreamingDistribution: StreamingDistributionTypeDef
+class UpdateStreamingDistributionResult(BaseValidatorModel):
+    StreamingDistribution: StreamingDistribution
     ETag: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateFunctionResultTypeDef(BaseValidatorModel):
-    FunctionSummary: FunctionSummaryTypeDef
+class CreateFunctionResult(BaseValidatorModel):
+    FunctionSummary: FunctionSummary
     Location: str
     ETag: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeFunctionResultTypeDef(BaseValidatorModel):
-    FunctionSummary: FunctionSummaryTypeDef
+class DescribeFunctionResult(BaseValidatorModel):
+    FunctionSummary: FunctionSummary
     ETag: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class FunctionListTypeDef(BaseValidatorModel):
+class FunctionList(BaseValidatorModel):
     MaxItems: int
     Quantity: int
     NextMarker: Optional[str] = None
-    Items: Optional[List[FunctionSummaryTypeDef]] = None
+    Items: Optional[List[FunctionSummary]] = None
 
 
-class PublishFunctionResultTypeDef(BaseValidatorModel):
-    FunctionSummary: FunctionSummaryTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class PublishFunctionResult(BaseValidatorModel):
+    FunctionSummary: FunctionSummary
+    ResponseMetadata: ResponseMetadata
 
 
-class TestResultTypeDef(BaseValidatorModel):
-    FunctionSummary: Optional[FunctionSummaryTypeDef] = None
+class TestResult(BaseValidatorModel):
+    FunctionSummary: Optional[FunctionSummary] = None
     ComputeUtilization: Optional[str] = None
     FunctionExecutionLogs: Optional[List[str]] = None
     FunctionErrorMessage: Optional[str] = None
     FunctionOutput: Optional[str] = None
 
 
-class UpdateFunctionResultTypeDef(BaseValidatorModel):
-    FunctionSummary: FunctionSummaryTypeDef
+class UpdateFunctionResult(BaseValidatorModel):
+    FunctionSummary: FunctionSummary
     ETag: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class FunctionConfigUnionTypeDef(BaseValidatorModel):
+class FunctionConfigUnion(BaseValidatorModel):
     pass
 
 
-class CreateFunctionRequestTypeDef(BaseValidatorModel):
+class CreateFunctionRequest(BaseValidatorModel):
     Name: str
-    FunctionConfig: FunctionConfigUnionTypeDef
-    FunctionCode: BlobTypeDef
+    FunctionConfig: FunctionConfigUnion
+    FunctionCode: Blob
 
 
-class UpdateFunctionRequestTypeDef(BaseValidatorModel):
+class UpdateFunctionRequest(BaseValidatorModel):
     Name: str
     IfMatch: str
-    FunctionConfig: FunctionConfigUnionTypeDef
-    FunctionCode: BlobTypeDef
+    FunctionConfig: FunctionConfigUnion
+    FunctionCode: Blob
 
 
-class CustomOriginConfigUnionTypeDef(BaseValidatorModel):
+class CustomOriginConfigUnion(BaseValidatorModel):
     pass
 
 
-class CustomHeadersUnionTypeDef(BaseValidatorModel):
+class CustomHeadersUnion(BaseValidatorModel):
     pass
 
 
-class OriginTypeDef(BaseValidatorModel):
+class Origin(BaseValidatorModel):
     Id: str
     DomainName: str
     OriginPath: Optional[str] = None
-    CustomHeaders: Optional[CustomHeadersUnionTypeDef] = None
-    S3OriginConfig: Optional[S3OriginConfigTypeDef] = None
-    CustomOriginConfig: Optional[CustomOriginConfigUnionTypeDef] = None
-    VpcOriginConfig: Optional[VpcOriginConfigTypeDef] = None
+    CustomHeaders: Optional[CustomHeadersUnion] = None
+    S3OriginConfig: Optional[S3OriginConfig] = None
+    CustomOriginConfig: Optional[CustomOriginConfigUnion] = None
+    VpcOriginConfig: Optional[VpcOriginConfig] = None
     ConnectionAttempts: Optional[int] = None
     ConnectionTimeout: Optional[int] = None
-    OriginShield: Optional[OriginShieldTypeDef] = None
+    OriginShield: Optional[OriginShield] = None
     OriginAccessControlId: Optional[str] = None
 
 
-class FieldLevelEncryptionTypeDef(BaseValidatorModel):
+class FieldLevelEncryption(BaseValidatorModel):
     Id: str
     LastModifiedTime: datetime
-    FieldLevelEncryptionConfig: FieldLevelEncryptionConfigOutputTypeDef
+    FieldLevelEncryptionConfig: FieldLevelEncryptionConfigOutput
 
 
-class GetFieldLevelEncryptionConfigResultTypeDef(BaseValidatorModel):
-    FieldLevelEncryptionConfig: FieldLevelEncryptionConfigOutputTypeDef
+class GetFieldLevelEncryptionConfigResult(BaseValidatorModel):
+    FieldLevelEncryptionConfig: FieldLevelEncryptionConfigOutput
     ETag: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class FieldLevelEncryptionListTypeDef(BaseValidatorModel):
+class FieldLevelEncryptionList(BaseValidatorModel):
     MaxItems: int
     Quantity: int
     NextMarker: Optional[str] = None
-    Items: Optional[List[FieldLevelEncryptionSummaryTypeDef]] = None
+    Items: Optional[List[FieldLevelEncryptionSummary]] = None
 
 
-class CreateResponseHeadersPolicyResultTypeDef(BaseValidatorModel):
-    ResponseHeadersPolicy: ResponseHeadersPolicyTypeDef
+class CreateResponseHeadersPolicyResult(BaseValidatorModel):
+    ResponseHeadersPolicy: ResponseHeadersPolicy
     Location: str
     ETag: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetResponseHeadersPolicyResultTypeDef(BaseValidatorModel):
-    ResponseHeadersPolicy: ResponseHeadersPolicyTypeDef
+class GetResponseHeadersPolicyResult(BaseValidatorModel):
+    ResponseHeadersPolicy: ResponseHeadersPolicy
     ETag: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateResponseHeadersPolicyResultTypeDef(BaseValidatorModel):
-    ResponseHeadersPolicy: ResponseHeadersPolicyTypeDef
+class UpdateResponseHeadersPolicyResult(BaseValidatorModel):
+    ResponseHeadersPolicy: ResponseHeadersPolicy
     ETag: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ResponseHeadersPolicyConfigUnionTypeDef(BaseValidatorModel):
+class ResponseHeadersPolicyConfigUnion(BaseValidatorModel):
     pass
 
 
-class CreateResponseHeadersPolicyRequestTypeDef(BaseValidatorModel):
-    ResponseHeadersPolicyConfig: ResponseHeadersPolicyConfigUnionTypeDef
+class CreateResponseHeadersPolicyRequest(BaseValidatorModel):
+    ResponseHeadersPolicyConfig: ResponseHeadersPolicyConfigUnion
 
 
-class UpdateResponseHeadersPolicyRequestTypeDef(BaseValidatorModel):
-    ResponseHeadersPolicyConfig: ResponseHeadersPolicyConfigUnionTypeDef
+class UpdateResponseHeadersPolicyRequest(BaseValidatorModel):
+    ResponseHeadersPolicyConfig: ResponseHeadersPolicyConfigUnion
     Id: str
     IfMatch: Optional[str] = None
 
 
-class OriginGroupMembersUnionTypeDef(BaseValidatorModel):
+class OriginGroupMembersUnion(BaseValidatorModel):
     pass
 
 
-class OriginGroupFailoverCriteriaUnionTypeDef(BaseValidatorModel):
+class OriginGroupFailoverCriteriaUnion(BaseValidatorModel):
     pass
 
 
-class OriginGroupTypeDef(BaseValidatorModel):
+class OriginGroup(BaseValidatorModel):
     Id: str
-    FailoverCriteria: OriginGroupFailoverCriteriaUnionTypeDef
-    Members: OriginGroupMembersUnionTypeDef
+    FailoverCriteria: OriginGroupFailoverCriteriaUnion
+    Members: OriginGroupMembersUnion
     SelectionCriteria: Optional[OriginGroupSelectionCriteriaType] = None
 
 
-class StreamingDistributionConfigUnionTypeDef(BaseValidatorModel):
+class StreamingDistributionConfigUnion(BaseValidatorModel):
     pass
 
 
-class CreateStreamingDistributionRequestTypeDef(BaseValidatorModel):
-    StreamingDistributionConfig: StreamingDistributionConfigUnionTypeDef
+class CreateStreamingDistributionRequest(BaseValidatorModel):
+    StreamingDistributionConfig: StreamingDistributionConfigUnion
 
 
-class StreamingDistributionConfigWithTagsTypeDef(BaseValidatorModel):
-    StreamingDistributionConfig: StreamingDistributionConfigUnionTypeDef
-    Tags: TagsUnionTypeDef
+class StreamingDistributionConfigWithTags(BaseValidatorModel):
+    StreamingDistributionConfig: StreamingDistributionConfigUnion
+    Tags: TagsUnion
 
 
-class UpdateStreamingDistributionRequestTypeDef(BaseValidatorModel):
-    StreamingDistributionConfig: StreamingDistributionConfigUnionTypeDef
+class UpdateStreamingDistributionRequest(BaseValidatorModel):
+    StreamingDistributionConfig: StreamingDistributionConfigUnion
     Id: str
     IfMatch: Optional[str] = None
 
 
-class DistributionConfigOutputTypeDef(BaseValidatorModel):
+class DistributionConfigOutput(BaseValidatorModel):
     CallerReference: str
-    Origins: OriginsOutputTypeDef
-    DefaultCacheBehavior: DefaultCacheBehaviorOutputTypeDef
+    Origins: OriginsOutput
+    DefaultCacheBehavior: DefaultCacheBehaviorOutput
     Comment: str
     Enabled: bool
-    Aliases: Optional[AliasesOutputTypeDef] = None
+    Aliases: Optional[AliasesOutput] = None
     DefaultRootObject: Optional[str] = None
-    OriginGroups: Optional[OriginGroupsOutputTypeDef] = None
-    CacheBehaviors: Optional[CacheBehaviorsOutputTypeDef] = None
-    CustomErrorResponses: Optional[CustomErrorResponsesOutputTypeDef] = None
-    Logging: Optional[LoggingConfigTypeDef] = None
+    OriginGroups: Optional[OriginGroupsOutput] = None
+    CacheBehaviors: Optional[CacheBehaviorsOutput] = None
+    CustomErrorResponses: Optional[CustomErrorResponsesOutput] = None
+    Logging: Optional[LoggingConfig] = None
     PriceClass: Optional[PriceClassType] = None
-    ViewerCertificate: Optional[ViewerCertificateTypeDef] = None
-    Restrictions: Optional[RestrictionsOutputTypeDef] = None
+    ViewerCertificate: Optional[ViewerCertificate] = None
+    Restrictions: Optional[RestrictionsOutput] = None
     WebACLId: Optional[str] = None
     HttpVersion: Optional[HttpVersionType] = None
     IsIPV6Enabled: Optional[bool] = None
@@ -2511,469 +2511,469 @@ class DistributionConfigOutputTypeDef(BaseValidatorModel):
     AnycastIpListId: Optional[str] = None
 
 
-class DistributionSummaryTypeDef(BaseValidatorModel):
+class DistributionSummary(BaseValidatorModel):
     Id: str
     ARN: str
     Status: str
     LastModifiedTime: datetime
     DomainName: str
-    Aliases: AliasesOutputTypeDef
-    Origins: OriginsOutputTypeDef
-    DefaultCacheBehavior: DefaultCacheBehaviorOutputTypeDef
-    CacheBehaviors: CacheBehaviorsOutputTypeDef
-    CustomErrorResponses: CustomErrorResponsesOutputTypeDef
+    Aliases: AliasesOutput
+    Origins: OriginsOutput
+    DefaultCacheBehavior: DefaultCacheBehaviorOutput
+    CacheBehaviors: CacheBehaviorsOutput
+    CustomErrorResponses: CustomErrorResponsesOutput
     Comment: str
     PriceClass: PriceClassType
     Enabled: bool
-    ViewerCertificate: ViewerCertificateTypeDef
-    Restrictions: RestrictionsOutputTypeDef
+    ViewerCertificate: ViewerCertificate
+    Restrictions: RestrictionsOutput
     WebACLId: str
     HttpVersion: HttpVersionType
     IsIPV6Enabled: bool
     Staging: bool
-    OriginGroups: Optional[OriginGroupsOutputTypeDef] = None
-    AliasICPRecordals: Optional[List[AliasICPRecordalTypeDef]] = None
+    OriginGroups: Optional[OriginGroupsOutput] = None
+    AliasICPRecordals: Optional[List[AliasICPRecordal]] = None
     AnycastIpListId: Optional[str] = None
 
 
-class CreateCachePolicyResultTypeDef(BaseValidatorModel):
-    CachePolicy: CachePolicyTypeDef
+class CreateCachePolicyResult(BaseValidatorModel):
+    CachePolicy: CachePolicy
     Location: str
     ETag: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetCachePolicyResultTypeDef(BaseValidatorModel):
-    CachePolicy: CachePolicyTypeDef
+class GetCachePolicyResult(BaseValidatorModel):
+    CachePolicy: CachePolicy
     ETag: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateCachePolicyResultTypeDef(BaseValidatorModel):
-    CachePolicy: CachePolicyTypeDef
+class UpdateCachePolicyResult(BaseValidatorModel):
+    CachePolicy: CachePolicy
     ETag: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class OriginRequestPolicySummaryTypeDef(BaseValidatorModel):
+class OriginRequestPolicySummary(BaseValidatorModel):
     pass
 
 
-class OriginRequestPolicyListTypeDef(BaseValidatorModel):
+class OriginRequestPolicyList(BaseValidatorModel):
     MaxItems: int
     Quantity: int
     NextMarker: Optional[str] = None
-    Items: Optional[List[OriginRequestPolicySummaryTypeDef]] = None
+    Items: Optional[List[OriginRequestPolicySummary]] = None
 
 
-class CachePolicyConfigUnionTypeDef(BaseValidatorModel):
+class CachePolicyConfigUnion(BaseValidatorModel):
     pass
 
 
-class CreateCachePolicyRequestTypeDef(BaseValidatorModel):
-    CachePolicyConfig: CachePolicyConfigUnionTypeDef
+class CreateCachePolicyRequest(BaseValidatorModel):
+    CachePolicyConfig: CachePolicyConfigUnion
 
 
-class UpdateCachePolicyRequestTypeDef(BaseValidatorModel):
-    CachePolicyConfig: CachePolicyConfigUnionTypeDef
+class UpdateCachePolicyRequest(BaseValidatorModel):
+    CachePolicyConfig: CachePolicyConfigUnion
     Id: str
     IfMatch: Optional[str] = None
 
 
-class ContinuousDeploymentPolicySummaryTypeDef(BaseValidatorModel):
-    ContinuousDeploymentPolicy: ContinuousDeploymentPolicyTypeDef
+class ContinuousDeploymentPolicySummary(BaseValidatorModel):
+    ContinuousDeploymentPolicy: ContinuousDeploymentPolicy
 
 
-class CreateContinuousDeploymentPolicyResultTypeDef(BaseValidatorModel):
-    ContinuousDeploymentPolicy: ContinuousDeploymentPolicyTypeDef
+class CreateContinuousDeploymentPolicyResult(BaseValidatorModel):
+    ContinuousDeploymentPolicy: ContinuousDeploymentPolicy
     Location: str
     ETag: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetContinuousDeploymentPolicyResultTypeDef(BaseValidatorModel):
-    ContinuousDeploymentPolicy: ContinuousDeploymentPolicyTypeDef
+class GetContinuousDeploymentPolicyResult(BaseValidatorModel):
+    ContinuousDeploymentPolicy: ContinuousDeploymentPolicy
     ETag: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateContinuousDeploymentPolicyResultTypeDef(BaseValidatorModel):
-    ContinuousDeploymentPolicy: ContinuousDeploymentPolicyTypeDef
+class UpdateContinuousDeploymentPolicyResult(BaseValidatorModel):
+    ContinuousDeploymentPolicy: ContinuousDeploymentPolicy
     ETag: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ContinuousDeploymentPolicyConfigUnionTypeDef(BaseValidatorModel):
+class ContinuousDeploymentPolicyConfigUnion(BaseValidatorModel):
     pass
 
 
-class CreateContinuousDeploymentPolicyRequestTypeDef(BaseValidatorModel):
-    ContinuousDeploymentPolicyConfig: ContinuousDeploymentPolicyConfigUnionTypeDef
+class CreateContinuousDeploymentPolicyRequest(BaseValidatorModel):
+    ContinuousDeploymentPolicyConfig: ContinuousDeploymentPolicyConfigUnion
 
 
-class UpdateContinuousDeploymentPolicyRequestTypeDef(BaseValidatorModel):
-    ContinuousDeploymentPolicyConfig: ContinuousDeploymentPolicyConfigUnionTypeDef
+class UpdateContinuousDeploymentPolicyRequest(BaseValidatorModel):
+    ContinuousDeploymentPolicyConfig: ContinuousDeploymentPolicyConfigUnion
     Id: str
     IfMatch: Optional[str] = None
 
 
-class CreateFieldLevelEncryptionProfileResultTypeDef(BaseValidatorModel):
-    FieldLevelEncryptionProfile: FieldLevelEncryptionProfileTypeDef
+class CreateFieldLevelEncryptionProfileResult(BaseValidatorModel):
+    FieldLevelEncryptionProfile: FieldLevelEncryptionProfile
     Location: str
     ETag: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetFieldLevelEncryptionProfileResultTypeDef(BaseValidatorModel):
-    FieldLevelEncryptionProfile: FieldLevelEncryptionProfileTypeDef
+class GetFieldLevelEncryptionProfileResult(BaseValidatorModel):
+    FieldLevelEncryptionProfile: FieldLevelEncryptionProfile
     ETag: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateFieldLevelEncryptionProfileResultTypeDef(BaseValidatorModel):
-    FieldLevelEncryptionProfile: FieldLevelEncryptionProfileTypeDef
+class UpdateFieldLevelEncryptionProfileResult(BaseValidatorModel):
+    FieldLevelEncryptionProfile: FieldLevelEncryptionProfile
     ETag: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListFieldLevelEncryptionProfilesResultTypeDef(BaseValidatorModel):
-    FieldLevelEncryptionProfileList: FieldLevelEncryptionProfileListTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListFieldLevelEncryptionProfilesResult(BaseValidatorModel):
+    FieldLevelEncryptionProfileList: FieldLevelEncryptionProfileList
+    ResponseMetadata: ResponseMetadata
 
 
-class FieldLevelEncryptionProfileConfigUnionTypeDef(BaseValidatorModel):
+class FieldLevelEncryptionProfileConfigUnion(BaseValidatorModel):
     pass
 
 
-class CreateFieldLevelEncryptionProfileRequestTypeDef(BaseValidatorModel):
-    FieldLevelEncryptionProfileConfig: FieldLevelEncryptionProfileConfigUnionTypeDef
+class CreateFieldLevelEncryptionProfileRequest(BaseValidatorModel):
+    FieldLevelEncryptionProfileConfig: FieldLevelEncryptionProfileConfigUnion
 
 
-class UpdateFieldLevelEncryptionProfileRequestTypeDef(BaseValidatorModel):
-    FieldLevelEncryptionProfileConfig: FieldLevelEncryptionProfileConfigUnionTypeDef
+class UpdateFieldLevelEncryptionProfileRequest(BaseValidatorModel):
+    FieldLevelEncryptionProfileConfig: FieldLevelEncryptionProfileConfigUnion
     Id: str
     IfMatch: Optional[str] = None
 
 
-class ListFunctionsResultTypeDef(BaseValidatorModel):
-    FunctionList: FunctionListTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListFunctionsResult(BaseValidatorModel):
+    FunctionList: FunctionList
+    ResponseMetadata: ResponseMetadata
 
 
-class TestFunctionResultTypeDef(BaseValidatorModel):
-    TestResult: TestResultTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class TestFunctionResult(BaseValidatorModel):
+    TestResult: TestResult
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateFieldLevelEncryptionConfigResultTypeDef(BaseValidatorModel):
-    FieldLevelEncryption: FieldLevelEncryptionTypeDef
+class CreateFieldLevelEncryptionConfigResult(BaseValidatorModel):
+    FieldLevelEncryption: FieldLevelEncryption
     Location: str
     ETag: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetFieldLevelEncryptionResultTypeDef(BaseValidatorModel):
-    FieldLevelEncryption: FieldLevelEncryptionTypeDef
+class GetFieldLevelEncryptionResult(BaseValidatorModel):
+    FieldLevelEncryption: FieldLevelEncryption
     ETag: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateFieldLevelEncryptionConfigResultTypeDef(BaseValidatorModel):
-    FieldLevelEncryption: FieldLevelEncryptionTypeDef
+class UpdateFieldLevelEncryptionConfigResult(BaseValidatorModel):
+    FieldLevelEncryption: FieldLevelEncryption
     ETag: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListFieldLevelEncryptionConfigsResultTypeDef(BaseValidatorModel):
-    FieldLevelEncryptionList: FieldLevelEncryptionListTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListFieldLevelEncryptionConfigsResult(BaseValidatorModel):
+    FieldLevelEncryptionList: FieldLevelEncryptionList
+    ResponseMetadata: ResponseMetadata
 
 
-class FieldLevelEncryptionConfigUnionTypeDef(BaseValidatorModel):
+class FieldLevelEncryptionConfigUnion(BaseValidatorModel):
     pass
 
 
-class CreateFieldLevelEncryptionConfigRequestTypeDef(BaseValidatorModel):
-    FieldLevelEncryptionConfig: FieldLevelEncryptionConfigUnionTypeDef
+class CreateFieldLevelEncryptionConfigRequest(BaseValidatorModel):
+    FieldLevelEncryptionConfig: FieldLevelEncryptionConfigUnion
 
 
-class UpdateFieldLevelEncryptionConfigRequestTypeDef(BaseValidatorModel):
-    FieldLevelEncryptionConfig: FieldLevelEncryptionConfigUnionTypeDef
+class UpdateFieldLevelEncryptionConfigRequest(BaseValidatorModel):
+    FieldLevelEncryptionConfig: FieldLevelEncryptionConfigUnion
     Id: str
     IfMatch: Optional[str] = None
 
 
-class ResponseHeadersPolicySummaryTypeDef(BaseValidatorModel):
+class ResponseHeadersPolicySummary(BaseValidatorModel):
     pass
 
 
-class ResponseHeadersPolicyListTypeDef(BaseValidatorModel):
+class ResponseHeadersPolicyList(BaseValidatorModel):
     MaxItems: int
     Quantity: int
     NextMarker: Optional[str] = None
-    Items: Optional[List[ResponseHeadersPolicySummaryTypeDef]] = None
+    Items: Optional[List[ResponseHeadersPolicySummary]] = None
 
 
-class CreateStreamingDistributionWithTagsRequestTypeDef(BaseValidatorModel):
-    StreamingDistributionConfigWithTags: StreamingDistributionConfigWithTagsTypeDef
+class CreateStreamingDistributionWithTagsRequest(BaseValidatorModel):
+    StreamingDistributionConfigWithTags: StreamingDistributionConfigWithTags
 
 
-class DistributionTypeDef(BaseValidatorModel):
+class Distribution(BaseValidatorModel):
     Id: str
     ARN: str
     Status: str
     LastModifiedTime: datetime
     InProgressInvalidationBatches: int
     DomainName: str
-    DistributionConfig: DistributionConfigOutputTypeDef
-    ActiveTrustedSigners: Optional[ActiveTrustedSignersTypeDef] = None
-    ActiveTrustedKeyGroups: Optional[ActiveTrustedKeyGroupsTypeDef] = None
-    AliasICPRecordals: Optional[List[AliasICPRecordalTypeDef]] = None
+    DistributionConfig: DistributionConfigOutput
+    ActiveTrustedSigners: Optional[ActiveTrustedSigners] = None
+    ActiveTrustedKeyGroups: Optional[ActiveTrustedKeyGroups] = None
+    AliasICPRecordals: Optional[List[AliasICPRecordal]] = None
 
 
-class GetDistributionConfigResultTypeDef(BaseValidatorModel):
-    DistributionConfig: DistributionConfigOutputTypeDef
+class GetDistributionConfigResult(BaseValidatorModel):
+    DistributionConfig: DistributionConfigOutput
     ETag: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DistributionListTypeDef(BaseValidatorModel):
+class DistributionList(BaseValidatorModel):
     Marker: str
     MaxItems: int
     IsTruncated: bool
     Quantity: int
     NextMarker: Optional[str] = None
-    Items: Optional[List[DistributionSummaryTypeDef]] = None
+    Items: Optional[List[DistributionSummary]] = None
 
 
-class TrustedKeyGroupsUnionTypeDef(BaseValidatorModel):
+class TrustedKeyGroupsUnion(BaseValidatorModel):
     pass
 
 
-class ForwardedValuesUnionTypeDef(BaseValidatorModel):
+class ForwardedValuesUnion(BaseValidatorModel):
     pass
 
 
-class LambdaFunctionAssociationsUnionTypeDef(BaseValidatorModel):
+class LambdaFunctionAssociationsUnion(BaseValidatorModel):
     pass
 
 
-class AllowedMethodsUnionTypeDef(BaseValidatorModel):
+class AllowedMethodsUnion(BaseValidatorModel):
     pass
 
 
-class FunctionAssociationsUnionTypeDef(BaseValidatorModel):
+class FunctionAssociationsUnion(BaseValidatorModel):
     pass
 
 
-class CacheBehaviorTypeDef(BaseValidatorModel):
+class CacheBehavior(BaseValidatorModel):
     PathPattern: str
     TargetOriginId: str
     ViewerProtocolPolicy: ViewerProtocolPolicyType
-    TrustedSigners: Optional[TrustedSignersUnionTypeDef] = None
-    TrustedKeyGroups: Optional[TrustedKeyGroupsUnionTypeDef] = None
-    AllowedMethods: Optional[AllowedMethodsUnionTypeDef] = None
+    TrustedSigners: Optional[TrustedSignersUnion] = None
+    TrustedKeyGroups: Optional[TrustedKeyGroupsUnion] = None
+    AllowedMethods: Optional[AllowedMethodsUnion] = None
     SmoothStreaming: Optional[bool] = None
     Compress: Optional[bool] = None
-    LambdaFunctionAssociations: Optional[LambdaFunctionAssociationsUnionTypeDef] = None
-    FunctionAssociations: Optional[FunctionAssociationsUnionTypeDef] = None
+    LambdaFunctionAssociations: Optional[LambdaFunctionAssociationsUnion] = None
+    FunctionAssociations: Optional[FunctionAssociationsUnion] = None
     FieldLevelEncryptionId: Optional[str] = None
     RealtimeLogConfigArn: Optional[str] = None
     CachePolicyId: Optional[str] = None
     OriginRequestPolicyId: Optional[str] = None
     ResponseHeadersPolicyId: Optional[str] = None
-    GrpcConfig: Optional[GrpcConfigTypeDef] = None
-    ForwardedValues: Optional[ForwardedValuesUnionTypeDef] = None
+    GrpcConfig: Optional[GrpcConfig] = None
+    ForwardedValues: Optional[ForwardedValuesUnion] = None
     MinTTL: Optional[int] = None
     DefaultTTL: Optional[int] = None
     MaxTTL: Optional[int] = None
 
 
-class DefaultCacheBehaviorTypeDef(BaseValidatorModel):
+class DefaultCacheBehavior(BaseValidatorModel):
     TargetOriginId: str
     ViewerProtocolPolicy: ViewerProtocolPolicyType
-    TrustedSigners: Optional[TrustedSignersUnionTypeDef] = None
-    TrustedKeyGroups: Optional[TrustedKeyGroupsUnionTypeDef] = None
-    AllowedMethods: Optional[AllowedMethodsUnionTypeDef] = None
+    TrustedSigners: Optional[TrustedSignersUnion] = None
+    TrustedKeyGroups: Optional[TrustedKeyGroupsUnion] = None
+    AllowedMethods: Optional[AllowedMethodsUnion] = None
     SmoothStreaming: Optional[bool] = None
     Compress: Optional[bool] = None
-    LambdaFunctionAssociations: Optional[LambdaFunctionAssociationsUnionTypeDef] = None
-    FunctionAssociations: Optional[FunctionAssociationsUnionTypeDef] = None
+    LambdaFunctionAssociations: Optional[LambdaFunctionAssociationsUnion] = None
+    FunctionAssociations: Optional[FunctionAssociationsUnion] = None
     FieldLevelEncryptionId: Optional[str] = None
     RealtimeLogConfigArn: Optional[str] = None
     CachePolicyId: Optional[str] = None
     OriginRequestPolicyId: Optional[str] = None
     ResponseHeadersPolicyId: Optional[str] = None
-    GrpcConfig: Optional[GrpcConfigTypeDef] = None
-    ForwardedValues: Optional[ForwardedValuesUnionTypeDef] = None
+    GrpcConfig: Optional[GrpcConfig] = None
+    ForwardedValues: Optional[ForwardedValuesUnion] = None
     MinTTL: Optional[int] = None
     DefaultTTL: Optional[int] = None
     MaxTTL: Optional[int] = None
 
 
-class CachePolicySummaryTypeDef(BaseValidatorModel):
+class CachePolicySummary(BaseValidatorModel):
     pass
 
 
-class CachePolicyListTypeDef(BaseValidatorModel):
+class CachePolicyList(BaseValidatorModel):
     MaxItems: int
     Quantity: int
     NextMarker: Optional[str] = None
-    Items: Optional[List[CachePolicySummaryTypeDef]] = None
+    Items: Optional[List[CachePolicySummary]] = None
 
 
-class ListOriginRequestPoliciesResultTypeDef(BaseValidatorModel):
-    OriginRequestPolicyList: OriginRequestPolicyListTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListOriginRequestPoliciesResult(BaseValidatorModel):
+    OriginRequestPolicyList: OriginRequestPolicyList
+    ResponseMetadata: ResponseMetadata
 
 
-class ContinuousDeploymentPolicyListTypeDef(BaseValidatorModel):
+class ContinuousDeploymentPolicyList(BaseValidatorModel):
     MaxItems: int
     Quantity: int
     NextMarker: Optional[str] = None
-    Items: Optional[List[ContinuousDeploymentPolicySummaryTypeDef]] = None
+    Items: Optional[List[ContinuousDeploymentPolicySummary]] = None
 
 
-class OriginUnionTypeDef(BaseValidatorModel):
+class OriginUnion(BaseValidatorModel):
     pass
 
 
-class OriginsTypeDef(BaseValidatorModel):
+class Origins(BaseValidatorModel):
     Quantity: int
-    Items: Sequence[OriginUnionTypeDef]
+    Items: Sequence[OriginUnion]
 
 
-class ListResponseHeadersPoliciesResultTypeDef(BaseValidatorModel):
-    ResponseHeadersPolicyList: ResponseHeadersPolicyListTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListResponseHeadersPoliciesResult(BaseValidatorModel):
+    ResponseHeadersPolicyList: ResponseHeadersPolicyList
+    ResponseMetadata: ResponseMetadata
 
 
-class OriginGroupUnionTypeDef(BaseValidatorModel):
+class OriginGroupUnion(BaseValidatorModel):
     pass
 
 
-class OriginGroupsTypeDef(BaseValidatorModel):
+class OriginGroups(BaseValidatorModel):
     Quantity: int
-    Items: Optional[Sequence[OriginGroupUnionTypeDef]] = None
+    Items: Optional[Sequence[OriginGroupUnion]] = None
 
 
-class CopyDistributionResultTypeDef(BaseValidatorModel):
-    Distribution: DistributionTypeDef
+class CopyDistributionResult(BaseValidatorModel):
+    Distribution: Distribution
     Location: str
     ETag: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateDistributionResultTypeDef(BaseValidatorModel):
-    Distribution: DistributionTypeDef
+class CreateDistributionResult(BaseValidatorModel):
+    Distribution: Distribution
     Location: str
     ETag: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateDistributionWithTagsResultTypeDef(BaseValidatorModel):
-    Distribution: DistributionTypeDef
+class CreateDistributionWithTagsResult(BaseValidatorModel):
+    Distribution: Distribution
     Location: str
     ETag: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetDistributionResultTypeDef(BaseValidatorModel):
-    Distribution: DistributionTypeDef
+class GetDistributionResult(BaseValidatorModel):
+    Distribution: Distribution
     ETag: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateDistributionResultTypeDef(BaseValidatorModel):
-    Distribution: DistributionTypeDef
+class UpdateDistributionResult(BaseValidatorModel):
+    Distribution: Distribution
     ETag: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateDistributionWithStagingConfigResultTypeDef(BaseValidatorModel):
-    Distribution: DistributionTypeDef
+class UpdateDistributionWithStagingConfigResult(BaseValidatorModel):
+    Distribution: Distribution
     ETag: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListDistributionsByAnycastIpListIdResultTypeDef(BaseValidatorModel):
-    DistributionList: DistributionListTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListDistributionsByAnycastIpListIdResult(BaseValidatorModel):
+    DistributionList: DistributionList
+    ResponseMetadata: ResponseMetadata
 
 
-class ListDistributionsByRealtimeLogConfigResultTypeDef(BaseValidatorModel):
-    DistributionList: DistributionListTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListDistributionsByRealtimeLogConfigResult(BaseValidatorModel):
+    DistributionList: DistributionList
+    ResponseMetadata: ResponseMetadata
 
 
-class ListDistributionsByWebACLIdResultTypeDef(BaseValidatorModel):
-    DistributionList: DistributionListTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListDistributionsByWebACLIdResult(BaseValidatorModel):
+    DistributionList: DistributionList
+    ResponseMetadata: ResponseMetadata
 
 
-class ListDistributionsResultTypeDef(BaseValidatorModel):
-    DistributionList: DistributionListTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListDistributionsResult(BaseValidatorModel):
+    DistributionList: DistributionList
+    ResponseMetadata: ResponseMetadata
 
 
-class ListCachePoliciesResultTypeDef(BaseValidatorModel):
-    CachePolicyList: CachePolicyListTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListCachePoliciesResult(BaseValidatorModel):
+    CachePolicyList: CachePolicyList
+    ResponseMetadata: ResponseMetadata
 
 
-class ListContinuousDeploymentPoliciesResultTypeDef(BaseValidatorModel):
-    ContinuousDeploymentPolicyList: ContinuousDeploymentPolicyListTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListContinuousDeploymentPoliciesResult(BaseValidatorModel):
+    ContinuousDeploymentPolicyList: ContinuousDeploymentPolicyList
+    ResponseMetadata: ResponseMetadata
 
 
-class CacheBehaviorUnionTypeDef(BaseValidatorModel):
+class CacheBehaviorUnion(BaseValidatorModel):
     pass
 
 
-class CacheBehaviorsTypeDef(BaseValidatorModel):
+class CacheBehaviors(BaseValidatorModel):
     Quantity: int
-    Items: Optional[Sequence[CacheBehaviorUnionTypeDef]] = None
+    Items: Optional[Sequence[CacheBehaviorUnion]] = None
 
 
-class RestrictionsUnionTypeDef(BaseValidatorModel):
+class RestrictionsUnion(BaseValidatorModel):
     pass
 
 
-class CacheBehaviorsUnionTypeDef(BaseValidatorModel):
+class CacheBehaviorsUnion(BaseValidatorModel):
     pass
 
 
-class DefaultCacheBehaviorUnionTypeDef(BaseValidatorModel):
+class DefaultCacheBehaviorUnion(BaseValidatorModel):
     pass
 
 
-class CustomErrorResponsesUnionTypeDef(BaseValidatorModel):
+class CustomErrorResponsesUnion(BaseValidatorModel):
     pass
 
 
-class OriginsUnionTypeDef(BaseValidatorModel):
+class OriginsUnion(BaseValidatorModel):
     pass
 
 
-class OriginGroupsUnionTypeDef(BaseValidatorModel):
+class OriginGroupsUnion(BaseValidatorModel):
     pass
 
 
-class DistributionConfigTypeDef(BaseValidatorModel):
+class DistributionConfig(BaseValidatorModel):
     CallerReference: str
-    Origins: OriginsUnionTypeDef
-    DefaultCacheBehavior: DefaultCacheBehaviorUnionTypeDef
+    Origins: OriginsUnion
+    DefaultCacheBehavior: DefaultCacheBehaviorUnion
     Comment: str
     Enabled: bool
-    Aliases: Optional[AliasesUnionTypeDef] = None
+    Aliases: Optional[AliasesUnion] = None
     DefaultRootObject: Optional[str] = None
-    OriginGroups: Optional[OriginGroupsUnionTypeDef] = None
-    CacheBehaviors: Optional[CacheBehaviorsUnionTypeDef] = None
-    CustomErrorResponses: Optional[CustomErrorResponsesUnionTypeDef] = None
-    Logging: Optional[LoggingConfigTypeDef] = None
+    OriginGroups: Optional[OriginGroupsUnion] = None
+    CacheBehaviors: Optional[CacheBehaviorsUnion] = None
+    CustomErrorResponses: Optional[CustomErrorResponsesUnion] = None
+    Logging: Optional[LoggingConfig] = None
     PriceClass: Optional[PriceClassType] = None
-    ViewerCertificate: Optional[ViewerCertificateTypeDef] = None
-    Restrictions: Optional[RestrictionsUnionTypeDef] = None
+    ViewerCertificate: Optional[ViewerCertificate] = None
+    Restrictions: Optional[RestrictionsUnion] = None
     WebACLId: Optional[str] = None
     HttpVersion: Optional[HttpVersionType] = None
     IsIPV6Enabled: Optional[bool] = None
@@ -2982,26 +2982,26 @@ class DistributionConfigTypeDef(BaseValidatorModel):
     AnycastIpListId: Optional[str] = None
 
 
-class DistributionConfigUnionTypeDef(BaseValidatorModel):
+class DistributionConfigUnion(BaseValidatorModel):
     pass
 
 
-class CreateDistributionRequestTypeDef(BaseValidatorModel):
-    DistributionConfig: DistributionConfigUnionTypeDef
+class CreateDistributionRequest(BaseValidatorModel):
+    DistributionConfig: DistributionConfigUnion
 
 
-class DistributionConfigWithTagsTypeDef(BaseValidatorModel):
-    DistributionConfig: DistributionConfigUnionTypeDef
-    Tags: TagsUnionTypeDef
+class DistributionConfigWithTags(BaseValidatorModel):
+    DistributionConfig: DistributionConfigUnion
+    Tags: TagsUnion
 
 
-class UpdateDistributionRequestTypeDef(BaseValidatorModel):
-    DistributionConfig: DistributionConfigUnionTypeDef
+class UpdateDistributionRequest(BaseValidatorModel):
+    DistributionConfig: DistributionConfigUnion
     Id: str
     IfMatch: Optional[str] = None
 
 
-class CreateDistributionWithTagsRequestTypeDef(BaseValidatorModel):
-    DistributionConfigWithTags: DistributionConfigWithTagsTypeDef
+class CreateDistributionWithTagsRequest(BaseValidatorModel):
+    DistributionConfigWithTags: DistributionConfigWithTags
 
 

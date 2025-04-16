@@ -6,14 +6,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# DeleteLexiconInputTypeDef
+# DeleteLexiconInput
 
 ### Name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeVoicesInputPaginateTypeDef
+# DescribeVoicesInput
+
+### Engine
+- **Type**: typing.Optional[typing.Literal['generative', 'long-form', 'neural', 'standard']]
+
+### LanguageCode
+- **Type**: typing.Optional[typing.Literal['ar-AE', 'arb', 'ca-ES', 'cmn-CN', 'cs-CZ', 'cy-GB', 'da-DK', 'de-AT', 'de-CH', 'de-DE', 'en-AU', 'en-GB', 'en-GB-WLS', 'en-IE', 'en-IN', 'en-NZ', 'en-SG', 'en-US', 'en-ZA', 'es-ES', 'es-MX', 'es-US', 'fi-FI', 'fr-BE', 'fr-CA', 'fr-FR', 'hi-IN', 'is-IS', 'it-IT', 'ja-JP', 'ko-KR', 'nb-NO', 'nl-BE', 'nl-NL', 'pl-PL', 'pt-BR', 'pt-PT', 'ro-RO', 'ru-RU', 'sv-SE', 'tr-TR', 'yue-CN']]
+
+### IncludeAdditionalLanguageCodes
+- **Type**: typing.Optional[bool]
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# DescribeVoicesInputPaginate
 
 ### Engine
 - **Type**: typing.Optional[typing.Literal['generative', 'long-form', 'neural', 'standard']]
@@ -25,79 +40,73 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.polly_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.polly_classes.PaginatorConfig]
 
 
-# DescribeVoicesInputTypeDef
-
-### Engine
-- **Type**: typing.Optional[typing.Literal['generative', 'long-form', 'neural', 'standard']]
-
-### LanguageCode
-- **Type**: typing.Optional[typing.Literal['ar-AE', 'arb', 'ca-ES', 'cmn-CN', 'cs-CZ', 'cy-GB', 'da-DK', 'de-AT', 'de-CH', 'de-DE', 'en-AU', 'en-GB', 'en-GB-WLS', 'en-IE', 'en-IN', 'en-NZ', 'en-SG', 'en-US', 'en-ZA', 'es-ES', 'es-MX', 'es-US', 'fi-FI', 'fr-BE', 'fr-CA', 'fr-FR', 'hi-IN', 'is-IS', 'it-IT', 'ja-JP', 'ko-KR', 'nb-NO', 'nl-BE', 'nl-NL', 'pl-PL', 'pt-BR', 'pt-PT', 'ro-RO', 'ru-RU', 'sv-SE', 'tr-TR', 'yue-CN']]
-
-### IncludeAdditionalLanguageCodes
-- **Type**: typing.Optional[bool]
-
-### NextToken
-- **Type**: typing.Optional[str]
-
-
-# DescribeVoicesOutputTypeDef
+# DescribeVoicesOutput
 
 ### Voices
-- **Type**: typing.List[aws_resource_validator.pydantic_models.polly_classes.VoiceTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.polly_classes.Voice]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.polly_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.polly_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# GetLexiconInputTypeDef
+# GetLexiconInput
 
 ### Name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetLexiconOutputTypeDef
+# GetLexiconOutput
 
 ### Lexicon
-- **Type**: <class 'aws_resource_validator.pydantic_models.polly_classes.LexiconTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.polly_classes.Lexicon'>
 - **Required**: Yes
 
 ### LexiconAttributes
-- **Type**: <class 'aws_resource_validator.pydantic_models.polly_classes.LexiconAttributesTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.polly_classes.LexiconAttributes'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.polly_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.polly_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetSpeechSynthesisTaskInputTypeDef
+# GetSpeechSynthesisTaskInput
 
 ### TaskId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetSpeechSynthesisTaskOutputTypeDef
+# GetSpeechSynthesisTaskOutput
 
 ### SynthesisTask
-- **Type**: <class 'aws_resource_validator.pydantic_models.polly_classes.SynthesisTaskTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.polly_classes.SynthesisTask'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.polly_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.polly_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# LexiconAttributesTypeDef
+# Lexicon
+
+### Content
+- **Type**: typing.Optional[str]
+
+### Name
+- **Type**: typing.Optional[str]
+
+
+# LexiconAttributes
 
 ### Alphabet
 - **Type**: typing.Optional[str]
@@ -118,60 +127,42 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# LexiconDescriptionTypeDef
+# LexiconDescription
 
 ### Name
 - **Type**: typing.Optional[str]
 
 ### Attributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.polly_classes.LexiconAttributesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.polly_classes.LexiconAttributes]
 
 
-# LexiconTypeDef
-
-### Content
-- **Type**: typing.Optional[str]
-
-### Name
-- **Type**: typing.Optional[str]
-
-
-# ListLexiconsInputPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.polly_classes.PaginatorConfigTypeDef]
-
-
-# ListLexiconsInputTypeDef
+# ListLexiconsInput
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListLexiconsOutputTypeDef
+# ListLexiconsInputPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.polly_classes.PaginatorConfig]
+
+
+# ListLexiconsOutput
 
 ### Lexicons
-- **Type**: typing.List[aws_resource_validator.pydantic_models.polly_classes.LexiconDescriptionTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.polly_classes.LexiconDescription]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.polly_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.polly_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListSpeechSynthesisTasksInputPaginateTypeDef
-
-### Status
-- **Type**: typing.Optional[typing.Literal['completed', 'failed', 'inProgress', 'scheduled']]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.polly_classes.PaginatorConfigTypeDef]
-
-
-# ListSpeechSynthesisTasksInputTypeDef
+# ListSpeechSynthesisTasksInput
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -183,21 +174,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['completed', 'failed', 'inProgress', 'scheduled']]
 
 
-# ListSpeechSynthesisTasksOutputTypeDef
+# ListSpeechSynthesisTasksInputPaginate
+
+### Status
+- **Type**: typing.Optional[typing.Literal['completed', 'failed', 'inProgress', 'scheduled']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.polly_classes.PaginatorConfig]
+
+
+# ListSpeechSynthesisTasksOutput
 
 ### SynthesisTasks
-- **Type**: typing.List[aws_resource_validator.pydantic_models.polly_classes.SynthesisTaskTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.polly_classes.SynthesisTask]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.polly_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.polly_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -209,7 +209,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PutLexiconInputTypeDef
+# PutLexiconInput
 
 ### Name
 - **Type**: <class 'str'>
@@ -220,7 +220,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -242,18 +242,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# StartSpeechSynthesisTaskOutputTypeDef
+# StartSpeechSynthesisTaskOutput
 
 ### SynthesisTask
-- **Type**: <class 'aws_resource_validator.pydantic_models.polly_classes.SynthesisTaskTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.polly_classes.SynthesisTask'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.polly_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.polly_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# SynthesisTaskTypeDef
+# SynthesisTask
 
 ### Engine
 - **Type**: typing.Optional[typing.Literal['generative', 'long-form', 'neural', 'standard']]
@@ -301,7 +301,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ar-AE', 'arb', 'ca-ES', 'cmn-CN', 'cs-CZ', 'cy-GB', 'da-DK', 'de-AT', 'de-CH', 'de-DE', 'en-AU', 'en-GB', 'en-GB-WLS', 'en-IE', 'en-IN', 'en-NZ', 'en-SG', 'en-US', 'en-ZA', 'es-ES', 'es-MX', 'es-US', 'fi-FI', 'fr-BE', 'fr-CA', 'fr-FR', 'hi-IN', 'is-IS', 'it-IT', 'ja-JP', 'ko-KR', 'nb-NO', 'nl-BE', 'nl-NL', 'pl-PL', 'pt-BR', 'pt-PT', 'ro-RO', 'ru-RU', 'sv-SE', 'tr-TR', 'yue-CN']]
 
 
-# SynthesizeSpeechOutputTypeDef
+# SynthesizeSpeechOutput
 
 ### AudioStream
 - **Type**: <class 'botocore.response.StreamingBody'>
@@ -316,11 +316,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.polly_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.polly_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# VoiceTypeDef
+# Voice
 
 ### Gender
 - **Type**: typing.Optional[typing.Literal['Female', 'Male']]

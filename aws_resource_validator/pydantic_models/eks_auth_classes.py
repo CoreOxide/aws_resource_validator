@@ -12,29 +12,29 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.eks_auth_constants import *
 
-class AssumeRoleForPodIdentityRequestTypeDef(BaseValidatorModel):
+class AssumeRoleForPodIdentityRequest(BaseValidatorModel):
     clusterName: str
     token: str
 
 
-class AssumedRoleUserTypeDef(BaseValidatorModel):
+class AssumedRoleUser(BaseValidatorModel):
     arn: str
     assumeRoleId: str
 
 
-class CredentialsTypeDef(BaseValidatorModel):
+class Credentials(BaseValidatorModel):
     sessionToken: str
     secretAccessKey: str
     accessKeyId: str
     expiration: datetime
 
 
-class PodIdentityAssociationTypeDef(BaseValidatorModel):
+class PodIdentityAssociation(BaseValidatorModel):
     associationArn: str
     associationId: str
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -42,17 +42,17 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class SubjectTypeDef(BaseValidatorModel):
+class Subject(BaseValidatorModel):
     namespace: str
     serviceAccount: str
 
 
-class AssumeRoleForPodIdentityResponseTypeDef(BaseValidatorModel):
-    subject: SubjectTypeDef
+class AssumeRoleForPodIdentityResponse(BaseValidatorModel):
+    subject: Subject
     audience: str
-    podIdentityAssociation: PodIdentityAssociationTypeDef
-    assumedRoleUser: AssumedRoleUserTypeDef
-    credentials: CredentialsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    podIdentityAssociation: PodIdentityAssociation
+    assumedRoleUser: AssumedRoleUser
+    credentials: Credentials
+    ResponseMetadata: ResponseMetadata
 
 

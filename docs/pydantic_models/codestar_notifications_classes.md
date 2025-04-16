@@ -6,7 +6,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CreateNotificationRuleRequestTypeDef
+# CreateNotificationRuleRequest
 
 ### Name
 - **Type**: <class 'str'>
@@ -21,7 +21,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Targets
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.codestar_notifications_classes.TargetTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.codestar_notifications_classes.Target]
 - **Required**: Yes
 
 ### DetailType
@@ -38,36 +38,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
 
 
-# CreateNotificationRuleResultTypeDef
+# CreateNotificationRuleResult
 
 ### Arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codestar_notifications_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codestar_notifications_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteNotificationRuleRequestTypeDef
+# DeleteNotificationRuleRequest
 
 ### Arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteNotificationRuleResultTypeDef
+# DeleteNotificationRuleResult
 
 ### Arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codestar_notifications_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codestar_notifications_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteTargetRequestTypeDef
+# DeleteTargetRequest
 
 ### TargetAddress
 - **Type**: <class 'str'>
@@ -77,14 +77,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# DescribeNotificationRuleRequestTypeDef
+# DescribeNotificationRuleRequest
 
 ### Arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeNotificationRuleResultTypeDef
+# DescribeNotificationRuleResult
 
 ### Arn
 - **Type**: <class 'str'>
@@ -95,7 +95,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### EventTypes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codestar_notifications_classes.EventTypeSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codestar_notifications_classes.EventTypeSummary]
 - **Required**: Yes
 
 ### Resource
@@ -103,7 +103,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Targets
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codestar_notifications_classes.TargetSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codestar_notifications_classes.TargetSummary]
 - **Required**: Yes
 
 ### DetailType
@@ -131,17 +131,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codestar_notifications_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codestar_notifications_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# EventTypeSummaryTypeDef
+# EventTypeSummary
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ListEventTypesFilterTypeDef
+# ListEventTypesFilter
 
 ### Name
 - **Type**: typing.Literal['RESOURCE_TYPE', 'SERVICE_NAME']
@@ -152,19 +152,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListEventTypesRequestPaginateTypeDef
+# ListEventTypesRequest
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.codestar_notifications_classes.ListEventTypesFilterTypeDef]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codestar_notifications_classes.PaginatorConfigTypeDef]
-
-
-# ListEventTypesRequestTypeDef
-
-### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.codestar_notifications_classes.ListEventTypesFilterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.codestar_notifications_classes.ListEventTypesFilter]]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -173,21 +164,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListEventTypesResultTypeDef
+# ListEventTypesRequestPaginate
+
+### Filters
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.codestar_notifications_classes.ListEventTypesFilter]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codestar_notifications_classes.PaginatorConfig]
+
+
+# ListEventTypesResult
 
 ### EventTypes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codestar_notifications_classes.EventTypeSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codestar_notifications_classes.EventTypeSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codestar_notifications_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codestar_notifications_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListNotificationRulesFilterTypeDef
+# ListNotificationRulesFilter
 
 ### Name
 - **Type**: typing.Literal['CREATED_BY', 'EVENT_TYPE_ID', 'RESOURCE', 'TARGET_ADDRESS']
@@ -198,19 +198,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListNotificationRulesRequestPaginateTypeDef
+# ListNotificationRulesRequest
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.codestar_notifications_classes.ListNotificationRulesFilterTypeDef]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codestar_notifications_classes.PaginatorConfigTypeDef]
-
-
-# ListNotificationRulesRequestTypeDef
-
-### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.codestar_notifications_classes.ListNotificationRulesFilterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.codestar_notifications_classes.ListNotificationRulesFilter]]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -219,39 +210,48 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListNotificationRulesResultTypeDef
+# ListNotificationRulesRequestPaginate
+
+### Filters
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.codestar_notifications_classes.ListNotificationRulesFilter]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codestar_notifications_classes.PaginatorConfig]
+
+
+# ListNotificationRulesResult
 
 ### NotificationRules
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codestar_notifications_classes.NotificationRuleSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codestar_notifications_classes.NotificationRuleSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codestar_notifications_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codestar_notifications_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestTypeDef
+# ListTagsForResourceRequest
 
 ### Arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ListTagsForResourceResultTypeDef
+# ListTagsForResourceResult
 
 ### Tags
 - **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codestar_notifications_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codestar_notifications_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListTargetsFilterTypeDef
+# ListTargetsFilter
 
 ### Name
 - **Type**: typing.Literal['TARGET_ADDRESS', 'TARGET_STATUS', 'TARGET_TYPE']
@@ -262,19 +262,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListTargetsRequestPaginateTypeDef
+# ListTargetsRequest
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.codestar_notifications_classes.ListTargetsFilterTypeDef]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codestar_notifications_classes.PaginatorConfigTypeDef]
-
-
-# ListTargetsRequestTypeDef
-
-### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.codestar_notifications_classes.ListTargetsFilterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.codestar_notifications_classes.ListTargetsFilter]]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -283,21 +274,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListTargetsResultTypeDef
+# ListTargetsRequestPaginate
+
+### Filters
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.codestar_notifications_classes.ListTargetsFilter]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codestar_notifications_classes.PaginatorConfig]
+
+
+# ListTargetsResult
 
 ### Targets
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codestar_notifications_classes.TargetSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codestar_notifications_classes.TargetSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codestar_notifications_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codestar_notifications_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# NotificationRuleSummaryTypeDef
+# NotificationRuleSummary
 
 ### Id
 - **Type**: typing.Optional[str]
@@ -306,7 +306,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -318,7 +318,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -340,32 +340,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SubscribeRequestTypeDef
+# SubscribeRequest
 
 ### Arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Target
-- **Type**: <class 'aws_resource_validator.pydantic_models.codestar_notifications_classes.TargetTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codestar_notifications_classes.Target'>
 - **Required**: Yes
 
 ### ClientRequestToken
 - **Type**: typing.Optional[str]
 
 
-# SubscribeResultTypeDef
+# SubscribeResult
 
 ### Arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codestar_notifications_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codestar_notifications_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# TagResourceRequestTypeDef
+# TagResourceRequest
 
 ### Arn
 - **Type**: <class 'str'>
@@ -376,18 +376,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TagResourceResultTypeDef
+# TagResourceResult
 
 ### Tags
 - **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codestar_notifications_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codestar_notifications_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# TargetSummaryTypeDef
+# Target
+
+### TargetType
+- **Type**: typing.Optional[str]
+
+### TargetAddress
+- **Type**: typing.Optional[str]
+
+
+# TargetSummary
 
 ### TargetAddress
 - **Type**: typing.Optional[str]
@@ -399,16 +408,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'DEACTIVATED', 'INACTIVE', 'PENDING', 'UNREACHABLE']]
 
 
-# TargetTypeDef
-
-### TargetType
-- **Type**: typing.Optional[str]
-
-### TargetAddress
-- **Type**: typing.Optional[str]
-
-
-# UnsubscribeRequestTypeDef
+# UnsubscribeRequest
 
 ### Arn
 - **Type**: <class 'str'>
@@ -419,18 +419,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UnsubscribeResultTypeDef
+# UnsubscribeResult
 
 ### Arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codestar_notifications_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codestar_notifications_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UntagResourceRequestTypeDef
+# UntagResourceRequest
 
 ### Arn
 - **Type**: <class 'str'>
@@ -441,7 +441,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateNotificationRuleRequestTypeDef
+# UpdateNotificationRuleRequest
 
 ### Arn
 - **Type**: <class 'str'>
@@ -457,7 +457,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### Targets
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.codestar_notifications_classes.TargetTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.codestar_notifications_classes.Target]]
 
 ### DetailType
 - **Type**: typing.Optional[typing.Literal['BASIC', 'FULL']]

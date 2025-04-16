@@ -12,16 +12,16 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.omics_constants import *
 
-class AbortMultipartReadSetUploadRequestTypeDef(BaseValidatorModel):
+class AbortMultipartReadSetUploadRequest(BaseValidatorModel):
     sequenceStoreId: str
     uploadId: str
 
 
-class AcceptShareRequestTypeDef(BaseValidatorModel):
+class AcceptShareRequest(BaseValidatorModel):
     shareId: str
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -29,45 +29,45 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class ActivateReadSetSourceItemTypeDef(BaseValidatorModel):
+class ActivateReadSetSourceItem(BaseValidatorModel):
     readSetId: str
     status: ReadSetActivationJobItemStatusType
     statusMessage: Optional[str] = None
 
 
-class AnnotationImportItemDetailTypeDef(BaseValidatorModel):
+class AnnotationImportItemDetail(BaseValidatorModel):
     source: str
     jobStatus: JobStatusType
 
 
-class AnnotationImportItemSourceTypeDef(BaseValidatorModel):
+class AnnotationImportItemSource(BaseValidatorModel):
     source: str
 
 
-class ReferenceItemTypeDef(BaseValidatorModel):
+class ReferenceItem(BaseValidatorModel):
     referenceArn: Optional[str] = None
 
 
-class BatchDeleteReadSetRequestTypeDef(BaseValidatorModel):
+class BatchDeleteReadSetRequest(BaseValidatorModel):
     ids: Sequence[str]
     sequenceStoreId: str
 
 
-class CancelAnnotationImportRequestTypeDef(BaseValidatorModel):
+class CancelAnnotationImportRequest(BaseValidatorModel):
     jobId: str
 
 
-class CancelVariantImportRequestTypeDef(BaseValidatorModel):
+class CancelVariantImportRequest(BaseValidatorModel):
     jobId: str
 
 
-class CompleteReadSetUploadPartListItemTypeDef(BaseValidatorModel):
+class CompleteReadSetUploadPartListItem(BaseValidatorModel):
     partNumber: int
     partSource: ReadSetPartSourceType
     checksum: str
 
 
-class CreateMultipartReadSetUploadRequestTypeDef(BaseValidatorModel):
+class CreateMultipartReadSetUploadRequest(BaseValidatorModel):
     sequenceStoreId: str
     sourceFileType: FileTypeType
     subjectId: str
@@ -80,7 +80,7 @@ class CreateMultipartReadSetUploadRequestTypeDef(BaseValidatorModel):
     tags: Optional[Mapping[str, str]] = None
 
 
-class CreateRunCacheRequestTypeDef(BaseValidatorModel):
+class CreateRunCacheRequest(BaseValidatorModel):
     cacheS3Location: str
     requestId: str
     cacheBehavior: Optional[CacheBehaviorType] = None
@@ -90,7 +90,7 @@ class CreateRunCacheRequestTypeDef(BaseValidatorModel):
     cacheBucketOwnerId: Optional[str] = None
 
 
-class CreateRunGroupRequestTypeDef(BaseValidatorModel):
+class CreateRunGroupRequest(BaseValidatorModel):
     requestId: str
     name: Optional[str] = None
     maxCpus: Optional[int] = None
@@ -100,101 +100,101 @@ class CreateRunGroupRequestTypeDef(BaseValidatorModel):
     maxGpus: Optional[int] = None
 
 
-class S3AccessConfigTypeDef(BaseValidatorModel):
+class S3AccessConfig(BaseValidatorModel):
     accessLogLocation: Optional[str] = None
 
 
-class SequenceStoreS3AccessTypeDef(BaseValidatorModel):
+class SequenceStoreS3Access(BaseValidatorModel):
     s3Uri: Optional[str] = None
     s3AccessPointArn: Optional[str] = None
     accessLogLocation: Optional[str] = None
 
 
-class CreateShareRequestTypeDef(BaseValidatorModel):
+class CreateShareRequest(BaseValidatorModel):
     resourceArn: str
     principalSubscriber: str
     shareName: Optional[str] = None
 
 
-class WorkflowParameterTypeDef(BaseValidatorModel):
+class WorkflowParameter(BaseValidatorModel):
     description: Optional[str] = None
     optional: Optional[bool] = None
 
 
-class DeleteAnnotationStoreRequestTypeDef(BaseValidatorModel):
+class DeleteAnnotationStoreRequest(BaseValidatorModel):
     name: str
     force: Optional[bool] = None
 
 
-class DeleteAnnotationStoreVersionsRequestTypeDef(BaseValidatorModel):
+class DeleteAnnotationStoreVersionsRequest(BaseValidatorModel):
     name: str
     versions: Sequence[str]
     force: Optional[bool] = None
 
 
-class VersionDeleteErrorTypeDef(BaseValidatorModel):
+class VersionDeleteError(BaseValidatorModel):
     versionName: str
     message: str
 
 
-class DeleteS3AccessPolicyRequestTypeDef(BaseValidatorModel):
+class DeleteS3AccessPolicyRequest(BaseValidatorModel):
     s3AccessPointArn: str
 
 
-class DeleteShareRequestTypeDef(BaseValidatorModel):
+class DeleteShareRequest(BaseValidatorModel):
     shareId: str
 
 
-class DeleteVariantStoreRequestTypeDef(BaseValidatorModel):
+class DeleteVariantStoreRequest(BaseValidatorModel):
     name: str
     force: Optional[bool] = None
 
 
-class ETagTypeDef(BaseValidatorModel):
+class ETag(BaseValidatorModel):
     algorithm: Optional[ETagAlgorithmType] = None
     source1: Optional[str] = None
     source2: Optional[str] = None
 
 
-class ExportReadSetTypeDef(BaseValidatorModel):
+class ExportReadSet(BaseValidatorModel):
     readSetId: str
 
 
-class ReadSetS3AccessTypeDef(BaseValidatorModel):
+class ReadSetS3Access(BaseValidatorModel):
     s3Uri: Optional[str] = None
 
 
-class VcfOptionsTypeDef(BaseValidatorModel):
+class VcfOptions(BaseValidatorModel):
     ignoreQualField: Optional[bool] = None
     ignoreFilterField: Optional[bool] = None
 
 
-class GetAnnotationImportRequestTypeDef(BaseValidatorModel):
+class GetAnnotationImportRequest(BaseValidatorModel):
     jobId: str
 
 
-class WaiterConfigTypeDef(BaseValidatorModel):
+class WaiterConfig(BaseValidatorModel):
     Delay: Optional[int] = None
     MaxAttempts: Optional[int] = None
 
 
-class GetAnnotationStoreRequestTypeDef(BaseValidatorModel):
+class GetAnnotationStoreRequest(BaseValidatorModel):
     name: str
 
 
-class GetAnnotationStoreVersionRequestTypeDef(BaseValidatorModel):
+class GetAnnotationStoreVersionRequest(BaseValidatorModel):
     name: str
     versionName: str
 
 
-class SequenceInformationTypeDef(BaseValidatorModel):
+class SequenceInformation(BaseValidatorModel):
     totalReadCount: Optional[int] = None
     totalBaseCount: Optional[int] = None
     generatedFrom: Optional[str] = None
     alignment: Optional[str] = None
 
 
-class ImportReferenceSourceItemTypeDef(BaseValidatorModel):
+class ImportReferenceSourceItem(BaseValidatorModel):
     status: ReferenceImportJobItemStatusType
     sourceFile: Optional[str] = None
     statusMessage: Optional[str] = None
@@ -204,20 +204,20 @@ class ImportReferenceSourceItemTypeDef(BaseValidatorModel):
     referenceId: Optional[str] = None
 
 
-class RunLogLocationTypeDef(BaseValidatorModel):
+class RunLogLocation(BaseValidatorModel):
     engineLogStream: Optional[str] = None
     runLogStream: Optional[str] = None
 
 
-class GetS3AccessPolicyRequestTypeDef(BaseValidatorModel):
+class GetS3AccessPolicyRequest(BaseValidatorModel):
     s3AccessPointArn: str
 
 
-class GetShareRequestTypeDef(BaseValidatorModel):
+class GetShareRequest(BaseValidatorModel):
     shareId: str
 
 
-class ShareDetailsTypeDef(BaseValidatorModel):
+class ShareDetails(BaseValidatorModel):
     shareId: Optional[str] = None
     resourceArn: Optional[str] = None
     resourceId: Optional[str] = None
@@ -230,51 +230,51 @@ class ShareDetailsTypeDef(BaseValidatorModel):
     updateTime: Optional[datetime] = None
 
 
-class GetVariantImportRequestTypeDef(BaseValidatorModel):
+class GetVariantImportRequest(BaseValidatorModel):
     jobId: str
 
 
-class VariantImportItemDetailTypeDef(BaseValidatorModel):
+class VariantImportItemDetail(BaseValidatorModel):
     source: str
     jobStatus: JobStatusType
     statusMessage: Optional[str] = None
 
 
-class GetVariantStoreRequestTypeDef(BaseValidatorModel):
+class GetVariantStoreRequest(BaseValidatorModel):
     name: str
 
 
-class SourceFilesTypeDef(BaseValidatorModel):
+class SourceFiles(BaseValidatorModel):
     source1: str
     source2: Optional[str] = None
 
 
-class ListAnnotationImportJobsFilterTypeDef(BaseValidatorModel):
+class ListAnnotationImportJobsFilter(BaseValidatorModel):
     status: Optional[JobStatusType] = None
     storeName: Optional[str] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListAnnotationStoreVersionsFilterTypeDef(BaseValidatorModel):
+class ListAnnotationStoreVersionsFilter(BaseValidatorModel):
     status: Optional[VersionStatusType] = None
 
 
-class ListAnnotationStoresFilterTypeDef(BaseValidatorModel):
+class ListAnnotationStoresFilter(BaseValidatorModel):
     status: Optional[StoreStatusType] = None
 
 
-class ListMultipartReadSetUploadsRequestTypeDef(BaseValidatorModel):
+class ListMultipartReadSetUploadsRequest(BaseValidatorModel):
     sequenceStoreId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class MultipartReadSetUploadListItemTypeDef(BaseValidatorModel):
+class MultipartReadSetUploadListItem(BaseValidatorModel):
     sequenceStoreId: str
     uploadId: str
     sourceFileType: FileTypeType
@@ -288,7 +288,7 @@ class MultipartReadSetUploadListItemTypeDef(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
-class ReadSetUploadPartListItemTypeDef(BaseValidatorModel):
+class ReadSetUploadPartListItem(BaseValidatorModel):
     partNumber: int
     partSize: int
     partSource: ReadSetPartSourceType
@@ -297,18 +297,18 @@ class ReadSetUploadPartListItemTypeDef(BaseValidatorModel):
     lastUpdatedTime: Optional[datetime] = None
 
 
-class ListRunCachesRequestTypeDef(BaseValidatorModel):
+class ListRunCachesRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     startingToken: Optional[str] = None
 
 
-class ListRunGroupsRequestTypeDef(BaseValidatorModel):
+class ListRunGroupsRequest(BaseValidatorModel):
     name: Optional[str] = None
     startingToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class TaskListItemTypeDef(BaseValidatorModel):
+class TaskListItem(BaseValidatorModel):
     taskId: Optional[str] = None
     status: Optional[TaskStatusType] = None
     name: Optional[str] = None
@@ -323,7 +323,7 @@ class TaskListItemTypeDef(BaseValidatorModel):
     instanceType: Optional[str] = None
 
 
-class ListRunsRequestTypeDef(BaseValidatorModel):
+class ListRunsRequest(BaseValidatorModel):
     name: Optional[str] = None
     runGroupId: Optional[str] = None
     startingToken: Optional[str] = None
@@ -331,25 +331,25 @@ class ListRunsRequestTypeDef(BaseValidatorModel):
     status: Optional[RunStatusType] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
 
-class ListVariantImportJobsFilterTypeDef(BaseValidatorModel):
+class ListVariantImportJobsFilter(BaseValidatorModel):
     status: Optional[JobStatusType] = None
     storeName: Optional[str] = None
 
 
-class ListVariantStoresFilterTypeDef(BaseValidatorModel):
+class ListVariantStoresFilter(BaseValidatorModel):
     status: Optional[StoreStatusType] = None
 
 
-class PutS3AccessPolicyRequestTypeDef(BaseValidatorModel):
+class PutS3AccessPolicyRequest(BaseValidatorModel):
     s3AccessPointArn: str
     s3AccessPolicy: str
 
 
-class ReadOptionsTypeDef(BaseValidatorModel):
+class ReadOptions(BaseValidatorModel):
     sep: Optional[str] = None
     encoding: Optional[str] = None
     quote: Optional[str] = None
@@ -361,18 +361,18 @@ class ReadOptionsTypeDef(BaseValidatorModel):
     lineSep: Optional[str] = None
 
 
-class StartReadSetActivationJobSourceItemTypeDef(BaseValidatorModel):
+class StartReadSetActivationJobSourceItem(BaseValidatorModel):
     readSetId: str
 
 
-class StartReferenceImportJobSourceItemTypeDef(BaseValidatorModel):
+class StartReferenceImportJobSourceItem(BaseValidatorModel):
     sourceFile: str
     name: str
     description: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
 
-class StartRunRequestTypeDef(BaseValidatorModel):
+class StartRunRequest(BaseValidatorModel):
     roleArn: str
     requestId: str
     workflowId: Optional[str] = None
@@ -393,71 +393,71 @@ class StartRunRequestTypeDef(BaseValidatorModel):
     workflowOwnerId: Optional[str] = None
 
 
-class VariantImportItemSourceTypeDef(BaseValidatorModel):
+class VariantImportItemSource(BaseValidatorModel):
     source: str
 
 
-class TsvStoreOptionsOutputTypeDef(BaseValidatorModel):
+class TsvStoreOptionsOutput(BaseValidatorModel):
     annotationType: Optional[AnnotationTypeType] = None
     formatToHeader: Optional[Dict[FormatToHeaderKeyType, str]] = None
     schema: Optional[List[Dict[str, SchemaValueTypeType]]] = None
 
 
-class TsvStoreOptionsTypeDef(BaseValidatorModel):
+class TsvStoreOptions(BaseValidatorModel):
     annotationType: Optional[AnnotationTypeType] = None
     formatToHeader: Optional[Mapping[FormatToHeaderKeyType, str]] = None
     schema: Optional[Sequence[Mapping[str, SchemaValueTypeType]]] = None
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
 
-class TsvVersionOptionsOutputTypeDef(BaseValidatorModel):
+class TsvVersionOptionsOutput(BaseValidatorModel):
     annotationType: Optional[AnnotationTypeType] = None
     formatToHeader: Optional[Dict[FormatToHeaderKeyType, str]] = None
     schema: Optional[List[Dict[str, SchemaValueTypeType]]] = None
 
 
-class TsvVersionOptionsTypeDef(BaseValidatorModel):
+class TsvVersionOptions(BaseValidatorModel):
     annotationType: Optional[AnnotationTypeType] = None
     formatToHeader: Optional[Mapping[FormatToHeaderKeyType, str]] = None
     schema: Optional[Sequence[Mapping[str, SchemaValueTypeType]]] = None
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
 
-class UpdateAnnotationStoreRequestTypeDef(BaseValidatorModel):
+class UpdateAnnotationStoreRequest(BaseValidatorModel):
     name: str
     description: Optional[str] = None
 
 
-class UpdateAnnotationStoreVersionRequestTypeDef(BaseValidatorModel):
+class UpdateAnnotationStoreVersionRequest(BaseValidatorModel):
     name: str
     versionName: str
     description: Optional[str] = None
 
 
-class UpdateVariantStoreRequestTypeDef(BaseValidatorModel):
+class UpdateVariantStoreRequest(BaseValidatorModel):
     name: str
     description: Optional[str] = None
 
 
-class AcceptShareResponseTypeDef(BaseValidatorModel):
+class AcceptShareResponse(BaseValidatorModel):
     status: ShareStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CompleteMultipartReadSetUploadResponseTypeDef(BaseValidatorModel):
+class CompleteMultipartReadSetUploadResponse(BaseValidatorModel):
     readSetId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateMultipartReadSetUploadResponseTypeDef(BaseValidatorModel):
+class CreateMultipartReadSetUploadResponse(BaseValidatorModel):
     sequenceStoreId: str
     uploadId: str
     sourceFileType: FileTypeType
@@ -469,46 +469,46 @@ class CreateMultipartReadSetUploadResponseTypeDef(BaseValidatorModel):
     description: str
     tags: Dict[str, str]
     creationTime: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateShareResponseTypeDef(BaseValidatorModel):
+class CreateShareResponse(BaseValidatorModel):
     shareId: str
     status: ShareStatusType
     shareName: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteAnnotationStoreResponseTypeDef(BaseValidatorModel):
+class DeleteAnnotationStoreResponse(BaseValidatorModel):
     status: StoreStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteShareResponseTypeDef(BaseValidatorModel):
+class DeleteShareResponse(BaseValidatorModel):
     status: ShareStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteVariantStoreResponseTypeDef(BaseValidatorModel):
+class DeleteVariantStoreResponse(BaseValidatorModel):
     status: StoreStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class EmptyResponseMetadataTypeDef(BaseValidatorModel):
-    ResponseMetadata: ResponseMetadataTypeDef
+class EmptyResponseMetadata(BaseValidatorModel):
+    ResponseMetadata: ResponseMetadata
 
 
-class GetReadSetResponseTypeDef(BaseValidatorModel):
+class GetReadSetResponse(BaseValidatorModel):
     payload: StreamingBody
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetReferenceResponseTypeDef(BaseValidatorModel):
+class GetReferenceResponse(BaseValidatorModel):
     payload: StreamingBody
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetRunTaskResponseTypeDef(BaseValidatorModel):
+class GetRunTaskResponse(BaseValidatorModel):
     taskId: str
     status: TaskStatusType
     name: str
@@ -524,310 +524,310 @@ class GetRunTaskResponseTypeDef(BaseValidatorModel):
     gpus: int
     instanceType: str
     failureReason: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetS3AccessPolicyResponseTypeDef(BaseValidatorModel):
+class GetS3AccessPolicyResponse(BaseValidatorModel):
     s3AccessPointArn: str
     storeId: str
     storeType: StoreTypeType
     updateTime: datetime
     s3AccessPolicy: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
+class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class PutS3AccessPolicyResponseTypeDef(BaseValidatorModel):
+class PutS3AccessPolicyResponse(BaseValidatorModel):
     s3AccessPointArn: str
     storeId: str
     storeType: StoreTypeType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartAnnotationImportResponseTypeDef(BaseValidatorModel):
+class StartAnnotationImportResponse(BaseValidatorModel):
     jobId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartVariantImportResponseTypeDef(BaseValidatorModel):
+class StartVariantImportResponse(BaseValidatorModel):
     jobId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UploadReadSetPartResponseTypeDef(BaseValidatorModel):
+class UploadReadSetPartResponse(BaseValidatorModel):
     checksum: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class TimestampTypeDef(BaseValidatorModel):
+class Timestamp(BaseValidatorModel):
     pass
 
 
-class ActivateReadSetFilterTypeDef(BaseValidatorModel):
+class ActivateReadSetFilter(BaseValidatorModel):
     status: Optional[ReadSetActivationJobStatusType] = None
-    createdAfter: Optional[TimestampTypeDef] = None
-    createdBefore: Optional[TimestampTypeDef] = None
+    createdAfter: Optional[Timestamp] = None
+    createdBefore: Optional[Timestamp] = None
 
 
-class ExportReadSetFilterTypeDef(BaseValidatorModel):
+class ExportReadSetFilter(BaseValidatorModel):
     status: Optional[ReadSetExportJobStatusType] = None
-    createdAfter: Optional[TimestampTypeDef] = None
-    createdBefore: Optional[TimestampTypeDef] = None
+    createdAfter: Optional[Timestamp] = None
+    createdBefore: Optional[Timestamp] = None
 
 
-class ImportReadSetFilterTypeDef(BaseValidatorModel):
+class ImportReadSetFilter(BaseValidatorModel):
     status: Optional[ReadSetImportJobStatusType] = None
-    createdAfter: Optional[TimestampTypeDef] = None
-    createdBefore: Optional[TimestampTypeDef] = None
+    createdAfter: Optional[Timestamp] = None
+    createdBefore: Optional[Timestamp] = None
 
 
-class ImportReferenceFilterTypeDef(BaseValidatorModel):
+class ImportReferenceFilter(BaseValidatorModel):
     status: Optional[ReferenceImportJobStatusType] = None
-    createdAfter: Optional[TimestampTypeDef] = None
-    createdBefore: Optional[TimestampTypeDef] = None
+    createdAfter: Optional[Timestamp] = None
+    createdBefore: Optional[Timestamp] = None
 
 
-class ReadSetFilterTypeDef(BaseValidatorModel):
+class ReadSetFilter(BaseValidatorModel):
     name: Optional[str] = None
     status: Optional[ReadSetStatusType] = None
     referenceArn: Optional[str] = None
-    createdAfter: Optional[TimestampTypeDef] = None
-    createdBefore: Optional[TimestampTypeDef] = None
+    createdAfter: Optional[Timestamp] = None
+    createdBefore: Optional[Timestamp] = None
     sampleId: Optional[str] = None
     subjectId: Optional[str] = None
     generatedFrom: Optional[str] = None
     creationType: Optional[CreationTypeType] = None
 
 
-class ReadSetUploadPartListFilterTypeDef(BaseValidatorModel):
-    createdAfter: Optional[TimestampTypeDef] = None
-    createdBefore: Optional[TimestampTypeDef] = None
+class ReadSetUploadPartListFilter(BaseValidatorModel):
+    createdAfter: Optional[Timestamp] = None
+    createdBefore: Optional[Timestamp] = None
 
 
-class ReferenceFilterTypeDef(BaseValidatorModel):
+class ReferenceFilter(BaseValidatorModel):
     name: Optional[str] = None
     md5: Optional[str] = None
-    createdAfter: Optional[TimestampTypeDef] = None
-    createdBefore: Optional[TimestampTypeDef] = None
+    createdAfter: Optional[Timestamp] = None
+    createdBefore: Optional[Timestamp] = None
 
 
-class ReferenceStoreFilterTypeDef(BaseValidatorModel):
+class ReferenceStoreFilter(BaseValidatorModel):
     name: Optional[str] = None
-    createdAfter: Optional[TimestampTypeDef] = None
-    createdBefore: Optional[TimestampTypeDef] = None
+    createdAfter: Optional[Timestamp] = None
+    createdBefore: Optional[Timestamp] = None
 
 
-class SequenceStoreFilterTypeDef(BaseValidatorModel):
+class SequenceStoreFilter(BaseValidatorModel):
     name: Optional[str] = None
-    createdAfter: Optional[TimestampTypeDef] = None
-    createdBefore: Optional[TimestampTypeDef] = None
+    createdAfter: Optional[Timestamp] = None
+    createdBefore: Optional[Timestamp] = None
     status: Optional[SequenceStoreStatusType] = None
-    updatedAfter: Optional[TimestampTypeDef] = None
-    updatedBefore: Optional[TimestampTypeDef] = None
+    updatedAfter: Optional[Timestamp] = None
+    updatedBefore: Optional[Timestamp] = None
 
 
-class ActivateReadSetJobItemTypeDef(BaseValidatorModel):
+class ActivateReadSetJobItem(BaseValidatorModel):
     pass
 
 
-class ListReadSetActivationJobsResponseTypeDef(BaseValidatorModel):
-    activationJobs: List[ActivateReadSetJobItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListReadSetActivationJobsResponse(BaseValidatorModel):
+    activationJobs: List[ActivateReadSetJobItem]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class AnnotationImportJobItemTypeDef(BaseValidatorModel):
+class AnnotationImportJobItem(BaseValidatorModel):
     pass
 
 
-class ListAnnotationImportJobsResponseTypeDef(BaseValidatorModel):
-    annotationImportJobs: List[AnnotationImportJobItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAnnotationImportJobsResponse(BaseValidatorModel):
+    annotationImportJobs: List[AnnotationImportJobItem]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class SseConfigTypeDef(BaseValidatorModel):
+class SseConfig(BaseValidatorModel):
     pass
 
 
-class CreateReferenceStoreRequestTypeDef(BaseValidatorModel):
+class CreateReferenceStoreRequest(BaseValidatorModel):
     name: str
     description: Optional[str] = None
-    sseConfig: Optional[SseConfigTypeDef] = None
+    sseConfig: Optional[SseConfig] = None
     tags: Optional[Mapping[str, str]] = None
     clientToken: Optional[str] = None
 
 
-class CreateVariantStoreRequestTypeDef(BaseValidatorModel):
-    reference: ReferenceItemTypeDef
+class CreateVariantStoreRequest(BaseValidatorModel):
+    reference: ReferenceItem
     name: Optional[str] = None
     description: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
-    sseConfig: Optional[SseConfigTypeDef] = None
+    sseConfig: Optional[SseConfig] = None
 
 
-class AnnotationStoreVersionItemTypeDef(BaseValidatorModel):
+class AnnotationStoreVersionItem(BaseValidatorModel):
     pass
 
 
-class ListAnnotationStoreVersionsResponseTypeDef(BaseValidatorModel):
-    annotationStoreVersions: List[AnnotationStoreVersionItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAnnotationStoreVersionsResponse(BaseValidatorModel):
+    annotationStoreVersions: List[AnnotationStoreVersionItem]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ReadSetBatchErrorTypeDef(BaseValidatorModel):
+class ReadSetBatchError(BaseValidatorModel):
     pass
 
 
-class BatchDeleteReadSetResponseTypeDef(BaseValidatorModel):
-    errors: List[ReadSetBatchErrorTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchDeleteReadSetResponse(BaseValidatorModel):
+    errors: List[ReadSetBatchError]
+    ResponseMetadata: ResponseMetadata
 
 
-class BlobTypeDef(BaseValidatorModel):
+class Blob(BaseValidatorModel):
     pass
 
 
-class UploadReadSetPartRequestTypeDef(BaseValidatorModel):
+class UploadReadSetPartRequest(BaseValidatorModel):
     sequenceStoreId: str
     uploadId: str
     partSource: ReadSetPartSourceType
     partNumber: int
-    payload: BlobTypeDef
+    payload: Blob
 
 
-class CompleteMultipartReadSetUploadRequestTypeDef(BaseValidatorModel):
+class CompleteMultipartReadSetUploadRequest(BaseValidatorModel):
     sequenceStoreId: str
     uploadId: str
-    parts: Sequence[CompleteReadSetUploadPartListItemTypeDef]
+    parts: Sequence[CompleteReadSetUploadPartListItem]
 
 
-class CreateSequenceStoreRequestTypeDef(BaseValidatorModel):
+class CreateSequenceStoreRequest(BaseValidatorModel):
     name: str
     description: Optional[str] = None
-    sseConfig: Optional[SseConfigTypeDef] = None
+    sseConfig: Optional[SseConfig] = None
     tags: Optional[Mapping[str, str]] = None
     clientToken: Optional[str] = None
     fallbackLocation: Optional[str] = None
     eTagAlgorithmFamily: Optional[ETagAlgorithmFamilyType] = None
     propagatedSetLevelTags: Optional[Sequence[str]] = None
-    s3AccessConfig: Optional[S3AccessConfigTypeDef] = None
+    s3AccessConfig: Optional[S3AccessConfig] = None
 
 
-class CreateWorkflowRequestTypeDef(BaseValidatorModel):
+class CreateWorkflowRequest(BaseValidatorModel):
     requestId: str
     name: Optional[str] = None
     description: Optional[str] = None
     engine: Optional[WorkflowEngineType] = None
-    definitionZip: Optional[BlobTypeDef] = None
+    definitionZip: Optional[Blob] = None
     definitionUri: Optional[str] = None
     main: Optional[str] = None
-    parameterTemplate: Optional[Mapping[str, WorkflowParameterTypeDef]] = None
+    parameterTemplate: Optional[Mapping[str, WorkflowParameter]] = None
     storageCapacity: Optional[int] = None
     tags: Optional[Mapping[str, str]] = None
     accelerators: Optional[Literal["GPU"]] = None
 
 
-class DeleteAnnotationStoreVersionsResponseTypeDef(BaseValidatorModel):
-    errors: List[VersionDeleteErrorTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeleteAnnotationStoreVersionsResponse(BaseValidatorModel):
+    errors: List[VersionDeleteError]
+    ResponseMetadata: ResponseMetadata
 
 
-class ExportReadSetJobDetailTypeDef(BaseValidatorModel):
+class ExportReadSetJobDetail(BaseValidatorModel):
     pass
 
 
-class ListReadSetExportJobsResponseTypeDef(BaseValidatorModel):
-    exportJobs: List[ExportReadSetJobDetailTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListReadSetExportJobsResponse(BaseValidatorModel):
+    exportJobs: List[ExportReadSetJobDetail]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class StartReadSetExportJobRequestTypeDef(BaseValidatorModel):
+class StartReadSetExportJobRequest(BaseValidatorModel):
     sequenceStoreId: str
     destination: str
     roleArn: str
-    sources: Sequence[ExportReadSetTypeDef]
+    sources: Sequence[ExportReadSet]
     clientToken: Optional[str] = None
 
 
-class FileInformationTypeDef(BaseValidatorModel):
+class FileInformation(BaseValidatorModel):
     totalParts: Optional[int] = None
     partSize: Optional[int] = None
     contentLength: Optional[int] = None
-    s3Access: Optional[ReadSetS3AccessTypeDef] = None
+    s3Access: Optional[ReadSetS3Access] = None
 
 
-class GetAnnotationImportRequestWaitTypeDef(BaseValidatorModel):
+class GetAnnotationImportRequestWait(BaseValidatorModel):
     jobId: str
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class GetAnnotationStoreRequestWaitExtraTypeDef(BaseValidatorModel):
+class GetAnnotationStoreRequestWaitExtra(BaseValidatorModel):
     name: str
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class GetAnnotationStoreRequestWaitTypeDef(BaseValidatorModel):
+class GetAnnotationStoreRequestWait(BaseValidatorModel):
     name: str
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class GetAnnotationStoreVersionRequestWaitExtraTypeDef(BaseValidatorModel):
+class GetAnnotationStoreVersionRequestWaitExtra(BaseValidatorModel):
     name: str
     versionName: str
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class GetAnnotationStoreVersionRequestWaitTypeDef(BaseValidatorModel):
+class GetAnnotationStoreVersionRequestWait(BaseValidatorModel):
     name: str
     versionName: str
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class GetVariantImportRequestWaitTypeDef(BaseValidatorModel):
+class GetVariantImportRequestWait(BaseValidatorModel):
     jobId: str
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class GetVariantStoreRequestWaitExtraTypeDef(BaseValidatorModel):
+class GetVariantStoreRequestWaitExtra(BaseValidatorModel):
     name: str
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class GetVariantStoreRequestWaitTypeDef(BaseValidatorModel):
+class GetVariantStoreRequestWait(BaseValidatorModel):
     name: str
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class GetShareResponseTypeDef(BaseValidatorModel):
-    share: ShareDetailsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetShareResponse(BaseValidatorModel):
+    share: ShareDetails
+    ResponseMetadata: ResponseMetadata
 
 
-class ListSharesResponseTypeDef(BaseValidatorModel):
-    shares: List[ShareDetailsTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListSharesResponse(BaseValidatorModel):
+    shares: List[ShareDetails]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ImportReadSetJobItemTypeDef(BaseValidatorModel):
+class ImportReadSetJobItem(BaseValidatorModel):
     pass
 
 
-class ListReadSetImportJobsResponseTypeDef(BaseValidatorModel):
-    importJobs: List[ImportReadSetJobItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListReadSetImportJobsResponse(BaseValidatorModel):
+    importJobs: List[ImportReadSetJobItem]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ImportReadSetSourceItemTypeDef(BaseValidatorModel):
-    sourceFiles: SourceFilesTypeDef
+class ImportReadSetSourceItem(BaseValidatorModel):
+    sourceFiles: SourceFiles
     sourceFileType: FileTypeType
     status: ReadSetImportJobItemStatusType
     subjectId: str
@@ -841,8 +841,8 @@ class ImportReadSetSourceItemTypeDef(BaseValidatorModel):
     readSetId: Optional[str] = None
 
 
-class StartReadSetImportJobSourceItemTypeDef(BaseValidatorModel):
-    sourceFiles: SourceFilesTypeDef
+class StartReadSetImportJobSourceItem(BaseValidatorModel):
+    sourceFiles: SourceFiles
     sourceFileType: FileTypeType
     subjectId: str
     sampleId: str
@@ -853,263 +853,263 @@ class StartReadSetImportJobSourceItemTypeDef(BaseValidatorModel):
     tags: Optional[Mapping[str, str]] = None
 
 
-class ImportReferenceJobItemTypeDef(BaseValidatorModel):
+class ImportReferenceJobItem(BaseValidatorModel):
     pass
 
 
-class ListReferenceImportJobsResponseTypeDef(BaseValidatorModel):
-    importJobs: List[ImportReferenceJobItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListReferenceImportJobsResponse(BaseValidatorModel):
+    importJobs: List[ImportReferenceJobItem]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListMultipartReadSetUploadsRequestPaginateTypeDef(BaseValidatorModel):
+class ListMultipartReadSetUploadsRequestPaginate(BaseValidatorModel):
     sequenceStoreId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListRunCachesRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListRunCachesRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListRunGroupsRequestPaginateTypeDef(BaseValidatorModel):
+class ListRunGroupsRequestPaginate(BaseValidatorModel):
     name: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListRunsRequestPaginateTypeDef(BaseValidatorModel):
+class ListRunsRequestPaginate(BaseValidatorModel):
     name: Optional[str] = None
     runGroupId: Optional[str] = None
     status: Optional[RunStatusType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListMultipartReadSetUploadsResponseTypeDef(BaseValidatorModel):
-    uploads: List[MultipartReadSetUploadListItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListMultipartReadSetUploadsResponse(BaseValidatorModel):
+    uploads: List[MultipartReadSetUploadListItem]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListReadSetUploadPartsResponseTypeDef(BaseValidatorModel):
-    parts: List[ReadSetUploadPartListItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListReadSetUploadPartsResponse(BaseValidatorModel):
+    parts: List[ReadSetUploadPartListItem]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ReferenceListItemTypeDef(BaseValidatorModel):
+class ReferenceListItem(BaseValidatorModel):
     pass
 
 
-class ListReferencesResponseTypeDef(BaseValidatorModel):
-    references: List[ReferenceListItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListReferencesResponse(BaseValidatorModel):
+    references: List[ReferenceListItem]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class RunCacheListItemTypeDef(BaseValidatorModel):
+class RunCacheListItem(BaseValidatorModel):
     pass
 
 
-class ListRunCachesResponseTypeDef(BaseValidatorModel):
-    items: List[RunCacheListItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListRunCachesResponse(BaseValidatorModel):
+    items: List[RunCacheListItem]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class RunGroupListItemTypeDef(BaseValidatorModel):
+class RunGroupListItem(BaseValidatorModel):
     pass
 
 
-class ListRunGroupsResponseTypeDef(BaseValidatorModel):
-    items: List[RunGroupListItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListRunGroupsResponse(BaseValidatorModel):
+    items: List[RunGroupListItem]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListRunTasksResponseTypeDef(BaseValidatorModel):
-    items: List[TaskListItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListRunTasksResponse(BaseValidatorModel):
+    items: List[TaskListItem]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class RunListItemTypeDef(BaseValidatorModel):
+class RunListItem(BaseValidatorModel):
     pass
 
 
-class ListRunsResponseTypeDef(BaseValidatorModel):
-    items: List[RunListItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListRunsResponse(BaseValidatorModel):
+    items: List[RunListItem]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class VariantImportJobItemTypeDef(BaseValidatorModel):
+class VariantImportJobItem(BaseValidatorModel):
     pass
 
 
-class ListVariantImportJobsResponseTypeDef(BaseValidatorModel):
-    variantImportJobs: List[VariantImportJobItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListVariantImportJobsResponse(BaseValidatorModel):
+    variantImportJobs: List[VariantImportJobItem]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class WorkflowListItemTypeDef(BaseValidatorModel):
+class WorkflowListItem(BaseValidatorModel):
     pass
 
 
-class ListWorkflowsResponseTypeDef(BaseValidatorModel):
-    items: List[WorkflowListItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListWorkflowsResponse(BaseValidatorModel):
+    items: List[WorkflowListItem]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class TsvOptionsTypeDef(BaseValidatorModel):
-    readOptions: Optional[ReadOptionsTypeDef] = None
+class TsvOptions(BaseValidatorModel):
+    readOptions: Optional[ReadOptions] = None
 
 
-class StartReadSetActivationJobRequestTypeDef(BaseValidatorModel):
+class StartReadSetActivationJobRequest(BaseValidatorModel):
     sequenceStoreId: str
-    sources: Sequence[StartReadSetActivationJobSourceItemTypeDef]
+    sources: Sequence[StartReadSetActivationJobSourceItem]
     clientToken: Optional[str] = None
 
 
-class StartReferenceImportJobRequestTypeDef(BaseValidatorModel):
+class StartReferenceImportJobRequest(BaseValidatorModel):
     referenceStoreId: str
     roleArn: str
-    sources: Sequence[StartReferenceImportJobSourceItemTypeDef]
+    sources: Sequence[StartReferenceImportJobSourceItem]
     clientToken: Optional[str] = None
 
 
-class StartVariantImportRequestTypeDef(BaseValidatorModel):
+class StartVariantImportRequest(BaseValidatorModel):
     destinationName: str
     roleArn: str
-    items: Sequence[VariantImportItemSourceTypeDef]
+    items: Sequence[VariantImportItemSource]
     runLeftNormalization: Optional[bool] = None
     annotationFields: Optional[Mapping[str, str]] = None
 
 
-class StoreOptionsOutputTypeDef(BaseValidatorModel):
-    tsvStoreOptions: Optional[TsvStoreOptionsOutputTypeDef] = None
+class StoreOptionsOutput(BaseValidatorModel):
+    tsvStoreOptions: Optional[TsvStoreOptionsOutput] = None
 
 
-class StoreOptionsTypeDef(BaseValidatorModel):
-    tsvStoreOptions: Optional[TsvStoreOptionsTypeDef] = None
+class StoreOptions(BaseValidatorModel):
+    tsvStoreOptions: Optional[TsvStoreOptions] = None
 
 
-class VersionOptionsOutputTypeDef(BaseValidatorModel):
-    tsvVersionOptions: Optional[TsvVersionOptionsOutputTypeDef] = None
+class VersionOptionsOutput(BaseValidatorModel):
+    tsvVersionOptions: Optional[TsvVersionOptionsOutput] = None
 
 
-class VersionOptionsTypeDef(BaseValidatorModel):
-    tsvVersionOptions: Optional[TsvVersionOptionsTypeDef] = None
+class VersionOptions(BaseValidatorModel):
+    tsvVersionOptions: Optional[TsvVersionOptions] = None
 
 
-class AnnotationStoreItemTypeDef(BaseValidatorModel):
+class AnnotationStoreItem(BaseValidatorModel):
     pass
 
 
-class ListAnnotationStoresResponseTypeDef(BaseValidatorModel):
-    annotationStores: List[AnnotationStoreItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAnnotationStoresResponse(BaseValidatorModel):
+    annotationStores: List[AnnotationStoreItem]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ReferenceStoreDetailTypeDef(BaseValidatorModel):
+class ReferenceStoreDetail(BaseValidatorModel):
     pass
 
 
-class ListReferenceStoresResponseTypeDef(BaseValidatorModel):
-    referenceStores: List[ReferenceStoreDetailTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListReferenceStoresResponse(BaseValidatorModel):
+    referenceStores: List[ReferenceStoreDetail]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class SequenceStoreDetailTypeDef(BaseValidatorModel):
+class SequenceStoreDetail(BaseValidatorModel):
     pass
 
 
-class ListSequenceStoresResponseTypeDef(BaseValidatorModel):
-    sequenceStores: List[SequenceStoreDetailTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListSequenceStoresResponse(BaseValidatorModel):
+    sequenceStores: List[SequenceStoreDetail]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class VariantStoreItemTypeDef(BaseValidatorModel):
+class VariantStoreItem(BaseValidatorModel):
     pass
 
 
-class ListVariantStoresResponseTypeDef(BaseValidatorModel):
-    variantStores: List[VariantStoreItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListVariantStoresResponse(BaseValidatorModel):
+    variantStores: List[VariantStoreItem]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ReadSetFilesTypeDef(BaseValidatorModel):
-    source1: Optional[FileInformationTypeDef] = None
-    source2: Optional[FileInformationTypeDef] = None
-    index: Optional[FileInformationTypeDef] = None
+class ReadSetFiles(BaseValidatorModel):
+    source1: Optional[FileInformation] = None
+    source2: Optional[FileInformation] = None
+    index: Optional[FileInformation] = None
 
 
-class ReferenceFilesTypeDef(BaseValidatorModel):
-    source: Optional[FileInformationTypeDef] = None
-    index: Optional[FileInformationTypeDef] = None
+class ReferenceFiles(BaseValidatorModel):
+    source: Optional[FileInformation] = None
+    index: Optional[FileInformation] = None
 
 
-class ReadSetListItemTypeDef(BaseValidatorModel):
+class ReadSetListItem(BaseValidatorModel):
     pass
 
 
-class ListReadSetsResponseTypeDef(BaseValidatorModel):
-    readSets: List[ReadSetListItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListReadSetsResponse(BaseValidatorModel):
+    readSets: List[ReadSetListItem]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class StartReadSetImportJobRequestTypeDef(BaseValidatorModel):
+class StartReadSetImportJobRequest(BaseValidatorModel):
     sequenceStoreId: str
     roleArn: str
-    sources: Sequence[StartReadSetImportJobSourceItemTypeDef]
+    sources: Sequence[StartReadSetImportJobSourceItem]
     clientToken: Optional[str] = None
 
 
-class FormatOptionsTypeDef(BaseValidatorModel):
-    tsvOptions: Optional[TsvOptionsTypeDef] = None
-    vcfOptions: Optional[VcfOptionsTypeDef] = None
+class FormatOptions(BaseValidatorModel):
+    tsvOptions: Optional[TsvOptions] = None
+    vcfOptions: Optional[VcfOptions] = None
 
 
-class StartAnnotationImportRequestTypeDef(BaseValidatorModel):
+class StartAnnotationImportRequest(BaseValidatorModel):
     destinationName: str
     roleArn: str
-    items: Sequence[AnnotationImportItemSourceTypeDef]
+    items: Sequence[AnnotationImportItemSource]
     versionName: Optional[str] = None
-    formatOptions: Optional[FormatOptionsTypeDef] = None
+    formatOptions: Optional[FormatOptions] = None
     runLeftNormalization: Optional[bool] = None
     annotationFields: Optional[Mapping[str, str]] = None
 
 
-class StoreOptionsUnionTypeDef(BaseValidatorModel):
+class StoreOptionsUnion(BaseValidatorModel):
     pass
 
 
-class CreateAnnotationStoreRequestTypeDef(BaseValidatorModel):
+class CreateAnnotationStoreRequest(BaseValidatorModel):
     storeFormat: StoreFormatType
-    reference: Optional[ReferenceItemTypeDef] = None
+    reference: Optional[ReferenceItem] = None
     name: Optional[str] = None
     description: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
     versionName: Optional[str] = None
-    sseConfig: Optional[SseConfigTypeDef] = None
-    storeOptions: Optional[StoreOptionsUnionTypeDef] = None
+    sseConfig: Optional[SseConfig] = None
+    storeOptions: Optional[StoreOptionsUnion] = None
 
 
-class VersionOptionsUnionTypeDef(BaseValidatorModel):
+class VersionOptionsUnion(BaseValidatorModel):
     pass
 
 
-class CreateAnnotationStoreVersionRequestTypeDef(BaseValidatorModel):
+class CreateAnnotationStoreVersionRequest(BaseValidatorModel):
     name: str
     versionName: str
     description: Optional[str] = None
-    versionOptions: Optional[VersionOptionsUnionTypeDef] = None
+    versionOptions: Optional[VersionOptionsUnion] = None
     tags: Optional[Mapping[str, str]] = None
 
 

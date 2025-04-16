@@ -12,35 +12,35 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.bedrock_data_automation_runtime_constants import *
 
-class BlueprintTypeDef(BaseValidatorModel):
+class Blueprint(BaseValidatorModel):
     blueprintArn: str
     version: Optional[str] = None
     stage: Optional[BlueprintStageType] = None
 
 
-class DataAutomationConfigurationTypeDef(BaseValidatorModel):
+class DataAutomationConfiguration(BaseValidatorModel):
     dataAutomationProjectArn: str
     stage: Optional[DataAutomationStageType] = None
 
 
-class EncryptionConfigurationTypeDef(BaseValidatorModel):
+class EncryptionConfiguration(BaseValidatorModel):
     kmsKeyId: str
     kmsEncryptionContext: Optional[Mapping[str, str]] = None
 
 
-class EventBridgeConfigurationTypeDef(BaseValidatorModel):
+class EventBridgeConfiguration(BaseValidatorModel):
     eventBridgeEnabled: bool
 
 
-class GetDataAutomationStatusRequestTypeDef(BaseValidatorModel):
+class GetDataAutomationStatusRequest(BaseValidatorModel):
     invocationArn: str
 
 
-class OutputConfigurationTypeDef(BaseValidatorModel):
+class OutputConfiguration(BaseValidatorModel):
     s3Uri: str
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -48,60 +48,60 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class InputConfigurationTypeDef(BaseValidatorModel):
+class InputConfiguration(BaseValidatorModel):
     s3Uri: str
 
 
-class TagTypeDef(BaseValidatorModel):
+class Tag(BaseValidatorModel):
     key: str
     value: str
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     resourceARN: str
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     resourceARN: str
     tagKeys: Sequence[str]
 
 
-class NotificationConfigurationTypeDef(BaseValidatorModel):
-    eventBridgeConfiguration: EventBridgeConfigurationTypeDef
+class NotificationConfiguration(BaseValidatorModel):
+    eventBridgeConfiguration: EventBridgeConfiguration
 
 
-class GetDataAutomationStatusResponseTypeDef(BaseValidatorModel):
+class GetDataAutomationStatusResponse(BaseValidatorModel):
     status: AutomationJobStatusType
     errorType: str
     errorMessage: str
-    outputConfiguration: OutputConfigurationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    outputConfiguration: OutputConfiguration
+    ResponseMetadata: ResponseMetadata
 
 
-class InvokeDataAutomationAsyncResponseTypeDef(BaseValidatorModel):
+class InvokeDataAutomationAsyncResponse(BaseValidatorModel):
     invocationArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
-    tags: List[TagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListTagsForResourceResponse(BaseValidatorModel):
+    tags: List[Tag]
+    ResponseMetadata: ResponseMetadata
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     resourceARN: str
-    tags: Sequence[TagTypeDef]
+    tags: Sequence[Tag]
 
 
-class InvokeDataAutomationAsyncRequestTypeDef(BaseValidatorModel):
-    inputConfiguration: InputConfigurationTypeDef
-    outputConfiguration: OutputConfigurationTypeDef
+class InvokeDataAutomationAsyncRequest(BaseValidatorModel):
+    inputConfiguration: InputConfiguration
+    outputConfiguration: OutputConfiguration
     dataAutomationProfileArn: str
     clientToken: Optional[str] = None
-    dataAutomationConfiguration: Optional[DataAutomationConfigurationTypeDef] = None
-    encryptionConfiguration: Optional[EncryptionConfigurationTypeDef] = None
-    notificationConfiguration: Optional[NotificationConfigurationTypeDef] = None
-    blueprints: Optional[Sequence[BlueprintTypeDef]] = None
-    tags: Optional[Sequence[TagTypeDef]] = None
+    dataAutomationConfiguration: Optional[DataAutomationConfiguration] = None
+    encryptionConfiguration: Optional[EncryptionConfiguration] = None
+    notificationConfiguration: Optional[NotificationConfiguration] = None
+    blueprints: Optional[Sequence[Blueprint]] = None
+    tags: Optional[Sequence[Tag]] = None
 
 

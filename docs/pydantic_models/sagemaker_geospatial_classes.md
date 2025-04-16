@@ -1,69 +1,69 @@
 # Sagemaker Geospatial Classes
 
-# AreaOfInterestGeometryOutputTypeDef
+# AreaOfInterest
+
+### AreaOfInterestGeometry
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.AreaOfInterestGeometryUnion]
+
+
+# AreaOfInterestGeometry
 
 ### MultiPolygonGeometry
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.MultiPolygonGeometryInputOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.MultiPolygonGeometryInputUnion]
 
 ### PolygonGeometry
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.PolygonGeometryInputOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.PolygonGeometryInputUnion]
 
 
-# AreaOfInterestGeometryTypeDef
+# AreaOfInterestGeometryOutput
 
 ### MultiPolygonGeometry
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.MultiPolygonGeometryInputUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.MultiPolygonGeometryInputOutput]
 
 ### PolygonGeometry
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.PolygonGeometryInputUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.PolygonGeometryInputOutput]
 
 
-# AreaOfInterestGeometryUnionTypeDef
+# AreaOfInterestGeometryUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# AreaOfInterestOutputTypeDef
+# AreaOfInterestOutput
 
 ### AreaOfInterestGeometry
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.AreaOfInterestGeometryOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.AreaOfInterestGeometryOutput]
 
 
-# AreaOfInterestTypeDef
-
-### AreaOfInterestGeometry
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.AreaOfInterestGeometryUnionTypeDef]
-
-
-# AreaOfInterestUnionTypeDef
+# AreaOfInterestUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# AssetValueTypeDef
+# AssetValue
 
 ### Href
 - **Type**: typing.Optional[str]
 
 
-# BandMathConfigInputOutputTypeDef
+# BandMathConfigInput
 
 ### CustomIndices
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.CustomIndicesInputOutputTypeDef]
-
-### PredefinedIndices
-- **Type**: typing.Optional[typing.List[str]]
-
-
-# BandMathConfigInputTypeDef
-
-### CustomIndices
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.CustomIndicesInputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.CustomIndicesInput]
 
 ### PredefinedIndices
 - **Type**: typing.Optional[typing.Sequence[str]]
+
+
+# BandMathConfigInputOutput
+
+### CustomIndices
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.CustomIndicesInputOutput]
+
+### PredefinedIndices
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # BaseValidatorModel
@@ -72,19 +72,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CloudRemovalConfigInputOutputTypeDef
-
-### AlgorithmName
-- **Type**: typing.Optional[typing.Literal['INTERPOLATION']]
-
-### InterpolationValue
-- **Type**: typing.Optional[str]
-
-### TargetBands
-- **Type**: typing.Optional[typing.List[str]]
-
-
-# CloudRemovalConfigInputTypeDef
+# CloudRemovalConfigInput
 
 ### AlgorithmName
 - **Type**: typing.Optional[typing.Literal['INTERPOLATION']]
@@ -96,39 +84,51 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# CustomIndicesInputOutputTypeDef
+# CloudRemovalConfigInputOutput
+
+### AlgorithmName
+- **Type**: typing.Optional[typing.Literal['INTERPOLATION']]
+
+### InterpolationValue
+- **Type**: typing.Optional[str]
+
+### TargetBands
+- **Type**: typing.Optional[typing.List[str]]
+
+
+# CustomIndicesInput
 
 ### Operations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.OperationTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.Operation]]
 
 
-# CustomIndicesInputTypeDef
+# CustomIndicesInputOutput
 
 ### Operations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.OperationTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.Operation]]
 
 
-# DeleteEarthObservationJobInputTypeDef
+# DeleteEarthObservationJobInput
 
 ### Arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteVectorEnrichmentJobInputTypeDef
+# DeleteVectorEnrichmentJobInput
 
 ### Arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# EarthObservationJobErrorDetailsTypeDef
+# EarthObservationJobErrorDetails
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# EoCloudCoverInputTypeDef
+# EoCloudCoverInput
 
 ### LowerBound
 - **Type**: <class 'float'>
@@ -139,7 +139,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ExportEarthObservationJobInputTypeDef
+# ExportEarthObservationJobInput
 
 ### Arn
 - **Type**: <class 'str'>
@@ -150,7 +150,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### OutputConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.OutputConfigInputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.OutputConfigInput'>
 - **Required**: Yes
 
 ### ClientToken
@@ -160,7 +160,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# ExportEarthObservationJobOutputTypeDef
+# ExportEarthObservationJobOutput
 
 ### Arn
 - **Type**: <class 'str'>
@@ -183,30 +183,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### OutputConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.OutputConfigInputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.OutputConfigInput'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ExportErrorDetailsOutputTypeDef
+# ExportErrorDetails
+
+### ExportResults
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.ExportErrorDetailsOutput]
+
+### ExportSourceImages
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.ExportErrorDetailsOutput]
+
+
+# ExportErrorDetailsOutput
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ExportErrorDetailsTypeDef
-
-### ExportResults
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.ExportErrorDetailsOutputTypeDef]
-
-### ExportSourceImages
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.ExportErrorDetailsOutputTypeDef]
-
-
-# ExportS3DataInputTypeDef
+# ExportS3DataInput
 
 ### S3Uri
 - **Type**: <class 'str'>
@@ -216,7 +216,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ExportVectorEnrichmentJobInputTypeDef
+# ExportVectorEnrichmentJobInput
 
 ### Arn
 - **Type**: <class 'str'>
@@ -227,21 +227,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### OutputConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.ExportVectorEnrichmentJobOutputConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.ExportVectorEnrichmentJobOutputConfig'>
 - **Required**: Yes
 
 ### ClientToken
 - **Type**: typing.Optional[str]
 
 
-# ExportVectorEnrichmentJobOutputConfigTypeDef
-
-### S3Data
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.VectorEnrichmentJobS3DataTypeDef'>
-- **Required**: Yes
-
-
-# ExportVectorEnrichmentJobOutputTypeDef
+# ExportVectorEnrichmentJobOutput
 
 ### Arn
 - **Type**: <class 'str'>
@@ -260,24 +253,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### OutputConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.ExportVectorEnrichmentJobOutputConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.ExportVectorEnrichmentJobOutputConfig'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GeoMosaicConfigInputOutputTypeDef
+# ExportVectorEnrichmentJobOutputConfig
 
-### AlgorithmName
-- **Type**: typing.Optional[typing.Literal['AVERAGE', 'BILINEAR', 'CUBIC', 'CUBICSPLINE', 'LANCZOS', 'MAX', 'MED', 'MIN', 'MODE', 'NEAR', 'Q1', 'Q3', 'RMS', 'SUM']]
-
-### TargetBands
-- **Type**: typing.Optional[typing.List[str]]
+### S3Data
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.VectorEnrichmentJobS3Data'>
+- **Required**: Yes
 
 
-# GeoMosaicConfigInputTypeDef
+# GeoMosaicConfigInput
 
 ### AlgorithmName
 - **Type**: typing.Optional[typing.Literal['AVERAGE', 'BILINEAR', 'CUBIC', 'CUBICSPLINE', 'LANCZOS', 'MAX', 'MED', 'MIN', 'MODE', 'NEAR', 'Q1', 'Q3', 'RMS', 'SUM']]
@@ -286,20 +277,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# GeometryTypeDef
+# GeoMosaicConfigInputOutput
+
+### AlgorithmName
+- **Type**: typing.Optional[typing.Literal['AVERAGE', 'BILINEAR', 'CUBIC', 'CUBICSPLINE', 'LANCZOS', 'MAX', 'MED', 'MIN', 'MODE', 'NEAR', 'Q1', 'Q3', 'RMS', 'SUM']]
+
+### TargetBands
+- **Type**: typing.Optional[typing.List[str]]
+
+
+# Geometry
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# GetEarthObservationJobInputTypeDef
+# GetEarthObservationJobInput
 
 ### Arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetEarthObservationJobOutputTypeDef
+# GetEarthObservationJobOutput
 
 ### Arn
 - **Type**: <class 'str'>
@@ -314,7 +314,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ErrorDetails
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.EarthObservationJobErrorDetailsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.EarthObservationJobErrorDetails'>
 - **Required**: Yes
 
 ### ExecutionRoleArn
@@ -322,7 +322,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ExportErrorDetails
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.ExportErrorDetailsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.ExportErrorDetails'>
 - **Required**: Yes
 
 ### ExportStatus
@@ -330,11 +330,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### InputConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.InputConfigOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.InputConfigOutput'>
 - **Required**: Yes
 
 ### JobConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.JobConfigInputOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.JobConfigInputOutput'>
 - **Required**: Yes
 
 ### KmsKeyId
@@ -346,7 +346,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### OutputBands
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.OutputBandTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.OutputBand]
 - **Required**: Yes
 
 ### Status
@@ -358,18 +358,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetRasterDataCollectionInputTypeDef
+# GetRasterDataCollectionInput
 
 ### Arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetTileInputTypeDef
+# GetTileInput
 
 ### Arn
 - **Type**: <class 'str'>
@@ -414,50 +414,50 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetTileOutputTypeDef
+# GetTileOutput
 
 ### BinaryFile
 - **Type**: <class 'botocore.response.StreamingBody'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetVectorEnrichmentJobInputTypeDef
+# GetVectorEnrichmentJobInput
 
 ### Arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# InputConfigInputTypeDef
+# InputConfigInput
 
 ### PreviousEarthObservationJobArn
 - **Type**: typing.Optional[str]
 
 ### RasterDataCollectionQuery
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.RasterDataCollectionQueryInputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.RasterDataCollectionQueryInput]
 
 
-# InputConfigOutputTypeDef
+# InputConfigOutput
 
 ### PreviousEarthObservationJobArn
 - **Type**: typing.Optional[str]
 
 ### RasterDataCollectionQuery
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.RasterDataCollectionQueryOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.RasterDataCollectionQueryOutput]
 
 
-# ItemSourceTypeDef
+# ItemSource
 
 ### DateTime
 - **Type**: <class 'datetime.datetime'>
 - **Required**: Yes
 
 ### Geometry
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.GeometryTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.Geometry'>
 - **Required**: Yes
 
 ### Id
@@ -465,79 +465,79 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Assets
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.AssetValueTypeDef]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.AssetValue]]
 
 ### Properties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.PropertiesTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# JobConfigInputOutputTypeDef
-
-### BandMathConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.BandMathConfigInputOutputTypeDef]
-
-### CloudMaskingConfig
-- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
-
-### CloudRemovalConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.CloudRemovalConfigInputOutputTypeDef]
-
-### GeoMosaicConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.GeoMosaicConfigInputOutputTypeDef]
-
-### LandCoverSegmentationConfig
-- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
-
-### ResamplingConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.ResamplingConfigInputOutputTypeDef]
-
-### StackConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.StackConfigInputOutputTypeDef]
-
-### TemporalStatisticsConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.TemporalStatisticsConfigInputOutputTypeDef]
-
-### ZonalStatisticsConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.ZonalStatisticsConfigInputOutputTypeDef]
-
-
-# JobConfigInputTypeDef
+# JobConfigInput
 
 ### BandMathConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.BandMathConfigInputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.BandMathConfigInput]
 
 ### CloudMaskingConfig
 - **Type**: typing.Optional[typing.Mapping[str, typing.Any]]
 
 ### CloudRemovalConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.CloudRemovalConfigInputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.CloudRemovalConfigInput]
 
 ### GeoMosaicConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.GeoMosaicConfigInputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.GeoMosaicConfigInput]
 
 ### LandCoverSegmentationConfig
 - **Type**: typing.Optional[typing.Mapping[str, typing.Any]]
 
 ### ResamplingConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.ResamplingConfigInputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.ResamplingConfigInput]
 
 ### StackConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.StackConfigInputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.StackConfigInput]
 
 ### TemporalStatisticsConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.TemporalStatisticsConfigInputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.TemporalStatisticsConfigInput]
 
 ### ZonalStatisticsConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.ZonalStatisticsConfigInputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.ZonalStatisticsConfigInput]
 
 
-# JobConfigInputUnionTypeDef
+# JobConfigInputOutput
+
+### BandMathConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.BandMathConfigInputOutput]
+
+### CloudMaskingConfig
+- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
+
+### CloudRemovalConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.CloudRemovalConfigInputOutput]
+
+### GeoMosaicConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.GeoMosaicConfigInputOutput]
+
+### LandCoverSegmentationConfig
+- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
+
+### ResamplingConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.ResamplingConfigInputOutput]
+
+### StackConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.StackConfigInputOutput]
+
+### TemporalStatisticsConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.TemporalStatisticsConfigInputOutput]
+
+### ZonalStatisticsConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.ZonalStatisticsConfigInputOutput]
+
+
+# JobConfigInputUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# LandsatCloudCoverLandInputTypeDef
+# LandsatCloudCoverLandInput
 
 ### LowerBound
 - **Type**: <class 'float'>
@@ -548,22 +548,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListEarthObservationJobInputPaginateTypeDef
-
-### SortBy
-- **Type**: typing.Optional[str]
-
-### SortOrder
-- **Type**: typing.Optional[typing.Literal['ASCENDING', 'DESCENDING']]
-
-### StatusEquals
-- **Type**: typing.Optional[typing.Literal['COMPLETED', 'DELETED', 'DELETING', 'FAILED', 'INITIALIZING', 'IN_PROGRESS', 'STOPPED', 'STOPPING']]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.PaginatorConfigTypeDef]
-
-
-# ListEarthObservationJobInputTypeDef
+# ListEarthObservationJobInput
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -581,7 +566,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['COMPLETED', 'DELETED', 'DELETING', 'FAILED', 'INITIALIZING', 'IN_PROGRESS', 'STOPPED', 'STOPPING']]
 
 
-# ListEarthObservationJobOutputConfigTypeDef
+# ListEarthObservationJobInputPaginate
+
+### SortBy
+- **Type**: typing.Optional[str]
+
+### SortOrder
+- **Type**: typing.Optional[typing.Literal['ASCENDING', 'DESCENDING']]
+
+### StatusEquals
+- **Type**: typing.Optional[typing.Literal['COMPLETED', 'DELETED', 'DELETING', 'FAILED', 'INITIALIZING', 'IN_PROGRESS', 'STOPPED', 'STOPPING']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.PaginatorConfig]
+
+
+# ListEarthObservationJobOutput
+
+### EarthObservationJobSummaries
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.ListEarthObservationJobOutputConfig]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.ResponseMetadata'>
+- **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# ListEarthObservationJobOutputConfig
 
 ### Arn
 - **Type**: <class 'str'>
@@ -611,27 +625,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 
-# ListEarthObservationJobOutputTypeDef
-
-### EarthObservationJobSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.ListEarthObservationJobOutputConfigTypeDef]
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-### NextToken
-- **Type**: typing.Optional[str]
-
-
-# ListRasterDataCollectionsInputPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.PaginatorConfigTypeDef]
-
-
-# ListRasterDataCollectionsInputTypeDef
+# ListRasterDataCollectionsInput
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -640,54 +634,45 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListRasterDataCollectionsOutputTypeDef
+# ListRasterDataCollectionsInputPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.PaginatorConfig]
+
+
+# ListRasterDataCollectionsOutput
 
 ### RasterDataCollectionSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.RasterDataCollectionMetadataTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.RasterDataCollectionMetadata]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestTypeDef
+# ListTagsForResourceRequest
 
 ### ResourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ListTagsForResourceResponseTypeDef
+# ListTagsForResourceResponse
 
 ### Tags
 - **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListVectorEnrichmentJobInputPaginateTypeDef
-
-### SortBy
-- **Type**: typing.Optional[str]
-
-### SortOrder
-- **Type**: typing.Optional[typing.Literal['ASCENDING', 'DESCENDING']]
-
-### StatusEquals
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.PaginatorConfigTypeDef]
-
-
-# ListVectorEnrichmentJobInputTypeDef
+# ListVectorEnrichmentJobInput
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -705,27 +690,42 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListVectorEnrichmentJobOutputConfigTypeDef
+# ListVectorEnrichmentJobInputPaginate
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### SortBy
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### SortOrder
+- **Type**: typing.Optional[typing.Literal['ASCENDING', 'DESCENDING']]
 
-# ListVectorEnrichmentJobOutputTypeDef
+### StatusEquals
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.PaginatorConfig]
+
+
+# ListVectorEnrichmentJobOutput
 
 ### VectorEnrichmentJobSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.ListVectorEnrichmentJobOutputConfigTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.ListVectorEnrichmentJobOutputConfig]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# MapMatchingConfigTypeDef
+# ListVectorEnrichmentJobOutputConfig
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# MapMatchingConfig
 
 ### IdAttributeName
 - **Type**: <class 'str'>
@@ -744,27 +744,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# MultiPolygonGeometryInputOutputTypeDef
-
-### Coordinates
-- **Type**: typing.List[typing.List[typing.List[typing.List[float]]]]
-- **Required**: Yes
-
-
-# MultiPolygonGeometryInputTypeDef
+# MultiPolygonGeometryInput
 
 ### Coordinates
 - **Type**: typing.Sequence[typing.Sequence[typing.Sequence[typing.Sequence[float]]]]
 - **Required**: Yes
 
 
-# MultiPolygonGeometryInputUnionTypeDef
+# MultiPolygonGeometryInputOutput
+
+### Coordinates
+- **Type**: typing.List[typing.List[typing.List[typing.List[float]]]]
+- **Required**: Yes
+
+
+# MultiPolygonGeometryInputUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# OperationTypeDef
+# Operation
 
 ### Equation
 - **Type**: <class 'str'>
@@ -778,7 +778,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['FLOAT32', 'FLOAT64', 'INT16', 'INT32', 'UINT16']]
 
 
-# OutputBandTypeDef
+# OutputBand
 
 ### BandName
 - **Type**: <class 'str'>
@@ -789,30 +789,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# OutputConfigInputTypeDef
+# OutputConfigInput
 
 ### S3Data
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.ExportS3DataInputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.ExportS3DataInput'>
 - **Required**: Yes
 
 
-# OutputResolutionResamplingInputTypeDef
+# OutputResolutionResamplingInput
 
 ### UserDefined
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.UserDefinedTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.UserDefined'>
 - **Required**: Yes
 
 
-# OutputResolutionStackInputTypeDef
+# OutputResolutionStackInput
 
 ### Predefined
 - **Type**: typing.Optional[typing.Literal['AVERAGE', 'HIGHEST', 'LOWEST']]
 
 ### UserDefined
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.UserDefinedTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -824,7 +824,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PlatformInputTypeDef
+# PlatformInput
 
 ### Value
 - **Type**: <class 'str'>
@@ -834,27 +834,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['EQUALS', 'NOT_EQUALS', 'STARTS_WITH']]
 
 
-# PolygonGeometryInputOutputTypeDef
-
-### Coordinates
-- **Type**: typing.List[typing.List[typing.List[float]]]
-- **Required**: Yes
-
-
-# PolygonGeometryInputTypeDef
+# PolygonGeometryInput
 
 ### Coordinates
 - **Type**: typing.Sequence[typing.Sequence[typing.Sequence[float]]]
 - **Required**: Yes
 
 
-# PolygonGeometryInputUnionTypeDef
+# PolygonGeometryInputOutput
+
+### Coordinates
+- **Type**: typing.List[typing.List[typing.List[float]]]
+- **Required**: Yes
+
+
+# PolygonGeometryInputUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# PropertiesTypeDef
+# Properties
 
 ### EoCloudCover
 - **Type**: typing.Optional[float]
@@ -875,82 +875,82 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# PropertyFilterTypeDef
+# Property
+
+### EoCloudCover
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.EoCloudCoverInput]
+
+### LandsatCloudCoverLand
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.LandsatCloudCoverLandInput]
+
+### Platform
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.PlatformInput]
+
+### ViewOffNadir
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.ViewOffNadirInput]
+
+### ViewSunAzimuth
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.ViewSunAzimuthInput]
+
+### ViewSunElevation
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.ViewSunElevationInput]
+
+
+# PropertyFilter
 
 ### Property
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.PropertyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.Property'>
 - **Required**: Yes
 
 
-# PropertyFiltersOutputTypeDef
+# PropertyFilters
 
 ### LogicalOperator
 - **Type**: typing.Optional[typing.Literal['AND']]
 
 ### Properties
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.PropertyFilterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.PropertyFilter]]
 
 
-# PropertyFiltersTypeDef
+# PropertyFiltersOutput
 
 ### LogicalOperator
 - **Type**: typing.Optional[typing.Literal['AND']]
 
 ### Properties
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.PropertyFilterTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.PropertyFilter]]
 
 
-# PropertyFiltersUnionTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# PropertyTypeDef
-
-### EoCloudCover
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.EoCloudCoverInputTypeDef]
-
-### LandsatCloudCoverLand
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.LandsatCloudCoverLandInputTypeDef]
-
-### Platform
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.PlatformInputTypeDef]
-
-### ViewOffNadir
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.ViewOffNadirInputTypeDef]
-
-### ViewSunAzimuth
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.ViewSunAzimuthInputTypeDef]
-
-### ViewSunElevation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.ViewSunElevationInputTypeDef]
-
-
-# RasterDataCollectionMetadataTypeDef
+# PropertyFiltersUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# RasterDataCollectionQueryInputTypeDef
+# RasterDataCollectionMetadata
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# RasterDataCollectionQueryInput
 
 ### RasterDataCollectionArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### TimeRangeFilter
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.TimeRangeFilterInputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.TimeRangeFilterInput'>
 - **Required**: Yes
 
 ### AreaOfInterest
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.AreaOfInterestUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.AreaOfInterestUnion]
 
 ### PropertyFilters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.PropertyFiltersUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.PropertyFiltersUnion]
 
 
-# RasterDataCollectionQueryOutputTypeDef
+# RasterDataCollectionQueryOutput
 
 ### RasterDataCollectionArn
 - **Type**: <class 'str'>
@@ -961,36 +961,49 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TimeRangeFilter
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.TimeRangeFilterOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.TimeRangeFilterOutput'>
 - **Required**: Yes
 
 ### AreaOfInterest
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.AreaOfInterestOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.AreaOfInterestOutput]
 
 ### PropertyFilters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.PropertyFiltersOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.PropertyFiltersOutput]
 
 
-# RasterDataCollectionQueryWithBandFilterInputTypeDef
+# RasterDataCollectionQueryWithBandFilterInput
 
 ### TimeRangeFilter
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.TimeRangeFilterInputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.TimeRangeFilterInput'>
 - **Required**: Yes
 
 ### AreaOfInterest
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.AreaOfInterestUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.AreaOfInterestUnion]
 
 ### BandFilter
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### PropertyFilters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.PropertyFiltersUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.PropertyFiltersUnion]
 
 
-# ResamplingConfigInputOutputTypeDef
+# ResamplingConfigInput
 
 ### OutputResolution
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.OutputResolutionResamplingInputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.OutputResolutionResamplingInput'>
+- **Required**: Yes
+
+### AlgorithmName
+- **Type**: typing.Optional[typing.Literal['AVERAGE', 'BILINEAR', 'CUBIC', 'CUBICSPLINE', 'LANCZOS', 'MAX', 'MED', 'MIN', 'MODE', 'NEAR', 'Q1', 'Q3', 'RMS', 'SUM']]
+
+### TargetBands
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+
+# ResamplingConfigInputOutput
+
+### OutputResolution
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.OutputResolutionResamplingInput'>
 - **Required**: Yes
 
 ### AlgorithmName
@@ -1000,20 +1013,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# ResamplingConfigInputTypeDef
-
-### OutputResolution
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.OutputResolutionResamplingInputTypeDef'>
-- **Required**: Yes
-
-### AlgorithmName
-- **Type**: typing.Optional[typing.Literal['AVERAGE', 'BILINEAR', 'CUBIC', 'CUBICSPLINE', 'LANCZOS', 'MAX', 'MED', 'MIN', 'MODE', 'NEAR', 'Q1', 'Q3', 'RMS', 'SUM']]
-
-### TargetBands
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -1035,7 +1035,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ReverseGeocodingConfigTypeDef
+# ReverseGeocodingConfig
 
 ### XAttributeName
 - **Type**: <class 'str'>
@@ -1046,68 +1046,68 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SearchRasterDataCollectionInputTypeDef
+# SearchRasterDataCollectionInput
 
 ### Arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### RasterDataCollectionQuery
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.RasterDataCollectionQueryWithBandFilterInputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.RasterDataCollectionQueryWithBandFilterInput'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# SearchRasterDataCollectionOutputTypeDef
+# SearchRasterDataCollectionOutput
 
 ### ApproximateResultCount
 - **Type**: <class 'int'>
 - **Required**: Yes
 
 ### Items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.ItemSourceTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.ItemSource]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# StackConfigInputOutputTypeDef
+# StackConfigInput
 
 ### OutputResolution
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.OutputResolutionStackInputTypeDef]
-
-### TargetBands
-- **Type**: typing.Optional[typing.List[str]]
-
-
-# StackConfigInputTypeDef
-
-### OutputResolution
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.OutputResolutionStackInputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.OutputResolutionStackInput]
 
 ### TargetBands
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# StartEarthObservationJobInputTypeDef
+# StackConfigInputOutput
+
+### OutputResolution
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.OutputResolutionStackInput]
+
+### TargetBands
+- **Type**: typing.Optional[typing.List[str]]
+
+
+# StartEarthObservationJobInput
 
 ### ExecutionRoleArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### InputConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.InputConfigInputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.InputConfigInput'>
 - **Required**: Yes
 
 ### JobConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.JobConfigInputUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.JobConfigInputUnion'>
 - **Required**: Yes
 
 ### Name
@@ -1124,7 +1124,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# StartEarthObservationJobOutputTypeDef
+# StartEarthObservationJobOutput
 
 ### Arn
 - **Type**: <class 'str'>
@@ -1143,11 +1143,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### InputConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.InputConfigOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.InputConfigOutput'>
 - **Required**: Yes
 
 ### JobConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.JobConfigInputOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.JobConfigInputOutput'>
 - **Required**: Yes
 
 ### KmsKeyId
@@ -1167,22 +1167,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# StartVectorEnrichmentJobInputTypeDef
+# StartVectorEnrichmentJobInput
 
 ### ExecutionRoleArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### InputConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.VectorEnrichmentJobInputConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.VectorEnrichmentJobInputConfig'>
 - **Required**: Yes
 
 ### JobConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.VectorEnrichmentJobConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.VectorEnrichmentJobConfig'>
 - **Required**: Yes
 
 ### Name
@@ -1199,21 +1199,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# StopEarthObservationJobInputTypeDef
+# StopEarthObservationJobInput
 
 ### Arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# StopVectorEnrichmentJobInputTypeDef
+# StopVectorEnrichmentJobInput
 
 ### Arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# TagResourceRequestTypeDef
+# TagResourceRequest
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -1224,20 +1224,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TemporalStatisticsConfigInputOutputTypeDef
-
-### Statistics
-- **Type**: typing.List[typing.Literal['MEAN', 'MEDIAN', 'STANDARD_DEVIATION']]
-- **Required**: Yes
-
-### GroupBy
-- **Type**: typing.Optional[typing.Literal['ALL', 'YEARLY']]
-
-### TargetBands
-- **Type**: typing.Optional[typing.List[str]]
-
-
-# TemporalStatisticsConfigInputTypeDef
+# TemporalStatisticsConfigInput
 
 ### Statistics
 - **Type**: typing.Sequence[typing.Literal['MEAN', 'MEDIAN', 'STANDARD_DEVIATION']]
@@ -1250,18 +1237,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# TimeRangeFilterInputTypeDef
+# TemporalStatisticsConfigInputOutput
+
+### Statistics
+- **Type**: typing.List[typing.Literal['MEAN', 'MEDIAN', 'STANDARD_DEVIATION']]
+- **Required**: Yes
+
+### GroupBy
+- **Type**: typing.Optional[typing.Literal['ALL', 'YEARLY']]
+
+### TargetBands
+- **Type**: typing.Optional[typing.List[str]]
+
+
+# TimeRangeFilterInput
 
 ### EndTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.TimestampTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.Timestamp'>
 - **Required**: Yes
 
 ### StartTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.TimestampTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.Timestamp'>
 - **Required**: Yes
 
 
-# TimeRangeFilterOutputTypeDef
+# TimeRangeFilterOutput
 
 ### EndTime
 - **Type**: <class 'datetime.datetime'>
@@ -1272,13 +1272,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TimestampTypeDef
+# Timestamp
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# UntagResourceRequestTypeDef
+# UntagResourceRequest
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -1289,7 +1289,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UserDefinedTypeDef
+# UserDefined
 
 ### Unit
 - **Type**: typing.Literal['METERS']
@@ -1300,22 +1300,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# VectorEnrichmentJobConfigTypeDef
+# VectorEnrichmentJobConfig
 
 ### MapMatchingConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.MapMatchingConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### ReverseGeocodingConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.ReverseGeocodingConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# VectorEnrichmentJobDataSourceConfigInputTypeDef
+# VectorEnrichmentJobDataSourceConfigInput
 
 ### S3Data
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.VectorEnrichmentJobS3DataTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.VectorEnrichmentJobS3Data]
 
 
-# VectorEnrichmentJobErrorDetailsTypeDef
+# VectorEnrichmentJobErrorDetails
 
 ### ErrorMessage
 - **Type**: typing.Optional[str]
@@ -1324,10 +1324,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CLIENT_ERROR', 'SERVER_ERROR']]
 
 
-# VectorEnrichmentJobInputConfigTypeDef
+# VectorEnrichmentJobInputConfig
 
 ### DataSourceConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.VectorEnrichmentJobDataSourceConfigInputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_geospatial_classes.VectorEnrichmentJobDataSourceConfigInput'>
 - **Required**: Yes
 
 ### DocumentType
@@ -1335,7 +1335,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# VectorEnrichmentJobS3DataTypeDef
+# VectorEnrichmentJobS3Data
 
 ### S3Uri
 - **Type**: <class 'str'>
@@ -1345,7 +1345,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ViewOffNadirInputTypeDef
+# ViewOffNadirInput
 
 ### LowerBound
 - **Type**: <class 'float'>
@@ -1356,7 +1356,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ViewSunAzimuthInputTypeDef
+# ViewSunAzimuthInput
 
 ### LowerBound
 - **Type**: <class 'float'>
@@ -1367,7 +1367,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ViewSunElevationInputTypeDef
+# ViewSunElevationInput
 
 ### LowerBound
 - **Type**: <class 'float'>
@@ -1378,24 +1378,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ZonalStatisticsConfigInputOutputTypeDef
-
-### Statistics
-- **Type**: typing.List[typing.Literal['MAX', 'MEAN', 'MEDIAN', 'MIN', 'STANDARD_DEVIATION', 'SUM']]
-- **Required**: Yes
-
-### ZoneS3Path
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### TargetBands
-- **Type**: typing.Optional[typing.List[str]]
-
-### ZoneS3PathKmsKeyId
-- **Type**: typing.Optional[str]
-
-
-# ZonalStatisticsConfigInputTypeDef
+# ZonalStatisticsConfigInput
 
 ### Statistics
 - **Type**: typing.Sequence[typing.Literal['MAX', 'MEAN', 'MEDIAN', 'MIN', 'STANDARD_DEVIATION', 'SUM']]
@@ -1407,6 +1390,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### TargetBands
 - **Type**: typing.Optional[typing.Sequence[str]]
+
+### ZoneS3PathKmsKeyId
+- **Type**: typing.Optional[str]
+
+
+# ZonalStatisticsConfigInputOutput
+
+### Statistics
+- **Type**: typing.List[typing.Literal['MAX', 'MEAN', 'MEDIAN', 'MIN', 'STANDARD_DEVIATION', 'SUM']]
+- **Required**: Yes
+
+### ZoneS3Path
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### TargetBands
+- **Type**: typing.Optional[typing.List[str]]
 
 ### ZoneS3PathKmsKeyId
 - **Type**: typing.Optional[str]

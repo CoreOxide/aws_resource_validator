@@ -12,13 +12,13 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.rds_constants import *
 
-class AccountQuotaTypeDef(BaseValidatorModel):
+class AccountQuota(BaseValidatorModel):
     AccountQuotaName: Optional[str] = None
     Used: Optional[int] = None
     Max: Optional[int] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -26,24 +26,24 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class AddRoleToDBClusterMessageTypeDef(BaseValidatorModel):
+class AddRoleToDBClusterMessage(BaseValidatorModel):
     DBClusterIdentifier: str
     RoleArn: str
     FeatureName: Optional[str] = None
 
 
-class AddRoleToDBInstanceMessageTypeDef(BaseValidatorModel):
+class AddRoleToDBInstanceMessage(BaseValidatorModel):
     DBInstanceIdentifier: str
     RoleArn: str
     FeatureName: str
 
 
-class AddSourceIdentifierToSubscriptionMessageTypeDef(BaseValidatorModel):
+class AddSourceIdentifierToSubscriptionMessage(BaseValidatorModel):
     SubscriptionName: str
     SourceIdentifier: str
 
 
-class EventSubscriptionTypeDef(BaseValidatorModel):
+class EventSubscription(BaseValidatorModel):
     CustomerAwsId: Optional[str] = None
     CustSubscriptionId: Optional[str] = None
     SnsTopicArn: Optional[str] = None
@@ -56,18 +56,18 @@ class EventSubscriptionTypeDef(BaseValidatorModel):
     EventSubscriptionArn: Optional[str] = None
 
 
-class TagTypeDef(BaseValidatorModel):
+class Tag(BaseValidatorModel):
     Key: Optional[str] = None
     Value: Optional[str] = None
 
 
-class ApplyPendingMaintenanceActionMessageTypeDef(BaseValidatorModel):
+class ApplyPendingMaintenanceActionMessage(BaseValidatorModel):
     ResourceIdentifier: str
     ApplyAction: str
     OptInType: str
 
 
-class AuthorizeDBSecurityGroupIngressMessageTypeDef(BaseValidatorModel):
+class AuthorizeDBSecurityGroupIngressMessage(BaseValidatorModel):
     DBSecurityGroupName: str
     CIDRIP: Optional[str] = None
     EC2SecurityGroupName: Optional[str] = None
@@ -75,37 +75,37 @@ class AuthorizeDBSecurityGroupIngressMessageTypeDef(BaseValidatorModel):
     EC2SecurityGroupOwnerId: Optional[str] = None
 
 
-class AvailabilityZoneTypeDef(BaseValidatorModel):
+class AvailabilityZone(BaseValidatorModel):
     Name: Optional[str] = None
 
 
-class AvailableProcessorFeatureTypeDef(BaseValidatorModel):
+class AvailableProcessorFeature(BaseValidatorModel):
     Name: Optional[str] = None
     DefaultValue: Optional[str] = None
     AllowedValues: Optional[str] = None
 
 
-class BlueGreenDeploymentTaskTypeDef(BaseValidatorModel):
+class BlueGreenDeploymentTask(BaseValidatorModel):
     Name: Optional[str] = None
     Status: Optional[str] = None
 
 
-class SwitchoverDetailTypeDef(BaseValidatorModel):
+class SwitchoverDetail(BaseValidatorModel):
     SourceMember: Optional[str] = None
     TargetMember: Optional[str] = None
     Status: Optional[str] = None
 
 
-class CancelExportTaskMessageTypeDef(BaseValidatorModel):
+class CancelExportTaskMessage(BaseValidatorModel):
     ExportTaskIdentifier: str
 
 
-class CertificateDetailsTypeDef(BaseValidatorModel):
+class CertificateDetails(BaseValidatorModel):
     CAIdentifier: Optional[str] = None
     ValidTill: Optional[datetime] = None
 
 
-class CertificateTypeDef(BaseValidatorModel):
+class Certificate(BaseValidatorModel):
     CertificateIdentifier: Optional[str] = None
     CertificateType: Optional[str] = None
     Thumbprint: Optional[str] = None
@@ -116,35 +116,35 @@ class CertificateTypeDef(BaseValidatorModel):
     CustomerOverrideValidTill: Optional[datetime] = None
 
 
-class CharacterSetTypeDef(BaseValidatorModel):
+class CharacterSet(BaseValidatorModel):
     CharacterSetName: Optional[str] = None
     CharacterSetDescription: Optional[str] = None
 
 
-class ClientGenerateDbAuthTokenRequestTypeDef(BaseValidatorModel):
+class ClientGenerateDbAuthTokenRequest(BaseValidatorModel):
     DBHostname: str
     Port: int
     DBUsername: str
     Region: Optional[str | None] = None
 
 
-class CloudwatchLogsExportConfigurationTypeDef(BaseValidatorModel):
+class CloudwatchLogsExportConfiguration(BaseValidatorModel):
     EnableLogTypes: Optional[Sequence[str]] = None
     DisableLogTypes: Optional[Sequence[str]] = None
 
 
-class PendingCloudwatchLogsExportsTypeDef(BaseValidatorModel):
+class PendingCloudwatchLogsExports(BaseValidatorModel):
     LogTypesToEnable: Optional[List[str]] = None
     LogTypesToDisable: Optional[List[str]] = None
 
 
-class RdsCustomClusterConfigurationTypeDef(BaseValidatorModel):
+class RdsCustomClusterConfiguration(BaseValidatorModel):
     InterconnectSubnetId: Optional[str] = None
     TransitGatewayMulticastDomainId: Optional[str] = None
     ReplicaMode: Optional[ReplicaModeType] = None
 
 
-class ConnectionPoolConfigurationInfoTypeDef(BaseValidatorModel):
+class ConnectionPoolConfigurationInfo(BaseValidatorModel):
     MaxConnectionsPercent: Optional[int] = None
     MaxIdleConnectionsPercent: Optional[int] = None
     ConnectionBorrowTimeout: Optional[int] = None
@@ -152,7 +152,7 @@ class ConnectionPoolConfigurationInfoTypeDef(BaseValidatorModel):
     InitQuery: Optional[str] = None
 
 
-class ConnectionPoolConfigurationTypeDef(BaseValidatorModel):
+class ConnectionPoolConfiguration(BaseValidatorModel):
     MaxConnectionsPercent: Optional[int] = None
     MaxIdleConnectionsPercent: Optional[int] = None
     ConnectionBorrowTimeout: Optional[int] = None
@@ -160,26 +160,26 @@ class ConnectionPoolConfigurationTypeDef(BaseValidatorModel):
     InitQuery: Optional[str] = None
 
 
-class ContextAttributeTypeDef(BaseValidatorModel):
+class ContextAttribute(BaseValidatorModel):
     Key: Optional[str] = None
     Value: Optional[str] = None
 
 
-class DBClusterParameterGroupTypeDef(BaseValidatorModel):
+class DBClusterParameterGroup(BaseValidatorModel):
     DBClusterParameterGroupName: Optional[str] = None
     DBParameterGroupFamily: Optional[str] = None
     Description: Optional[str] = None
     DBClusterParameterGroupArn: Optional[str] = None
 
 
-class DBParameterGroupTypeDef(BaseValidatorModel):
+class DBParameterGroup(BaseValidatorModel):
     DBParameterGroupName: Optional[str] = None
     DBParameterGroupFamily: Optional[str] = None
     Description: Optional[str] = None
     DBParameterGroupArn: Optional[str] = None
 
 
-class ScalingConfigurationTypeDef(BaseValidatorModel):
+class ScalingConfiguration(BaseValidatorModel):
     MinCapacity: Optional[int] = None
     MaxCapacity: Optional[int] = None
     AutoPause: Optional[bool] = None
@@ -188,18 +188,18 @@ class ScalingConfigurationTypeDef(BaseValidatorModel):
     SecondsBeforeTimeout: Optional[int] = None
 
 
-class ServerlessV2ScalingConfigurationTypeDef(BaseValidatorModel):
+class ServerlessV2ScalingConfiguration(BaseValidatorModel):
     MinCapacity: Optional[float] = None
     MaxCapacity: Optional[float] = None
     SecondsUntilAutoPause: Optional[int] = None
 
 
-class ProcessorFeatureTypeDef(BaseValidatorModel):
+class ProcessorFeature(BaseValidatorModel):
     Name: Optional[str] = None
     Value: Optional[str] = None
 
 
-class DBProxyEndpointTypeDef(BaseValidatorModel):
+class DBProxyEndpoint(BaseValidatorModel):
     DBProxyEndpointName: Optional[str] = None
     DBProxyEndpointArn: Optional[str] = None
     DBProxyName: Optional[str] = None
@@ -213,7 +213,7 @@ class DBProxyEndpointTypeDef(BaseValidatorModel):
     IsDefault: Optional[bool] = None
 
 
-class UserAuthConfigTypeDef(BaseValidatorModel):
+class UserAuthConfig(BaseValidatorModel):
     Description: Optional[str] = None
     UserName: Optional[str] = None
     AuthScheme: Optional[Literal["SECRETS"]] = None
@@ -222,17 +222,17 @@ class UserAuthConfigTypeDef(BaseValidatorModel):
     ClientPasswordAuthType: Optional[ClientPasswordAuthTypeType] = None
 
 
-class CustomDBEngineVersionAMITypeDef(BaseValidatorModel):
+class CustomDBEngineVersionAMI(BaseValidatorModel):
     ImageId: Optional[str] = None
     Status: Optional[str] = None
 
 
-class RestoreWindowTypeDef(BaseValidatorModel):
+class RestoreWindow(BaseValidatorModel):
     EarliestTime: Optional[datetime] = None
     LatestTime: Optional[datetime] = None
 
 
-class DBClusterBacktrackTypeDef(BaseValidatorModel):
+class DBClusterBacktrack(BaseValidatorModel):
     DBClusterIdentifier: Optional[str] = None
     BacktrackIdentifier: Optional[str] = None
     BacktrackTo: Optional[datetime] = None
@@ -241,7 +241,7 @@ class DBClusterBacktrackTypeDef(BaseValidatorModel):
     Status: Optional[str] = None
 
 
-class DBClusterEndpointTypeDef(BaseValidatorModel):
+class DBClusterEndpoint(BaseValidatorModel):
     DBClusterEndpointIdentifier: Optional[str] = None
     DBClusterIdentifier: Optional[str] = None
     DBClusterEndpointResourceIdentifier: Optional[str] = None
@@ -254,19 +254,19 @@ class DBClusterEndpointTypeDef(BaseValidatorModel):
     DBClusterEndpointArn: Optional[str] = None
 
 
-class DBClusterMemberTypeDef(BaseValidatorModel):
+class DBClusterMember(BaseValidatorModel):
     DBInstanceIdentifier: Optional[str] = None
     IsClusterWriter: Optional[bool] = None
     DBClusterParameterGroupStatus: Optional[str] = None
     PromotionTier: Optional[int] = None
 
 
-class DBClusterOptionGroupStatusTypeDef(BaseValidatorModel):
+class DBClusterOptionGroupStatus(BaseValidatorModel):
     DBClusterOptionGroupName: Optional[str] = None
     Status: Optional[str] = None
 
 
-class ParameterOutputTypeDef(BaseValidatorModel):
+class ParameterOutput(BaseValidatorModel):
     ParameterName: Optional[str] = None
     ParameterValue: Optional[str] = None
     Description: Optional[str] = None
@@ -280,25 +280,25 @@ class ParameterOutputTypeDef(BaseValidatorModel):
     SupportedEngineModes: Optional[List[str]] = None
 
 
-class DBClusterRoleTypeDef(BaseValidatorModel):
+class DBClusterRole(BaseValidatorModel):
     RoleArn: Optional[str] = None
     Status: Optional[str] = None
     FeatureName: Optional[str] = None
 
 
-class DBClusterSnapshotAttributeTypeDef(BaseValidatorModel):
+class DBClusterSnapshotAttribute(BaseValidatorModel):
     AttributeName: Optional[str] = None
     AttributeValues: Optional[List[str]] = None
 
 
-class DBClusterStatusInfoTypeDef(BaseValidatorModel):
+class DBClusterStatusInfo(BaseValidatorModel):
     StatusType: Optional[str] = None
     Normal: Optional[bool] = None
     Status: Optional[str] = None
     Message: Optional[str] = None
 
 
-class DomainMembershipTypeDef(BaseValidatorModel):
+class DomainMembership(BaseValidatorModel):
     Domain: Optional[str] = None
     Status: Optional[str] = None
     FQDN: Optional[str] = None
@@ -308,18 +308,18 @@ class DomainMembershipTypeDef(BaseValidatorModel):
     DnsIps: Optional[List[str]] = None
 
 
-class LimitlessDatabaseTypeDef(BaseValidatorModel):
+class LimitlessDatabase(BaseValidatorModel):
     Status: Optional[LimitlessDatabaseStatusType] = None
     MinRequiredACU: Optional[float] = None
 
 
-class MasterUserSecretTypeDef(BaseValidatorModel):
+class MasterUserSecret(BaseValidatorModel):
     SecretArn: Optional[str] = None
     SecretStatus: Optional[str] = None
     KmsKeyId: Optional[str] = None
 
 
-class ScalingConfigurationInfoTypeDef(BaseValidatorModel):
+class ScalingConfigurationInfo(BaseValidatorModel):
     MinCapacity: Optional[int] = None
     MaxCapacity: Optional[int] = None
     AutoPause: Optional[bool] = None
@@ -328,27 +328,27 @@ class ScalingConfigurationInfoTypeDef(BaseValidatorModel):
     SecondsBeforeTimeout: Optional[int] = None
 
 
-class ServerlessV2ScalingConfigurationInfoTypeDef(BaseValidatorModel):
+class ServerlessV2ScalingConfigurationInfo(BaseValidatorModel):
     MinCapacity: Optional[float] = None
     MaxCapacity: Optional[float] = None
     SecondsUntilAutoPause: Optional[int] = None
 
 
-class VpcSecurityGroupMembershipTypeDef(BaseValidatorModel):
+class VpcSecurityGroupMembership(BaseValidatorModel):
     VpcSecurityGroupId: Optional[str] = None
     Status: Optional[str] = None
 
 
-class ServerlessV2FeaturesSupportTypeDef(BaseValidatorModel):
+class ServerlessV2FeaturesSupport(BaseValidatorModel):
     MinCapacity: Optional[float] = None
     MaxCapacity: Optional[float] = None
 
 
-class TimezoneTypeDef(BaseValidatorModel):
+class Timezone(BaseValidatorModel):
     TimezoneName: Optional[str] = None
 
 
-class UpgradeTargetTypeDef(BaseValidatorModel):
+class UpgradeTarget(BaseValidatorModel):
     Engine: Optional[str] = None
     EngineVersion: Optional[str] = None
     Description: Optional[str] = None
@@ -363,51 +363,51 @@ class UpgradeTargetTypeDef(BaseValidatorModel):
     SupportsIntegrations: Optional[bool] = None
 
 
-class DBInstanceAutomatedBackupsReplicationTypeDef(BaseValidatorModel):
+class DBInstanceAutomatedBackupsReplication(BaseValidatorModel):
     DBInstanceAutomatedBackupsArn: Optional[str] = None
 
 
-class DBInstanceRoleTypeDef(BaseValidatorModel):
+class DBInstanceRole(BaseValidatorModel):
     RoleArn: Optional[str] = None
     FeatureName: Optional[str] = None
     Status: Optional[str] = None
 
 
-class DBInstanceStatusInfoTypeDef(BaseValidatorModel):
+class DBInstanceStatusInfo(BaseValidatorModel):
     StatusType: Optional[str] = None
     Normal: Optional[bool] = None
     Status: Optional[str] = None
     Message: Optional[str] = None
 
 
-class DBParameterGroupStatusTypeDef(BaseValidatorModel):
+class DBParameterGroupStatus(BaseValidatorModel):
     DBParameterGroupName: Optional[str] = None
     ParameterApplyStatus: Optional[str] = None
 
 
-class DBSecurityGroupMembershipTypeDef(BaseValidatorModel):
+class DBSecurityGroupMembership(BaseValidatorModel):
     DBSecurityGroupName: Optional[str] = None
     Status: Optional[str] = None
 
 
-class EndpointTypeDef(BaseValidatorModel):
+class Endpoint(BaseValidatorModel):
     Address: Optional[str] = None
     Port: Optional[int] = None
     HostedZoneId: Optional[str] = None
 
 
-class OptionGroupMembershipTypeDef(BaseValidatorModel):
+class OptionGroupMembership(BaseValidatorModel):
     OptionGroupName: Optional[str] = None
     Status: Optional[str] = None
 
 
-class TargetHealthTypeDef(BaseValidatorModel):
+class TargetHealth(BaseValidatorModel):
     State: Optional[TargetStateType] = None
     Reason: Optional[TargetHealthReasonType] = None
     Description: Optional[str] = None
 
 
-class UserAuthConfigInfoTypeDef(BaseValidatorModel):
+class UserAuthConfigInfo(BaseValidatorModel):
     Description: Optional[str] = None
     UserName: Optional[str] = None
     AuthScheme: Optional[Literal["SECRETS"]] = None
@@ -416,186 +416,186 @@ class UserAuthConfigInfoTypeDef(BaseValidatorModel):
     ClientPasswordAuthType: Optional[ClientPasswordAuthTypeType] = None
 
 
-class EC2SecurityGroupTypeDef(BaseValidatorModel):
+class EC2SecurityGroup(BaseValidatorModel):
     Status: Optional[str] = None
     EC2SecurityGroupName: Optional[str] = None
     EC2SecurityGroupId: Optional[str] = None
     EC2SecurityGroupOwnerId: Optional[str] = None
 
 
-class IPRangeTypeDef(BaseValidatorModel):
+class IPRange(BaseValidatorModel):
     Status: Optional[str] = None
     CIDRIP: Optional[str] = None
 
 
-class DBSnapshotAttributeTypeDef(BaseValidatorModel):
+class DBSnapshotAttribute(BaseValidatorModel):
     AttributeName: Optional[str] = None
     AttributeValues: Optional[List[str]] = None
 
 
-class DeleteBlueGreenDeploymentRequestTypeDef(BaseValidatorModel):
+class DeleteBlueGreenDeploymentRequest(BaseValidatorModel):
     BlueGreenDeploymentIdentifier: str
     DeleteTarget: Optional[bool] = None
 
 
-class DeleteCustomDBEngineVersionMessageTypeDef(BaseValidatorModel):
+class DeleteCustomDBEngineVersionMessage(BaseValidatorModel):
     Engine: str
     EngineVersion: str
 
 
-class DeleteDBClusterAutomatedBackupMessageTypeDef(BaseValidatorModel):
+class DeleteDBClusterAutomatedBackupMessage(BaseValidatorModel):
     DbClusterResourceId: str
 
 
-class DeleteDBClusterEndpointMessageTypeDef(BaseValidatorModel):
+class DeleteDBClusterEndpointMessage(BaseValidatorModel):
     DBClusterEndpointIdentifier: str
 
 
-class DeleteDBClusterMessageTypeDef(BaseValidatorModel):
+class DeleteDBClusterMessage(BaseValidatorModel):
     DBClusterIdentifier: str
     SkipFinalSnapshot: Optional[bool] = None
     FinalDBSnapshotIdentifier: Optional[str] = None
     DeleteAutomatedBackups: Optional[bool] = None
 
 
-class DeleteDBClusterParameterGroupMessageTypeDef(BaseValidatorModel):
+class DeleteDBClusterParameterGroupMessage(BaseValidatorModel):
     DBClusterParameterGroupName: str
 
 
-class DeleteDBClusterSnapshotMessageTypeDef(BaseValidatorModel):
+class DeleteDBClusterSnapshotMessage(BaseValidatorModel):
     DBClusterSnapshotIdentifier: str
 
 
-class DeleteDBInstanceAutomatedBackupMessageTypeDef(BaseValidatorModel):
+class DeleteDBInstanceAutomatedBackupMessage(BaseValidatorModel):
     DbiResourceId: Optional[str] = None
     DBInstanceAutomatedBackupsArn: Optional[str] = None
 
 
-class DeleteDBInstanceMessageTypeDef(BaseValidatorModel):
+class DeleteDBInstanceMessage(BaseValidatorModel):
     DBInstanceIdentifier: str
     SkipFinalSnapshot: Optional[bool] = None
     FinalDBSnapshotIdentifier: Optional[str] = None
     DeleteAutomatedBackups: Optional[bool] = None
 
 
-class DeleteDBParameterGroupMessageTypeDef(BaseValidatorModel):
+class DeleteDBParameterGroupMessage(BaseValidatorModel):
     DBParameterGroupName: str
 
 
-class DeleteDBProxyEndpointRequestTypeDef(BaseValidatorModel):
+class DeleteDBProxyEndpointRequest(BaseValidatorModel):
     DBProxyEndpointName: str
 
 
-class DeleteDBProxyRequestTypeDef(BaseValidatorModel):
+class DeleteDBProxyRequest(BaseValidatorModel):
     DBProxyName: str
 
 
-class DeleteDBSecurityGroupMessageTypeDef(BaseValidatorModel):
+class DeleteDBSecurityGroupMessage(BaseValidatorModel):
     DBSecurityGroupName: str
 
 
-class DeleteDBShardGroupMessageTypeDef(BaseValidatorModel):
+class DeleteDBShardGroupMessage(BaseValidatorModel):
     DBShardGroupIdentifier: str
 
 
-class DeleteDBSnapshotMessageTypeDef(BaseValidatorModel):
+class DeleteDBSnapshotMessage(BaseValidatorModel):
     DBSnapshotIdentifier: str
 
 
-class DeleteDBSubnetGroupMessageTypeDef(BaseValidatorModel):
+class DeleteDBSubnetGroupMessage(BaseValidatorModel):
     DBSubnetGroupName: str
 
 
-class DeleteEventSubscriptionMessageTypeDef(BaseValidatorModel):
+class DeleteEventSubscriptionMessage(BaseValidatorModel):
     SubscriptionName: str
 
 
-class DeleteGlobalClusterMessageTypeDef(BaseValidatorModel):
+class DeleteGlobalClusterMessage(BaseValidatorModel):
     GlobalClusterIdentifier: str
 
 
-class DeleteIntegrationMessageTypeDef(BaseValidatorModel):
+class DeleteIntegrationMessage(BaseValidatorModel):
     IntegrationIdentifier: str
 
 
-class DeleteOptionGroupMessageTypeDef(BaseValidatorModel):
+class DeleteOptionGroupMessage(BaseValidatorModel):
     OptionGroupName: str
 
 
-class DeleteTenantDatabaseMessageTypeDef(BaseValidatorModel):
+class DeleteTenantDatabaseMessage(BaseValidatorModel):
     DBInstanceIdentifier: str
     TenantDBName: str
     SkipFinalSnapshot: Optional[bool] = None
     FinalDBSnapshotIdentifier: Optional[str] = None
 
 
-class DeregisterDBProxyTargetsRequestTypeDef(BaseValidatorModel):
+class DeregisterDBProxyTargetsRequest(BaseValidatorModel):
     DBProxyName: str
     TargetGroupName: Optional[str] = None
     DBInstanceIdentifiers: Optional[Sequence[str]] = None
     DBClusterIdentifiers: Optional[Sequence[str]] = None
 
 
-class FilterTypeDef(BaseValidatorModel):
+class Filter(BaseValidatorModel):
     Name: str
     Values: Sequence[str]
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class DescribeDBClusterSnapshotAttributesMessageTypeDef(BaseValidatorModel):
+class DescribeDBClusterSnapshotAttributesMessage(BaseValidatorModel):
     DBClusterSnapshotIdentifier: str
 
 
-class WaiterConfigTypeDef(BaseValidatorModel):
+class WaiterConfig(BaseValidatorModel):
     Delay: Optional[int] = None
     MaxAttempts: Optional[int] = None
 
 
-class DescribeDBLogFilesDetailsTypeDef(BaseValidatorModel):
+class DescribeDBLogFilesDetails(BaseValidatorModel):
     LogFileName: Optional[str] = None
     LastWritten: Optional[int] = None
     Size: Optional[int] = None
 
 
-class DescribeDBSnapshotAttributesMessageTypeDef(BaseValidatorModel):
+class DescribeDBSnapshotAttributesMessage(BaseValidatorModel):
     DBSnapshotIdentifier: str
 
 
-class DescribeValidDBInstanceModificationsMessageTypeDef(BaseValidatorModel):
+class DescribeValidDBInstanceModificationsMessage(BaseValidatorModel):
     DBInstanceIdentifier: str
 
 
-class DisableHttpEndpointRequestTypeDef(BaseValidatorModel):
+class DisableHttpEndpointRequest(BaseValidatorModel):
     ResourceArn: str
 
 
-class DoubleRangeTypeDef(BaseValidatorModel):
+class DoubleRange(BaseValidatorModel):
     From: Optional[float] = None
     To: Optional[float] = None
 
 
-class DownloadDBLogFilePortionMessageTypeDef(BaseValidatorModel):
+class DownloadDBLogFilePortionMessage(BaseValidatorModel):
     DBInstanceIdentifier: str
     LogFileName: str
     Marker: Optional[str] = None
     NumberOfLines: Optional[int] = None
 
 
-class EnableHttpEndpointRequestTypeDef(BaseValidatorModel):
+class EnableHttpEndpointRequest(BaseValidatorModel):
     ResourceArn: str
 
 
-class EventCategoriesMapTypeDef(BaseValidatorModel):
+class EventCategoriesMap(BaseValidatorModel):
     SourceType: Optional[str] = None
     EventCategories: Optional[List[str]] = None
 
 
-class EventTypeDef(BaseValidatorModel):
+class Event(BaseValidatorModel):
     SourceIdentifier: Optional[str] = None
     SourceType: Optional[SourceTypeType] = None
     Message: Optional[str] = None
@@ -604,7 +604,7 @@ class EventTypeDef(BaseValidatorModel):
     SourceArn: Optional[str] = None
 
 
-class ExportTaskTypeDef(BaseValidatorModel):
+class ExportTask(BaseValidatorModel):
     ExportTaskIdentifier: Optional[str] = None
     SourceArn: Optional[str] = None
     ExportOnly: Optional[List[str]] = None
@@ -623,26 +623,26 @@ class ExportTaskTypeDef(BaseValidatorModel):
     SourceType: Optional[ExportSourceTypeType] = None
 
 
-class FailoverDBClusterMessageTypeDef(BaseValidatorModel):
+class FailoverDBClusterMessage(BaseValidatorModel):
     DBClusterIdentifier: str
     TargetDBInstanceIdentifier: Optional[str] = None
 
 
-class FailoverGlobalClusterMessageTypeDef(BaseValidatorModel):
+class FailoverGlobalClusterMessage(BaseValidatorModel):
     GlobalClusterIdentifier: str
     TargetDbClusterIdentifier: str
     AllowDataLoss: Optional[bool] = None
     Switchover: Optional[bool] = None
 
 
-class FailoverStateTypeDef(BaseValidatorModel):
+class FailoverState(BaseValidatorModel):
     Status: Optional[FailoverStatusType] = None
     FromDbClusterArn: Optional[str] = None
     ToDbClusterArn: Optional[str] = None
     IsDataLossAllowed: Optional[bool] = None
 
 
-class GlobalClusterMemberTypeDef(BaseValidatorModel):
+class GlobalClusterMember(BaseValidatorModel):
     DBClusterArn: Optional[str] = None
     Readers: Optional[List[str]] = None
     IsWriter: Optional[bool] = None
@@ -650,92 +650,92 @@ class GlobalClusterMemberTypeDef(BaseValidatorModel):
     SynchronizationStatus: Optional[GlobalClusterMemberSynchronizationStatusType] = None
 
 
-class IntegrationErrorTypeDef(BaseValidatorModel):
+class IntegrationError(BaseValidatorModel):
     ErrorCode: str
     ErrorMessage: Optional[str] = None
 
 
-class MinimumEngineVersionPerAllowedValueTypeDef(BaseValidatorModel):
+class MinimumEngineVersionPerAllowedValue(BaseValidatorModel):
     AllowedValue: Optional[str] = None
     MinimumEngineVersion: Optional[str] = None
 
 
-class ModifyActivityStreamRequestTypeDef(BaseValidatorModel):
+class ModifyActivityStreamRequest(BaseValidatorModel):
     ResourceArn: Optional[str] = None
     AuditPolicyState: Optional[AuditPolicyStateType] = None
 
 
-class ModifyCertificatesMessageTypeDef(BaseValidatorModel):
+class ModifyCertificatesMessage(BaseValidatorModel):
     CertificateIdentifier: Optional[str] = None
     RemoveCustomerOverride: Optional[bool] = None
 
 
-class ModifyCurrentDBClusterCapacityMessageTypeDef(BaseValidatorModel):
+class ModifyCurrentDBClusterCapacityMessage(BaseValidatorModel):
     DBClusterIdentifier: str
     Capacity: Optional[int] = None
     SecondsBeforeTimeout: Optional[int] = None
     TimeoutAction: Optional[str] = None
 
 
-class ModifyCustomDBEngineVersionMessageTypeDef(BaseValidatorModel):
+class ModifyCustomDBEngineVersionMessage(BaseValidatorModel):
     Engine: str
     EngineVersion: str
     Description: Optional[str] = None
     Status: Optional[CustomEngineVersionStatusType] = None
 
 
-class ModifyDBClusterEndpointMessageTypeDef(BaseValidatorModel):
+class ModifyDBClusterEndpointMessage(BaseValidatorModel):
     DBClusterEndpointIdentifier: str
     EndpointType: Optional[str] = None
     StaticMembers: Optional[Sequence[str]] = None
     ExcludedMembers: Optional[Sequence[str]] = None
 
 
-class ModifyDBClusterSnapshotAttributeMessageTypeDef(BaseValidatorModel):
+class ModifyDBClusterSnapshotAttributeMessage(BaseValidatorModel):
     DBClusterSnapshotIdentifier: str
     AttributeName: str
     ValuesToAdd: Optional[Sequence[str]] = None
     ValuesToRemove: Optional[Sequence[str]] = None
 
 
-class ModifyDBProxyEndpointRequestTypeDef(BaseValidatorModel):
+class ModifyDBProxyEndpointRequest(BaseValidatorModel):
     DBProxyEndpointName: str
     NewDBProxyEndpointName: Optional[str] = None
     VpcSecurityGroupIds: Optional[Sequence[str]] = None
 
 
-class RecommendedActionUpdateTypeDef(BaseValidatorModel):
+class RecommendedActionUpdate(BaseValidatorModel):
     ActionId: str
     Status: str
 
 
-class ModifyDBShardGroupMessageTypeDef(BaseValidatorModel):
+class ModifyDBShardGroupMessage(BaseValidatorModel):
     DBShardGroupIdentifier: str
     MaxACU: Optional[float] = None
     MinACU: Optional[float] = None
     ComputeRedundancy: Optional[int] = None
 
 
-class ModifyDBSnapshotAttributeMessageTypeDef(BaseValidatorModel):
+class ModifyDBSnapshotAttributeMessage(BaseValidatorModel):
     DBSnapshotIdentifier: str
     AttributeName: str
     ValuesToAdd: Optional[Sequence[str]] = None
     ValuesToRemove: Optional[Sequence[str]] = None
 
 
-class ModifyDBSnapshotMessageTypeDef(BaseValidatorModel):
+class ModifyDBSnapshotMessage(BaseValidatorModel):
     DBSnapshotIdentifier: str
     EngineVersion: Optional[str] = None
     OptionGroupName: Optional[str] = None
 
 
-class ModifyDBSubnetGroupMessageTypeDef(BaseValidatorModel):
+class ModifyDBSubnetGroupMessage(BaseValidatorModel):
     DBSubnetGroupName: str
     SubnetIds: Sequence[str]
     DBSubnetGroupDescription: Optional[str] = None
 
 
-class ModifyEventSubscriptionMessageTypeDef(BaseValidatorModel):
+class ModifyEventSubscriptionMessage(BaseValidatorModel):
     SubscriptionName: str
     SnsTopicArn: Optional[str] = None
     SourceType: Optional[str] = None
@@ -743,7 +743,7 @@ class ModifyEventSubscriptionMessageTypeDef(BaseValidatorModel):
     Enabled: Optional[bool] = None
 
 
-class ModifyGlobalClusterMessageTypeDef(BaseValidatorModel):
+class ModifyGlobalClusterMessage(BaseValidatorModel):
     GlobalClusterIdentifier: Optional[str] = None
     NewGlobalClusterIdentifier: Optional[str] = None
     DeletionProtection: Optional[bool] = None
@@ -751,21 +751,21 @@ class ModifyGlobalClusterMessageTypeDef(BaseValidatorModel):
     AllowMajorVersionUpgrade: Optional[bool] = None
 
 
-class ModifyIntegrationMessageTypeDef(BaseValidatorModel):
+class ModifyIntegrationMessage(BaseValidatorModel):
     IntegrationIdentifier: str
     IntegrationName: Optional[str] = None
     DataFilter: Optional[str] = None
     Description: Optional[str] = None
 
 
-class ModifyTenantDatabaseMessageTypeDef(BaseValidatorModel):
+class ModifyTenantDatabaseMessage(BaseValidatorModel):
     DBInstanceIdentifier: str
     TenantDBName: str
     MasterUserPassword: Optional[str] = None
     NewTenantDBName: Optional[str] = None
 
 
-class OptionSettingTypeDef(BaseValidatorModel):
+class OptionSetting(BaseValidatorModel):
     Name: Optional[str] = None
     Value: Optional[str] = None
     DefaultValue: Optional[str] = None
@@ -777,16 +777,16 @@ class OptionSettingTypeDef(BaseValidatorModel):
     IsCollection: Optional[bool] = None
 
 
-class OptionVersionTypeDef(BaseValidatorModel):
+class OptionVersion(BaseValidatorModel):
     Version: Optional[str] = None
     IsDefault: Optional[bool] = None
 
 
-class OutpostTypeDef(BaseValidatorModel):
+class Outpost(BaseValidatorModel):
     Arn: Optional[str] = None
 
 
-class ParameterTypeDef(BaseValidatorModel):
+class Parameter(BaseValidatorModel):
     ParameterName: Optional[str] = None
     ParameterValue: Optional[str] = None
     Description: Optional[str] = None
@@ -800,7 +800,7 @@ class ParameterTypeDef(BaseValidatorModel):
     SupportedEngineModes: Optional[Sequence[str]] = None
 
 
-class PendingMaintenanceActionTypeDef(BaseValidatorModel):
+class PendingMaintenanceAction(BaseValidatorModel):
     Action: Optional[str] = None
     AutoAppliedAfterDate: Optional[datetime] = None
     ForcedApplyDate: Optional[datetime] = None
@@ -809,90 +809,90 @@ class PendingMaintenanceActionTypeDef(BaseValidatorModel):
     Description: Optional[str] = None
 
 
-class PerformanceInsightsMetricDimensionGroupTypeDef(BaseValidatorModel):
+class PerformanceInsightsMetricDimensionGroup(BaseValidatorModel):
     Dimensions: Optional[List[str]] = None
     Group: Optional[str] = None
     Limit: Optional[int] = None
 
 
-class PromoteReadReplicaDBClusterMessageTypeDef(BaseValidatorModel):
+class PromoteReadReplicaDBClusterMessage(BaseValidatorModel):
     DBClusterIdentifier: str
 
 
-class PromoteReadReplicaMessageTypeDef(BaseValidatorModel):
+class PromoteReadReplicaMessage(BaseValidatorModel):
     DBInstanceIdentifier: str
     BackupRetentionPeriod: Optional[int] = None
     PreferredBackupWindow: Optional[str] = None
 
 
-class RangeTypeDef(BaseValidatorModel):
+class Range(BaseValidatorModel):
     From: Optional[int] = None
     To: Optional[int] = None
     Step: Optional[int] = None
 
 
-class RebootDBClusterMessageTypeDef(BaseValidatorModel):
+class RebootDBClusterMessage(BaseValidatorModel):
     DBClusterIdentifier: str
 
 
-class RebootDBInstanceMessageTypeDef(BaseValidatorModel):
+class RebootDBInstanceMessage(BaseValidatorModel):
     DBInstanceIdentifier: str
     ForceFailover: Optional[bool] = None
 
 
-class RebootDBShardGroupMessageTypeDef(BaseValidatorModel):
+class RebootDBShardGroupMessage(BaseValidatorModel):
     DBShardGroupIdentifier: str
 
 
-class RecommendedActionParameterTypeDef(BaseValidatorModel):
+class RecommendedActionParameter(BaseValidatorModel):
     Key: Optional[str] = None
     Value: Optional[str] = None
 
 
-class RecurringChargeTypeDef(BaseValidatorModel):
+class RecurringCharge(BaseValidatorModel):
     RecurringChargeAmount: Optional[float] = None
     RecurringChargeFrequency: Optional[str] = None
 
 
-class ScalarReferenceDetailsTypeDef(BaseValidatorModel):
+class ScalarReferenceDetails(BaseValidatorModel):
     Value: Optional[float] = None
 
 
-class RegisterDBProxyTargetsRequestTypeDef(BaseValidatorModel):
+class RegisterDBProxyTargetsRequest(BaseValidatorModel):
     DBProxyName: str
     TargetGroupName: Optional[str] = None
     DBInstanceIdentifiers: Optional[Sequence[str]] = None
     DBClusterIdentifiers: Optional[Sequence[str]] = None
 
 
-class RemoveFromGlobalClusterMessageTypeDef(BaseValidatorModel):
+class RemoveFromGlobalClusterMessage(BaseValidatorModel):
     GlobalClusterIdentifier: Optional[str] = None
     DbClusterIdentifier: Optional[str] = None
 
 
-class RemoveRoleFromDBClusterMessageTypeDef(BaseValidatorModel):
+class RemoveRoleFromDBClusterMessage(BaseValidatorModel):
     DBClusterIdentifier: str
     RoleArn: str
     FeatureName: Optional[str] = None
 
 
-class RemoveRoleFromDBInstanceMessageTypeDef(BaseValidatorModel):
+class RemoveRoleFromDBInstanceMessage(BaseValidatorModel):
     DBInstanceIdentifier: str
     RoleArn: str
     FeatureName: str
 
 
-class RemoveSourceIdentifierFromSubscriptionMessageTypeDef(BaseValidatorModel):
+class RemoveSourceIdentifierFromSubscriptionMessage(BaseValidatorModel):
     SubscriptionName: str
     SourceIdentifier: str
 
 
-class RemoveTagsFromResourceMessageTypeDef(BaseValidatorModel):
+class RemoveTagsFromResourceMessage(BaseValidatorModel):
     ResourceName: str
     TagKeys: Sequence[str]
 
 
-class RevokeDBSecurityGroupIngressMessageTypeDef(BaseValidatorModel):
+class RevokeDBSecurityGroupIngressMessage(BaseValidatorModel):
     DBSecurityGroupName: str
     CIDRIP: Optional[str] = None
     EC2SecurityGroupName: Optional[str] = None
@@ -900,7 +900,7 @@ class RevokeDBSecurityGroupIngressMessageTypeDef(BaseValidatorModel):
     EC2SecurityGroupOwnerId: Optional[str] = None
 
 
-class StartActivityStreamRequestTypeDef(BaseValidatorModel):
+class StartActivityStreamRequest(BaseValidatorModel):
     ResourceArn: str
     Mode: ActivityStreamModeType
     KmsKeyId: str
@@ -908,11 +908,11 @@ class StartActivityStreamRequestTypeDef(BaseValidatorModel):
     EngineNativeAuditFieldsIncluded: Optional[bool] = None
 
 
-class StartDBClusterMessageTypeDef(BaseValidatorModel):
+class StartDBClusterMessage(BaseValidatorModel):
     DBClusterIdentifier: str
 
 
-class StartDBInstanceAutomatedBackupsReplicationMessageTypeDef(BaseValidatorModel):
+class StartDBInstanceAutomatedBackupsReplicationMessage(BaseValidatorModel):
     SourceDBInstanceArn: str
     BackupRetentionPeriod: Optional[int] = None
     KmsKeyId: Optional[str] = None
@@ -920,11 +920,11 @@ class StartDBInstanceAutomatedBackupsReplicationMessageTypeDef(BaseValidatorMode
     SourceRegion: Optional[str] = None
 
 
-class StartDBInstanceMessageTypeDef(BaseValidatorModel):
+class StartDBInstanceMessage(BaseValidatorModel):
     DBInstanceIdentifier: str
 
 
-class StartExportTaskMessageTypeDef(BaseValidatorModel):
+class StartExportTaskMessage(BaseValidatorModel):
     ExportTaskIdentifier: str
     SourceArn: str
     S3BucketName: str
@@ -934,68 +934,68 @@ class StartExportTaskMessageTypeDef(BaseValidatorModel):
     ExportOnly: Optional[Sequence[str]] = None
 
 
-class StopActivityStreamRequestTypeDef(BaseValidatorModel):
+class StopActivityStreamRequest(BaseValidatorModel):
     ResourceArn: str
     ApplyImmediately: Optional[bool] = None
 
 
-class StopDBClusterMessageTypeDef(BaseValidatorModel):
+class StopDBClusterMessage(BaseValidatorModel):
     DBClusterIdentifier: str
 
 
-class StopDBInstanceAutomatedBackupsReplicationMessageTypeDef(BaseValidatorModel):
+class StopDBInstanceAutomatedBackupsReplicationMessage(BaseValidatorModel):
     SourceDBInstanceArn: str
 
 
-class StopDBInstanceMessageTypeDef(BaseValidatorModel):
+class StopDBInstanceMessage(BaseValidatorModel):
     DBInstanceIdentifier: str
     DBSnapshotIdentifier: Optional[str] = None
 
 
-class SwitchoverBlueGreenDeploymentRequestTypeDef(BaseValidatorModel):
+class SwitchoverBlueGreenDeploymentRequest(BaseValidatorModel):
     BlueGreenDeploymentIdentifier: str
     SwitchoverTimeout: Optional[int] = None
 
 
-class SwitchoverGlobalClusterMessageTypeDef(BaseValidatorModel):
+class SwitchoverGlobalClusterMessage(BaseValidatorModel):
     GlobalClusterIdentifier: str
     TargetDbClusterIdentifier: str
 
 
-class SwitchoverReadReplicaMessageTypeDef(BaseValidatorModel):
+class SwitchoverReadReplicaMessage(BaseValidatorModel):
     DBInstanceIdentifier: str
 
 
-class TenantDatabasePendingModifiedValuesTypeDef(BaseValidatorModel):
+class TenantDatabasePendingModifiedValues(BaseValidatorModel):
     MasterUserPassword: Optional[str] = None
     TenantDBName: Optional[str] = None
 
 
-class AccountAttributesMessageTypeDef(BaseValidatorModel):
-    AccountQuotas: List[AccountQuotaTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class AccountAttributesMessage(BaseValidatorModel):
+    AccountQuotas: List[AccountQuota]
+    ResponseMetadata: ResponseMetadata
 
 
-class DBClusterBacktrackResponseTypeDef(BaseValidatorModel):
+class DBClusterBacktrackResponse(BaseValidatorModel):
     DBClusterIdentifier: str
     BacktrackIdentifier: str
     BacktrackTo: datetime
     BacktrackedFrom: datetime
     BacktrackRequestCreationTime: datetime
     Status: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DBClusterCapacityInfoTypeDef(BaseValidatorModel):
+class DBClusterCapacityInfo(BaseValidatorModel):
     DBClusterIdentifier: str
     PendingCapacity: int
     CurrentCapacity: int
     SecondsBeforeTimeout: int
     TimeoutAction: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DBClusterEndpointResponseTypeDef(BaseValidatorModel):
+class DBClusterEndpointResponse(BaseValidatorModel):
     DBClusterEndpointIdentifier: str
     DBClusterIdentifier: str
     DBClusterEndpointResourceIdentifier: str
@@ -1006,43 +1006,43 @@ class DBClusterEndpointResponseTypeDef(BaseValidatorModel):
     StaticMembers: List[str]
     ExcludedMembers: List[str]
     DBClusterEndpointArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DBClusterParameterGroupNameMessageTypeDef(BaseValidatorModel):
+class DBClusterParameterGroupNameMessage(BaseValidatorModel):
     DBClusterParameterGroupName: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DBParameterGroupNameMessageTypeDef(BaseValidatorModel):
+class DBParameterGroupNameMessage(BaseValidatorModel):
     DBParameterGroupName: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DisableHttpEndpointResponseTypeDef(BaseValidatorModel):
+class DisableHttpEndpointResponse(BaseValidatorModel):
     ResourceArn: str
     HttpEndpointEnabled: bool
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DownloadDBLogFilePortionDetailsTypeDef(BaseValidatorModel):
+class DownloadDBLogFilePortionDetails(BaseValidatorModel):
     LogFileData: str
     Marker: str
     AdditionalDataPending: bool
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class EmptyResponseMetadataTypeDef(BaseValidatorModel):
-    ResponseMetadata: ResponseMetadataTypeDef
+class EmptyResponseMetadata(BaseValidatorModel):
+    ResponseMetadata: ResponseMetadata
 
 
-class EnableHttpEndpointResponseTypeDef(BaseValidatorModel):
+class EnableHttpEndpointResponse(BaseValidatorModel):
     ResourceArn: str
     HttpEndpointEnabled: bool
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ExportTaskResponseTypeDef(BaseValidatorModel):
+class ExportTaskResponse(BaseValidatorModel):
     ExportTaskIdentifier: str
     SourceArn: str
     ExportOnly: List[str]
@@ -1059,101 +1059,101 @@ class ExportTaskResponseTypeDef(BaseValidatorModel):
     FailureCause: str
     WarningMessage: str
     SourceType: ExportSourceTypeType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ModifyActivityStreamResponseTypeDef(BaseValidatorModel):
+class ModifyActivityStreamResponse(BaseValidatorModel):
     KmsKeyId: str
     KinesisStreamName: str
     Status: ActivityStreamStatusType
     Mode: ActivityStreamModeType
     EngineNativeAuditFieldsIncluded: bool
     PolicyStatus: ActivityStreamPolicyStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartActivityStreamResponseTypeDef(BaseValidatorModel):
+class StartActivityStreamResponse(BaseValidatorModel):
     KmsKeyId: str
     KinesisStreamName: str
     Status: ActivityStreamStatusType
     Mode: ActivityStreamModeType
     ApplyImmediately: bool
     EngineNativeAuditFieldsIncluded: bool
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StopActivityStreamResponseTypeDef(BaseValidatorModel):
+class StopActivityStreamResponse(BaseValidatorModel):
     KmsKeyId: str
     KinesisStreamName: str
     Status: ActivityStreamStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class AddSourceIdentifierToSubscriptionResultTypeDef(BaseValidatorModel):
-    EventSubscription: EventSubscriptionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class AddSourceIdentifierToSubscriptionResult(BaseValidatorModel):
+    EventSubscription: EventSubscription
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateEventSubscriptionResultTypeDef(BaseValidatorModel):
-    EventSubscription: EventSubscriptionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateEventSubscriptionResult(BaseValidatorModel):
+    EventSubscription: EventSubscription
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteEventSubscriptionResultTypeDef(BaseValidatorModel):
-    EventSubscription: EventSubscriptionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeleteEventSubscriptionResult(BaseValidatorModel):
+    EventSubscription: EventSubscription
+    ResponseMetadata: ResponseMetadata
 
 
-class EventSubscriptionsMessageTypeDef(BaseValidatorModel):
+class EventSubscriptionsMessage(BaseValidatorModel):
     Marker: str
-    EventSubscriptionsList: List[EventSubscriptionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    EventSubscriptionsList: List[EventSubscription]
+    ResponseMetadata: ResponseMetadata
 
 
-class ModifyEventSubscriptionResultTypeDef(BaseValidatorModel):
-    EventSubscription: EventSubscriptionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class ModifyEventSubscriptionResult(BaseValidatorModel):
+    EventSubscription: EventSubscription
+    ResponseMetadata: ResponseMetadata
 
 
-class RemoveSourceIdentifierFromSubscriptionResultTypeDef(BaseValidatorModel):
-    EventSubscription: EventSubscriptionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class RemoveSourceIdentifierFromSubscriptionResult(BaseValidatorModel):
+    EventSubscription: EventSubscription
+    ResponseMetadata: ResponseMetadata
 
 
-class AddTagsToResourceMessageTypeDef(BaseValidatorModel):
+class AddTagsToResourceMessage(BaseValidatorModel):
     ResourceName: str
-    Tags: Sequence[TagTypeDef]
+    Tags: Sequence[Tag]
 
 
-class CopyDBClusterParameterGroupMessageTypeDef(BaseValidatorModel):
+class CopyDBClusterParameterGroupMessage(BaseValidatorModel):
     SourceDBClusterParameterGroupIdentifier: str
     TargetDBClusterParameterGroupIdentifier: str
     TargetDBClusterParameterGroupDescription: str
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class CopyDBClusterSnapshotMessageTypeDef(BaseValidatorModel):
+class CopyDBClusterSnapshotMessage(BaseValidatorModel):
     SourceDBClusterSnapshotIdentifier: str
     TargetDBClusterSnapshotIdentifier: str
     KmsKeyId: Optional[str] = None
     PreSignedUrl: Optional[str] = None
     CopyTags: Optional[bool] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
     SourceRegion: Optional[str] = None
 
 
-class CopyDBParameterGroupMessageTypeDef(BaseValidatorModel):
+class CopyDBParameterGroupMessage(BaseValidatorModel):
     SourceDBParameterGroupIdentifier: str
     TargetDBParameterGroupIdentifier: str
     TargetDBParameterGroupDescription: str
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class CopyDBSnapshotMessageTypeDef(BaseValidatorModel):
+class CopyDBSnapshotMessage(BaseValidatorModel):
     SourceDBSnapshotIdentifier: str
     TargetDBSnapshotIdentifier: str
     KmsKeyId: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
     CopyTags: Optional[bool] = None
     PreSignedUrl: Optional[str] = None
     OptionGroupName: Optional[str] = None
@@ -1162,20 +1162,20 @@ class CopyDBSnapshotMessageTypeDef(BaseValidatorModel):
     SourceRegion: Optional[str] = None
 
 
-class CopyOptionGroupMessageTypeDef(BaseValidatorModel):
+class CopyOptionGroupMessage(BaseValidatorModel):
     SourceOptionGroupIdentifier: str
     TargetOptionGroupIdentifier: str
     TargetOptionGroupDescription: str
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class CreateBlueGreenDeploymentRequestTypeDef(BaseValidatorModel):
+class CreateBlueGreenDeploymentRequest(BaseValidatorModel):
     BlueGreenDeploymentName: str
     Source: str
     TargetEngineVersion: Optional[str] = None
     TargetDBParameterGroupName: Optional[str] = None
     TargetDBClusterParameterGroupName: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
     TargetDBInstanceClass: Optional[str] = None
     UpgradeTargetStorageConfig: Optional[bool] = None
     TargetIops: Optional[int] = None
@@ -1184,7 +1184,7 @@ class CreateBlueGreenDeploymentRequestTypeDef(BaseValidatorModel):
     TargetStorageThroughput: Optional[int] = None
 
 
-class CreateCustomDBEngineVersionMessageTypeDef(BaseValidatorModel):
+class CreateCustomDBEngineVersionMessage(BaseValidatorModel):
     Engine: str
     EngineVersion: str
     DatabaseInstallationFilesS3BucketName: Optional[str] = None
@@ -1193,89 +1193,89 @@ class CreateCustomDBEngineVersionMessageTypeDef(BaseValidatorModel):
     KMSKeyId: Optional[str] = None
     Description: Optional[str] = None
     Manifest: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
     SourceCustomDbEngineVersionIdentifier: Optional[str] = None
     UseAwsProvidedLatestImage: Optional[bool] = None
 
 
-class CreateDBClusterEndpointMessageTypeDef(BaseValidatorModel):
+class CreateDBClusterEndpointMessage(BaseValidatorModel):
     DBClusterIdentifier: str
     DBClusterEndpointIdentifier: str
     EndpointType: str
     StaticMembers: Optional[Sequence[str]] = None
     ExcludedMembers: Optional[Sequence[str]] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class CreateDBClusterParameterGroupMessageTypeDef(BaseValidatorModel):
+class CreateDBClusterParameterGroupMessage(BaseValidatorModel):
     DBClusterParameterGroupName: str
     DBParameterGroupFamily: str
     Description: str
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class CreateDBClusterSnapshotMessageTypeDef(BaseValidatorModel):
+class CreateDBClusterSnapshotMessage(BaseValidatorModel):
     DBClusterSnapshotIdentifier: str
     DBClusterIdentifier: str
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class CreateDBParameterGroupMessageTypeDef(BaseValidatorModel):
+class CreateDBParameterGroupMessage(BaseValidatorModel):
     DBParameterGroupName: str
     DBParameterGroupFamily: str
     Description: str
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class CreateDBProxyEndpointRequestTypeDef(BaseValidatorModel):
+class CreateDBProxyEndpointRequest(BaseValidatorModel):
     DBProxyName: str
     DBProxyEndpointName: str
     VpcSubnetIds: Sequence[str]
     VpcSecurityGroupIds: Optional[Sequence[str]] = None
     TargetRole: Optional[DBProxyEndpointTargetRoleType] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class CreateDBSecurityGroupMessageTypeDef(BaseValidatorModel):
+class CreateDBSecurityGroupMessage(BaseValidatorModel):
     DBSecurityGroupName: str
     DBSecurityGroupDescription: str
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class CreateDBShardGroupMessageTypeDef(BaseValidatorModel):
+class CreateDBShardGroupMessage(BaseValidatorModel):
     DBShardGroupIdentifier: str
     DBClusterIdentifier: str
     MaxACU: float
     ComputeRedundancy: Optional[int] = None
     MinACU: Optional[float] = None
     PubliclyAccessible: Optional[bool] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class CreateDBSnapshotMessageTypeDef(BaseValidatorModel):
+class CreateDBSnapshotMessage(BaseValidatorModel):
     DBSnapshotIdentifier: str
     DBInstanceIdentifier: str
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class CreateDBSubnetGroupMessageTypeDef(BaseValidatorModel):
+class CreateDBSubnetGroupMessage(BaseValidatorModel):
     DBSubnetGroupName: str
     DBSubnetGroupDescription: str
     SubnetIds: Sequence[str]
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class CreateEventSubscriptionMessageTypeDef(BaseValidatorModel):
+class CreateEventSubscriptionMessage(BaseValidatorModel):
     SubscriptionName: str
     SnsTopicArn: str
     SourceType: Optional[str] = None
     EventCategories: Optional[Sequence[str]] = None
     SourceIds: Optional[Sequence[str]] = None
     Enabled: Optional[bool] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class CreateGlobalClusterMessageTypeDef(BaseValidatorModel):
+class CreateGlobalClusterMessage(BaseValidatorModel):
     GlobalClusterIdentifier: Optional[str] = None
     SourceDBClusterIdentifier: Optional[str] = None
     Engine: Optional[str] = None
@@ -1284,39 +1284,39 @@ class CreateGlobalClusterMessageTypeDef(BaseValidatorModel):
     DeletionProtection: Optional[bool] = None
     DatabaseName: Optional[str] = None
     StorageEncrypted: Optional[bool] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class CreateIntegrationMessageTypeDef(BaseValidatorModel):
+class CreateIntegrationMessage(BaseValidatorModel):
     SourceArn: str
     TargetArn: str
     IntegrationName: str
     KMSKeyId: Optional[str] = None
     AdditionalEncryptionContext: Optional[Mapping[str, str]] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
     DataFilter: Optional[str] = None
     Description: Optional[str] = None
 
 
-class CreateOptionGroupMessageTypeDef(BaseValidatorModel):
+class CreateOptionGroupMessage(BaseValidatorModel):
     OptionGroupName: str
     EngineName: str
     MajorEngineVersion: str
     OptionGroupDescription: str
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class CreateTenantDatabaseMessageTypeDef(BaseValidatorModel):
+class CreateTenantDatabaseMessage(BaseValidatorModel):
     DBInstanceIdentifier: str
     TenantDBName: str
     MasterUsername: str
     MasterUserPassword: str
     CharacterSetName: Optional[str] = None
     NcharCharacterSetName: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class DBClusterSnapshotTypeDef(BaseValidatorModel):
+class DBClusterSnapshot(BaseValidatorModel):
     AvailabilityZones: Optional[List[str]] = None
     DBClusterSnapshotIdentifier: Optional[str] = None
     DBClusterIdentifier: Optional[str] = None
@@ -1338,14 +1338,14 @@ class DBClusterSnapshotTypeDef(BaseValidatorModel):
     DBClusterSnapshotArn: Optional[str] = None
     SourceDBClusterSnapshotArn: Optional[str] = None
     IAMDatabaseAuthenticationEnabled: Optional[bool] = None
-    TagList: Optional[List[TagTypeDef]] = None
+    TagList: Optional[List[Tag]] = None
     DBSystemId: Optional[str] = None
     StorageType: Optional[str] = None
     DbClusterResourceId: Optional[str] = None
     StorageThroughput: Optional[int] = None
 
 
-class DBShardGroupResponseTypeDef(BaseValidatorModel):
+class DBShardGroupResponse(BaseValidatorModel):
     DBShardGroupResourceId: str
     DBShardGroupIdentifier: str
     DBClusterIdentifier: str
@@ -1356,11 +1356,11 @@ class DBShardGroupResponseTypeDef(BaseValidatorModel):
     PubliclyAccessible: bool
     Endpoint: str
     DBShardGroupArn: str
-    TagList: List[TagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    TagList: List[Tag]
+    ResponseMetadata: ResponseMetadata
 
 
-class DBShardGroupTypeDef(BaseValidatorModel):
+class DBShardGroup(BaseValidatorModel):
     DBShardGroupResourceId: Optional[str] = None
     DBShardGroupIdentifier: Optional[str] = None
     DBClusterIdentifier: Optional[str] = None
@@ -1371,10 +1371,10 @@ class DBShardGroupTypeDef(BaseValidatorModel):
     PubliclyAccessible: Optional[bool] = None
     Endpoint: Optional[str] = None
     DBShardGroupArn: Optional[str] = None
-    TagList: Optional[List[TagTypeDef]] = None
+    TagList: Optional[List[Tag]] = None
 
 
-class DBSnapshotTenantDatabaseTypeDef(BaseValidatorModel):
+class DBSnapshotTenantDatabase(BaseValidatorModel):
     DBSnapshotIdentifier: Optional[str] = None
     DBInstanceIdentifier: Optional[str] = None
     DbiResourceId: Optional[str] = None
@@ -1387,28 +1387,28 @@ class DBSnapshotTenantDatabaseTypeDef(BaseValidatorModel):
     CharacterSetName: Optional[str] = None
     DBSnapshotTenantDatabaseARN: Optional[str] = None
     NcharCharacterSetName: Optional[str] = None
-    TagList: Optional[List[TagTypeDef]] = None
+    TagList: Optional[List[Tag]] = None
 
 
-class PurchaseReservedDBInstancesOfferingMessageTypeDef(BaseValidatorModel):
+class PurchaseReservedDBInstancesOfferingMessage(BaseValidatorModel):
     ReservedDBInstancesOfferingId: str
     ReservedDBInstanceId: Optional[str] = None
     DBInstanceCount: Optional[int] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class TagListMessageTypeDef(BaseValidatorModel):
-    TagList: List[TagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class TagListMessage(BaseValidatorModel):
+    TagList: List[Tag]
+    ResponseMetadata: ResponseMetadata
 
 
-class OrderableDBInstanceOptionTypeDef(BaseValidatorModel):
+class OrderableDBInstanceOption(BaseValidatorModel):
     Engine: Optional[str] = None
     EngineVersion: Optional[str] = None
     DBInstanceClass: Optional[str] = None
     LicenseModel: Optional[str] = None
     AvailabilityZoneGroup: Optional[str] = None
-    AvailabilityZones: Optional[List[AvailabilityZoneTypeDef]] = None
+    AvailabilityZones: Optional[List[AvailabilityZone]] = None
     MultiAZCapable: Optional[bool] = None
     ReadReplicaCapable: Optional[bool] = None
     Vpc: Optional[bool] = None
@@ -1424,7 +1424,7 @@ class OrderableDBInstanceOptionTypeDef(BaseValidatorModel):
     MaxIopsPerDbInstance: Optional[int] = None
     MinIopsPerGib: Optional[float] = None
     MaxIopsPerGib: Optional[float] = None
-    AvailableProcessorFeatures: Optional[List[AvailableProcessorFeatureTypeDef]] = None
+    AvailableProcessorFeatures: Optional[List[AvailableProcessorFeature]] = None
     SupportedEngineModes: Optional[List[str]] = None
     SupportsStorageAutoscaling: Optional[bool] = None
     SupportsKerberosAuthentication: Optional[bool] = None
@@ -1441,108 +1441,108 @@ class OrderableDBInstanceOptionTypeDef(BaseValidatorModel):
     SupportsDedicatedLogVolume: Optional[bool] = None
 
 
-class TimestampTypeDef(BaseValidatorModel):
+class Timestamp(BaseValidatorModel):
     pass
 
 
-class BacktrackDBClusterMessageTypeDef(BaseValidatorModel):
+class BacktrackDBClusterMessage(BaseValidatorModel):
     DBClusterIdentifier: str
-    BacktrackTo: TimestampTypeDef
+    BacktrackTo: Timestamp
     Force: Optional[bool] = None
     UseEarliestTimeOnPointInTimeUnavailable: Optional[bool] = None
 
 
-class BlueGreenDeploymentTypeDef(BaseValidatorModel):
+class BlueGreenDeployment(BaseValidatorModel):
     BlueGreenDeploymentIdentifier: Optional[str] = None
     BlueGreenDeploymentName: Optional[str] = None
     Source: Optional[str] = None
     Target: Optional[str] = None
-    SwitchoverDetails: Optional[List[SwitchoverDetailTypeDef]] = None
-    Tasks: Optional[List[BlueGreenDeploymentTaskTypeDef]] = None
+    SwitchoverDetails: Optional[List[SwitchoverDetail]] = None
+    Tasks: Optional[List[BlueGreenDeploymentTask]] = None
     Status: Optional[str] = None
     StatusDetails: Optional[str] = None
     CreateTime: Optional[datetime] = None
     DeleteTime: Optional[datetime] = None
-    TagList: Optional[List[TagTypeDef]] = None
+    TagList: Optional[List[Tag]] = None
 
 
-class CertificateMessageTypeDef(BaseValidatorModel):
+class CertificateMessage(BaseValidatorModel):
     DefaultCertificateForNewLaunches: str
-    Certificates: List[CertificateTypeDef]
+    Certificates: List[Certificate]
     Marker: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ModifyCertificatesResultTypeDef(BaseValidatorModel):
-    Certificate: CertificateTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class ModifyCertificatesResult(BaseValidatorModel):
+    Certificate: Certificate
+    ResponseMetadata: ResponseMetadata
 
 
-class ClusterPendingModifiedValuesTypeDef(BaseValidatorModel):
-    PendingCloudwatchLogsExports: Optional[PendingCloudwatchLogsExportsTypeDef] = None
+class ClusterPendingModifiedValues(BaseValidatorModel):
+    PendingCloudwatchLogsExports: Optional[PendingCloudwatchLogsExports] = None
     DBClusterIdentifier: Optional[str] = None
     MasterUserPassword: Optional[str] = None
     IAMDatabaseAuthenticationEnabled: Optional[bool] = None
     EngineVersion: Optional[str] = None
     BackupRetentionPeriod: Optional[int] = None
     AllocatedStorage: Optional[int] = None
-    RdsCustomClusterConfiguration: Optional[RdsCustomClusterConfigurationTypeDef] = None
+    RdsCustomClusterConfiguration: Optional[RdsCustomClusterConfiguration] = None
     Iops: Optional[int] = None
     StorageType: Optional[str] = None
-    CertificateDetails: Optional[CertificateDetailsTypeDef] = None
+    CertificateDetails: Optional[CertificateDetails] = None
 
 
-class DBProxyTargetGroupTypeDef(BaseValidatorModel):
+class DBProxyTargetGroup(BaseValidatorModel):
     DBProxyName: Optional[str] = None
     TargetGroupName: Optional[str] = None
     TargetGroupArn: Optional[str] = None
     IsDefault: Optional[bool] = None
     Status: Optional[str] = None
-    ConnectionPoolConfig: Optional[ConnectionPoolConfigurationInfoTypeDef] = None
+    ConnectionPoolConfig: Optional[ConnectionPoolConfigurationInfo] = None
     CreatedDate: Optional[datetime] = None
     UpdatedDate: Optional[datetime] = None
 
 
-class ModifyDBProxyTargetGroupRequestTypeDef(BaseValidatorModel):
+class ModifyDBProxyTargetGroupRequest(BaseValidatorModel):
     TargetGroupName: str
     DBProxyName: str
-    ConnectionPoolConfig: Optional[ConnectionPoolConfigurationTypeDef] = None
+    ConnectionPoolConfig: Optional[ConnectionPoolConfiguration] = None
     NewName: Optional[str] = None
 
 
-class CopyDBClusterParameterGroupResultTypeDef(BaseValidatorModel):
-    DBClusterParameterGroup: DBClusterParameterGroupTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CopyDBClusterParameterGroupResult(BaseValidatorModel):
+    DBClusterParameterGroup: DBClusterParameterGroup
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateDBClusterParameterGroupResultTypeDef(BaseValidatorModel):
-    DBClusterParameterGroup: DBClusterParameterGroupTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateDBClusterParameterGroupResult(BaseValidatorModel):
+    DBClusterParameterGroup: DBClusterParameterGroup
+    ResponseMetadata: ResponseMetadata
 
 
-class DBClusterParameterGroupsMessageTypeDef(BaseValidatorModel):
+class DBClusterParameterGroupsMessage(BaseValidatorModel):
     Marker: str
-    DBClusterParameterGroups: List[DBClusterParameterGroupTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    DBClusterParameterGroups: List[DBClusterParameterGroup]
+    ResponseMetadata: ResponseMetadata
 
 
-class CopyDBParameterGroupResultTypeDef(BaseValidatorModel):
-    DBParameterGroup: DBParameterGroupTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CopyDBParameterGroupResult(BaseValidatorModel):
+    DBParameterGroup: DBParameterGroup
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateDBParameterGroupResultTypeDef(BaseValidatorModel):
-    DBParameterGroup: DBParameterGroupTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateDBParameterGroupResult(BaseValidatorModel):
+    DBParameterGroup: DBParameterGroup
+    ResponseMetadata: ResponseMetadata
 
 
-class DBParameterGroupsMessageTypeDef(BaseValidatorModel):
+class DBParameterGroupsMessage(BaseValidatorModel):
     Marker: str
-    DBParameterGroups: List[DBParameterGroupTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    DBParameterGroups: List[DBParameterGroup]
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateDBClusterMessageTypeDef(BaseValidatorModel):
+class CreateDBClusterMessage(BaseValidatorModel):
     DBClusterIdentifier: str
     Engine: str
     AvailabilityZones: Optional[Sequence[str]] = None
@@ -1560,7 +1560,7 @@ class CreateDBClusterMessageTypeDef(BaseValidatorModel):
     PreferredBackupWindow: Optional[str] = None
     PreferredMaintenanceWindow: Optional[str] = None
     ReplicationSourceIdentifier: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
     StorageEncrypted: Optional[bool] = None
     KmsKeyId: Optional[str] = None
     PreSignedUrl: Optional[str] = None
@@ -1568,8 +1568,8 @@ class CreateDBClusterMessageTypeDef(BaseValidatorModel):
     BacktrackWindow: Optional[int] = None
     EnableCloudwatchLogsExports: Optional[Sequence[str]] = None
     EngineMode: Optional[str] = None
-    ScalingConfiguration: Optional[ScalingConfigurationTypeDef] = None
-    RdsCustomClusterConfiguration: Optional[RdsCustomClusterConfigurationTypeDef] = None
+    ScalingConfiguration: Optional[ScalingConfiguration] = None
+    RdsCustomClusterConfiguration: Optional[RdsCustomClusterConfiguration] = None
     DeletionProtection: Optional[bool] = None
     GlobalClusterIdentifier: Optional[str] = None
     EnableHttpEndpoint: Optional[bool] = None
@@ -1590,7 +1590,7 @@ class CreateDBClusterMessageTypeDef(BaseValidatorModel):
     PerformanceInsightsKMSKeyId: Optional[str] = None
     PerformanceInsightsRetentionPeriod: Optional[int] = None
     EnableLimitlessDatabase: Optional[bool] = None
-    ServerlessV2ScalingConfiguration: Optional[ServerlessV2ScalingConfigurationTypeDef] = None
+    ServerlessV2ScalingConfiguration: Optional[ServerlessV2ScalingConfiguration] = None
     NetworkType: Optional[str] = None
     ClusterScalabilityType: Optional[ClusterScalabilityTypeType] = None
     DBSystemId: Optional[str] = None
@@ -1602,7 +1602,7 @@ class CreateDBClusterMessageTypeDef(BaseValidatorModel):
     SourceRegion: Optional[str] = None
 
 
-class ModifyDBClusterMessageTypeDef(BaseValidatorModel):
+class ModifyDBClusterMessage(BaseValidatorModel):
     DBClusterIdentifier: str
     NewDBClusterIdentifier: Optional[str] = None
     ApplyImmediately: Optional[bool] = None
@@ -1616,13 +1616,13 @@ class ModifyDBClusterMessageTypeDef(BaseValidatorModel):
     PreferredMaintenanceWindow: Optional[str] = None
     EnableIAMDatabaseAuthentication: Optional[bool] = None
     BacktrackWindow: Optional[int] = None
-    CloudwatchLogsExportConfiguration: Optional[CloudwatchLogsExportConfigurationTypeDef] = None
+    CloudwatchLogsExportConfiguration: Optional[CloudwatchLogsExportConfiguration] = None
     EngineVersion: Optional[str] = None
     AllowMajorVersionUpgrade: Optional[bool] = None
     DBInstanceParameterGroupName: Optional[str] = None
     Domain: Optional[str] = None
     DomainIAMRoleName: Optional[str] = None
-    ScalingConfiguration: Optional[ScalingConfigurationTypeDef] = None
+    ScalingConfiguration: Optional[ScalingConfiguration] = None
     DeletionProtection: Optional[bool] = None
     EnableHttpEndpoint: Optional[bool] = None
     CopyTagsToSnapshot: Optional[bool] = None
@@ -1638,7 +1638,7 @@ class ModifyDBClusterMessageTypeDef(BaseValidatorModel):
     EnablePerformanceInsights: Optional[bool] = None
     PerformanceInsightsKMSKeyId: Optional[str] = None
     PerformanceInsightsRetentionPeriod: Optional[int] = None
-    ServerlessV2ScalingConfiguration: Optional[ServerlessV2ScalingConfigurationTypeDef] = None
+    ServerlessV2ScalingConfiguration: Optional[ServerlessV2ScalingConfiguration] = None
     NetworkType: Optional[str] = None
     ManageMasterUserPassword: Optional[bool] = None
     RotateMasterUserPassword: Optional[bool] = None
@@ -1651,7 +1651,7 @@ class ModifyDBClusterMessageTypeDef(BaseValidatorModel):
     CACertificateIdentifier: Optional[str] = None
 
 
-class RestoreDBClusterFromS3MessageTypeDef(BaseValidatorModel):
+class RestoreDBClusterFromS3Message(BaseValidatorModel):
     DBClusterIdentifier: str
     Engine: str
     MasterUsername: str
@@ -1672,7 +1672,7 @@ class RestoreDBClusterFromS3MessageTypeDef(BaseValidatorModel):
     OptionGroupName: Optional[str] = None
     PreferredBackupWindow: Optional[str] = None
     PreferredMaintenanceWindow: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
     StorageEncrypted: Optional[bool] = None
     KmsKeyId: Optional[str] = None
     EnableIAMDatabaseAuthentication: Optional[bool] = None
@@ -1683,7 +1683,7 @@ class RestoreDBClusterFromS3MessageTypeDef(BaseValidatorModel):
     CopyTagsToSnapshot: Optional[bool] = None
     Domain: Optional[str] = None
     DomainIAMRoleName: Optional[str] = None
-    ServerlessV2ScalingConfiguration: Optional[ServerlessV2ScalingConfigurationTypeDef] = None
+    ServerlessV2ScalingConfiguration: Optional[ServerlessV2ScalingConfiguration] = None
     NetworkType: Optional[str] = None
     ManageMasterUserPassword: Optional[bool] = None
     MasterUserSecretKmsKeyId: Optional[str] = None
@@ -1691,7 +1691,7 @@ class RestoreDBClusterFromS3MessageTypeDef(BaseValidatorModel):
     EngineLifecycleSupport: Optional[str] = None
 
 
-class RestoreDBClusterFromSnapshotMessageTypeDef(BaseValidatorModel):
+class RestoreDBClusterFromSnapshotMessage(BaseValidatorModel):
     DBClusterIdentifier: str
     SnapshotIdentifier: str
     Engine: str
@@ -1702,13 +1702,13 @@ class RestoreDBClusterFromSnapshotMessageTypeDef(BaseValidatorModel):
     DatabaseName: Optional[str] = None
     OptionGroupName: Optional[str] = None
     VpcSecurityGroupIds: Optional[Sequence[str]] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
     KmsKeyId: Optional[str] = None
     EnableIAMDatabaseAuthentication: Optional[bool] = None
     BacktrackWindow: Optional[int] = None
     EnableCloudwatchLogsExports: Optional[Sequence[str]] = None
     EngineMode: Optional[str] = None
-    ScalingConfiguration: Optional[ScalingConfigurationTypeDef] = None
+    ScalingConfiguration: Optional[ScalingConfiguration] = None
     DBClusterParameterGroupName: Optional[str] = None
     DeletionProtection: Optional[bool] = None
     CopyTagsToSnapshot: Optional[bool] = None
@@ -1718,9 +1718,9 @@ class RestoreDBClusterFromSnapshotMessageTypeDef(BaseValidatorModel):
     StorageType: Optional[str] = None
     Iops: Optional[int] = None
     PubliclyAccessible: Optional[bool] = None
-    ServerlessV2ScalingConfiguration: Optional[ServerlessV2ScalingConfigurationTypeDef] = None
+    ServerlessV2ScalingConfiguration: Optional[ServerlessV2ScalingConfiguration] = None
     NetworkType: Optional[str] = None
-    RdsCustomClusterConfiguration: Optional[RdsCustomClusterConfigurationTypeDef] = None
+    RdsCustomClusterConfiguration: Optional[RdsCustomClusterConfiguration] = None
     MonitoringInterval: Optional[int] = None
     MonitoringRoleArn: Optional[str] = None
     EnablePerformanceInsights: Optional[bool] = None
@@ -1729,17 +1729,17 @@ class RestoreDBClusterFromSnapshotMessageTypeDef(BaseValidatorModel):
     EngineLifecycleSupport: Optional[str] = None
 
 
-class RestoreDBClusterToPointInTimeMessageTypeDef(BaseValidatorModel):
+class RestoreDBClusterToPointInTimeMessage(BaseValidatorModel):
     DBClusterIdentifier: str
     RestoreType: Optional[str] = None
     SourceDBClusterIdentifier: Optional[str] = None
-    RestoreToTime: Optional[TimestampTypeDef] = None
+    RestoreToTime: Optional[Timestamp] = None
     UseLatestRestorableTime: Optional[bool] = None
     Port: Optional[int] = None
     DBSubnetGroupName: Optional[str] = None
     OptionGroupName: Optional[str] = None
     VpcSecurityGroupIds: Optional[Sequence[str]] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
     KmsKeyId: Optional[str] = None
     EnableIAMDatabaseAuthentication: Optional[bool] = None
     BacktrackWindow: Optional[int] = None
@@ -1749,16 +1749,16 @@ class RestoreDBClusterToPointInTimeMessageTypeDef(BaseValidatorModel):
     CopyTagsToSnapshot: Optional[bool] = None
     Domain: Optional[str] = None
     DomainIAMRoleName: Optional[str] = None
-    ScalingConfiguration: Optional[ScalingConfigurationTypeDef] = None
+    ScalingConfiguration: Optional[ScalingConfiguration] = None
     EngineMode: Optional[str] = None
     DBClusterInstanceClass: Optional[str] = None
     StorageType: Optional[str] = None
     PubliclyAccessible: Optional[bool] = None
     Iops: Optional[int] = None
-    ServerlessV2ScalingConfiguration: Optional[ServerlessV2ScalingConfigurationTypeDef] = None
+    ServerlessV2ScalingConfiguration: Optional[ServerlessV2ScalingConfiguration] = None
     NetworkType: Optional[str] = None
     SourceDbClusterResourceId: Optional[str] = None
-    RdsCustomClusterConfiguration: Optional[RdsCustomClusterConfigurationTypeDef] = None
+    RdsCustomClusterConfiguration: Optional[RdsCustomClusterConfiguration] = None
     MonitoringInterval: Optional[int] = None
     MonitoringRoleArn: Optional[str] = None
     EnablePerformanceInsights: Optional[bool] = None
@@ -1767,7 +1767,7 @@ class RestoreDBClusterToPointInTimeMessageTypeDef(BaseValidatorModel):
     EngineLifecycleSupport: Optional[str] = None
 
 
-class CreateDBInstanceMessageTypeDef(BaseValidatorModel):
+class CreateDBInstanceMessage(BaseValidatorModel):
     DBInstanceIdentifier: str
     DBInstanceClass: str
     Engine: str
@@ -1793,7 +1793,7 @@ class CreateDBInstanceMessageTypeDef(BaseValidatorModel):
     CharacterSetName: Optional[str] = None
     NcharCharacterSetName: Optional[str] = None
     PubliclyAccessible: Optional[bool] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
     DBClusterIdentifier: Optional[str] = None
     StorageType: Optional[str] = None
     TdeCredentialArn: Optional[str] = None
@@ -1817,7 +1817,7 @@ class CreateDBInstanceMessageTypeDef(BaseValidatorModel):
     PerformanceInsightsKMSKeyId: Optional[str] = None
     PerformanceInsightsRetentionPeriod: Optional[int] = None
     EnableCloudwatchLogsExports: Optional[Sequence[str]] = None
-    ProcessorFeatures: Optional[Sequence[ProcessorFeatureTypeDef]] = None
+    ProcessorFeatures: Optional[Sequence[ProcessorFeature]] = None
     DeletionProtection: Optional[bool] = None
     MaxAllocatedStorage: Optional[int] = None
     EnableCustomerOwnedIp: Optional[bool] = None
@@ -1834,7 +1834,7 @@ class CreateDBInstanceMessageTypeDef(BaseValidatorModel):
     EngineLifecycleSupport: Optional[str] = None
 
 
-class CreateDBInstanceReadReplicaMessageTypeDef(BaseValidatorModel):
+class CreateDBInstanceReadReplicaMessage(BaseValidatorModel):
     DBInstanceIdentifier: str
     SourceDBInstanceIdentifier: Optional[str] = None
     DBInstanceClass: Optional[str] = None
@@ -1846,7 +1846,7 @@ class CreateDBInstanceReadReplicaMessageTypeDef(BaseValidatorModel):
     OptionGroupName: Optional[str] = None
     DBParameterGroupName: Optional[str] = None
     PubliclyAccessible: Optional[bool] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
     DBSubnetGroupName: Optional[str] = None
     VpcSecurityGroupIds: Optional[Sequence[str]] = None
     StorageType: Optional[str] = None
@@ -1861,7 +1861,7 @@ class CreateDBInstanceReadReplicaMessageTypeDef(BaseValidatorModel):
     PerformanceInsightsKMSKeyId: Optional[str] = None
     PerformanceInsightsRetentionPeriod: Optional[int] = None
     EnableCloudwatchLogsExports: Optional[Sequence[str]] = None
-    ProcessorFeatures: Optional[Sequence[ProcessorFeatureTypeDef]] = None
+    ProcessorFeatures: Optional[Sequence[ProcessorFeature]] = None
     UseDefaultProcessorFeatures: Optional[bool] = None
     DeletionProtection: Optional[bool] = None
     Domain: Optional[str] = None
@@ -1884,7 +1884,7 @@ class CreateDBInstanceReadReplicaMessageTypeDef(BaseValidatorModel):
     SourceRegion: Optional[str] = None
 
 
-class DBSnapshotTypeDef(BaseValidatorModel):
+class DBSnapshot(BaseValidatorModel):
     DBSnapshotIdentifier: Optional[str] = None
     DBInstanceIdentifier: Optional[str] = None
     SnapshotCreateTime: Optional[datetime] = None
@@ -1911,9 +1911,9 @@ class DBSnapshotTypeDef(BaseValidatorModel):
     DBSnapshotArn: Optional[str] = None
     Timezone: Optional[str] = None
     IAMDatabaseAuthenticationEnabled: Optional[bool] = None
-    ProcessorFeatures: Optional[List[ProcessorFeatureTypeDef]] = None
+    ProcessorFeatures: Optional[List[ProcessorFeature]] = None
     DbiResourceId: Optional[str] = None
-    TagList: Optional[List[TagTypeDef]] = None
+    TagList: Optional[List[Tag]] = None
     OriginalSnapshotCreateTime: Optional[datetime] = None
     SnapshotDatabaseTime: Optional[datetime] = None
     SnapshotTarget: Optional[str] = None
@@ -1923,7 +1923,7 @@ class DBSnapshotTypeDef(BaseValidatorModel):
     MultiTenant: Optional[bool] = None
 
 
-class ModifyDBInstanceMessageTypeDef(BaseValidatorModel):
+class ModifyDBInstanceMessage(BaseValidatorModel):
     DBInstanceIdentifier: str
     AllocatedStorage: Optional[int] = None
     DBInstanceClass: Optional[str] = None
@@ -1966,8 +1966,8 @@ class ModifyDBInstanceMessageTypeDef(BaseValidatorModel):
     EnablePerformanceInsights: Optional[bool] = None
     PerformanceInsightsKMSKeyId: Optional[str] = None
     PerformanceInsightsRetentionPeriod: Optional[int] = None
-    CloudwatchLogsExportConfiguration: Optional[CloudwatchLogsExportConfigurationTypeDef] = None
-    ProcessorFeatures: Optional[Sequence[ProcessorFeatureTypeDef]] = None
+    CloudwatchLogsExportConfiguration: Optional[CloudwatchLogsExportConfiguration] = None
+    ProcessorFeatures: Optional[Sequence[ProcessorFeature]] = None
     UseDefaultProcessorFeatures: Optional[bool] = None
     DeletionProtection: Optional[bool] = None
     MaxAllocatedStorage: Optional[int] = None
@@ -1987,7 +1987,7 @@ class ModifyDBInstanceMessageTypeDef(BaseValidatorModel):
     MultiTenant: Optional[bool] = None
 
 
-class PendingModifiedValuesTypeDef(BaseValidatorModel):
+class PendingModifiedValues(BaseValidatorModel):
     DBInstanceClass: Optional[str] = None
     AllocatedStorage: Optional[int] = None
     MasterUserPassword: Optional[str] = None
@@ -2001,8 +2001,8 @@ class PendingModifiedValuesTypeDef(BaseValidatorModel):
     StorageType: Optional[str] = None
     CACertificateIdentifier: Optional[str] = None
     DBSubnetGroupName: Optional[str] = None
-    PendingCloudwatchLogsExports: Optional[PendingCloudwatchLogsExportsTypeDef] = None
-    ProcessorFeatures: Optional[List[ProcessorFeatureTypeDef]] = None
+    PendingCloudwatchLogsExports: Optional[PendingCloudwatchLogsExports] = None
+    ProcessorFeatures: Optional[List[ProcessorFeature]] = None
     IAMDatabaseAuthenticationEnabled: Optional[bool] = None
     AutomationMode: Optional[AutomationModeType] = None
     ResumeFullAutomationModeTime: Optional[datetime] = None
@@ -2012,7 +2012,7 @@ class PendingModifiedValuesTypeDef(BaseValidatorModel):
     MultiTenant: Optional[bool] = None
 
 
-class RestoreDBInstanceFromDBSnapshotMessageTypeDef(BaseValidatorModel):
+class RestoreDBInstanceFromDBSnapshotMessage(BaseValidatorModel):
     DBInstanceIdentifier: str
     DBSnapshotIdentifier: Optional[str] = None
     DBInstanceClass: Optional[str] = None
@@ -2027,7 +2027,7 @@ class RestoreDBInstanceFromDBSnapshotMessageTypeDef(BaseValidatorModel):
     Engine: Optional[str] = None
     Iops: Optional[int] = None
     OptionGroupName: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
     StorageType: Optional[str] = None
     TdeCredentialArn: Optional[str] = None
     TdeCredentialPassword: Optional[str] = None
@@ -2041,7 +2041,7 @@ class RestoreDBInstanceFromDBSnapshotMessageTypeDef(BaseValidatorModel):
     DomainIAMRoleName: Optional[str] = None
     EnableIAMDatabaseAuthentication: Optional[bool] = None
     EnableCloudwatchLogsExports: Optional[Sequence[str]] = None
-    ProcessorFeatures: Optional[Sequence[ProcessorFeatureTypeDef]] = None
+    ProcessorFeatures: Optional[Sequence[ProcessorFeature]] = None
     UseDefaultProcessorFeatures: Optional[bool] = None
     DBParameterGroupName: Optional[str] = None
     DeletionProtection: Optional[bool] = None
@@ -2057,7 +2057,7 @@ class RestoreDBInstanceFromDBSnapshotMessageTypeDef(BaseValidatorModel):
     EngineLifecycleSupport: Optional[str] = None
 
 
-class RestoreDBInstanceFromS3MessageTypeDef(BaseValidatorModel):
+class RestoreDBInstanceFromS3Message(BaseValidatorModel):
     DBInstanceIdentifier: str
     DBInstanceClass: str
     Engine: str
@@ -2085,7 +2085,7 @@ class RestoreDBInstanceFromS3MessageTypeDef(BaseValidatorModel):
     Iops: Optional[int] = None
     OptionGroupName: Optional[str] = None
     PubliclyAccessible: Optional[bool] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
     StorageType: Optional[str] = None
     StorageEncrypted: Optional[bool] = None
     KmsKeyId: Optional[str] = None
@@ -2099,7 +2099,7 @@ class RestoreDBInstanceFromS3MessageTypeDef(BaseValidatorModel):
     PerformanceInsightsKMSKeyId: Optional[str] = None
     PerformanceInsightsRetentionPeriod: Optional[int] = None
     EnableCloudwatchLogsExports: Optional[Sequence[str]] = None
-    ProcessorFeatures: Optional[Sequence[ProcessorFeatureTypeDef]] = None
+    ProcessorFeatures: Optional[Sequence[ProcessorFeature]] = None
     UseDefaultProcessorFeatures: Optional[bool] = None
     DeletionProtection: Optional[bool] = None
     MaxAllocatedStorage: Optional[int] = None
@@ -2112,10 +2112,10 @@ class RestoreDBInstanceFromS3MessageTypeDef(BaseValidatorModel):
     EngineLifecycleSupport: Optional[str] = None
 
 
-class RestoreDBInstanceToPointInTimeMessageTypeDef(BaseValidatorModel):
+class RestoreDBInstanceToPointInTimeMessage(BaseValidatorModel):
     TargetDBInstanceIdentifier: str
     SourceDBInstanceIdentifier: Optional[str] = None
-    RestoreTime: Optional[TimestampTypeDef] = None
+    RestoreTime: Optional[Timestamp] = None
     UseLatestRestorableTime: Optional[bool] = None
     DBInstanceClass: Optional[str] = None
     Port: Optional[int] = None
@@ -2130,7 +2130,7 @@ class RestoreDBInstanceToPointInTimeMessageTypeDef(BaseValidatorModel):
     Iops: Optional[int] = None
     OptionGroupName: Optional[str] = None
     CopyTagsToSnapshot: Optional[bool] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
     StorageType: Optional[str] = None
     TdeCredentialArn: Optional[str] = None
     TdeCredentialPassword: Optional[str] = None
@@ -2143,7 +2143,7 @@ class RestoreDBInstanceToPointInTimeMessageTypeDef(BaseValidatorModel):
     DomainDnsIps: Optional[Sequence[str]] = None
     EnableIAMDatabaseAuthentication: Optional[bool] = None
     EnableCloudwatchLogsExports: Optional[Sequence[str]] = None
-    ProcessorFeatures: Optional[Sequence[ProcessorFeatureTypeDef]] = None
+    ProcessorFeatures: Optional[Sequence[ProcessorFeature]] = None
     UseDefaultProcessorFeatures: Optional[bool] = None
     DBParameterGroupName: Optional[str] = None
     DeletionProtection: Optional[bool] = None
@@ -2161,44 +2161,44 @@ class RestoreDBInstanceToPointInTimeMessageTypeDef(BaseValidatorModel):
     EngineLifecycleSupport: Optional[str] = None
 
 
-class CreateDBProxyEndpointResponseTypeDef(BaseValidatorModel):
-    DBProxyEndpoint: DBProxyEndpointTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateDBProxyEndpointResponse(BaseValidatorModel):
+    DBProxyEndpoint: DBProxyEndpoint
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteDBProxyEndpointResponseTypeDef(BaseValidatorModel):
-    DBProxyEndpoint: DBProxyEndpointTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeleteDBProxyEndpointResponse(BaseValidatorModel):
+    DBProxyEndpoint: DBProxyEndpoint
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeDBProxyEndpointsResponseTypeDef(BaseValidatorModel):
-    DBProxyEndpoints: List[DBProxyEndpointTypeDef]
+class DescribeDBProxyEndpointsResponse(BaseValidatorModel):
+    DBProxyEndpoints: List[DBProxyEndpoint]
     Marker: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ModifyDBProxyEndpointResponseTypeDef(BaseValidatorModel):
-    DBProxyEndpoint: DBProxyEndpointTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class ModifyDBProxyEndpointResponse(BaseValidatorModel):
+    DBProxyEndpoint: DBProxyEndpoint
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateDBProxyRequestTypeDef(BaseValidatorModel):
+class CreateDBProxyRequest(BaseValidatorModel):
     DBProxyName: str
     EngineFamily: EngineFamilyType
-    Auth: Sequence[UserAuthConfigTypeDef]
+    Auth: Sequence[UserAuthConfig]
     RoleArn: str
     VpcSubnetIds: Sequence[str]
     VpcSecurityGroupIds: Optional[Sequence[str]] = None
     RequireTLS: Optional[bool] = None
     IdleClientTimeout: Optional[int] = None
     DebugLogging: Optional[bool] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class ModifyDBProxyRequestTypeDef(BaseValidatorModel):
+class ModifyDBProxyRequest(BaseValidatorModel):
     DBProxyName: str
     NewDBProxyName: Optional[str] = None
-    Auth: Optional[Sequence[UserAuthConfigTypeDef]] = None
+    Auth: Optional[Sequence[UserAuthConfig]] = None
     RequireTLS: Optional[bool] = None
     IdleClientTimeout: Optional[int] = None
     DebugLogging: Optional[bool] = None
@@ -2206,12 +2206,12 @@ class ModifyDBProxyRequestTypeDef(BaseValidatorModel):
     SecurityGroups: Optional[Sequence[str]] = None
 
 
-class DBClusterAutomatedBackupTypeDef(BaseValidatorModel):
+class DBClusterAutomatedBackup(BaseValidatorModel):
     Engine: Optional[str] = None
     VpcId: Optional[str] = None
     DBClusterAutomatedBackupsArn: Optional[str] = None
     DBClusterIdentifier: Optional[str] = None
-    RestoreWindow: Optional[RestoreWindowTypeDef] = None
+    RestoreWindow: Optional[RestoreWindow] = None
     MasterUsername: Optional[str] = None
     DbClusterResourceId: Optional[str] = None
     Region: Optional[str] = None
@@ -2234,54 +2234,54 @@ class DBClusterAutomatedBackupTypeDef(BaseValidatorModel):
     StorageThroughput: Optional[int] = None
 
 
-class DBClusterBacktrackMessageTypeDef(BaseValidatorModel):
+class DBClusterBacktrackMessage(BaseValidatorModel):
     Marker: str
-    DBClusterBacktracks: List[DBClusterBacktrackTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    DBClusterBacktracks: List[DBClusterBacktrack]
+    ResponseMetadata: ResponseMetadata
 
 
-class DBClusterEndpointMessageTypeDef(BaseValidatorModel):
+class DBClusterEndpointMessage(BaseValidatorModel):
     Marker: str
-    DBClusterEndpoints: List[DBClusterEndpointTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    DBClusterEndpoints: List[DBClusterEndpoint]
+    ResponseMetadata: ResponseMetadata
 
 
-class DBClusterParameterGroupDetailsTypeDef(BaseValidatorModel):
-    Parameters: List[ParameterOutputTypeDef]
+class DBClusterParameterGroupDetails(BaseValidatorModel):
+    Parameters: List[ParameterOutput]
     Marker: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DBParameterGroupDetailsTypeDef(BaseValidatorModel):
-    Parameters: List[ParameterOutputTypeDef]
+class DBParameterGroupDetails(BaseValidatorModel):
+    Parameters: List[ParameterOutput]
     Marker: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class EngineDefaultsTypeDef(BaseValidatorModel):
+class EngineDefaults(BaseValidatorModel):
     DBParameterGroupFamily: Optional[str] = None
     Marker: Optional[str] = None
-    Parameters: Optional[List[ParameterOutputTypeDef]] = None
+    Parameters: Optional[List[ParameterOutput]] = None
 
 
-class DBClusterSnapshotAttributesResultTypeDef(BaseValidatorModel):
+class DBClusterSnapshotAttributesResult(BaseValidatorModel):
     DBClusterSnapshotIdentifier: Optional[str] = None
-    DBClusterSnapshotAttributes: Optional[List[DBClusterSnapshotAttributeTypeDef]] = None
+    DBClusterSnapshotAttributes: Optional[List[DBClusterSnapshotAttribute]] = None
 
 
-class DBEngineVersionResponseTypeDef(BaseValidatorModel):
+class DBEngineVersionResponse(BaseValidatorModel):
     Engine: str
     EngineVersion: str
     DBParameterGroupFamily: str
     DBEngineDescription: str
     DBEngineVersionDescription: str
-    DefaultCharacterSet: CharacterSetTypeDef
-    Image: CustomDBEngineVersionAMITypeDef
+    DefaultCharacterSet: CharacterSet
+    Image: CustomDBEngineVersionAMI
     DBEngineMediaType: str
-    SupportedCharacterSets: List[CharacterSetTypeDef]
-    SupportedNcharCharacterSets: List[CharacterSetTypeDef]
-    ValidUpgradeTarget: List[UpgradeTargetTypeDef]
-    SupportedTimezones: List[TimezoneTypeDef]
+    SupportedCharacterSets: List[CharacterSet]
+    SupportedNcharCharacterSets: List[CharacterSet]
+    ValidUpgradeTarget: List[UpgradeTarget]
+    SupportedTimezones: List[Timezone]
     ExportableLogTypes: List[str]
     SupportsLogExportsToCloudwatchLogs: bool
     SupportsReadReplica: bool
@@ -2296,7 +2296,7 @@ class DBEngineVersionResponseTypeDef(BaseValidatorModel):
     DBEngineVersionArn: str
     KMSKeyId: str
     CreateTime: datetime
-    TagList: List[TagTypeDef]
+    TagList: List[Tag]
     SupportsBabelfish: bool
     CustomDBEngineVersionManifest: str
     SupportsLimitlessDatabase: bool
@@ -2304,23 +2304,23 @@ class DBEngineVersionResponseTypeDef(BaseValidatorModel):
     SupportedCACertificateIdentifiers: List[str]
     SupportsLocalWriteForwarding: bool
     SupportsIntegrations: bool
-    ServerlessV2FeaturesSupport: ServerlessV2FeaturesSupportTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    ServerlessV2FeaturesSupport: ServerlessV2FeaturesSupport
+    ResponseMetadata: ResponseMetadata
 
 
-class DBEngineVersionTypeDef(BaseValidatorModel):
+class DBEngineVersion(BaseValidatorModel):
     Engine: Optional[str] = None
     EngineVersion: Optional[str] = None
     DBParameterGroupFamily: Optional[str] = None
     DBEngineDescription: Optional[str] = None
     DBEngineVersionDescription: Optional[str] = None
-    DefaultCharacterSet: Optional[CharacterSetTypeDef] = None
-    Image: Optional[CustomDBEngineVersionAMITypeDef] = None
+    DefaultCharacterSet: Optional[CharacterSet] = None
+    Image: Optional[CustomDBEngineVersionAMI] = None
     DBEngineMediaType: Optional[str] = None
-    SupportedCharacterSets: Optional[List[CharacterSetTypeDef]] = None
-    SupportedNcharCharacterSets: Optional[List[CharacterSetTypeDef]] = None
-    ValidUpgradeTarget: Optional[List[UpgradeTargetTypeDef]] = None
-    SupportedTimezones: Optional[List[TimezoneTypeDef]] = None
+    SupportedCharacterSets: Optional[List[CharacterSet]] = None
+    SupportedNcharCharacterSets: Optional[List[CharacterSet]] = None
+    ValidUpgradeTarget: Optional[List[UpgradeTarget]] = None
+    SupportedTimezones: Optional[List[Timezone]] = None
     ExportableLogTypes: Optional[List[str]] = None
     SupportsLogExportsToCloudwatchLogs: Optional[bool] = None
     SupportsReadReplica: Optional[bool] = None
@@ -2335,7 +2335,7 @@ class DBEngineVersionTypeDef(BaseValidatorModel):
     DBEngineVersionArn: Optional[str] = None
     KMSKeyId: Optional[str] = None
     CreateTime: Optional[datetime] = None
-    TagList: Optional[List[TagTypeDef]] = None
+    TagList: Optional[List[Tag]] = None
     SupportsBabelfish: Optional[bool] = None
     CustomDBEngineVersionManifest: Optional[str] = None
     SupportsLimitlessDatabase: Optional[bool] = None
@@ -2343,15 +2343,15 @@ class DBEngineVersionTypeDef(BaseValidatorModel):
     SupportedCACertificateIdentifiers: Optional[List[str]] = None
     SupportsLocalWriteForwarding: Optional[bool] = None
     SupportsIntegrations: Optional[bool] = None
-    ServerlessV2FeaturesSupport: Optional[ServerlessV2FeaturesSupportTypeDef] = None
+    ServerlessV2FeaturesSupport: Optional[ServerlessV2FeaturesSupport] = None
 
 
-class DBInstanceAutomatedBackupTypeDef(BaseValidatorModel):
+class DBInstanceAutomatedBackup(BaseValidatorModel):
     DBInstanceArn: Optional[str] = None
     DbiResourceId: Optional[str] = None
     Region: Optional[str] = None
     DBInstanceIdentifier: Optional[str] = None
-    RestoreWindow: Optional[RestoreWindowTypeDef] = None
+    RestoreWindow: Optional[RestoreWindow] = None
     AllocatedStorage: Optional[int] = None
     Status: Optional[str] = None
     Port: Optional[int] = None
@@ -2372,7 +2372,7 @@ class DBInstanceAutomatedBackupTypeDef(BaseValidatorModel):
     IAMDatabaseAuthenticationEnabled: Optional[bool] = None
     BackupRetentionPeriod: Optional[int] = None
     DBInstanceAutomatedBackupsArn: Optional[str] = None
-    DBInstanceAutomatedBackupsReplications: Optional[ List[DBInstanceAutomatedBackupsReplicationTypeDef] ] = None
+    DBInstanceAutomatedBackupsReplications: Optional[ List[DBInstanceAutomatedBackupsReplication] ] = None
     BackupTarget: Optional[str] = None
     StorageThroughput: Optional[int] = None
     AwsBackupRecoveryPointArn: Optional[str] = None
@@ -2380,7 +2380,7 @@ class DBInstanceAutomatedBackupTypeDef(BaseValidatorModel):
     MultiTenant: Optional[bool] = None
 
 
-class DBProxyTypeDef(BaseValidatorModel):
+class DBProxy(BaseValidatorModel):
     DBProxyName: Optional[str] = None
     DBProxyArn: Optional[str] = None
     Status: Optional[DBProxyStatusType] = None
@@ -2388,7 +2388,7 @@ class DBProxyTypeDef(BaseValidatorModel):
     VpcId: Optional[str] = None
     VpcSecurityGroupIds: Optional[List[str]] = None
     VpcSubnetIds: Optional[List[str]] = None
-    Auth: Optional[List[UserAuthConfigInfoTypeDef]] = None
+    Auth: Optional[List[UserAuthConfigInfo]] = None
     RoleArn: Optional[str] = None
     Endpoint: Optional[str] = None
     RequireTLS: Optional[bool] = None
@@ -2398,79 +2398,79 @@ class DBProxyTypeDef(BaseValidatorModel):
     UpdatedDate: Optional[datetime] = None
 
 
-class DBSecurityGroupTypeDef(BaseValidatorModel):
+class DBSecurityGroup(BaseValidatorModel):
     OwnerId: Optional[str] = None
     DBSecurityGroupName: Optional[str] = None
     DBSecurityGroupDescription: Optional[str] = None
     VpcId: Optional[str] = None
-    EC2SecurityGroups: Optional[List[EC2SecurityGroupTypeDef]] = None
-    IPRanges: Optional[List[IPRangeTypeDef]] = None
+    EC2SecurityGroups: Optional[List[EC2SecurityGroup]] = None
+    IPRanges: Optional[List[IPRange]] = None
     DBSecurityGroupArn: Optional[str] = None
 
 
-class DBSnapshotAttributesResultTypeDef(BaseValidatorModel):
+class DBSnapshotAttributesResult(BaseValidatorModel):
     DBSnapshotIdentifier: Optional[str] = None
-    DBSnapshotAttributes: Optional[List[DBSnapshotAttributeTypeDef]] = None
+    DBSnapshotAttributes: Optional[List[DBSnapshotAttribute]] = None
 
 
-class DescribeBlueGreenDeploymentsRequestTypeDef(BaseValidatorModel):
+class DescribeBlueGreenDeploymentsRequest(BaseValidatorModel):
     BlueGreenDeploymentIdentifier: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+    Filters: Optional[Sequence[Filter]] = None
     Marker: Optional[str] = None
     MaxRecords: Optional[int] = None
 
 
-class DescribeCertificatesMessageTypeDef(BaseValidatorModel):
+class DescribeCertificatesMessage(BaseValidatorModel):
     CertificateIdentifier: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+    Filters: Optional[Sequence[Filter]] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
 
 
-class DescribeDBClusterAutomatedBackupsMessageTypeDef(BaseValidatorModel):
+class DescribeDBClusterAutomatedBackupsMessage(BaseValidatorModel):
     DbClusterResourceId: Optional[str] = None
     DBClusterIdentifier: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+    Filters: Optional[Sequence[Filter]] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
 
 
-class DescribeDBClusterBacktracksMessageTypeDef(BaseValidatorModel):
+class DescribeDBClusterBacktracksMessage(BaseValidatorModel):
     DBClusterIdentifier: str
     BacktrackIdentifier: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+    Filters: Optional[Sequence[Filter]] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
 
 
-class DescribeDBClusterEndpointsMessageTypeDef(BaseValidatorModel):
+class DescribeDBClusterEndpointsMessage(BaseValidatorModel):
     DBClusterIdentifier: Optional[str] = None
     DBClusterEndpointIdentifier: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+    Filters: Optional[Sequence[Filter]] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
 
 
-class DescribeDBClusterParameterGroupsMessageTypeDef(BaseValidatorModel):
+class DescribeDBClusterParameterGroupsMessage(BaseValidatorModel):
     DBClusterParameterGroupName: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+    Filters: Optional[Sequence[Filter]] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
 
 
-class DescribeDBClusterParametersMessageTypeDef(BaseValidatorModel):
+class DescribeDBClusterParametersMessage(BaseValidatorModel):
     DBClusterParameterGroupName: str
     Source: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+    Filters: Optional[Sequence[Filter]] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
 
 
-class DescribeDBClusterSnapshotsMessageTypeDef(BaseValidatorModel):
+class DescribeDBClusterSnapshotsMessage(BaseValidatorModel):
     DBClusterIdentifier: Optional[str] = None
     DBClusterSnapshotIdentifier: Optional[str] = None
     SnapshotType: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+    Filters: Optional[Sequence[Filter]] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
     IncludeShared: Optional[bool] = None
@@ -2478,19 +2478,19 @@ class DescribeDBClusterSnapshotsMessageTypeDef(BaseValidatorModel):
     DbClusterResourceId: Optional[str] = None
 
 
-class DescribeDBClustersMessageTypeDef(BaseValidatorModel):
+class DescribeDBClustersMessage(BaseValidatorModel):
     DBClusterIdentifier: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+    Filters: Optional[Sequence[Filter]] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
     IncludeShared: Optional[bool] = None
 
 
-class DescribeDBEngineVersionsMessageTypeDef(BaseValidatorModel):
+class DescribeDBEngineVersionsMessage(BaseValidatorModel):
     Engine: Optional[str] = None
     EngineVersion: Optional[str] = None
     DBParameterGroupFamily: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+    Filters: Optional[Sequence[Filter]] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
     DefaultOnly: Optional[bool] = None
@@ -2499,116 +2499,116 @@ class DescribeDBEngineVersionsMessageTypeDef(BaseValidatorModel):
     IncludeAll: Optional[bool] = None
 
 
-class DescribeDBInstanceAutomatedBackupsMessageTypeDef(BaseValidatorModel):
+class DescribeDBInstanceAutomatedBackupsMessage(BaseValidatorModel):
     DbiResourceId: Optional[str] = None
     DBInstanceIdentifier: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+    Filters: Optional[Sequence[Filter]] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
     DBInstanceAutomatedBackupsArn: Optional[str] = None
 
 
-class DescribeDBInstancesMessageTypeDef(BaseValidatorModel):
+class DescribeDBInstancesMessage(BaseValidatorModel):
     DBInstanceIdentifier: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+    Filters: Optional[Sequence[Filter]] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
 
 
-class DescribeDBLogFilesMessageTypeDef(BaseValidatorModel):
+class DescribeDBLogFilesMessage(BaseValidatorModel):
     DBInstanceIdentifier: str
     FilenameContains: Optional[str] = None
     FileLastWritten: Optional[int] = None
     FileSize: Optional[int] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+    Filters: Optional[Sequence[Filter]] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
 
 
-class DescribeDBParameterGroupsMessageTypeDef(BaseValidatorModel):
+class DescribeDBParameterGroupsMessage(BaseValidatorModel):
     DBParameterGroupName: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+    Filters: Optional[Sequence[Filter]] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
 
 
-class DescribeDBParametersMessageTypeDef(BaseValidatorModel):
+class DescribeDBParametersMessage(BaseValidatorModel):
     DBParameterGroupName: str
     Source: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+    Filters: Optional[Sequence[Filter]] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
 
 
-class DescribeDBProxiesRequestTypeDef(BaseValidatorModel):
+class DescribeDBProxiesRequest(BaseValidatorModel):
     DBProxyName: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+    Filters: Optional[Sequence[Filter]] = None
     Marker: Optional[str] = None
     MaxRecords: Optional[int] = None
 
 
-class DescribeDBProxyEndpointsRequestTypeDef(BaseValidatorModel):
+class DescribeDBProxyEndpointsRequest(BaseValidatorModel):
     DBProxyName: Optional[str] = None
     DBProxyEndpointName: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+    Filters: Optional[Sequence[Filter]] = None
     Marker: Optional[str] = None
     MaxRecords: Optional[int] = None
 
 
-class DescribeDBProxyTargetGroupsRequestTypeDef(BaseValidatorModel):
+class DescribeDBProxyTargetGroupsRequest(BaseValidatorModel):
     DBProxyName: str
     TargetGroupName: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+    Filters: Optional[Sequence[Filter]] = None
     Marker: Optional[str] = None
     MaxRecords: Optional[int] = None
 
 
-class DescribeDBProxyTargetsRequestTypeDef(BaseValidatorModel):
+class DescribeDBProxyTargetsRequest(BaseValidatorModel):
     DBProxyName: str
     TargetGroupName: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+    Filters: Optional[Sequence[Filter]] = None
     Marker: Optional[str] = None
     MaxRecords: Optional[int] = None
 
 
-class DescribeDBRecommendationsMessageTypeDef(BaseValidatorModel):
-    LastUpdatedAfter: Optional[TimestampTypeDef] = None
-    LastUpdatedBefore: Optional[TimestampTypeDef] = None
+class DescribeDBRecommendationsMessage(BaseValidatorModel):
+    LastUpdatedAfter: Optional[Timestamp] = None
+    LastUpdatedBefore: Optional[Timestamp] = None
     Locale: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+    Filters: Optional[Sequence[Filter]] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
 
 
-class DescribeDBSecurityGroupsMessageTypeDef(BaseValidatorModel):
+class DescribeDBSecurityGroupsMessage(BaseValidatorModel):
     DBSecurityGroupName: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+    Filters: Optional[Sequence[Filter]] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
 
 
-class DescribeDBShardGroupsMessageTypeDef(BaseValidatorModel):
+class DescribeDBShardGroupsMessage(BaseValidatorModel):
     DBShardGroupIdentifier: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+    Filters: Optional[Sequence[Filter]] = None
     Marker: Optional[str] = None
     MaxRecords: Optional[int] = None
 
 
-class DescribeDBSnapshotTenantDatabasesMessageTypeDef(BaseValidatorModel):
+class DescribeDBSnapshotTenantDatabasesMessage(BaseValidatorModel):
     DBInstanceIdentifier: Optional[str] = None
     DBSnapshotIdentifier: Optional[str] = None
     SnapshotType: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+    Filters: Optional[Sequence[Filter]] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
     DbiResourceId: Optional[str] = None
 
 
-class DescribeDBSnapshotsMessageTypeDef(BaseValidatorModel):
+class DescribeDBSnapshotsMessage(BaseValidatorModel):
     DBInstanceIdentifier: Optional[str] = None
     DBSnapshotIdentifier: Optional[str] = None
     SnapshotType: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+    Filters: Optional[Sequence[Filter]] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
     IncludeShared: Optional[bool] = None
@@ -2616,111 +2616,111 @@ class DescribeDBSnapshotsMessageTypeDef(BaseValidatorModel):
     DbiResourceId: Optional[str] = None
 
 
-class DescribeDBSubnetGroupsMessageTypeDef(BaseValidatorModel):
+class DescribeDBSubnetGroupsMessage(BaseValidatorModel):
     DBSubnetGroupName: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+    Filters: Optional[Sequence[Filter]] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
 
 
-class DescribeEngineDefaultClusterParametersMessageTypeDef(BaseValidatorModel):
+class DescribeEngineDefaultClusterParametersMessage(BaseValidatorModel):
     DBParameterGroupFamily: str
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+    Filters: Optional[Sequence[Filter]] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
 
 
-class DescribeEngineDefaultParametersMessageTypeDef(BaseValidatorModel):
+class DescribeEngineDefaultParametersMessage(BaseValidatorModel):
     DBParameterGroupFamily: str
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+    Filters: Optional[Sequence[Filter]] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
 
 
-class DescribeEventCategoriesMessageTypeDef(BaseValidatorModel):
+class DescribeEventCategoriesMessage(BaseValidatorModel):
     SourceType: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+    Filters: Optional[Sequence[Filter]] = None
 
 
-class DescribeEventSubscriptionsMessageTypeDef(BaseValidatorModel):
+class DescribeEventSubscriptionsMessage(BaseValidatorModel):
     SubscriptionName: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+    Filters: Optional[Sequence[Filter]] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
 
 
-class DescribeEventsMessageTypeDef(BaseValidatorModel):
+class DescribeEventsMessage(BaseValidatorModel):
     SourceIdentifier: Optional[str] = None
     SourceType: Optional[SourceTypeType] = None
-    StartTime: Optional[TimestampTypeDef] = None
-    EndTime: Optional[TimestampTypeDef] = None
+    StartTime: Optional[Timestamp] = None
+    EndTime: Optional[Timestamp] = None
     Duration: Optional[int] = None
     EventCategories: Optional[Sequence[str]] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+    Filters: Optional[Sequence[Filter]] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
 
 
-class DescribeExportTasksMessageTypeDef(BaseValidatorModel):
+class DescribeExportTasksMessage(BaseValidatorModel):
     ExportTaskIdentifier: Optional[str] = None
     SourceArn: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+    Filters: Optional[Sequence[Filter]] = None
     Marker: Optional[str] = None
     MaxRecords: Optional[int] = None
     SourceType: Optional[ExportSourceTypeType] = None
 
 
-class DescribeGlobalClustersMessageTypeDef(BaseValidatorModel):
+class DescribeGlobalClustersMessage(BaseValidatorModel):
     GlobalClusterIdentifier: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+    Filters: Optional[Sequence[Filter]] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
 
 
-class DescribeIntegrationsMessageTypeDef(BaseValidatorModel):
+class DescribeIntegrationsMessage(BaseValidatorModel):
     IntegrationIdentifier: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+    Filters: Optional[Sequence[Filter]] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
 
 
-class DescribeOptionGroupOptionsMessageTypeDef(BaseValidatorModel):
+class DescribeOptionGroupOptionsMessage(BaseValidatorModel):
     EngineName: str
     MajorEngineVersion: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+    Filters: Optional[Sequence[Filter]] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
 
 
-class DescribeOptionGroupsMessageTypeDef(BaseValidatorModel):
+class DescribeOptionGroupsMessage(BaseValidatorModel):
     OptionGroupName: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+    Filters: Optional[Sequence[Filter]] = None
     Marker: Optional[str] = None
     MaxRecords: Optional[int] = None
     EngineName: Optional[str] = None
     MajorEngineVersion: Optional[str] = None
 
 
-class DescribeOrderableDBInstanceOptionsMessageTypeDef(BaseValidatorModel):
+class DescribeOrderableDBInstanceOptionsMessage(BaseValidatorModel):
     Engine: str
     EngineVersion: Optional[str] = None
     DBInstanceClass: Optional[str] = None
     LicenseModel: Optional[str] = None
     AvailabilityZoneGroup: Optional[str] = None
     Vpc: Optional[bool] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+    Filters: Optional[Sequence[Filter]] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
 
 
-class DescribePendingMaintenanceActionsMessageTypeDef(BaseValidatorModel):
+class DescribePendingMaintenanceActionsMessage(BaseValidatorModel):
     ResourceIdentifier: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+    Filters: Optional[Sequence[Filter]] = None
     Marker: Optional[str] = None
     MaxRecords: Optional[int] = None
 
 
-class DescribeReservedDBInstancesMessageTypeDef(BaseValidatorModel):
+class DescribeReservedDBInstancesMessage(BaseValidatorModel):
     ReservedDBInstanceId: Optional[str] = None
     ReservedDBInstancesOfferingId: Optional[str] = None
     DBInstanceClass: Optional[str] = None
@@ -2729,297 +2729,297 @@ class DescribeReservedDBInstancesMessageTypeDef(BaseValidatorModel):
     OfferingType: Optional[str] = None
     MultiAZ: Optional[bool] = None
     LeaseId: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+    Filters: Optional[Sequence[Filter]] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
 
 
-class DescribeReservedDBInstancesOfferingsMessageTypeDef(BaseValidatorModel):
+class DescribeReservedDBInstancesOfferingsMessage(BaseValidatorModel):
     ReservedDBInstancesOfferingId: Optional[str] = None
     DBInstanceClass: Optional[str] = None
     Duration: Optional[str] = None
     ProductDescription: Optional[str] = None
     OfferingType: Optional[str] = None
     MultiAZ: Optional[bool] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+    Filters: Optional[Sequence[Filter]] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
 
 
-class DescribeTenantDatabasesMessageTypeDef(BaseValidatorModel):
+class DescribeTenantDatabasesMessage(BaseValidatorModel):
     DBInstanceIdentifier: Optional[str] = None
     TenantDBName: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+    Filters: Optional[Sequence[Filter]] = None
     Marker: Optional[str] = None
     MaxRecords: Optional[int] = None
 
 
-class ListTagsForResourceMessageTypeDef(BaseValidatorModel):
+class ListTagsForResourceMessage(BaseValidatorModel):
     ResourceName: str
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+    Filters: Optional[Sequence[Filter]] = None
 
 
-class DescribeBlueGreenDeploymentsRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeBlueGreenDeploymentsRequestPaginate(BaseValidatorModel):
     BlueGreenDeploymentIdentifier: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Optional[Sequence[Filter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeCertificatesMessagePaginateTypeDef(BaseValidatorModel):
+class DescribeCertificatesMessagePaginate(BaseValidatorModel):
     CertificateIdentifier: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Optional[Sequence[Filter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeDBClusterAutomatedBackupsMessagePaginateTypeDef(BaseValidatorModel):
+class DescribeDBClusterAutomatedBackupsMessagePaginate(BaseValidatorModel):
     DbClusterResourceId: Optional[str] = None
     DBClusterIdentifier: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Optional[Sequence[Filter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeDBClusterBacktracksMessagePaginateTypeDef(BaseValidatorModel):
+class DescribeDBClusterBacktracksMessagePaginate(BaseValidatorModel):
     DBClusterIdentifier: str
     BacktrackIdentifier: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Optional[Sequence[Filter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeDBClusterEndpointsMessagePaginateTypeDef(BaseValidatorModel):
+class DescribeDBClusterEndpointsMessagePaginate(BaseValidatorModel):
     DBClusterIdentifier: Optional[str] = None
     DBClusterEndpointIdentifier: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Optional[Sequence[Filter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeDBClusterParameterGroupsMessagePaginateTypeDef(BaseValidatorModel):
+class DescribeDBClusterParameterGroupsMessagePaginate(BaseValidatorModel):
     DBClusterParameterGroupName: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Optional[Sequence[Filter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeDBClusterParametersMessagePaginateTypeDef(BaseValidatorModel):
+class DescribeDBClusterParametersMessagePaginate(BaseValidatorModel):
     DBClusterParameterGroupName: str
     Source: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Optional[Sequence[Filter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeDBClusterSnapshotsMessagePaginateTypeDef(BaseValidatorModel):
+class DescribeDBClusterSnapshotsMessagePaginate(BaseValidatorModel):
     DBClusterIdentifier: Optional[str] = None
     DBClusterSnapshotIdentifier: Optional[str] = None
     SnapshotType: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+    Filters: Optional[Sequence[Filter]] = None
     IncludeShared: Optional[bool] = None
     IncludePublic: Optional[bool] = None
     DbClusterResourceId: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeDBClustersMessagePaginateTypeDef(BaseValidatorModel):
+class DescribeDBClustersMessagePaginate(BaseValidatorModel):
     DBClusterIdentifier: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+    Filters: Optional[Sequence[Filter]] = None
     IncludeShared: Optional[bool] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeDBEngineVersionsMessagePaginateTypeDef(BaseValidatorModel):
+class DescribeDBEngineVersionsMessagePaginate(BaseValidatorModel):
     Engine: Optional[str] = None
     EngineVersion: Optional[str] = None
     DBParameterGroupFamily: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+    Filters: Optional[Sequence[Filter]] = None
     DefaultOnly: Optional[bool] = None
     ListSupportedCharacterSets: Optional[bool] = None
     ListSupportedTimezones: Optional[bool] = None
     IncludeAll: Optional[bool] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeDBInstanceAutomatedBackupsMessagePaginateTypeDef(BaseValidatorModel):
+class DescribeDBInstanceAutomatedBackupsMessagePaginate(BaseValidatorModel):
     DbiResourceId: Optional[str] = None
     DBInstanceIdentifier: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+    Filters: Optional[Sequence[Filter]] = None
     DBInstanceAutomatedBackupsArn: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeDBInstancesMessagePaginateTypeDef(BaseValidatorModel):
+class DescribeDBInstancesMessagePaginate(BaseValidatorModel):
     DBInstanceIdentifier: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Optional[Sequence[Filter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeDBLogFilesMessagePaginateTypeDef(BaseValidatorModel):
+class DescribeDBLogFilesMessagePaginate(BaseValidatorModel):
     DBInstanceIdentifier: str
     FilenameContains: Optional[str] = None
     FileLastWritten: Optional[int] = None
     FileSize: Optional[int] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Optional[Sequence[Filter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeDBParameterGroupsMessagePaginateTypeDef(BaseValidatorModel):
+class DescribeDBParameterGroupsMessagePaginate(BaseValidatorModel):
     DBParameterGroupName: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Optional[Sequence[Filter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeDBParametersMessagePaginateTypeDef(BaseValidatorModel):
+class DescribeDBParametersMessagePaginate(BaseValidatorModel):
     DBParameterGroupName: str
     Source: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Optional[Sequence[Filter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeDBProxiesRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeDBProxiesRequestPaginate(BaseValidatorModel):
     DBProxyName: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Optional[Sequence[Filter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeDBProxyEndpointsRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeDBProxyEndpointsRequestPaginate(BaseValidatorModel):
     DBProxyName: Optional[str] = None
     DBProxyEndpointName: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Optional[Sequence[Filter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeDBProxyTargetGroupsRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeDBProxyTargetGroupsRequestPaginate(BaseValidatorModel):
     DBProxyName: str
     TargetGroupName: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Optional[Sequence[Filter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeDBProxyTargetsRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeDBProxyTargetsRequestPaginate(BaseValidatorModel):
     DBProxyName: str
     TargetGroupName: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Optional[Sequence[Filter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeDBRecommendationsMessagePaginateTypeDef(BaseValidatorModel):
-    LastUpdatedAfter: Optional[TimestampTypeDef] = None
-    LastUpdatedBefore: Optional[TimestampTypeDef] = None
+class DescribeDBRecommendationsMessagePaginate(BaseValidatorModel):
+    LastUpdatedAfter: Optional[Timestamp] = None
+    LastUpdatedBefore: Optional[Timestamp] = None
     Locale: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Optional[Sequence[Filter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeDBSecurityGroupsMessagePaginateTypeDef(BaseValidatorModel):
+class DescribeDBSecurityGroupsMessagePaginate(BaseValidatorModel):
     DBSecurityGroupName: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Optional[Sequence[Filter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeDBSnapshotTenantDatabasesMessagePaginateTypeDef(BaseValidatorModel):
+class DescribeDBSnapshotTenantDatabasesMessagePaginate(BaseValidatorModel):
     DBInstanceIdentifier: Optional[str] = None
     DBSnapshotIdentifier: Optional[str] = None
     SnapshotType: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+    Filters: Optional[Sequence[Filter]] = None
     DbiResourceId: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeDBSnapshotsMessagePaginateTypeDef(BaseValidatorModel):
+class DescribeDBSnapshotsMessagePaginate(BaseValidatorModel):
     DBInstanceIdentifier: Optional[str] = None
     DBSnapshotIdentifier: Optional[str] = None
     SnapshotType: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+    Filters: Optional[Sequence[Filter]] = None
     IncludeShared: Optional[bool] = None
     IncludePublic: Optional[bool] = None
     DbiResourceId: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeDBSubnetGroupsMessagePaginateTypeDef(BaseValidatorModel):
+class DescribeDBSubnetGroupsMessagePaginate(BaseValidatorModel):
     DBSubnetGroupName: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Optional[Sequence[Filter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeEngineDefaultClusterParametersMessagePaginateTypeDef(BaseValidatorModel):
+class DescribeEngineDefaultClusterParametersMessagePaginate(BaseValidatorModel):
     DBParameterGroupFamily: str
-    Filters: Optional[Sequence[FilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Optional[Sequence[Filter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeEngineDefaultParametersMessagePaginateTypeDef(BaseValidatorModel):
+class DescribeEngineDefaultParametersMessagePaginate(BaseValidatorModel):
     DBParameterGroupFamily: str
-    Filters: Optional[Sequence[FilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Optional[Sequence[Filter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeEventSubscriptionsMessagePaginateTypeDef(BaseValidatorModel):
+class DescribeEventSubscriptionsMessagePaginate(BaseValidatorModel):
     SubscriptionName: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Optional[Sequence[Filter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeEventsMessagePaginateTypeDef(BaseValidatorModel):
+class DescribeEventsMessagePaginate(BaseValidatorModel):
     SourceIdentifier: Optional[str] = None
     SourceType: Optional[SourceTypeType] = None
-    StartTime: Optional[TimestampTypeDef] = None
-    EndTime: Optional[TimestampTypeDef] = None
+    StartTime: Optional[Timestamp] = None
+    EndTime: Optional[Timestamp] = None
     Duration: Optional[int] = None
     EventCategories: Optional[Sequence[str]] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Optional[Sequence[Filter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeExportTasksMessagePaginateTypeDef(BaseValidatorModel):
+class DescribeExportTasksMessagePaginate(BaseValidatorModel):
     ExportTaskIdentifier: Optional[str] = None
     SourceArn: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+    Filters: Optional[Sequence[Filter]] = None
     SourceType: Optional[ExportSourceTypeType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeGlobalClustersMessagePaginateTypeDef(BaseValidatorModel):
+class DescribeGlobalClustersMessagePaginate(BaseValidatorModel):
     GlobalClusterIdentifier: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Optional[Sequence[Filter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeIntegrationsMessagePaginateTypeDef(BaseValidatorModel):
+class DescribeIntegrationsMessagePaginate(BaseValidatorModel):
     IntegrationIdentifier: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Optional[Sequence[Filter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeOptionGroupOptionsMessagePaginateTypeDef(BaseValidatorModel):
+class DescribeOptionGroupOptionsMessagePaginate(BaseValidatorModel):
     EngineName: str
     MajorEngineVersion: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Optional[Sequence[Filter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeOptionGroupsMessagePaginateTypeDef(BaseValidatorModel):
+class DescribeOptionGroupsMessagePaginate(BaseValidatorModel):
     OptionGroupName: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+    Filters: Optional[Sequence[Filter]] = None
     EngineName: Optional[str] = None
     MajorEngineVersion: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeOrderableDBInstanceOptionsMessagePaginateTypeDef(BaseValidatorModel):
+class DescribeOrderableDBInstanceOptionsMessagePaginate(BaseValidatorModel):
     Engine: str
     EngineVersion: Optional[str] = None
     DBInstanceClass: Optional[str] = None
     LicenseModel: Optional[str] = None
     AvailabilityZoneGroup: Optional[str] = None
     Vpc: Optional[bool] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Optional[Sequence[Filter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribePendingMaintenanceActionsMessagePaginateTypeDef(BaseValidatorModel):
+class DescribePendingMaintenanceActionsMessagePaginate(BaseValidatorModel):
     ResourceIdentifier: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Optional[Sequence[Filter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeReservedDBInstancesMessagePaginateTypeDef(BaseValidatorModel):
+class DescribeReservedDBInstancesMessagePaginate(BaseValidatorModel):
     ReservedDBInstanceId: Optional[str] = None
     ReservedDBInstancesOfferingId: Optional[str] = None
     DBInstanceClass: Optional[str] = None
@@ -3028,175 +3028,175 @@ class DescribeReservedDBInstancesMessagePaginateTypeDef(BaseValidatorModel):
     OfferingType: Optional[str] = None
     MultiAZ: Optional[bool] = None
     LeaseId: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Optional[Sequence[Filter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeReservedDBInstancesOfferingsMessagePaginateTypeDef(BaseValidatorModel):
+class DescribeReservedDBInstancesOfferingsMessagePaginate(BaseValidatorModel):
     ReservedDBInstancesOfferingId: Optional[str] = None
     DBInstanceClass: Optional[str] = None
     Duration: Optional[str] = None
     ProductDescription: Optional[str] = None
     OfferingType: Optional[str] = None
     MultiAZ: Optional[bool] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Optional[Sequence[Filter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeTenantDatabasesMessagePaginateTypeDef(BaseValidatorModel):
+class DescribeTenantDatabasesMessagePaginate(BaseValidatorModel):
     DBInstanceIdentifier: Optional[str] = None
     TenantDBName: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Optional[Sequence[Filter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DownloadDBLogFilePortionMessagePaginateTypeDef(BaseValidatorModel):
+class DownloadDBLogFilePortionMessagePaginate(BaseValidatorModel):
     DBInstanceIdentifier: str
     LogFileName: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeDBClusterSnapshotsMessageWaitExtraTypeDef(BaseValidatorModel):
+class DescribeDBClusterSnapshotsMessageWaitExtra(BaseValidatorModel):
     DBClusterIdentifier: Optional[str] = None
     DBClusterSnapshotIdentifier: Optional[str] = None
     SnapshotType: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+    Filters: Optional[Sequence[Filter]] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
     IncludeShared: Optional[bool] = None
     IncludePublic: Optional[bool] = None
     DbClusterResourceId: Optional[str] = None
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class DescribeDBClusterSnapshotsMessageWaitTypeDef(BaseValidatorModel):
+class DescribeDBClusterSnapshotsMessageWait(BaseValidatorModel):
     DBClusterIdentifier: Optional[str] = None
     DBClusterSnapshotIdentifier: Optional[str] = None
     SnapshotType: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+    Filters: Optional[Sequence[Filter]] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
     IncludeShared: Optional[bool] = None
     IncludePublic: Optional[bool] = None
     DbClusterResourceId: Optional[str] = None
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class DescribeDBClustersMessageWaitExtraTypeDef(BaseValidatorModel):
+class DescribeDBClustersMessageWaitExtra(BaseValidatorModel):
     DBClusterIdentifier: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+    Filters: Optional[Sequence[Filter]] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
     IncludeShared: Optional[bool] = None
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class DescribeDBClustersMessageWaitTypeDef(BaseValidatorModel):
+class DescribeDBClustersMessageWait(BaseValidatorModel):
     DBClusterIdentifier: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+    Filters: Optional[Sequence[Filter]] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
     IncludeShared: Optional[bool] = None
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class DescribeDBInstancesMessageWaitExtraTypeDef(BaseValidatorModel):
+class DescribeDBInstancesMessageWaitExtra(BaseValidatorModel):
     DBInstanceIdentifier: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+    Filters: Optional[Sequence[Filter]] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class DescribeDBInstancesMessageWaitTypeDef(BaseValidatorModel):
+class DescribeDBInstancesMessageWait(BaseValidatorModel):
     DBInstanceIdentifier: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+    Filters: Optional[Sequence[Filter]] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class DescribeDBSnapshotsMessageWaitExtraExtraTypeDef(BaseValidatorModel):
+class DescribeDBSnapshotsMessageWaitExtraExtra(BaseValidatorModel):
     DBInstanceIdentifier: Optional[str] = None
     DBSnapshotIdentifier: Optional[str] = None
     SnapshotType: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+    Filters: Optional[Sequence[Filter]] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
     IncludeShared: Optional[bool] = None
     IncludePublic: Optional[bool] = None
     DbiResourceId: Optional[str] = None
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class DescribeDBSnapshotsMessageWaitExtraTypeDef(BaseValidatorModel):
+class DescribeDBSnapshotsMessageWaitExtra(BaseValidatorModel):
     DBInstanceIdentifier: Optional[str] = None
     DBSnapshotIdentifier: Optional[str] = None
     SnapshotType: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+    Filters: Optional[Sequence[Filter]] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
     IncludeShared: Optional[bool] = None
     IncludePublic: Optional[bool] = None
     DbiResourceId: Optional[str] = None
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class DescribeDBSnapshotsMessageWaitTypeDef(BaseValidatorModel):
+class DescribeDBSnapshotsMessageWait(BaseValidatorModel):
     DBInstanceIdentifier: Optional[str] = None
     DBSnapshotIdentifier: Optional[str] = None
     SnapshotType: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+    Filters: Optional[Sequence[Filter]] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
     IncludeShared: Optional[bool] = None
     IncludePublic: Optional[bool] = None
     DbiResourceId: Optional[str] = None
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class DescribeTenantDatabasesMessageWaitExtraTypeDef(BaseValidatorModel):
+class DescribeTenantDatabasesMessageWaitExtra(BaseValidatorModel):
     DBInstanceIdentifier: Optional[str] = None
     TenantDBName: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+    Filters: Optional[Sequence[Filter]] = None
     Marker: Optional[str] = None
     MaxRecords: Optional[int] = None
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class DescribeTenantDatabasesMessageWaitTypeDef(BaseValidatorModel):
+class DescribeTenantDatabasesMessageWait(BaseValidatorModel):
     DBInstanceIdentifier: Optional[str] = None
     TenantDBName: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+    Filters: Optional[Sequence[Filter]] = None
     Marker: Optional[str] = None
     MaxRecords: Optional[int] = None
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class DescribeDBLogFilesResponseTypeDef(BaseValidatorModel):
-    DescribeDBLogFiles: List[DescribeDBLogFilesDetailsTypeDef]
+class DescribeDBLogFilesResponse(BaseValidatorModel):
+    DescribeDBLogFiles: List[DescribeDBLogFilesDetails]
     Marker: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class EventCategoriesMessageTypeDef(BaseValidatorModel):
-    EventCategoriesMapList: List[EventCategoriesMapTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class EventCategoriesMessage(BaseValidatorModel):
+    EventCategoriesMapList: List[EventCategoriesMap]
+    ResponseMetadata: ResponseMetadata
 
 
-class EventsMessageTypeDef(BaseValidatorModel):
+class EventsMessage(BaseValidatorModel):
     Marker: str
-    Events: List[EventTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    Events: List[Event]
+    ResponseMetadata: ResponseMetadata
 
 
-class ExportTasksMessageTypeDef(BaseValidatorModel):
+class ExportTasksMessage(BaseValidatorModel):
     Marker: str
-    ExportTasks: List[ExportTaskTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ExportTasks: List[ExportTask]
+    ResponseMetadata: ResponseMetadata
 
 
-class GlobalClusterTypeDef(BaseValidatorModel):
+class GlobalCluster(BaseValidatorModel):
     GlobalClusterIdentifier: Optional[str] = None
     GlobalClusterResourceId: Optional[str] = None
     GlobalClusterArn: Optional[str] = None
@@ -3207,13 +3207,13 @@ class GlobalClusterTypeDef(BaseValidatorModel):
     DatabaseName: Optional[str] = None
     StorageEncrypted: Optional[bool] = None
     DeletionProtection: Optional[bool] = None
-    GlobalClusterMembers: Optional[List[GlobalClusterMemberTypeDef]] = None
+    GlobalClusterMembers: Optional[List[GlobalClusterMember]] = None
     Endpoint: Optional[str] = None
-    FailoverState: Optional[FailoverStateTypeDef] = None
-    TagList: Optional[List[TagTypeDef]] = None
+    FailoverState: Optional[FailoverState] = None
+    TagList: Optional[List[Tag]] = None
 
 
-class IntegrationResponseTypeDef(BaseValidatorModel):
+class IntegrationResponse(BaseValidatorModel):
     SourceArn: str
     TargetArn: str
     IntegrationName: str
@@ -3221,15 +3221,15 @@ class IntegrationResponseTypeDef(BaseValidatorModel):
     KMSKeyId: str
     AdditionalEncryptionContext: Dict[str, str]
     Status: IntegrationStatusType
-    Tags: List[TagTypeDef]
+    Tags: List[Tag]
     CreateTime: datetime
-    Errors: List[IntegrationErrorTypeDef]
+    Errors: List[IntegrationError]
     DataFilter: str
     Description: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class IntegrationTypeDef(BaseValidatorModel):
+class Integration(BaseValidatorModel):
     SourceArn: Optional[str] = None
     TargetArn: Optional[str] = None
     IntegrationName: Optional[str] = None
@@ -3237,14 +3237,14 @@ class IntegrationTypeDef(BaseValidatorModel):
     KMSKeyId: Optional[str] = None
     AdditionalEncryptionContext: Optional[Dict[str, str]] = None
     Status: Optional[IntegrationStatusType] = None
-    Tags: Optional[List[TagTypeDef]] = None
+    Tags: Optional[List[Tag]] = None
     CreateTime: Optional[datetime] = None
-    Errors: Optional[List[IntegrationErrorTypeDef]] = None
+    Errors: Optional[List[IntegrationError]] = None
     DataFilter: Optional[str] = None
     Description: Optional[str] = None
 
 
-class OptionGroupOptionSettingTypeDef(BaseValidatorModel):
+class OptionGroupOptionSetting(BaseValidatorModel):
     SettingName: Optional[str] = None
     SettingDescription: Optional[str] = None
     DefaultValue: Optional[str] = None
@@ -3252,65 +3252,65 @@ class OptionGroupOptionSettingTypeDef(BaseValidatorModel):
     AllowedValues: Optional[str] = None
     IsModifiable: Optional[bool] = None
     IsRequired: Optional[bool] = None
-    MinimumEngineVersionPerAllowedValue: Optional[ List[MinimumEngineVersionPerAllowedValueTypeDef] ] = None
+    MinimumEngineVersionPerAllowedValue: Optional[ List[MinimumEngineVersionPerAllowedValue] ] = None
 
 
-class ModifyDBRecommendationMessageTypeDef(BaseValidatorModel):
+class ModifyDBRecommendationMessage(BaseValidatorModel):
     RecommendationId: str
     Locale: Optional[str] = None
     Status: Optional[str] = None
-    RecommendedActionUpdates: Optional[Sequence[RecommendedActionUpdateTypeDef]] = None
+    RecommendedActionUpdates: Optional[Sequence[RecommendedActionUpdate]] = None
 
 
-class OptionConfigurationTypeDef(BaseValidatorModel):
+class OptionConfiguration(BaseValidatorModel):
     OptionName: str
     Port: Optional[int] = None
     OptionVersion: Optional[str] = None
     DBSecurityGroupMemberships: Optional[Sequence[str]] = None
     VpcSecurityGroupMemberships: Optional[Sequence[str]] = None
-    OptionSettings: Optional[Sequence[OptionSettingTypeDef]] = None
+    OptionSettings: Optional[Sequence[OptionSetting]] = None
 
 
-class OptionTypeDef(BaseValidatorModel):
+class Option(BaseValidatorModel):
     OptionName: Optional[str] = None
     OptionDescription: Optional[str] = None
     Persistent: Optional[bool] = None
     Permanent: Optional[bool] = None
     Port: Optional[int] = None
     OptionVersion: Optional[str] = None
-    OptionSettings: Optional[List[OptionSettingTypeDef]] = None
-    DBSecurityGroupMemberships: Optional[List[DBSecurityGroupMembershipTypeDef]] = None
-    VpcSecurityGroupMemberships: Optional[List[VpcSecurityGroupMembershipTypeDef]] = None
+    OptionSettings: Optional[List[OptionSetting]] = None
+    DBSecurityGroupMemberships: Optional[List[DBSecurityGroupMembership]] = None
+    VpcSecurityGroupMemberships: Optional[List[VpcSecurityGroupMembership]] = None
 
 
-class SubnetTypeDef(BaseValidatorModel):
+class Subnet(BaseValidatorModel):
     SubnetIdentifier: Optional[str] = None
-    SubnetAvailabilityZone: Optional[AvailabilityZoneTypeDef] = None
-    SubnetOutpost: Optional[OutpostTypeDef] = None
+    SubnetAvailabilityZone: Optional[AvailabilityZone] = None
+    SubnetOutpost: Optional[Outpost] = None
     SubnetStatus: Optional[str] = None
 
 
-class ResourcePendingMaintenanceActionsTypeDef(BaseValidatorModel):
+class ResourcePendingMaintenanceActions(BaseValidatorModel):
     ResourceIdentifier: Optional[str] = None
-    PendingMaintenanceActionDetails: Optional[List[PendingMaintenanceActionTypeDef]] = None
+    PendingMaintenanceActionDetails: Optional[List[PendingMaintenanceAction]] = None
 
 
-class PerformanceInsightsMetricQueryTypeDef(BaseValidatorModel):
-    GroupBy: Optional[PerformanceInsightsMetricDimensionGroupTypeDef] = None
+class PerformanceInsightsMetricQuery(BaseValidatorModel):
+    GroupBy: Optional[PerformanceInsightsMetricDimensionGroup] = None
     Metric: Optional[str] = None
 
 
-class ValidStorageOptionsTypeDef(BaseValidatorModel):
+class ValidStorageOptions(BaseValidatorModel):
     StorageType: Optional[str] = None
-    StorageSize: Optional[List[RangeTypeDef]] = None
-    ProvisionedIops: Optional[List[RangeTypeDef]] = None
-    IopsToStorageRatio: Optional[List[DoubleRangeTypeDef]] = None
+    StorageSize: Optional[List[Range]] = None
+    ProvisionedIops: Optional[List[Range]] = None
+    IopsToStorageRatio: Optional[List[DoubleRange]] = None
     SupportsStorageAutoscaling: Optional[bool] = None
-    ProvisionedStorageThroughput: Optional[List[RangeTypeDef]] = None
-    StorageThroughputToIopsRatio: Optional[List[DoubleRangeTypeDef]] = None
+    ProvisionedStorageThroughput: Optional[List[Range]] = None
+    StorageThroughputToIopsRatio: Optional[List[DoubleRange]] = None
 
 
-class ReservedDBInstanceTypeDef(BaseValidatorModel):
+class ReservedDBInstance(BaseValidatorModel):
     ReservedDBInstanceId: Optional[str] = None
     ReservedDBInstancesOfferingId: Optional[str] = None
     DBInstanceClass: Optional[str] = None
@@ -3324,12 +3324,12 @@ class ReservedDBInstanceTypeDef(BaseValidatorModel):
     OfferingType: Optional[str] = None
     MultiAZ: Optional[bool] = None
     State: Optional[str] = None
-    RecurringCharges: Optional[List[RecurringChargeTypeDef]] = None
+    RecurringCharges: Optional[List[RecurringCharge]] = None
     ReservedDBInstanceArn: Optional[str] = None
     LeaseId: Optional[str] = None
 
 
-class ReservedDBInstancesOfferingTypeDef(BaseValidatorModel):
+class ReservedDBInstancesOffering(BaseValidatorModel):
     ReservedDBInstancesOfferingId: Optional[str] = None
     DBInstanceClass: Optional[str] = None
     Duration: Optional[int] = None
@@ -3339,24 +3339,24 @@ class ReservedDBInstancesOfferingTypeDef(BaseValidatorModel):
     ProductDescription: Optional[str] = None
     OfferingType: Optional[str] = None
     MultiAZ: Optional[bool] = None
-    RecurringCharges: Optional[List[RecurringChargeTypeDef]] = None
+    RecurringCharges: Optional[List[RecurringCharge]] = None
 
 
-class ReferenceDetailsTypeDef(BaseValidatorModel):
-    ScalarReferenceDetails: Optional[ScalarReferenceDetailsTypeDef] = None
+class ReferenceDetails(BaseValidatorModel):
+    ScalarReferenceDetails: Optional[ScalarReferenceDetails] = None
 
 
-class SourceRegionTypeDef(BaseValidatorModel):
+class SourceRegion(BaseValidatorModel):
     pass
 
 
-class SourceRegionMessageTypeDef(BaseValidatorModel):
+class SourceRegionMessage(BaseValidatorModel):
     Marker: str
-    SourceRegions: List[SourceRegionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    SourceRegions: List[SourceRegion]
+    ResponseMetadata: ResponseMetadata
 
 
-class TenantDatabaseTypeDef(BaseValidatorModel):
+class TenantDatabase(BaseValidatorModel):
     TenantDatabaseCreateTime: Optional[datetime] = None
     DBInstanceIdentifier: Optional[str] = None
     TenantDBName: Optional[str] = None
@@ -3368,71 +3368,71 @@ class TenantDatabaseTypeDef(BaseValidatorModel):
     CharacterSetName: Optional[str] = None
     NcharCharacterSetName: Optional[str] = None
     DeletionProtection: Optional[bool] = None
-    PendingModifiedValues: Optional[TenantDatabasePendingModifiedValuesTypeDef] = None
-    TagList: Optional[List[TagTypeDef]] = None
+    PendingModifiedValues: Optional[TenantDatabasePendingModifiedValues] = None
+    TagList: Optional[List[Tag]] = None
 
 
-class CopyDBClusterSnapshotResultTypeDef(BaseValidatorModel):
-    DBClusterSnapshot: DBClusterSnapshotTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CopyDBClusterSnapshotResult(BaseValidatorModel):
+    DBClusterSnapshot: DBClusterSnapshot
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateDBClusterSnapshotResultTypeDef(BaseValidatorModel):
-    DBClusterSnapshot: DBClusterSnapshotTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateDBClusterSnapshotResult(BaseValidatorModel):
+    DBClusterSnapshot: DBClusterSnapshot
+    ResponseMetadata: ResponseMetadata
 
 
-class DBClusterSnapshotMessageTypeDef(BaseValidatorModel):
+class DBClusterSnapshotMessage(BaseValidatorModel):
     Marker: str
-    DBClusterSnapshots: List[DBClusterSnapshotTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    DBClusterSnapshots: List[DBClusterSnapshot]
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteDBClusterSnapshotResultTypeDef(BaseValidatorModel):
-    DBClusterSnapshot: DBClusterSnapshotTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeleteDBClusterSnapshotResult(BaseValidatorModel):
+    DBClusterSnapshot: DBClusterSnapshot
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeDBShardGroupsResponseTypeDef(BaseValidatorModel):
-    DBShardGroups: List[DBShardGroupTypeDef]
+class DescribeDBShardGroupsResponse(BaseValidatorModel):
+    DBShardGroups: List[DBShardGroup]
     Marker: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DBSnapshotTenantDatabasesMessageTypeDef(BaseValidatorModel):
+class DBSnapshotTenantDatabasesMessage(BaseValidatorModel):
     Marker: str
-    DBSnapshotTenantDatabases: List[DBSnapshotTenantDatabaseTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    DBSnapshotTenantDatabases: List[DBSnapshotTenantDatabase]
+    ResponseMetadata: ResponseMetadata
 
 
-class OrderableDBInstanceOptionsMessageTypeDef(BaseValidatorModel):
-    OrderableDBInstanceOptions: List[OrderableDBInstanceOptionTypeDef]
+class OrderableDBInstanceOptionsMessage(BaseValidatorModel):
+    OrderableDBInstanceOptions: List[OrderableDBInstanceOption]
     Marker: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateBlueGreenDeploymentResponseTypeDef(BaseValidatorModel):
-    BlueGreenDeployment: BlueGreenDeploymentTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateBlueGreenDeploymentResponse(BaseValidatorModel):
+    BlueGreenDeployment: BlueGreenDeployment
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteBlueGreenDeploymentResponseTypeDef(BaseValidatorModel):
-    BlueGreenDeployment: BlueGreenDeploymentTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeleteBlueGreenDeploymentResponse(BaseValidatorModel):
+    BlueGreenDeployment: BlueGreenDeployment
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeBlueGreenDeploymentsResponseTypeDef(BaseValidatorModel):
-    BlueGreenDeployments: List[BlueGreenDeploymentTypeDef]
+class DescribeBlueGreenDeploymentsResponse(BaseValidatorModel):
+    BlueGreenDeployments: List[BlueGreenDeployment]
     Marker: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class SwitchoverBlueGreenDeploymentResponseTypeDef(BaseValidatorModel):
-    BlueGreenDeployment: BlueGreenDeploymentTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class SwitchoverBlueGreenDeploymentResponse(BaseValidatorModel):
+    BlueGreenDeployment: BlueGreenDeployment
+    ResponseMetadata: ResponseMetadata
 
 
-class DBClusterTypeDef(BaseValidatorModel):
+class DBCluster(BaseValidatorModel):
     AllocatedStorage: Optional[int] = None
     AvailabilityZones: Optional[List[str]] = None
     BackupRetentionPeriod: Optional[int] = None
@@ -3454,20 +3454,20 @@ class DBClusterTypeDef(BaseValidatorModel):
     LatestRestorableTime: Optional[datetime] = None
     Port: Optional[int] = None
     MasterUsername: Optional[str] = None
-    DBClusterOptionGroupMemberships: Optional[List[DBClusterOptionGroupStatusTypeDef]] = None
+    DBClusterOptionGroupMemberships: Optional[List[DBClusterOptionGroupStatus]] = None
     PreferredBackupWindow: Optional[str] = None
     PreferredMaintenanceWindow: Optional[str] = None
     ReplicationSourceIdentifier: Optional[str] = None
     ReadReplicaIdentifiers: Optional[List[str]] = None
-    StatusInfos: Optional[List[DBClusterStatusInfoTypeDef]] = None
-    DBClusterMembers: Optional[List[DBClusterMemberTypeDef]] = None
-    VpcSecurityGroups: Optional[List[VpcSecurityGroupMembershipTypeDef]] = None
+    StatusInfos: Optional[List[DBClusterStatusInfo]] = None
+    DBClusterMembers: Optional[List[DBClusterMember]] = None
+    VpcSecurityGroups: Optional[List[VpcSecurityGroupMembership]] = None
     HostedZoneId: Optional[str] = None
     StorageEncrypted: Optional[bool] = None
     KmsKeyId: Optional[str] = None
     DbClusterResourceId: Optional[str] = None
     DBClusterArn: Optional[str] = None
-    AssociatedRoles: Optional[List[DBClusterRoleTypeDef]] = None
+    AssociatedRoles: Optional[List[DBClusterRole]] = None
     IAMDatabaseAuthenticationEnabled: Optional[bool] = None
     CloneGroupId: Optional[str] = None
     ClusterCreateTime: Optional[datetime] = None
@@ -3477,8 +3477,8 @@ class DBClusterTypeDef(BaseValidatorModel):
     EnabledCloudwatchLogsExports: Optional[List[str]] = None
     Capacity: Optional[int] = None
     EngineMode: Optional[str] = None
-    ScalingConfigurationInfo: Optional[ScalingConfigurationInfoTypeDef] = None
-    RdsCustomClusterConfiguration: Optional[RdsCustomClusterConfigurationTypeDef] = None
+    ScalingConfigurationInfo: Optional[ScalingConfigurationInfo] = None
+    RdsCustomClusterConfiguration: Optional[RdsCustomClusterConfiguration] = None
     DeletionProtection: Optional[bool] = None
     HttpEndpointEnabled: Optional[bool] = None
     ActivityStreamMode: Optional[ActivityStreamModeType] = None
@@ -3487,11 +3487,11 @@ class DBClusterTypeDef(BaseValidatorModel):
     ActivityStreamKinesisStreamName: Optional[str] = None
     CopyTagsToSnapshot: Optional[bool] = None
     CrossAccountClone: Optional[bool] = None
-    DomainMemberships: Optional[List[DomainMembershipTypeDef]] = None
-    TagList: Optional[List[TagTypeDef]] = None
+    DomainMemberships: Optional[List[DomainMembership]] = None
+    TagList: Optional[List[Tag]] = None
     GlobalWriteForwardingStatus: Optional[WriteForwardingStatusType] = None
     GlobalWriteForwardingRequested: Optional[bool] = None
-    PendingModifiedValues: Optional[ClusterPendingModifiedValuesTypeDef] = None
+    PendingModifiedValues: Optional[ClusterPendingModifiedValues] = None
     DBClusterInstanceClass: Optional[str] = None
     StorageType: Optional[str] = None
     Iops: Optional[int] = None
@@ -3503,225 +3503,225 @@ class DBClusterTypeDef(BaseValidatorModel):
     PerformanceInsightsEnabled: Optional[bool] = None
     PerformanceInsightsKMSKeyId: Optional[str] = None
     PerformanceInsightsRetentionPeriod: Optional[int] = None
-    ServerlessV2ScalingConfiguration: Optional[ServerlessV2ScalingConfigurationInfoTypeDef] = None
+    ServerlessV2ScalingConfiguration: Optional[ServerlessV2ScalingConfigurationInfo] = None
     NetworkType: Optional[str] = None
     DBSystemId: Optional[str] = None
-    MasterUserSecret: Optional[MasterUserSecretTypeDef] = None
+    MasterUserSecret: Optional[MasterUserSecret] = None
     IOOptimizedNextAllowedModificationTime: Optional[datetime] = None
     LocalWriteForwardingStatus: Optional[LocalWriteForwardingStatusType] = None
     AwsBackupRecoveryPointArn: Optional[str] = None
-    LimitlessDatabase: Optional[LimitlessDatabaseTypeDef] = None
+    LimitlessDatabase: Optional[LimitlessDatabase] = None
     StorageThroughput: Optional[int] = None
     ClusterScalabilityType: Optional[ClusterScalabilityTypeType] = None
-    CertificateDetails: Optional[CertificateDetailsTypeDef] = None
+    CertificateDetails: Optional[CertificateDetails] = None
     EngineLifecycleSupport: Optional[str] = None
 
 
-class DescribeDBProxyTargetGroupsResponseTypeDef(BaseValidatorModel):
-    TargetGroups: List[DBProxyTargetGroupTypeDef]
+class DescribeDBProxyTargetGroupsResponse(BaseValidatorModel):
+    TargetGroups: List[DBProxyTargetGroup]
     Marker: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ModifyDBProxyTargetGroupResponseTypeDef(BaseValidatorModel):
-    DBProxyTargetGroup: DBProxyTargetGroupTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class ModifyDBProxyTargetGroupResponse(BaseValidatorModel):
+    DBProxyTargetGroup: DBProxyTargetGroup
+    ResponseMetadata: ResponseMetadata
 
 
-class CopyDBSnapshotResultTypeDef(BaseValidatorModel):
-    DBSnapshot: DBSnapshotTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CopyDBSnapshotResult(BaseValidatorModel):
+    DBSnapshot: DBSnapshot
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateDBSnapshotResultTypeDef(BaseValidatorModel):
-    DBSnapshot: DBSnapshotTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateDBSnapshotResult(BaseValidatorModel):
+    DBSnapshot: DBSnapshot
+    ResponseMetadata: ResponseMetadata
 
 
-class DBSnapshotMessageTypeDef(BaseValidatorModel):
+class DBSnapshotMessage(BaseValidatorModel):
     Marker: str
-    DBSnapshots: List[DBSnapshotTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    DBSnapshots: List[DBSnapshot]
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteDBSnapshotResultTypeDef(BaseValidatorModel):
-    DBSnapshot: DBSnapshotTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeleteDBSnapshotResult(BaseValidatorModel):
+    DBSnapshot: DBSnapshot
+    ResponseMetadata: ResponseMetadata
 
 
-class ModifyDBSnapshotResultTypeDef(BaseValidatorModel):
-    DBSnapshot: DBSnapshotTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class ModifyDBSnapshotResult(BaseValidatorModel):
+    DBSnapshot: DBSnapshot
+    ResponseMetadata: ResponseMetadata
 
 
-class DBClusterAutomatedBackupMessageTypeDef(BaseValidatorModel):
+class DBClusterAutomatedBackupMessage(BaseValidatorModel):
     Marker: str
-    DBClusterAutomatedBackups: List[DBClusterAutomatedBackupTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    DBClusterAutomatedBackups: List[DBClusterAutomatedBackup]
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteDBClusterAutomatedBackupResultTypeDef(BaseValidatorModel):
-    DBClusterAutomatedBackup: DBClusterAutomatedBackupTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeleteDBClusterAutomatedBackupResult(BaseValidatorModel):
+    DBClusterAutomatedBackup: DBClusterAutomatedBackup
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeEngineDefaultClusterParametersResultTypeDef(BaseValidatorModel):
-    EngineDefaults: EngineDefaultsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeEngineDefaultClusterParametersResult(BaseValidatorModel):
+    EngineDefaults: EngineDefaults
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeEngineDefaultParametersResultTypeDef(BaseValidatorModel):
-    EngineDefaults: EngineDefaultsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeEngineDefaultParametersResult(BaseValidatorModel):
+    EngineDefaults: EngineDefaults
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeDBClusterSnapshotAttributesResultTypeDef(BaseValidatorModel):
-    DBClusterSnapshotAttributesResult: DBClusterSnapshotAttributesResultTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeDBClusterSnapshotAttributesResult(BaseValidatorModel):
+    DBClusterSnapshotAttributesResult: DBClusterSnapshotAttributesResult
+    ResponseMetadata: ResponseMetadata
 
 
-class ModifyDBClusterSnapshotAttributeResultTypeDef(BaseValidatorModel):
-    DBClusterSnapshotAttributesResult: DBClusterSnapshotAttributesResultTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class ModifyDBClusterSnapshotAttributeResult(BaseValidatorModel):
+    DBClusterSnapshotAttributesResult: DBClusterSnapshotAttributesResult
+    ResponseMetadata: ResponseMetadata
 
 
-class DBEngineVersionMessageTypeDef(BaseValidatorModel):
+class DBEngineVersionMessage(BaseValidatorModel):
     Marker: str
-    DBEngineVersions: List[DBEngineVersionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    DBEngineVersions: List[DBEngineVersion]
+    ResponseMetadata: ResponseMetadata
 
 
-class DBInstanceAutomatedBackupMessageTypeDef(BaseValidatorModel):
+class DBInstanceAutomatedBackupMessage(BaseValidatorModel):
     Marker: str
-    DBInstanceAutomatedBackups: List[DBInstanceAutomatedBackupTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    DBInstanceAutomatedBackups: List[DBInstanceAutomatedBackup]
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteDBInstanceAutomatedBackupResultTypeDef(BaseValidatorModel):
-    DBInstanceAutomatedBackup: DBInstanceAutomatedBackupTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeleteDBInstanceAutomatedBackupResult(BaseValidatorModel):
+    DBInstanceAutomatedBackup: DBInstanceAutomatedBackup
+    ResponseMetadata: ResponseMetadata
 
 
-class StartDBInstanceAutomatedBackupsReplicationResultTypeDef(BaseValidatorModel):
-    DBInstanceAutomatedBackup: DBInstanceAutomatedBackupTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class StartDBInstanceAutomatedBackupsReplicationResult(BaseValidatorModel):
+    DBInstanceAutomatedBackup: DBInstanceAutomatedBackup
+    ResponseMetadata: ResponseMetadata
 
 
-class StopDBInstanceAutomatedBackupsReplicationResultTypeDef(BaseValidatorModel):
-    DBInstanceAutomatedBackup: DBInstanceAutomatedBackupTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class StopDBInstanceAutomatedBackupsReplicationResult(BaseValidatorModel):
+    DBInstanceAutomatedBackup: DBInstanceAutomatedBackup
+    ResponseMetadata: ResponseMetadata
 
 
-class DBProxyTargetTypeDef(BaseValidatorModel):
+class DBProxyTarget(BaseValidatorModel):
     pass
 
 
-class DescribeDBProxyTargetsResponseTypeDef(BaseValidatorModel):
-    Targets: List[DBProxyTargetTypeDef]
+class DescribeDBProxyTargetsResponse(BaseValidatorModel):
+    Targets: List[DBProxyTarget]
     Marker: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class RegisterDBProxyTargetsResponseTypeDef(BaseValidatorModel):
-    DBProxyTargets: List[DBProxyTargetTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class RegisterDBProxyTargetsResponse(BaseValidatorModel):
+    DBProxyTargets: List[DBProxyTarget]
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateDBProxyResponseTypeDef(BaseValidatorModel):
-    DBProxy: DBProxyTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateDBProxyResponse(BaseValidatorModel):
+    DBProxy: DBProxy
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteDBProxyResponseTypeDef(BaseValidatorModel):
-    DBProxy: DBProxyTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeleteDBProxyResponse(BaseValidatorModel):
+    DBProxy: DBProxy
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeDBProxiesResponseTypeDef(BaseValidatorModel):
-    DBProxies: List[DBProxyTypeDef]
+class DescribeDBProxiesResponse(BaseValidatorModel):
+    DBProxies: List[DBProxy]
     Marker: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ModifyDBProxyResponseTypeDef(BaseValidatorModel):
-    DBProxy: DBProxyTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class ModifyDBProxyResponse(BaseValidatorModel):
+    DBProxy: DBProxy
+    ResponseMetadata: ResponseMetadata
 
 
-class AuthorizeDBSecurityGroupIngressResultTypeDef(BaseValidatorModel):
-    DBSecurityGroup: DBSecurityGroupTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class AuthorizeDBSecurityGroupIngressResult(BaseValidatorModel):
+    DBSecurityGroup: DBSecurityGroup
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateDBSecurityGroupResultTypeDef(BaseValidatorModel):
-    DBSecurityGroup: DBSecurityGroupTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateDBSecurityGroupResult(BaseValidatorModel):
+    DBSecurityGroup: DBSecurityGroup
+    ResponseMetadata: ResponseMetadata
 
 
-class DBSecurityGroupMessageTypeDef(BaseValidatorModel):
+class DBSecurityGroupMessage(BaseValidatorModel):
     Marker: str
-    DBSecurityGroups: List[DBSecurityGroupTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    DBSecurityGroups: List[DBSecurityGroup]
+    ResponseMetadata: ResponseMetadata
 
 
-class RevokeDBSecurityGroupIngressResultTypeDef(BaseValidatorModel):
-    DBSecurityGroup: DBSecurityGroupTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class RevokeDBSecurityGroupIngressResult(BaseValidatorModel):
+    DBSecurityGroup: DBSecurityGroup
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeDBSnapshotAttributesResultTypeDef(BaseValidatorModel):
-    DBSnapshotAttributesResult: DBSnapshotAttributesResultTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeDBSnapshotAttributesResult(BaseValidatorModel):
+    DBSnapshotAttributesResult: DBSnapshotAttributesResult
+    ResponseMetadata: ResponseMetadata
 
 
-class ModifyDBSnapshotAttributeResultTypeDef(BaseValidatorModel):
-    DBSnapshotAttributesResult: DBSnapshotAttributesResultTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class ModifyDBSnapshotAttributeResult(BaseValidatorModel):
+    DBSnapshotAttributesResult: DBSnapshotAttributesResult
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateGlobalClusterResultTypeDef(BaseValidatorModel):
-    GlobalCluster: GlobalClusterTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateGlobalClusterResult(BaseValidatorModel):
+    GlobalCluster: GlobalCluster
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteGlobalClusterResultTypeDef(BaseValidatorModel):
-    GlobalCluster: GlobalClusterTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeleteGlobalClusterResult(BaseValidatorModel):
+    GlobalCluster: GlobalCluster
+    ResponseMetadata: ResponseMetadata
 
 
-class FailoverGlobalClusterResultTypeDef(BaseValidatorModel):
-    GlobalCluster: GlobalClusterTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class FailoverGlobalClusterResult(BaseValidatorModel):
+    GlobalCluster: GlobalCluster
+    ResponseMetadata: ResponseMetadata
 
 
-class GlobalClustersMessageTypeDef(BaseValidatorModel):
+class GlobalClustersMessage(BaseValidatorModel):
     Marker: str
-    GlobalClusters: List[GlobalClusterTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    GlobalClusters: List[GlobalCluster]
+    ResponseMetadata: ResponseMetadata
 
 
-class ModifyGlobalClusterResultTypeDef(BaseValidatorModel):
-    GlobalCluster: GlobalClusterTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class ModifyGlobalClusterResult(BaseValidatorModel):
+    GlobalCluster: GlobalCluster
+    ResponseMetadata: ResponseMetadata
 
 
-class RemoveFromGlobalClusterResultTypeDef(BaseValidatorModel):
-    GlobalCluster: GlobalClusterTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class RemoveFromGlobalClusterResult(BaseValidatorModel):
+    GlobalCluster: GlobalCluster
+    ResponseMetadata: ResponseMetadata
 
 
-class SwitchoverGlobalClusterResultTypeDef(BaseValidatorModel):
-    GlobalCluster: GlobalClusterTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class SwitchoverGlobalClusterResult(BaseValidatorModel):
+    GlobalCluster: GlobalCluster
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeIntegrationsResponseTypeDef(BaseValidatorModel):
+class DescribeIntegrationsResponse(BaseValidatorModel):
     Marker: str
-    Integrations: List[IntegrationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    Integrations: List[Integration]
+    ResponseMetadata: ResponseMetadata
 
 
-class OptionGroupOptionTypeDef(BaseValidatorModel):
+class OptionGroupOption(BaseValidatorModel):
     Name: Optional[str] = None
     Description: Optional[str] = None
     EngineName: Optional[str] = None
@@ -3736,24 +3736,24 @@ class OptionGroupOptionTypeDef(BaseValidatorModel):
     RequiresAutoMinorEngineVersionUpgrade: Optional[bool] = None
     VpcOnly: Optional[bool] = None
     SupportsOptionVersionDowngrade: Optional[bool] = None
-    OptionGroupOptionSettings: Optional[List[OptionGroupOptionSettingTypeDef]] = None
-    OptionGroupOptionVersions: Optional[List[OptionVersionTypeDef]] = None
+    OptionGroupOptionSettings: Optional[List[OptionGroupOptionSetting]] = None
+    OptionGroupOptionVersions: Optional[List[OptionVersion]] = None
     CopyableCrossAccount: Optional[bool] = None
 
 
-class ModifyOptionGroupMessageTypeDef(BaseValidatorModel):
+class ModifyOptionGroupMessage(BaseValidatorModel):
     OptionGroupName: str
-    OptionsToInclude: Optional[Sequence[OptionConfigurationTypeDef]] = None
+    OptionsToInclude: Optional[Sequence[OptionConfiguration]] = None
     OptionsToRemove: Optional[Sequence[str]] = None
     ApplyImmediately: Optional[bool] = None
 
 
-class OptionGroupTypeDef(BaseValidatorModel):
+class OptionGroup(BaseValidatorModel):
     OptionGroupName: Optional[str] = None
     OptionGroupDescription: Optional[str] = None
     EngineName: Optional[str] = None
     MajorEngineVersion: Optional[str] = None
-    Options: Optional[List[OptionTypeDef]] = None
+    Options: Optional[List[Option]] = None
     AllowsVpcAndNonVpcInstanceMemberships: Optional[bool] = None
     VpcId: Optional[str] = None
     OptionGroupArn: Optional[str] = None
@@ -3762,200 +3762,200 @@ class OptionGroupTypeDef(BaseValidatorModel):
     CopyTimestamp: Optional[datetime] = None
 
 
-class DBSubnetGroupTypeDef(BaseValidatorModel):
+class DBSubnetGroup(BaseValidatorModel):
     DBSubnetGroupName: Optional[str] = None
     DBSubnetGroupDescription: Optional[str] = None
     VpcId: Optional[str] = None
     SubnetGroupStatus: Optional[str] = None
-    Subnets: Optional[List[SubnetTypeDef]] = None
+    Subnets: Optional[List[Subnet]] = None
     DBSubnetGroupArn: Optional[str] = None
     SupportedNetworkTypes: Optional[List[str]] = None
 
 
-class ParameterUnionTypeDef(BaseValidatorModel):
+class ParameterUnion(BaseValidatorModel):
     pass
 
 
-class ModifyDBClusterParameterGroupMessageTypeDef(BaseValidatorModel):
+class ModifyDBClusterParameterGroupMessage(BaseValidatorModel):
     DBClusterParameterGroupName: str
-    Parameters: Sequence[ParameterUnionTypeDef]
+    Parameters: Sequence[ParameterUnion]
 
 
-class ModifyDBParameterGroupMessageTypeDef(BaseValidatorModel):
+class ModifyDBParameterGroupMessage(BaseValidatorModel):
     DBParameterGroupName: str
-    Parameters: Sequence[ParameterUnionTypeDef]
+    Parameters: Sequence[ParameterUnion]
 
 
-class ResetDBClusterParameterGroupMessageTypeDef(BaseValidatorModel):
+class ResetDBClusterParameterGroupMessage(BaseValidatorModel):
     DBClusterParameterGroupName: str
     ResetAllParameters: Optional[bool] = None
-    Parameters: Optional[Sequence[ParameterUnionTypeDef]] = None
+    Parameters: Optional[Sequence[ParameterUnion]] = None
 
 
-class ResetDBParameterGroupMessageTypeDef(BaseValidatorModel):
+class ResetDBParameterGroupMessage(BaseValidatorModel):
     DBParameterGroupName: str
     ResetAllParameters: Optional[bool] = None
-    Parameters: Optional[Sequence[ParameterUnionTypeDef]] = None
+    Parameters: Optional[Sequence[ParameterUnion]] = None
 
 
-class ApplyPendingMaintenanceActionResultTypeDef(BaseValidatorModel):
-    ResourcePendingMaintenanceActions: ResourcePendingMaintenanceActionsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class ApplyPendingMaintenanceActionResult(BaseValidatorModel):
+    ResourcePendingMaintenanceActions: ResourcePendingMaintenanceActions
+    ResponseMetadata: ResponseMetadata
 
 
-class PendingMaintenanceActionsMessageTypeDef(BaseValidatorModel):
-    PendingMaintenanceActions: List[ResourcePendingMaintenanceActionsTypeDef]
+class PendingMaintenanceActionsMessage(BaseValidatorModel):
+    PendingMaintenanceActions: List[ResourcePendingMaintenanceActions]
     Marker: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class MetricQueryTypeDef(BaseValidatorModel):
-    PerformanceInsightsMetricQuery: Optional[PerformanceInsightsMetricQueryTypeDef] = None
+class MetricQuery(BaseValidatorModel):
+    PerformanceInsightsMetricQuery: Optional[PerformanceInsightsMetricQuery] = None
 
 
-class ValidDBInstanceModificationsMessageTypeDef(BaseValidatorModel):
-    Storage: Optional[List[ValidStorageOptionsTypeDef]] = None
-    ValidProcessorFeatures: Optional[List[AvailableProcessorFeatureTypeDef]] = None
+class ValidDBInstanceModificationsMessage(BaseValidatorModel):
+    Storage: Optional[List[ValidStorageOptions]] = None
+    ValidProcessorFeatures: Optional[List[AvailableProcessorFeature]] = None
     SupportsDedicatedLogVolume: Optional[bool] = None
 
 
-class PurchaseReservedDBInstancesOfferingResultTypeDef(BaseValidatorModel):
-    ReservedDBInstance: ReservedDBInstanceTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class PurchaseReservedDBInstancesOfferingResult(BaseValidatorModel):
+    ReservedDBInstance: ReservedDBInstance
+    ResponseMetadata: ResponseMetadata
 
 
-class ReservedDBInstanceMessageTypeDef(BaseValidatorModel):
+class ReservedDBInstanceMessage(BaseValidatorModel):
     Marker: str
-    ReservedDBInstances: List[ReservedDBInstanceTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ReservedDBInstances: List[ReservedDBInstance]
+    ResponseMetadata: ResponseMetadata
 
 
-class ReservedDBInstancesOfferingMessageTypeDef(BaseValidatorModel):
+class ReservedDBInstancesOfferingMessage(BaseValidatorModel):
     Marker: str
-    ReservedDBInstancesOfferings: List[ReservedDBInstancesOfferingTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ReservedDBInstancesOfferings: List[ReservedDBInstancesOffering]
+    ResponseMetadata: ResponseMetadata
 
 
-class MetricReferenceTypeDef(BaseValidatorModel):
+class MetricReference(BaseValidatorModel):
     Name: Optional[str] = None
-    ReferenceDetails: Optional[ReferenceDetailsTypeDef] = None
+    ReferenceDetails: Optional[ReferenceDetails] = None
 
 
-class CreateTenantDatabaseResultTypeDef(BaseValidatorModel):
-    TenantDatabase: TenantDatabaseTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateTenantDatabaseResult(BaseValidatorModel):
+    TenantDatabase: TenantDatabase
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteTenantDatabaseResultTypeDef(BaseValidatorModel):
-    TenantDatabase: TenantDatabaseTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeleteTenantDatabaseResult(BaseValidatorModel):
+    TenantDatabase: TenantDatabase
+    ResponseMetadata: ResponseMetadata
 
 
-class ModifyTenantDatabaseResultTypeDef(BaseValidatorModel):
-    TenantDatabase: TenantDatabaseTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class ModifyTenantDatabaseResult(BaseValidatorModel):
+    TenantDatabase: TenantDatabase
+    ResponseMetadata: ResponseMetadata
 
 
-class TenantDatabasesMessageTypeDef(BaseValidatorModel):
+class TenantDatabasesMessage(BaseValidatorModel):
     Marker: str
-    TenantDatabases: List[TenantDatabaseTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    TenantDatabases: List[TenantDatabase]
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateDBClusterResultTypeDef(BaseValidatorModel):
-    DBCluster: DBClusterTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateDBClusterResult(BaseValidatorModel):
+    DBCluster: DBCluster
+    ResponseMetadata: ResponseMetadata
 
 
-class DBClusterMessageTypeDef(BaseValidatorModel):
+class DBClusterMessage(BaseValidatorModel):
     Marker: str
-    DBClusters: List[DBClusterTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    DBClusters: List[DBCluster]
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteDBClusterResultTypeDef(BaseValidatorModel):
-    DBCluster: DBClusterTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeleteDBClusterResult(BaseValidatorModel):
+    DBCluster: DBCluster
+    ResponseMetadata: ResponseMetadata
 
 
-class FailoverDBClusterResultTypeDef(BaseValidatorModel):
-    DBCluster: DBClusterTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class FailoverDBClusterResult(BaseValidatorModel):
+    DBCluster: DBCluster
+    ResponseMetadata: ResponseMetadata
 
 
-class ModifyDBClusterResultTypeDef(BaseValidatorModel):
-    DBCluster: DBClusterTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class ModifyDBClusterResult(BaseValidatorModel):
+    DBCluster: DBCluster
+    ResponseMetadata: ResponseMetadata
 
 
-class PromoteReadReplicaDBClusterResultTypeDef(BaseValidatorModel):
-    DBCluster: DBClusterTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class PromoteReadReplicaDBClusterResult(BaseValidatorModel):
+    DBCluster: DBCluster
+    ResponseMetadata: ResponseMetadata
 
 
-class RebootDBClusterResultTypeDef(BaseValidatorModel):
-    DBCluster: DBClusterTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class RebootDBClusterResult(BaseValidatorModel):
+    DBCluster: DBCluster
+    ResponseMetadata: ResponseMetadata
 
 
-class RestoreDBClusterFromS3ResultTypeDef(BaseValidatorModel):
-    DBCluster: DBClusterTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class RestoreDBClusterFromS3Result(BaseValidatorModel):
+    DBCluster: DBCluster
+    ResponseMetadata: ResponseMetadata
 
 
-class RestoreDBClusterFromSnapshotResultTypeDef(BaseValidatorModel):
-    DBCluster: DBClusterTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class RestoreDBClusterFromSnapshotResult(BaseValidatorModel):
+    DBCluster: DBCluster
+    ResponseMetadata: ResponseMetadata
 
 
-class RestoreDBClusterToPointInTimeResultTypeDef(BaseValidatorModel):
-    DBCluster: DBClusterTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class RestoreDBClusterToPointInTimeResult(BaseValidatorModel):
+    DBCluster: DBCluster
+    ResponseMetadata: ResponseMetadata
 
 
-class StartDBClusterResultTypeDef(BaseValidatorModel):
-    DBCluster: DBClusterTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class StartDBClusterResult(BaseValidatorModel):
+    DBCluster: DBCluster
+    ResponseMetadata: ResponseMetadata
 
 
-class StopDBClusterResultTypeDef(BaseValidatorModel):
-    DBCluster: DBClusterTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class StopDBClusterResult(BaseValidatorModel):
+    DBCluster: DBCluster
+    ResponseMetadata: ResponseMetadata
 
 
-class OptionGroupOptionsMessageTypeDef(BaseValidatorModel):
-    OptionGroupOptions: List[OptionGroupOptionTypeDef]
+class OptionGroupOptionsMessage(BaseValidatorModel):
+    OptionGroupOptions: List[OptionGroupOption]
     Marker: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CopyOptionGroupResultTypeDef(BaseValidatorModel):
-    OptionGroup: OptionGroupTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CopyOptionGroupResult(BaseValidatorModel):
+    OptionGroup: OptionGroup
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateOptionGroupResultTypeDef(BaseValidatorModel):
-    OptionGroup: OptionGroupTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateOptionGroupResult(BaseValidatorModel):
+    OptionGroup: OptionGroup
+    ResponseMetadata: ResponseMetadata
 
 
-class ModifyOptionGroupResultTypeDef(BaseValidatorModel):
-    OptionGroup: OptionGroupTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class ModifyOptionGroupResult(BaseValidatorModel):
+    OptionGroup: OptionGroup
+    ResponseMetadata: ResponseMetadata
 
 
-class OptionGroupsTypeDef(BaseValidatorModel):
-    OptionGroupsList: List[OptionGroupTypeDef]
+class OptionGroups(BaseValidatorModel):
+    OptionGroupsList: List[OptionGroup]
     Marker: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateDBSubnetGroupResultTypeDef(BaseValidatorModel):
-    DBSubnetGroup: DBSubnetGroupTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateDBSubnetGroupResult(BaseValidatorModel):
+    DBSubnetGroup: DBSubnetGroup
+    ResponseMetadata: ResponseMetadata
 
 
-class DBInstanceTypeDef(BaseValidatorModel):
+class DBInstance(BaseValidatorModel):
     DBInstanceIdentifier: Optional[str] = None
     DBInstanceClass: Optional[str] = None
     Engine: Optional[str] = None
@@ -3963,18 +3963,18 @@ class DBInstanceTypeDef(BaseValidatorModel):
     AutomaticRestartTime: Optional[datetime] = None
     MasterUsername: Optional[str] = None
     DBName: Optional[str] = None
-    Endpoint: Optional[EndpointTypeDef] = None
+    Endpoint: Optional[Endpoint] = None
     AllocatedStorage: Optional[int] = None
     InstanceCreateTime: Optional[datetime] = None
     PreferredBackupWindow: Optional[str] = None
     BackupRetentionPeriod: Optional[int] = None
-    DBSecurityGroups: Optional[List[DBSecurityGroupMembershipTypeDef]] = None
-    VpcSecurityGroups: Optional[List[VpcSecurityGroupMembershipTypeDef]] = None
-    DBParameterGroups: Optional[List[DBParameterGroupStatusTypeDef]] = None
+    DBSecurityGroups: Optional[List[DBSecurityGroupMembership]] = None
+    VpcSecurityGroups: Optional[List[VpcSecurityGroupMembership]] = None
+    DBParameterGroups: Optional[List[DBParameterGroupStatus]] = None
     AvailabilityZone: Optional[str] = None
-    DBSubnetGroup: Optional[DBSubnetGroupTypeDef] = None
+    DBSubnetGroup: Optional[DBSubnetGroup] = None
     PreferredMaintenanceWindow: Optional[str] = None
-    PendingModifiedValues: Optional[PendingModifiedValuesTypeDef] = None
+    PendingModifiedValues: Optional[PendingModifiedValues] = None
     LatestRestorableTime: Optional[datetime] = None
     MultiAZ: Optional[bool] = None
     EngineVersion: Optional[str] = None
@@ -3985,12 +3985,12 @@ class DBInstanceTypeDef(BaseValidatorModel):
     ReplicaMode: Optional[ReplicaModeType] = None
     LicenseModel: Optional[str] = None
     Iops: Optional[int] = None
-    OptionGroupMemberships: Optional[List[OptionGroupMembershipTypeDef]] = None
+    OptionGroupMemberships: Optional[List[OptionGroupMembership]] = None
     CharacterSetName: Optional[str] = None
     NcharCharacterSetName: Optional[str] = None
     SecondaryAvailabilityZone: Optional[str] = None
     PubliclyAccessible: Optional[bool] = None
-    StatusInfos: Optional[List[DBInstanceStatusInfoTypeDef]] = None
+    StatusInfos: Optional[List[DBInstanceStatusInfo]] = None
     StorageType: Optional[str] = None
     TdeCredentialArn: Optional[str] = None
     DbInstancePort: Optional[int] = None
@@ -3999,7 +3999,7 @@ class DBInstanceTypeDef(BaseValidatorModel):
     KmsKeyId: Optional[str] = None
     DbiResourceId: Optional[str] = None
     CACertificateIdentifier: Optional[str] = None
-    DomainMemberships: Optional[List[DomainMembershipTypeDef]] = None
+    DomainMemberships: Optional[List[DomainMembership]] = None
     CopyTagsToSnapshot: Optional[bool] = None
     MonitoringInterval: Optional[int] = None
     EnhancedMonitoringResourceArn: Optional[str] = None
@@ -4013,13 +4013,13 @@ class DBInstanceTypeDef(BaseValidatorModel):
     PerformanceInsightsKMSKeyId: Optional[str] = None
     PerformanceInsightsRetentionPeriod: Optional[int] = None
     EnabledCloudwatchLogsExports: Optional[List[str]] = None
-    ProcessorFeatures: Optional[List[ProcessorFeatureTypeDef]] = None
+    ProcessorFeatures: Optional[List[ProcessorFeature]] = None
     DeletionProtection: Optional[bool] = None
-    AssociatedRoles: Optional[List[DBInstanceRoleTypeDef]] = None
-    ListenerEndpoint: Optional[EndpointTypeDef] = None
+    AssociatedRoles: Optional[List[DBInstanceRole]] = None
+    ListenerEndpoint: Optional[Endpoint] = None
     MaxAllocatedStorage: Optional[int] = None
-    TagList: Optional[List[TagTypeDef]] = None
-    DBInstanceAutomatedBackupsReplications: Optional[ List[DBInstanceAutomatedBackupsReplicationTypeDef] ] = None
+    TagList: Optional[List[Tag]] = None
+    DBInstanceAutomatedBackupsReplications: Optional[ List[DBInstanceAutomatedBackupsReplication] ] = None
     CustomerOwnedIpEnabled: Optional[bool] = None
     AwsBackupRecoveryPointArn: Optional[str] = None
     ActivityStreamStatus: Optional[ActivityStreamStatusType] = None
@@ -4035,8 +4035,8 @@ class DBInstanceTypeDef(BaseValidatorModel):
     ActivityStreamPolicyStatus: Optional[ActivityStreamPolicyStatusType] = None
     StorageThroughput: Optional[int] = None
     DBSystemId: Optional[str] = None
-    MasterUserSecret: Optional[MasterUserSecretTypeDef] = None
-    CertificateDetails: Optional[CertificateDetailsTypeDef] = None
+    MasterUserSecret: Optional[MasterUserSecret] = None
+    CertificateDetails: Optional[CertificateDetails] = None
     ReadReplicaSourceDBClusterIdentifier: Optional[str] = None
     PercentProgress: Optional[str] = None
     DedicatedLogVolume: Optional[bool] = None
@@ -4045,123 +4045,123 @@ class DBInstanceTypeDef(BaseValidatorModel):
     EngineLifecycleSupport: Optional[str] = None
 
 
-class DBSubnetGroupMessageTypeDef(BaseValidatorModel):
+class DBSubnetGroupMessage(BaseValidatorModel):
     Marker: str
-    DBSubnetGroups: List[DBSubnetGroupTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    DBSubnetGroups: List[DBSubnetGroup]
+    ResponseMetadata: ResponseMetadata
 
 
-class ModifyDBSubnetGroupResultTypeDef(BaseValidatorModel):
-    DBSubnetGroup: DBSubnetGroupTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class ModifyDBSubnetGroupResult(BaseValidatorModel):
+    DBSubnetGroup: DBSubnetGroup
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeValidDBInstanceModificationsResultTypeDef(BaseValidatorModel):
-    ValidDBInstanceModificationsMessage: ValidDBInstanceModificationsMessageTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeValidDBInstanceModificationsResult(BaseValidatorModel):
+    ValidDBInstanceModificationsMessage: ValidDBInstanceModificationsMessage
+    ResponseMetadata: ResponseMetadata
 
 
-class MetricTypeDef(BaseValidatorModel):
+class Metric(BaseValidatorModel):
     Name: Optional[str] = None
-    References: Optional[List[MetricReferenceTypeDef]] = None
+    References: Optional[List[MetricReference]] = None
     StatisticsDetails: Optional[str] = None
-    MetricQuery: Optional[MetricQueryTypeDef] = None
+    MetricQuery: Optional[MetricQuery] = None
 
 
-class CreateDBInstanceReadReplicaResultTypeDef(BaseValidatorModel):
-    DBInstance: DBInstanceTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateDBInstanceReadReplicaResult(BaseValidatorModel):
+    DBInstance: DBInstance
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateDBInstanceResultTypeDef(BaseValidatorModel):
-    DBInstance: DBInstanceTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateDBInstanceResult(BaseValidatorModel):
+    DBInstance: DBInstance
+    ResponseMetadata: ResponseMetadata
 
 
-class DBInstanceMessageTypeDef(BaseValidatorModel):
+class DBInstanceMessage(BaseValidatorModel):
     Marker: str
-    DBInstances: List[DBInstanceTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    DBInstances: List[DBInstance]
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteDBInstanceResultTypeDef(BaseValidatorModel):
-    DBInstance: DBInstanceTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeleteDBInstanceResult(BaseValidatorModel):
+    DBInstance: DBInstance
+    ResponseMetadata: ResponseMetadata
 
 
-class ModifyDBInstanceResultTypeDef(BaseValidatorModel):
-    DBInstance: DBInstanceTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class ModifyDBInstanceResult(BaseValidatorModel):
+    DBInstance: DBInstance
+    ResponseMetadata: ResponseMetadata
 
 
-class PromoteReadReplicaResultTypeDef(BaseValidatorModel):
-    DBInstance: DBInstanceTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class PromoteReadReplicaResult(BaseValidatorModel):
+    DBInstance: DBInstance
+    ResponseMetadata: ResponseMetadata
 
 
-class RebootDBInstanceResultTypeDef(BaseValidatorModel):
-    DBInstance: DBInstanceTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class RebootDBInstanceResult(BaseValidatorModel):
+    DBInstance: DBInstance
+    ResponseMetadata: ResponseMetadata
 
 
-class RestoreDBInstanceFromDBSnapshotResultTypeDef(BaseValidatorModel):
-    DBInstance: DBInstanceTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class RestoreDBInstanceFromDBSnapshotResult(BaseValidatorModel):
+    DBInstance: DBInstance
+    ResponseMetadata: ResponseMetadata
 
 
-class RestoreDBInstanceFromS3ResultTypeDef(BaseValidatorModel):
-    DBInstance: DBInstanceTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class RestoreDBInstanceFromS3Result(BaseValidatorModel):
+    DBInstance: DBInstance
+    ResponseMetadata: ResponseMetadata
 
 
-class RestoreDBInstanceToPointInTimeResultTypeDef(BaseValidatorModel):
-    DBInstance: DBInstanceTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class RestoreDBInstanceToPointInTimeResult(BaseValidatorModel):
+    DBInstance: DBInstance
+    ResponseMetadata: ResponseMetadata
 
 
-class StartDBInstanceResultTypeDef(BaseValidatorModel):
-    DBInstance: DBInstanceTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class StartDBInstanceResult(BaseValidatorModel):
+    DBInstance: DBInstance
+    ResponseMetadata: ResponseMetadata
 
 
-class StopDBInstanceResultTypeDef(BaseValidatorModel):
-    DBInstance: DBInstanceTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class StopDBInstanceResult(BaseValidatorModel):
+    DBInstance: DBInstance
+    ResponseMetadata: ResponseMetadata
 
 
-class SwitchoverReadReplicaResultTypeDef(BaseValidatorModel):
-    DBInstance: DBInstanceTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class SwitchoverReadReplicaResult(BaseValidatorModel):
+    DBInstance: DBInstance
+    ResponseMetadata: ResponseMetadata
 
 
-class PerformanceIssueDetailsTypeDef(BaseValidatorModel):
+class PerformanceIssueDetails(BaseValidatorModel):
     StartTime: Optional[datetime] = None
     EndTime: Optional[datetime] = None
-    Metrics: Optional[List[MetricTypeDef]] = None
+    Metrics: Optional[List[Metric]] = None
     Analysis: Optional[str] = None
 
 
-class IssueDetailsTypeDef(BaseValidatorModel):
-    PerformanceIssueDetails: Optional[PerformanceIssueDetailsTypeDef] = None
+class IssueDetails(BaseValidatorModel):
+    PerformanceIssueDetails: Optional[PerformanceIssueDetails] = None
 
 
-class RecommendedActionTypeDef(BaseValidatorModel):
+class RecommendedAction(BaseValidatorModel):
     ActionId: Optional[str] = None
     Title: Optional[str] = None
     Description: Optional[str] = None
     Operation: Optional[str] = None
-    Parameters: Optional[List[RecommendedActionParameterTypeDef]] = None
+    Parameters: Optional[List[RecommendedActionParameter]] = None
     ApplyModes: Optional[List[str]] = None
     Status: Optional[str] = None
-    IssueDetails: Optional[IssueDetailsTypeDef] = None
-    ContextAttributes: Optional[List[ContextAttributeTypeDef]] = None
+    IssueDetails: Optional[IssueDetails] = None
+    ContextAttributes: Optional[List[ContextAttribute]] = None
 
 
-class DocLinkTypeDef(BaseValidatorModel):
+class DocLink(BaseValidatorModel):
     pass
 
 
-class DBRecommendationTypeDef(BaseValidatorModel):
+class DBRecommendation(BaseValidatorModel):
     RecommendationId: Optional[str] = None
     TypeId: Optional[str] = None
     Severity: Optional[str] = None
@@ -4173,25 +4173,25 @@ class DBRecommendationTypeDef(BaseValidatorModel):
     Recommendation: Optional[str] = None
     Description: Optional[str] = None
     Reason: Optional[str] = None
-    RecommendedActions: Optional[List[RecommendedActionTypeDef]] = None
+    RecommendedActions: Optional[List[RecommendedAction]] = None
     Category: Optional[str] = None
     Source: Optional[str] = None
     TypeDetection: Optional[str] = None
     TypeRecommendation: Optional[str] = None
     Impact: Optional[str] = None
     AdditionalInfo: Optional[str] = None
-    Links: Optional[List[DocLinkTypeDef]] = None
-    IssueDetails: Optional[IssueDetailsTypeDef] = None
+    Links: Optional[List[DocLink]] = None
+    IssueDetails: Optional[IssueDetails] = None
 
 
-class DBRecommendationMessageTypeDef(BaseValidatorModel):
-    DBRecommendation: DBRecommendationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DBRecommendationMessage(BaseValidatorModel):
+    DBRecommendation: DBRecommendation
+    ResponseMetadata: ResponseMetadata
 
 
-class DBRecommendationsMessageTypeDef(BaseValidatorModel):
-    DBRecommendations: List[DBRecommendationTypeDef]
+class DBRecommendationsMessage(BaseValidatorModel):
+    DBRecommendations: List[DBRecommendation]
     Marker: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 

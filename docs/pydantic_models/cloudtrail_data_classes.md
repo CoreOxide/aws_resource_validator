@@ -1,12 +1,12 @@
 # Cloudtrail Data Classes
 
-# AuditEventResultEntryTypeDef
+# AuditEvent
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# AuditEventTypeDef
+# AuditEventResultEntry
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
@@ -18,10 +18,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# PutAuditEventsRequestTypeDef
+# PutAuditEventsRequest
 
 ### auditEvents
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.cloudtrail_data_classes.AuditEventTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.cloudtrail_data_classes.AuditEvent]
 - **Required**: Yes
 
 ### channelArn
@@ -32,22 +32,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PutAuditEventsResponseTypeDef
+# PutAuditEventsResponse
 
 ### failed
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudtrail_data_classes.ResultErrorEntryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudtrail_data_classes.ResultErrorEntry]
 - **Required**: Yes
 
 ### successful
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudtrail_data_classes.AuditEventResultEntryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudtrail_data_classes.AuditEventResultEntry]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail_data_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail_data_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -69,7 +69,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ResultErrorEntryTypeDef
+# ResultErrorEntry
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 

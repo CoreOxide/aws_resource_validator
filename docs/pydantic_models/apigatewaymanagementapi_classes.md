@@ -6,41 +6,41 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BlobTypeDef
+# Blob
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# DeleteConnectionRequestTypeDef
+# DeleteConnectionRequest
 
 ### ConnectionId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# EmptyResponseMetadataTypeDef
+# EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewaymanagementapi_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewaymanagementapi_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetConnectionRequestTypeDef
+# GetConnectionRequest
 
 ### ConnectionId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetConnectionResponseTypeDef
+# GetConnectionResponse
 
 ### ConnectedAt
 - **Type**: <class 'datetime.datetime'>
 - **Required**: Yes
 
 ### Identity
-- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewaymanagementapi_classes.IdentityTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewaymanagementapi_classes.Identity'>
 - **Required**: Yes
 
 ### LastActiveAt
@@ -48,11 +48,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewaymanagementapi_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewaymanagementapi_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# IdentityTypeDef
+# Identity
 
 ### SourceIp
 - **Type**: <class 'str'>
@@ -63,10 +63,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PostToConnectionRequestTypeDef
+# PostToConnectionRequest
 
 ### Data
-- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewaymanagementapi_classes.BlobTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewaymanagementapi_classes.Blob'>
 - **Required**: Yes
 
 ### ConnectionId
@@ -74,7 +74,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>

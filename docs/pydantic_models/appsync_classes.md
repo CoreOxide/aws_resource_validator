@@ -1,48 +1,21 @@
 # Appsync Classes
 
-# AdditionalAuthenticationProviderTypeDef
+# AdditionalAuthenticationProvider
 
 ### authenticationType
 - **Type**: typing.Optional[typing.Literal['AMAZON_COGNITO_USER_POOLS', 'API_KEY', 'AWS_IAM', 'AWS_LAMBDA', 'OPENID_CONNECT']]
 
 ### openIDConnectConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.OpenIDConnectConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.OpenIDConnectConfig]
 
 ### userPoolConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.CognitoUserPoolConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.CognitoUserPoolConfig]
 
 ### lambdaAuthorizerConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.LambdaAuthorizerConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.LambdaAuthorizerConfig]
 
 
-# ApiAssociationTypeDef
-
-### domainName
-- **Type**: typing.Optional[str]
-
-### apiId
-- **Type**: typing.Optional[str]
-
-### associationStatus
-- **Type**: typing.Optional[typing.Literal['FAILED', 'PROCESSING', 'SUCCESS']]
-
-### deploymentDetail
-- **Type**: typing.Optional[str]
-
-
-# ApiCacheTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# ApiKeyTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# ApiTypeDef
+# Api
 
 ### apiId
 - **Type**: typing.Optional[str]
@@ -72,10 +45,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### eventConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.EventConfigOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.EventConfigOutput]
 
 
-# AppSyncRuntimeTypeDef
+# ApiAssociation
+
+### domainName
+- **Type**: typing.Optional[str]
+
+### apiId
+- **Type**: typing.Optional[str]
+
+### associationStatus
+- **Type**: typing.Optional[typing.Literal['FAILED', 'PROCESSING', 'SUCCESS']]
+
+### deploymentDetail
+- **Type**: typing.Optional[str]
+
+
+# ApiCache
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# ApiKey
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# AppSyncRuntime
 
 ### name
 - **Type**: typing.Literal['APPSYNC_JS']
@@ -86,7 +86,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# AssociateApiRequestTypeDef
+# AssociateApiRequest
 
 ### domainName
 - **Type**: <class 'str'>
@@ -97,18 +97,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# AssociateApiResponseTypeDef
+# AssociateApiResponse
 
 ### apiAssociation
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ApiAssociationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ApiAssociation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# AssociateMergedGraphqlApiRequestTypeDef
+# AssociateMergedGraphqlApiRequest
 
 ### sourceApiIdentifier
 - **Type**: <class 'str'>
@@ -122,21 +122,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### sourceApiAssociationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.SourceApiAssociationConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.SourceApiAssociationConfig]
 
 
-# AssociateMergedGraphqlApiResponseTypeDef
+# AssociateMergedGraphqlApiResponse
 
 ### sourceApiAssociation
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.SourceApiAssociationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.SourceApiAssociation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# AssociateSourceGraphqlApiRequestTypeDef
+# AssociateSourceGraphqlApiRequest
 
 ### mergedApiIdentifier
 - **Type**: <class 'str'>
@@ -150,54 +150,54 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### sourceApiAssociationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.SourceApiAssociationConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.SourceApiAssociationConfig]
 
 
-# AssociateSourceGraphqlApiResponseTypeDef
+# AssociateSourceGraphqlApiResponse
 
 ### sourceApiAssociation
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.SourceApiAssociationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.SourceApiAssociation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# AuthModeTypeDef
+# AuthMode
 
 ### authType
 - **Type**: typing.Literal['AMAZON_COGNITO_USER_POOLS', 'API_KEY', 'AWS_IAM', 'AWS_LAMBDA', 'OPENID_CONNECT']
 - **Required**: Yes
 
 
-# AuthProviderTypeDef
+# AuthProvider
 
 ### authType
 - **Type**: typing.Literal['AMAZON_COGNITO_USER_POOLS', 'API_KEY', 'AWS_IAM', 'AWS_LAMBDA', 'OPENID_CONNECT']
 - **Required**: Yes
 
 ### cognitoConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.CognitoConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.CognitoConfig]
 
 ### openIDConnectConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.OpenIDConnectConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.OpenIDConnectConfig]
 
 ### lambdaAuthorizerConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.LambdaAuthorizerConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.LambdaAuthorizerConfig]
 
 
-# AuthorizationConfigTypeDef
+# AuthorizationConfig
 
 ### authorizationType
 - **Type**: typing.Literal['AWS_IAM']
 - **Required**: Yes
 
 ### awsIamConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.AwsIamConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.AwsIamConfig]
 
 
-# AwsIamConfigTypeDef
+# AwsIamConfig
 
 ### signingRegion
 - **Type**: typing.Optional[str]
@@ -212,23 +212,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BlobTypeDef
+# Blob
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CachingConfigOutputTypeDef
-
-### ttl
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### cachingKeys
-- **Type**: typing.Optional[typing.List[str]]
-
-
-# CachingConfigTypeDef
+# CachingConfig
 
 ### ttl
 - **Type**: <class 'int'>
@@ -238,13 +228,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# CachingConfigUnionTypeDef
+# CachingConfigOutput
+
+### ttl
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### cachingKeys
+- **Type**: typing.Optional[typing.List[str]]
+
+
+# CachingConfigUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ChannelNamespaceTypeDef
+# ChannelNamespace
 
 ### apiId
 - **Type**: typing.Optional[str]
@@ -253,10 +253,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### subscribeAuthModes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appsync_classes.AuthModeTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appsync_classes.AuthMode]]
 
 ### publishAuthModes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appsync_classes.AuthModeTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appsync_classes.AuthMode]]
 
 ### codeHandlers
 - **Type**: typing.Optional[str]
@@ -274,7 +274,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# CodeErrorLocationTypeDef
+# CodeError
+
+### errorType
+- **Type**: typing.Optional[str]
+
+### value
+- **Type**: typing.Optional[str]
+
+### location
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.CodeErrorLocation]
+
+
+# CodeErrorLocation
 
 ### line
 - **Type**: typing.Optional[int]
@@ -286,19 +298,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# CodeErrorTypeDef
-
-### errorType
-- **Type**: typing.Optional[str]
-
-### value
-- **Type**: typing.Optional[str]
-
-### location
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.CodeErrorLocationTypeDef]
-
-
-# CognitoConfigTypeDef
+# CognitoConfig
 
 ### userPoolId
 - **Type**: <class 'str'>
@@ -312,7 +312,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CognitoUserPoolConfigTypeDef
+# CognitoUserPoolConfig
 
 ### userPoolId
 - **Type**: <class 'str'>
@@ -326,18 +326,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateApiCacheResponseTypeDef
+# CreateApiCacheResponse
 
 ### apiCache
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ApiCacheTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ApiCache'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateApiKeyRequestTypeDef
+# CreateApiKeyRequest
 
 ### apiId
 - **Type**: <class 'str'>
@@ -350,18 +350,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# CreateApiKeyResponseTypeDef
+# CreateApiKeyResponse
 
 ### apiKey
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ApiKeyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ApiKey'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateApiRequestTypeDef
+# CreateApiRequest
 
 ### name
 - **Type**: <class 'str'>
@@ -374,21 +374,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 ### eventConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.EventConfigUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.EventConfigUnion]
 
 
-# CreateApiResponseTypeDef
+# CreateApiResponse
 
 ### api
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ApiTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.Api'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateChannelNamespaceRequestTypeDef
+# CreateChannelNamespaceRequest
 
 ### apiId
 - **Type**: <class 'str'>
@@ -399,10 +399,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### subscribeAuthModes
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.appsync_classes.AuthModeTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.appsync_classes.AuthMode]]
 
 ### publishAuthModes
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.appsync_classes.AuthModeTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.appsync_classes.AuthMode]]
 
 ### codeHandlers
 - **Type**: typing.Optional[str]
@@ -411,29 +411,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateChannelNamespaceResponseTypeDef
+# CreateChannelNamespaceResponse
 
 ### channelNamespace
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ChannelNamespaceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ChannelNamespace'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateDataSourceResponseTypeDef
+# CreateDataSourceResponse
 
 ### dataSource
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.DataSourceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.DataSource'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateDomainNameRequestTypeDef
+# CreateDomainNameRequest
 
 ### domainName
 - **Type**: <class 'str'>
@@ -447,18 +447,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateDomainNameResponseTypeDef
+# CreateDomainNameResponse
 
 ### domainNameConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.DomainNameConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.DomainNameConfig'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateFunctionRequestTypeDef
+# CreateFunctionRequest
 
 ### apiId
 - **Type**: <class 'str'>
@@ -485,30 +485,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### syncConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.SyncConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.SyncConfig]
 
 ### maxBatchSize
 - **Type**: typing.Optional[int]
 
 ### runtime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.AppSyncRuntimeTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.AppSyncRuntime]
 
 ### code
 - **Type**: typing.Optional[str]
 
 
-# CreateFunctionResponseTypeDef
+# CreateFunctionResponse
 
 ### functionConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.FunctionConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.FunctionConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateGraphqlApiRequestTypeDef
+# CreateGraphqlApiRequest
 
 ### name
 - **Type**: <class 'str'>
@@ -519,25 +519,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### logConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.LogConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.LogConfig]
 
 ### userPoolConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.UserPoolConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.UserPoolConfig]
 
 ### openIDConnectConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.OpenIDConnectConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.OpenIDConnectConfig]
 
 ### tags
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 ### additionalAuthenticationProviders
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.appsync_classes.AdditionalAuthenticationProviderTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.appsync_classes.AdditionalAuthenticationProvider]]
 
 ### xrayEnabled
 - **Type**: typing.Optional[bool]
 
 ### lambdaAuthorizerConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.LambdaAuthorizerConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.LambdaAuthorizerConfig]
 
 ### apiType
 - **Type**: typing.Optional[typing.Literal['GRAPHQL', 'MERGED']]
@@ -561,21 +561,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### enhancedMetricsConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.EnhancedMetricsConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.EnhancedMetricsConfig]
 
 
-# CreateGraphqlApiResponseTypeDef
+# CreateGraphqlApiResponse
 
 ### graphqlApi
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.GraphqlApiTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.GraphqlApi'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateResolverRequestTypeDef
+# CreateResolverRequest
 
 ### apiId
 - **Type**: <class 'str'>
@@ -602,19 +602,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['PIPELINE', 'UNIT']]
 
 ### pipelineConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.PipelineConfigUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.PipelineConfigUnion]
 
 ### syncConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.SyncConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.SyncConfig]
 
 ### cachingConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.CachingConfigUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.CachingConfigUnion]
 
 ### maxBatchSize
 - **Type**: typing.Optional[int]
 
 ### runtime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.AppSyncRuntimeTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.AppSyncRuntime]
 
 ### code
 - **Type**: typing.Optional[str]
@@ -623,24 +623,48 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
 
 
-# CreateResolverResponseTypeDef
+# CreateResolverResponse
 
 ### resolver
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResolverTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.Resolver'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DataSourceIntrospectionModelFieldTypeDef
+# DataSource
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# DataSourceIntrospectionModelIndexTypeDef
+# DataSourceIntrospectionModel
+
+### name
+- **Type**: typing.Optional[str]
+
+### fields
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appsync_classes.DataSourceIntrospectionModelField]]
+
+### primaryKey
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.DataSourceIntrospectionModelIndex]
+
+### indexes
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appsync_classes.DataSourceIntrospectionModelIndex]]
+
+### sdl
+- **Type**: typing.Optional[str]
+
+
+# DataSourceIntrospectionModelField
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# DataSourceIntrospectionModelIndex
 
 ### name
 - **Type**: typing.Optional[str]
@@ -649,54 +673,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# DataSourceIntrospectionModelTypeDef
-
-### name
-- **Type**: typing.Optional[str]
-
-### fields
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appsync_classes.DataSourceIntrospectionModelFieldTypeDef]]
-
-### primaryKey
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.DataSourceIntrospectionModelIndexTypeDef]
-
-### indexes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appsync_classes.DataSourceIntrospectionModelIndexTypeDef]]
-
-### sdl
-- **Type**: typing.Optional[str]
-
-
-# DataSourceIntrospectionResultTypeDef
+# DataSourceIntrospectionResult
 
 ### models
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appsync_classes.DataSourceIntrospectionModelTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appsync_classes.DataSourceIntrospectionModel]]
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# DataSourceTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# DeleteApiCacheRequestTypeDef
+# DeleteApiCacheRequest
 
 ### apiId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteApiRequestTypeDef
+# DeleteApiRequest
 
 ### apiId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteChannelNamespaceRequestTypeDef
+# DeleteChannelNamespaceRequest
 
 ### apiId
 - **Type**: <class 'str'>
@@ -707,7 +707,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteDataSourceRequestTypeDef
+# DeleteDataSourceRequest
 
 ### apiId
 - **Type**: <class 'str'>
@@ -718,14 +718,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteDomainNameRequestTypeDef
+# DeleteDomainNameRequest
 
 ### domainName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteFunctionRequestTypeDef
+# DeleteFunctionRequest
 
 ### apiId
 - **Type**: <class 'str'>
@@ -736,14 +736,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteGraphqlApiRequestTypeDef
+# DeleteGraphqlApiRequest
 
 ### apiId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteResolverRequestTypeDef
+# DeleteResolverRequest
 
 ### apiId
 - **Type**: <class 'str'>
@@ -758,7 +758,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteTypeRequestTypeDef
+# DeleteTypeRequest
 
 ### apiId
 - **Type**: <class 'str'>
@@ -769,7 +769,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeltaSyncConfigTypeDef
+# DeltaSyncConfig
 
 ### baseTableTTL
 - **Type**: typing.Optional[int]
@@ -781,14 +781,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# DisassociateApiRequestTypeDef
+# DisassociateApiRequest
 
 ### domainName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DisassociateMergedGraphqlApiRequestTypeDef
+# DisassociateMergedGraphqlApiRequest
 
 ### sourceApiIdentifier
 - **Type**: <class 'str'>
@@ -799,18 +799,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DisassociateMergedGraphqlApiResponseTypeDef
+# DisassociateMergedGraphqlApiResponse
 
 ### sourceApiAssociationStatus
 - **Type**: typing.Literal['AUTO_MERGE_SCHEDULE_FAILED', 'DELETION_FAILED', 'DELETION_IN_PROGRESS', 'DELETION_SCHEDULED', 'MERGE_FAILED', 'MERGE_IN_PROGRESS', 'MERGE_SCHEDULED', 'MERGE_SUCCESS']
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DisassociateSourceGraphqlApiRequestTypeDef
+# DisassociateSourceGraphqlApiRequest
 
 ### mergedApiIdentifier
 - **Type**: <class 'str'>
@@ -821,18 +821,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DisassociateSourceGraphqlApiResponseTypeDef
+# DisassociateSourceGraphqlApiResponse
 
 ### sourceApiAssociationStatus
 - **Type**: typing.Literal['AUTO_MERGE_SCHEDULE_FAILED', 'DELETION_FAILED', 'DELETION_IN_PROGRESS', 'DELETION_SCHEDULED', 'MERGE_FAILED', 'MERGE_IN_PROGRESS', 'MERGE_SCHEDULED', 'MERGE_SUCCESS']
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DomainNameConfigTypeDef
+# DomainNameConfig
 
 ### domainName
 - **Type**: typing.Optional[str]
@@ -850,7 +850,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DynamodbDataSourceConfigTypeDef
+# DynamodbDataSourceConfig
 
 ### tableName
 - **Type**: <class 'str'>
@@ -864,13 +864,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### deltaSyncConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.DeltaSyncConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.DeltaSyncConfig]
 
 ### versioned
 - **Type**: typing.Optional[bool]
 
 
-# ElasticsearchDataSourceConfigTypeDef
+# ElasticsearchDataSourceConfig
 
 ### endpoint
 - **Type**: <class 'str'>
@@ -881,7 +881,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# EnhancedMetricsConfigTypeDef
+# EnhancedMetricsConfig
 
 ### resolverLevelMetricsBehavior
 - **Type**: typing.Literal['FULL_REQUEST_RESOLVER_METRICS', 'PER_RESOLVER_METRICS']
@@ -896,25 +896,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ErrorDetailTypeDef
+# ErrorDetail
 
 ### message
 - **Type**: typing.Optional[str]
 
 
-# EvaluateCodeErrorDetailTypeDef
+# EvaluateCodeErrorDetail
 
 ### message
 - **Type**: typing.Optional[str]
 
 ### codeErrors
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appsync_classes.CodeErrorTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appsync_classes.CodeError]]
 
 
-# EvaluateCodeRequestTypeDef
+# EvaluateCodeRequest
 
 ### runtime
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.AppSyncRuntimeTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.AppSyncRuntime'>
 - **Required**: Yes
 
 ### code
@@ -929,14 +929,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# EvaluateCodeResponseTypeDef
+# EvaluateCodeResponse
 
 ### evaluationResult
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### error
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.EvaluateCodeErrorDetailTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.EvaluateCodeErrorDetail'>
 - **Required**: Yes
 
 ### logs
@@ -952,11 +952,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# EvaluateMappingTemplateRequestTypeDef
+# EvaluateMappingTemplateRequest
 
 ### template
 - **Type**: <class 'str'>
@@ -967,14 +967,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# EvaluateMappingTemplateResponseTypeDef
+# EvaluateMappingTemplateResponse
 
 ### evaluationResult
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### error
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ErrorDetailTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ErrorDetail'>
 - **Required**: Yes
 
 ### logs
@@ -990,68 +990,68 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# EventBridgeDataSourceConfigTypeDef
+# EventBridgeDataSourceConfig
 
 ### eventBusArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# EventConfigOutputTypeDef
+# EventConfig
 
 ### authProviders
-- **Type**: typing.List[aws_resource_validator.pydantic_models.appsync_classes.AuthProviderTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.appsync_classes.AuthProvider]
 - **Required**: Yes
 
 ### connectionAuthModes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.appsync_classes.AuthModeTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.appsync_classes.AuthMode]
 - **Required**: Yes
 
 ### defaultPublishAuthModes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.appsync_classes.AuthModeTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.appsync_classes.AuthMode]
 - **Required**: Yes
 
 ### defaultSubscribeAuthModes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.appsync_classes.AuthModeTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.appsync_classes.AuthMode]
 - **Required**: Yes
 
 ### logConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.EventLogConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.EventLogConfig]
 
 
-# EventConfigTypeDef
+# EventConfigOutput
 
 ### authProviders
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.appsync_classes.AuthProviderTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.appsync_classes.AuthProvider]
 - **Required**: Yes
 
 ### connectionAuthModes
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.appsync_classes.AuthModeTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.appsync_classes.AuthMode]
 - **Required**: Yes
 
 ### defaultPublishAuthModes
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.appsync_classes.AuthModeTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.appsync_classes.AuthMode]
 - **Required**: Yes
 
 ### defaultSubscribeAuthModes
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.appsync_classes.AuthModeTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.appsync_classes.AuthMode]
 - **Required**: Yes
 
 ### logConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.EventLogConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.EventLogConfig]
 
 
-# EventConfigUnionTypeDef
+# EventConfigUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# EventLogConfigTypeDef
+# EventLogConfig
 
 ### logLevel
 - **Type**: typing.Literal['ALL', 'DEBUG', 'ERROR', 'INFO', 'NONE']
@@ -1062,14 +1062,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# FlushApiCacheRequestTypeDef
+# FlushApiCacheRequest
 
 ### apiId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# FunctionConfigurationTypeDef
+# FunctionConfiguration
 
 ### functionId
 - **Type**: typing.Optional[str]
@@ -1096,73 +1096,73 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### syncConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.SyncConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.SyncConfig]
 
 ### maxBatchSize
 - **Type**: typing.Optional[int]
 
 ### runtime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.AppSyncRuntimeTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.AppSyncRuntime]
 
 ### code
 - **Type**: typing.Optional[str]
 
 
-# GetApiAssociationRequestTypeDef
+# GetApiAssociationRequest
 
 ### domainName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetApiAssociationResponseTypeDef
+# GetApiAssociationResponse
 
 ### apiAssociation
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ApiAssociationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ApiAssociation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetApiCacheRequestTypeDef
+# GetApiCacheRequest
 
 ### apiId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetApiCacheResponseTypeDef
+# GetApiCacheResponse
 
 ### apiCache
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ApiCacheTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ApiCache'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetApiRequestTypeDef
+# GetApiRequest
 
 ### apiId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetApiResponseTypeDef
+# GetApiResponse
 
 ### api
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ApiTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.Api'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetChannelNamespaceRequestTypeDef
+# GetChannelNamespaceRequest
 
 ### apiId
 - **Type**: <class 'str'>
@@ -1173,18 +1173,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetChannelNamespaceResponseTypeDef
+# GetChannelNamespaceResponse
 
 ### channelNamespace
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ChannelNamespaceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ChannelNamespace'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetDataSourceIntrospectionRequestTypeDef
+# GetDataSourceIntrospectionRequest
 
 ### introspectionId
 - **Type**: <class 'str'>
@@ -1200,7 +1200,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# GetDataSourceIntrospectionResponseTypeDef
+# GetDataSourceIntrospectionResponse
 
 ### introspectionId
 - **Type**: <class 'str'>
@@ -1215,15 +1215,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### introspectionResult
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.DataSourceIntrospectionResultTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.DataSourceIntrospectionResult'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetDataSourceRequestTypeDef
+# GetDataSourceRequest
 
 ### apiId
 - **Type**: <class 'str'>
@@ -1234,36 +1234,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetDataSourceResponseTypeDef
+# GetDataSourceResponse
 
 ### dataSource
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.DataSourceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.DataSource'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetDomainNameRequestTypeDef
+# GetDomainNameRequest
 
 ### domainName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetDomainNameResponseTypeDef
+# GetDomainNameResponse
 
 ### domainNameConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.DomainNameConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.DomainNameConfig'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetFunctionRequestTypeDef
+# GetFunctionRequest
 
 ### apiId
 - **Type**: <class 'str'>
@@ -1274,65 +1274,65 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetFunctionResponseTypeDef
+# GetFunctionResponse
 
 ### functionConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.FunctionConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.FunctionConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetGraphqlApiEnvironmentVariablesRequestTypeDef
+# GetGraphqlApiEnvironmentVariablesRequest
 
 ### apiId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetGraphqlApiEnvironmentVariablesResponseTypeDef
+# GetGraphqlApiEnvironmentVariablesResponse
 
 ### environmentVariables
 - **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetGraphqlApiRequestTypeDef
+# GetGraphqlApiRequest
 
 ### apiId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetGraphqlApiResponseTypeDef
+# GetGraphqlApiResponse
 
 ### graphqlApi
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.GraphqlApiTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.GraphqlApi'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetIntrospectionSchemaResponseTypeDef
+# GetIntrospectionSchemaResponse
 
 ### schema
 - **Type**: <class 'botocore.response.StreamingBody'>
-- **Default**: <bound method BaseModel.schema of <class 'aws_resource_validator.pydantic_models.appsync_classes.GetIntrospectionSchemaResponseTypeDef'>>
+- **Default**: <bound method BaseModel.schema of <class 'aws_resource_validator.pydantic_models.appsync_classes.GetIntrospectionSchemaResponse'>>
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetResolverRequestTypeDef
+# GetResolverRequest
 
 ### apiId
 - **Type**: <class 'str'>
@@ -1347,25 +1347,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetResolverResponseTypeDef
+# GetResolverResponse
 
 ### resolver
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResolverTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.Resolver'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetSchemaCreationStatusRequestTypeDef
+# GetSchemaCreationStatusRequest
 
 ### apiId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetSchemaCreationStatusResponseTypeDef
+# GetSchemaCreationStatusResponse
 
 ### status
 - **Type**: typing.Literal['ACTIVE', 'DELETING', 'FAILED', 'NOT_APPLICABLE', 'PROCESSING', 'SUCCESS']
@@ -1376,11 +1376,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetSourceApiAssociationRequestTypeDef
+# GetSourceApiAssociationRequest
 
 ### mergedApiIdentifier
 - **Type**: <class 'str'>
@@ -1391,18 +1391,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetSourceApiAssociationResponseTypeDef
+# GetSourceApiAssociationResponse
 
 ### sourceApiAssociation
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.SourceApiAssociationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.SourceApiAssociation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GraphqlApiTypeDef
+# GraphqlApi
 
 ### name
 - **Type**: typing.Optional[str]
@@ -1414,13 +1414,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['AMAZON_COGNITO_USER_POOLS', 'API_KEY', 'AWS_IAM', 'AWS_LAMBDA', 'OPENID_CONNECT']]
 
 ### logConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.LogConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.LogConfig]
 
 ### userPoolConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.UserPoolConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.UserPoolConfig]
 
 ### openIDConnectConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.OpenIDConnectConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.OpenIDConnectConfig]
 
 ### arn
 - **Type**: typing.Optional[str]
@@ -1432,7 +1432,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### additionalAuthenticationProviders
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appsync_classes.AdditionalAuthenticationProviderTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appsync_classes.AdditionalAuthenticationProvider]]
 
 ### xrayEnabled
 - **Type**: typing.Optional[bool]
@@ -1441,7 +1441,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### lambdaAuthorizerConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.LambdaAuthorizerConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.LambdaAuthorizerConfig]
 
 ### dns
 - **Type**: typing.Optional[typing.Dict[str, str]]
@@ -1471,19 +1471,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### enhancedMetricsConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.EnhancedMetricsConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.EnhancedMetricsConfig]
 
 
-# HttpDataSourceConfigTypeDef
+# HttpDataSourceConfig
 
 ### endpoint
 - **Type**: typing.Optional[str]
 
 ### authorizationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.AuthorizationConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.AuthorizationConfig]
 
 
-# LambdaAuthorizerConfigTypeDef
+# LambdaAuthorizerConfig
 
 ### authorizerUri
 - **Type**: <class 'str'>
@@ -1496,30 +1496,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# LambdaConflictHandlerConfigTypeDef
+# LambdaConflictHandlerConfig
 
 ### lambdaConflictHandlerArn
 - **Type**: typing.Optional[str]
 
 
-# LambdaDataSourceConfigTypeDef
+# LambdaDataSourceConfig
 
 ### lambdaFunctionArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ListApiKeysRequestPaginateTypeDef
-
-### apiId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.PaginatorConfigTypeDef]
-
-
-# ListApiKeysRequestTypeDef
+# ListApiKeysRequest
 
 ### apiId
 - **Type**: <class 'str'>
@@ -1532,27 +1522,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListApiKeysResponseTypeDef
+# ListApiKeysRequestPaginate
+
+### apiId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.PaginatorConfig]
+
+
+# ListApiKeysResponse
 
 ### apiKeys
-- **Type**: typing.List[aws_resource_validator.pydantic_models.appsync_classes.ApiKeyTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.appsync_classes.ApiKey]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListApisRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.PaginatorConfigTypeDef]
-
-
-# ListApisRequestTypeDef
+# ListApisRequest
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -1561,31 +1555,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListApisResponseTypeDef
+# ListApisRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.PaginatorConfig]
+
+
+# ListApisResponse
 
 ### apis
-- **Type**: typing.List[aws_resource_validator.pydantic_models.appsync_classes.ApiTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.appsync_classes.Api]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListChannelNamespacesRequestPaginateTypeDef
-
-### apiId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.PaginatorConfigTypeDef]
-
-
-# ListChannelNamespacesRequestTypeDef
+# ListChannelNamespacesRequest
 
 ### apiId
 - **Type**: <class 'str'>
@@ -1598,31 +1588,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListChannelNamespacesResponseTypeDef
+# ListChannelNamespacesRequestPaginate
+
+### apiId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.PaginatorConfig]
+
+
+# ListChannelNamespacesResponse
 
 ### channelNamespaces
-- **Type**: typing.List[aws_resource_validator.pydantic_models.appsync_classes.ChannelNamespaceTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.appsync_classes.ChannelNamespace]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListDataSourcesRequestPaginateTypeDef
-
-### apiId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.PaginatorConfigTypeDef]
-
-
-# ListDataSourcesRequestTypeDef
+# ListDataSourcesRequest
 
 ### apiId
 - **Type**: <class 'str'>
@@ -1635,27 +1625,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListDataSourcesResponseTypeDef
+# ListDataSourcesRequestPaginate
+
+### apiId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.PaginatorConfig]
+
+
+# ListDataSourcesResponse
 
 ### dataSources
-- **Type**: typing.List[aws_resource_validator.pydantic_models.appsync_classes.DataSourceTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.appsync_classes.DataSource]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListDomainNamesRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.PaginatorConfigTypeDef]
-
-
-# ListDomainNamesRequestTypeDef
+# ListDomainNamesRequest
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -1664,31 +1658,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListDomainNamesResponseTypeDef
+# ListDomainNamesRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.PaginatorConfig]
+
+
+# ListDomainNamesResponse
 
 ### domainNameConfigs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.appsync_classes.DomainNameConfigTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.appsync_classes.DomainNameConfig]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListFunctionsRequestPaginateTypeDef
-
-### apiId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.PaginatorConfigTypeDef]
-
-
-# ListFunctionsRequestTypeDef
+# ListFunctionsRequest
 
 ### apiId
 - **Type**: <class 'str'>
@@ -1701,33 +1691,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListFunctionsResponseTypeDef
+# ListFunctionsRequestPaginate
+
+### apiId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.PaginatorConfig]
+
+
+# ListFunctionsResponse
 
 ### functions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.appsync_classes.FunctionConfigurationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.appsync_classes.FunctionConfiguration]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListGraphqlApisRequestPaginateTypeDef
-
-### apiType
-- **Type**: typing.Optional[typing.Literal['GRAPHQL', 'MERGED']]
-
-### owner
-- **Type**: typing.Optional[typing.Literal['CURRENT_ACCOUNT', 'OTHER_ACCOUNTS']]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.PaginatorConfigTypeDef]
-
-
-# ListGraphqlApisRequestTypeDef
+# ListGraphqlApisRequest
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -1742,35 +1730,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CURRENT_ACCOUNT', 'OTHER_ACCOUNTS']]
 
 
-# ListGraphqlApisResponseTypeDef
+# ListGraphqlApisRequestPaginate
+
+### apiType
+- **Type**: typing.Optional[typing.Literal['GRAPHQL', 'MERGED']]
+
+### owner
+- **Type**: typing.Optional[typing.Literal['CURRENT_ACCOUNT', 'OTHER_ACCOUNTS']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.PaginatorConfig]
+
+
+# ListGraphqlApisResponse
 
 ### graphqlApis
-- **Type**: typing.List[aws_resource_validator.pydantic_models.appsync_classes.GraphqlApiTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.appsync_classes.GraphqlApi]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListResolversByFunctionRequestPaginateTypeDef
-
-### apiId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### functionId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.PaginatorConfigTypeDef]
-
-
-# ListResolversByFunctionRequestTypeDef
+# ListResolversByFunctionRequest
 
 ### apiId
 - **Type**: <class 'str'>
@@ -1787,35 +1773,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListResolversByFunctionResponseTypeDef
+# ListResolversByFunctionRequestPaginate
+
+### apiId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### functionId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.PaginatorConfig]
+
+
+# ListResolversByFunctionResponse
 
 ### resolvers
-- **Type**: typing.List[aws_resource_validator.pydantic_models.appsync_classes.ResolverTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.appsync_classes.Resolver]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListResolversRequestPaginateTypeDef
-
-### apiId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### typeName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.PaginatorConfigTypeDef]
-
-
-# ListResolversRequestTypeDef
+# ListResolversRequest
 
 ### apiId
 - **Type**: <class 'str'>
@@ -1832,31 +1818,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListResolversResponseTypeDef
+# ListResolversRequestPaginate
+
+### apiId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### typeName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.PaginatorConfig]
+
+
+# ListResolversResponse
 
 ### resolvers
-- **Type**: typing.List[aws_resource_validator.pydantic_models.appsync_classes.ResolverTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.appsync_classes.Resolver]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListSourceApiAssociationsRequestPaginateTypeDef
-
-### apiId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.PaginatorConfigTypeDef]
-
-
-# ListSourceApiAssociationsRequestTypeDef
+# ListSourceApiAssociationsRequest
 
 ### apiId
 - **Type**: <class 'str'>
@@ -1869,39 +1859,49 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListSourceApiAssociationsResponseTypeDef
+# ListSourceApiAssociationsRequestPaginate
+
+### apiId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.PaginatorConfig]
+
+
+# ListSourceApiAssociationsResponse
 
 ### sourceApiAssociationSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.appsync_classes.SourceApiAssociationSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.appsync_classes.SourceApiAssociationSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestTypeDef
+# ListTagsForResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ListTagsForResourceResponseTypeDef
+# ListTagsForResourceResponse
 
 ### tags
 - **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# LogConfigTypeDef
+# LogConfig
 
 ### fieldLogLevel
 - **Type**: typing.Literal['ALL', 'DEBUG', 'ERROR', 'INFO', 'NONE']
@@ -1915,7 +1915,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# OpenIDConnectConfigTypeDef
+# OpenIDConnectConfig
 
 ### issuer
 - **Type**: <class 'str'>
@@ -1931,7 +1931,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# OpenSearchServiceDataSourceConfigTypeDef
+# OpenSearchServiceDataSourceConfig
 
 ### endpoint
 - **Type**: <class 'str'>
@@ -1942,7 +1942,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -1954,25 +1954,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PipelineConfigOutputTypeDef
-
-### functions
-- **Type**: typing.Optional[typing.List[str]]
-
-
-# PipelineConfigTypeDef
+# PipelineConfig
 
 ### functions
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# PipelineConfigUnionTypeDef
+# PipelineConfigOutput
+
+### functions
+- **Type**: typing.Optional[typing.List[str]]
+
+
+# PipelineConfigUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# PutGraphqlApiEnvironmentVariablesRequestTypeDef
+# PutGraphqlApiEnvironmentVariablesRequest
 
 ### apiId
 - **Type**: <class 'str'>
@@ -1983,18 +1983,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutGraphqlApiEnvironmentVariablesResponseTypeDef
+# PutGraphqlApiEnvironmentVariablesResponse
 
 ### environmentVariables
 - **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# RdsDataApiConfigTypeDef
+# RdsDataApiConfig
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -2009,7 +2009,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RdsHttpEndpointConfigTypeDef
+# RdsHttpEndpointConfig
 
 ### awsRegion
 - **Type**: typing.Optional[str]
@@ -2027,16 +2027,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RelationalDatabaseDataSourceConfigTypeDef
+# RelationalDatabaseDataSourceConfig
 
 ### relationalDatabaseSourceType
 - **Type**: typing.Optional[typing.Literal['RDS_HTTP_ENDPOINT']]
 
 ### rdsHttpEndpointConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.RdsHttpEndpointConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.RdsHttpEndpointConfig]
 
 
-# ResolverTypeDef
+# Resolver
 
 ### typeName
 - **Type**: typing.Optional[str]
@@ -2060,19 +2060,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['PIPELINE', 'UNIT']]
 
 ### pipelineConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.PipelineConfigOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.PipelineConfigOutput]
 
 ### syncConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.SyncConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.SyncConfig]
 
 ### cachingConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.CachingConfigOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.CachingConfigOutput]
 
 ### maxBatchSize
 - **Type**: typing.Optional[int]
 
 ### runtime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.AppSyncRuntimeTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.AppSyncRuntime]
 
 ### code
 - **Type**: typing.Optional[str]
@@ -2081,7 +2081,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -2103,37 +2103,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SourceApiAssociationConfigTypeDef
-
-### mergeType
-- **Type**: typing.Optional[typing.Literal['AUTO_MERGE', 'MANUAL_MERGE']]
-
-
-# SourceApiAssociationSummaryTypeDef
-
-### associationId
-- **Type**: typing.Optional[str]
-
-### associationArn
-- **Type**: typing.Optional[str]
-
-### sourceApiId
-- **Type**: typing.Optional[str]
-
-### sourceApiArn
-- **Type**: typing.Optional[str]
-
-### mergedApiId
-- **Type**: typing.Optional[str]
-
-### mergedApiArn
-- **Type**: typing.Optional[str]
-
-### description
-- **Type**: typing.Optional[str]
-
-
-# SourceApiAssociationTypeDef
+# SourceApiAssociation
 
 ### associationId
 - **Type**: typing.Optional[str]
@@ -2157,7 +2127,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### sourceApiAssociationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.SourceApiAssociationConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.SourceApiAssociationConfig]
 
 ### sourceApiAssociationStatus
 - **Type**: typing.Optional[typing.Literal['AUTO_MERGE_SCHEDULE_FAILED', 'DELETION_FAILED', 'DELETION_IN_PROGRESS', 'DELETION_SCHEDULED', 'MERGE_FAILED', 'MERGE_IN_PROGRESS', 'MERGE_SCHEDULED', 'MERGE_SUCCESS']]
@@ -2169,13 +2139,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# StartDataSourceIntrospectionRequestTypeDef
+# SourceApiAssociationConfig
+
+### mergeType
+- **Type**: typing.Optional[typing.Literal['AUTO_MERGE', 'MANUAL_MERGE']]
+
+
+# SourceApiAssociationSummary
+
+### associationId
+- **Type**: typing.Optional[str]
+
+### associationArn
+- **Type**: typing.Optional[str]
+
+### sourceApiId
+- **Type**: typing.Optional[str]
+
+### sourceApiArn
+- **Type**: typing.Optional[str]
+
+### mergedApiId
+- **Type**: typing.Optional[str]
+
+### mergedApiArn
+- **Type**: typing.Optional[str]
+
+### description
+- **Type**: typing.Optional[str]
+
+
+# StartDataSourceIntrospectionRequest
 
 ### rdsDataApiConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.RdsDataApiConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.RdsDataApiConfig]
 
 
-# StartDataSourceIntrospectionResponseTypeDef
+# StartDataSourceIntrospectionResponse
 
 ### introspectionId
 - **Type**: <class 'str'>
@@ -2190,33 +2190,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# StartSchemaCreationRequestTypeDef
+# StartSchemaCreationRequest
 
 ### apiId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### definition
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.BlobTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.Blob'>
 - **Required**: Yes
 
 
-# StartSchemaCreationResponseTypeDef
+# StartSchemaCreationResponse
 
 ### status
 - **Type**: typing.Literal['ACTIVE', 'DELETING', 'FAILED', 'NOT_APPLICABLE', 'PROCESSING', 'SUCCESS']
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# StartSchemaMergeRequestTypeDef
+# StartSchemaMergeRequest
 
 ### associationId
 - **Type**: <class 'str'>
@@ -2227,18 +2227,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StartSchemaMergeResponseTypeDef
+# StartSchemaMergeResponse
 
 ### sourceApiAssociationStatus
 - **Type**: typing.Literal['AUTO_MERGE_SCHEDULE_FAILED', 'DELETION_FAILED', 'DELETION_IN_PROGRESS', 'DELETION_SCHEDULED', 'MERGE_FAILED', 'MERGE_IN_PROGRESS', 'MERGE_SCHEDULED', 'MERGE_SUCCESS']
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# SyncConfigTypeDef
+# SyncConfig
 
 ### conflictHandler
 - **Type**: typing.Optional[typing.Literal['AUTOMERGE', 'LAMBDA', 'NONE', 'OPTIMISTIC_CONCURRENCY']]
@@ -2247,10 +2247,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['NONE', 'VERSION']]
 
 ### lambdaConflictHandlerConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.LambdaConflictHandlerConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.LambdaConflictHandlerConfig]
 
 
-# TagResourceRequestTypeDef
+# TagResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -2261,7 +2261,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceRequestTypeDef
+# UntagResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -2272,29 +2272,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateApiCacheResponseTypeDef
+# UpdateApiCacheResponse
 
 ### apiCache
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ApiCacheTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ApiCache'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateApiKeyResponseTypeDef
+# UpdateApiKeyResponse
 
 ### apiKey
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ApiKeyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ApiKey'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateApiRequestTypeDef
+# UpdateApiRequest
 
 ### apiId
 - **Type**: <class 'str'>
@@ -2308,21 +2308,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### eventConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.EventConfigUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.EventConfigUnion]
 
 
-# UpdateApiResponseTypeDef
+# UpdateApiResponse
 
 ### api
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ApiTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.Api'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateChannelNamespaceRequestTypeDef
+# UpdateChannelNamespaceRequest
 
 ### apiId
 - **Type**: <class 'str'>
@@ -2333,38 +2333,38 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### subscribeAuthModes
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.appsync_classes.AuthModeTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.appsync_classes.AuthMode]]
 
 ### publishAuthModes
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.appsync_classes.AuthModeTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.appsync_classes.AuthMode]]
 
 ### codeHandlers
 - **Type**: typing.Optional[str]
 
 
-# UpdateChannelNamespaceResponseTypeDef
+# UpdateChannelNamespaceResponse
 
 ### channelNamespace
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ChannelNamespaceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ChannelNamespace'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateDataSourceResponseTypeDef
+# UpdateDataSourceResponse
 
 ### dataSource
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.DataSourceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.DataSource'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateDomainNameRequestTypeDef
+# UpdateDomainNameRequest
 
 ### domainName
 - **Type**: <class 'str'>
@@ -2374,18 +2374,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateDomainNameResponseTypeDef
+# UpdateDomainNameResponse
 
 ### domainNameConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.DomainNameConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.DomainNameConfig'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateFunctionRequestTypeDef
+# UpdateFunctionRequest
 
 ### apiId
 - **Type**: <class 'str'>
@@ -2416,30 +2416,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### syncConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.SyncConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.SyncConfig]
 
 ### maxBatchSize
 - **Type**: typing.Optional[int]
 
 ### runtime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.AppSyncRuntimeTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.AppSyncRuntime]
 
 ### code
 - **Type**: typing.Optional[str]
 
 
-# UpdateFunctionResponseTypeDef
+# UpdateFunctionResponse
 
 ### functionConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.FunctionConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.FunctionConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateGraphqlApiRequestTypeDef
+# UpdateGraphqlApiRequest
 
 ### apiId
 - **Type**: <class 'str'>
@@ -2454,22 +2454,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### logConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.LogConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.LogConfig]
 
 ### userPoolConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.UserPoolConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.UserPoolConfig]
 
 ### openIDConnectConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.OpenIDConnectConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.OpenIDConnectConfig]
 
 ### additionalAuthenticationProviders
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.appsync_classes.AdditionalAuthenticationProviderTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.appsync_classes.AdditionalAuthenticationProvider]]
 
 ### xrayEnabled
 - **Type**: typing.Optional[bool]
 
 ### lambdaAuthorizerConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.LambdaAuthorizerConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.LambdaAuthorizerConfig]
 
 ### mergedApiExecutionRoleArn
 - **Type**: typing.Optional[str]
@@ -2487,21 +2487,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### enhancedMetricsConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.EnhancedMetricsConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.EnhancedMetricsConfig]
 
 
-# UpdateGraphqlApiResponseTypeDef
+# UpdateGraphqlApiResponse
 
 ### graphqlApi
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.GraphqlApiTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.GraphqlApi'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateResolverRequestTypeDef
+# UpdateResolverRequest
 
 ### apiId
 - **Type**: <class 'str'>
@@ -2528,19 +2528,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['PIPELINE', 'UNIT']]
 
 ### pipelineConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.PipelineConfigUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.PipelineConfigUnion]
 
 ### syncConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.SyncConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.SyncConfig]
 
 ### cachingConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.CachingConfigUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.CachingConfigUnion]
 
 ### maxBatchSize
 - **Type**: typing.Optional[int]
 
 ### runtime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.AppSyncRuntimeTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.AppSyncRuntime]
 
 ### code
 - **Type**: typing.Optional[str]
@@ -2549,18 +2549,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
 
 
-# UpdateResolverResponseTypeDef
+# UpdateResolverResponse
 
 ### resolver
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResolverTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.Resolver'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateSourceApiAssociationRequestTypeDef
+# UpdateSourceApiAssociationRequest
 
 ### associationId
 - **Type**: <class 'str'>
@@ -2574,21 +2574,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### sourceApiAssociationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.SourceApiAssociationConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appsync_classes.SourceApiAssociationConfig]
 
 
-# UpdateSourceApiAssociationResponseTypeDef
+# UpdateSourceApiAssociationResponse
 
 ### sourceApiAssociation
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.SourceApiAssociationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.SourceApiAssociation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appsync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UserPoolConfigTypeDef
+# UserPoolConfig
 
 ### userPoolId
 - **Type**: <class 'str'>

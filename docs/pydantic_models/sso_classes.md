@@ -1,6 +1,6 @@
 # Sso Classes
 
-# AccountInfoTypeDef
+# AccountInfo
 
 ### accountId
 - **Type**: typing.Optional[str]
@@ -18,14 +18,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# EmptyResponseMetadataTypeDef
+# EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetRoleCredentialsRequestTypeDef
+# GetRoleCredentialsRequest
 
 ### roleName
 - **Type**: <class 'str'>
@@ -40,32 +40,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetRoleCredentialsResponseTypeDef
+# GetRoleCredentialsResponse
 
 ### roleCredentials
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_classes.RoleCredentialsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_classes.RoleCredentials'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListAccountRolesRequestPaginateTypeDef
-
-### accessToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### accountId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_classes.PaginatorConfigTypeDef]
-
-
-# ListAccountRolesRequestTypeDef
+# ListAccountRolesRequest
 
 ### accessToken
 - **Type**: <class 'str'>
@@ -82,31 +68,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListAccountRolesResponseTypeDef
+# ListAccountRolesRequestPaginate
+
+### accessToken
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### accountId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_classes.PaginatorConfig]
+
+
+# ListAccountRolesResponse
 
 ### roleList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sso_classes.RoleInfoTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sso_classes.RoleInfo]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListAccountsRequestPaginateTypeDef
-
-### accessToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_classes.PaginatorConfigTypeDef]
-
-
-# ListAccountsRequestTypeDef
+# ListAccountsRequest
 
 ### accessToken
 - **Type**: <class 'str'>
@@ -119,28 +109,38 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListAccountsResponseTypeDef
+# ListAccountsRequestPaginate
+
+### accessToken
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_classes.PaginatorConfig]
+
+
+# ListAccountsResponse
 
 ### accountList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sso_classes.AccountInfoTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sso_classes.AccountInfo]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# LogoutRequestTypeDef
+# LogoutRequest
 
 ### accessToken
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -152,7 +152,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -174,7 +174,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RoleCredentialsTypeDef
+# RoleCredentials
 
 ### accessKeyId
 - **Type**: typing.Optional[str]
@@ -189,7 +189,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# RoleInfoTypeDef
+# RoleInfo
 
 ### roleName
 - **Type**: typing.Optional[str]

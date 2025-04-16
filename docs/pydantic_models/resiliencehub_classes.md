@@ -1,50 +1,50 @@
 # Resiliencehub Classes
 
-# AcceptGroupingRecommendationEntryTypeDef
+# AcceptGroupingRecommendationEntry
 
 ### groupingRecommendationId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# AcceptResourceGroupingRecommendationsRequestTypeDef
+# AcceptResourceGroupingRecommendationsRequest
 
 ### appArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### entries
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.resiliencehub_classes.AcceptGroupingRecommendationEntryTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.resiliencehub_classes.AcceptGroupingRecommendationEntry]
 - **Required**: Yes
 
 
-# AcceptResourceGroupingRecommendationsResponseTypeDef
+# AcceptResourceGroupingRecommendationsResponse
 
 ### appArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### failedEntries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.resiliencehub_classes.FailedGroupingRecommendationEntryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.resiliencehub_classes.FailedGroupingRecommendationEntry]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# AddDraftAppVersionResourceMappingsRequestTypeDef
+# AddDraftAppVersionResourceMappingsRequest
 
 ### appArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### resourceMappings
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.resiliencehub_classes.ResourceMappingTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.resiliencehub_classes.ResourceMapping]
 - **Required**: Yes
 
 
-# AddDraftAppVersionResourceMappingsResponseTypeDef
+# AddDraftAppVersionResourceMappingsResponse
 
 ### appArn
 - **Type**: <class 'str'>
@@ -55,21 +55,15 @@
 - **Required**: Yes
 
 ### resourceMappings
-- **Type**: typing.List[aws_resource_validator.pydantic_models.resiliencehub_classes.ResourceMappingTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.resiliencehub_classes.ResourceMapping]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# AlarmRecommendationTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# AlarmTypeDef
+# Alarm
 
 ### alarmArn
 - **Type**: typing.Optional[str]
@@ -78,54 +72,76 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# AppAssessmentSummaryTypeDef
+# AlarmRecommendation
 
-### assessmentArn
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# App
+
+### appArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### assessmentStatus
-- **Type**: typing.Literal['Failed', 'InProgress', 'Pending', 'Success']
+### creationTime
+- **Type**: <class 'datetime.datetime'>
 - **Required**: Yes
 
-### appArn
-- **Type**: typing.Optional[str]
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-### appVersion
-- **Type**: typing.Optional[str]
+### assessmentSchedule
+- **Type**: typing.Optional[typing.Literal['Daily', 'Disabled']]
 
-### assessmentName
+### awsApplicationArn
 - **Type**: typing.Optional[str]
 
 ### complianceStatus
-- **Type**: typing.Optional[typing.Literal['MissingPolicy', 'NotApplicable', 'PolicyBreached', 'PolicyMet']]
+- **Type**: typing.Optional[typing.Literal['ChangesDetected', 'MissingPolicy', 'NotApplicable', 'NotAssessed', 'PolicyBreached', 'PolicyMet']]
 
-### cost
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resiliencehub_classes.CostTypeDef]
+### description
+- **Type**: typing.Optional[str]
 
 ### driftStatus
 - **Type**: typing.Optional[typing.Literal['Detected', 'NotChecked', 'NotDetected']]
 
-### endTime
+### eventSubscriptions
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.resiliencehub_classes.EventSubscription]]
+
+### lastAppComplianceEvaluationTime
 - **Type**: typing.Optional[datetime.datetime]
 
-### invoker
-- **Type**: typing.Optional[typing.Literal['System', 'User']]
+### lastDriftEvaluationTime
+- **Type**: typing.Optional[datetime.datetime]
 
-### message
+### lastResiliencyScoreEvaluationTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### permissionModel
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resiliencehub_classes.PermissionModelOutput]
+
+### policyArn
 - **Type**: typing.Optional[str]
 
 ### resiliencyScore
 - **Type**: typing.Optional[float]
 
-### startTime
-- **Type**: typing.Optional[datetime.datetime]
+### rpoInSecs
+- **Type**: typing.Optional[int]
 
-### versionName
-- **Type**: typing.Optional[str]
+### rtoInSecs
+- **Type**: typing.Optional[int]
+
+### status
+- **Type**: typing.Optional[typing.Literal['Active', 'Deleting']]
+
+### tags
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
-# AppAssessmentTypeDef
+# AppAssessment
 
 ### assessmentArn
 - **Type**: <class 'str'>
@@ -149,13 +165,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### compliance
-- **Type**: typing.Optional[typing.Dict[typing.Literal['AZ', 'Hardware', 'Region', 'Software'], aws_resource_validator.pydantic_models.resiliencehub_classes.DisruptionComplianceTypeDef]]
+- **Type**: typing.Optional[typing.Dict[typing.Literal['AZ', 'Hardware', 'Region', 'Software'], aws_resource_validator.pydantic_models.resiliencehub_classes.DisruptionCompliance]]
 
 ### complianceStatus
 - **Type**: typing.Optional[typing.Literal['MissingPolicy', 'NotApplicable', 'PolicyBreached', 'PolicyMet']]
 
 ### cost
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resiliencehub_classes.CostTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resiliencehub_classes.Cost]
 
 ### driftStatus
 - **Type**: typing.Optional[typing.Literal['Detected', 'NotChecked', 'NotDetected']]
@@ -167,19 +183,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### policy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resiliencehub_classes.ResiliencyPolicyTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resiliencehub_classes.ResiliencyPolicy]
 
 ### resiliencyScore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resiliencehub_classes.ResiliencyScoreTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resiliencehub_classes.ResiliencyScore]
 
 ### resourceErrorsDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resiliencehub_classes.ResourceErrorsDetailsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resiliencehub_classes.ResourceErrorsDetails]
 
 ### startTime
 - **Type**: typing.Optional[datetime.datetime]
 
 ### summary
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resiliencehub_classes.AssessmentSummaryTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resiliencehub_classes.AssessmentSummary]
 
 ### tags
 - **Type**: typing.Optional[typing.Dict[str, str]]
@@ -188,41 +204,88 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# AppComponentComplianceTypeDef
+# AppAssessmentSummary
 
-### appComponentName
+### assessmentArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### assessmentStatus
+- **Type**: typing.Literal['Failed', 'InProgress', 'Pending', 'Success']
+- **Required**: Yes
+
+### appArn
 - **Type**: typing.Optional[str]
 
-### compliance
-- **Type**: typing.Optional[typing.Dict[typing.Literal['AZ', 'Hardware', 'Region', 'Software'], aws_resource_validator.pydantic_models.resiliencehub_classes.DisruptionComplianceTypeDef]]
+### appVersion
+- **Type**: typing.Optional[str]
+
+### assessmentName
+- **Type**: typing.Optional[str]
+
+### complianceStatus
+- **Type**: typing.Optional[typing.Literal['MissingPolicy', 'NotApplicable', 'PolicyBreached', 'PolicyMet']]
 
 ### cost
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resiliencehub_classes.CostTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resiliencehub_classes.Cost]
+
+### driftStatus
+- **Type**: typing.Optional[typing.Literal['Detected', 'NotChecked', 'NotDetected']]
+
+### endTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### invoker
+- **Type**: typing.Optional[typing.Literal['System', 'User']]
 
 ### message
 - **Type**: typing.Optional[str]
 
 ### resiliencyScore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resiliencehub_classes.ResiliencyScoreTypeDef]
+- **Type**: typing.Optional[float]
 
-### status
-- **Type**: typing.Optional[typing.Literal['MissingPolicy', 'NotApplicable', 'PolicyBreached', 'PolicyMet']]
+### startTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### versionName
+- **Type**: typing.Optional[str]
 
 
-# AppComponentTypeDef
+# AppComponent
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# AppInputSourceTypeDef
+# AppComponentCompliance
+
+### appComponentName
+- **Type**: typing.Optional[str]
+
+### compliance
+- **Type**: typing.Optional[typing.Dict[typing.Literal['AZ', 'Hardware', 'Region', 'Software'], aws_resource_validator.pydantic_models.resiliencehub_classes.DisruptionCompliance]]
+
+### cost
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resiliencehub_classes.Cost]
+
+### message
+- **Type**: typing.Optional[str]
+
+### resiliencyScore
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resiliencehub_classes.ResiliencyScore]
+
+### status
+- **Type**: typing.Optional[typing.Literal['MissingPolicy', 'NotApplicable', 'PolicyBreached', 'PolicyMet']]
+
+
+# AppInputSource
 
 ### importType
 - **Type**: typing.Literal['AppRegistryApp', 'CfnStack', 'EKS', 'Resource', 'ResourceGroup', 'Terraform']
 - **Required**: Yes
 
 ### eksSourceClusterNamespace
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resiliencehub_classes.EksSourceClusterNamespaceTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resiliencehub_classes.EksSourceClusterNamespace]
 
 ### resourceCount
 - **Type**: typing.Optional[int]
@@ -234,10 +297,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### terraformSource
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resiliencehub_classes.TerraformSourceTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resiliencehub_classes.TerraformSource]
 
 
-# AppSummaryTypeDef
+# AppSummary
 
 ### appArn
 - **Type**: <class 'str'>
@@ -282,70 +345,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Active', 'Deleting']]
 
 
-# AppTypeDef
-
-### appArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### creationTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### assessmentSchedule
-- **Type**: typing.Optional[typing.Literal['Daily', 'Disabled']]
-
-### awsApplicationArn
-- **Type**: typing.Optional[str]
-
-### complianceStatus
-- **Type**: typing.Optional[typing.Literal['ChangesDetected', 'MissingPolicy', 'NotApplicable', 'NotAssessed', 'PolicyBreached', 'PolicyMet']]
-
-### description
-- **Type**: typing.Optional[str]
-
-### driftStatus
-- **Type**: typing.Optional[typing.Literal['Detected', 'NotChecked', 'NotDetected']]
-
-### eventSubscriptions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.resiliencehub_classes.EventSubscriptionTypeDef]]
-
-### lastAppComplianceEvaluationTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### lastDriftEvaluationTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### lastResiliencyScoreEvaluationTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### permissionModel
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resiliencehub_classes.PermissionModelOutputTypeDef]
-
-### policyArn
-- **Type**: typing.Optional[str]
-
-### resiliencyScore
-- **Type**: typing.Optional[float]
-
-### rpoInSecs
-- **Type**: typing.Optional[int]
-
-### rtoInSecs
-- **Type**: typing.Optional[int]
-
-### status
-- **Type**: typing.Optional[typing.Literal['Active', 'Deleting']]
-
-### tags
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-
-# AppVersionSummaryTypeDef
+# AppVersionSummary
 
 ### appVersion
 - **Type**: <class 'str'>
@@ -361,7 +361,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# AssessmentRiskRecommendationTypeDef
+# AssessmentRiskRecommendation
 
 ### appComponents
 - **Type**: typing.Optional[typing.List[str]]
@@ -373,10 +373,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# AssessmentSummaryTypeDef
+# AssessmentSummary
 
 ### riskRecommendations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.resiliencehub_classes.AssessmentRiskRecommendationTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.resiliencehub_classes.AssessmentRiskRecommendation]]
 
 ### summary
 - **Type**: typing.Optional[str]
@@ -388,7 +388,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BatchUpdateRecommendationStatusFailedEntryTypeDef
+# BatchUpdateRecommendationStatusFailedEntry
 
 ### entryId
 - **Type**: <class 'str'>
@@ -399,37 +399,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# BatchUpdateRecommendationStatusRequestTypeDef
+# BatchUpdateRecommendationStatusRequest
 
 ### appArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### requestEntries
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.resiliencehub_classes.UpdateRecommendationStatusRequestEntryTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.resiliencehub_classes.UpdateRecommendationStatusRequestEntry]
 - **Required**: Yes
 
 
-# BatchUpdateRecommendationStatusResponseTypeDef
+# BatchUpdateRecommendationStatusResponse
 
 ### appArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### failedEntries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.resiliencehub_classes.BatchUpdateRecommendationStatusFailedEntryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.resiliencehub_classes.BatchUpdateRecommendationStatusFailedEntry]
 - **Required**: Yes
 
 ### successfulEntries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.resiliencehub_classes.BatchUpdateRecommendationStatusSuccessfulEntryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.resiliencehub_classes.BatchUpdateRecommendationStatusSuccessfulEntry]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# BatchUpdateRecommendationStatusSuccessfulEntryTypeDef
+# BatchUpdateRecommendationStatusSuccessfulEntry
 
 ### entryId
 - **Type**: <class 'str'>
@@ -450,16 +450,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['AlreadyImplemented', 'ComplexityOfImplementation', 'NotRelevant']]
 
 ### item
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resiliencehub_classes.UpdateRecommendationStatusItemTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resiliencehub_classes.UpdateRecommendationStatusItem]
 
 
-# ComplianceDriftTypeDef
+# ComplianceDrift
 
 ### actualReferenceId
 - **Type**: typing.Optional[str]
 
 ### actualValue
-- **Type**: typing.Optional[typing.Dict[typing.Literal['AZ', 'Hardware', 'Region', 'Software'], aws_resource_validator.pydantic_models.resiliencehub_classes.DisruptionComplianceTypeDef]]
+- **Type**: typing.Optional[typing.Dict[typing.Literal['AZ', 'Hardware', 'Region', 'Software'], aws_resource_validator.pydantic_models.resiliencehub_classes.DisruptionCompliance]]
 
 ### appId
 - **Type**: typing.Optional[str]
@@ -483,17 +483,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### expectedValue
-- **Type**: typing.Optional[typing.Dict[typing.Literal['AZ', 'Hardware', 'Region', 'Software'], aws_resource_validator.pydantic_models.resiliencehub_classes.DisruptionComplianceTypeDef]]
+- **Type**: typing.Optional[typing.Dict[typing.Literal['AZ', 'Hardware', 'Region', 'Software'], aws_resource_validator.pydantic_models.resiliencehub_classes.DisruptionCompliance]]
 
 
-# ComponentRecommendationTypeDef
+# ComponentRecommendation
 
 ### appComponentName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### configRecommendations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.resiliencehub_classes.ConfigRecommendationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.resiliencehub_classes.ConfigRecommendation]
 - **Required**: Yes
 
 ### recommendationStatus
@@ -501,13 +501,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ConditionTypeDef
+# Condition
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ConfigRecommendationTypeDef
+# ConfigRecommendation
 
 ### name
 - **Type**: <class 'str'>
@@ -525,10 +525,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### compliance
-- **Type**: typing.Optional[typing.Dict[typing.Literal['AZ', 'Hardware', 'Region', 'Software'], aws_resource_validator.pydantic_models.resiliencehub_classes.DisruptionComplianceTypeDef]]
+- **Type**: typing.Optional[typing.Dict[typing.Literal['AZ', 'Hardware', 'Region', 'Software'], aws_resource_validator.pydantic_models.resiliencehub_classes.DisruptionCompliance]]
 
 ### cost
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resiliencehub_classes.CostTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resiliencehub_classes.Cost]
 
 ### description
 - **Type**: typing.Optional[str]
@@ -537,13 +537,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['BackupAndRestore', 'MultiSite', 'NoRecoveryPlan', 'PilotLight', 'WarmStandby']]
 
 ### recommendationCompliance
-- **Type**: typing.Optional[typing.Dict[typing.Literal['AZ', 'Hardware', 'Region', 'Software'], aws_resource_validator.pydantic_models.resiliencehub_classes.RecommendationDisruptionComplianceTypeDef]]
+- **Type**: typing.Optional[typing.Dict[typing.Literal['AZ', 'Hardware', 'Region', 'Software'], aws_resource_validator.pydantic_models.resiliencehub_classes.RecommendationDisruptionCompliance]]
 
 ### suggestedChanges
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# CostTypeDef
+# Cost
 
 ### amount
 - **Type**: <class 'float'>
@@ -558,7 +558,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateAppRequestTypeDef
+# CreateAppRequest
 
 ### name
 - **Type**: <class 'str'>
@@ -577,10 +577,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### eventSubscriptions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.resiliencehub_classes.EventSubscriptionTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.resiliencehub_classes.EventSubscription]]
 
 ### permissionModel
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resiliencehub_classes.PermissionModelUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resiliencehub_classes.PermissionModelUnion]
 
 ### policyArn
 - **Type**: typing.Optional[str]
@@ -589,25 +589,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateAppResponseTypeDef
+# CreateAppResponse
 
 ### app
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.AppTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.App'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateAppVersionAppComponentResponseTypeDef
+# CreateAppVersionAppComponentResponse
 
 ### appArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### appComponent
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.AppComponentTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.AppComponent'>
 - **Required**: Yes
 
 ### appVersion
@@ -615,11 +615,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateAppVersionResourceRequestTypeDef
+# CreateAppVersionResourceRequest
 
 ### appArn
 - **Type**: <class 'str'>
@@ -630,7 +630,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### logicalResourceId
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.LogicalResourceIdTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.LogicalResourceId'>
 - **Required**: Yes
 
 ### physicalResourceId
@@ -657,7 +657,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateAppVersionResourceResponseTypeDef
+# CreateAppVersionResourceResponse
 
 ### appArn
 - **Type**: <class 'str'>
@@ -668,29 +668,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### physicalResource
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.PhysicalResourceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.PhysicalResource'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateRecommendationTemplateResponseTypeDef
+# CreateRecommendationTemplateResponse
 
 ### recommendationTemplate
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.RecommendationTemplateTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.RecommendationTemplate'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateResiliencyPolicyRequestTypeDef
+# CreateResiliencyPolicyRequest
 
 ### policy
-- **Type**: typing.Mapping[typing.Literal['AZ', 'Hardware', 'Region', 'Software'], aws_resource_validator.pydantic_models.resiliencehub_classes.FailurePolicyTypeDef]
+- **Type**: typing.Mapping[typing.Literal['AZ', 'Hardware', 'Region', 'Software'], aws_resource_validator.pydantic_models.resiliencehub_classes.FailurePolicy]
 - **Required**: Yes
 
 ### policyName
@@ -714,18 +714,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateResiliencyPolicyResponseTypeDef
+# CreateResiliencyPolicyResponse
 
 ### policy
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResiliencyPolicyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResiliencyPolicy'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteAppAssessmentRequestTypeDef
+# DeleteAppAssessmentRequest
 
 ### assessmentArn
 - **Type**: <class 'str'>
@@ -735,7 +735,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteAppAssessmentResponseTypeDef
+# DeleteAppAssessmentResponse
 
 ### assessmentArn
 - **Type**: <class 'str'>
@@ -746,11 +746,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteAppInputSourceRequestTypeDef
+# DeleteAppInputSourceRequest
 
 ### appArn
 - **Type**: <class 'str'>
@@ -760,31 +760,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### eksSourceClusterNamespace
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resiliencehub_classes.EksSourceClusterNamespaceTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resiliencehub_classes.EksSourceClusterNamespace]
 
 ### sourceArn
 - **Type**: typing.Optional[str]
 
 ### terraformSource
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resiliencehub_classes.TerraformSourceTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resiliencehub_classes.TerraformSource]
 
 
-# DeleteAppInputSourceResponseTypeDef
+# DeleteAppInputSourceResponse
 
 ### appArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### appInputSource
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.AppInputSourceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.AppInputSource'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteAppRequestTypeDef
+# DeleteAppRequest
 
 ### appArn
 - **Type**: <class 'str'>
@@ -797,25 +797,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# DeleteAppResponseTypeDef
+# DeleteAppResponse
 
 ### appArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteAppVersionAppComponentResponseTypeDef
+# DeleteAppVersionAppComponentResponse
 
 ### appArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### appComponent
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.AppComponentTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.AppComponent'>
 - **Required**: Yes
 
 ### appVersion
@@ -823,11 +823,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteAppVersionResourceRequestTypeDef
+# DeleteAppVersionResourceRequest
 
 ### appArn
 - **Type**: <class 'str'>
@@ -843,7 +843,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### logicalResourceId
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resiliencehub_classes.LogicalResourceIdTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resiliencehub_classes.LogicalResourceId]
 
 ### physicalResourceId
 - **Type**: typing.Optional[str]
@@ -852,7 +852,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteAppVersionResourceResponseTypeDef
+# DeleteAppVersionResourceResponse
 
 ### appArn
 - **Type**: <class 'str'>
@@ -863,15 +863,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### physicalResource
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.PhysicalResourceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.PhysicalResource'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteRecommendationTemplateRequestTypeDef
+# DeleteRecommendationTemplateRequest
 
 ### recommendationTemplateArn
 - **Type**: <class 'str'>
@@ -881,7 +881,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteRecommendationTemplateResponseTypeDef
+# DeleteRecommendationTemplateResponse
 
 ### recommendationTemplateArn
 - **Type**: <class 'str'>
@@ -892,11 +892,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteResiliencyPolicyRequestTypeDef
+# DeleteResiliencyPolicyRequest
 
 ### policyArn
 - **Type**: <class 'str'>
@@ -906,61 +906,61 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteResiliencyPolicyResponseTypeDef
+# DeleteResiliencyPolicyResponse
 
 ### policyArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeAppAssessmentRequestTypeDef
+# DescribeAppAssessmentRequest
 
 ### assessmentArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeAppAssessmentResponseTypeDef
+# DescribeAppAssessmentResponse
 
 ### assessment
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.AppAssessmentTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.AppAssessment'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeAppRequestTypeDef
+# DescribeAppRequest
 
 ### appArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeAppResponseTypeDef
+# DescribeAppResponse
 
 ### app
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.AppTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.App'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeAppVersionAppComponentResponseTypeDef
+# DescribeAppVersionAppComponentResponse
 
 ### appArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### appComponent
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.AppComponentTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.AppComponent'>
 - **Required**: Yes
 
 ### appVersion
@@ -968,11 +968,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeAppVersionRequestTypeDef
+# DescribeAppVersionRequest
 
 ### appArn
 - **Type**: <class 'str'>
@@ -983,7 +983,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeAppVersionResourceRequestTypeDef
+# DescribeAppVersionResourceRequest
 
 ### appArn
 - **Type**: <class 'str'>
@@ -1000,7 +1000,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### logicalResourceId
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resiliencehub_classes.LogicalResourceIdTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resiliencehub_classes.LogicalResourceId]
 
 ### physicalResourceId
 - **Type**: typing.Optional[str]
@@ -1009,7 +1009,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeAppVersionResourceResponseTypeDef
+# DescribeAppVersionResourceResponse
 
 ### appArn
 - **Type**: <class 'str'>
@@ -1020,15 +1020,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### physicalResource
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.PhysicalResourceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.PhysicalResource'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeAppVersionResourcesResolutionStatusRequestTypeDef
+# DescribeAppVersionResourcesResolutionStatusRequest
 
 ### appArn
 - **Type**: <class 'str'>
@@ -1042,7 +1042,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeAppVersionResourcesResolutionStatusResponseTypeDef
+# DescribeAppVersionResourcesResolutionStatusResponse
 
 ### appArn
 - **Type**: <class 'str'>
@@ -1065,11 +1065,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeAppVersionResponseTypeDef
+# DescribeAppVersionResponse
 
 ### additionalInfo
 - **Type**: typing.Dict[str, typing.List[str]]
@@ -1084,11 +1084,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeAppVersionTemplateRequestTypeDef
+# DescribeAppVersionTemplateRequest
 
 ### appArn
 - **Type**: <class 'str'>
@@ -1099,7 +1099,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeAppVersionTemplateResponseTypeDef
+# DescribeAppVersionTemplateResponse
 
 ### appArn
 - **Type**: <class 'str'>
@@ -1114,18 +1114,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeDraftAppVersionResourcesImportStatusRequestTypeDef
+# DescribeDraftAppVersionResourcesImportStatusRequest
 
 ### appArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeDraftAppVersionResourcesImportStatusResponseTypeDef
+# DescribeDraftAppVersionResourcesImportStatusResponse
 
 ### appArn
 - **Type**: <class 'str'>
@@ -1136,7 +1136,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### errorDetails
-- **Type**: typing.List[aws_resource_validator.pydantic_models.resiliencehub_classes.ErrorDetailTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.resiliencehub_classes.ErrorDetail]
 - **Required**: Yes
 
 ### errorMessage
@@ -1152,25 +1152,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeMetricsExportRequestTypeDef
+# DescribeMetricsExportRequest
 
 ### metricsExportId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeMetricsExportResponseTypeDef
+# DescribeMetricsExportResponse
 
 ### errorMessage
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### exportLocation
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.S3LocationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.S3Location'>
 - **Required**: Yes
 
 ### metricsExportId
@@ -1182,29 +1182,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeResiliencyPolicyRequestTypeDef
+# DescribeResiliencyPolicyRequest
 
 ### policyArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeResiliencyPolicyResponseTypeDef
+# DescribeResiliencyPolicyResponse
 
 ### policy
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResiliencyPolicyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResiliencyPolicy'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeResourceGroupingRecommendationTaskRequestTypeDef
+# DescribeResourceGroupingRecommendationTaskRequest
 
 ### appArn
 - **Type**: <class 'str'>
@@ -1214,7 +1214,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeResourceGroupingRecommendationTaskResponseTypeDef
+# DescribeResourceGroupingRecommendationTaskResponse
 
 ### errorMessage
 - **Type**: <class 'str'>
@@ -1229,11 +1229,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DisruptionComplianceTypeDef
+# DisruptionCompliance
 
 ### complianceStatus
 - **Type**: typing.Literal['MissingPolicy', 'NotApplicable', 'PolicyBreached', 'PolicyMet']
@@ -1267,29 +1267,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# EksSourceClusterNamespaceTypeDef
-
-### eksClusterArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### namespace
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# EksSourceOutputTypeDef
-
-### eksClusterArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### namespaces
-- **Type**: typing.List[str]
-- **Required**: Yes
-
-
-# EksSourceTypeDef
+# EksSource
 
 ### eksClusterArn
 - **Type**: <class 'str'>
@@ -1300,19 +1278,41 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# EksSourceUnionTypeDef
+# EksSourceClusterNamespace
+
+### eksClusterArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### namespace
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# EksSourceOutput
+
+### eksClusterArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### namespaces
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+
+# EksSourceUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ErrorDetailTypeDef
+# ErrorDetail
 
 ### errorMessage
 - **Type**: typing.Optional[str]
 
 
-# EventSubscriptionTypeDef
+# EventSubscription
 
 ### eventType
 - **Type**: typing.Literal['DriftDetected', 'ScheduledAssessmentFailure']
@@ -1326,7 +1326,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ExperimentTypeDef
+# Experiment
 
 ### experimentArn
 - **Type**: typing.Optional[str]
@@ -1335,7 +1335,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# FailedGroupingRecommendationEntryTypeDef
+# FailedGroupingRecommendationEntry
 
 ### errorMessage
 - **Type**: <class 'str'>
@@ -1346,7 +1346,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# FailurePolicyTypeDef
+# FailurePolicy
 
 ### rpoInSecs
 - **Type**: <class 'int'>
@@ -1357,7 +1357,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# FieldTypeDef
+# Field
 
 ### name
 - **Type**: <class 'str'>
@@ -1367,7 +1367,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Avg', 'Count', 'Max', 'Min', 'Sum']]
 
 
-# GroupingAppComponentTypeDef
+# GroupingAppComponent
 
 ### appComponentId
 - **Type**: <class 'str'>
@@ -1382,7 +1382,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GroupingRecommendationTypeDef
+# GroupingRecommendation
 
 ### confidenceLevel
 - **Type**: typing.Literal['High', 'Medium']
@@ -1393,7 +1393,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### groupingAppComponent
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.GroupingAppComponentTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.GroupingAppComponent'>
 - **Required**: Yes
 
 ### groupingRecommendationId
@@ -1405,7 +1405,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### resources
-- **Type**: typing.List[aws_resource_validator.pydantic_models.resiliencehub_classes.GroupingResourceTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.resiliencehub_classes.GroupingResource]
 - **Required**: Yes
 
 ### score
@@ -1420,14 +1420,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DistinctBusinessPurpose', 'DistinctUserGroupHandling', 'Other', 'SeparateDataConcern']]
 
 
-# GroupingResourceTypeDef
+# GroupingResource
 
 ### logicalResourceId
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.LogicalResourceIdTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.LogicalResourceId'>
 - **Required**: Yes
 
 ### physicalResourceId
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.PhysicalResourceIdTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.PhysicalResourceId'>
 - **Required**: Yes
 
 ### resourceName
@@ -1443,14 +1443,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ImportResourcesToDraftAppVersionRequestTypeDef
+# ImportResourcesToDraftAppVersionRequest
 
 ### appArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### eksSources
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.resiliencehub_classes.EksSourceUnionTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.resiliencehub_classes.EksSourceUnion]]
 
 ### importStrategy
 - **Type**: typing.Optional[typing.Literal['AddOnly', 'ReplaceAll']]
@@ -1459,10 +1459,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### terraformSources
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.resiliencehub_classes.TerraformSourceTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.resiliencehub_classes.TerraformSource]]
 
 
-# ImportResourcesToDraftAppVersionResponseTypeDef
+# ImportResourcesToDraftAppVersionResponse
 
 ### appArn
 - **Type**: <class 'str'>
@@ -1473,7 +1473,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### eksSources
-- **Type**: typing.List[aws_resource_validator.pydantic_models.resiliencehub_classes.EksSourceOutputTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.resiliencehub_classes.EksSourceOutput]
 - **Required**: Yes
 
 ### sourceArns
@@ -1485,15 +1485,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### terraformSources
-- **Type**: typing.List[aws_resource_validator.pydantic_models.resiliencehub_classes.TerraformSourceTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.resiliencehub_classes.TerraformSource]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListAlarmRecommendationsRequestTypeDef
+# ListAlarmRecommendationsRequest
 
 ### assessmentArn
 - **Type**: <class 'str'>
@@ -1506,21 +1506,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListAlarmRecommendationsResponseTypeDef
+# ListAlarmRecommendationsResponse
 
 ### alarmRecommendations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.resiliencehub_classes.AlarmRecommendationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.resiliencehub_classes.AlarmRecommendation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListAppAssessmentComplianceDriftsRequestTypeDef
+# ListAppAssessmentComplianceDriftsRequest
 
 ### assessmentArn
 - **Type**: <class 'str'>
@@ -1533,58 +1533,58 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListAppAssessmentComplianceDriftsResponseTypeDef
+# ListAppAssessmentComplianceDriftsResponse
 
 ### complianceDrifts
-- **Type**: typing.List[aws_resource_validator.pydantic_models.resiliencehub_classes.ComplianceDriftTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.resiliencehub_classes.ComplianceDrift]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListAppAssessmentResourceDriftsRequestPaginateTypeDef
+# ListAppAssessmentResourceDriftsRequest
+
+### assessmentArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### maxResults
+- **Type**: typing.Optional[int]
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+
+# ListAppAssessmentResourceDriftsRequestPaginate
 
 ### assessmentArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resiliencehub_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resiliencehub_classes.PaginatorConfig]
 
 
-# ListAppAssessmentResourceDriftsRequestTypeDef
-
-### assessmentArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### maxResults
-- **Type**: typing.Optional[int]
-
-### nextToken
-- **Type**: typing.Optional[str]
-
-
-# ListAppAssessmentResourceDriftsResponseTypeDef
+# ListAppAssessmentResourceDriftsResponse
 
 ### resourceDrifts
-- **Type**: typing.List[aws_resource_validator.pydantic_models.resiliencehub_classes.ResourceDriftTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.resiliencehub_classes.ResourceDrift]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListAppAssessmentsRequestTypeDef
+# ListAppAssessmentsRequest
 
 ### appArn
 - **Type**: typing.Optional[str]
@@ -1611,21 +1611,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# ListAppAssessmentsResponseTypeDef
+# ListAppAssessmentsResponse
 
 ### assessmentSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.resiliencehub_classes.AppAssessmentSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.resiliencehub_classes.AppAssessmentSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListAppComponentCompliancesRequestTypeDef
+# ListAppComponentCompliancesRequest
 
 ### assessmentArn
 - **Type**: <class 'str'>
@@ -1638,21 +1638,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListAppComponentCompliancesResponseTypeDef
+# ListAppComponentCompliancesResponse
 
 ### componentCompliances
-- **Type**: typing.List[aws_resource_validator.pydantic_models.resiliencehub_classes.AppComponentComplianceTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.resiliencehub_classes.AppComponentCompliance]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListAppComponentRecommendationsRequestTypeDef
+# ListAppComponentRecommendationsRequest
 
 ### assessmentArn
 - **Type**: <class 'str'>
@@ -1665,21 +1665,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListAppComponentRecommendationsResponseTypeDef
+# ListAppComponentRecommendationsResponse
 
 ### componentRecommendations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.resiliencehub_classes.ComponentRecommendationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.resiliencehub_classes.ComponentRecommendation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListAppInputSourcesRequestTypeDef
+# ListAppInputSourcesRequest
 
 ### appArn
 - **Type**: <class 'str'>
@@ -1696,21 +1696,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListAppInputSourcesResponseTypeDef
+# ListAppInputSourcesResponse
 
 ### appInputSources
-- **Type**: typing.List[aws_resource_validator.pydantic_models.resiliencehub_classes.AppInputSourceTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.resiliencehub_classes.AppInputSource]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListAppVersionAppComponentsRequestTypeDef
+# ListAppVersionAppComponentsRequest
 
 ### appArn
 - **Type**: <class 'str'>
@@ -1727,14 +1727,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListAppVersionAppComponentsResponseTypeDef
+# ListAppVersionAppComponentsResponse
 
 ### appArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### appComponents
-- **Type**: typing.List[aws_resource_validator.pydantic_models.resiliencehub_classes.AppComponentTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.resiliencehub_classes.AppComponent]
 - **Required**: Yes
 
 ### appVersion
@@ -1742,14 +1742,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListAppVersionResourceMappingsRequestTypeDef
+# ListAppVersionResourceMappingsRequest
 
 ### appArn
 - **Type**: <class 'str'>
@@ -1766,21 +1766,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListAppVersionResourceMappingsResponseTypeDef
+# ListAppVersionResourceMappingsResponse
 
 ### resourceMappings
-- **Type**: typing.List[aws_resource_validator.pydantic_models.resiliencehub_classes.ResourceMappingTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.resiliencehub_classes.ResourceMapping]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListAppVersionResourcesRequestTypeDef
+# ListAppVersionResourcesRequest
 
 ### appArn
 - **Type**: <class 'str'>
@@ -1800,10 +1800,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListAppVersionResourcesResponseTypeDef
+# ListAppVersionResourcesResponse
 
 ### physicalResources
-- **Type**: typing.List[aws_resource_validator.pydantic_models.resiliencehub_classes.PhysicalResourceTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.resiliencehub_classes.PhysicalResource]
 - **Required**: Yes
 
 ### resolutionId
@@ -1811,21 +1811,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListAppVersionsRequestTypeDef
+# ListAppVersionsRequest
 
 ### appArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### endTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resiliencehub_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resiliencehub_classes.Timestamp]
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -1834,24 +1834,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### startTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resiliencehub_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resiliencehub_classes.Timestamp]
 
 
-# ListAppVersionsResponseTypeDef
+# ListAppVersionsResponse
 
 ### appVersions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.resiliencehub_classes.AppVersionSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.resiliencehub_classes.AppVersionSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListAppsRequestTypeDef
+# ListAppsRequest
 
 ### appArn
 - **Type**: typing.Optional[str]
@@ -1860,7 +1860,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### fromLastAssessmentTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resiliencehub_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resiliencehub_classes.Timestamp]
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -1875,51 +1875,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### toLastAssessmentTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resiliencehub_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resiliencehub_classes.Timestamp]
 
 
-# ListAppsResponseTypeDef
+# ListAppsResponse
 
 ### appSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.resiliencehub_classes.AppSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.resiliencehub_classes.AppSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListMetricsRequestPaginateTypeDef
+# ListMetricsRequest
 
 ### conditions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.resiliencehub_classes.ConditionTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.resiliencehub_classes.Condition]]
 
 ### dataSource
 - **Type**: typing.Optional[str]
 
 ### fields
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.resiliencehub_classes.FieldTypeDef]]
-
-### sorts
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.resiliencehub_classes.SortTypeDef]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resiliencehub_classes.PaginatorConfigTypeDef]
-
-
-# ListMetricsRequestTypeDef
-
-### conditions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.resiliencehub_classes.ConditionTypeDef]]
-
-### dataSource
-- **Type**: typing.Optional[str]
-
-### fields
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.resiliencehub_classes.FieldTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.resiliencehub_classes.Field]]
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -1928,24 +1910,42 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### sorts
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.resiliencehub_classes.SortTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.resiliencehub_classes.Sort]]
 
 
-# ListMetricsResponseTypeDef
+# ListMetricsRequestPaginate
+
+### conditions
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.resiliencehub_classes.Condition]]
+
+### dataSource
+- **Type**: typing.Optional[str]
+
+### fields
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.resiliencehub_classes.Field]]
+
+### sorts
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.resiliencehub_classes.Sort]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resiliencehub_classes.PaginatorConfig]
+
+
+# ListMetricsResponse
 
 ### rows
 - **Type**: typing.List[typing.List[str]]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListRecommendationTemplatesRequestTypeDef
+# ListRecommendationTemplatesRequest
 
 ### assessmentArn
 - **Type**: typing.Optional[str]
@@ -1969,21 +1969,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['Failed', 'InProgress', 'Pending', 'Success']]]
 
 
-# ListRecommendationTemplatesResponseTypeDef
+# ListRecommendationTemplatesResponse
 
 ### recommendationTemplates
-- **Type**: typing.List[aws_resource_validator.pydantic_models.resiliencehub_classes.RecommendationTemplateTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.resiliencehub_classes.RecommendationTemplate]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListResiliencyPoliciesRequestTypeDef
+# ListResiliencyPoliciesRequest
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -1995,30 +1995,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListResiliencyPoliciesResponseTypeDef
+# ListResiliencyPoliciesResponse
 
 ### resiliencyPolicies
-- **Type**: typing.List[aws_resource_validator.pydantic_models.resiliencehub_classes.ResiliencyPolicyTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.resiliencehub_classes.ResiliencyPolicy]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListResourceGroupingRecommendationsRequestPaginateTypeDef
-
-### appArn
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resiliencehub_classes.PaginatorConfigTypeDef]
-
-
-# ListResourceGroupingRecommendationsRequestTypeDef
+# ListResourceGroupingRecommendationsRequest
 
 ### appArn
 - **Type**: typing.Optional[str]
@@ -2030,21 +2021,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListResourceGroupingRecommendationsResponseTypeDef
+# ListResourceGroupingRecommendationsRequestPaginate
+
+### appArn
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resiliencehub_classes.PaginatorConfig]
+
+
+# ListResourceGroupingRecommendationsResponse
 
 ### groupingRecommendations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.resiliencehub_classes.GroupingRecommendationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.resiliencehub_classes.GroupingRecommendation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListSopRecommendationsRequestTypeDef
+# ListSopRecommendationsRequest
 
 ### assessmentArn
 - **Type**: <class 'str'>
@@ -2057,21 +2057,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListSopRecommendationsResponseTypeDef
+# ListSopRecommendationsResponse
 
 ### sopRecommendations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.resiliencehub_classes.SopRecommendationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.resiliencehub_classes.SopRecommendation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListSuggestedResiliencyPoliciesRequestTypeDef
+# ListSuggestedResiliencyPoliciesRequest
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -2080,39 +2080,39 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListSuggestedResiliencyPoliciesResponseTypeDef
+# ListSuggestedResiliencyPoliciesResponse
 
 ### resiliencyPolicies
-- **Type**: typing.List[aws_resource_validator.pydantic_models.resiliencehub_classes.ResiliencyPolicyTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.resiliencehub_classes.ResiliencyPolicy]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestTypeDef
+# ListTagsForResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ListTagsForResourceResponseTypeDef
+# ListTagsForResourceResponse
 
 ### tags
 - **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListTestRecommendationsRequestTypeDef
+# ListTestRecommendationsRequest
 
 ### assessmentArn
 - **Type**: <class 'str'>
@@ -2125,21 +2125,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListTestRecommendationsResponseTypeDef
+# ListTestRecommendationsResponse
 
 ### testRecommendations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.resiliencehub_classes.TestRecommendationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.resiliencehub_classes.TestRecommendation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListUnsupportedAppVersionResourcesRequestTypeDef
+# ListUnsupportedAppVersionResourcesRequest
 
 ### appArn
 - **Type**: <class 'str'>
@@ -2159,25 +2159,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListUnsupportedAppVersionResourcesResponseTypeDef
+# ListUnsupportedAppVersionResourcesResponse
 
 ### resolutionId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### unsupportedResources
-- **Type**: typing.List[aws_resource_validator.pydantic_models.resiliencehub_classes.UnsupportedResourceTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.resiliencehub_classes.UnsupportedResource]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# LogicalResourceIdTypeDef
+# LogicalResourceId
 
 ### identifier
 - **Type**: <class 'str'>
@@ -2196,7 +2196,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -2208,32 +2208,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PermissionModelOutputTypeDef
+# PermissionModelOutput
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# PermissionModelUnionTypeDef
+# PermissionModelUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# PhysicalResourceIdTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# PhysicalResourceTypeDef
+# PhysicalResource
 
 ### logicalResourceId
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.LogicalResourceIdTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.LogicalResourceId'>
 - **Required**: Yes
 
 ### physicalResourceId
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.PhysicalResourceIdTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.PhysicalResourceId'>
 - **Required**: Yes
 
 ### resourceType
@@ -2244,7 +2238,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, typing.List[str]]]
 
 ### appComponents
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.resiliencehub_classes.AppComponentTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.resiliencehub_classes.AppComponent]]
 
 ### excluded
 - **Type**: typing.Optional[bool]
@@ -2259,7 +2253,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['AppTemplate', 'Discovered']]
 
 
-# PublishAppVersionRequestTypeDef
+# PhysicalResourceId
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# PublishAppVersionRequest
 
 ### appArn
 - **Type**: <class 'str'>
@@ -2269,7 +2269,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PublishAppVersionResponseTypeDef
+# PublishAppVersionResponse
 
 ### appArn
 - **Type**: <class 'str'>
@@ -2288,11 +2288,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# PutDraftAppVersionTemplateRequestTypeDef
+# PutDraftAppVersionTemplateRequest
 
 ### appArn
 - **Type**: <class 'str'>
@@ -2303,7 +2303,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutDraftAppVersionTemplateResponseTypeDef
+# PutDraftAppVersionTemplateResponse
 
 ### appArn
 - **Type**: <class 'str'>
@@ -2314,11 +2314,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# RecommendationDisruptionComplianceTypeDef
+# RecommendationDisruptionCompliance
 
 ### expectedComplianceStatus
 - **Type**: typing.Literal['MissingPolicy', 'NotApplicable', 'PolicyBreached', 'PolicyMet']
@@ -2337,13 +2337,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# RecommendationItemTypeDef
+# RecommendationItem
 
 ### alreadyImplemented
 - **Type**: typing.Optional[bool]
 
 ### discoveredAlarm
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resiliencehub_classes.AlarmTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resiliencehub_classes.Alarm]
 
 ### excludeReason
 - **Type**: typing.Optional[typing.Literal['AlreadyImplemented', 'ComplexityOfImplementation', 'NotRelevant']]
@@ -2352,7 +2352,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### latestDiscoveredExperiment
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resiliencehub_classes.ExperimentTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resiliencehub_classes.Experiment]
 
 ### resourceId
 - **Type**: typing.Optional[str]
@@ -2364,13 +2364,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RecommendationTemplateTypeDef
+# RecommendationTemplate
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# RejectGroupingRecommendationEntryTypeDef
+# RejectGroupingRecommendationEntry
 
 ### groupingRecommendationId
 - **Type**: <class 'str'>
@@ -2380,33 +2380,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DistinctBusinessPurpose', 'DistinctUserGroupHandling', 'Other', 'SeparateDataConcern']]
 
 
-# RejectResourceGroupingRecommendationsRequestTypeDef
+# RejectResourceGroupingRecommendationsRequest
 
 ### appArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### entries
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.resiliencehub_classes.RejectGroupingRecommendationEntryTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.resiliencehub_classes.RejectGroupingRecommendationEntry]
 - **Required**: Yes
 
 
-# RejectResourceGroupingRecommendationsResponseTypeDef
+# RejectResourceGroupingRecommendationsResponse
 
 ### appArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### failedEntries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.resiliencehub_classes.FailedGroupingRecommendationEntryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.resiliencehub_classes.FailedGroupingRecommendationEntry]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# RemoveDraftAppVersionResourceMappingsRequestTypeDef
+# RemoveDraftAppVersionResourceMappingsRequest
 
 ### appArn
 - **Type**: <class 'str'>
@@ -2431,7 +2431,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# RemoveDraftAppVersionResourceMappingsResponseTypeDef
+# RemoveDraftAppVersionResourceMappingsResponse
 
 ### appArn
 - **Type**: <class 'str'>
@@ -2442,11 +2442,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ResiliencyPolicyTypeDef
+# ResiliencyPolicy
 
 ### creationTime
 - **Type**: typing.Optional[datetime.datetime]
@@ -2458,7 +2458,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['L1', 'L2', 'L3', 'L4']]
 
 ### policy
-- **Type**: typing.Optional[typing.Dict[typing.Literal['AZ', 'Hardware', 'Region', 'Software'], aws_resource_validator.pydantic_models.resiliencehub_classes.FailurePolicyTypeDef]]
+- **Type**: typing.Optional[typing.Dict[typing.Literal['AZ', 'Hardware', 'Region', 'Software'], aws_resource_validator.pydantic_models.resiliencehub_classes.FailurePolicy]]
 
 ### policyArn
 - **Type**: typing.Optional[str]
@@ -2476,7 +2476,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CoreServices', 'Critical', 'Important', 'MissionCritical', 'NonCritical', 'NotApplicable']]
 
 
-# ResiliencyScoreTypeDef
+# ResiliencyScore
 
 ### disruptionScore
 - **Type**: typing.Dict[typing.Literal['AZ', 'Hardware', 'Region', 'Software'], float]
@@ -2487,10 +2487,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### componentScore
-- **Type**: typing.Optional[typing.Dict[typing.Literal['Alarm', 'Compliance', 'Sop', 'Test'], aws_resource_validator.pydantic_models.resiliencehub_classes.ScoringComponentResiliencyScoreTypeDef]]
+- **Type**: typing.Optional[typing.Dict[typing.Literal['Alarm', 'Compliance', 'Sop', 'Test'], aws_resource_validator.pydantic_models.resiliencehub_classes.ScoringComponentResiliencyScore]]
 
 
-# ResolveAppVersionResourcesRequestTypeDef
+# ResolveAppVersionResourcesRequest
 
 ### appArn
 - **Type**: <class 'str'>
@@ -2501,7 +2501,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ResolveAppVersionResourcesResponseTypeDef
+# ResolveAppVersionResourcesResponse
 
 ### appArn
 - **Type**: <class 'str'>
@@ -2520,11 +2520,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ResourceDriftTypeDef
+# ResourceDrift
 
 ### appArn
 - **Type**: typing.Optional[str]
@@ -2539,10 +2539,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### resourceIdentifier
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resiliencehub_classes.ResourceIdentifierTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resiliencehub_classes.ResourceIdentifier]
 
 
-# ResourceErrorTypeDef
+# ResourceError
 
 ### logicalResourceId
 - **Type**: typing.Optional[str]
@@ -2554,32 +2554,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ResourceErrorsDetailsTypeDef
+# ResourceErrorsDetails
 
 ### hasMoreErrors
 - **Type**: typing.Optional[bool]
 
 ### resourceErrors
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.resiliencehub_classes.ResourceErrorTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.resiliencehub_classes.ResourceError]]
 
 
-# ResourceIdentifierTypeDef
+# ResourceIdentifier
 
 ### logicalResourceId
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resiliencehub_classes.LogicalResourceIdTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resiliencehub_classes.LogicalResourceId]
 
 ### resourceType
 - **Type**: typing.Optional[str]
 
 
-# ResourceMappingTypeDef
+# ResourceMapping
 
 ### mappingType
 - **Type**: typing.Literal['AppRegistryApp', 'CfnStack', 'EKS', 'Resource', 'ResourceGroup', 'Terraform']
 - **Required**: Yes
 
 ### physicalResourceId
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.PhysicalResourceIdTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.PhysicalResourceId'>
 - **Required**: Yes
 
 ### appRegistryAppName
@@ -2601,7 +2601,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -2623,7 +2623,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# S3LocationTypeDef
+# S3Location
 
 ### bucket
 - **Type**: typing.Optional[str]
@@ -2632,7 +2632,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ScoringComponentResiliencyScoreTypeDef
+# ScoringComponentResiliencyScore
 
 ### excludedCount
 - **Type**: typing.Optional[int]
@@ -2647,7 +2647,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# SopRecommendationTypeDef
+# SopRecommendation
 
 ### recommendationId
 - **Type**: <class 'str'>
@@ -2668,7 +2668,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### items
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.resiliencehub_classes.RecommendationItemTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.resiliencehub_classes.RecommendationItem]]
 
 ### name
 - **Type**: typing.Optional[str]
@@ -2680,7 +2680,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Excluded', 'Implemented', 'Inactive', 'NotImplemented']]
 
 
-# SortTypeDef
+# Sort
 
 ### field
 - **Type**: <class 'str'>
@@ -2690,7 +2690,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# StartAppAssessmentRequestTypeDef
+# StartAppAssessmentRequest
 
 ### appArn
 - **Type**: <class 'str'>
@@ -2711,18 +2711,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# StartAppAssessmentResponseTypeDef
+# StartAppAssessmentResponse
 
 ### assessment
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.AppAssessmentTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.AppAssessment'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# StartMetricsExportRequestTypeDef
+# StartMetricsExportRequest
 
 ### bucketName
 - **Type**: typing.Optional[str]
@@ -2731,7 +2731,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# StartMetricsExportResponseTypeDef
+# StartMetricsExportResponse
 
 ### metricsExportId
 - **Type**: <class 'str'>
@@ -2742,18 +2742,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# StartResourceGroupingRecommendationTaskRequestTypeDef
+# StartResourceGroupingRecommendationTaskRequest
 
 ### appArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# StartResourceGroupingRecommendationTaskResponseTypeDef
+# StartResourceGroupingRecommendationTaskResponse
 
 ### appArn
 - **Type**: <class 'str'>
@@ -2772,11 +2772,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# TagResourceRequestTypeDef
+# TagResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -2787,33 +2787,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TerraformSourceTypeDef
+# TerraformSource
 
 ### s3StateFileUrl
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# TestRecommendationTypeDef
+# TestRecommendation
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# TimestampTypeDef
+# Timestamp
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# UnsupportedResourceTypeDef
+# UnsupportedResource
 
 ### logicalResourceId
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.LogicalResourceIdTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.LogicalResourceId'>
 - **Required**: Yes
 
 ### physicalResourceId
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.PhysicalResourceIdTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.PhysicalResourceId'>
 - **Required**: Yes
 
 ### resourceType
@@ -2824,7 +2824,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UntagResourceRequestTypeDef
+# UntagResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -2835,7 +2835,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateAppRequestTypeDef
+# UpdateAppRequest
 
 ### appArn
 - **Type**: <class 'str'>
@@ -2851,34 +2851,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### eventSubscriptions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.resiliencehub_classes.EventSubscriptionTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.resiliencehub_classes.EventSubscription]]
 
 ### permissionModel
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resiliencehub_classes.PermissionModelUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resiliencehub_classes.PermissionModelUnion]
 
 ### policyArn
 - **Type**: typing.Optional[str]
 
 
-# UpdateAppResponseTypeDef
+# UpdateAppResponse
 
 ### app
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.AppTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.App'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateAppVersionAppComponentResponseTypeDef
+# UpdateAppVersionAppComponentResponse
 
 ### appArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### appComponent
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.AppComponentTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.AppComponent'>
 - **Required**: Yes
 
 ### appVersion
@@ -2886,11 +2886,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateAppVersionRequestTypeDef
+# UpdateAppVersionRequest
 
 ### appArn
 - **Type**: <class 'str'>
@@ -2900,7 +2900,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, typing.Sequence[str]]]
 
 
-# UpdateAppVersionResourceRequestTypeDef
+# UpdateAppVersionResourceRequest
 
 ### appArn
 - **Type**: <class 'str'>
@@ -2922,7 +2922,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### logicalResourceId
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resiliencehub_classes.LogicalResourceIdTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resiliencehub_classes.LogicalResourceId]
 
 ### physicalResourceId
 - **Type**: typing.Optional[str]
@@ -2934,7 +2934,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateAppVersionResourceResponseTypeDef
+# UpdateAppVersionResourceResponse
 
 ### appArn
 - **Type**: <class 'str'>
@@ -2945,15 +2945,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### physicalResource
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.PhysicalResourceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.PhysicalResource'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateAppVersionResponseTypeDef
+# UpdateAppVersionResponse
 
 ### additionalInfo
 - **Type**: typing.Dict[str, typing.List[str]]
@@ -2968,11 +2968,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateRecommendationStatusItemTypeDef
+# UpdateRecommendationStatusItem
 
 ### resourceId
 - **Type**: typing.Optional[str]
@@ -2984,7 +2984,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateRecommendationStatusRequestEntryTypeDef
+# UpdateRecommendationStatusRequestEntry
 
 ### entryId
 - **Type**: <class 'str'>
@@ -3005,10 +3005,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['AlreadyImplemented', 'ComplexityOfImplementation', 'NotRelevant']]
 
 ### item
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resiliencehub_classes.UpdateRecommendationStatusItemTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resiliencehub_classes.UpdateRecommendationStatusItem]
 
 
-# UpdateResiliencyPolicyRequestTypeDef
+# UpdateResiliencyPolicyRequest
 
 ### policyArn
 - **Type**: <class 'str'>
@@ -3018,7 +3018,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['AnyLocation', 'SameContinent', 'SameCountry']]
 
 ### policy
-- **Type**: typing.Optional[typing.Mapping[typing.Literal['AZ', 'Hardware', 'Region', 'Software'], aws_resource_validator.pydantic_models.resiliencehub_classes.FailurePolicyTypeDef]]
+- **Type**: typing.Optional[typing.Mapping[typing.Literal['AZ', 'Hardware', 'Region', 'Software'], aws_resource_validator.pydantic_models.resiliencehub_classes.FailurePolicy]]
 
 ### policyDescription
 - **Type**: typing.Optional[str]
@@ -3030,14 +3030,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CoreServices', 'Critical', 'Important', 'MissionCritical', 'NonCritical', 'NotApplicable']]
 
 
-# UpdateResiliencyPolicyResponseTypeDef
+# UpdateResiliencyPolicyResponse
 
 ### policy
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResiliencyPolicyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResiliencyPolicy'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resiliencehub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

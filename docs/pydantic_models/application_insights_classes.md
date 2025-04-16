@@ -1,6 +1,6 @@
 # Application Insights Classes
 
-# AddWorkloadRequestTypeDef
+# AddWorkloadRequest
 
 ### ResourceGroupName
 - **Type**: <class 'str'>
@@ -11,26 +11,26 @@
 - **Required**: Yes
 
 ### WorkloadConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.application_insights_classes.WorkloadConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.application_insights_classes.WorkloadConfiguration'>
 - **Required**: Yes
 
 
-# AddWorkloadResponseTypeDef
+# AddWorkloadResponse
 
 ### WorkloadId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### WorkloadConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.application_insights_classes.WorkloadConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.application_insights_classes.WorkloadConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.application_insights_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.application_insights_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ApplicationComponentTypeDef
+# ApplicationComponent
 
 ### ComponentName
 - **Type**: typing.Optional[str]
@@ -54,7 +54,7 @@
 - **Type**: typing.Optional[typing.Dict[typing.Literal['ACTIVE_DIRECTORY', 'CUSTOM', 'DEFAULT', 'DOT_NET_CORE', 'DOT_NET_WEB', 'DOT_NET_WEB_TIER', 'DOT_NET_WORKER', 'JAVA_JMX', 'MYSQL', 'ORACLE', 'POSTGRESQL', 'SAP_ASE_HIGH_AVAILABILITY', 'SAP_ASE_SINGLE_NODE', 'SAP_HANA_HIGH_AVAILABILITY', 'SAP_HANA_MULTI_NODE', 'SAP_HANA_SINGLE_NODE', 'SAP_NETWEAVER_DISTRIBUTED', 'SAP_NETWEAVER_HIGH_AVAILABILITY', 'SAP_NETWEAVER_STANDARD', 'SHAREPOINT', 'SQL_SERVER', 'SQL_SERVER_ALWAYSON_AVAILABILITY_GROUP', 'SQL_SERVER_FAILOVER_CLUSTER_INSTANCE'], typing.Dict[str, str]]]
 
 
-# ApplicationInfoTypeDef
+# ApplicationInfo
 
 ### AccountId
 - **Type**: typing.Optional[str]
@@ -96,7 +96,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ConfigurationEventTypeDef
+# ConfigurationEvent
 
 ### ResourceGroupName
 - **Type**: typing.Optional[str]
@@ -123,7 +123,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateApplicationRequestTypeDef
+# CreateApplicationRequest
 
 ### ResourceGroupName
 - **Type**: typing.Optional[str]
@@ -141,7 +141,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.application_insights_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.application_insights_classes.Tag]]
 
 ### AutoConfigEnabled
 - **Type**: typing.Optional[bool]
@@ -156,18 +156,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# CreateApplicationResponseTypeDef
+# CreateApplicationResponse
 
 ### ApplicationInfo
-- **Type**: <class 'aws_resource_validator.pydantic_models.application_insights_classes.ApplicationInfoTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.application_insights_classes.ApplicationInfo'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.application_insights_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.application_insights_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateComponentRequestTypeDef
+# CreateComponentRequest
 
 ### ResourceGroupName
 - **Type**: <class 'str'>
@@ -182,10 +182,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateLogPatternResponseTypeDef
+# CreateLogPatternResponse
 
 ### LogPattern
-- **Type**: <class 'aws_resource_validator.pydantic_models.application_insights_classes.LogPatternTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.application_insights_classes.LogPattern'>
 - **Required**: Yes
 
 ### ResourceGroupName
@@ -193,18 +193,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.application_insights_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.application_insights_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteApplicationRequestTypeDef
+# DeleteApplicationRequest
 
 ### ResourceGroupName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteComponentRequestTypeDef
+# DeleteComponentRequest
 
 ### ResourceGroupName
 - **Type**: <class 'str'>
@@ -215,7 +215,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteLogPatternRequestTypeDef
+# DeleteLogPatternRequest
 
 ### ResourceGroupName
 - **Type**: <class 'str'>
@@ -230,7 +230,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeApplicationRequestTypeDef
+# DescribeApplicationRequest
 
 ### ResourceGroupName
 - **Type**: <class 'str'>
@@ -240,18 +240,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeApplicationResponseTypeDef
+# DescribeApplicationResponse
 
 ### ApplicationInfo
-- **Type**: <class 'aws_resource_validator.pydantic_models.application_insights_classes.ApplicationInfoTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.application_insights_classes.ApplicationInfo'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.application_insights_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.application_insights_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeComponentConfigurationRecommendationRequestTypeDef
+# DescribeComponentConfigurationRecommendationRequest
 
 ### ResourceGroupName
 - **Type**: <class 'str'>
@@ -272,18 +272,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ALL', 'INFRA_ONLY', 'WORKLOAD_ONLY']]
 
 
-# DescribeComponentConfigurationRecommendationResponseTypeDef
+# DescribeComponentConfigurationRecommendationResponse
 
 ### ComponentConfiguration
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.application_insights_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.application_insights_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeComponentConfigurationRequestTypeDef
+# DescribeComponentConfigurationRequest
 
 ### ResourceGroupName
 - **Type**: <class 'str'>
@@ -297,7 +297,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeComponentConfigurationResponseTypeDef
+# DescribeComponentConfigurationResponse
 
 ### Monitor
 - **Type**: <class 'bool'>
@@ -312,11 +312,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.application_insights_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.application_insights_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeComponentRequestTypeDef
+# DescribeComponentRequest
 
 ### ResourceGroupName
 - **Type**: <class 'str'>
@@ -330,10 +330,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeComponentResponseTypeDef
+# DescribeComponentResponse
 
 ### ApplicationComponent
-- **Type**: <class 'aws_resource_validator.pydantic_models.application_insights_classes.ApplicationComponentTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.application_insights_classes.ApplicationComponent'>
 - **Required**: Yes
 
 ### ResourceList
@@ -341,11 +341,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.application_insights_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.application_insights_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeLogPatternRequestTypeDef
+# DescribeLogPatternRequest
 
 ### ResourceGroupName
 - **Type**: <class 'str'>
@@ -363,7 +363,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeLogPatternResponseTypeDef
+# DescribeLogPatternResponse
 
 ### ResourceGroupName
 - **Type**: <class 'str'>
@@ -374,15 +374,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LogPattern
-- **Type**: <class 'aws_resource_validator.pydantic_models.application_insights_classes.LogPatternTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.application_insights_classes.LogPattern'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.application_insights_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.application_insights_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeObservationRequestTypeDef
+# DescribeObservationRequest
 
 ### ObservationId
 - **Type**: <class 'str'>
@@ -392,18 +392,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeObservationResponseTypeDef
+# DescribeObservationResponse
 
 ### Observation
-- **Type**: <class 'aws_resource_validator.pydantic_models.application_insights_classes.ObservationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.application_insights_classes.Observation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.application_insights_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.application_insights_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeProblemObservationsRequestTypeDef
+# DescribeProblemObservationsRequest
 
 ### ProblemId
 - **Type**: <class 'str'>
@@ -413,18 +413,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeProblemObservationsResponseTypeDef
+# DescribeProblemObservationsResponse
 
 ### RelatedObservations
-- **Type**: <class 'aws_resource_validator.pydantic_models.application_insights_classes.RelatedObservationsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.application_insights_classes.RelatedObservations'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.application_insights_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.application_insights_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeProblemRequestTypeDef
+# DescribeProblemRequest
 
 ### ProblemId
 - **Type**: <class 'str'>
@@ -434,10 +434,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeProblemResponseTypeDef
+# DescribeProblemResponse
 
 ### Problem
-- **Type**: <class 'aws_resource_validator.pydantic_models.application_insights_classes.ProblemTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.application_insights_classes.Problem'>
 - **Required**: Yes
 
 ### SNSNotificationArn
@@ -445,11 +445,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.application_insights_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.application_insights_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeWorkloadRequestTypeDef
+# DescribeWorkloadRequest
 
 ### ResourceGroupName
 - **Type**: <class 'str'>
@@ -467,7 +467,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeWorkloadResponseTypeDef
+# DescribeWorkloadResponse
 
 ### WorkloadId
 - **Type**: <class 'str'>
@@ -478,15 +478,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### WorkloadConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.application_insights_classes.WorkloadConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.application_insights_classes.WorkloadConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.application_insights_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.application_insights_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListApplicationsRequestTypeDef
+# ListApplicationsRequest
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -498,21 +498,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListApplicationsResponseTypeDef
+# ListApplicationsResponse
 
 ### ApplicationInfoList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.application_insights_classes.ApplicationInfoTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.application_insights_classes.ApplicationInfo]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.application_insights_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.application_insights_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListComponentsRequestTypeDef
+# ListComponentsRequest
 
 ### ResourceGroupName
 - **Type**: <class 'str'>
@@ -528,30 +528,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListComponentsResponseTypeDef
+# ListComponentsResponse
 
 ### ApplicationComponentList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.application_insights_classes.ApplicationComponentTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.application_insights_classes.ApplicationComponent]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.application_insights_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.application_insights_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListConfigurationHistoryRequestTypeDef
+# ListConfigurationHistoryRequest
 
 ### ResourceGroupName
 - **Type**: typing.Optional[str]
 
 ### StartTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_insights_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_insights_classes.Timestamp]
 
 ### EndTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_insights_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_insights_classes.Timestamp]
 
 ### EventStatus
 - **Type**: typing.Optional[typing.Literal['ERROR', 'INFO', 'WARN']]
@@ -566,21 +566,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListConfigurationHistoryResponseTypeDef
+# ListConfigurationHistoryResponse
 
 ### EventList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.application_insights_classes.ConfigurationEventTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.application_insights_classes.ConfigurationEvent]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.application_insights_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.application_insights_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListLogPatternSetsRequestTypeDef
+# ListLogPatternSetsRequest
 
 ### ResourceGroupName
 - **Type**: <class 'str'>
@@ -596,7 +596,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListLogPatternSetsResponseTypeDef
+# ListLogPatternSetsResponse
 
 ### ResourceGroupName
 - **Type**: <class 'str'>
@@ -611,14 +611,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.application_insights_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.application_insights_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListLogPatternsRequestTypeDef
+# ListLogPatternsRequest
 
 ### ResourceGroupName
 - **Type**: <class 'str'>
@@ -637,7 +637,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListLogPatternsResponseTypeDef
+# ListLogPatternsResponse
 
 ### ResourceGroupName
 - **Type**: <class 'str'>
@@ -648,18 +648,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LogPatterns
-- **Type**: typing.List[aws_resource_validator.pydantic_models.application_insights_classes.LogPatternTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.application_insights_classes.LogPattern]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.application_insights_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.application_insights_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListProblemsRequestTypeDef
+# ListProblemsRequest
 
 ### AccountId
 - **Type**: typing.Optional[str]
@@ -668,10 +668,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### StartTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_insights_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_insights_classes.Timestamp]
 
 ### EndTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_insights_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_insights_classes.Timestamp]
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -686,10 +686,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['IGNORED', 'VISIBLE']]
 
 
-# ListProblemsResponseTypeDef
+# ListProblemsResponse
 
 ### ProblemList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.application_insights_classes.ProblemTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.application_insights_classes.Problem]
 - **Required**: Yes
 
 ### ResourceGroupName
@@ -701,32 +701,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.application_insights_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.application_insights_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestTypeDef
+# ListTagsForResourceRequest
 
 ### ResourceARN
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ListTagsForResourceResponseTypeDef
+# ListTagsForResourceResponse
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.application_insights_classes.TagTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.application_insights_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.application_insights_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.application_insights_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListWorkloadsRequestTypeDef
+# ListWorkloadsRequest
 
 ### ResourceGroupName
 - **Type**: <class 'str'>
@@ -746,27 +746,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListWorkloadsResponseTypeDef
+# ListWorkloadsResponse
 
 ### WorkloadList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.application_insights_classes.WorkloadTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.application_insights_classes.Workload]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.application_insights_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.application_insights_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# LogPatternTypeDef
+# LogPattern
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ObservationTypeDef
+# Observation
 
 ### Id
 - **Type**: typing.Optional[str]
@@ -904,7 +904,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ProblemTypeDef
+# Problem
 
 ### Id
 - **Type**: typing.Optional[str]
@@ -955,13 +955,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['AUTOMATIC', 'MANUAL', 'UNRESOLVED']]
 
 
-# RelatedObservationsTypeDef
+# RelatedObservations
 
 ### ObservationList
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.application_insights_classes.ObservationTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.application_insights_classes.Observation]]
 
 
-# RemoveWorkloadRequestTypeDef
+# RemoveWorkloadRequest
 
 ### ResourceGroupName
 - **Type**: <class 'str'>
@@ -976,7 +976,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -998,18 +998,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TagResourceRequestTypeDef
-
-### ResourceARN
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.application_insights_classes.TagTypeDef]
-- **Required**: Yes
-
-
-# TagTypeDef
+# Tag
 
 ### Key
 - **Type**: <class 'str'>
@@ -1020,13 +1009,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TimestampTypeDef
+# TagResourceRequest
+
+### ResourceARN
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Tags
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.application_insights_classes.Tag]
+- **Required**: Yes
+
+
+# Timestamp
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# UntagResourceRequestTypeDef
+# UntagResourceRequest
 
 ### ResourceARN
 - **Type**: <class 'str'>
@@ -1037,7 +1037,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateApplicationRequestTypeDef
+# UpdateApplicationRequest
 
 ### ResourceGroupName
 - **Type**: <class 'str'>
@@ -1065,18 +1065,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# UpdateApplicationResponseTypeDef
+# UpdateApplicationResponse
 
 ### ApplicationInfo
-- **Type**: <class 'aws_resource_validator.pydantic_models.application_insights_classes.ApplicationInfoTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.application_insights_classes.ApplicationInfo'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.application_insights_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.application_insights_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateComponentConfigurationRequestTypeDef
+# UpdateComponentConfigurationRequest
 
 ### ResourceGroupName
 - **Type**: <class 'str'>
@@ -1099,7 +1099,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# UpdateComponentRequestTypeDef
+# UpdateComponentRequest
 
 ### ResourceGroupName
 - **Type**: <class 'str'>
@@ -1116,22 +1116,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# UpdateLogPatternResponseTypeDef
+# UpdateLogPatternResponse
 
 ### ResourceGroupName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### LogPattern
-- **Type**: <class 'aws_resource_validator.pydantic_models.application_insights_classes.LogPatternTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.application_insights_classes.LogPattern'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.application_insights_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.application_insights_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateProblemRequestTypeDef
+# UpdateProblemRequest
 
 ### ProblemId
 - **Type**: <class 'str'>
@@ -1144,7 +1144,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['IGNORED', 'VISIBLE']]
 
 
-# UpdateWorkloadRequestTypeDef
+# UpdateWorkloadRequest
 
 ### ResourceGroupName
 - **Type**: <class 'str'>
@@ -1155,41 +1155,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### WorkloadConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.application_insights_classes.WorkloadConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.application_insights_classes.WorkloadConfiguration'>
 - **Required**: Yes
 
 ### WorkloadId
 - **Type**: typing.Optional[str]
 
 
-# UpdateWorkloadResponseTypeDef
+# UpdateWorkloadResponse
 
 ### WorkloadId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### WorkloadConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.application_insights_classes.WorkloadConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.application_insights_classes.WorkloadConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.application_insights_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.application_insights_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# WorkloadConfigurationTypeDef
-
-### WorkloadName
-- **Type**: typing.Optional[str]
-
-### Tier
-- **Type**: typing.Optional[typing.Literal['ACTIVE_DIRECTORY', 'CUSTOM', 'DEFAULT', 'DOT_NET_CORE', 'DOT_NET_WEB', 'DOT_NET_WEB_TIER', 'DOT_NET_WORKER', 'JAVA_JMX', 'MYSQL', 'ORACLE', 'POSTGRESQL', 'SAP_ASE_HIGH_AVAILABILITY', 'SAP_ASE_SINGLE_NODE', 'SAP_HANA_HIGH_AVAILABILITY', 'SAP_HANA_MULTI_NODE', 'SAP_HANA_SINGLE_NODE', 'SAP_NETWEAVER_DISTRIBUTED', 'SAP_NETWEAVER_HIGH_AVAILABILITY', 'SAP_NETWEAVER_STANDARD', 'SHAREPOINT', 'SQL_SERVER', 'SQL_SERVER_ALWAYSON_AVAILABILITY_GROUP', 'SQL_SERVER_FAILOVER_CLUSTER_INSTANCE']]
-
-### Configuration
-- **Type**: typing.Optional[str]
-
-
-# WorkloadTypeDef
+# Workload
 
 ### WorkloadId
 - **Type**: typing.Optional[str]
@@ -1208,5 +1196,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### MissingWorkloadConfig
 - **Type**: typing.Optional[bool]
+
+
+# WorkloadConfiguration
+
+### WorkloadName
+- **Type**: typing.Optional[str]
+
+### Tier
+- **Type**: typing.Optional[typing.Literal['ACTIVE_DIRECTORY', 'CUSTOM', 'DEFAULT', 'DOT_NET_CORE', 'DOT_NET_WEB', 'DOT_NET_WEB_TIER', 'DOT_NET_WORKER', 'JAVA_JMX', 'MYSQL', 'ORACLE', 'POSTGRESQL', 'SAP_ASE_HIGH_AVAILABILITY', 'SAP_ASE_SINGLE_NODE', 'SAP_HANA_HIGH_AVAILABILITY', 'SAP_HANA_MULTI_NODE', 'SAP_HANA_SINGLE_NODE', 'SAP_NETWEAVER_DISTRIBUTED', 'SAP_NETWEAVER_HIGH_AVAILABILITY', 'SAP_NETWEAVER_STANDARD', 'SHAREPOINT', 'SQL_SERVER', 'SQL_SERVER_ALWAYSON_AVAILABILITY_GROUP', 'SQL_SERVER_FAILOVER_CLUSTER_INSTANCE']]
+
+### Configuration
+- **Type**: typing.Optional[str]
 
 

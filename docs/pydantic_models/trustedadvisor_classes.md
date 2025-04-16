@@ -1,6 +1,6 @@
 # Trustedadvisor Classes
 
-# AccountRecommendationLifecycleSummaryTypeDef
+# AccountRecommendationLifecycleSummary
 
 ### accountId
 - **Type**: typing.Optional[str]
@@ -33,92 +33,74 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BatchUpdateRecommendationResourceExclusionRequestTypeDef
+# BatchUpdateRecommendationResourceExclusionRequest
 
 ### recommendationResourceExclusions
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.trustedadvisor_classes.RecommendationResourceExclusionTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.trustedadvisor_classes.RecommendationResourceExclusion]
 - **Required**: Yes
 
 
-# BatchUpdateRecommendationResourceExclusionResponseTypeDef
+# BatchUpdateRecommendationResourceExclusionResponse
 
 ### batchUpdateRecommendationResourceExclusionErrors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.trustedadvisor_classes.UpdateRecommendationResourceExclusionErrorTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.trustedadvisor_classes.UpdateRecommendationResourceExclusionError]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.trustedadvisor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.trustedadvisor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CheckSummaryTypeDef
+# CheckSummary
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# EmptyResponseMetadataTypeDef
+# EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.trustedadvisor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.trustedadvisor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetOrganizationRecommendationRequestTypeDef
+# GetOrganizationRecommendationRequest
 
 ### organizationRecommendationIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetOrganizationRecommendationResponseTypeDef
+# GetOrganizationRecommendationResponse
 
 ### organizationRecommendation
-- **Type**: <class 'aws_resource_validator.pydantic_models.trustedadvisor_classes.OrganizationRecommendationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.trustedadvisor_classes.OrganizationRecommendation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.trustedadvisor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.trustedadvisor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetRecommendationRequestTypeDef
+# GetRecommendationRequest
 
 ### recommendationIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetRecommendationResponseTypeDef
+# GetRecommendationResponse
 
 ### recommendation
-- **Type**: <class 'aws_resource_validator.pydantic_models.trustedadvisor_classes.RecommendationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.trustedadvisor_classes.Recommendation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.trustedadvisor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.trustedadvisor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListChecksRequestPaginateTypeDef
-
-### awsService
-- **Type**: typing.Optional[str]
-
-### language
-- **Type**: typing.Optional[typing.Literal['de', 'en', 'es', 'fr', 'id', 'it', 'ja', 'ko', 'pt_BR', 'zh', 'zh_TW']]
-
-### pillar
-- **Type**: typing.Optional[typing.Literal['cost_optimizing', 'fault_tolerance', 'operational_excellence', 'performance', 'security', 'service_limits']]
-
-### source
-- **Type**: typing.Optional[typing.Literal['aws_config', 'compute_optimizer', 'cost_explorer', 'lse', 'manual', 'pse', 'rds', 'resilience', 'resilience_hub', 'security_hub', 'stir', 'ta_check', 'well_architected']]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.trustedadvisor_classes.PaginatorConfigTypeDef]
-
-
-# ListChecksRequestTypeDef
+# ListChecksRequest
 
 ### awsService
 - **Type**: typing.Optional[str]
@@ -139,34 +121,39 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['aws_config', 'compute_optimizer', 'cost_explorer', 'lse', 'manual', 'pse', 'rds', 'resilience', 'resilience_hub', 'security_hub', 'stir', 'ta_check', 'well_architected']]
 
 
-# ListChecksResponseTypeDef
+# ListChecksRequestPaginate
+
+### awsService
+- **Type**: typing.Optional[str]
+
+### language
+- **Type**: typing.Optional[typing.Literal['de', 'en', 'es', 'fr', 'id', 'it', 'ja', 'ko', 'pt_BR', 'zh', 'zh_TW']]
+
+### pillar
+- **Type**: typing.Optional[typing.Literal['cost_optimizing', 'fault_tolerance', 'operational_excellence', 'performance', 'security', 'service_limits']]
+
+### source
+- **Type**: typing.Optional[typing.Literal['aws_config', 'compute_optimizer', 'cost_explorer', 'lse', 'manual', 'pse', 'rds', 'resilience', 'resilience_hub', 'security_hub', 'stir', 'ta_check', 'well_architected']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.trustedadvisor_classes.PaginatorConfig]
+
+
+# ListChecksResponse
 
 ### checkSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.trustedadvisor_classes.CheckSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.trustedadvisor_classes.CheckSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.trustedadvisor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.trustedadvisor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListOrganizationRecommendationAccountsRequestPaginateTypeDef
-
-### organizationRecommendationIdentifier
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### affectedAccountId
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.trustedadvisor_classes.PaginatorConfigTypeDef]
-
-
-# ListOrganizationRecommendationAccountsRequestTypeDef
+# ListOrganizationRecommendationAccountsRequest
 
 ### organizationRecommendationIdentifier
 - **Type**: <class 'str'>
@@ -182,43 +169,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListOrganizationRecommendationAccountsResponseTypeDef
+# ListOrganizationRecommendationAccountsRequestPaginate
+
+### organizationRecommendationIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### affectedAccountId
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.trustedadvisor_classes.PaginatorConfig]
+
+
+# ListOrganizationRecommendationAccountsResponse
 
 ### accountRecommendationLifecycleSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.trustedadvisor_classes.AccountRecommendationLifecycleSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.trustedadvisor_classes.AccountRecommendationLifecycleSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.trustedadvisor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.trustedadvisor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListOrganizationRecommendationResourcesRequestPaginateTypeDef
-
-### organizationRecommendationIdentifier
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### affectedAccountId
-- **Type**: typing.Optional[str]
-
-### exclusionStatus
-- **Type**: typing.Optional[typing.Literal['excluded', 'included']]
-
-### regionCode
-- **Type**: typing.Optional[str]
-
-### status
-- **Type**: typing.Optional[typing.Literal['error', 'ok', 'warning']]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.trustedadvisor_classes.PaginatorConfigTypeDef]
-
-
-# ListOrganizationRecommendationResourcesRequestTypeDef
+# ListOrganizationRecommendationResourcesRequest
 
 ### organizationRecommendationIdentifier
 - **Type**: <class 'str'>
@@ -243,54 +221,57 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['error', 'ok', 'warning']]
 
 
-# ListOrganizationRecommendationResourcesResponseTypeDef
+# ListOrganizationRecommendationResourcesRequestPaginate
+
+### organizationRecommendationIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### affectedAccountId
+- **Type**: typing.Optional[str]
+
+### exclusionStatus
+- **Type**: typing.Optional[typing.Literal['excluded', 'included']]
+
+### regionCode
+- **Type**: typing.Optional[str]
+
+### status
+- **Type**: typing.Optional[typing.Literal['error', 'ok', 'warning']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.trustedadvisor_classes.PaginatorConfig]
+
+
+# ListOrganizationRecommendationResourcesResponse
 
 ### organizationRecommendationResourceSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.trustedadvisor_classes.OrganizationRecommendationResourceSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.trustedadvisor_classes.OrganizationRecommendationResourceSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.trustedadvisor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.trustedadvisor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListOrganizationRecommendationsResponseTypeDef
+# ListOrganizationRecommendationsResponse
 
 ### organizationRecommendationSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.trustedadvisor_classes.OrganizationRecommendationSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.trustedadvisor_classes.OrganizationRecommendationSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.trustedadvisor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.trustedadvisor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListRecommendationResourcesRequestPaginateTypeDef
-
-### recommendationIdentifier
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### exclusionStatus
-- **Type**: typing.Optional[typing.Literal['excluded', 'included']]
-
-### regionCode
-- **Type**: typing.Optional[str]
-
-### status
-- **Type**: typing.Optional[typing.Literal['error', 'ok', 'warning']]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.trustedadvisor_classes.PaginatorConfigTypeDef]
-
-
-# ListRecommendationResourcesRequestTypeDef
+# ListRecommendationResourcesRequest
 
 ### recommendationIdentifier
 - **Type**: <class 'str'>
@@ -312,53 +293,72 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['error', 'ok', 'warning']]
 
 
-# ListRecommendationResourcesResponseTypeDef
+# ListRecommendationResourcesRequestPaginate
+
+### recommendationIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### exclusionStatus
+- **Type**: typing.Optional[typing.Literal['excluded', 'included']]
+
+### regionCode
+- **Type**: typing.Optional[str]
+
+### status
+- **Type**: typing.Optional[typing.Literal['error', 'ok', 'warning']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.trustedadvisor_classes.PaginatorConfig]
+
+
+# ListRecommendationResourcesResponse
 
 ### recommendationResourceSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.trustedadvisor_classes.RecommendationResourceSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.trustedadvisor_classes.RecommendationResourceSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.trustedadvisor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.trustedadvisor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListRecommendationsResponseTypeDef
+# ListRecommendationsResponse
 
 ### recommendationSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.trustedadvisor_classes.RecommendationSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.trustedadvisor_classes.RecommendationSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.trustedadvisor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.trustedadvisor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# OrganizationRecommendationResourceSummaryTypeDef
+# OrganizationRecommendation
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# OrganizationRecommendationSummaryTypeDef
+# OrganizationRecommendationResourceSummary
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# OrganizationRecommendationTypeDef
+# OrganizationRecommendationSummary
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -370,7 +370,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RecommendationCostOptimizingAggregatesTypeDef
+# Recommendation
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# RecommendationCostOptimizingAggregates
 
 ### estimatedMonthlySavings
 - **Type**: <class 'float'>
@@ -381,13 +387,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RecommendationPillarSpecificAggregatesTypeDef
+# RecommendationPillarSpecificAggregates
 
 ### costOptimizing
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.trustedadvisor_classes.RecommendationCostOptimizingAggregatesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.trustedadvisor_classes.RecommendationCostOptimizingAggregates]
 
 
-# RecommendationResourceExclusionTypeDef
+# RecommendationResourceExclusion
 
 ### arn
 - **Type**: <class 'str'>
@@ -398,13 +404,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RecommendationResourceSummaryTypeDef
+# RecommendationResourceSummary
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# RecommendationResourcesAggregatesTypeDef
+# RecommendationResourcesAggregates
 
 ### errorCount
 - **Type**: <class 'int'>
@@ -419,19 +425,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RecommendationSummaryTypeDef
+# RecommendationSummary
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# RecommendationTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -453,7 +453,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateOrganizationRecommendationLifecycleRequestTypeDef
+# UpdateOrganizationRecommendationLifecycleRequest
 
 ### lifecycleStage
 - **Type**: typing.Literal['dismissed', 'in_progress', 'pending_response', 'resolved']
@@ -470,7 +470,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['low_priority', 'non_critical_account', 'not_applicable', 'other', 'other_methods_available', 'temporary_account', 'valid_business_case']]
 
 
-# UpdateRecommendationLifecycleRequestTypeDef
+# UpdateRecommendationLifecycleRequest
 
 ### lifecycleStage
 - **Type**: typing.Literal['dismissed', 'in_progress', 'pending_response', 'resolved']
@@ -487,7 +487,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['low_priority', 'non_critical_account', 'not_applicable', 'other', 'other_methods_available', 'temporary_account', 'valid_business_case']]
 
 
-# UpdateRecommendationResourceExclusionErrorTypeDef
+# UpdateRecommendationResourceExclusionError
 
 ### arn
 - **Type**: typing.Optional[str]

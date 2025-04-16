@@ -1,6 +1,10 @@
 # Sns Classes
 
-# AddPermissionInputTopicAddPermissionTypeDef
+# AddPermissionInput
+
+### TopicArn
+- **Type**: <class 'str'>
+- **Required**: Yes
 
 ### Label
 - **Type**: <class 'str'>
@@ -15,11 +19,7 @@
 - **Required**: Yes
 
 
-# AddPermissionInputTypeDef
-
-### TopicArn
-- **Type**: <class 'str'>
-- **Required**: Yes
+# AddPermissionInputTopicAddPermission
 
 ### Label
 - **Type**: <class 'str'>
@@ -40,7 +40,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BatchResultErrorEntryTypeDef
+# BatchResultErrorEntry
 
 ### Id
 - **Type**: <class 'str'>
@@ -58,41 +58,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# BlobTypeDef
+# Blob
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CheckIfPhoneNumberIsOptedOutInputTypeDef
+# CheckIfPhoneNumberIsOptedOutInput
 
 ### phoneNumber
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# CheckIfPhoneNumberIsOptedOutResponseTypeDef
+# CheckIfPhoneNumberIsOptedOutResponse
 
 ### isOptedOut
 - **Type**: <class 'bool'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sns_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sns_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ConfirmSubscriptionInputTopicConfirmSubscriptionTypeDef
-
-### Token
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### AuthenticateOnUnsubscribe
-- **Type**: typing.Optional[str]
-
-
-# ConfirmSubscriptionInputTypeDef
+# ConfirmSubscriptionInput
 
 ### TopicArn
 - **Type**: <class 'str'>
@@ -106,29 +96,39 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ConfirmSubscriptionResponseTypeDef
+# ConfirmSubscriptionInputTopicConfirmSubscription
+
+### Token
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### AuthenticateOnUnsubscribe
+- **Type**: typing.Optional[str]
+
+
+# ConfirmSubscriptionResponse
 
 ### SubscriptionArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sns_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sns_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateEndpointResponseTypeDef
+# CreateEndpointResponse
 
 ### EndpointArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sns_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sns_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreatePlatformApplicationInputServiceResourceCreatePlatformApplicationTypeDef
+# CreatePlatformApplicationInput
 
 ### Name
 - **Type**: <class 'str'>
@@ -143,7 +143,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreatePlatformApplicationInputTypeDef
+# CreatePlatformApplicationInputServiceResourceCreatePlatformApplication
 
 ### Name
 - **Type**: <class 'str'>
@@ -158,31 +158,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreatePlatformApplicationResponseTypeDef
+# CreatePlatformApplicationResponse
 
 ### PlatformApplicationArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sns_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sns_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreatePlatformEndpointInputPlatformApplicationCreatePlatformEndpointTypeDef
-
-### Token
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### CustomUserData
-- **Type**: typing.Optional[str]
-
-### Attributes
-- **Type**: typing.Optional[typing.Mapping[str, str]]
-
-
-# CreatePlatformEndpointInputTypeDef
+# CreatePlatformEndpointInput
 
 ### PlatformApplicationArn
 - **Type**: <class 'str'>
@@ -199,7 +186,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateSMSSandboxPhoneNumberInputTypeDef
+# CreatePlatformEndpointInputPlatformApplicationCreatePlatformEndpoint
+
+### Token
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### CustomUserData
+- **Type**: typing.Optional[str]
+
+### Attributes
+- **Type**: typing.Optional[typing.Mapping[str, str]]
+
+
+# CreateSMSSandboxPhoneNumberInput
 
 ### PhoneNumber
 - **Type**: <class 'str'>
@@ -209,7 +209,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['de-DE', 'en-GB', 'en-US', 'es-419', 'es-ES', 'fr-CA', 'fr-FR', 'it-IT', 'ja-JP', 'kr-KR', 'pt-BR', 'zh-CN', 'zh-TW']]
 
 
-# CreateTopicInputServiceResourceCreateTopicTypeDef
+# CreateTopicInput
 
 ### Name
 - **Type**: <class 'str'>
@@ -219,13 +219,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sns_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sns_classes.Tag]]
 
 ### DataProtectionPolicy
 - **Type**: typing.Optional[str]
 
 
-# CreateTopicInputTypeDef
+# CreateTopicInputServiceResourceCreateTopic
 
 ### Name
 - **Type**: <class 'str'>
@@ -235,59 +235,59 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sns_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sns_classes.Tag]]
 
 ### DataProtectionPolicy
 - **Type**: typing.Optional[str]
 
 
-# CreateTopicResponseTypeDef
+# CreateTopicResponse
 
 ### TopicArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sns_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sns_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteEndpointInputTypeDef
+# DeleteEndpointInput
 
 ### EndpointArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeletePlatformApplicationInputTypeDef
+# DeletePlatformApplicationInput
 
 ### PlatformApplicationArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteSMSSandboxPhoneNumberInputTypeDef
+# DeleteSMSSandboxPhoneNumberInput
 
 ### PhoneNumber
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteTopicInputTypeDef
+# DeleteTopicInput
 
 ### TopicArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# EmptyResponseMetadataTypeDef
+# EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sns_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sns_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# EndpointTypeDef
+# Endpoint
 
 ### EndpointArn
 - **Type**: typing.Optional[str]
@@ -296,135 +296,125 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 
-# GetDataProtectionPolicyInputTypeDef
+# GetDataProtectionPolicyInput
 
 ### ResourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetDataProtectionPolicyResponseTypeDef
+# GetDataProtectionPolicyResponse
 
 ### DataProtectionPolicy
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sns_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sns_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetEndpointAttributesInputTypeDef
+# GetEndpointAttributesInput
 
 ### EndpointArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetEndpointAttributesResponseTypeDef
+# GetEndpointAttributesResponse
 
 ### Attributes
 - **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sns_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sns_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetPlatformApplicationAttributesInputTypeDef
+# GetPlatformApplicationAttributesInput
 
 ### PlatformApplicationArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetPlatformApplicationAttributesResponseTypeDef
+# GetPlatformApplicationAttributesResponse
 
 ### Attributes
 - **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sns_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sns_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetSMSAttributesInputTypeDef
+# GetSMSAttributesInput
 
 ### attributes
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# GetSMSAttributesResponseTypeDef
+# GetSMSAttributesResponse
 
 ### attributes
 - **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sns_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sns_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetSMSSandboxAccountStatusResultTypeDef
+# GetSMSSandboxAccountStatusResult
 
 ### IsInSandbox
 - **Type**: <class 'bool'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sns_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sns_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetSubscriptionAttributesInputTypeDef
+# GetSubscriptionAttributesInput
 
 ### SubscriptionArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetSubscriptionAttributesResponseTypeDef
+# GetSubscriptionAttributesResponse
 
 ### Attributes
 - **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sns_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sns_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetTopicAttributesInputTypeDef
+# GetTopicAttributesInput
 
 ### TopicArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetTopicAttributesResponseTypeDef
+# GetTopicAttributesResponse
 
 ### Attributes
 - **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sns_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sns_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListEndpointsByPlatformApplicationInputPaginateTypeDef
-
-### PlatformApplicationArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sns_classes.PaginatorConfigTypeDef]
-
-
-# ListEndpointsByPlatformApplicationInputTypeDef
+# ListEndpointsByPlatformApplicationInput
 
 ### PlatformApplicationArn
 - **Type**: <class 'str'>
@@ -434,27 +424,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListEndpointsByPlatformApplicationResponseTypeDef
+# ListEndpointsByPlatformApplicationInputPaginate
+
+### PlatformApplicationArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sns_classes.PaginatorConfig]
+
+
+# ListEndpointsByPlatformApplicationResponse
 
 ### Endpoints
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sns_classes.EndpointTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sns_classes.Endpoint]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sns_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sns_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListOriginationNumbersRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sns_classes.PaginatorConfigTypeDef]
-
-
-# ListOriginationNumbersRequestTypeDef
+# ListOriginationNumbersRequest
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -463,79 +457,79 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListOriginationNumbersResultTypeDef
+# ListOriginationNumbersRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sns_classes.PaginatorConfig]
+
+
+# ListOriginationNumbersResult
 
 ### PhoneNumbers
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sns_classes.PhoneNumberInformationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sns_classes.PhoneNumberInformation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sns_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sns_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListPhoneNumbersOptedOutInputPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sns_classes.PaginatorConfigTypeDef]
-
-
-# ListPhoneNumbersOptedOutInputTypeDef
+# ListPhoneNumbersOptedOutInput
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListPhoneNumbersOptedOutResponseTypeDef
+# ListPhoneNumbersOptedOutInputPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sns_classes.PaginatorConfig]
+
+
+# ListPhoneNumbersOptedOutResponse
 
 ### phoneNumbers
 - **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sns_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sns_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListPlatformApplicationsInputPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sns_classes.PaginatorConfigTypeDef]
-
-
-# ListPlatformApplicationsInputTypeDef
+# ListPlatformApplicationsInput
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListPlatformApplicationsResponseTypeDef
+# ListPlatformApplicationsInputPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sns_classes.PaginatorConfig]
+
+
+# ListPlatformApplicationsResponse
 
 ### PlatformApplications
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sns_classes.PlatformApplicationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sns_classes.PlatformApplication]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sns_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sns_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListSMSSandboxPhoneNumbersInputPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sns_classes.PaginatorConfigTypeDef]
-
-
-# ListSMSSandboxPhoneNumbersInputTypeDef
+# ListSMSSandboxPhoneNumbersInput
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -544,31 +538,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListSMSSandboxPhoneNumbersResultTypeDef
+# ListSMSSandboxPhoneNumbersInputPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sns_classes.PaginatorConfig]
+
+
+# ListSMSSandboxPhoneNumbersResult
 
 ### PhoneNumbers
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sns_classes.SMSSandboxPhoneNumberTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sns_classes.SMSSandboxPhoneNumber]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sns_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sns_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListSubscriptionsByTopicInputPaginateTypeDef
-
-### TopicArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sns_classes.PaginatorConfigTypeDef]
-
-
-# ListSubscriptionsByTopicInputTypeDef
+# ListSubscriptionsByTopicInput
 
 ### TopicArn
 - **Type**: <class 'str'>
@@ -578,91 +568,101 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListSubscriptionsByTopicResponseTypeDef
+# ListSubscriptionsByTopicInputPaginate
 
-### Subscriptions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sns_classes.SubscriptionTypeDef]
+### TopicArn
+- **Type**: <class 'str'>
 - **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sns_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-### NextToken
-- **Type**: typing.Optional[str]
-
-
-# ListSubscriptionsInputPaginateTypeDef
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sns_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sns_classes.PaginatorConfig]
 
 
-# ListSubscriptionsInputTypeDef
-
-### NextToken
-- **Type**: typing.Optional[str]
-
-
-# ListSubscriptionsResponseTypeDef
+# ListSubscriptionsByTopicResponse
 
 ### Subscriptions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sns_classes.SubscriptionTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sns_classes.Subscription]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sns_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sns_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestTypeDef
+# ListSubscriptionsInput
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# ListSubscriptionsInputPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sns_classes.PaginatorConfig]
+
+
+# ListSubscriptionsResponse
+
+### Subscriptions
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sns_classes.Subscription]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.sns_classes.ResponseMetadata'>
+- **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# ListTagsForResourceRequest
 
 ### ResourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ListTagsForResourceResponseTypeDef
+# ListTagsForResourceResponse
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sns_classes.TagTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sns_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sns_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sns_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListTopicsInputPaginateTypeDef
+# ListTopicsInput
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# ListTopicsInputPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sns_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sns_classes.PaginatorConfig]
 
 
-# ListTopicsInputTypeDef
-
-### NextToken
-- **Type**: typing.Optional[str]
-
-
-# ListTopicsResponseTypeDef
+# ListTopicsResponse
 
 ### Topics
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sns_classes.TopicTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sns_classes.Topic]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sns_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sns_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# MessageAttributeValueTypeDef
+# MessageAttributeValue
 
 ### DataType
 - **Type**: <class 'str'>
@@ -672,17 +672,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### BinaryValue
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sns_classes.BlobTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sns_classes.Blob]
 
 
-# OptInPhoneNumberInputTypeDef
+# OptInPhoneNumberInput
 
 ### phoneNumber
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -694,7 +694,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PhoneNumberInformationTypeDef
+# PhoneNumberInformation
 
 ### CreatedAt
 - **Type**: typing.Optional[datetime.datetime]
@@ -715,7 +715,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[typing.Literal['MMS', 'SMS', 'VOICE']]]
 
 
-# PlatformApplicationTypeDef
+# PlatformApplication
 
 ### PlatformApplicationArn
 - **Type**: typing.Optional[str]
@@ -724,18 +724,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 
-# PublishBatchInputTypeDef
+# PublishBatchInput
 
 ### TopicArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### PublishBatchRequestEntries
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.sns_classes.PublishBatchRequestEntryTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.sns_classes.PublishBatchRequestEntry]
 - **Required**: Yes
 
 
-# PublishBatchRequestEntryTypeDef
+# PublishBatchRequestEntry
 
 ### Id
 - **Type**: <class 'str'>
@@ -752,7 +752,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### MessageAttributes
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.sns_classes.MessageAttributeValueTypeDef]]
+- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.sns_classes.MessageAttributeValue]]
 
 ### MessageDeduplicationId
 - **Type**: typing.Optional[str]
@@ -761,22 +761,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PublishBatchResponseTypeDef
+# PublishBatchResponse
 
 ### Successful
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sns_classes.PublishBatchResultEntryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sns_classes.PublishBatchResultEntry]
 - **Required**: Yes
 
 ### Failed
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sns_classes.BatchResultErrorEntryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sns_classes.BatchResultErrorEntry]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sns_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sns_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# PublishBatchResultEntryTypeDef
+# PublishBatchResultEntry
 
 ### Id
 - **Type**: typing.Optional[str]
@@ -788,63 +788,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PublishInputPlatformEndpointPublishTypeDef
-
-### Message
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### TopicArn
-- **Type**: typing.Optional[str]
-
-### PhoneNumber
-- **Type**: typing.Optional[str]
-
-### Subject
-- **Type**: typing.Optional[str]
-
-### MessageStructure
-- **Type**: typing.Optional[str]
-
-### MessageAttributes
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.sns_classes.MessageAttributeValueTypeDef]]
-
-### MessageDeduplicationId
-- **Type**: typing.Optional[str]
-
-### MessageGroupId
-- **Type**: typing.Optional[str]
-
-
-# PublishInputTopicPublishTypeDef
-
-### Message
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### TargetArn
-- **Type**: typing.Optional[str]
-
-### PhoneNumber
-- **Type**: typing.Optional[str]
-
-### Subject
-- **Type**: typing.Optional[str]
-
-### MessageStructure
-- **Type**: typing.Optional[str]
-
-### MessageAttributes
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.sns_classes.MessageAttributeValueTypeDef]]
-
-### MessageDeduplicationId
-- **Type**: typing.Optional[str]
-
-### MessageGroupId
-- **Type**: typing.Optional[str]
-
-
-# PublishInputTypeDef
+# PublishInput
 
 ### Message
 - **Type**: <class 'str'>
@@ -866,7 +810,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### MessageAttributes
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.sns_classes.MessageAttributeValueTypeDef]]
+- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.sns_classes.MessageAttributeValue]]
 
 ### MessageDeduplicationId
 - **Type**: typing.Optional[str]
@@ -875,7 +819,63 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PublishResponseTypeDef
+# PublishInputPlatformEndpointPublish
+
+### Message
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### TopicArn
+- **Type**: typing.Optional[str]
+
+### PhoneNumber
+- **Type**: typing.Optional[str]
+
+### Subject
+- **Type**: typing.Optional[str]
+
+### MessageStructure
+- **Type**: typing.Optional[str]
+
+### MessageAttributes
+- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.sns_classes.MessageAttributeValue]]
+
+### MessageDeduplicationId
+- **Type**: typing.Optional[str]
+
+### MessageGroupId
+- **Type**: typing.Optional[str]
+
+
+# PublishInputTopicPublish
+
+### Message
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### TargetArn
+- **Type**: typing.Optional[str]
+
+### PhoneNumber
+- **Type**: typing.Optional[str]
+
+### Subject
+- **Type**: typing.Optional[str]
+
+### MessageStructure
+- **Type**: typing.Optional[str]
+
+### MessageAttributes
+- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.sns_classes.MessageAttributeValue]]
+
+### MessageDeduplicationId
+- **Type**: typing.Optional[str]
+
+### MessageGroupId
+- **Type**: typing.Optional[str]
+
+
+# PublishResponse
 
 ### MessageId
 - **Type**: <class 'str'>
@@ -886,11 +886,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sns_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sns_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# PutDataProtectionPolicyInputTypeDef
+# PutDataProtectionPolicyInput
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -901,14 +901,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RemovePermissionInputTopicRemovePermissionTypeDef
-
-### Label
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# RemovePermissionInputTypeDef
+# RemovePermissionInput
 
 ### TopicArn
 - **Type**: <class 'str'>
@@ -919,7 +912,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ResponseMetadataTypeDef
+# RemovePermissionInputTopicRemovePermission
+
+### Label
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -941,7 +941,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SMSSandboxPhoneNumberTypeDef
+# SMSSandboxPhoneNumber
 
 ### PhoneNumber
 - **Type**: typing.Optional[str]
@@ -950,14 +950,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Pending', 'Verified']]
 
 
-# SetEndpointAttributesInputPlatformEndpointSetAttributesTypeDef
-
-### Attributes
-- **Type**: typing.Mapping[str, str]
-- **Required**: Yes
-
-
-# SetEndpointAttributesInputTypeDef
+# SetEndpointAttributesInput
 
 ### EndpointArn
 - **Type**: <class 'str'>
@@ -968,14 +961,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SetPlatformApplicationAttributesInputPlatformApplicationSetAttributesTypeDef
+# SetEndpointAttributesInputPlatformEndpointSetAttributes
 
 ### Attributes
 - **Type**: typing.Mapping[str, str]
 - **Required**: Yes
 
 
-# SetPlatformApplicationAttributesInputTypeDef
+# SetPlatformApplicationAttributesInput
 
 ### PlatformApplicationArn
 - **Type**: <class 'str'>
@@ -986,24 +979,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SetSMSAttributesInputTypeDef
+# SetPlatformApplicationAttributesInputPlatformApplicationSetAttributes
+
+### Attributes
+- **Type**: typing.Mapping[str, str]
+- **Required**: Yes
+
+
+# SetSMSAttributesInput
 
 ### attributes
 - **Type**: typing.Mapping[str, str]
 - **Required**: Yes
 
 
-# SetSubscriptionAttributesInputSubscriptionSetAttributesTypeDef
-
-### AttributeName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### AttributeValue
-- **Type**: typing.Optional[str]
-
-
-# SetSubscriptionAttributesInputTypeDef
+# SetSubscriptionAttributesInput
 
 ### SubscriptionArn
 - **Type**: <class 'str'>
@@ -1017,7 +1007,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SetTopicAttributesInputTopicSetAttributesTypeDef
+# SetSubscriptionAttributesInputSubscriptionSetAttributes
 
 ### AttributeName
 - **Type**: <class 'str'>
@@ -1027,7 +1017,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SetTopicAttributesInputTypeDef
+# SetTopicAttributesInput
 
 ### TopicArn
 - **Type**: <class 'str'>
@@ -1041,35 +1031,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SubscribeResponseTypeDef
+# SetTopicAttributesInputTopicSetAttributes
+
+### AttributeName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### AttributeValue
+- **Type**: typing.Optional[str]
+
+
+# SubscribeResponse
 
 ### SubscriptionArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sns_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sns_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# SubscriptionTypeDef
+# Subscription
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# TagResourceRequestTypeDef
-
-### ResourceArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.sns_classes.TagTypeDef]
-- **Required**: Yes
-
-
-# TagTypeDef
+# Tag
 
 ### Key
 - **Type**: <class 'str'>
@@ -1080,20 +1069,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TopicTypeDef
+# TagResourceRequest
+
+### ResourceArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Tags
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.sns_classes.Tag]
+- **Required**: Yes
+
+
+# Topic
 
 ### TopicArn
 - **Type**: typing.Optional[str]
 
 
-# UnsubscribeInputTypeDef
+# UnsubscribeInput
 
 ### SubscriptionArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# UntagResourceRequestTypeDef
+# UntagResourceRequest
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -1104,7 +1104,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# VerifySMSSandboxPhoneNumberInputTypeDef
+# VerifySMSSandboxPhoneNumberInput
 
 ### PhoneNumber
 - **Type**: <class 'str'>

@@ -1,52 +1,52 @@
 # Iotevents Classes
 
-# AcknowledgeFlowTypeDef
+# AcknowledgeFlow
 
 ### enabled
 - **Type**: <class 'bool'>
 - **Required**: Yes
 
 
-# ActionTypeDef
+# Action
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# AlarmActionTypeDef
+# AlarmAction
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# AlarmCapabilitiesTypeDef
+# AlarmCapabilities
 
 ### initializationConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotevents_classes.InitializationConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotevents_classes.InitializationConfiguration]
 
 ### acknowledgeFlow
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotevents_classes.AcknowledgeFlowTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotevents_classes.AcknowledgeFlow]
 
 
-# AlarmEventActionsOutputTypeDef
-
-### alarmActions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotevents_classes.AlarmActionTypeDef]]
-
-
-# AlarmEventActionsTypeDef
+# AlarmEventActions
 
 ### alarmActions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotevents_classes.AlarmActionTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotevents_classes.AlarmAction]]
 
 
-# AlarmEventActionsUnionTypeDef
+# AlarmEventActionsOutput
+
+### alarmActions
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotevents_classes.AlarmAction]]
+
+
+# AlarmEventActionsUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# AlarmModelSummaryTypeDef
+# AlarmModelSummary
 
 ### creationTime
 - **Type**: typing.Optional[datetime.datetime]
@@ -58,7 +58,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# AlarmModelVersionSummaryTypeDef
+# AlarmModelVersionSummary
 
 ### alarmModelName
 - **Type**: typing.Optional[str]
@@ -85,43 +85,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# AlarmNotificationOutputTypeDef
+# AlarmNotification
 
 ### notificationActions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotevents_classes.NotificationActionOutputTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotevents_classes.NotificationAction]]
 
 
-# AlarmNotificationTypeDef
+# AlarmNotificationOutput
 
 ### notificationActions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotevents_classes.NotificationActionTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotevents_classes.NotificationActionOutput]]
 
 
-# AlarmNotificationUnionTypeDef
+# AlarmNotificationUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# AlarmRuleTypeDef
+# AlarmRule
 
 ### simpleRule
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotevents_classes.SimpleRuleTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotevents_classes.SimpleRule]
 
 
-# AnalysisResultLocationTypeDef
+# AnalysisResult
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# AnalysisResultLocation
 
 ### path
 - **Type**: typing.Optional[str]
 
 
-# AnalysisResultTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# AssetPropertyTimestampTypeDef
+# AssetPropertyTimestamp
 
 ### timeInSeconds
 - **Type**: <class 'str'>
@@ -131,19 +131,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# AssetPropertyValueTypeDef
+# AssetPropertyValue
 
 ### value
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotevents_classes.AssetPropertyVariantTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotevents_classes.AssetPropertyVariant]
 
 ### timestamp
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotevents_classes.AssetPropertyTimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotevents_classes.AssetPropertyTimestamp]
 
 ### quality
 - **Type**: typing.Optional[str]
 
 
-# AssetPropertyVariantTypeDef
+# AssetPropertyVariant
 
 ### stringValue
 - **Type**: typing.Optional[str]
@@ -158,7 +158,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# AttributeTypeDef
+# Attribute
 
 ### jsonPath
 - **Type**: <class 'str'>
@@ -171,14 +171,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ClearTimerActionTypeDef
+# ClearTimerAction
 
 ### timerName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# CreateAlarmModelRequestTypeDef
+# CreateAlarmModelRequest
 
 ### alarmModelName
 - **Type**: <class 'str'>
@@ -189,14 +189,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### alarmRule
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_classes.AlarmRuleTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_classes.AlarmRule'>
 - **Required**: Yes
 
 ### alarmModelDescription
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotevents_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotevents_classes.Tag]]
 
 ### key
 - **Type**: typing.Optional[str]
@@ -205,16 +205,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### alarmNotification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotevents_classes.AlarmNotificationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotevents_classes.AlarmNotificationUnion]
 
 ### alarmEventActions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotevents_classes.AlarmEventActionsUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotevents_classes.AlarmEventActionsUnion]
 
 ### alarmCapabilities
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotevents_classes.AlarmCapabilitiesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotevents_classes.AlarmCapabilities]
 
 
-# CreateAlarmModelResponseTypeDef
+# CreateAlarmModelResponse
 
 ### creationTime
 - **Type**: <class 'datetime.datetime'>
@@ -237,18 +237,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateDetectorModelRequestTypeDef
+# CreateDetectorModelRequest
 
 ### detectorModelName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### detectorModelDefinition
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_classes.DetectorModelDefinitionUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_classes.DetectorModelDefinitionUnion'>
 - **Required**: Yes
 
 ### roleArn
@@ -262,73 +262,73 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotevents_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotevents_classes.Tag]]
 
 ### evaluationMethod
 - **Type**: typing.Optional[typing.Literal['BATCH', 'SERIAL']]
 
 
-# CreateDetectorModelResponseTypeDef
+# CreateDetectorModelResponse
 
 ### detectorModelConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_classes.DetectorModelConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_classes.DetectorModelConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateInputRequestTypeDef
+# CreateInputRequest
 
 ### inputName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### inputDefinition
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_classes.InputDefinitionUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_classes.InputDefinitionUnion'>
 - **Required**: Yes
 
 ### inputDescription
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotevents_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotevents_classes.Tag]]
 
 
-# CreateInputResponseTypeDef
+# CreateInputResponse
 
 ### inputConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_classes.InputConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_classes.InputConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteAlarmModelRequestTypeDef
+# DeleteAlarmModelRequest
 
 ### alarmModelName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteDetectorModelRequestTypeDef
+# DeleteDetectorModelRequest
 
 ### detectorModelName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteInputRequestTypeDef
+# DeleteInputRequest
 
 ### inputName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeAlarmModelRequestTypeDef
+# DescribeAlarmModelRequest
 
 ### alarmModelName
 - **Type**: <class 'str'>
@@ -338,7 +338,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeAlarmModelResponseTypeDef
+# DescribeAlarmModelResponse
 
 ### creationTime
 - **Type**: <class 'datetime.datetime'>
@@ -385,45 +385,45 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### alarmRule
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_classes.AlarmRuleTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_classes.AlarmRule'>
 - **Required**: Yes
 
 ### alarmNotification
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_classes.AlarmNotificationOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_classes.AlarmNotificationOutput'>
 - **Required**: Yes
 
 ### alarmEventActions
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_classes.AlarmEventActionsOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_classes.AlarmEventActionsOutput'>
 - **Required**: Yes
 
 ### alarmCapabilities
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_classes.AlarmCapabilitiesTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_classes.AlarmCapabilities'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeDetectorModelAnalysisRequestTypeDef
+# DescribeDetectorModelAnalysisRequest
 
 ### analysisId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeDetectorModelAnalysisResponseTypeDef
+# DescribeDetectorModelAnalysisResponse
 
 ### status
 - **Type**: typing.Literal['COMPLETE', 'FAILED', 'RUNNING']
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeDetectorModelRequestTypeDef
+# DescribeDetectorModelRequest
 
 ### detectorModelName
 - **Type**: <class 'str'>
@@ -433,36 +433,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeDetectorModelResponseTypeDef
+# DescribeDetectorModelResponse
 
 ### detectorModel
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_classes.DetectorModelTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_classes.DetectorModel'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeInputRequestTypeDef
+# DescribeInputRequest
 
 ### inputName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeLoggingOptionsResponseTypeDef
+# DescribeLoggingOptionsResponse
 
 ### loggingOptions
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_classes.LoggingOptionsOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_classes.LoggingOptionsOutput'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DetectorDebugOptionTypeDef
+# DetectorDebugOption
 
 ### detectorModelName
 - **Type**: <class 'str'>
@@ -472,7 +472,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DetectorModelConfigurationTypeDef
+# DetectorModel
+
+### detectorModelDefinition
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotevents_classes.DetectorModelDefinitionOutput]
+
+### detectorModelConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotevents_classes.DetectorModelConfiguration]
+
+
+# DetectorModelConfiguration
 
 ### detectorModelName
 - **Type**: typing.Optional[str]
@@ -505,10 +514,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['BATCH', 'SERIAL']]
 
 
-# DetectorModelDefinitionOutputTypeDef
+# DetectorModelDefinition
 
 ### states
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotevents_classes.StateOutputTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.iotevents_classes.State]
 - **Required**: Yes
 
 ### initialStateName
@@ -516,10 +525,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DetectorModelDefinitionTypeDef
+# DetectorModelDefinitionOutput
 
 ### states
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.iotevents_classes.StateTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotevents_classes.StateOutput]
 - **Required**: Yes
 
 ### initialStateName
@@ -527,13 +536,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DetectorModelDefinitionUnionTypeDef
+# DetectorModelDefinitionUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# DetectorModelSummaryTypeDef
+# DetectorModelSummary
 
 ### detectorModelName
 - **Type**: typing.Optional[str]
@@ -545,16 +554,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# DetectorModelTypeDef
-
-### detectorModelDefinition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotevents_classes.DetectorModelDefinitionOutputTypeDef]
-
-### detectorModelConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotevents_classes.DetectorModelConfigurationTypeDef]
-
-
-# DetectorModelVersionSummaryTypeDef
+# DetectorModelVersionSummary
 
 ### detectorModelName
 - **Type**: typing.Optional[str]
@@ -581,7 +581,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['BATCH', 'SERIAL']]
 
 
-# DynamoDBActionTypeDef
+# DynamoDBAction
 
 ### hashKeyField
 - **Type**: <class 'str'>
@@ -614,32 +614,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### payload
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotevents_classes.PayloadTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotevents_classes.Payload]
 
 
-# DynamoDBv2ActionTypeDef
+# DynamoDBv2Action
 
 ### tableName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### payload
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotevents_classes.PayloadTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotevents_classes.Payload]
 
 
-# EmailConfigurationOutputTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# EmailConfigurationTypeDef
+# EmailConfiguration
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# EmailContentTypeDef
+# EmailConfigurationOutput
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# EmailContent
 
 ### subject
 - **Type**: typing.Optional[str]
@@ -648,26 +648,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# EmailRecipientsOutputTypeDef
+# EmailRecipients
 
 ### to
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotevents_classes.RecipientDetailTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotevents_classes.RecipientDetail]]
 
 
-# EmailRecipientsTypeDef
+# EmailRecipientsOutput
 
 ### to
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotevents_classes.RecipientDetailTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotevents_classes.RecipientDetail]]
 
 
-# EmptyResponseMetadataTypeDef
+# EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# EventOutputTypeDef
+# Event
 
 ### eventName
 - **Type**: <class 'str'>
@@ -677,10 +677,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### actions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotevents_classes.ActionTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotevents_classes.Action]]
 
 
-# EventTypeDef
+# EventOutput
 
 ### eventName
 - **Type**: <class 'str'>
@@ -690,10 +690,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### actions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotevents_classes.ActionTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotevents_classes.Action]]
 
 
-# FirehoseActionTypeDef
+# FirehoseAction
 
 ### deliveryStreamName
 - **Type**: <class 'str'>
@@ -703,10 +703,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### payload
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotevents_classes.PayloadTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotevents_classes.Payload]
 
 
-# GetDetectorModelAnalysisResultsRequestTypeDef
+# GetDetectorModelAnalysisResultsRequest
 
 ### analysisId
 - **Type**: <class 'str'>
@@ -719,28 +719,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# GetDetectorModelAnalysisResultsResponseTypeDef
+# GetDetectorModelAnalysisResultsResponse
 
 ### analysisResults
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotevents_classes.AnalysisResultTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotevents_classes.AnalysisResult]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# InitializationConfigurationTypeDef
+# InitializationConfiguration
 
 ### disabledOnInitialization
 - **Type**: <class 'bool'>
 - **Required**: Yes
 
 
-# InputConfigurationTypeDef
+# Input
+
+### inputConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotevents_classes.InputConfiguration]
+
+### inputDefinition
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotevents_classes.InputDefinitionOutput]
+
+
+# InputConfiguration
 
 ### inputName
 - **Type**: <class 'str'>
@@ -766,36 +775,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# InputDefinitionOutputTypeDef
+# InputDefinition
 
 ### attributes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotevents_classes.AttributeTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.iotevents_classes.Attribute]
 - **Required**: Yes
 
 
-# InputDefinitionTypeDef
+# InputDefinitionOutput
 
 ### attributes
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.iotevents_classes.AttributeTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotevents_classes.Attribute]
 - **Required**: Yes
 
 
-# InputDefinitionUnionTypeDef
+# InputDefinitionUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# InputIdentifierTypeDef
+# InputIdentifier
 
 ### iotEventsInputIdentifier
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotevents_classes.IotEventsInputIdentifierTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotevents_classes.IotEventsInputIdentifier]
 
 ### iotSiteWiseInputIdentifier
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotevents_classes.IotSiteWiseInputIdentifierTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotevents_classes.IotSiteWiseInputIdentifier]
 
 
-# InputSummaryTypeDef
+# InputSummary
 
 ### inputName
 - **Type**: typing.Optional[str]
@@ -816,33 +825,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'CREATING', 'DELETING', 'UPDATING']]
 
 
-# InputTypeDef
-
-### inputConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotevents_classes.InputConfigurationTypeDef]
-
-### inputDefinition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotevents_classes.InputDefinitionOutputTypeDef]
-
-
-# IotEventsActionTypeDef
+# IotEventsAction
 
 ### inputName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### payload
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotevents_classes.PayloadTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotevents_classes.Payload]
 
 
-# IotEventsInputIdentifierTypeDef
+# IotEventsInputIdentifier
 
 ### inputName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# IotSiteWiseActionTypeDef
+# IotSiteWiseAction
 
 ### entryId
 - **Type**: typing.Optional[str]
@@ -857,10 +857,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### propertyValue
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotevents_classes.AssetPropertyValueTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotevents_classes.AssetPropertyValue]
 
 
-# IotSiteWiseAssetModelPropertyIdentifierTypeDef
+# IotSiteWiseAssetModelPropertyIdentifier
 
 ### assetModelId
 - **Type**: <class 'str'>
@@ -871,33 +871,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# IotSiteWiseInputIdentifierTypeDef
+# IotSiteWiseInputIdentifier
 
 ### iotSiteWiseAssetModelPropertyIdentifier
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotevents_classes.IotSiteWiseAssetModelPropertyIdentifierTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotevents_classes.IotSiteWiseAssetModelPropertyIdentifier]
 
 
-# IotTopicPublishActionTypeDef
+# IotTopicPublishAction
 
 ### mqttTopic
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### payload
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotevents_classes.PayloadTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotevents_classes.Payload]
 
 
-# LambdaActionTypeDef
+# LambdaAction
 
 ### functionArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### payload
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotevents_classes.PayloadTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotevents_classes.Payload]
 
 
-# ListAlarmModelVersionsRequestTypeDef
+# ListAlarmModelVersionsRequest
 
 ### alarmModelName
 - **Type**: <class 'str'>
@@ -910,21 +910,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListAlarmModelVersionsResponseTypeDef
+# ListAlarmModelVersionsResponse
 
 ### alarmModelVersionSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotevents_classes.AlarmModelVersionSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotevents_classes.AlarmModelVersionSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListAlarmModelsRequestTypeDef
+# ListAlarmModelsRequest
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -933,21 +933,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListAlarmModelsResponseTypeDef
+# ListAlarmModelsResponse
 
 ### alarmModelSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotevents_classes.AlarmModelSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotevents_classes.AlarmModelSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListDetectorModelVersionsRequestTypeDef
+# ListDetectorModelVersionsRequest
 
 ### detectorModelName
 - **Type**: <class 'str'>
@@ -960,21 +960,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListDetectorModelVersionsResponseTypeDef
+# ListDetectorModelVersionsResponse
 
 ### detectorModelVersionSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotevents_classes.DetectorModelVersionSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotevents_classes.DetectorModelVersionSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListDetectorModelsRequestTypeDef
+# ListDetectorModelsRequest
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -983,24 +983,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListDetectorModelsResponseTypeDef
+# ListDetectorModelsResponse
 
 ### detectorModelSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotevents_classes.DetectorModelSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotevents_classes.DetectorModelSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListInputRoutingsRequestTypeDef
+# ListInputRoutingsRequest
 
 ### inputIdentifier
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_classes.InputIdentifierTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_classes.InputIdentifier'>
 - **Required**: Yes
 
 ### maxResults
@@ -1010,21 +1010,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListInputRoutingsResponseTypeDef
+# ListInputRoutingsResponse
 
 ### routedResources
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotevents_classes.RoutedResourceTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotevents_classes.RoutedResource]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListInputsRequestTypeDef
+# ListInputsRequest
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -1033,39 +1033,39 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListInputsResponseTypeDef
+# ListInputsResponse
 
 ### inputSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotevents_classes.InputSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotevents_classes.InputSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestTypeDef
+# ListTagsForResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ListTagsForResourceResponseTypeDef
+# ListTagsForResourceResponse
 
 ### tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotevents_classes.TagTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotevents_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# LoggingOptionsOutputTypeDef
+# LoggingOptions
 
 ### roleArn
 - **Type**: <class 'str'>
@@ -1080,10 +1080,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### detectorDebugOptions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotevents_classes.DetectorDebugOptionTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotevents_classes.DetectorDebugOption]]
 
 
-# LoggingOptionsTypeDef
+# LoggingOptionsOutput
 
 ### roleArn
 - **Type**: <class 'str'>
@@ -1098,116 +1098,116 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### detectorDebugOptions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotevents_classes.DetectorDebugOptionTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotevents_classes.DetectorDebugOption]]
 
 
-# LoggingOptionsUnionTypeDef
+# LoggingOptionsUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# NotificationActionOutputTypeDef
+# NotificationAction
 
 ### action
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_classes.NotificationTargetActionsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_classes.NotificationTargetActions'>
 - **Required**: Yes
 
 ### smsConfigurations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotevents_classes.SMSConfigurationOutputTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotevents_classes.SMSConfiguration]]
 
 ### emailConfigurations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotevents_classes.EmailConfigurationOutputTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotevents_classes.EmailConfiguration]]
 
 
-# NotificationActionTypeDef
+# NotificationActionOutput
 
 ### action
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_classes.NotificationTargetActionsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_classes.NotificationTargetActions'>
 - **Required**: Yes
 
 ### smsConfigurations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotevents_classes.SMSConfigurationTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotevents_classes.SMSConfigurationOutput]]
 
 ### emailConfigurations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotevents_classes.EmailConfigurationTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotevents_classes.EmailConfigurationOutput]]
 
 
-# NotificationTargetActionsTypeDef
+# NotificationTargetActions
 
 ### lambdaAction
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotevents_classes.LambdaActionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotevents_classes.LambdaAction]
 
 
-# OnEnterLifecycleOutputTypeDef
-
-### events
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotevents_classes.EventOutputTypeDef]]
-
-
-# OnEnterLifecycleTypeDef
+# OnEnterLifecycle
 
 ### events
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotevents_classes.EventTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotevents_classes.Event]]
 
 
-# OnExitLifecycleOutputTypeDef
-
-### events
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotevents_classes.EventOutputTypeDef]]
-
-
-# OnExitLifecycleTypeDef
+# OnEnterLifecycleOutput
 
 ### events
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotevents_classes.EventTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotevents_classes.EventOutput]]
 
 
-# OnInputLifecycleOutputTypeDef
+# OnExitLifecycle
 
 ### events
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotevents_classes.EventOutputTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotevents_classes.Event]]
+
+
+# OnExitLifecycleOutput
+
+### events
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotevents_classes.EventOutput]]
+
+
+# OnInputLifecycle
+
+### events
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotevents_classes.Event]]
 
 ### transitionEvents
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotevents_classes.TransitionEventOutputTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotevents_classes.TransitionEvent]]
 
 
-# OnInputLifecycleTypeDef
+# OnInputLifecycleOutput
 
 ### events
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotevents_classes.EventTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotevents_classes.EventOutput]]
 
 ### transitionEvents
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotevents_classes.TransitionEventTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotevents_classes.TransitionEventOutput]]
 
 
-# PayloadTypeDef
+# Payload
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# PutLoggingOptionsRequestTypeDef
+# PutLoggingOptionsRequest
 
 ### loggingOptions
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_classes.LoggingOptionsUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_classes.LoggingOptionsUnion'>
 - **Required**: Yes
 
 
-# RecipientDetailTypeDef
+# RecipientDetail
 
 ### ssoIdentity
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotevents_classes.SSOIdentityTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotevents_classes.SSOIdentity]
 
 
-# ResetTimerActionTypeDef
+# ResetTimerAction
 
 ### timerName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -1229,7 +1229,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RoutedResourceTypeDef
+# RoutedResource
 
 ### name
 - **Type**: typing.Optional[str]
@@ -1238,10 +1238,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SMSConfigurationOutputTypeDef
+# SMSConfiguration
 
 ### recipients
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotevents_classes.RecipientDetailTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.iotevents_classes.RecipientDetail]
 - **Required**: Yes
 
 ### senderId
@@ -1251,10 +1251,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SMSConfigurationTypeDef
+# SMSConfigurationOutput
 
 ### recipients
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.iotevents_classes.RecipientDetailTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotevents_classes.RecipientDetail]
 - **Required**: Yes
 
 ### senderId
@@ -1264,17 +1264,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SNSTopicPublishActionTypeDef
+# SNSTopicPublishAction
 
 ### targetArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### payload
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotevents_classes.PayloadTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotevents_classes.Payload]
 
 
-# SSOIdentityTypeDef
+# SSOIdentity
 
 ### identityStoreId
 - **Type**: <class 'str'>
@@ -1284,7 +1284,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SetTimerActionTypeDef
+# SetTimerAction
 
 ### timerName
 - **Type**: <class 'str'>
@@ -1297,7 +1297,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SetVariableActionTypeDef
+# SetVariableAction
 
 ### variableName
 - **Type**: <class 'str'>
@@ -1308,7 +1308,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SimpleRuleTypeDef
+# SimpleRule
 
 ### inputProperty
 - **Type**: <class 'str'>
@@ -1323,7 +1323,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SqsActionTypeDef
+# SqsAction
 
 ### queueUrl
 - **Type**: <class 'str'>
@@ -1333,71 +1333,60 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### payload
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotevents_classes.PayloadTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotevents_classes.Payload]
 
 
-# StartDetectorModelAnalysisRequestTypeDef
+# StartDetectorModelAnalysisRequest
 
 ### detectorModelDefinition
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_classes.DetectorModelDefinitionUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_classes.DetectorModelDefinitionUnion'>
 - **Required**: Yes
 
 
-# StartDetectorModelAnalysisResponseTypeDef
+# StartDetectorModelAnalysisResponse
 
 ### analysisId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# StateOutputTypeDef
+# State
 
 ### stateName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### onInput
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotevents_classes.OnInputLifecycleOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotevents_classes.OnInputLifecycle]
 
 ### onEnter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotevents_classes.OnEnterLifecycleOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotevents_classes.OnEnterLifecycle]
 
 ### onExit
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotevents_classes.OnExitLifecycleOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotevents_classes.OnExitLifecycle]
 
 
-# StateTypeDef
+# StateOutput
 
 ### stateName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### onInput
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotevents_classes.OnInputLifecycleTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotevents_classes.OnInputLifecycleOutput]
 
 ### onEnter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotevents_classes.OnEnterLifecycleTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotevents_classes.OnEnterLifecycleOutput]
 
 ### onExit
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotevents_classes.OnExitLifecycleTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotevents_classes.OnExitLifecycleOutput]
 
 
-# TagResourceRequestTypeDef
-
-### resourceArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.iotevents_classes.TagTypeDef]
-- **Required**: Yes
-
-
-# TagTypeDef
+# Tag
 
 ### key
 - **Type**: <class 'str'>
@@ -1408,7 +1397,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TransitionEventOutputTypeDef
+# TagResourceRequest
+
+### resourceArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### tags
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.iotevents_classes.Tag]
+- **Required**: Yes
+
+
+# TransitionEvent
 
 ### eventName
 - **Type**: <class 'str'>
@@ -1423,10 +1423,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### actions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotevents_classes.ActionTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotevents_classes.Action]]
 
 
-# TransitionEventTypeDef
+# TransitionEventOutput
 
 ### eventName
 - **Type**: <class 'str'>
@@ -1441,10 +1441,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### actions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotevents_classes.ActionTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotevents_classes.Action]]
 
 
-# UntagResourceRequestTypeDef
+# UntagResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -1455,7 +1455,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateAlarmModelRequestTypeDef
+# UpdateAlarmModelRequest
 
 ### alarmModelName
 - **Type**: <class 'str'>
@@ -1466,7 +1466,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### alarmRule
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_classes.AlarmRuleTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_classes.AlarmRule'>
 - **Required**: Yes
 
 ### alarmModelDescription
@@ -1476,16 +1476,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### alarmNotification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotevents_classes.AlarmNotificationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotevents_classes.AlarmNotificationUnion]
 
 ### alarmEventActions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotevents_classes.AlarmEventActionsUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotevents_classes.AlarmEventActionsUnion]
 
 ### alarmCapabilities
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotevents_classes.AlarmCapabilitiesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotevents_classes.AlarmCapabilities]
 
 
-# UpdateAlarmModelResponseTypeDef
+# UpdateAlarmModelResponse
 
 ### creationTime
 - **Type**: <class 'datetime.datetime'>
@@ -1508,18 +1508,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateDetectorModelRequestTypeDef
+# UpdateDetectorModelRequest
 
 ### detectorModelName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### detectorModelDefinition
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_classes.DetectorModelDefinitionUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_classes.DetectorModelDefinitionUnion'>
 - **Required**: Yes
 
 ### roleArn
@@ -1533,39 +1533,39 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['BATCH', 'SERIAL']]
 
 
-# UpdateDetectorModelResponseTypeDef
+# UpdateDetectorModelResponse
 
 ### detectorModelConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_classes.DetectorModelConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_classes.DetectorModelConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateInputRequestTypeDef
+# UpdateInputRequest
 
 ### inputName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### inputDefinition
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_classes.InputDefinitionUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_classes.InputDefinitionUnion'>
 - **Required**: Yes
 
 ### inputDescription
 - **Type**: typing.Optional[str]
 
 
-# UpdateInputResponseTypeDef
+# UpdateInputResponse
 
 ### inputConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_classes.InputConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_classes.InputConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotevents_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

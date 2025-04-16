@@ -12,26 +12,26 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.sagemaker_featurestore_runtime_constants import *
 
-class BatchGetRecordErrorTypeDef(BaseValidatorModel):
+class BatchGetRecordError(BaseValidatorModel):
     FeatureGroupName: str
     RecordIdentifierValueAsString: str
     ErrorCode: str
     ErrorMessage: str
 
 
-class BatchGetRecordIdentifierOutputTypeDef(BaseValidatorModel):
+class BatchGetRecordIdentifierOutput(BaseValidatorModel):
     FeatureGroupName: str
     RecordIdentifiersValueAsString: List[str]
     FeatureNames: Optional[List[str]] = None
 
 
-class BatchGetRecordIdentifierTypeDef(BaseValidatorModel):
+class BatchGetRecordIdentifier(BaseValidatorModel):
     FeatureGroupName: str
     RecordIdentifiersValueAsString: Sequence[str]
     FeatureNames: Optional[Sequence[str]] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -39,13 +39,13 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class FeatureValueOutputTypeDef(BaseValidatorModel):
+class FeatureValueOutput(BaseValidatorModel):
     FeatureName: str
     ValueAsString: Optional[str] = None
     ValueAsStringList: Optional[List[str]] = None
 
 
-class DeleteRecordRequestTypeDef(BaseValidatorModel):
+class DeleteRecordRequest(BaseValidatorModel):
     FeatureGroupName: str
     RecordIdentifierValueAsString: str
     EventTime: str
@@ -53,65 +53,65 @@ class DeleteRecordRequestTypeDef(BaseValidatorModel):
     DeletionMode: Optional[DeletionModeType] = None
 
 
-class FeatureValueTypeDef(BaseValidatorModel):
+class FeatureValue(BaseValidatorModel):
     FeatureName: str
     ValueAsString: Optional[str] = None
     ValueAsStringList: Optional[Sequence[str]] = None
 
 
-class GetRecordRequestTypeDef(BaseValidatorModel):
+class GetRecordRequest(BaseValidatorModel):
     FeatureGroupName: str
     RecordIdentifierValueAsString: str
     FeatureNames: Optional[Sequence[str]] = None
     ExpirationTimeResponse: Optional[ExpirationTimeResponseType] = None
 
 
-class TtlDurationTypeDef(BaseValidatorModel):
+class TtlDuration(BaseValidatorModel):
     Unit: TtlDurationUnitType
     Value: int
 
 
-class EmptyResponseMetadataTypeDef(BaseValidatorModel):
-    ResponseMetadata: ResponseMetadataTypeDef
+class EmptyResponseMetadata(BaseValidatorModel):
+    ResponseMetadata: ResponseMetadata
 
 
-class BatchGetRecordResultDetailTypeDef(BaseValidatorModel):
+class BatchGetRecordResultDetail(BaseValidatorModel):
     FeatureGroupName: str
     RecordIdentifierValueAsString: str
-    Record: List[FeatureValueOutputTypeDef]
+    Record: List[FeatureValueOutput]
     ExpiresAt: Optional[str] = None
 
 
-class GetRecordResponseTypeDef(BaseValidatorModel):
-    Record: List[FeatureValueOutputTypeDef]
+class GetRecordResponse(BaseValidatorModel):
+    Record: List[FeatureValueOutput]
     ExpiresAt: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class BatchGetRecordIdentifierUnionTypeDef(BaseValidatorModel):
+class BatchGetRecordIdentifierUnion(BaseValidatorModel):
     pass
 
 
-class BatchGetRecordRequestTypeDef(BaseValidatorModel):
-    Identifiers: Sequence[BatchGetRecordIdentifierUnionTypeDef]
+class BatchGetRecordRequest(BaseValidatorModel):
+    Identifiers: Sequence[BatchGetRecordIdentifierUnion]
     ExpirationTimeResponse: Optional[ExpirationTimeResponseType] = None
 
 
-class BatchGetRecordResponseTypeDef(BaseValidatorModel):
-    Records: List[BatchGetRecordResultDetailTypeDef]
-    Errors: List[BatchGetRecordErrorTypeDef]
-    UnprocessedIdentifiers: List[BatchGetRecordIdentifierOutputTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchGetRecordResponse(BaseValidatorModel):
+    Records: List[BatchGetRecordResultDetail]
+    Errors: List[BatchGetRecordError]
+    UnprocessedIdentifiers: List[BatchGetRecordIdentifierOutput]
+    ResponseMetadata: ResponseMetadata
 
 
-class FeatureValueUnionTypeDef(BaseValidatorModel):
+class FeatureValueUnion(BaseValidatorModel):
     pass
 
 
-class PutRecordRequestTypeDef(BaseValidatorModel):
+class PutRecordRequest(BaseValidatorModel):
     FeatureGroupName: str
-    Record: Sequence[FeatureValueUnionTypeDef]
+    Record: Sequence[FeatureValueUnion]
     TargetStores: Optional[Sequence[TargetStoreType]] = None
-    TtlDuration: Optional[TtlDurationTypeDef] = None
+    TtlDuration: Optional[TtlDuration] = None
 
 

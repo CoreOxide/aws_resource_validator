@@ -6,13 +6,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BlobTypeDef
+# Blob
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CopyDestinationImageSetPropertiesTypeDef
+# CopyDestinationImageSet
+
+### imageSetId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### latestVersionId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# CopyDestinationImageSetProperties
 
 ### imageSetId
 - **Type**: <class 'str'>
@@ -38,28 +49,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CopyDestinationImageSetTypeDef
-
-### imageSetId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### latestVersionId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# CopyImageSetInformationTypeDef
+# CopyImageSetInformation
 
 ### sourceImageSet
-- **Type**: <class 'aws_resource_validator.pydantic_models.medical_imaging_classes.CopySourceImageSetInformationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.medical_imaging_classes.CopySourceImageSetInformation'>
 - **Required**: Yes
 
 ### destinationImageSet
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.medical_imaging_classes.CopyDestinationImageSetTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.medical_imaging_classes.CopyDestinationImageSet]
 
 
-# CopyImageSetRequestTypeDef
+# CopyImageSetRequest
 
 ### datastoreId
 - **Type**: <class 'str'>
@@ -70,43 +70,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### copyImageSetInformation
-- **Type**: <class 'aws_resource_validator.pydantic_models.medical_imaging_classes.CopyImageSetInformationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.medical_imaging_classes.CopyImageSetInformation'>
 - **Required**: Yes
 
 ### force
 - **Type**: typing.Optional[bool]
 
 
-# CopyImageSetResponseTypeDef
+# CopyImageSetResponse
 
 ### datastoreId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### sourceImageSetProperties
-- **Type**: <class 'aws_resource_validator.pydantic_models.medical_imaging_classes.CopySourceImageSetPropertiesTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.medical_imaging_classes.CopySourceImageSetProperties'>
 - **Required**: Yes
 
 ### destinationImageSetProperties
-- **Type**: <class 'aws_resource_validator.pydantic_models.medical_imaging_classes.CopyDestinationImageSetPropertiesTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.medical_imaging_classes.CopyDestinationImageSetProperties'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.medical_imaging_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.medical_imaging_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CopySourceImageSetInformationTypeDef
+# CopySourceImageSetInformation
 
 ### latestVersionId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### DICOMCopies
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.medical_imaging_classes.MetadataCopiesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.medical_imaging_classes.MetadataCopies]
 
 
-# CopySourceImageSetPropertiesTypeDef
+# CopySourceImageSetProperties
 
 ### imageSetId
 - **Type**: <class 'str'>
@@ -132,7 +132,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateDatastoreRequestTypeDef
+# CreateDatastoreRequest
 
 ### clientToken
 - **Type**: <class 'str'>
@@ -148,7 +148,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateDatastoreResponseTypeDef
+# CreateDatastoreResponse
 
 ### datastoreId
 - **Type**: <class 'str'>
@@ -159,11 +159,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.medical_imaging_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.medical_imaging_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DICOMImportJobPropertiesTypeDef
+# DICOMImportJobProperties
 
 ### jobId
 - **Type**: <class 'str'>
@@ -203,7 +203,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DICOMImportJobSummaryTypeDef
+# DICOMImportJobSummary
 
 ### jobId
 - **Type**: <class 'str'>
@@ -234,7 +234,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DICOMStudyDateAndTimeTypeDef
+# DICOMStudyDateAndTime
 
 ### DICOMStudyDate
 - **Type**: <class 'str'>
@@ -244,7 +244,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DICOMTagsTypeDef
+# DICOMTags
 
 ### DICOMPatientId
 - **Type**: typing.Optional[str]
@@ -295,16 +295,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DICOMUpdatesTypeDef
+# DICOMUpdates
 
 ### removableAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.medical_imaging_classes.BlobTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.medical_imaging_classes.Blob]
 
 ### updatableAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.medical_imaging_classes.BlobTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.medical_imaging_classes.Blob]
 
 
-# DatastorePropertiesTypeDef
+# DatastoreProperties
 
 ### datastoreId
 - **Type**: <class 'str'>
@@ -331,7 +331,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# DatastoreSummaryTypeDef
+# DatastoreSummary
 
 ### datastoreId
 - **Type**: <class 'str'>
@@ -355,14 +355,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# DeleteDatastoreRequestTypeDef
+# DeleteDatastoreRequest
 
 ### datastoreId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteDatastoreResponseTypeDef
+# DeleteDatastoreResponse
 
 ### datastoreId
 - **Type**: <class 'str'>
@@ -373,11 +373,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.medical_imaging_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.medical_imaging_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteImageSetRequestTypeDef
+# DeleteImageSetRequest
 
 ### datastoreId
 - **Type**: <class 'str'>
@@ -388,7 +388,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteImageSetResponseTypeDef
+# DeleteImageSetResponse
 
 ### datastoreId
 - **Type**: <class 'str'>
@@ -407,11 +407,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.medical_imaging_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.medical_imaging_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetDICOMImportJobRequestTypeDef
+# GetDICOMImportJobRequest
 
 ### datastoreId
 - **Type**: <class 'str'>
@@ -422,36 +422,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetDICOMImportJobResponseTypeDef
+# GetDICOMImportJobResponse
 
 ### jobProperties
-- **Type**: <class 'aws_resource_validator.pydantic_models.medical_imaging_classes.DICOMImportJobPropertiesTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.medical_imaging_classes.DICOMImportJobProperties'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.medical_imaging_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.medical_imaging_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetDatastoreRequestTypeDef
+# GetDatastoreRequest
 
 ### datastoreId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetDatastoreResponseTypeDef
+# GetDatastoreResponse
 
 ### datastoreProperties
-- **Type**: <class 'aws_resource_validator.pydantic_models.medical_imaging_classes.DatastorePropertiesTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.medical_imaging_classes.DatastoreProperties'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.medical_imaging_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.medical_imaging_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetImageFrameRequestTypeDef
+# GetImageFrameRequest
 
 ### datastoreId
 - **Type**: <class 'str'>
@@ -462,11 +462,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### imageFrameInformation
-- **Type**: <class 'aws_resource_validator.pydantic_models.medical_imaging_classes.ImageFrameInformationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.medical_imaging_classes.ImageFrameInformation'>
 - **Required**: Yes
 
 
-# GetImageFrameResponseTypeDef
+# GetImageFrameResponse
 
 ### imageFrameBlob
 - **Type**: <class 'botocore.response.StreamingBody'>
@@ -477,11 +477,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.medical_imaging_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.medical_imaging_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetImageSetMetadataRequestTypeDef
+# GetImageSetMetadataRequest
 
 ### datastoreId
 - **Type**: <class 'str'>
@@ -495,7 +495,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetImageSetMetadataResponseTypeDef
+# GetImageSetMetadataResponse
 
 ### imageSetMetadataBlob
 - **Type**: <class 'botocore.response.StreamingBody'>
@@ -510,11 +510,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.medical_imaging_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.medical_imaging_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetImageSetRequestTypeDef
+# GetImageSetRequest
 
 ### datastoreId
 - **Type**: <class 'str'>
@@ -528,7 +528,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetImageSetResponseTypeDef
+# GetImageSetResponse
 
 ### datastoreId
 - **Type**: <class 'str'>
@@ -571,22 +571,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### overrides
-- **Type**: <class 'aws_resource_validator.pydantic_models.medical_imaging_classes.OverridesTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.medical_imaging_classes.Overrides'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.medical_imaging_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.medical_imaging_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ImageFrameInformationTypeDef
+# ImageFrameInformation
 
 ### imageFrameId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ImageSetPropertiesTypeDef
+# ImageSetProperties
 
 ### imageSetId
 - **Type**: <class 'str'>
@@ -616,10 +616,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### overrides
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.medical_imaging_classes.OverridesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.medical_imaging_classes.Overrides]
 
 
-# ImageSetsMetadataSummaryTypeDef
+# ImageSetsMetadataSummary
 
 ### imageSetId
 - **Type**: <class 'str'>
@@ -635,23 +635,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### DICOMTags
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.medical_imaging_classes.DICOMTagsTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# ListDICOMImportJobsRequestPaginateTypeDef
-
-### datastoreId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### jobStatus
-- **Type**: typing.Optional[typing.Literal['COMPLETED', 'FAILED', 'IN_PROGRESS', 'SUBMITTED']]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.medical_imaging_classes.PaginatorConfigTypeDef]
-
-
-# ListDICOMImportJobsRequestTypeDef
+# ListDICOMImportJobsRequest
 
 ### datastoreId
 - **Type**: <class 'str'>
@@ -667,30 +654,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListDICOMImportJobsResponseTypeDef
+# ListDICOMImportJobsRequestPaginate
+
+### datastoreId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### jobStatus
+- **Type**: typing.Optional[typing.Literal['COMPLETED', 'FAILED', 'IN_PROGRESS', 'SUBMITTED']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.medical_imaging_classes.PaginatorConfig]
+
+
+# ListDICOMImportJobsResponse
 
 ### jobSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.medical_imaging_classes.DICOMImportJobSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.medical_imaging_classes.DICOMImportJobSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.medical_imaging_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.medical_imaging_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListDatastoresRequestPaginateTypeDef
-
-### datastoreStatus
-- **Type**: typing.Optional[typing.Literal['ACTIVE', 'CREATE_FAILED', 'CREATING', 'DELETED', 'DELETING']]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.medical_imaging_classes.PaginatorConfigTypeDef]
-
-
-# ListDatastoresRequestTypeDef
+# ListDatastoresRequest
 
 ### datastoreStatus
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'CREATE_FAILED', 'CREATING', 'DELETED', 'DELETING']]
@@ -702,35 +693,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListDatastoresResponseTypeDef
+# ListDatastoresRequestPaginate
+
+### datastoreStatus
+- **Type**: typing.Optional[typing.Literal['ACTIVE', 'CREATE_FAILED', 'CREATING', 'DELETED', 'DELETING']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.medical_imaging_classes.PaginatorConfig]
+
+
+# ListDatastoresResponse
 
 ### datastoreSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.medical_imaging_classes.DatastoreSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.medical_imaging_classes.DatastoreSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.medical_imaging_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.medical_imaging_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListImageSetVersionsRequestPaginateTypeDef
-
-### datastoreId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### imageSetId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.medical_imaging_classes.PaginatorConfigTypeDef]
-
-
-# ListImageSetVersionsRequestTypeDef
+# ListImageSetVersionsRequest
 
 ### datastoreId
 - **Type**: <class 'str'>
@@ -747,61 +733,75 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListImageSetVersionsResponseTypeDef
+# ListImageSetVersionsRequestPaginate
+
+### datastoreId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### imageSetId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.medical_imaging_classes.PaginatorConfig]
+
+
+# ListImageSetVersionsResponse
 
 ### imageSetPropertiesList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.medical_imaging_classes.ImageSetPropertiesTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.medical_imaging_classes.ImageSetProperties]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.medical_imaging_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.medical_imaging_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestTypeDef
+# ListTagsForResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ListTagsForResourceResponseTypeDef
+# ListTagsForResourceResponse
 
 ### tags
 - **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.medical_imaging_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.medical_imaging_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# MetadataCopiesTypeDef
+# MetadataCopies
 
 ### copiableAttributes
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# MetadataUpdatesTypeDef
+# MetadataUpdates
 
 ### DICOMUpdates
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.medical_imaging_classes.DICOMUpdatesTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### revertToVersionId
 - **Type**: typing.Optional[str]
 
 
-# OverridesTypeDef
+# Overrides
 
 ### forced
 - **Type**: typing.Optional[bool]
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -813,7 +813,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -835,7 +835,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SearchByAttributeValueTypeDef
+# SearchByAttributeValue
 
 ### DICOMPatientId
 - **Type**: typing.Optional[str]
@@ -853,51 +853,38 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### createdAt
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.medical_imaging_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.medical_imaging_classes.Timestamp]
 
 ### updatedAt
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.medical_imaging_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.medical_imaging_classes.Timestamp]
 
 ### DICOMStudyDateAndTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.medical_imaging_classes.DICOMStudyDateAndTimeTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# SearchCriteriaTypeDef
+# SearchCriteria
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.medical_imaging_classes.SearchFilterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.medical_imaging_classes.SearchFilter]]
 
 ### sort
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.medical_imaging_classes.SortTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.medical_imaging_classes.Sort]
 
 
-# SearchFilterTypeDef
+# SearchFilter
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# SearchImageSetsRequestPaginateTypeDef
+# SearchImageSetsRequest
 
 ### datastoreId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### searchCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.medical_imaging_classes.SearchCriteriaTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.medical_imaging_classes.PaginatorConfigTypeDef]
-
-
-# SearchImageSetsRequestTypeDef
-
-### datastoreId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### searchCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.medical_imaging_classes.SearchCriteriaTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.medical_imaging_classes.SearchCriteria]
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -906,25 +893,38 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SearchImageSetsResponseTypeDef
+# SearchImageSetsRequestPaginate
+
+### datastoreId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### searchCriteria
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.medical_imaging_classes.SearchCriteria]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.medical_imaging_classes.PaginatorConfig]
+
+
+# SearchImageSetsResponse
 
 ### imageSetsMetadataSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.medical_imaging_classes.ImageSetsMetadataSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.medical_imaging_classes.ImageSetsMetadataSummary]
 - **Required**: Yes
 
 ### sort
-- **Type**: <class 'aws_resource_validator.pydantic_models.medical_imaging_classes.SortTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.medical_imaging_classes.Sort'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.medical_imaging_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.medical_imaging_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# SortTypeDef
+# Sort
 
 ### sortOrder
 - **Type**: typing.Literal['ASC', 'DESC']
@@ -935,7 +935,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StartDICOMImportJobRequestTypeDef
+# StartDICOMImportJobRequest
 
 ### dataAccessRoleArn
 - **Type**: <class 'str'>
@@ -964,7 +964,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# StartDICOMImportJobResponseTypeDef
+# StartDICOMImportJobResponse
 
 ### datastoreId
 - **Type**: <class 'str'>
@@ -983,11 +983,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.medical_imaging_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.medical_imaging_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# TagResourceRequestTypeDef
+# TagResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -998,13 +998,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TimestampTypeDef
+# Timestamp
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# UntagResourceRequestTypeDef
+# UntagResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -1015,7 +1015,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateImageSetMetadataRequestTypeDef
+# UpdateImageSetMetadataRequest
 
 ### datastoreId
 - **Type**: <class 'str'>
@@ -1030,14 +1030,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### updateImageSetMetadataUpdates
-- **Type**: <class 'aws_resource_validator.pydantic_models.medical_imaging_classes.MetadataUpdatesTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.medical_imaging_classes.MetadataUpdates'>
 - **Required**: Yes
 
 ### force
 - **Type**: typing.Optional[bool]
 
 
-# UpdateImageSetMetadataResponseTypeDef
+# UpdateImageSetMetadataResponse
 
 ### datastoreId
 - **Type**: <class 'str'>
@@ -1072,7 +1072,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.medical_imaging_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.medical_imaging_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

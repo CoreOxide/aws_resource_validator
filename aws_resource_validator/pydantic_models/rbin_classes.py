@@ -12,22 +12,22 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.rbin_constants import *
 
-class ResourceTagTypeDef(BaseValidatorModel):
+class ResourceTag(BaseValidatorModel):
     ResourceTagKey: str
     ResourceTagValue: Optional[str] = None
 
 
-class RetentionPeriodTypeDef(BaseValidatorModel):
+class RetentionPeriod(BaseValidatorModel):
     RetentionPeriodValue: int
     RetentionPeriodUnit: Literal["DAYS"]
 
 
-class TagTypeDef(BaseValidatorModel):
+class Tag(BaseValidatorModel):
     Key: str
     Value: str
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -35,177 +35,177 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class DeleteRuleRequestTypeDef(BaseValidatorModel):
+class DeleteRuleRequest(BaseValidatorModel):
     Identifier: str
 
 
-class GetRuleRequestTypeDef(BaseValidatorModel):
+class GetRuleRequest(BaseValidatorModel):
     Identifier: str
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
 
-class UnlockDelayTypeDef(BaseValidatorModel):
+class UnlockDelay(BaseValidatorModel):
     UnlockDelayValue: int
     UnlockDelayUnit: Literal["DAYS"]
 
 
-class UnlockRuleRequestTypeDef(BaseValidatorModel):
+class UnlockRuleRequest(BaseValidatorModel):
     Identifier: str
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     TagKeys: Sequence[str]
 
 
-class ListRulesRequestTypeDef(BaseValidatorModel):
+class ListRulesRequest(BaseValidatorModel):
     ResourceType: ResourceTypeType
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
-    ResourceTags: Optional[Sequence[ResourceTagTypeDef]] = None
+    ResourceTags: Optional[Sequence[ResourceTag]] = None
     LockState: Optional[LockStateType] = None
-    ExcludeResourceTags: Optional[Sequence[ResourceTagTypeDef]] = None
+    ExcludeResourceTags: Optional[Sequence[ResourceTag]] = None
 
 
-class RuleSummaryTypeDef(BaseValidatorModel):
+class RuleSummary(BaseValidatorModel):
     Identifier: Optional[str] = None
     Description: Optional[str] = None
-    RetentionPeriod: Optional[RetentionPeriodTypeDef] = None
+    RetentionPeriod: Optional[RetentionPeriod] = None
     LockState: Optional[LockStateType] = None
     RuleArn: Optional[str] = None
 
 
-class UpdateRuleRequestTypeDef(BaseValidatorModel):
+class UpdateRuleRequest(BaseValidatorModel):
     Identifier: str
-    RetentionPeriod: Optional[RetentionPeriodTypeDef] = None
+    RetentionPeriod: Optional[RetentionPeriod] = None
     Description: Optional[str] = None
     ResourceType: Optional[ResourceTypeType] = None
-    ResourceTags: Optional[Sequence[ResourceTagTypeDef]] = None
-    ExcludeResourceTags: Optional[Sequence[ResourceTagTypeDef]] = None
+    ResourceTags: Optional[Sequence[ResourceTag]] = None
+    ExcludeResourceTags: Optional[Sequence[ResourceTag]] = None
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     ResourceArn: str
-    Tags: Sequence[TagTypeDef]
+    Tags: Sequence[Tag]
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
-    Tags: List[TagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListTagsForResourceResponse(BaseValidatorModel):
+    Tags: List[Tag]
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateRuleResponseTypeDef(BaseValidatorModel):
+class UpdateRuleResponse(BaseValidatorModel):
     Identifier: str
-    RetentionPeriod: RetentionPeriodTypeDef
+    RetentionPeriod: RetentionPeriod
     Description: str
     ResourceType: ResourceTypeType
-    ResourceTags: List[ResourceTagTypeDef]
+    ResourceTags: List[ResourceTag]
     Status: RuleStatusType
     LockState: LockStateType
     LockEndTime: datetime
     RuleArn: str
-    ExcludeResourceTags: List[ResourceTagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ExcludeResourceTags: List[ResourceTag]
+    ResponseMetadata: ResponseMetadata
 
 
-class ListRulesRequestPaginateTypeDef(BaseValidatorModel):
+class ListRulesRequestPaginate(BaseValidatorModel):
     ResourceType: ResourceTypeType
-    ResourceTags: Optional[Sequence[ResourceTagTypeDef]] = None
+    ResourceTags: Optional[Sequence[ResourceTag]] = None
     LockState: Optional[LockStateType] = None
-    ExcludeResourceTags: Optional[Sequence[ResourceTagTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    ExcludeResourceTags: Optional[Sequence[ResourceTag]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class LockConfigurationTypeDef(BaseValidatorModel):
-    UnlockDelay: UnlockDelayTypeDef
+class LockConfiguration(BaseValidatorModel):
+    UnlockDelay: UnlockDelay
 
 
-class ListRulesResponseTypeDef(BaseValidatorModel):
-    Rules: List[RuleSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListRulesResponse(BaseValidatorModel):
+    Rules: List[RuleSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class CreateRuleRequestTypeDef(BaseValidatorModel):
-    RetentionPeriod: RetentionPeriodTypeDef
+class CreateRuleRequest(BaseValidatorModel):
+    RetentionPeriod: RetentionPeriod
     ResourceType: ResourceTypeType
     Description: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
-    ResourceTags: Optional[Sequence[ResourceTagTypeDef]] = None
-    LockConfiguration: Optional[LockConfigurationTypeDef] = None
-    ExcludeResourceTags: Optional[Sequence[ResourceTagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
+    ResourceTags: Optional[Sequence[ResourceTag]] = None
+    LockConfiguration: Optional[LockConfiguration] = None
+    ExcludeResourceTags: Optional[Sequence[ResourceTag]] = None
 
 
-class CreateRuleResponseTypeDef(BaseValidatorModel):
+class CreateRuleResponse(BaseValidatorModel):
     Identifier: str
-    RetentionPeriod: RetentionPeriodTypeDef
+    RetentionPeriod: RetentionPeriod
     Description: str
-    Tags: List[TagTypeDef]
+    Tags: List[Tag]
     ResourceType: ResourceTypeType
-    ResourceTags: List[ResourceTagTypeDef]
+    ResourceTags: List[ResourceTag]
     Status: RuleStatusType
-    LockConfiguration: LockConfigurationTypeDef
+    LockConfiguration: LockConfiguration
     LockState: LockStateType
     RuleArn: str
-    ExcludeResourceTags: List[ResourceTagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ExcludeResourceTags: List[ResourceTag]
+    ResponseMetadata: ResponseMetadata
 
 
-class GetRuleResponseTypeDef(BaseValidatorModel):
+class GetRuleResponse(BaseValidatorModel):
     Identifier: str
     Description: str
     ResourceType: ResourceTypeType
-    RetentionPeriod: RetentionPeriodTypeDef
-    ResourceTags: List[ResourceTagTypeDef]
+    RetentionPeriod: RetentionPeriod
+    ResourceTags: List[ResourceTag]
     Status: RuleStatusType
-    LockConfiguration: LockConfigurationTypeDef
-    LockState: LockStateType
-    LockEndTime: datetime
-    RuleArn: str
-    ExcludeResourceTags: List[ResourceTagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
-
-
-class LockRuleRequestTypeDef(BaseValidatorModel):
-    Identifier: str
-    LockConfiguration: LockConfigurationTypeDef
-
-
-class LockRuleResponseTypeDef(BaseValidatorModel):
-    Identifier: str
-    Description: str
-    ResourceType: ResourceTypeType
-    RetentionPeriod: RetentionPeriodTypeDef
-    ResourceTags: List[ResourceTagTypeDef]
-    Status: RuleStatusType
-    LockConfiguration: LockConfigurationTypeDef
-    LockState: LockStateType
-    RuleArn: str
-    ExcludeResourceTags: List[ResourceTagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
-
-
-class UnlockRuleResponseTypeDef(BaseValidatorModel):
-    Identifier: str
-    Description: str
-    ResourceType: ResourceTypeType
-    RetentionPeriod: RetentionPeriodTypeDef
-    ResourceTags: List[ResourceTagTypeDef]
-    Status: RuleStatusType
-    LockConfiguration: LockConfigurationTypeDef
+    LockConfiguration: LockConfiguration
     LockState: LockStateType
     LockEndTime: datetime
     RuleArn: str
-    ExcludeResourceTags: List[ResourceTagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ExcludeResourceTags: List[ResourceTag]
+    ResponseMetadata: ResponseMetadata
+
+
+class LockRuleRequest(BaseValidatorModel):
+    Identifier: str
+    LockConfiguration: LockConfiguration
+
+
+class LockRuleResponse(BaseValidatorModel):
+    Identifier: str
+    Description: str
+    ResourceType: ResourceTypeType
+    RetentionPeriod: RetentionPeriod
+    ResourceTags: List[ResourceTag]
+    Status: RuleStatusType
+    LockConfiguration: LockConfiguration
+    LockState: LockStateType
+    RuleArn: str
+    ExcludeResourceTags: List[ResourceTag]
+    ResponseMetadata: ResponseMetadata
+
+
+class UnlockRuleResponse(BaseValidatorModel):
+    Identifier: str
+    Description: str
+    ResourceType: ResourceTypeType
+    RetentionPeriod: RetentionPeriod
+    ResourceTags: List[ResourceTag]
+    Status: RuleStatusType
+    LockConfiguration: LockConfiguration
+    LockState: LockStateType
+    LockEndTime: datetime
+    RuleArn: str
+    ExcludeResourceTags: List[ResourceTag]
+    ResponseMetadata: ResponseMetadata
 
 

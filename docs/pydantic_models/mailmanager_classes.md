@@ -1,6 +1,6 @@
 # Mailmanager Classes
 
-# AddHeaderActionTypeDef
+# AddHeaderAction
 
 ### HeaderName
 - **Type**: <class 'str'>
@@ -11,7 +11,7 @@
 - **Required**: Yes
 
 
-# AddonInstanceTypeDef
+# AddonInstance
 
 ### AddonInstanceArn
 - **Type**: typing.Optional[str]
@@ -29,7 +29,7 @@
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# AddonSubscriptionTypeDef
+# AddonSubscription
 
 ### AddonName
 - **Type**: typing.Optional[str]
@@ -44,13 +44,13 @@
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# AddressFilterTypeDef
+# AddressFilter
 
 ### AddressPrefix
 - **Type**: typing.Optional[str]
 
 
-# AddressListTypeDef
+# AddressList
 
 ### AddressListArn
 - **Type**: <class 'str'>
@@ -73,7 +73,7 @@
 - **Required**: Yes
 
 
-# AnalysisTypeDef
+# Analysis
 
 ### Analyzer
 - **Type**: <class 'str'>
@@ -84,118 +84,7 @@
 - **Required**: Yes
 
 
-# ArchiveActionTypeDef
-
-### TargetArchive
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ActionFailurePolicy
-- **Type**: typing.Optional[typing.Literal['CONTINUE', 'DROP']]
-
-
-# ArchiveBooleanExpressionTypeDef
-
-### Evaluate
-- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ArchiveBooleanToEvaluateTypeDef'>
-- **Required**: Yes
-
-### Operator
-- **Type**: typing.Literal['IS_FALSE', 'IS_TRUE']
-- **Required**: Yes
-
-
-# ArchiveBooleanToEvaluateTypeDef
-
-### Attribute
-- **Type**: typing.Optional[typing.Literal['HAS_ATTACHMENTS']]
-
-
-# ArchiveFilterConditionOutputTypeDef
-
-### BooleanExpression
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.ArchiveBooleanExpressionTypeDef]
-
-### StringExpression
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.ArchiveStringExpressionOutputTypeDef]
-
-
-# ArchiveFilterConditionTypeDef
-
-### BooleanExpression
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.ArchiveBooleanExpressionTypeDef]
-
-### StringExpression
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.ArchiveStringExpressionTypeDef]
-
-
-# ArchiveFiltersOutputTypeDef
-
-### Include
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mailmanager_classes.ArchiveFilterConditionOutputTypeDef]]
-
-### Unless
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mailmanager_classes.ArchiveFilterConditionOutputTypeDef]]
-
-
-# ArchiveFiltersTypeDef
-
-### Include
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mailmanager_classes.ArchiveFilterConditionTypeDef]]
-
-### Unless
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mailmanager_classes.ArchiveFilterConditionTypeDef]]
-
-
-# ArchiveFiltersUnionTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# ArchiveRetentionTypeDef
-
-### RetentionPeriod
-- **Type**: typing.Optional[typing.Literal['EIGHTEEN_MONTHS', 'EIGHT_YEARS', 'FIVE_YEARS', 'FOUR_YEARS', 'NINE_MONTHS', 'NINE_YEARS', 'ONE_YEAR', 'PERMANENT', 'SEVEN_YEARS', 'SIX_MONTHS', 'SIX_YEARS', 'TEN_YEARS', 'THIRTY_MONTHS', 'THREE_MONTHS', 'THREE_YEARS', 'TWO_YEARS']]
-
-
-# ArchiveStringExpressionOutputTypeDef
-
-### Evaluate
-- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ArchiveStringToEvaluateTypeDef'>
-- **Required**: Yes
-
-### Operator
-- **Type**: typing.Literal['CONTAINS']
-- **Required**: Yes
-
-### Values
-- **Type**: typing.List[str]
-- **Required**: Yes
-
-
-# ArchiveStringExpressionTypeDef
-
-### Evaluate
-- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ArchiveStringToEvaluateTypeDef'>
-- **Required**: Yes
-
-### Operator
-- **Type**: typing.Literal['CONTAINS']
-- **Required**: Yes
-
-### Values
-- **Type**: typing.Sequence[str]
-- **Required**: Yes
-
-
-# ArchiveStringToEvaluateTypeDef
-
-### Attribute
-- **Type**: typing.Optional[typing.Literal['CC', 'ENVELOPE_FROM', 'ENVELOPE_TO', 'FROM', 'SUBJECT', 'TO']]
-
-
-# ArchiveTypeDef
+# Archive
 
 ### ArchiveId
 - **Type**: <class 'str'>
@@ -211,13 +100,124 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
+# ArchiveAction
+
+### TargetArchive
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ActionFailurePolicy
+- **Type**: typing.Optional[typing.Literal['CONTINUE', 'DROP']]
+
+
+# ArchiveBooleanExpression
+
+### Evaluate
+- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ArchiveBooleanToEvaluate'>
+- **Required**: Yes
+
+### Operator
+- **Type**: typing.Literal['IS_FALSE', 'IS_TRUE']
+- **Required**: Yes
+
+
+# ArchiveBooleanToEvaluate
+
+### Attribute
+- **Type**: typing.Optional[typing.Literal['HAS_ATTACHMENTS']]
+
+
+# ArchiveFilterCondition
+
+### BooleanExpression
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.ArchiveBooleanExpression]
+
+### StringExpression
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.ArchiveStringExpression]
+
+
+# ArchiveFilterConditionOutput
+
+### BooleanExpression
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.ArchiveBooleanExpression]
+
+### StringExpression
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.ArchiveStringExpressionOutput]
+
+
+# ArchiveFilters
+
+### Include
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mailmanager_classes.ArchiveFilterCondition]]
+
+### Unless
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mailmanager_classes.ArchiveFilterCondition]]
+
+
+# ArchiveFiltersOutput
+
+### Include
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mailmanager_classes.ArchiveFilterConditionOutput]]
+
+### Unless
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mailmanager_classes.ArchiveFilterConditionOutput]]
+
+
+# ArchiveFiltersUnion
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# ArchiveRetention
+
+### RetentionPeriod
+- **Type**: typing.Optional[typing.Literal['EIGHTEEN_MONTHS', 'EIGHT_YEARS', 'FIVE_YEARS', 'FOUR_YEARS', 'NINE_MONTHS', 'NINE_YEARS', 'ONE_YEAR', 'PERMANENT', 'SEVEN_YEARS', 'SIX_MONTHS', 'SIX_YEARS', 'TEN_YEARS', 'THIRTY_MONTHS', 'THREE_MONTHS', 'THREE_YEARS', 'TWO_YEARS']]
+
+
+# ArchiveStringExpression
+
+### Evaluate
+- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ArchiveStringToEvaluate'>
+- **Required**: Yes
+
+### Operator
+- **Type**: typing.Literal['CONTAINS']
+- **Required**: Yes
+
+### Values
+- **Type**: typing.Sequence[str]
+- **Required**: Yes
+
+
+# ArchiveStringExpressionOutput
+
+### Evaluate
+- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ArchiveStringToEvaluate'>
+- **Required**: Yes
+
+### Operator
+- **Type**: typing.Literal['CONTAINS']
+- **Required**: Yes
+
+### Values
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+
+# ArchiveStringToEvaluate
+
+### Attribute
+- **Type**: typing.Optional[typing.Literal['CC', 'ENVELOPE_FROM', 'ENVELOPE_TO', 'FROM', 'SUBJECT', 'TO']]
+
+
 # BaseValidatorModel
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CreateAddonInstanceRequestTypeDef
+# CreateAddonInstanceRequest
 
 ### AddonSubscriptionId
 - **Type**: <class 'str'>
@@ -227,21 +227,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mailmanager_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mailmanager_classes.Tag]]
 
 
-# CreateAddonInstanceResponseTypeDef
+# CreateAddonInstanceResponse
 
 ### AddonInstanceId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateAddonSubscriptionRequestTypeDef
+# CreateAddonSubscriptionRequest
 
 ### AddonName
 - **Type**: <class 'str'>
@@ -251,28 +251,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mailmanager_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mailmanager_classes.Tag]]
 
 
-# CreateAddonSubscriptionResponseTypeDef
+# CreateAddonSubscriptionResponse
 
 ### AddonSubscriptionId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateAddressListImportJobRequestTypeDef
+# CreateAddressListImportJobRequest
 
 ### AddressListId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ImportDataFormat
-- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ImportDataFormatTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ImportDataFormat'>
 - **Required**: Yes
 
 ### Name
@@ -283,7 +283,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateAddressListImportJobResponseTypeDef
+# CreateAddressListImportJobResponse
 
 ### JobId
 - **Type**: <class 'str'>
@@ -294,11 +294,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateAddressListRequestTypeDef
+# CreateAddressListRequest
 
 ### AddressListName
 - **Type**: <class 'str'>
@@ -308,21 +308,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mailmanager_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mailmanager_classes.Tag]]
 
 
-# CreateAddressListResponseTypeDef
+# CreateAddressListResponse
 
 ### AddressListId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateArchiveRequestTypeDef
+# CreateArchiveRequest
 
 ### ArchiveName
 - **Type**: <class 'str'>
@@ -335,38 +335,38 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Retention
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.ArchiveRetentionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.ArchiveRetention]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mailmanager_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mailmanager_classes.Tag]]
 
 
-# CreateArchiveResponseTypeDef
+# CreateArchiveResponse
 
 ### ArchiveId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateIngressPointResponseTypeDef
+# CreateIngressPointResponse
 
 ### IngressPointId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateRelayRequestTypeDef
+# CreateRelayRequest
 
 ### Authentication
-- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.RelayAuthenticationUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.RelayAuthenticationUnion'>
 - **Required**: Yes
 
 ### RelayName
@@ -385,56 +385,56 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mailmanager_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mailmanager_classes.Tag]]
 
 
-# CreateRelayResponseTypeDef
+# CreateRelayResponse
 
 ### RelayId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateRuleSetRequestTypeDef
+# CreateRuleSetRequest
 
 ### RuleSetName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Rules
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.mailmanager_classes.RuleUnionTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.mailmanager_classes.RuleUnion]
 - **Required**: Yes
 
 ### ClientToken
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mailmanager_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mailmanager_classes.Tag]]
 
 
-# CreateRuleSetResponseTypeDef
+# CreateRuleSetResponse
 
 ### RuleSetId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateTrafficPolicyRequestTypeDef
+# CreateTrafficPolicyRequest
 
 ### DefaultAction
 - **Type**: typing.Literal['ALLOW', 'DENY']
 - **Required**: Yes
 
 ### PolicyStatements
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.mailmanager_classes.PolicyStatementUnionTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.mailmanager_classes.PolicyStatementUnion]
 - **Required**: Yes
 
 ### TrafficPolicyName
@@ -448,77 +448,77 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mailmanager_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mailmanager_classes.Tag]]
 
 
-# CreateTrafficPolicyResponseTypeDef
+# CreateTrafficPolicyResponse
 
 ### TrafficPolicyId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteAddonInstanceRequestTypeDef
+# DeleteAddonInstanceRequest
 
 ### AddonInstanceId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteAddonSubscriptionRequestTypeDef
+# DeleteAddonSubscriptionRequest
 
 ### AddonSubscriptionId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteAddressListRequestTypeDef
+# DeleteAddressListRequest
 
 ### AddressListId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteArchiveRequestTypeDef
+# DeleteArchiveRequest
 
 ### ArchiveId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteIngressPointRequestTypeDef
+# DeleteIngressPointRequest
 
 ### IngressPointId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteRelayRequestTypeDef
+# DeleteRelayRequest
 
 ### RelayId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteRuleSetRequestTypeDef
+# DeleteRuleSetRequest
 
 ### RuleSetId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteTrafficPolicyRequestTypeDef
+# DeleteTrafficPolicyRequest
 
 ### TrafficPolicyId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeliverToMailboxActionTypeDef
+# DeliverToMailboxAction
 
 ### MailboxArn
 - **Type**: <class 'str'>
@@ -532,7 +532,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CONTINUE', 'DROP']]
 
 
-# DeliverToQBusinessActionTypeDef
+# DeliverToQBusinessAction
 
 ### ApplicationId
 - **Type**: <class 'str'>
@@ -550,7 +550,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CONTINUE', 'DROP']]
 
 
-# DeregisterMemberFromAddressListRequestTypeDef
+# DeregisterMemberFromAddressListRequest
 
 ### Address
 - **Type**: <class 'str'>
@@ -561,7 +561,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# EnvelopeTypeDef
+# Envelope
 
 ### From
 - **Type**: typing.Optional[str]
@@ -573,13 +573,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# ExportDestinationConfigurationTypeDef
+# ExportDestinationConfiguration
 
 ### S3
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.S3ExportDestinationConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.S3ExportDestinationConfiguration]
 
 
-# ExportStatusTypeDef
+# ExportStatus
 
 ### CompletionTimestamp
 - **Type**: typing.Optional[datetime.datetime]
@@ -594,23 +594,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# ExportSummaryTypeDef
+# ExportSummary
 
 ### ExportId
 - **Type**: typing.Optional[str]
 
 ### Status
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.ExportStatusTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.ExportStatus]
 
 
-# GetAddonInstanceRequestTypeDef
+# GetAddonInstanceRequest
 
 ### AddonInstanceId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetAddonInstanceResponseTypeDef
+# GetAddonInstanceResponse
 
 ### AddonInstanceArn
 - **Type**: <class 'str'>
@@ -629,18 +629,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetAddonSubscriptionRequestTypeDef
+# GetAddonSubscriptionRequest
 
 ### AddonSubscriptionId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetAddonSubscriptionResponseTypeDef
+# GetAddonSubscriptionResponse
 
 ### AddonName
 - **Type**: <class 'str'>
@@ -655,18 +655,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetAddressListImportJobRequestTypeDef
+# GetAddressListImportJobRequest
 
 ### JobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetAddressListImportJobResponseTypeDef
+# GetAddressListImportJobResponse
 
 ### AddressListId
 - **Type**: <class 'str'>
@@ -689,7 +689,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ImportDataFormat
-- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ImportDataFormatTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ImportDataFormat'>
 - **Required**: Yes
 
 ### ImportedItemsCount
@@ -717,18 +717,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetAddressListRequestTypeDef
+# GetAddressListRequest
 
 ### AddressListId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetAddressListResponseTypeDef
+# GetAddressListResponse
 
 ### AddressListArn
 - **Type**: <class 'str'>
@@ -751,29 +751,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetArchiveExportRequestTypeDef
+# GetArchiveExportRequest
 
 ### ExportId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetArchiveExportResponseTypeDef
+# GetArchiveExportResponse
 
 ### ArchiveId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ExportDestinationConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ExportDestinationConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ExportDestinationConfiguration'>
 - **Required**: Yes
 
 ### Filters
-- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ArchiveFiltersOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ArchiveFiltersOutput'>
 - **Required**: Yes
 
 ### FromTimestamp
@@ -785,7 +785,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Status
-- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ExportStatusTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ExportStatus'>
 - **Required**: Yes
 
 ### ToTimestamp
@@ -793,39 +793,39 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetArchiveMessageContentRequestTypeDef
+# GetArchiveMessageContentRequest
 
 ### ArchivedMessageId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetArchiveMessageContentResponseTypeDef
+# GetArchiveMessageContentResponse
 
 ### Body
-- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.MessageBodyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.MessageBody'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetArchiveMessageRequestTypeDef
+# GetArchiveMessageRequest
 
 ### ArchivedMessageId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetArchiveMessageResponseTypeDef
+# GetArchiveMessageResponse
 
 ### Envelope
-- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.EnvelopeTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.Envelope'>
 - **Required**: Yes
 
 ### MessageDownloadLink
@@ -833,22 +833,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Metadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.MetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.Metadata'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetArchiveRequestTypeDef
+# GetArchiveRequest
 
 ### ArchiveId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetArchiveResponseTypeDef
+# GetArchiveResponse
 
 ### ArchiveArn
 - **Type**: <class 'str'>
@@ -879,29 +879,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Retention
-- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ArchiveRetentionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ArchiveRetention'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetArchiveSearchRequestTypeDef
+# GetArchiveSearchRequest
 
 ### SearchId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetArchiveSearchResponseTypeDef
+# GetArchiveSearchResponse
 
 ### ArchiveId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Filters
-- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ArchiveFiltersOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ArchiveFiltersOutput'>
 - **Required**: Yes
 
 ### FromTimestamp
@@ -913,7 +913,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Status
-- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.SearchStatusTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.SearchStatus'>
 - **Required**: Yes
 
 ### ToTimestamp
@@ -921,36 +921,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetArchiveSearchResultsRequestTypeDef
+# GetArchiveSearchResultsRequest
 
 ### SearchId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetArchiveSearchResultsResponseTypeDef
+# GetArchiveSearchResultsResponse
 
 ### Rows
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mailmanager_classes.RowTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mailmanager_classes.Row]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetIngressPointRequestTypeDef
+# GetIngressPointRequest
 
 ### IngressPointId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetMemberOfAddressListRequestTypeDef
+# GetMemberOfAddressListRequest
 
 ### Address
 - **Type**: <class 'str'>
@@ -961,7 +961,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetMemberOfAddressListResponseTypeDef
+# GetMemberOfAddressListResponse
 
 ### Address
 - **Type**: <class 'str'>
@@ -972,21 +972,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetRelayRequestTypeDef
+# GetRelayRequest
 
 ### RelayId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetRelayResponseTypeDef
+# GetRelayResponse
 
 ### Authentication
-- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.RelayAuthenticationOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.RelayAuthenticationOutput'>
 - **Required**: Yes
 
 ### CreatedTimestamp
@@ -1018,18 +1018,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetRuleSetRequestTypeDef
+# GetRuleSetRequest
 
 ### RuleSetId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetRuleSetResponseTypeDef
+# GetRuleSetResponse
 
 ### CreatedDate
 - **Type**: <class 'datetime.datetime'>
@@ -1052,22 +1052,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Rules
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mailmanager_classes.RuleOutputTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mailmanager_classes.RuleOutput]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetTrafficPolicyRequestTypeDef
+# GetTrafficPolicyRequest
 
 ### TrafficPolicyId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetTrafficPolicyResponseTypeDef
+# GetTrafficPolicyResponse
 
 ### CreatedTimestamp
 - **Type**: <class 'datetime.datetime'>
@@ -1086,7 +1086,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PolicyStatements
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mailmanager_classes.PolicyStatementOutputTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mailmanager_classes.PolicyStatementOutput]
 - **Required**: Yes
 
 ### TrafficPolicyArn
@@ -1102,18 +1102,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ImportDataFormatTypeDef
+# ImportDataFormat
 
 ### ImportDataType
 - **Type**: typing.Literal['CSV', 'JSON']
 - **Required**: Yes
 
 
-# ImportJobTypeDef
+# ImportJob
 
 ### AddressListId
 - **Type**: <class 'str'>
@@ -1124,7 +1124,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ImportDataFormat
-- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ImportDataFormatTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ImportDataFormat'>
 - **Required**: Yes
 
 ### JobId
@@ -1159,7 +1159,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# IngressAnalysisTypeDef
+# IngressAnalysis
 
 ### Analyzer
 - **Type**: <class 'str'>
@@ -1170,10 +1170,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# IngressBooleanExpressionOutputTypeDef
+# IngressBooleanExpression
 
 ### Evaluate
-- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.IngressBooleanToEvaluateOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.IngressBooleanToEvaluateUnion'>
 - **Required**: Yes
 
 ### Operator
@@ -1181,10 +1181,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# IngressBooleanExpressionTypeDef
+# IngressBooleanExpressionOutput
 
 ### Evaluate
-- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.IngressBooleanToEvaluateUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.IngressBooleanToEvaluateOutput'>
 - **Required**: Yes
 
 ### Operator
@@ -1192,61 +1192,46 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# IngressBooleanExpressionUnionTypeDef
+# IngressBooleanExpressionUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# IngressBooleanToEvaluateOutputTypeDef
+# IngressBooleanToEvaluate
 
 ### Analysis
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.IngressAnalysisTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.IngressAnalysis]
 
 ### IsInAddressList
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.IngressIsInAddressListOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.IngressIsInAddressListUnion]
 
 
-# IngressBooleanToEvaluateTypeDef
+# IngressBooleanToEvaluateOutput
 
 ### Analysis
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.IngressAnalysisTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.IngressAnalysis]
 
 ### IsInAddressList
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.IngressIsInAddressListUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.IngressIsInAddressListOutput]
 
 
-# IngressBooleanToEvaluateUnionTypeDef
+# IngressBooleanToEvaluateUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# IngressIpToEvaluateTypeDef
+# IngressIpToEvaluate
 
 ### Attribute
 - **Type**: typing.Optional[typing.Literal['SENDER_IP']]
 
 
-# IngressIpv4ExpressionOutputTypeDef
+# IngressIpv4Expression
 
 ### Evaluate
-- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.IngressIpToEvaluateTypeDef'>
-- **Required**: Yes
-
-### Operator
-- **Type**: typing.Literal['CIDR_MATCHES', 'NOT_CIDR_MATCHES']
-- **Required**: Yes
-
-### Values
-- **Type**: typing.List[str]
-- **Required**: Yes
-
-
-# IngressIpv4ExpressionTypeDef
-
-### Evaluate
-- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.IngressIpToEvaluateTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.IngressIpToEvaluate'>
 - **Required**: Yes
 
 ### Operator
@@ -1258,24 +1243,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# IngressIpv4ExpressionUnionTypeDef
+# IngressIpv4ExpressionOutput
+
+### Evaluate
+- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.IngressIpToEvaluate'>
+- **Required**: Yes
+
+### Operator
+- **Type**: typing.Literal['CIDR_MATCHES', 'NOT_CIDR_MATCHES']
+- **Required**: Yes
+
+### Values
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+
+# IngressIpv4ExpressionUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# IngressIsInAddressListOutputTypeDef
-
-### AddressLists
-- **Type**: typing.List[str]
-- **Required**: Yes
-
-### Attribute
-- **Type**: typing.Literal['RECIPIENT']
-- **Required**: Yes
-
-
-# IngressIsInAddressListTypeDef
+# IngressIsInAddressList
 
 ### AddressLists
 - **Type**: typing.Sequence[str]
@@ -1286,22 +1275,39 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# IngressIsInAddressListUnionTypeDef
+# IngressIsInAddressListOutput
+
+### AddressLists
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### Attribute
+- **Type**: typing.Literal['RECIPIENT']
+- **Required**: Yes
+
+
+# IngressIsInAddressListUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# IngressPointAuthConfigurationTypeDef
+# IngressPoint
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# IngressPointAuthConfiguration
 
 ### IngressPointPasswordConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.IngressPointPasswordConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### SecretArn
 - **Type**: typing.Optional[str]
 
 
-# IngressPointConfigurationTypeDef
+# IngressPointConfiguration
 
 ### SecretArn
 - **Type**: typing.Optional[str]
@@ -1310,7 +1316,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# IngressPointPasswordConfigurationTypeDef
+# IngressPointPasswordConfiguration
 
 ### PreviousSmtpPasswordExpiryTimestamp
 - **Type**: typing.Optional[datetime.datetime]
@@ -1322,31 +1328,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# IngressPointTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# IngressStringExpressionOutputTypeDef
+# IngressStringExpression
 
 ### Evaluate
-- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.IngressStringToEvaluateTypeDef'>
-- **Required**: Yes
-
-### Operator
-- **Type**: typing.Literal['CONTAINS', 'ENDS_WITH', 'EQUALS', 'NOT_EQUALS', 'STARTS_WITH']
-- **Required**: Yes
-
-### Values
-- **Type**: typing.List[str]
-- **Required**: Yes
-
-
-# IngressStringExpressionTypeDef
-
-### Evaluate
-- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.IngressStringToEvaluateTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.IngressStringToEvaluate'>
 - **Required**: Yes
 
 ### Operator
@@ -1358,22 +1343,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# IngressStringExpressionUnionTypeDef
+# IngressStringExpressionOutput
+
+### Evaluate
+- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.IngressStringToEvaluate'>
+- **Required**: Yes
+
+### Operator
+- **Type**: typing.Literal['CONTAINS', 'ENDS_WITH', 'EQUALS', 'NOT_EQUALS', 'STARTS_WITH']
+- **Required**: Yes
+
+### Values
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+
+# IngressStringExpressionUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# IngressStringToEvaluateTypeDef
+# IngressStringToEvaluate
 
 ### Attribute
 - **Type**: typing.Optional[typing.Literal['RECIPIENT']]
 
 
-# IngressTlsProtocolExpressionTypeDef
+# IngressTlsProtocolExpression
 
 ### Evaluate
-- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.IngressTlsProtocolToEvaluateTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.IngressTlsProtocolToEvaluate'>
 - **Required**: Yes
 
 ### Operator
@@ -1385,19 +1385,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# IngressTlsProtocolToEvaluateTypeDef
+# IngressTlsProtocolToEvaluate
 
 ### Attribute
 - **Type**: typing.Optional[typing.Literal['TLS_PROTOCOL']]
 
 
-# ListAddonInstancesRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.PaginatorConfigTypeDef]
-
-
-# ListAddonInstancesRequestTypeDef
+# ListAddonInstancesRequest
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -1406,27 +1400,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListAddonInstancesResponseTypeDef
+# ListAddonInstancesRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.PaginatorConfig]
+
+
+# ListAddonInstancesResponse
 
 ### AddonInstances
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mailmanager_classes.AddonInstanceTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mailmanager_classes.AddonInstance]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListAddonSubscriptionsRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.PaginatorConfigTypeDef]
-
-
-# ListAddonSubscriptionsRequestTypeDef
+# ListAddonSubscriptionsRequest
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -1435,31 +1429,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListAddonSubscriptionsResponseTypeDef
+# ListAddonSubscriptionsRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.PaginatorConfig]
+
+
+# ListAddonSubscriptionsResponse
 
 ### AddonSubscriptions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mailmanager_classes.AddonSubscriptionTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mailmanager_classes.AddonSubscription]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListAddressListImportJobsRequestPaginateTypeDef
-
-### AddressListId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.PaginatorConfigTypeDef]
-
-
-# ListAddressListImportJobsRequestTypeDef
+# ListAddressListImportJobsRequest
 
 ### AddressListId
 - **Type**: <class 'str'>
@@ -1472,27 +1462,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListAddressListImportJobsResponseTypeDef
+# ListAddressListImportJobsRequestPaginate
+
+### AddressListId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.PaginatorConfig]
+
+
+# ListAddressListImportJobsResponse
 
 ### ImportJobs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mailmanager_classes.ImportJobTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mailmanager_classes.ImportJob]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListAddressListsRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.PaginatorConfigTypeDef]
-
-
-# ListAddressListsRequestTypeDef
+# ListAddressListsRequest
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -1501,31 +1495,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListAddressListsResponseTypeDef
+# ListAddressListsRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.PaginatorConfig]
+
+
+# ListAddressListsResponse
 
 ### AddressLists
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mailmanager_classes.AddressListTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mailmanager_classes.AddressList]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListArchiveExportsRequestPaginateTypeDef
-
-### ArchiveId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.PaginatorConfigTypeDef]
-
-
-# ListArchiveExportsRequestTypeDef
+# ListArchiveExportsRequest
 
 ### ArchiveId
 - **Type**: <class 'str'>
@@ -1538,31 +1528,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListArchiveExportsResponseTypeDef
+# ListArchiveExportsRequestPaginate
+
+### ArchiveId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.PaginatorConfig]
+
+
+# ListArchiveExportsResponse
 
 ### Exports
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mailmanager_classes.ExportSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mailmanager_classes.ExportSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListArchiveSearchesRequestPaginateTypeDef
-
-### ArchiveId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.PaginatorConfigTypeDef]
-
-
-# ListArchiveSearchesRequestTypeDef
+# ListArchiveSearchesRequest
 
 ### ArchiveId
 - **Type**: <class 'str'>
@@ -1575,27 +1565,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListArchiveSearchesResponseTypeDef
+# ListArchiveSearchesRequestPaginate
+
+### ArchiveId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.PaginatorConfig]
+
+
+# ListArchiveSearchesResponse
 
 ### Searches
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mailmanager_classes.SearchSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mailmanager_classes.SearchSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListArchivesRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.PaginatorConfigTypeDef]
-
-
-# ListArchivesRequestTypeDef
+# ListArchivesRequest
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -1604,27 +1598,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListArchivesResponseTypeDef
+# ListArchivesRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.PaginatorConfig]
+
+
+# ListArchivesResponse
 
 ### Archives
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mailmanager_classes.ArchiveTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mailmanager_classes.Archive]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListIngressPointsRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.PaginatorConfigTypeDef]
-
-
-# ListIngressPointsRequestTypeDef
+# ListIngressPointsRequest
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -1633,41 +1627,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListIngressPointsResponseTypeDef
+# ListIngressPointsRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.PaginatorConfig]
+
+
+# ListIngressPointsResponse
 
 ### IngressPoints
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mailmanager_classes.IngressPointTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mailmanager_classes.IngressPoint]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListMembersOfAddressListRequestPaginateTypeDef
+# ListMembersOfAddressListRequest
 
 ### AddressListId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.AddressFilterTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.PaginatorConfigTypeDef]
-
-
-# ListMembersOfAddressListRequestTypeDef
-
-### AddressListId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.AddressFilterTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.AddressFilter]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -1676,27 +1663,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListMembersOfAddressListResponseTypeDef
+# ListMembersOfAddressListRequestPaginate
+
+### AddressListId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Filter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.AddressFilter]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.PaginatorConfig]
+
+
+# ListMembersOfAddressListResponse
 
 ### Addresses
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mailmanager_classes.SavedAddressTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mailmanager_classes.SavedAddress]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListRelaysRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.PaginatorConfigTypeDef]
-
-
-# ListRelaysRequestTypeDef
+# ListRelaysRequest
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -1705,27 +1699,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListRelaysResponseTypeDef
+# ListRelaysRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.PaginatorConfig]
+
+
+# ListRelaysResponse
 
 ### Relays
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mailmanager_classes.RelayTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mailmanager_classes.Relay]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListRuleSetsRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.PaginatorConfigTypeDef]
-
-
-# ListRuleSetsRequestTypeDef
+# ListRuleSetsRequest
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -1734,45 +1728,45 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListRuleSetsResponseTypeDef
+# ListRuleSetsRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.PaginatorConfig]
+
+
+# ListRuleSetsResponse
 
 ### RuleSets
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mailmanager_classes.RuleSetTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mailmanager_classes.RuleSet]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestTypeDef
+# ListTagsForResourceRequest
 
 ### ResourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ListTagsForResourceResponseTypeDef
+# ListTagsForResourceResponse
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mailmanager_classes.TagTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mailmanager_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListTrafficPoliciesRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.PaginatorConfigTypeDef]
-
-
-# ListTrafficPoliciesRequestTypeDef
+# ListTrafficPoliciesRequest
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -1781,27 +1775,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListTrafficPoliciesResponseTypeDef
+# ListTrafficPoliciesRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.PaginatorConfig]
+
+
+# ListTrafficPoliciesResponse
 
 ### TrafficPolicies
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mailmanager_classes.TrafficPolicyTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mailmanager_classes.TrafficPolicy]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# MessageBodyTypeDef
+# MessageBody
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# MetadataTypeDef
+# Metadata
 
 ### ConfigurationSet
 - **Type**: typing.Optional[str]
@@ -1843,7 +1843,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -1855,71 +1855,71 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PolicyConditionOutputTypeDef
+# PolicyCondition
 
 ### BooleanExpression
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.IngressBooleanExpressionOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.IngressBooleanExpressionUnion]
 
 ### IpExpression
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.IngressIpv4ExpressionOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.IngressIpv4ExpressionUnion]
 
 ### StringExpression
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.IngressStringExpressionOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.IngressStringExpressionUnion]
 
 ### TlsExpression
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.IngressTlsProtocolExpressionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.IngressTlsProtocolExpression]
 
 
-# PolicyConditionTypeDef
+# PolicyConditionOutput
 
 ### BooleanExpression
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.IngressBooleanExpressionUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.IngressBooleanExpressionOutput]
 
 ### IpExpression
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.IngressIpv4ExpressionUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.IngressIpv4ExpressionOutput]
 
 ### StringExpression
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.IngressStringExpressionUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.IngressStringExpressionOutput]
 
 ### TlsExpression
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.IngressTlsProtocolExpressionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.IngressTlsProtocolExpression]
 
 
-# PolicyConditionUnionTypeDef
+# PolicyConditionUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# PolicyStatementOutputTypeDef
+# PolicyStatement
 
 ### Action
 - **Type**: typing.Literal['ALLOW', 'DENY']
 - **Required**: Yes
 
 ### Conditions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mailmanager_classes.PolicyConditionOutputTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.mailmanager_classes.PolicyConditionUnion]
 - **Required**: Yes
 
 
-# PolicyStatementTypeDef
+# PolicyStatementOutput
 
 ### Action
 - **Type**: typing.Literal['ALLOW', 'DENY']
 - **Required**: Yes
 
 ### Conditions
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.mailmanager_classes.PolicyConditionUnionTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mailmanager_classes.PolicyConditionOutput]
 - **Required**: Yes
 
 
-# PolicyStatementUnionTypeDef
+# PolicyStatementUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# RegisterMemberToAddressListRequestTypeDef
+# RegisterMemberToAddressListRequest
 
 ### Address
 - **Type**: <class 'str'>
@@ -1930,7 +1930,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RelayActionTypeDef
+# Relay
+
+### LastModifiedTimestamp
+- **Type**: typing.Optional[datetime.datetime]
+
+### RelayId
+- **Type**: typing.Optional[str]
+
+### RelayName
+- **Type**: typing.Optional[str]
+
+
+# RelayAction
 
 ### Relay
 - **Type**: <class 'str'>
@@ -1943,16 +1955,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['PRESERVE', 'REPLACE']]
 
 
-# RelayAuthenticationOutputTypeDef
-
-### NoAuthentication
-- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
-
-### SecretArn
-- **Type**: typing.Optional[str]
-
-
-# RelayAuthenticationTypeDef
+# RelayAuthentication
 
 ### NoAuthentication
 - **Type**: typing.Optional[typing.Mapping[str, typing.Any]]
@@ -1961,43 +1964,40 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RelayAuthenticationUnionTypeDef
+# RelayAuthenticationOutput
+
+### NoAuthentication
+- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
+
+### SecretArn
+- **Type**: typing.Optional[str]
+
+
+# RelayAuthenticationUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# RelayTypeDef
-
-### LastModifiedTimestamp
-- **Type**: typing.Optional[datetime.datetime]
-
-### RelayId
-- **Type**: typing.Optional[str]
-
-### RelayName
-- **Type**: typing.Optional[str]
-
-
-# ReplaceRecipientActionOutputTypeDef
-
-### ReplaceWith
-- **Type**: typing.Optional[typing.List[str]]
-
-
-# ReplaceRecipientActionTypeDef
+# ReplaceRecipientAction
 
 ### ReplaceWith
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# ReplaceRecipientActionUnionTypeDef
+# ReplaceRecipientActionOutput
+
+### ReplaceWith
+- **Type**: typing.Optional[typing.List[str]]
+
+
+# ReplaceRecipientActionUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -2019,7 +2019,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RowTypeDef
+# Row
 
 ### ArchivedMessageId
 - **Type**: typing.Optional[str]
@@ -2031,7 +2031,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Envelope
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.EnvelopeTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### From
 - **Type**: typing.Optional[str]
@@ -2079,76 +2079,92 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RuleActionOutputTypeDef
+# Rule
+
+### Actions
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.mailmanager_classes.RuleActionUnion]
+- **Required**: Yes
+
+### Conditions
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mailmanager_classes.RuleConditionUnion]]
+
+### Name
+- **Type**: typing.Optional[str]
+
+### Unless
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mailmanager_classes.RuleConditionUnion]]
+
+
+# RuleAction
 
 ### AddHeader
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.AddHeaderActionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.AddHeaderAction]
 
 ### Archive
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.ArchiveActionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.ArchiveAction]
 
 ### DeliverToMailbox
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.DeliverToMailboxActionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.DeliverToMailboxAction]
 
 ### DeliverToQBusiness
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.DeliverToQBusinessActionTypeDef]
-
-### Drop
-- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
-
-### Relay
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.RelayActionTypeDef]
-
-### ReplaceRecipient
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.ReplaceRecipientActionOutputTypeDef]
-
-### Send
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.SendActionTypeDef]
-
-### WriteToS3
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.S3ActionTypeDef]
-
-
-# RuleActionTypeDef
-
-### AddHeader
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.AddHeaderActionTypeDef]
-
-### Archive
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.ArchiveActionTypeDef]
-
-### DeliverToMailbox
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.DeliverToMailboxActionTypeDef]
-
-### DeliverToQBusiness
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.DeliverToQBusinessActionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.DeliverToQBusinessAction]
 
 ### Drop
 - **Type**: typing.Optional[typing.Mapping[str, typing.Any]]
 
 ### Relay
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.RelayActionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.RelayAction]
 
 ### ReplaceRecipient
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.ReplaceRecipientActionUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.ReplaceRecipientActionUnion]
 
 ### Send
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.SendActionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.SendAction]
 
 ### WriteToS3
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.S3ActionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.S3Action]
 
 
-# RuleActionUnionTypeDef
+# RuleActionOutput
+
+### AddHeader
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.AddHeaderAction]
+
+### Archive
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.ArchiveAction]
+
+### DeliverToMailbox
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.DeliverToMailboxAction]
+
+### DeliverToQBusiness
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.DeliverToQBusinessAction]
+
+### Drop
+- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
+
+### Relay
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.RelayAction]
+
+### ReplaceRecipient
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.ReplaceRecipientActionOutput]
+
+### Send
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.SendAction]
+
+### WriteToS3
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.S3Action]
+
+
+# RuleActionUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# RuleBooleanExpressionOutputTypeDef
+# RuleBooleanExpression
 
 ### Evaluate
-- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.RuleBooleanToEvaluateOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.RuleBooleanToEvaluateUnion'>
 - **Required**: Yes
 
 ### Operator
@@ -2156,10 +2172,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RuleBooleanExpressionTypeDef
+# RuleBooleanExpressionOutput
 
 ### Evaluate
-- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.RuleBooleanToEvaluateUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.RuleBooleanToEvaluateOutput'>
 - **Required**: Yes
 
 ### Operator
@@ -2167,96 +2183,85 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RuleBooleanExpressionUnionTypeDef
+# RuleBooleanExpressionUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# RuleBooleanToEvaluateOutputTypeDef
+# RuleBooleanToEvaluate
 
 ### Attribute
 - **Type**: typing.Optional[typing.Literal['READ_RECEIPT_REQUESTED', 'TLS', 'TLS_WRAPPED']]
 
 ### IsInAddressList
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.RuleIsInAddressListOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.RuleIsInAddressListUnion]
 
 
-# RuleBooleanToEvaluateTypeDef
+# RuleBooleanToEvaluateOutput
 
 ### Attribute
 - **Type**: typing.Optional[typing.Literal['READ_RECEIPT_REQUESTED', 'TLS', 'TLS_WRAPPED']]
 
 ### IsInAddressList
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.RuleIsInAddressListUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.RuleIsInAddressListOutput]
 
 
-# RuleBooleanToEvaluateUnionTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# RuleConditionOutputTypeDef
-
-### BooleanExpression
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.RuleBooleanExpressionOutputTypeDef]
-
-### DmarcExpression
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.RuleDmarcExpressionOutputTypeDef]
-
-### IpExpression
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.RuleIpExpressionOutputTypeDef]
-
-### NumberExpression
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.RuleNumberExpressionTypeDef]
-
-### StringExpression
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.RuleStringExpressionOutputTypeDef]
-
-### VerdictExpression
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.RuleVerdictExpressionOutputTypeDef]
-
-
-# RuleConditionTypeDef
-
-### BooleanExpression
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.RuleBooleanExpressionUnionTypeDef]
-
-### DmarcExpression
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.RuleDmarcExpressionUnionTypeDef]
-
-### IpExpression
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.RuleIpExpressionUnionTypeDef]
-
-### NumberExpression
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.RuleNumberExpressionTypeDef]
-
-### StringExpression
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.RuleStringExpressionUnionTypeDef]
-
-### VerdictExpression
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.RuleVerdictExpressionUnionTypeDef]
-
-
-# RuleConditionUnionTypeDef
+# RuleBooleanToEvaluateUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# RuleDmarcExpressionOutputTypeDef
+# RuleCondition
 
-### Operator
-- **Type**: typing.Literal['EQUALS', 'NOT_EQUALS']
-- **Required**: Yes
+### BooleanExpression
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.RuleBooleanExpressionUnion]
 
-### Values
-- **Type**: typing.List[typing.Literal['NONE', 'QUARANTINE', 'REJECT']]
-- **Required**: Yes
+### DmarcExpression
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.RuleDmarcExpressionUnion]
+
+### IpExpression
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.RuleIpExpressionUnion]
+
+### NumberExpression
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.RuleNumberExpression]
+
+### StringExpression
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.RuleStringExpressionUnion]
+
+### VerdictExpression
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.RuleVerdictExpressionUnion]
 
 
-# RuleDmarcExpressionTypeDef
+# RuleConditionOutput
+
+### BooleanExpression
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.RuleBooleanExpressionOutput]
+
+### DmarcExpression
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.RuleDmarcExpressionOutput]
+
+### IpExpression
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.RuleIpExpressionOutput]
+
+### NumberExpression
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.RuleNumberExpression]
+
+### StringExpression
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.RuleStringExpressionOutput]
+
+### VerdictExpression
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.RuleVerdictExpressionOutput]
+
+
+# RuleConditionUnion
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# RuleDmarcExpression
 
 ### Operator
 - **Type**: typing.Literal['EQUALS', 'NOT_EQUALS']
@@ -2267,31 +2272,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RuleDmarcExpressionUnionTypeDef
+# RuleDmarcExpressionOutput
+
+### Operator
+- **Type**: typing.Literal['EQUALS', 'NOT_EQUALS']
+- **Required**: Yes
+
+### Values
+- **Type**: typing.List[typing.Literal['NONE', 'QUARANTINE', 'REJECT']]
+- **Required**: Yes
+
+
+# RuleDmarcExpressionUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# RuleIpExpressionOutputTypeDef
+# RuleIpExpression
 
 ### Evaluate
-- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.RuleIpToEvaluateTypeDef'>
-- **Required**: Yes
-
-### Operator
-- **Type**: typing.Literal['CIDR_MATCHES', 'NOT_CIDR_MATCHES']
-- **Required**: Yes
-
-### Values
-- **Type**: typing.List[str]
-- **Required**: Yes
-
-
-# RuleIpExpressionTypeDef
-
-### Evaluate
-- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.RuleIpToEvaluateTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.RuleIpToEvaluate'>
 - **Required**: Yes
 
 ### Operator
@@ -2303,30 +2304,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RuleIpExpressionUnionTypeDef
+# RuleIpExpressionOutput
+
+### Evaluate
+- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.RuleIpToEvaluate'>
+- **Required**: Yes
+
+### Operator
+- **Type**: typing.Literal['CIDR_MATCHES', 'NOT_CIDR_MATCHES']
+- **Required**: Yes
+
+### Values
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+
+# RuleIpExpressionUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# RuleIpToEvaluateTypeDef
+# RuleIpToEvaluate
 
 ### Attribute
 - **Type**: typing.Optional[typing.Literal['SOURCE_IP']]
 
 
-# RuleIsInAddressListOutputTypeDef
-
-### AddressLists
-- **Type**: typing.List[str]
-- **Required**: Yes
-
-### Attribute
-- **Type**: typing.Literal['CC', 'FROM', 'MAIL_FROM', 'RECIPIENT', 'SENDER', 'TO']
-- **Required**: Yes
-
-
-# RuleIsInAddressListTypeDef
+# RuleIsInAddressList
 
 ### AddressLists
 - **Type**: typing.Sequence[str]
@@ -2337,16 +2342,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RuleIsInAddressListUnionTypeDef
+# RuleIsInAddressListOutput
+
+### AddressLists
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### Attribute
+- **Type**: typing.Literal['CC', 'FROM', 'MAIL_FROM', 'RECIPIENT', 'SENDER', 'TO']
+- **Required**: Yes
+
+
+# RuleIsInAddressListUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# RuleNumberExpressionTypeDef
+# RuleNumberExpression
 
 ### Evaluate
-- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.RuleNumberToEvaluateTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.RuleNumberToEvaluate'>
 - **Required**: Yes
 
 ### Operator
@@ -2358,29 +2374,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RuleNumberToEvaluateTypeDef
+# RuleNumberToEvaluate
 
 ### Attribute
 - **Type**: typing.Optional[typing.Literal['MESSAGE_SIZE']]
 
 
-# RuleOutputTypeDef
+# RuleOutput
 
 ### Actions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mailmanager_classes.RuleActionOutputTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mailmanager_classes.RuleActionOutput]
 - **Required**: Yes
 
 ### Conditions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mailmanager_classes.RuleConditionOutputTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mailmanager_classes.RuleConditionOutput]]
 
 ### Name
 - **Type**: typing.Optional[str]
 
 ### Unless
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mailmanager_classes.RuleConditionOutputTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mailmanager_classes.RuleConditionOutput]]
 
 
-# RuleSetTypeDef
+# RuleSet
 
 ### LastModificationDate
 - **Type**: typing.Optional[datetime.datetime]
@@ -2392,25 +2408,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RuleStringExpressionOutputTypeDef
+# RuleStringExpression
 
 ### Evaluate
-- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.RuleStringToEvaluateTypeDef'>
-- **Required**: Yes
-
-### Operator
-- **Type**: typing.Literal['CONTAINS', 'ENDS_WITH', 'EQUALS', 'NOT_EQUALS', 'STARTS_WITH']
-- **Required**: Yes
-
-### Values
-- **Type**: typing.List[str]
-- **Required**: Yes
-
-
-# RuleStringExpressionTypeDef
-
-### Evaluate
-- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.RuleStringToEvaluateTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.RuleStringToEvaluate'>
 - **Required**: Yes
 
 ### Operator
@@ -2422,13 +2423,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RuleStringExpressionUnionTypeDef
+# RuleStringExpressionOutput
+
+### Evaluate
+- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.RuleStringToEvaluate'>
+- **Required**: Yes
+
+### Operator
+- **Type**: typing.Literal['CONTAINS', 'ENDS_WITH', 'EQUALS', 'NOT_EQUALS', 'STARTS_WITH']
+- **Required**: Yes
+
+### Values
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+
+# RuleStringExpressionUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# RuleStringToEvaluateTypeDef
+# RuleStringToEvaluate
 
 ### Attribute
 - **Type**: typing.Optional[typing.Literal['CC', 'FROM', 'HELO', 'MAIL_FROM', 'RECIPIENT', 'SENDER', 'SUBJECT', 'TO']]
@@ -2437,47 +2453,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RuleTypeDef
-
-### Actions
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.mailmanager_classes.RuleActionUnionTypeDef]
-- **Required**: Yes
-
-### Conditions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mailmanager_classes.RuleConditionUnionTypeDef]]
-
-### Name
-- **Type**: typing.Optional[str]
-
-### Unless
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mailmanager_classes.RuleConditionUnionTypeDef]]
-
-
-# RuleUnionTypeDef
+# RuleUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# RuleVerdictExpressionOutputTypeDef
+# RuleVerdictExpression
 
 ### Evaluate
-- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.RuleVerdictToEvaluateTypeDef'>
-- **Required**: Yes
-
-### Operator
-- **Type**: typing.Literal['EQUALS', 'NOT_EQUALS']
-- **Required**: Yes
-
-### Values
-- **Type**: typing.List[typing.Literal['FAIL', 'GRAY', 'PASS', 'PROCESSING_FAILED']]
-- **Required**: Yes
-
-
-# RuleVerdictExpressionTypeDef
-
-### Evaluate
-- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.RuleVerdictToEvaluateTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.RuleVerdictToEvaluate'>
 - **Required**: Yes
 
 ### Operator
@@ -2489,22 +2474,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RuleVerdictExpressionUnionTypeDef
+# RuleVerdictExpressionOutput
+
+### Evaluate
+- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.RuleVerdictToEvaluate'>
+- **Required**: Yes
+
+### Operator
+- **Type**: typing.Literal['EQUALS', 'NOT_EQUALS']
+- **Required**: Yes
+
+### Values
+- **Type**: typing.List[typing.Literal['FAIL', 'GRAY', 'PASS', 'PROCESSING_FAILED']]
+- **Required**: Yes
+
+
+# RuleVerdictExpressionUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# RuleVerdictToEvaluateTypeDef
+# RuleVerdictToEvaluate
 
 ### Analysis
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.AnalysisTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### Attribute
 - **Type**: typing.Optional[typing.Literal['DKIM', 'SPF']]
 
 
-# S3ActionTypeDef
+# S3Action
 
 ### RoleArn
 - **Type**: <class 'str'>
@@ -2524,13 +2524,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# S3ExportDestinationConfigurationTypeDef
+# S3ExportDestinationConfiguration
 
 ### S3Location
 - **Type**: typing.Optional[str]
 
 
-# SavedAddressTypeDef
+# SavedAddress
 
 ### Address
 - **Type**: <class 'str'>
@@ -2541,7 +2541,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SearchStatusTypeDef
+# SearchStatus
 
 ### CompletionTimestamp
 - **Type**: typing.Optional[datetime.datetime]
@@ -2556,16 +2556,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# SearchSummaryTypeDef
+# SearchSummary
 
 ### SearchId
 - **Type**: typing.Optional[str]
 
 ### Status
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.SearchStatusTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.SearchStatus]
 
 
-# SendActionTypeDef
+# SendAction
 
 ### RoleArn
 - **Type**: <class 'str'>
@@ -2575,33 +2575,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CONTINUE', 'DROP']]
 
 
-# StartAddressListImportJobRequestTypeDef
+# StartAddressListImportJobRequest
 
 ### JobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# StartArchiveExportRequestTypeDef
+# StartArchiveExportRequest
 
 ### ArchiveId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ExportDestinationConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ExportDestinationConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ExportDestinationConfiguration'>
 - **Required**: Yes
 
 ### FromTimestamp
-- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.TimestampTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.Timestamp'>
 - **Required**: Yes
 
 ### ToTimestamp
-- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.TimestampTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.Timestamp'>
 - **Required**: Yes
 
 ### Filters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.ArchiveFiltersUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.ArchiveFiltersUnion]
 
 ### IncludeMetadata
 - **Type**: typing.Optional[bool]
@@ -2610,25 +2610,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# StartArchiveExportResponseTypeDef
+# StartArchiveExportResponse
 
 ### ExportId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# StartArchiveSearchRequestTypeDef
+# StartArchiveSearchRequest
 
 ### ArchiveId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### FromTimestamp
-- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.TimestampTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.Timestamp'>
 - **Required**: Yes
 
 ### MaxResults
@@ -2636,57 +2636,46 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ToTimestamp
-- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.TimestampTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.Timestamp'>
 - **Required**: Yes
 
 ### Filters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.ArchiveFiltersUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.ArchiveFiltersUnion]
 
 
-# StartArchiveSearchResponseTypeDef
+# StartArchiveSearchResponse
 
 ### SearchId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mailmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# StopAddressListImportJobRequestTypeDef
+# StopAddressListImportJobRequest
 
 ### JobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# StopArchiveExportRequestTypeDef
+# StopArchiveExportRequest
 
 ### ExportId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# StopArchiveSearchRequestTypeDef
+# StopArchiveSearchRequest
 
 ### SearchId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# TagResourceRequestTypeDef
-
-### ResourceArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.mailmanager_classes.TagTypeDef]
-- **Required**: Yes
-
-
-# TagTypeDef
+# Tag
 
 ### Key
 - **Type**: <class 'str'>
@@ -2697,13 +2686,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TimestampTypeDef
+# TagResourceRequest
+
+### ResourceArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Tags
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.mailmanager_classes.Tag]
+- **Required**: Yes
+
+
+# Timestamp
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# TrafficPolicyTypeDef
+# TrafficPolicy
 
 ### DefaultAction
 - **Type**: typing.Literal['ALLOW', 'DENY']
@@ -2718,7 +2718,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceRequestTypeDef
+# UntagResourceRequest
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -2729,7 +2729,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateArchiveRequestTypeDef
+# UpdateArchiveRequest
 
 ### ArchiveId
 - **Type**: <class 'str'>
@@ -2739,17 +2739,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Retention
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.ArchiveRetentionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.ArchiveRetention]
 
 
-# UpdateIngressPointRequestTypeDef
+# UpdateIngressPointRequest
 
 ### IngressPointId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### IngressPointConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.IngressPointConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### IngressPointName
 - **Type**: typing.Optional[str]
@@ -2764,14 +2764,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateRelayRequestTypeDef
+# UpdateRelayRequest
 
 ### RelayId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Authentication
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.RelayAuthenticationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mailmanager_classes.RelayAuthenticationUnion]
 
 ### RelayName
 - **Type**: typing.Optional[str]
@@ -2783,7 +2783,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# UpdateRuleSetRequestTypeDef
+# UpdateRuleSetRequest
 
 ### RuleSetId
 - **Type**: <class 'str'>
@@ -2793,10 +2793,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Rules
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mailmanager_classes.RuleUnionTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mailmanager_classes.RuleUnion]]
 
 
-# UpdateTrafficPolicyRequestTypeDef
+# UpdateTrafficPolicyRequest
 
 ### TrafficPolicyId
 - **Type**: <class 'str'>
@@ -2809,7 +2809,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### PolicyStatements
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mailmanager_classes.PolicyStatementUnionTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mailmanager_classes.PolicyStatementUnion]]
 
 ### TrafficPolicyName
 - **Type**: typing.Optional[str]

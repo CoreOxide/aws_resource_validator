@@ -1,6 +1,6 @@
 # Gamelift Classes
 
-# AcceptMatchInputTypeDef
+# AcceptMatchInput
 
 ### TicketId
 - **Type**: <class 'str'>
@@ -15,7 +15,7 @@
 - **Required**: Yes
 
 
-# AliasTypeDef
+# Alias
 
 ### AliasId
 - **Type**: typing.Optional[str]
@@ -30,7 +30,7 @@
 - **Type**: typing.Optional[str]
 
 ### RoutingStrategy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.RoutingStrategyTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### CreationTime
 - **Type**: typing.Optional[datetime.datetime]
@@ -39,29 +39,14 @@
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# AnywhereConfigurationTypeDef
+# AnywhereConfiguration
 
 ### Cost
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# AttributeValueOutputTypeDef
-
-### S
-- **Type**: typing.Optional[str]
-
-### N
-- **Type**: typing.Optional[float]
-
-### SL
-- **Type**: typing.Optional[typing.List[str]]
-
-### SDM
-- **Type**: typing.Optional[typing.Dict[str, float]]
-
-
-# AttributeValueTypeDef
+# AttributeValue
 
 ### S
 - **Type**: typing.Optional[str]
@@ -76,13 +61,28 @@
 - **Type**: typing.Optional[typing.Mapping[str, float]]
 
 
-# AttributeValueUnionTypeDef
+# AttributeValueOutput
+
+### S
+- **Type**: typing.Optional[str]
+
+### N
+- **Type**: typing.Optional[float]
+
+### SL
+- **Type**: typing.Optional[typing.List[str]]
+
+### SDM
+- **Type**: typing.Optional[typing.Dict[str, float]]
+
+
+# AttributeValueUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# AwsCredentialsTypeDef
+# AwsCredentials
 
 ### AccessKeyId
 - **Type**: typing.Optional[str]
@@ -100,13 +100,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BlobTypeDef
+# Blob
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BuildTypeDef
+# Build
 
 ### BuildId
 - **Type**: typing.Optional[str]
@@ -136,20 +136,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CertificateConfigurationTypeDef
+# CertificateConfiguration
 
 ### CertificateType
 - **Type**: typing.Literal['DISABLED', 'GENERATED']
 - **Required**: Yes
 
 
-# ClaimFilterOptionTypeDef
+# ClaimFilterOption
 
 ### InstanceStatuses
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['ACTIVE', 'DRAINING']]]
 
 
-# ClaimGameServerInputTypeDef
+# ClaimGameServerInput
 
 ### GameServerGroupName
 - **Type**: <class 'str'>
@@ -162,27 +162,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### FilterOption
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.ClaimFilterOptionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.ClaimFilterOption]
 
 
-# ClaimGameServerOutputTypeDef
+# ClaimGameServerOutput
 
 ### GameServer
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.GameServerTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.GameServer'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ComputeTypeDef
+# Compute
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ConnectionPortRangeTypeDef
+# ConnectionPortRange
 
 ### FromPort
 - **Type**: <class 'int'>
@@ -193,7 +193,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ContainerAttributeTypeDef
+# ContainerAttribute
 
 ### ContainerName
 - **Type**: typing.Optional[str]
@@ -202,7 +202,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ContainerDependencyTypeDef
+# ContainerDependency
 
 ### ContainerName
 - **Type**: <class 'str'>
@@ -213,7 +213,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ContainerEnvironmentTypeDef
+# ContainerEnvironment
 
 ### Name
 - **Type**: <class 'str'>
@@ -224,16 +224,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ContainerFleetLocationAttributesTypeDef
-
-### Location
-- **Type**: typing.Optional[str]
-
-### Status
-- **Type**: typing.Optional[typing.Literal['ACTIVATING', 'ACTIVE', 'CREATED', 'CREATING', 'DELETING', 'PENDING', 'UPDATING']]
-
-
-# ContainerFleetTypeDef
+# ContainerFleet
 
 ### FleetId
 - **Type**: typing.Optional[str]
@@ -257,10 +248,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### InstanceConnectionPortRange
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.ConnectionPortRangeTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.ConnectionPortRange]
 
 ### InstanceInboundPermissions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.gamelift_classes.IpPermissionTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.gamelift_classes.IpPermission]]
 
 ### GameServerContainerGroupsPerInstance
 - **Type**: typing.Optional[int]
@@ -287,22 +278,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['FullProtection', 'NoProtection']]
 
 ### GameSessionCreationLimitPolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.GameSessionCreationLimitPolicyTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### Status
 - **Type**: typing.Optional[typing.Literal['ACTIVATING', 'ACTIVE', 'CREATED', 'CREATING', 'DELETING', 'PENDING', 'UPDATING']]
 
 ### DeploymentDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.DeploymentDetailsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### LogConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.LogConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### LocationAttributes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.gamelift_classes.ContainerFleetLocationAttributesTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.gamelift_classes.ContainerFleetLocationAttributes]]
 
 
-# ContainerGroupDefinitionTypeDef
+# ContainerFleetLocationAttributes
+
+### Location
+- **Type**: typing.Optional[str]
+
+### Status
+- **Type**: typing.Optional[typing.Literal['ACTIVATING', 'ACTIVE', 'CREATED', 'CREATING', 'DELETING', 'PENDING', 'UPDATING']]
+
+
+# ContainerGroupDefinition
 
 ### Name
 - **Type**: <class 'str'>
@@ -327,10 +327,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 ### GameServerContainerDefinition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.GameServerContainerDefinitionTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### SupportContainerDefinitions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.gamelift_classes.SupportContainerDefinitionTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.gamelift_classes.SupportContainerDefinition]]
 
 ### VersionNumber
 - **Type**: typing.Optional[int]
@@ -345,26 +345,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ContainerHealthCheckOutputTypeDef
-
-### Command
-- **Type**: typing.List[str]
-- **Required**: Yes
-
-### Interval
-- **Type**: typing.Optional[int]
-
-### Retries
-- **Type**: typing.Optional[int]
-
-### StartPeriod
-- **Type**: typing.Optional[int]
-
-### Timeout
-- **Type**: typing.Optional[int]
-
-
-# ContainerHealthCheckTypeDef
+# ContainerHealthCheck
 
 ### Command
 - **Type**: typing.Sequence[str]
@@ -383,13 +364,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ContainerHealthCheckUnionTypeDef
+# ContainerHealthCheckOutput
+
+### Command
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### Interval
+- **Type**: typing.Optional[int]
+
+### Retries
+- **Type**: typing.Optional[int]
+
+### StartPeriod
+- **Type**: typing.Optional[int]
+
+### Timeout
+- **Type**: typing.Optional[int]
+
+
+# ContainerHealthCheckUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ContainerIdentifierTypeDef
+# ContainerIdentifier
 
 ### ContainerName
 - **Type**: typing.Optional[str]
@@ -398,7 +398,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ContainerMountPointTypeDef
+# ContainerMountPoint
 
 ### InstancePath
 - **Type**: <class 'str'>
@@ -411,61 +411,61 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['READ_AND_WRITE', 'READ_ONLY']]
 
 
-# ContainerPortConfigurationOutputTypeDef
+# ContainerPortConfiguration
 
 ### ContainerPortRanges
-- **Type**: typing.List[aws_resource_validator.pydantic_models.gamelift_classes.ContainerPortRangeTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.ContainerPortRange]
 - **Required**: Yes
 
 
-# ContainerPortConfigurationTypeDef
+# ContainerPortConfigurationOutput
 
 ### ContainerPortRanges
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.ContainerPortRangeTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.gamelift_classes.ContainerPortRange]
 - **Required**: Yes
 
 
-# ContainerPortConfigurationUnionTypeDef
+# ContainerPortConfigurationUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ContainerPortRangeTypeDef
+# ContainerPortRange
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CreateAliasInputTypeDef
+# CreateAliasInput
 
 ### Name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### RoutingStrategy
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.RoutingStrategyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.RoutingStrategy'>
 - **Required**: Yes
 
 ### Description
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.Tag]]
 
 
-# CreateAliasOutputTypeDef
+# CreateAliasOutput
 
 ### Alias
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.AliasTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.Alias'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateBuildInputTypeDef
+# CreateBuildInput
 
 ### Name
 - **Type**: typing.Optional[str]
@@ -474,38 +474,38 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### StorageLocation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.S3LocationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.S3Location]
 
 ### OperatingSystem
 - **Type**: typing.Optional[typing.Literal['AMAZON_LINUX', 'AMAZON_LINUX_2', 'AMAZON_LINUX_2023', 'WINDOWS_2012', 'WINDOWS_2016']]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.Tag]]
 
 ### ServerSdkVersion
 - **Type**: typing.Optional[str]
 
 
-# CreateBuildOutputTypeDef
+# CreateBuildOutput
 
 ### Build
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.BuildTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.Build'>
 - **Required**: Yes
 
 ### UploadCredentials
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.AwsCredentialsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.AwsCredentials'>
 - **Required**: Yes
 
 ### StorageLocation
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.S3LocationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.S3Location'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateContainerFleetInputTypeDef
+# CreateContainerFleetInput
 
 ### FleetRoleArn
 - **Type**: <class 'str'>
@@ -521,10 +521,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### InstanceConnectionPortRange
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.ConnectionPortRangeTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.ConnectionPortRange]
 
 ### InstanceInboundPermissions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.IpPermissionTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.IpPermission]]
 
 ### GameServerContainerGroupsPerInstance
 - **Type**: typing.Optional[int]
@@ -536,7 +536,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ON_DEMAND', 'SPOT']]
 
 ### Locations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.LocationConfigurationTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.LocationConfiguration]]
 
 ### MetricGroups
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -545,27 +545,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['FullProtection', 'NoProtection']]
 
 ### GameSessionCreationLimitPolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.GameSessionCreationLimitPolicyTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### LogConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.LogConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.Tag]]
 
 
-# CreateContainerFleetOutputTypeDef
+# CreateContainerFleetOutput
 
 ### ContainerFleet
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ContainerFleetTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ContainerFleet'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateContainerGroupDefinitionInputTypeDef
+# CreateContainerGroupDefinitionInput
 
 ### Name
 - **Type**: <class 'str'>
@@ -587,30 +587,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['GAME_SERVER', 'PER_INSTANCE']]
 
 ### GameServerContainerDefinition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.GameServerContainerDefinitionInputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.GameServerContainerDefinitionInput]
 
 ### SupportContainerDefinitions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.SupportContainerDefinitionInputTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.SupportContainerDefinitionInput]]
 
 ### VersionDescription
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.Tag]]
 
 
-# CreateContainerGroupDefinitionOutputTypeDef
+# CreateContainerGroupDefinitionOutput
 
 ### ContainerGroupDefinition
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ContainerGroupDefinitionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ContainerGroupDefinition'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateFleetInputTypeDef
+# CreateFleetInput
 
 ### Name
 - **Type**: <class 'str'>
@@ -638,16 +638,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['c3.2xlarge', 'c3.4xlarge', 'c3.8xlarge', 'c3.large', 'c3.xlarge', 'c4.2xlarge', 'c4.4xlarge', 'c4.8xlarge', 'c4.large', 'c4.xlarge', 'c5.12xlarge', 'c5.18xlarge', 'c5.24xlarge', 'c5.2xlarge', 'c5.4xlarge', 'c5.9xlarge', 'c5.large', 'c5.xlarge', 'c5a.12xlarge', 'c5a.16xlarge', 'c5a.24xlarge', 'c5a.2xlarge', 'c5a.4xlarge', 'c5a.8xlarge', 'c5a.large', 'c5a.xlarge', 'c5d.12xlarge', 'c5d.18xlarge', 'c5d.24xlarge', 'c5d.2xlarge', 'c5d.4xlarge', 'c5d.9xlarge', 'c5d.large', 'c5d.xlarge', 'c6a.12xlarge', 'c6a.16xlarge', 'c6a.24xlarge', 'c6a.2xlarge', 'c6a.4xlarge', 'c6a.8xlarge', 'c6a.large', 'c6a.xlarge', 'c6g.12xlarge', 'c6g.16xlarge', 'c6g.2xlarge', 'c6g.4xlarge', 'c6g.8xlarge', 'c6g.large', 'c6g.medium', 'c6g.xlarge', 'c6gn.12xlarge', 'c6gn.16xlarge', 'c6gn.2xlarge', 'c6gn.4xlarge', 'c6gn.8xlarge', 'c6gn.large', 'c6gn.medium', 'c6gn.xlarge', 'c6i.12xlarge', 'c6i.16xlarge', 'c6i.24xlarge', 'c6i.2xlarge', 'c6i.4xlarge', 'c6i.8xlarge', 'c6i.large', 'c6i.xlarge', 'c7g.12xlarge', 'c7g.16xlarge', 'c7g.2xlarge', 'c7g.4xlarge', 'c7g.8xlarge', 'c7g.large', 'c7g.medium', 'c7g.xlarge', 'g5g.16xlarge', 'g5g.2xlarge', 'g5g.4xlarge', 'g5g.8xlarge', 'g5g.xlarge', 'm3.2xlarge', 'm3.large', 'm3.medium', 'm3.xlarge', 'm4.10xlarge', 'm4.2xlarge', 'm4.4xlarge', 'm4.large', 'm4.xlarge', 'm5.12xlarge', 'm5.16xlarge', 'm5.24xlarge', 'm5.2xlarge', 'm5.4xlarge', 'm5.8xlarge', 'm5.large', 'm5.xlarge', 'm5a.12xlarge', 'm5a.16xlarge', 'm5a.24xlarge', 'm5a.2xlarge', 'm5a.4xlarge', 'm5a.8xlarge', 'm5a.large', 'm5a.xlarge', 'm6g.12xlarge', 'm6g.16xlarge', 'm6g.2xlarge', 'm6g.4xlarge', 'm6g.8xlarge', 'm6g.large', 'm6g.medium', 'm6g.xlarge', 'm7g.12xlarge', 'm7g.16xlarge', 'm7g.2xlarge', 'm7g.4xlarge', 'm7g.8xlarge', 'm7g.large', 'm7g.medium', 'm7g.xlarge', 'r3.2xlarge', 'r3.4xlarge', 'r3.8xlarge', 'r3.large', 'r3.xlarge', 'r4.16xlarge', 'r4.2xlarge', 'r4.4xlarge', 'r4.8xlarge', 'r4.large', 'r4.xlarge', 'r5.12xlarge', 'r5.16xlarge', 'r5.24xlarge', 'r5.2xlarge', 'r5.4xlarge', 'r5.8xlarge', 'r5.large', 'r5.xlarge', 'r5a.12xlarge', 'r5a.16xlarge', 'r5a.24xlarge', 'r5a.2xlarge', 'r5a.4xlarge', 'r5a.8xlarge', 'r5a.large', 'r5a.xlarge', 'r5d.12xlarge', 'r5d.16xlarge', 'r5d.24xlarge', 'r5d.2xlarge', 'r5d.4xlarge', 'r5d.8xlarge', 'r5d.large', 'r5d.xlarge', 'r6g.12xlarge', 'r6g.16xlarge', 'r6g.2xlarge', 'r6g.4xlarge', 'r6g.8xlarge', 'r6g.large', 'r6g.medium', 'r6g.xlarge', 'r7g.12xlarge', 'r7g.16xlarge', 'r7g.2xlarge', 'r7g.4xlarge', 'r7g.8xlarge', 'r7g.large', 'r7g.medium', 'r7g.xlarge', 't2.large', 't2.medium', 't2.micro', 't2.small']]
 
 ### EC2InboundPermissions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.IpPermissionTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.IpPermission]]
 
 ### NewGameSessionProtectionPolicy
 - **Type**: typing.Optional[typing.Literal['FullProtection', 'NoProtection']]
 
 ### RuntimeConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.RuntimeConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.RuntimeConfigurationUnion]
 
 ### ResourceCreationLimitPolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.ResourceCreationLimitPolicyTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### MetricGroups
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -665,36 +665,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CertificateConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.CertificateConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### Locations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.LocationConfigurationTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.LocationConfiguration]]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.Tag]]
 
 ### ComputeType
 - **Type**: typing.Optional[typing.Literal['ANYWHERE', 'EC2']]
 
 ### AnywhereConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.AnywhereConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### InstanceRoleCredentialsProvider
 - **Type**: typing.Optional[typing.Literal['SHARED_CREDENTIAL_FILE']]
 
 
-# CreateFleetLocationsInputTypeDef
+# CreateFleetLocationsInput
 
 ### FleetId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Locations
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.LocationConfigurationTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.LocationConfiguration]
 - **Required**: Yes
 
 
-# CreateFleetLocationsOutputTypeDef
+# CreateFleetLocationsOutput
 
 ### FleetId
 - **Type**: <class 'str'>
@@ -705,30 +705,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LocationStates
-- **Type**: typing.List[aws_resource_validator.pydantic_models.gamelift_classes.LocationStateTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.gamelift_classes.LocationState]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateFleetOutputTypeDef
+# CreateFleetOutput
 
 ### FleetAttributes
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.FleetAttributesTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.FleetAttributes'>
 - **Required**: Yes
 
 ### LocationStates
-- **Type**: typing.List[aws_resource_validator.pydantic_models.gamelift_classes.LocationStateTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.gamelift_classes.LocationState]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateGameServerGroupInputTypeDef
+# CreateGameServerGroupInput
 
 ### GameServerGroupName
 - **Type**: <class 'str'>
@@ -747,15 +747,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LaunchTemplate
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.LaunchTemplateSpecificationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.LaunchTemplateSpecification'>
 - **Required**: Yes
 
 ### InstanceDefinitions
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.InstanceDefinitionTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.InstanceDefinition]
 - **Required**: Yes
 
 ### AutoScalingPolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.GameServerGroupAutoScalingPolicyTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.GameServerGroupAutoScalingPolicy]
 
 ### BalancingStrategy
 - **Type**: typing.Optional[typing.Literal['ON_DEMAND_ONLY', 'SPOT_ONLY', 'SPOT_PREFERRED']]
@@ -767,21 +767,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.Tag]]
 
 
-# CreateGameServerGroupOutputTypeDef
+# CreateGameServerGroupOutput
 
 ### GameServerGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.GameServerGroupTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.GameServerGroup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateGameSessionInputTypeDef
+# CreateGameSessionInput
 
 ### MaximumPlayerSessionCount
 - **Type**: <class 'int'>
@@ -797,7 +797,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### GameProperties
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.GamePropertyTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.GameProperty]]
 
 ### CreatorId
 - **Type**: typing.Optional[str]
@@ -815,18 +815,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateGameSessionOutputTypeDef
+# CreateGameSessionOutput
 
 ### GameSession
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.GameSessionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.GameSession'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateGameSessionQueueInputTypeDef
+# CreateGameSessionQueueInput
 
 ### Name
 - **Type**: <class 'str'>
@@ -836,16 +836,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### PlayerLatencyPolicies
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.PlayerLatencyPolicyTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.PlayerLatencyPolicy]]
 
 ### Destinations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.GameSessionQueueDestinationTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.GameSessionQueueDestination]]
 
 ### FilterConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.FilterConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.FilterConfigurationUnion]
 
 ### PriorityConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.PriorityConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.PriorityConfigurationUnion]
 
 ### CustomEventData
 - **Type**: typing.Optional[str]
@@ -854,42 +854,42 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.Tag]]
 
 
-# CreateGameSessionQueueOutputTypeDef
+# CreateGameSessionQueueOutput
 
 ### GameSessionQueue
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.GameSessionQueueTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.GameSessionQueue'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateLocationInputTypeDef
+# CreateLocationInput
 
 ### LocationName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.Tag]]
 
 
-# CreateLocationOutputTypeDef
+# CreateLocationOutput
 
 ### Location
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.LocationModelTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.LocationModel'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateMatchmakingConfigurationInputTypeDef
+# CreateMatchmakingConfigurationInput
 
 ### Name
 - **Type**: <class 'str'>
@@ -926,7 +926,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### GameProperties
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.GamePropertyTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.GameProperty]]
 
 ### GameSessionData
 - **Type**: typing.Optional[str]
@@ -938,21 +938,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['STANDALONE', 'WITH_QUEUE']]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.Tag]]
 
 
-# CreateMatchmakingConfigurationOutputTypeDef
+# CreateMatchmakingConfigurationOutput
 
 ### Configuration
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.MatchmakingConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.MatchmakingConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateMatchmakingRuleSetInputTypeDef
+# CreateMatchmakingRuleSetInput
 
 ### Name
 - **Type**: <class 'str'>
@@ -963,21 +963,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.Tag]]
 
 
-# CreateMatchmakingRuleSetOutputTypeDef
+# CreateMatchmakingRuleSetOutput
 
 ### RuleSet
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.MatchmakingRuleSetTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.MatchmakingRuleSet'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreatePlayerSessionInputTypeDef
+# CreatePlayerSessionInput
 
 ### GameSessionId
 - **Type**: <class 'str'>
@@ -991,18 +991,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreatePlayerSessionOutputTypeDef
+# CreatePlayerSessionOutput
 
 ### PlayerSession
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.PlayerSessionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.PlayerSession'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreatePlayerSessionsInputTypeDef
+# CreatePlayerSessionsInput
 
 ### GameSessionId
 - **Type**: <class 'str'>
@@ -1016,18 +1016,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreatePlayerSessionsOutputTypeDef
+# CreatePlayerSessionsOutput
 
 ### PlayerSessions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.gamelift_classes.PlayerSessionTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.gamelift_classes.PlayerSession]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateScriptInputTypeDef
+# CreateScriptInput
 
 ### Name
 - **Type**: typing.Optional[str]
@@ -1036,27 +1036,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### StorageLocation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.S3LocationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.S3Location]
 
 ### ZipFile
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.BlobTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.Blob]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.Tag]]
 
 
-# CreateScriptOutputTypeDef
+# CreateScriptOutput
 
 ### Script
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ScriptTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.Script'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateVpcPeeringAuthorizationInputTypeDef
+# CreateVpcPeeringAuthorizationInput
 
 ### GameLiftAwsAccountId
 - **Type**: <class 'str'>
@@ -1067,18 +1067,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateVpcPeeringAuthorizationOutputTypeDef
+# CreateVpcPeeringAuthorizationOutput
 
 ### VpcPeeringAuthorization
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.VpcPeeringAuthorizationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.VpcPeeringAuthorization'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateVpcPeeringConnectionInputTypeDef
+# CreateVpcPeeringConnectionInput
 
 ### FleetId
 - **Type**: <class 'str'>
@@ -1093,28 +1093,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteAliasInputTypeDef
+# DeleteAliasInput
 
 ### AliasId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteBuildInputTypeDef
+# DeleteBuildInput
 
 ### BuildId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteContainerFleetInputTypeDef
+# DeleteContainerFleetInput
 
 ### FleetId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteContainerGroupDefinitionInputTypeDef
+# DeleteContainerGroupDefinitionInput
 
 ### Name
 - **Type**: <class 'str'>
@@ -1127,14 +1127,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# DeleteFleetInputTypeDef
+# DeleteFleetInput
 
 ### FleetId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteFleetLocationsInputTypeDef
+# DeleteFleetLocationsInput
 
 ### FleetId
 - **Type**: <class 'str'>
@@ -1145,7 +1145,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteFleetLocationsOutputTypeDef
+# DeleteFleetLocationsOutput
 
 ### FleetId
 - **Type**: <class 'str'>
@@ -1156,15 +1156,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LocationStates
-- **Type**: typing.List[aws_resource_validator.pydantic_models.gamelift_classes.LocationStateTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.gamelift_classes.LocationState]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteGameServerGroupInputTypeDef
+# DeleteGameServerGroupInput
 
 ### GameServerGroupName
 - **Type**: <class 'str'>
@@ -1174,46 +1174,46 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['FORCE_DELETE', 'RETAIN', 'SAFE_DELETE']]
 
 
-# DeleteGameServerGroupOutputTypeDef
+# DeleteGameServerGroupOutput
 
 ### GameServerGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.GameServerGroupTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.GameServerGroup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteGameSessionQueueInputTypeDef
+# DeleteGameSessionQueueInput
 
 ### Name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteLocationInputTypeDef
+# DeleteLocationInput
 
 ### LocationName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteMatchmakingConfigurationInputTypeDef
+# DeleteMatchmakingConfigurationInput
 
 ### Name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteMatchmakingRuleSetInputTypeDef
+# DeleteMatchmakingRuleSetInput
 
 ### Name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteScalingPolicyInputTypeDef
+# DeleteScalingPolicyInput
 
 ### Name
 - **Type**: <class 'str'>
@@ -1224,14 +1224,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteScriptInputTypeDef
+# DeleteScriptInput
 
 ### ScriptId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteVpcPeeringAuthorizationInputTypeDef
+# DeleteVpcPeeringAuthorizationInput
 
 ### GameLiftAwsAccountId
 - **Type**: <class 'str'>
@@ -1242,7 +1242,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteVpcPeeringConnectionInputTypeDef
+# DeleteVpcPeeringConnectionInput
 
 ### FleetId
 - **Type**: <class 'str'>
@@ -1253,7 +1253,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeploymentConfigurationTypeDef
+# DeploymentConfiguration
 
 ### ProtectionStrategy
 - **Type**: typing.Optional[typing.Literal['IGNORE_PROTECTION', 'WITH_PROTECTION']]
@@ -1265,13 +1265,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['MAINTAIN', 'ROLLBACK']]
 
 
-# DeploymentDetailsTypeDef
+# DeploymentDetails
 
 ### LatestDeploymentId
 - **Type**: typing.Optional[str]
 
 
-# DeregisterComputeInputTypeDef
+# DeregisterComputeInput
 
 ### FleetId
 - **Type**: <class 'str'>
@@ -1282,7 +1282,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeregisterGameServerInputTypeDef
+# DeregisterGameServerInput
 
 ### GameServerGroupName
 - **Type**: <class 'str'>
@@ -1293,43 +1293,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeAliasInputTypeDef
+# DescribeAliasInput
 
 ### AliasId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeAliasOutputTypeDef
+# DescribeAliasOutput
 
 ### Alias
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.AliasTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.Alias'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeBuildInputTypeDef
+# DescribeBuildInput
 
 ### BuildId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeBuildOutputTypeDef
+# DescribeBuildOutput
 
 ### Build
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.BuildTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.Build'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeComputeInputTypeDef
+# DescribeComputeInput
 
 ### FleetId
 - **Type**: <class 'str'>
@@ -1340,36 +1340,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeComputeOutputTypeDef
+# DescribeComputeOutput
 
 ### Compute
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ComputeTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.Compute'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeContainerFleetInputTypeDef
+# DescribeContainerFleetInput
 
 ### FleetId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeContainerFleetOutputTypeDef
+# DescribeContainerFleetOutput
 
 ### ContainerFleet
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ContainerFleetTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ContainerFleet'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeContainerGroupDefinitionInputTypeDef
+# DescribeContainerGroupDefinitionInput
 
 ### Name
 - **Type**: <class 'str'>
@@ -1379,18 +1379,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# DescribeContainerGroupDefinitionOutputTypeDef
+# DescribeContainerGroupDefinitionOutput
 
 ### ContainerGroupDefinition
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ContainerGroupDefinitionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ContainerGroupDefinition'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeEC2InstanceLimitsInputTypeDef
+# DescribeEC2InstanceLimitsInput
 
 ### EC2InstanceType
 - **Type**: typing.Optional[typing.Literal['c3.2xlarge', 'c3.4xlarge', 'c3.8xlarge', 'c3.large', 'c3.xlarge', 'c4.2xlarge', 'c4.4xlarge', 'c4.8xlarge', 'c4.large', 'c4.xlarge', 'c5.12xlarge', 'c5.18xlarge', 'c5.24xlarge', 'c5.2xlarge', 'c5.4xlarge', 'c5.9xlarge', 'c5.large', 'c5.xlarge', 'c5a.12xlarge', 'c5a.16xlarge', 'c5a.24xlarge', 'c5a.2xlarge', 'c5a.4xlarge', 'c5a.8xlarge', 'c5a.large', 'c5a.xlarge', 'c5d.12xlarge', 'c5d.18xlarge', 'c5d.24xlarge', 'c5d.2xlarge', 'c5d.4xlarge', 'c5d.9xlarge', 'c5d.large', 'c5d.xlarge', 'c6a.12xlarge', 'c6a.16xlarge', 'c6a.24xlarge', 'c6a.2xlarge', 'c6a.4xlarge', 'c6a.8xlarge', 'c6a.large', 'c6a.xlarge', 'c6g.12xlarge', 'c6g.16xlarge', 'c6g.2xlarge', 'c6g.4xlarge', 'c6g.8xlarge', 'c6g.large', 'c6g.medium', 'c6g.xlarge', 'c6gn.12xlarge', 'c6gn.16xlarge', 'c6gn.2xlarge', 'c6gn.4xlarge', 'c6gn.8xlarge', 'c6gn.large', 'c6gn.medium', 'c6gn.xlarge', 'c6i.12xlarge', 'c6i.16xlarge', 'c6i.24xlarge', 'c6i.2xlarge', 'c6i.4xlarge', 'c6i.8xlarge', 'c6i.large', 'c6i.xlarge', 'c7g.12xlarge', 'c7g.16xlarge', 'c7g.2xlarge', 'c7g.4xlarge', 'c7g.8xlarge', 'c7g.large', 'c7g.medium', 'c7g.xlarge', 'g5g.16xlarge', 'g5g.2xlarge', 'g5g.4xlarge', 'g5g.8xlarge', 'g5g.xlarge', 'm3.2xlarge', 'm3.large', 'm3.medium', 'm3.xlarge', 'm4.10xlarge', 'm4.2xlarge', 'm4.4xlarge', 'm4.large', 'm4.xlarge', 'm5.12xlarge', 'm5.16xlarge', 'm5.24xlarge', 'm5.2xlarge', 'm5.4xlarge', 'm5.8xlarge', 'm5.large', 'm5.xlarge', 'm5a.12xlarge', 'm5a.16xlarge', 'm5a.24xlarge', 'm5a.2xlarge', 'm5a.4xlarge', 'm5a.8xlarge', 'm5a.large', 'm5a.xlarge', 'm6g.12xlarge', 'm6g.16xlarge', 'm6g.2xlarge', 'm6g.4xlarge', 'm6g.8xlarge', 'm6g.large', 'm6g.medium', 'm6g.xlarge', 'm7g.12xlarge', 'm7g.16xlarge', 'm7g.2xlarge', 'm7g.4xlarge', 'm7g.8xlarge', 'm7g.large', 'm7g.medium', 'm7g.xlarge', 'r3.2xlarge', 'r3.4xlarge', 'r3.8xlarge', 'r3.large', 'r3.xlarge', 'r4.16xlarge', 'r4.2xlarge', 'r4.4xlarge', 'r4.8xlarge', 'r4.large', 'r4.xlarge', 'r5.12xlarge', 'r5.16xlarge', 'r5.24xlarge', 'r5.2xlarge', 'r5.4xlarge', 'r5.8xlarge', 'r5.large', 'r5.xlarge', 'r5a.12xlarge', 'r5a.16xlarge', 'r5a.24xlarge', 'r5a.2xlarge', 'r5a.4xlarge', 'r5a.8xlarge', 'r5a.large', 'r5a.xlarge', 'r5d.12xlarge', 'r5d.16xlarge', 'r5d.24xlarge', 'r5d.2xlarge', 'r5d.4xlarge', 'r5d.8xlarge', 'r5d.large', 'r5d.xlarge', 'r6g.12xlarge', 'r6g.16xlarge', 'r6g.2xlarge', 'r6g.4xlarge', 'r6g.8xlarge', 'r6g.large', 'r6g.medium', 'r6g.xlarge', 'r7g.12xlarge', 'r7g.16xlarge', 'r7g.2xlarge', 'r7g.4xlarge', 'r7g.8xlarge', 'r7g.large', 'r7g.medium', 'r7g.xlarge', 't2.large', 't2.medium', 't2.micro', 't2.small']]
@@ -1399,27 +1399,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeEC2InstanceLimitsOutputTypeDef
+# DescribeEC2InstanceLimitsOutput
 
 ### EC2InstanceLimits
-- **Type**: typing.List[aws_resource_validator.pydantic_models.gamelift_classes.EC2InstanceLimitTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.gamelift_classes.EC2InstanceLimit]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeFleetAttributesInputPaginateTypeDef
-
-### FleetIds
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.PaginatorConfigTypeDef]
-
-
-# DescribeFleetAttributesInputTypeDef
+# DescribeFleetAttributesInput
 
 ### FleetIds
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -1431,30 +1422,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeFleetAttributesOutputTypeDef
+# DescribeFleetAttributesInputPaginate
+
+### FleetIds
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.PaginatorConfig]
+
+
+# DescribeFleetAttributesOutput
 
 ### FleetAttributes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.gamelift_classes.FleetAttributesTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.gamelift_classes.FleetAttributes]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# DescribeFleetCapacityInputPaginateTypeDef
-
-### FleetIds
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.PaginatorConfigTypeDef]
-
-
-# DescribeFleetCapacityInputTypeDef
+# DescribeFleetCapacityInput
 
 ### FleetIds
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -1466,21 +1457,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeFleetCapacityOutputTypeDef
+# DescribeFleetCapacityInputPaginate
+
+### FleetIds
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.PaginatorConfig]
+
+
+# DescribeFleetCapacityOutput
 
 ### FleetCapacity
-- **Type**: typing.List[aws_resource_validator.pydantic_models.gamelift_classes.FleetCapacityTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.gamelift_classes.FleetCapacity]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# DescribeFleetDeploymentInputTypeDef
+# DescribeFleetDeploymentInput
 
 ### FleetId
 - **Type**: <class 'str'>
@@ -1490,48 +1490,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeFleetDeploymentOutputTypeDef
+# DescribeFleetDeploymentOutput
 
 ### FleetDeployment
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.FleetDeploymentTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.FleetDeployment'>
 - **Required**: Yes
 
 ### LocationalDeployments
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.gamelift_classes.LocationalDeploymentTypeDef]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.gamelift_classes.LocationalDeployment]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeFleetEventsInputPaginateTypeDef
+# DescribeFleetEventsInput
 
 ### FleetId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### StartTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.Timestamp]
 
 ### EndTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.TimestampTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.PaginatorConfigTypeDef]
-
-
-# DescribeFleetEventsInputTypeDef
-
-### FleetId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### StartTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.TimestampTypeDef]
-
-### EndTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.Timestamp]
 
 ### Limit
 - **Type**: typing.Optional[int]
@@ -1540,21 +1524,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeFleetEventsOutputTypeDef
+# DescribeFleetEventsInputPaginate
+
+### FleetId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### StartTime
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.Timestamp]
+
+### EndTime
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.Timestamp]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.PaginatorConfig]
+
+
+# DescribeFleetEventsOutput
 
 ### Events
-- **Type**: typing.List[aws_resource_validator.pydantic_models.gamelift_classes.EventTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.gamelift_classes.Event]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# DescribeFleetLocationAttributesInputTypeDef
+# DescribeFleetLocationAttributesInput
 
 ### FleetId
 - **Type**: <class 'str'>
@@ -1570,7 +1570,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeFleetLocationAttributesOutputTypeDef
+# DescribeFleetLocationAttributesOutput
 
 ### FleetId
 - **Type**: <class 'str'>
@@ -1581,18 +1581,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LocationAttributes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.gamelift_classes.LocationAttributesTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.gamelift_classes.LocationAttributes]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# DescribeFleetLocationCapacityInputTypeDef
+# DescribeFleetLocationCapacityInput
 
 ### FleetId
 - **Type**: <class 'str'>
@@ -1603,18 +1603,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeFleetLocationCapacityOutputTypeDef
+# DescribeFleetLocationCapacityOutput
 
 ### FleetCapacity
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.FleetCapacityTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.FleetCapacity'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeFleetLocationUtilizationInputTypeDef
+# DescribeFleetLocationUtilizationInput
 
 ### FleetId
 - **Type**: <class 'str'>
@@ -1625,18 +1625,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeFleetLocationUtilizationOutputTypeDef
+# DescribeFleetLocationUtilizationOutput
 
 ### FleetUtilization
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.FleetUtilizationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.FleetUtilization'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeFleetPortSettingsInputTypeDef
+# DescribeFleetPortSettingsInput
 
 ### FleetId
 - **Type**: <class 'str'>
@@ -1646,7 +1646,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeFleetPortSettingsOutputTypeDef
+# DescribeFleetPortSettingsOutput
 
 ### FleetId
 - **Type**: <class 'str'>
@@ -1657,7 +1657,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### InboundPermissions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.gamelift_classes.IpPermissionTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.gamelift_classes.IpPermission]
 - **Required**: Yes
 
 ### UpdateStatus
@@ -1669,20 +1669,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeFleetUtilizationInputPaginateTypeDef
-
-### FleetIds
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.PaginatorConfigTypeDef]
-
-
-# DescribeFleetUtilizationInputTypeDef
+# DescribeFleetUtilizationInput
 
 ### FleetIds
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -1694,39 +1685,48 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeFleetUtilizationOutputTypeDef
+# DescribeFleetUtilizationInputPaginate
+
+### FleetIds
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.PaginatorConfig]
+
+
+# DescribeFleetUtilizationOutput
 
 ### FleetUtilization
-- **Type**: typing.List[aws_resource_validator.pydantic_models.gamelift_classes.FleetUtilizationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.gamelift_classes.FleetUtilization]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# DescribeGameServerGroupInputTypeDef
+# DescribeGameServerGroupInput
 
 ### GameServerGroupName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeGameServerGroupOutputTypeDef
+# DescribeGameServerGroupOutput
 
 ### GameServerGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.GameServerGroupTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.GameServerGroup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeGameServerInputTypeDef
+# DescribeGameServerInput
 
 ### GameServerGroupName
 - **Type**: <class 'str'>
@@ -1737,20 +1737,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeGameServerInstancesInputPaginateTypeDef
-
-### GameServerGroupName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### InstanceIds
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.PaginatorConfigTypeDef]
-
-
-# DescribeGameServerInstancesInputTypeDef
+# DescribeGameServerInstancesInput
 
 ### GameServerGroupName
 - **Type**: <class 'str'>
@@ -1766,53 +1753,45 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeGameServerInstancesOutputTypeDef
+# DescribeGameServerInstancesInputPaginate
+
+### GameServerGroupName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### InstanceIds
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.PaginatorConfig]
+
+
+# DescribeGameServerInstancesOutput
 
 ### GameServerInstances
-- **Type**: typing.List[aws_resource_validator.pydantic_models.gamelift_classes.GameServerInstanceTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.gamelift_classes.GameServerInstance]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# DescribeGameServerOutputTypeDef
+# DescribeGameServerOutput
 
 ### GameServer
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.GameServerTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.GameServer'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeGameSessionDetailsInputPaginateTypeDef
-
-### FleetId
-- **Type**: typing.Optional[str]
-
-### GameSessionId
-- **Type**: typing.Optional[str]
-
-### AliasId
-- **Type**: typing.Optional[str]
-
-### Location
-- **Type**: typing.Optional[str]
-
-### StatusFilter
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.PaginatorConfigTypeDef]
-
-
-# DescribeGameSessionDetailsInputTypeDef
+# DescribeGameSessionDetailsInput
 
 ### FleetId
 - **Type**: typing.Optional[str]
@@ -1836,48 +1815,60 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeGameSessionDetailsOutputTypeDef
+# DescribeGameSessionDetailsInputPaginate
+
+### FleetId
+- **Type**: typing.Optional[str]
+
+### GameSessionId
+- **Type**: typing.Optional[str]
+
+### AliasId
+- **Type**: typing.Optional[str]
+
+### Location
+- **Type**: typing.Optional[str]
+
+### StatusFilter
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.PaginatorConfig]
+
+
+# DescribeGameSessionDetailsOutput
 
 ### GameSessionDetails
-- **Type**: typing.List[aws_resource_validator.pydantic_models.gamelift_classes.GameSessionDetailTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.gamelift_classes.GameSessionDetail]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# DescribeGameSessionPlacementInputTypeDef
+# DescribeGameSessionPlacementInput
 
 ### PlacementId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeGameSessionPlacementOutputTypeDef
+# DescribeGameSessionPlacementOutput
 
 ### GameSessionPlacement
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.GameSessionPlacementTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.GameSessionPlacement'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeGameSessionQueuesInputPaginateTypeDef
-
-### Names
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.PaginatorConfigTypeDef]
-
-
-# DescribeGameSessionQueuesInputTypeDef
+# DescribeGameSessionQueuesInput
 
 ### Names
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -1889,42 +1880,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeGameSessionQueuesOutputTypeDef
+# DescribeGameSessionQueuesInputPaginate
+
+### Names
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.PaginatorConfig]
+
+
+# DescribeGameSessionQueuesOutput
 
 ### GameSessionQueues
-- **Type**: typing.List[aws_resource_validator.pydantic_models.gamelift_classes.GameSessionQueueTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.gamelift_classes.GameSessionQueue]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# DescribeGameSessionsInputPaginateTypeDef
-
-### FleetId
-- **Type**: typing.Optional[str]
-
-### GameSessionId
-- **Type**: typing.Optional[str]
-
-### AliasId
-- **Type**: typing.Optional[str]
-
-### Location
-- **Type**: typing.Optional[str]
-
-### StatusFilter
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.PaginatorConfigTypeDef]
-
-
-# DescribeGameSessionsInputTypeDef
+# DescribeGameSessionsInput
 
 ### FleetId
 - **Type**: typing.Optional[str]
@@ -1948,37 +1927,42 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeGameSessionsOutputTypeDef
+# DescribeGameSessionsInputPaginate
+
+### FleetId
+- **Type**: typing.Optional[str]
+
+### GameSessionId
+- **Type**: typing.Optional[str]
+
+### AliasId
+- **Type**: typing.Optional[str]
+
+### Location
+- **Type**: typing.Optional[str]
+
+### StatusFilter
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.PaginatorConfig]
+
+
+# DescribeGameSessionsOutput
 
 ### GameSessions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.gamelift_classes.GameSessionTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.gamelift_classes.GameSession]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# DescribeInstancesInputPaginateTypeDef
-
-### FleetId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### InstanceId
-- **Type**: typing.Optional[str]
-
-### Location
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.PaginatorConfigTypeDef]
-
-
-# DescribeInstancesInputTypeDef
+# DescribeInstancesInput
 
 ### FleetId
 - **Type**: <class 'str'>
@@ -1997,33 +1981,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeInstancesOutputTypeDef
+# DescribeInstancesInputPaginate
+
+### FleetId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### InstanceId
+- **Type**: typing.Optional[str]
+
+### Location
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.PaginatorConfig]
+
+
+# DescribeInstancesOutput
 
 ### Instances
-- **Type**: typing.List[aws_resource_validator.pydantic_models.gamelift_classes.InstanceTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.gamelift_classes.Instance]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# DescribeMatchmakingConfigurationsInputPaginateTypeDef
-
-### Names
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### RuleSetName
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.PaginatorConfigTypeDef]
-
-
-# DescribeMatchmakingConfigurationsInputTypeDef
+# DescribeMatchmakingConfigurationsInput
 
 ### Names
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -2038,48 +2026,51 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeMatchmakingConfigurationsOutputTypeDef
+# DescribeMatchmakingConfigurationsInputPaginate
+
+### Names
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### RuleSetName
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.PaginatorConfig]
+
+
+# DescribeMatchmakingConfigurationsOutput
 
 ### Configurations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.gamelift_classes.MatchmakingConfigurationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.gamelift_classes.MatchmakingConfiguration]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# DescribeMatchmakingInputTypeDef
+# DescribeMatchmakingInput
 
 ### TicketIds
 - **Type**: typing.Sequence[str]
 - **Required**: Yes
 
 
-# DescribeMatchmakingOutputTypeDef
+# DescribeMatchmakingOutput
 
 ### TicketList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.gamelift_classes.MatchmakingTicketTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.gamelift_classes.MatchmakingTicket]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeMatchmakingRuleSetsInputPaginateTypeDef
-
-### Names
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.PaginatorConfigTypeDef]
-
-
-# DescribeMatchmakingRuleSetsInputTypeDef
+# DescribeMatchmakingRuleSetsInput
 
 ### Names
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -2091,39 +2082,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeMatchmakingRuleSetsOutputTypeDef
+# DescribeMatchmakingRuleSetsInputPaginate
+
+### Names
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.PaginatorConfig]
+
+
+# DescribeMatchmakingRuleSetsOutput
 
 ### RuleSets
-- **Type**: typing.List[aws_resource_validator.pydantic_models.gamelift_classes.MatchmakingRuleSetTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.gamelift_classes.MatchmakingRuleSet]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# DescribePlayerSessionsInputPaginateTypeDef
-
-### GameSessionId
-- **Type**: typing.Optional[str]
-
-### PlayerId
-- **Type**: typing.Optional[str]
-
-### PlayerSessionId
-- **Type**: typing.Optional[str]
-
-### PlayerSessionStatusFilter
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.PaginatorConfigTypeDef]
-
-
-# DescribePlayerSessionsInputTypeDef
+# DescribePlayerSessionsInput
 
 ### GameSessionId
 - **Type**: typing.Optional[str]
@@ -2144,55 +2126,57 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribePlayerSessionsOutputTypeDef
+# DescribePlayerSessionsInputPaginate
+
+### GameSessionId
+- **Type**: typing.Optional[str]
+
+### PlayerId
+- **Type**: typing.Optional[str]
+
+### PlayerSessionId
+- **Type**: typing.Optional[str]
+
+### PlayerSessionStatusFilter
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.PaginatorConfig]
+
+
+# DescribePlayerSessionsOutput
 
 ### PlayerSessions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.gamelift_classes.PlayerSessionTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.gamelift_classes.PlayerSession]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# DescribeRuntimeConfigurationInputTypeDef
+# DescribeRuntimeConfigurationInput
 
 ### FleetId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeRuntimeConfigurationOutputTypeDef
+# DescribeRuntimeConfigurationOutput
 
 ### RuntimeConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.RuntimeConfigurationOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.RuntimeConfigurationOutput'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeScalingPoliciesInputPaginateTypeDef
-
-### FleetId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### StatusFilter
-- **Type**: typing.Optional[typing.Literal['ACTIVE', 'DELETED', 'DELETE_REQUESTED', 'DELETING', 'ERROR', 'UPDATE_REQUESTED', 'UPDATING']]
-
-### Location
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.PaginatorConfigTypeDef]
-
-
-# DescribeScalingPoliciesInputTypeDef
+# DescribeScalingPoliciesInput
 
 ### FleetId
 - **Type**: <class 'str'>
@@ -2211,67 +2195,83 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeScalingPoliciesOutputTypeDef
+# DescribeScalingPoliciesInputPaginate
+
+### FleetId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### StatusFilter
+- **Type**: typing.Optional[typing.Literal['ACTIVE', 'DELETED', 'DELETE_REQUESTED', 'DELETING', 'ERROR', 'UPDATE_REQUESTED', 'UPDATING']]
+
+### Location
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.PaginatorConfig]
+
+
+# DescribeScalingPoliciesOutput
 
 ### ScalingPolicies
-- **Type**: typing.List[aws_resource_validator.pydantic_models.gamelift_classes.ScalingPolicyTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.gamelift_classes.ScalingPolicy]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# DescribeScriptInputTypeDef
+# DescribeScriptInput
 
 ### ScriptId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeScriptOutputTypeDef
+# DescribeScriptOutput
 
 ### Script
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ScriptTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.Script'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeVpcPeeringAuthorizationsOutputTypeDef
+# DescribeVpcPeeringAuthorizationsOutput
 
 ### VpcPeeringAuthorizations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.gamelift_classes.VpcPeeringAuthorizationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.gamelift_classes.VpcPeeringAuthorization]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeVpcPeeringConnectionsInputTypeDef
+# DescribeVpcPeeringConnectionsInput
 
 ### FleetId
 - **Type**: typing.Optional[str]
 
 
-# DescribeVpcPeeringConnectionsOutputTypeDef
+# DescribeVpcPeeringConnectionsOutput
 
 ### VpcPeeringConnections
-- **Type**: typing.List[aws_resource_validator.pydantic_models.gamelift_classes.VpcPeeringConnectionTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.gamelift_classes.VpcPeeringConnection]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DesiredPlayerSessionTypeDef
+# DesiredPlayerSession
 
 ### PlayerId
 - **Type**: typing.Optional[str]
@@ -2280,7 +2280,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# EC2InstanceCountsTypeDef
+# EC2InstanceCounts
 
 ### DESIRED
 - **Type**: typing.Optional[int]
@@ -2304,7 +2304,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# EC2InstanceLimitTypeDef
+# EC2InstanceLimit
 
 ### EC2InstanceType
 - **Type**: typing.Optional[typing.Literal['c3.2xlarge', 'c3.4xlarge', 'c3.8xlarge', 'c3.large', 'c3.xlarge', 'c4.2xlarge', 'c4.4xlarge', 'c4.8xlarge', 'c4.large', 'c4.xlarge', 'c5.12xlarge', 'c5.18xlarge', 'c5.24xlarge', 'c5.2xlarge', 'c5.4xlarge', 'c5.9xlarge', 'c5.large', 'c5.xlarge', 'c5a.12xlarge', 'c5a.16xlarge', 'c5a.24xlarge', 'c5a.2xlarge', 'c5a.4xlarge', 'c5a.8xlarge', 'c5a.large', 'c5a.xlarge', 'c5d.12xlarge', 'c5d.18xlarge', 'c5d.24xlarge', 'c5d.2xlarge', 'c5d.4xlarge', 'c5d.9xlarge', 'c5d.large', 'c5d.xlarge', 'c6a.12xlarge', 'c6a.16xlarge', 'c6a.24xlarge', 'c6a.2xlarge', 'c6a.4xlarge', 'c6a.8xlarge', 'c6a.large', 'c6a.xlarge', 'c6g.12xlarge', 'c6g.16xlarge', 'c6g.2xlarge', 'c6g.4xlarge', 'c6g.8xlarge', 'c6g.large', 'c6g.medium', 'c6g.xlarge', 'c6gn.12xlarge', 'c6gn.16xlarge', 'c6gn.2xlarge', 'c6gn.4xlarge', 'c6gn.8xlarge', 'c6gn.large', 'c6gn.medium', 'c6gn.xlarge', 'c6i.12xlarge', 'c6i.16xlarge', 'c6i.24xlarge', 'c6i.2xlarge', 'c6i.4xlarge', 'c6i.8xlarge', 'c6i.large', 'c6i.xlarge', 'c7g.12xlarge', 'c7g.16xlarge', 'c7g.2xlarge', 'c7g.4xlarge', 'c7g.8xlarge', 'c7g.large', 'c7g.medium', 'c7g.xlarge', 'g5g.16xlarge', 'g5g.2xlarge', 'g5g.4xlarge', 'g5g.8xlarge', 'g5g.xlarge', 'm3.2xlarge', 'm3.large', 'm3.medium', 'm3.xlarge', 'm4.10xlarge', 'm4.2xlarge', 'm4.4xlarge', 'm4.large', 'm4.xlarge', 'm5.12xlarge', 'm5.16xlarge', 'm5.24xlarge', 'm5.2xlarge', 'm5.4xlarge', 'm5.8xlarge', 'm5.large', 'm5.xlarge', 'm5a.12xlarge', 'm5a.16xlarge', 'm5a.24xlarge', 'm5a.2xlarge', 'm5a.4xlarge', 'm5a.8xlarge', 'm5a.large', 'm5a.xlarge', 'm6g.12xlarge', 'm6g.16xlarge', 'm6g.2xlarge', 'm6g.4xlarge', 'm6g.8xlarge', 'm6g.large', 'm6g.medium', 'm6g.xlarge', 'm7g.12xlarge', 'm7g.16xlarge', 'm7g.2xlarge', 'm7g.4xlarge', 'm7g.8xlarge', 'm7g.large', 'm7g.medium', 'm7g.xlarge', 'r3.2xlarge', 'r3.4xlarge', 'r3.8xlarge', 'r3.large', 'r3.xlarge', 'r4.16xlarge', 'r4.2xlarge', 'r4.4xlarge', 'r4.8xlarge', 'r4.large', 'r4.xlarge', 'r5.12xlarge', 'r5.16xlarge', 'r5.24xlarge', 'r5.2xlarge', 'r5.4xlarge', 'r5.8xlarge', 'r5.large', 'r5.xlarge', 'r5a.12xlarge', 'r5a.16xlarge', 'r5a.24xlarge', 'r5a.2xlarge', 'r5a.4xlarge', 'r5a.8xlarge', 'r5a.large', 'r5a.xlarge', 'r5d.12xlarge', 'r5d.16xlarge', 'r5d.24xlarge', 'r5d.2xlarge', 'r5d.4xlarge', 'r5d.8xlarge', 'r5d.large', 'r5d.xlarge', 'r6g.12xlarge', 'r6g.16xlarge', 'r6g.2xlarge', 'r6g.4xlarge', 'r6g.8xlarge', 'r6g.large', 'r6g.medium', 'r6g.xlarge', 'r7g.12xlarge', 'r7g.16xlarge', 'r7g.2xlarge', 'r7g.4xlarge', 'r7g.8xlarge', 'r7g.large', 'r7g.medium', 'r7g.xlarge', 't2.large', 't2.medium', 't2.micro', 't2.small']]
@@ -2319,14 +2319,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# EmptyResponseMetadataTypeDef
+# EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# EventTypeDef
+# Event
 
 ### EventId
 - **Type**: typing.Optional[str]
@@ -2350,25 +2350,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# FilterConfigurationOutputTypeDef
-
-### AllowedLocations
-- **Type**: typing.Optional[typing.List[str]]
-
-
-# FilterConfigurationTypeDef
+# FilterConfiguration
 
 ### AllowedLocations
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# FilterConfigurationUnionTypeDef
+# FilterConfigurationOutput
+
+### AllowedLocations
+- **Type**: typing.Optional[typing.List[str]]
+
+
+# FilterConfigurationUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# FleetAttributesTypeDef
+# FleetAttributes
 
 ### FleetId
 - **Type**: typing.Optional[str]
@@ -2425,7 +2425,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['AMAZON_LINUX', 'AMAZON_LINUX_2', 'AMAZON_LINUX_2023', 'WINDOWS_2012', 'WINDOWS_2016']]
 
 ### ResourceCreationLimitPolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.ResourceCreationLimitPolicyTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### MetricGroups
 - **Type**: typing.Optional[typing.List[str]]
@@ -2437,19 +2437,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CertificateConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.CertificateConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### ComputeType
 - **Type**: typing.Optional[typing.Literal['ANYWHERE', 'EC2']]
 
 ### AnywhereConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.AnywhereConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### InstanceRoleCredentialsProvider
 - **Type**: typing.Optional[typing.Literal['SHARED_CREDENTIAL_FILE']]
 
 
-# FleetCapacityTypeDef
+# FleetCapacity
 
 ### FleetId
 - **Type**: typing.Optional[str]
@@ -2461,16 +2461,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['c3.2xlarge', 'c3.4xlarge', 'c3.8xlarge', 'c3.large', 'c3.xlarge', 'c4.2xlarge', 'c4.4xlarge', 'c4.8xlarge', 'c4.large', 'c4.xlarge', 'c5.12xlarge', 'c5.18xlarge', 'c5.24xlarge', 'c5.2xlarge', 'c5.4xlarge', 'c5.9xlarge', 'c5.large', 'c5.xlarge', 'c5a.12xlarge', 'c5a.16xlarge', 'c5a.24xlarge', 'c5a.2xlarge', 'c5a.4xlarge', 'c5a.8xlarge', 'c5a.large', 'c5a.xlarge', 'c5d.12xlarge', 'c5d.18xlarge', 'c5d.24xlarge', 'c5d.2xlarge', 'c5d.4xlarge', 'c5d.9xlarge', 'c5d.large', 'c5d.xlarge', 'c6a.12xlarge', 'c6a.16xlarge', 'c6a.24xlarge', 'c6a.2xlarge', 'c6a.4xlarge', 'c6a.8xlarge', 'c6a.large', 'c6a.xlarge', 'c6g.12xlarge', 'c6g.16xlarge', 'c6g.2xlarge', 'c6g.4xlarge', 'c6g.8xlarge', 'c6g.large', 'c6g.medium', 'c6g.xlarge', 'c6gn.12xlarge', 'c6gn.16xlarge', 'c6gn.2xlarge', 'c6gn.4xlarge', 'c6gn.8xlarge', 'c6gn.large', 'c6gn.medium', 'c6gn.xlarge', 'c6i.12xlarge', 'c6i.16xlarge', 'c6i.24xlarge', 'c6i.2xlarge', 'c6i.4xlarge', 'c6i.8xlarge', 'c6i.large', 'c6i.xlarge', 'c7g.12xlarge', 'c7g.16xlarge', 'c7g.2xlarge', 'c7g.4xlarge', 'c7g.8xlarge', 'c7g.large', 'c7g.medium', 'c7g.xlarge', 'g5g.16xlarge', 'g5g.2xlarge', 'g5g.4xlarge', 'g5g.8xlarge', 'g5g.xlarge', 'm3.2xlarge', 'm3.large', 'm3.medium', 'm3.xlarge', 'm4.10xlarge', 'm4.2xlarge', 'm4.4xlarge', 'm4.large', 'm4.xlarge', 'm5.12xlarge', 'm5.16xlarge', 'm5.24xlarge', 'm5.2xlarge', 'm5.4xlarge', 'm5.8xlarge', 'm5.large', 'm5.xlarge', 'm5a.12xlarge', 'm5a.16xlarge', 'm5a.24xlarge', 'm5a.2xlarge', 'm5a.4xlarge', 'm5a.8xlarge', 'm5a.large', 'm5a.xlarge', 'm6g.12xlarge', 'm6g.16xlarge', 'm6g.2xlarge', 'm6g.4xlarge', 'm6g.8xlarge', 'm6g.large', 'm6g.medium', 'm6g.xlarge', 'm7g.12xlarge', 'm7g.16xlarge', 'm7g.2xlarge', 'm7g.4xlarge', 'm7g.8xlarge', 'm7g.large', 'm7g.medium', 'm7g.xlarge', 'r3.2xlarge', 'r3.4xlarge', 'r3.8xlarge', 'r3.large', 'r3.xlarge', 'r4.16xlarge', 'r4.2xlarge', 'r4.4xlarge', 'r4.8xlarge', 'r4.large', 'r4.xlarge', 'r5.12xlarge', 'r5.16xlarge', 'r5.24xlarge', 'r5.2xlarge', 'r5.4xlarge', 'r5.8xlarge', 'r5.large', 'r5.xlarge', 'r5a.12xlarge', 'r5a.16xlarge', 'r5a.24xlarge', 'r5a.2xlarge', 'r5a.4xlarge', 'r5a.8xlarge', 'r5a.large', 'r5a.xlarge', 'r5d.12xlarge', 'r5d.16xlarge', 'r5d.24xlarge', 'r5d.2xlarge', 'r5d.4xlarge', 'r5d.8xlarge', 'r5d.large', 'r5d.xlarge', 'r6g.12xlarge', 'r6g.16xlarge', 'r6g.2xlarge', 'r6g.4xlarge', 'r6g.8xlarge', 'r6g.large', 'r6g.medium', 'r6g.xlarge', 'r7g.12xlarge', 'r7g.16xlarge', 'r7g.2xlarge', 'r7g.4xlarge', 'r7g.8xlarge', 'r7g.large', 'r7g.medium', 'r7g.xlarge', 't2.large', 't2.medium', 't2.micro', 't2.small']]
 
 ### InstanceCounts
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.EC2InstanceCountsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.EC2InstanceCounts]
 
 ### Location
 - **Type**: typing.Optional[str]
 
 ### GameServerContainerGroupCounts
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.GameServerContainerGroupCountsTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# FleetDeploymentTypeDef
+# FleetDeployment
 
 ### DeploymentId
 - **Type**: typing.Optional[str]
@@ -2494,13 +2494,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CANCELLED', 'COMPLETE', 'IMPAIRED', 'IN_PROGRESS', 'PENDING', 'ROLLBACK_COMPLETE', 'ROLLBACK_IN_PROGRESS']]
 
 ### DeploymentConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.DeploymentConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### CreationTime
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# FleetUtilizationTypeDef
+# FleetUtilization
 
 ### FleetId
 - **Type**: typing.Optional[str]
@@ -2524,7 +2524,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GamePropertyTypeDef
+# GameProperty
 
 ### Key
 - **Type**: <class 'str'>
@@ -2535,141 +2535,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GameServerContainerDefinitionInputTypeDef
-
-### ContainerName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ImageUri
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PortConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ContainerPortConfigurationUnionTypeDef'>
-- **Required**: Yes
-
-### ServerSdkVersion
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### DependsOn
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.ContainerDependencyTypeDef]]
-
-### MountPoints
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.ContainerMountPointTypeDef]]
-
-### EnvironmentOverride
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.ContainerEnvironmentTypeDef]]
-
-
-# GameServerContainerDefinitionTypeDef
-
-### ContainerName
-- **Type**: typing.Optional[str]
-
-### DependsOn
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.gamelift_classes.ContainerDependencyTypeDef]]
-
-### MountPoints
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.gamelift_classes.ContainerMountPointTypeDef]]
-
-### EnvironmentOverride
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.gamelift_classes.ContainerEnvironmentTypeDef]]
-
-### ImageUri
-- **Type**: typing.Optional[str]
-
-### PortConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.ContainerPortConfigurationOutputTypeDef]
-
-### ResolvedImageDigest
-- **Type**: typing.Optional[str]
-
-### ServerSdkVersion
-- **Type**: typing.Optional[str]
-
-
-# GameServerContainerGroupCountsTypeDef
-
-### PENDING
-- **Type**: typing.Optional[int]
-
-### ACTIVE
-- **Type**: typing.Optional[int]
-
-### IDLE
-- **Type**: typing.Optional[int]
-
-### TERMINATING
-- **Type**: typing.Optional[int]
-
-
-# GameServerGroupAutoScalingPolicyTypeDef
-
-### TargetTrackingConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.TargetTrackingConfigurationTypeDef'>
-- **Required**: Yes
-
-### EstimatedInstanceWarmup
-- **Type**: typing.Optional[int]
-
-
-# GameServerGroupTypeDef
-
-### GameServerGroupName
-- **Type**: typing.Optional[str]
-
-### GameServerGroupArn
-- **Type**: typing.Optional[str]
-
-### RoleArn
-- **Type**: typing.Optional[str]
-
-### InstanceDefinitions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.gamelift_classes.InstanceDefinitionTypeDef]]
-
-### BalancingStrategy
-- **Type**: typing.Optional[typing.Literal['ON_DEMAND_ONLY', 'SPOT_ONLY', 'SPOT_PREFERRED']]
-
-### GameServerProtectionPolicy
-- **Type**: typing.Optional[typing.Literal['FULL_PROTECTION', 'NO_PROTECTION']]
-
-### AutoScalingGroupArn
-- **Type**: typing.Optional[str]
-
-### Status
-- **Type**: typing.Optional[typing.Literal['ACTIVATING', 'ACTIVE', 'DELETED', 'DELETE_SCHEDULED', 'DELETING', 'ERROR', 'NEW']]
-
-### StatusReason
-- **Type**: typing.Optional[str]
-
-### SuspendedActions
-- **Type**: typing.Optional[typing.List[typing.Literal['REPLACE_INSTANCE_TYPES']]]
-
-### CreationTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### LastUpdatedTime
-- **Type**: typing.Optional[datetime.datetime]
-
-
-# GameServerInstanceTypeDef
-
-### GameServerGroupName
-- **Type**: typing.Optional[str]
-
-### GameServerGroupArn
-- **Type**: typing.Optional[str]
-
-### InstanceId
-- **Type**: typing.Optional[str]
-
-### InstanceStatus
-- **Type**: typing.Optional[typing.Literal['ACTIVE', 'DRAINING', 'SPOT_TERMINATING']]
-
-
-# GameServerTypeDef
+# GameServer
 
 ### GameServerGroupName
 - **Type**: typing.Optional[str]
@@ -2705,139 +2571,141 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# GameSessionConnectionInfoTypeDef
+# GameServerContainerDefinition
 
-### GameSessionArn
+### ContainerName
 - **Type**: typing.Optional[str]
 
-### IpAddress
+### DependsOn
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.gamelift_classes.ContainerDependency]]
+
+### MountPoints
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.gamelift_classes.ContainerMountPoint]]
+
+### EnvironmentOverride
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.gamelift_classes.ContainerEnvironment]]
+
+### ImageUri
 - **Type**: typing.Optional[str]
 
-### DnsName
+### PortConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.ContainerPortConfigurationOutput]
+
+### ResolvedImageDigest
 - **Type**: typing.Optional[str]
 
-### Port
+### ServerSdkVersion
+- **Type**: typing.Optional[str]
+
+
+# GameServerContainerDefinitionInput
+
+### ContainerName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ImageUri
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PortConfiguration
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ContainerPortConfigurationUnion'>
+- **Required**: Yes
+
+### ServerSdkVersion
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### DependsOn
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.ContainerDependency]]
+
+### MountPoints
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.ContainerMountPoint]]
+
+### EnvironmentOverride
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.ContainerEnvironment]]
+
+
+# GameServerContainerGroupCounts
+
+### PENDING
 - **Type**: typing.Optional[int]
 
-### MatchedPlayerSessions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.gamelift_classes.MatchedPlayerSessionTypeDef]]
-
-
-# GameSessionCreationLimitPolicyTypeDef
-
-### NewGameSessionsPerCreator
+### ACTIVE
 - **Type**: typing.Optional[int]
 
-### PolicyPeriodInMinutes
+### IDLE
+- **Type**: typing.Optional[int]
+
+### TERMINATING
 - **Type**: typing.Optional[int]
 
 
-# GameSessionDetailTypeDef
+# GameServerGroup
 
-### GameSession
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.GameSessionTypeDef]
-
-### ProtectionPolicy
-- **Type**: typing.Optional[typing.Literal['FullProtection', 'NoProtection']]
-
-
-# GameSessionPlacementTypeDef
-
-### PlacementId
+### GameServerGroupName
 - **Type**: typing.Optional[str]
 
-### GameSessionQueueName
+### GameServerGroupArn
+- **Type**: typing.Optional[str]
+
+### RoleArn
+- **Type**: typing.Optional[str]
+
+### InstanceDefinitions
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.gamelift_classes.InstanceDefinition]]
+
+### BalancingStrategy
+- **Type**: typing.Optional[typing.Literal['ON_DEMAND_ONLY', 'SPOT_ONLY', 'SPOT_PREFERRED']]
+
+### GameServerProtectionPolicy
+- **Type**: typing.Optional[typing.Literal['FULL_PROTECTION', 'NO_PROTECTION']]
+
+### AutoScalingGroupArn
 - **Type**: typing.Optional[str]
 
 ### Status
-- **Type**: typing.Optional[typing.Literal['CANCELLED', 'FAILED', 'FULFILLED', 'PENDING', 'TIMED_OUT']]
+- **Type**: typing.Optional[typing.Literal['ACTIVATING', 'ACTIVE', 'DELETED', 'DELETE_SCHEDULED', 'DELETING', 'ERROR', 'NEW']]
 
-### GameProperties
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.gamelift_classes.GamePropertyTypeDef]]
-
-### MaximumPlayerSessionCount
-- **Type**: typing.Optional[int]
-
-### GameSessionName
+### StatusReason
 - **Type**: typing.Optional[str]
 
-### GameSessionId
-- **Type**: typing.Optional[str]
+### SuspendedActions
+- **Type**: typing.Optional[typing.List[typing.Literal['REPLACE_INSTANCE_TYPES']]]
 
-### GameSessionArn
-- **Type**: typing.Optional[str]
-
-### GameSessionRegion
-- **Type**: typing.Optional[str]
-
-### PlayerLatencies
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.gamelift_classes.PlayerLatencyTypeDef]]
-
-### StartTime
+### CreationTime
 - **Type**: typing.Optional[datetime.datetime]
 
-### EndTime
+### LastUpdatedTime
 - **Type**: typing.Optional[datetime.datetime]
 
-### IpAddress
-- **Type**: typing.Optional[str]
 
-### DnsName
-- **Type**: typing.Optional[str]
+# GameServerGroupAutoScalingPolicy
 
-### Port
+### TargetTrackingConfiguration
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.TargetTrackingConfiguration'>
+- **Required**: Yes
+
+### EstimatedInstanceWarmup
 - **Type**: typing.Optional[int]
 
-### PlacedPlayerSessions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.gamelift_classes.PlacedPlayerSessionTypeDef]]
 
-### GameSessionData
+# GameServerInstance
+
+### GameServerGroupName
 - **Type**: typing.Optional[str]
 
-### MatchmakerData
+### GameServerGroupArn
 - **Type**: typing.Optional[str]
 
-### PriorityConfigurationOverride
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.PriorityConfigurationOverrideOutputTypeDef]
-
-
-# GameSessionQueueDestinationTypeDef
-
-### DestinationArn
+### InstanceId
 - **Type**: typing.Optional[str]
 
-
-# GameSessionQueueTypeDef
-
-### Name
-- **Type**: typing.Optional[str]
-
-### GameSessionQueueArn
-- **Type**: typing.Optional[str]
-
-### TimeoutInSeconds
-- **Type**: typing.Optional[int]
-
-### PlayerLatencyPolicies
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.gamelift_classes.PlayerLatencyPolicyTypeDef]]
-
-### Destinations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.gamelift_classes.GameSessionQueueDestinationTypeDef]]
-
-### FilterConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.FilterConfigurationOutputTypeDef]
-
-### PriorityConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.PriorityConfigurationOutputTypeDef]
-
-### CustomEventData
-- **Type**: typing.Optional[str]
-
-### NotificationTarget
-- **Type**: typing.Optional[str]
+### InstanceStatus
+- **Type**: typing.Optional[typing.Literal['ACTIVE', 'DRAINING', 'SPOT_TERMINATING']]
 
 
-# GameSessionTypeDef
+# GameSession
 
 ### GameSessionId
 - **Type**: typing.Optional[str]
@@ -2870,7 +2738,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['FORCE_TERMINATED', 'INTERRUPTED', 'TRIGGERED_ON_PROCESS_TERMINATE']]
 
 ### GameProperties
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.gamelift_classes.GamePropertyTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.gamelift_classes.GameProperty]]
 
 ### IpAddress
 - **Type**: typing.Optional[str]
@@ -2897,7 +2765,139 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetComputeAccessInputTypeDef
+# GameSessionConnectionInfo
+
+### GameSessionArn
+- **Type**: typing.Optional[str]
+
+### IpAddress
+- **Type**: typing.Optional[str]
+
+### DnsName
+- **Type**: typing.Optional[str]
+
+### Port
+- **Type**: typing.Optional[int]
+
+### MatchedPlayerSessions
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.gamelift_classes.MatchedPlayerSession]]
+
+
+# GameSessionCreationLimitPolicy
+
+### NewGameSessionsPerCreator
+- **Type**: typing.Optional[int]
+
+### PolicyPeriodInMinutes
+- **Type**: typing.Optional[int]
+
+
+# GameSessionDetail
+
+### GameSession
+- **Type**: <class 'NoneType'>
+
+### ProtectionPolicy
+- **Type**: typing.Optional[typing.Literal['FullProtection', 'NoProtection']]
+
+
+# GameSessionPlacement
+
+### PlacementId
+- **Type**: typing.Optional[str]
+
+### GameSessionQueueName
+- **Type**: typing.Optional[str]
+
+### Status
+- **Type**: typing.Optional[typing.Literal['CANCELLED', 'FAILED', 'FULFILLED', 'PENDING', 'TIMED_OUT']]
+
+### GameProperties
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.gamelift_classes.GameProperty]]
+
+### MaximumPlayerSessionCount
+- **Type**: typing.Optional[int]
+
+### GameSessionName
+- **Type**: typing.Optional[str]
+
+### GameSessionId
+- **Type**: typing.Optional[str]
+
+### GameSessionArn
+- **Type**: typing.Optional[str]
+
+### GameSessionRegion
+- **Type**: typing.Optional[str]
+
+### PlayerLatencies
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.gamelift_classes.PlayerLatency]]
+
+### StartTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### EndTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### IpAddress
+- **Type**: typing.Optional[str]
+
+### DnsName
+- **Type**: typing.Optional[str]
+
+### Port
+- **Type**: typing.Optional[int]
+
+### PlacedPlayerSessions
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.gamelift_classes.PlacedPlayerSession]]
+
+### GameSessionData
+- **Type**: typing.Optional[str]
+
+### MatchmakerData
+- **Type**: typing.Optional[str]
+
+### PriorityConfigurationOverride
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.PriorityConfigurationOverrideOutput]
+
+
+# GameSessionQueue
+
+### Name
+- **Type**: typing.Optional[str]
+
+### GameSessionQueueArn
+- **Type**: typing.Optional[str]
+
+### TimeoutInSeconds
+- **Type**: typing.Optional[int]
+
+### PlayerLatencyPolicies
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.gamelift_classes.PlayerLatencyPolicy]]
+
+### Destinations
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.gamelift_classes.GameSessionQueueDestination]]
+
+### FilterConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.FilterConfigurationOutput]
+
+### PriorityConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.PriorityConfigurationOutput]
+
+### CustomEventData
+- **Type**: typing.Optional[str]
+
+### NotificationTarget
+- **Type**: typing.Optional[str]
+
+
+# GameSessionQueueDestination
+
+### DestinationArn
+- **Type**: typing.Optional[str]
+
+
+# GetComputeAccessInput
 
 ### FleetId
 - **Type**: <class 'str'>
@@ -2908,7 +2908,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetComputeAccessOutputTypeDef
+# GetComputeAccessOutput
 
 ### FleetId
 - **Type**: <class 'str'>
@@ -2927,7 +2927,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Credentials
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.AwsCredentialsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.AwsCredentials'>
 - **Required**: Yes
 
 ### Target
@@ -2935,15 +2935,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ContainerIdentifiers
-- **Type**: typing.List[aws_resource_validator.pydantic_models.gamelift_classes.ContainerIdentifierTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.gamelift_classes.ContainerIdentifier]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetComputeAuthTokenInputTypeDef
+# GetComputeAuthTokenInput
 
 ### FleetId
 - **Type**: <class 'str'>
@@ -2954,7 +2954,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetComputeAuthTokenOutputTypeDef
+# GetComputeAuthTokenOutput
 
 ### FleetId
 - **Type**: <class 'str'>
@@ -2981,29 +2981,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetGameSessionLogUrlInputTypeDef
+# GetGameSessionLogUrlInput
 
 ### GameSessionId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetGameSessionLogUrlOutputTypeDef
+# GetGameSessionLogUrlOutput
 
 ### PreSignedUrl
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetInstanceAccessInputTypeDef
+# GetInstanceAccessInput
 
 ### FleetId
 - **Type**: <class 'str'>
@@ -3014,18 +3014,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetInstanceAccessOutputTypeDef
+# GetInstanceAccessOutput
 
 ### InstanceAccess
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.InstanceAccessTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.InstanceAccess'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# InstanceAccessTypeDef
+# Instance
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# InstanceAccess
 
 ### FleetId
 - **Type**: typing.Optional[str]
@@ -3040,10 +3046,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['AMAZON_LINUX', 'AMAZON_LINUX_2', 'AMAZON_LINUX_2023', 'WINDOWS_2012', 'WINDOWS_2016']]
 
 ### Credentials
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.InstanceCredentialsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.InstanceCredentials]
 
 
-# InstanceCredentialsTypeDef
+# InstanceCredentials
 
 ### UserName
 - **Type**: typing.Optional[str]
@@ -3052,7 +3058,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# InstanceDefinitionTypeDef
+# InstanceDefinition
 
 ### InstanceType
 - **Type**: typing.Literal['c4.2xlarge', 'c4.4xlarge', 'c4.8xlarge', 'c4.large', 'c4.xlarge', 'c5.12xlarge', 'c5.18xlarge', 'c5.24xlarge', 'c5.2xlarge', 'c5.4xlarge', 'c5.9xlarge', 'c5.large', 'c5.xlarge', 'c5a.12xlarge', 'c5a.16xlarge', 'c5a.24xlarge', 'c5a.2xlarge', 'c5a.4xlarge', 'c5a.8xlarge', 'c5a.large', 'c5a.xlarge', 'c6g.12xlarge', 'c6g.16xlarge', 'c6g.2xlarge', 'c6g.4xlarge', 'c6g.8xlarge', 'c6g.large', 'c6g.medium', 'c6g.xlarge', 'm4.10xlarge', 'm4.2xlarge', 'm4.4xlarge', 'm4.large', 'm4.xlarge', 'm5.12xlarge', 'm5.16xlarge', 'm5.24xlarge', 'm5.2xlarge', 'm5.4xlarge', 'm5.8xlarge', 'm5.large', 'm5.xlarge', 'm5a.12xlarge', 'm5a.16xlarge', 'm5a.24xlarge', 'm5a.2xlarge', 'm5a.4xlarge', 'm5a.8xlarge', 'm5a.large', 'm5a.xlarge', 'm6g.12xlarge', 'm6g.16xlarge', 'm6g.2xlarge', 'm6g.4xlarge', 'm6g.8xlarge', 'm6g.large', 'm6g.medium', 'm6g.xlarge', 'r4.16xlarge', 'r4.2xlarge', 'r4.4xlarge', 'r4.8xlarge', 'r4.large', 'r4.xlarge', 'r5.12xlarge', 'r5.16xlarge', 'r5.24xlarge', 'r5.2xlarge', 'r5.4xlarge', 'r5.8xlarge', 'r5.large', 'r5.xlarge', 'r5a.12xlarge', 'r5a.16xlarge', 'r5a.24xlarge', 'r5a.2xlarge', 'r5a.4xlarge', 'r5a.8xlarge', 'r5a.large', 'r5a.xlarge', 'r6g.12xlarge', 'r6g.16xlarge', 'r6g.2xlarge', 'r6g.4xlarge', 'r6g.8xlarge', 'r6g.large', 'r6g.medium', 'r6g.xlarge']
@@ -3062,19 +3068,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# InstanceTypeDef
+# IpPermission
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# IpPermissionTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# LaunchTemplateSpecificationTypeDef
+# LaunchTemplateSpecification
 
 ### LaunchTemplateId
 - **Type**: typing.Optional[str]
@@ -3086,19 +3086,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListAliasesInputPaginateTypeDef
-
-### RoutingStrategyType
-- **Type**: typing.Optional[typing.Literal['SIMPLE', 'TERMINAL']]
-
-### Name
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.PaginatorConfigTypeDef]
-
-
-# ListAliasesInputTypeDef
+# ListAliasesInput
 
 ### RoutingStrategyType
 - **Type**: typing.Optional[typing.Literal['SIMPLE', 'TERMINAL']]
@@ -3113,30 +3101,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListAliasesOutputTypeDef
+# ListAliasesInputPaginate
+
+### RoutingStrategyType
+- **Type**: typing.Optional[typing.Literal['SIMPLE', 'TERMINAL']]
+
+### Name
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.PaginatorConfig]
+
+
+# ListAliasesOutput
 
 ### Aliases
-- **Type**: typing.List[aws_resource_validator.pydantic_models.gamelift_classes.AliasTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.gamelift_classes.Alias]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListBuildsInputPaginateTypeDef
-
-### Status
-- **Type**: typing.Optional[typing.Literal['FAILED', 'INITIALIZED', 'READY']]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.PaginatorConfigTypeDef]
-
-
-# ListBuildsInputTypeDef
+# ListBuildsInput
 
 ### Status
 - **Type**: typing.Optional[typing.Literal['FAILED', 'INITIALIZED', 'READY']]
@@ -3148,40 +3139,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListBuildsOutputTypeDef
+# ListBuildsInputPaginate
+
+### Status
+- **Type**: typing.Optional[typing.Literal['FAILED', 'INITIALIZED', 'READY']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.PaginatorConfig]
+
+
+# ListBuildsOutput
 
 ### Builds
-- **Type**: typing.List[aws_resource_validator.pydantic_models.gamelift_classes.BuildTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.gamelift_classes.Build]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListComputeInputPaginateTypeDef
-
-### FleetId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Location
-- **Type**: typing.Optional[str]
-
-### ContainerGroupDefinitionName
-- **Type**: typing.Optional[str]
-
-### ComputeStatus
-- **Type**: typing.Optional[typing.Literal['ACTIVE', 'IMPAIRED']]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.PaginatorConfigTypeDef]
-
-
-# ListComputeInputTypeDef
+# ListComputeInput
 
 ### FleetId
 - **Type**: <class 'str'>
@@ -3203,30 +3184,40 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListComputeOutputTypeDef
+# ListComputeInputPaginate
+
+### FleetId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Location
+- **Type**: typing.Optional[str]
+
+### ContainerGroupDefinitionName
+- **Type**: typing.Optional[str]
+
+### ComputeStatus
+- **Type**: typing.Optional[typing.Literal['ACTIVE', 'IMPAIRED']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.PaginatorConfig]
+
+
+# ListComputeOutput
 
 ### ComputeList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.gamelift_classes.ComputeTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.gamelift_classes.Compute]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListContainerFleetsInputPaginateTypeDef
-
-### ContainerGroupDefinitionName
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.PaginatorConfigTypeDef]
-
-
-# ListContainerFleetsInputTypeDef
+# ListContainerFleetsInput
 
 ### ContainerGroupDefinitionName
 - **Type**: typing.Optional[str]
@@ -3238,31 +3229,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListContainerFleetsOutputTypeDef
+# ListContainerFleetsInputPaginate
+
+### ContainerGroupDefinitionName
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.PaginatorConfig]
+
+
+# ListContainerFleetsOutput
 
 ### ContainerFleets
-- **Type**: typing.List[aws_resource_validator.pydantic_models.gamelift_classes.ContainerFleetTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.gamelift_classes.ContainerFleet]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListContainerGroupDefinitionVersionsInputPaginateTypeDef
-
-### Name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.PaginatorConfigTypeDef]
-
-
-# ListContainerGroupDefinitionVersionsInputTypeDef
+# ListContainerGroupDefinitionVersionsInput
 
 ### Name
 - **Type**: <class 'str'>
@@ -3275,30 +3265,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListContainerGroupDefinitionVersionsOutputTypeDef
+# ListContainerGroupDefinitionVersionsInputPaginate
+
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.PaginatorConfig]
+
+
+# ListContainerGroupDefinitionVersionsOutput
 
 ### ContainerGroupDefinitions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.gamelift_classes.ContainerGroupDefinitionTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.gamelift_classes.ContainerGroupDefinition]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListContainerGroupDefinitionsInputPaginateTypeDef
-
-### ContainerGroupType
-- **Type**: typing.Optional[typing.Literal['GAME_SERVER', 'PER_INSTANCE']]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.PaginatorConfigTypeDef]
-
-
-# ListContainerGroupDefinitionsInputTypeDef
+# ListContainerGroupDefinitionsInput
 
 ### ContainerGroupType
 - **Type**: typing.Optional[typing.Literal['GAME_SERVER', 'PER_INSTANCE']]
@@ -3310,30 +3301,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListContainerGroupDefinitionsOutputTypeDef
+# ListContainerGroupDefinitionsInputPaginate
+
+### ContainerGroupType
+- **Type**: typing.Optional[typing.Literal['GAME_SERVER', 'PER_INSTANCE']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.PaginatorConfig]
+
+
+# ListContainerGroupDefinitionsOutput
 
 ### ContainerGroupDefinitions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.gamelift_classes.ContainerGroupDefinitionTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.gamelift_classes.ContainerGroupDefinition]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListFleetDeploymentsInputPaginateTypeDef
-
-### FleetId
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.PaginatorConfigTypeDef]
-
-
-# ListFleetDeploymentsInputTypeDef
+# ListFleetDeploymentsInput
 
 ### FleetId
 - **Type**: typing.Optional[str]
@@ -3345,33 +3336,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListFleetDeploymentsOutputTypeDef
+# ListFleetDeploymentsInputPaginate
+
+### FleetId
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.PaginatorConfig]
+
+
+# ListFleetDeploymentsOutput
 
 ### FleetDeployments
-- **Type**: typing.List[aws_resource_validator.pydantic_models.gamelift_classes.FleetDeploymentTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.gamelift_classes.FleetDeployment]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListFleetsInputPaginateTypeDef
-
-### BuildId
-- **Type**: typing.Optional[str]
-
-### ScriptId
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.PaginatorConfigTypeDef]
-
-
-# ListFleetsInputTypeDef
+# ListFleetsInput
 
 ### BuildId
 - **Type**: typing.Optional[str]
@@ -3386,27 +3374,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListFleetsOutputTypeDef
+# ListFleetsInputPaginate
+
+### BuildId
+- **Type**: typing.Optional[str]
+
+### ScriptId
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.PaginatorConfig]
+
+
+# ListFleetsOutput
 
 ### FleetIds
 - **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListGameServerGroupsInputPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.PaginatorConfigTypeDef]
-
-
-# ListGameServerGroupsInputTypeDef
+# ListGameServerGroupsInput
 
 ### Limit
 - **Type**: typing.Optional[int]
@@ -3415,34 +3409,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListGameServerGroupsOutputTypeDef
+# ListGameServerGroupsInputPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.PaginatorConfig]
+
+
+# ListGameServerGroupsOutput
 
 ### GameServerGroups
-- **Type**: typing.List[aws_resource_validator.pydantic_models.gamelift_classes.GameServerGroupTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.gamelift_classes.GameServerGroup]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListGameServersInputPaginateTypeDef
-
-### GameServerGroupName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### SortOrder
-- **Type**: typing.Optional[typing.Literal['ASCENDING', 'DESCENDING']]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.PaginatorConfigTypeDef]
-
-
-# ListGameServersInputTypeDef
+# ListGameServersInput
 
 ### GameServerGroupName
 - **Type**: <class 'str'>
@@ -3458,30 +3445,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListGameServersOutputTypeDef
+# ListGameServersInputPaginate
+
+### GameServerGroupName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### SortOrder
+- **Type**: typing.Optional[typing.Literal['ASCENDING', 'DESCENDING']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.PaginatorConfig]
+
+
+# ListGameServersOutput
 
 ### GameServers
-- **Type**: typing.List[aws_resource_validator.pydantic_models.gamelift_classes.GameServerTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.gamelift_classes.GameServer]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListLocationsInputPaginateTypeDef
-
-### Filters
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['AWS', 'CUSTOM']]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.PaginatorConfigTypeDef]
-
-
-# ListLocationsInputTypeDef
+# ListLocationsInput
 
 ### Filters
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['AWS', 'CUSTOM']]]
@@ -3493,27 +3484,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListLocationsOutputTypeDef
+# ListLocationsInputPaginate
+
+### Filters
+- **Type**: typing.Optional[typing.Sequence[typing.Literal['AWS', 'CUSTOM']]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.PaginatorConfig]
+
+
+# ListLocationsOutput
 
 ### Locations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.gamelift_classes.LocationModelTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.gamelift_classes.LocationModel]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListScriptsInputPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.PaginatorConfigTypeDef]
-
-
-# ListScriptsInputTypeDef
+# ListScriptsInput
 
 ### Limit
 - **Type**: typing.Optional[int]
@@ -3522,42 +3516,48 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListScriptsOutputTypeDef
+# ListScriptsInputPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.PaginatorConfig]
+
+
+# ListScriptsOutput
 
 ### Scripts
-- **Type**: typing.List[aws_resource_validator.pydantic_models.gamelift_classes.ScriptTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.gamelift_classes.Script]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestTypeDef
+# ListTagsForResourceRequest
 
 ### ResourceARN
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ListTagsForResourceResponseTypeDef
+# ListTagsForResourceResponse
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.gamelift_classes.TagTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.gamelift_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# LocationAttributesTypeDef
+# LocationAttributes
 
 ### LocationState
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.LocationStateTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### StoppedActions
 - **Type**: typing.Optional[typing.List[typing.Literal['AUTO_SCALING']]]
@@ -3566,14 +3566,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['PENDING_UPDATE']]
 
 
-# LocationConfigurationTypeDef
+# LocationConfiguration
 
 ### Location
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# LocationModelTypeDef
+# LocationModel
 
 ### LocationName
 - **Type**: typing.Optional[str]
@@ -3582,7 +3582,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# LocationStateTypeDef
+# LocationState
 
 ### Location
 - **Type**: typing.Optional[str]
@@ -3591,13 +3591,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ACTIVATING', 'ACTIVE', 'BUILDING', 'DELETING', 'DOWNLOADING', 'ERROR', 'NEW', 'NOT_FOUND', 'TERMINATED', 'VALIDATING']]
 
 
-# LocationalDeploymentTypeDef
+# LocationalDeployment
 
 ### DeploymentStatus
 - **Type**: typing.Optional[typing.Literal['CANCELLED', 'COMPLETE', 'IMPAIRED', 'IN_PROGRESS', 'PENDING', 'ROLLBACK_COMPLETE', 'ROLLBACK_IN_PROGRESS']]
 
 
-# LogConfigurationTypeDef
+# LogConfiguration
 
 ### LogDestination
 - **Type**: typing.Optional[typing.Literal['CLOUDWATCH', 'NONE', 'S3']]
@@ -3609,7 +3609,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# MatchedPlayerSessionTypeDef
+# MatchedPlayerSession
 
 ### PlayerId
 - **Type**: typing.Optional[str]
@@ -3618,7 +3618,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# MatchmakingConfigurationTypeDef
+# MatchmakingConfiguration
 
 ### Name
 - **Type**: typing.Optional[str]
@@ -3660,7 +3660,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### GameProperties
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.gamelift_classes.GamePropertyTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.gamelift_classes.GameProperty]]
 
 ### GameSessionData
 - **Type**: typing.Optional[str]
@@ -3672,7 +3672,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['STANDALONE', 'WITH_QUEUE']]
 
 
-# MatchmakingRuleSetTypeDef
+# MatchmakingRuleSet
 
 ### RuleSetBody
 - **Type**: <class 'str'>
@@ -3688,7 +3688,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# MatchmakingTicketTypeDef
+# MatchmakingTicket
 
 ### TicketId
 - **Type**: typing.Optional[str]
@@ -3715,16 +3715,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### Players
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.gamelift_classes.PlayerOutputTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.gamelift_classes.PlayerOutput]]
 
 ### GameSessionConnectionInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.GameSessionConnectionInfoTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### EstimatedWaitTime
 - **Type**: typing.Optional[int]
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -3736,7 +3736,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PlacedPlayerSessionTypeDef
+# PlacedPlayerSession
 
 ### PlayerId
 - **Type**: typing.Optional[str]
@@ -3745,16 +3745,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PlayerLatencyPolicyTypeDef
+# Player
 
-### MaximumIndividualPlayerLatencyMilliseconds
-- **Type**: typing.Optional[int]
+### PlayerId
+- **Type**: typing.Optional[str]
 
-### PolicyDurationSeconds
-- **Type**: typing.Optional[int]
+### PlayerAttributes
+- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.gamelift_classes.AttributeValueUnion]]
+
+### Team
+- **Type**: typing.Optional[str]
+
+### LatencyInMs
+- **Type**: typing.Optional[typing.Mapping[str, int]]
 
 
-# PlayerLatencyTypeDef
+# PlayerLatency
 
 ### PlayerId
 - **Type**: typing.Optional[str]
@@ -3766,13 +3772,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# PlayerOutputTypeDef
+# PlayerLatencyPolicy
+
+### MaximumIndividualPlayerLatencyMilliseconds
+- **Type**: typing.Optional[int]
+
+### PolicyDurationSeconds
+- **Type**: typing.Optional[int]
+
+
+# PlayerOutput
 
 ### PlayerId
 - **Type**: typing.Optional[str]
 
 ### PlayerAttributes
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.gamelift_classes.AttributeValueOutputTypeDef]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.gamelift_classes.AttributeValueOutput]]
 
 ### Team
 - **Type**: typing.Optional[str]
@@ -3781,7 +3796,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, int]]
 
 
-# PlayerSessionTypeDef
+# PlayerSession
 
 ### PlayerSessionId
 - **Type**: typing.Optional[str]
@@ -3820,28 +3835,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PlayerTypeDef
-
-### PlayerId
-- **Type**: typing.Optional[str]
-
-### PlayerAttributes
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.gamelift_classes.AttributeValueUnionTypeDef]]
-
-### Team
-- **Type**: typing.Optional[str]
-
-### LatencyInMs
-- **Type**: typing.Optional[typing.Mapping[str, int]]
-
-
-# PlayerUnionTypeDef
+# PlayerUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# PriorityConfigurationOutputTypeDef
+# PriorityConfiguration
+
+### PriorityOrder
+- **Type**: typing.Optional[typing.Sequence[typing.Literal['COST', 'DESTINATION', 'LATENCY', 'LOCATION']]]
+
+### LocationOrder
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+
+# PriorityConfigurationOutput
 
 ### PriorityOrder
 - **Type**: typing.Optional[typing.List[typing.Literal['COST', 'DESTINATION', 'LATENCY', 'LOCATION']]]
@@ -3850,17 +3859,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# PriorityConfigurationOverrideOutputTypeDef
-
-### LocationOrder
-- **Type**: typing.List[str]
-- **Required**: Yes
-
-### PlacementFallbackStrategy
-- **Type**: typing.Optional[typing.Literal['DEFAULT_AFTER_SINGLE_PASS', 'NONE']]
-
-
-# PriorityConfigurationOverrideTypeDef
+# PriorityConfigurationOverride
 
 ### LocationOrder
 - **Type**: typing.Sequence[str]
@@ -3870,28 +3869,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DEFAULT_AFTER_SINGLE_PASS', 'NONE']]
 
 
-# PriorityConfigurationOverrideUnionTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# PriorityConfigurationTypeDef
-
-### PriorityOrder
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['COST', 'DESTINATION', 'LATENCY', 'LOCATION']]]
+# PriorityConfigurationOverrideOutput
 
 ### LocationOrder
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### PlacementFallbackStrategy
+- **Type**: typing.Optional[typing.Literal['DEFAULT_AFTER_SINGLE_PASS', 'NONE']]
 
 
-# PriorityConfigurationUnionTypeDef
+# PriorityConfigurationOverrideUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# PutScalingPolicyInputTypeDef
+# PriorityConfigurationUnion
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# PutScalingPolicyInput
 
 ### Name
 - **Type**: <class 'str'>
@@ -3924,21 +3924,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['RuleBased', 'TargetBased']]
 
 ### TargetConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.TargetConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# PutScalingPolicyOutputTypeDef
+# PutScalingPolicyOutput
 
 ### Name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# RegisterComputeInputTypeDef
+# RegisterComputeInput
 
 ### FleetId
 - **Type**: <class 'str'>
@@ -3961,18 +3961,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RegisterComputeOutputTypeDef
+# RegisterComputeOutput
 
 ### Compute
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ComputeTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.Compute'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# RegisterGameServerInputTypeDef
+# RegisterGameServerInput
 
 ### GameServerGroupName
 - **Type**: <class 'str'>
@@ -3993,47 +3993,47 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RegisterGameServerOutputTypeDef
+# RegisterGameServerOutput
 
 ### GameServer
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.GameServerTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.GameServer'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# RequestUploadCredentialsInputTypeDef
+# RequestUploadCredentialsInput
 
 ### BuildId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# RequestUploadCredentialsOutputTypeDef
+# RequestUploadCredentialsOutput
 
 ### UploadCredentials
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.AwsCredentialsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.AwsCredentials'>
 - **Required**: Yes
 
 ### StorageLocation
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.S3LocationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.S3Location'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ResolveAliasInputTypeDef
+# ResolveAliasInput
 
 ### AliasId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ResolveAliasOutputTypeDef
+# ResolveAliasOutput
 
 ### FleetId
 - **Type**: <class 'str'>
@@ -4044,11 +4044,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ResourceCreationLimitPolicyTypeDef
+# ResourceCreationLimitPolicy
 
 ### NewGameSessionsPerCreator
 - **Type**: typing.Optional[int]
@@ -4057,7 +4057,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -4079,7 +4079,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ResumeGameServerGroupInputTypeDef
+# ResumeGameServerGroupInput
 
 ### GameServerGroupName
 - **Type**: <class 'str'>
@@ -4090,27 +4090,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ResumeGameServerGroupOutputTypeDef
+# ResumeGameServerGroupOutput
 
 ### GameServerGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.GameServerGroupTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.GameServerGroup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# RoutingStrategyTypeDef
+# RoutingStrategy
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# RuntimeConfigurationOutputTypeDef
+# RuntimeConfiguration
 
 ### ServerProcesses
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.gamelift_classes.ServerProcessTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.ServerProcess]]
 
 ### MaxConcurrentGameSessionActivations
 - **Type**: typing.Optional[int]
@@ -4119,10 +4119,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# RuntimeConfigurationTypeDef
+# RuntimeConfigurationOutput
 
 ### ServerProcesses
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.ServerProcessTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.gamelift_classes.ServerProcess]]
 
 ### MaxConcurrentGameSessionActivations
 - **Type**: typing.Optional[int]
@@ -4131,13 +4131,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# RuntimeConfigurationUnionTypeDef
+# RuntimeConfigurationUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# S3LocationTypeDef
+# S3Location
 
 ### Bucket
 - **Type**: typing.Optional[str]
@@ -4152,7 +4152,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ScalingPolicyTypeDef
+# ScalingPolicy
 
 ### FleetId
 - **Type**: typing.Optional[str]
@@ -4188,7 +4188,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['RuleBased', 'TargetBased']]
 
 ### TargetConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.TargetConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### UpdateStatus
 - **Type**: typing.Optional[typing.Literal['PENDING_UPDATE']]
@@ -4197,7 +4197,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ScriptTypeDef
+# Script
 
 ### ScriptId
 - **Type**: typing.Optional[str]
@@ -4218,31 +4218,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### StorageLocation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.S3LocationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.S3Location]
 
 
-# SearchGameSessionsInputPaginateTypeDef
-
-### FleetId
-- **Type**: typing.Optional[str]
-
-### AliasId
-- **Type**: typing.Optional[str]
-
-### Location
-- **Type**: typing.Optional[str]
-
-### FilterExpression
-- **Type**: typing.Optional[str]
-
-### SortExpression
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.PaginatorConfigTypeDef]
-
-
-# SearchGameSessionsInputTypeDef
+# SearchGameSessionsInput
 
 ### FleetId
 - **Type**: typing.Optional[str]
@@ -4266,21 +4245,42 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SearchGameSessionsOutputTypeDef
+# SearchGameSessionsInputPaginate
+
+### FleetId
+- **Type**: typing.Optional[str]
+
+### AliasId
+- **Type**: typing.Optional[str]
+
+### Location
+- **Type**: typing.Optional[str]
+
+### FilterExpression
+- **Type**: typing.Optional[str]
+
+### SortExpression
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.PaginatorConfig]
+
+
+# SearchGameSessionsOutput
 
 ### GameSessions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.gamelift_classes.GameSessionTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.gamelift_classes.GameSession]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ServerProcessTypeDef
+# ServerProcess
 
 ### LaunchPath
 - **Type**: <class 'str'>
@@ -4294,7 +4294,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# StartFleetActionsInputTypeDef
+# StartFleetActionsInput
 
 ### FleetId
 - **Type**: <class 'str'>
@@ -4308,7 +4308,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# StartFleetActionsOutputTypeDef
+# StartFleetActionsOutput
 
 ### FleetId
 - **Type**: <class 'str'>
@@ -4319,11 +4319,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# StartGameSessionPlacementInputTypeDef
+# StartGameSessionPlacementInput
 
 ### PlacementId
 - **Type**: <class 'str'>
@@ -4338,43 +4338,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### GameProperties
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.GamePropertyTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.GameProperty]]
 
 ### GameSessionName
 - **Type**: typing.Optional[str]
 
 ### PlayerLatencies
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.PlayerLatencyTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.PlayerLatency]]
 
 ### DesiredPlayerSessions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.DesiredPlayerSessionTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.DesiredPlayerSession]]
 
 ### GameSessionData
 - **Type**: typing.Optional[str]
 
 ### PriorityConfigurationOverride
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.PriorityConfigurationOverrideUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.PriorityConfigurationOverrideUnion]
 
 
-# StartGameSessionPlacementOutputTypeDef
+# StartGameSessionPlacementOutput
 
 ### GameSessionPlacement
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.GameSessionPlacementTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.GameSessionPlacement'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# StartMatchBackfillInputTypeDef
+# StartMatchBackfillInput
 
 ### ConfigurationName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Players
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.PlayerUnionTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.PlayerUnion]
 - **Required**: Yes
 
 ### TicketId
@@ -4384,43 +4384,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# StartMatchBackfillOutputTypeDef
+# StartMatchBackfillOutput
 
 ### MatchmakingTicket
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.MatchmakingTicketTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.MatchmakingTicket'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# StartMatchmakingInputTypeDef
+# StartMatchmakingInput
 
 ### ConfigurationName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Players
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.PlayerUnionTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.PlayerUnion]
 - **Required**: Yes
 
 ### TicketId
 - **Type**: typing.Optional[str]
 
 
-# StartMatchmakingOutputTypeDef
+# StartMatchmakingOutput
 
 ### MatchmakingTicket
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.MatchmakingTicketTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.MatchmakingTicket'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# StopFleetActionsInputTypeDef
+# StopFleetActionsInput
 
 ### FleetId
 - **Type**: <class 'str'>
@@ -4434,7 +4434,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# StopFleetActionsOutputTypeDef
+# StopFleetActionsOutput
 
 ### FleetId
 - **Type**: <class 'str'>
@@ -4445,89 +4445,54 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# StopGameSessionPlacementInputTypeDef
+# StopGameSessionPlacementInput
 
 ### PlacementId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# StopGameSessionPlacementOutputTypeDef
+# StopGameSessionPlacementOutput
 
 ### GameSessionPlacement
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.GameSessionPlacementTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.GameSessionPlacement'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# StopMatchmakingInputTypeDef
+# StopMatchmakingInput
 
 ### TicketId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# SupportContainerDefinitionInputTypeDef
-
-### ContainerName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ImageUri
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### DependsOn
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.ContainerDependencyTypeDef]]
-
-### MountPoints
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.ContainerMountPointTypeDef]]
-
-### EnvironmentOverride
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.ContainerEnvironmentTypeDef]]
-
-### Essential
-- **Type**: typing.Optional[bool]
-
-### HealthCheck
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.ContainerHealthCheckUnionTypeDef]
-
-### MemoryHardLimitMebibytes
-- **Type**: typing.Optional[int]
-
-### PortConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.ContainerPortConfigurationUnionTypeDef]
-
-### Vcpu
-- **Type**: typing.Optional[float]
-
-
-# SupportContainerDefinitionTypeDef
+# SupportContainerDefinition
 
 ### ContainerName
 - **Type**: typing.Optional[str]
 
 ### DependsOn
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.gamelift_classes.ContainerDependencyTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.gamelift_classes.ContainerDependency]]
 
 ### MountPoints
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.gamelift_classes.ContainerMountPointTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.gamelift_classes.ContainerMountPoint]]
 
 ### EnvironmentOverride
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.gamelift_classes.ContainerEnvironmentTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.gamelift_classes.ContainerEnvironment]]
 
 ### Essential
 - **Type**: typing.Optional[bool]
 
 ### HealthCheck
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.ContainerHealthCheckOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.ContainerHealthCheckOutput]
 
 ### ImageUri
 - **Type**: typing.Optional[str]
@@ -4536,7 +4501,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### PortConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.ContainerPortConfigurationOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.ContainerPortConfigurationOutput]
 
 ### ResolvedImageDigest
 - **Type**: typing.Optional[str]
@@ -4545,7 +4510,42 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# SuspendGameServerGroupInputTypeDef
+# SupportContainerDefinitionInput
+
+### ContainerName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ImageUri
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### DependsOn
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.ContainerDependency]]
+
+### MountPoints
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.ContainerMountPoint]]
+
+### EnvironmentOverride
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.ContainerEnvironment]]
+
+### Essential
+- **Type**: typing.Optional[bool]
+
+### HealthCheck
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.ContainerHealthCheckUnion]
+
+### MemoryHardLimitMebibytes
+- **Type**: typing.Optional[int]
+
+### PortConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.ContainerPortConfigurationUnion]
+
+### Vcpu
+- **Type**: typing.Optional[float]
+
+
+# SuspendGameServerGroupInput
 
 ### GameServerGroupName
 - **Type**: <class 'str'>
@@ -4556,29 +4556,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SuspendGameServerGroupOutputTypeDef
+# SuspendGameServerGroupOutput
 
 ### GameServerGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.GameServerGroupTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.GameServerGroup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# TagResourceRequestTypeDef
-
-### ResourceARN
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.TagTypeDef]
-- **Required**: Yes
-
-
-# TagTypeDef
+# Tag
 
 ### Key
 - **Type**: <class 'str'>
@@ -4589,21 +4578,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TargetConfigurationTypeDef
+# TagResourceRequest
+
+### ResourceARN
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Tags
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.Tag]
+- **Required**: Yes
+
+
+# TargetConfiguration
 
 ### TargetValue
 - **Type**: <class 'float'>
 - **Required**: Yes
 
 
-# TargetTrackingConfigurationTypeDef
+# TargetTrackingConfiguration
 
 ### TargetValue
 - **Type**: <class 'float'>
 - **Required**: Yes
 
 
-# TerminateGameSessionInputTypeDef
+# TerminateGameSessionInput
 
 ### GameSessionId
 - **Type**: <class 'str'>
@@ -4614,24 +4614,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TerminateGameSessionOutputTypeDef
+# TerminateGameSessionOutput
 
 ### GameSession
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.GameSessionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.GameSession'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# TimestampTypeDef
+# Timestamp
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# UntagResourceRequestTypeDef
+# UntagResourceRequest
 
 ### ResourceARN
 - **Type**: <class 'str'>
@@ -4642,7 +4642,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateAliasInputTypeDef
+# UpdateAliasInput
 
 ### AliasId
 - **Type**: <class 'str'>
@@ -4655,21 +4655,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### RoutingStrategy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.RoutingStrategyTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# UpdateAliasOutputTypeDef
+# UpdateAliasOutput
 
 ### Alias
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.AliasTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.Alias'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateBuildInputTypeDef
+# UpdateBuildInput
 
 ### BuildId
 - **Type**: <class 'str'>
@@ -4682,18 +4682,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateBuildOutputTypeDef
+# UpdateBuildOutput
 
 ### Build
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.BuildTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.Build'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateContainerFleetInputTypeDef
+# UpdateContainerFleetInput
 
 ### FleetId
 - **Type**: <class 'str'>
@@ -4709,16 +4709,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### InstanceConnectionPortRange
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.ConnectionPortRangeTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.ConnectionPortRange]
 
 ### InstanceInboundPermissionAuthorizations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.IpPermissionTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.IpPermission]]
 
 ### InstanceInboundPermissionRevocations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.IpPermissionTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.IpPermission]]
 
 ### DeploymentConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.DeploymentConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### Description
 - **Type**: typing.Optional[str]
@@ -4730,37 +4730,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['FullProtection', 'NoProtection']]
 
 ### GameSessionCreationLimitPolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.GameSessionCreationLimitPolicyTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### LogConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.LogConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### RemoveAttributes
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['PER_INSTANCE_CONTAINER_GROUP_DEFINITION']]]
 
 
-# UpdateContainerFleetOutputTypeDef
+# UpdateContainerFleetOutput
 
 ### ContainerFleet
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ContainerFleetTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ContainerFleet'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateContainerGroupDefinitionInputTypeDef
+# UpdateContainerGroupDefinitionInput
 
 ### Name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### GameServerContainerDefinition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.GameServerContainerDefinitionInputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.GameServerContainerDefinitionInput]
 
 ### SupportContainerDefinitions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.SupportContainerDefinitionInputTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.SupportContainerDefinitionInput]]
 
 ### TotalMemoryLimitMebibytes
 - **Type**: typing.Optional[int]
@@ -4778,18 +4778,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['AMAZON_LINUX_2023']]
 
 
-# UpdateContainerGroupDefinitionOutputTypeDef
+# UpdateContainerGroupDefinitionOutput
 
 ### ContainerGroupDefinition
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ContainerGroupDefinitionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ContainerGroupDefinition'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateFleetAttributesInputTypeDef
+# UpdateFleetAttributesInput
 
 ### FleetId
 - **Type**: <class 'str'>
@@ -4805,16 +4805,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['FullProtection', 'NoProtection']]
 
 ### ResourceCreationLimitPolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.ResourceCreationLimitPolicyTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### MetricGroups
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### AnywhereConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.AnywhereConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# UpdateFleetAttributesOutputTypeDef
+# UpdateFleetAttributesOutput
 
 ### FleetId
 - **Type**: <class 'str'>
@@ -4825,11 +4825,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateFleetCapacityInputTypeDef
+# UpdateFleetCapacityInput
 
 ### FleetId
 - **Type**: <class 'str'>
@@ -4848,7 +4848,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateFleetCapacityOutputTypeDef
+# UpdateFleetCapacityOutput
 
 ### FleetId
 - **Type**: <class 'str'>
@@ -4863,24 +4863,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateFleetPortSettingsInputTypeDef
+# UpdateFleetPortSettingsInput
 
 ### FleetId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### InboundPermissionAuthorizations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.IpPermissionTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.IpPermission]]
 
 ### InboundPermissionRevocations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.IpPermissionTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.IpPermission]]
 
 
-# UpdateFleetPortSettingsOutputTypeDef
+# UpdateFleetPortSettingsOutput
 
 ### FleetId
 - **Type**: <class 'str'>
@@ -4891,11 +4891,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateGameServerGroupInputTypeDef
+# UpdateGameServerGroupInput
 
 ### GameServerGroupName
 - **Type**: <class 'str'>
@@ -4905,7 +4905,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### InstanceDefinitions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.InstanceDefinitionTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.InstanceDefinition]]
 
 ### GameServerProtectionPolicy
 - **Type**: typing.Optional[typing.Literal['FULL_PROTECTION', 'NO_PROTECTION']]
@@ -4914,18 +4914,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ON_DEMAND_ONLY', 'SPOT_ONLY', 'SPOT_PREFERRED']]
 
 
-# UpdateGameServerGroupOutputTypeDef
+# UpdateGameServerGroupOutput
 
 ### GameServerGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.GameServerGroupTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.GameServerGroup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateGameServerInputTypeDef
+# UpdateGameServerInput
 
 ### GameServerGroupName
 - **Type**: <class 'str'>
@@ -4945,18 +4945,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['HEALTHY']]
 
 
-# UpdateGameServerOutputTypeDef
+# UpdateGameServerOutput
 
 ### GameServer
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.GameServerTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.GameServer'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateGameSessionInputTypeDef
+# UpdateGameSessionInput
 
 ### GameSessionId
 - **Type**: <class 'str'>
@@ -4975,21 +4975,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['FullProtection', 'NoProtection']]
 
 ### GameProperties
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.GamePropertyTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.GameProperty]]
 
 
-# UpdateGameSessionOutputTypeDef
+# UpdateGameSessionOutput
 
 ### GameSession
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.GameSessionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.GameSession'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateGameSessionQueueInputTypeDef
+# UpdateGameSessionQueueInput
 
 ### Name
 - **Type**: <class 'str'>
@@ -4999,16 +4999,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### PlayerLatencyPolicies
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.PlayerLatencyPolicyTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.PlayerLatencyPolicy]]
 
 ### Destinations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.GameSessionQueueDestinationTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.GameSessionQueueDestination]]
 
 ### FilterConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.FilterConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.FilterConfigurationUnion]
 
 ### PriorityConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.PriorityConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.PriorityConfigurationUnion]
 
 ### CustomEventData
 - **Type**: typing.Optional[str]
@@ -5017,18 +5017,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateGameSessionQueueOutputTypeDef
+# UpdateGameSessionQueueOutput
 
 ### GameSessionQueue
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.GameSessionQueueTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.GameSessionQueue'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateMatchmakingConfigurationInputTypeDef
+# UpdateMatchmakingConfigurationInput
 
 ### Name
 - **Type**: <class 'str'>
@@ -5062,7 +5062,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### GameProperties
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.GamePropertyTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.gamelift_classes.GameProperty]]
 
 ### GameSessionData
 - **Type**: typing.Optional[str]
@@ -5074,40 +5074,40 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['STANDALONE', 'WITH_QUEUE']]
 
 
-# UpdateMatchmakingConfigurationOutputTypeDef
+# UpdateMatchmakingConfigurationOutput
 
 ### Configuration
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.MatchmakingConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.MatchmakingConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateRuntimeConfigurationInputTypeDef
+# UpdateRuntimeConfigurationInput
 
 ### FleetId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### RuntimeConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.RuntimeConfigurationUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.RuntimeConfigurationUnion'>
 - **Required**: Yes
 
 
-# UpdateRuntimeConfigurationOutputTypeDef
+# UpdateRuntimeConfigurationOutput
 
 ### RuntimeConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.RuntimeConfigurationOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.RuntimeConfigurationOutput'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateScriptInputTypeDef
+# UpdateScriptInput
 
 ### ScriptId
 - **Type**: <class 'str'>
@@ -5120,42 +5120,42 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### StorageLocation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.S3LocationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.S3Location]
 
 ### ZipFile
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.BlobTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.Blob]
 
 
-# UpdateScriptOutputTypeDef
+# UpdateScriptOutput
 
 ### Script
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ScriptTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.Script'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ValidateMatchmakingRuleSetInputTypeDef
+# ValidateMatchmakingRuleSetInput
 
 ### RuleSetBody
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ValidateMatchmakingRuleSetOutputTypeDef
+# ValidateMatchmakingRuleSetOutput
 
 ### Valid
 - **Type**: <class 'bool'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.gamelift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# VpcPeeringAuthorizationTypeDef
+# VpcPeeringAuthorization
 
 ### GameLiftAwsAccountId
 - **Type**: typing.Optional[str]
@@ -5173,16 +5173,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# VpcPeeringConnectionStatusTypeDef
-
-### Code
-- **Type**: typing.Optional[str]
-
-### Message
-- **Type**: typing.Optional[str]
-
-
-# VpcPeeringConnectionTypeDef
+# VpcPeeringConnection
 
 ### FleetId
 - **Type**: typing.Optional[str]
@@ -5197,12 +5188,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Status
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.VpcPeeringConnectionStatusTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.gamelift_classes.VpcPeeringConnectionStatus]
 
 ### PeerVpcId
 - **Type**: typing.Optional[str]
 
 ### GameLiftVpcId
+- **Type**: typing.Optional[str]
+
+
+# VpcPeeringConnectionStatus
+
+### Code
+- **Type**: typing.Optional[str]
+
+### Message
 - **Type**: typing.Optional[str]
 
 

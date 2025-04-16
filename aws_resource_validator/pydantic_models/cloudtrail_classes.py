@@ -12,12 +12,12 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.cloudtrail_constants import *
 
-class TagTypeDef(BaseValidatorModel):
+class Tag(BaseValidatorModel):
     Key: str
     Value: Optional[str] = None
 
 
-class AdvancedFieldSelectorOutputTypeDef(BaseValidatorModel):
+class AdvancedFieldSelectorOutput(BaseValidatorModel):
     Field: str
     Equals: Optional[List[str]] = None
     StartsWith: Optional[List[str]] = None
@@ -27,7 +27,7 @@ class AdvancedFieldSelectorOutputTypeDef(BaseValidatorModel):
     NotEndsWith: Optional[List[str]] = None
 
 
-class AdvancedFieldSelectorTypeDef(BaseValidatorModel):
+class AdvancedFieldSelector(BaseValidatorModel):
     Field: str
     Equals: Optional[Sequence[str]] = None
     StartsWith: Optional[Sequence[str]] = None
@@ -37,13 +37,13 @@ class AdvancedFieldSelectorTypeDef(BaseValidatorModel):
     NotEndsWith: Optional[Sequence[str]] = None
 
 
-class CancelQueryRequestTypeDef(BaseValidatorModel):
+class CancelQueryRequest(BaseValidatorModel):
     QueryId: str
     EventDataStore: Optional[str] = None
     EventDataStoreOwnerAccountId: Optional[str] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -51,49 +51,49 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class ChannelTypeDef(BaseValidatorModel):
+class Channel(BaseValidatorModel):
     ChannelArn: Optional[str] = None
     Name: Optional[str] = None
 
 
-class RequestWidgetTypeDef(BaseValidatorModel):
+class RequestWidget(BaseValidatorModel):
     QueryStatement: str
     ViewProperties: Mapping[str, str]
     QueryParameters: Optional[Sequence[str]] = None
 
 
-class WidgetTypeDef(BaseValidatorModel):
+class Widget(BaseValidatorModel):
     QueryAlias: Optional[str] = None
     QueryStatement: Optional[str] = None
     QueryParameters: Optional[List[str]] = None
     ViewProperties: Optional[Dict[str, str]] = None
 
 
-class DeleteChannelRequestTypeDef(BaseValidatorModel):
+class DeleteChannelRequest(BaseValidatorModel):
     Channel: str
 
 
-class DeleteDashboardRequestTypeDef(BaseValidatorModel):
+class DeleteDashboardRequest(BaseValidatorModel):
     DashboardId: str
 
 
-class DeleteEventDataStoreRequestTypeDef(BaseValidatorModel):
+class DeleteEventDataStoreRequest(BaseValidatorModel):
     EventDataStore: str
 
 
-class DeleteResourcePolicyRequestTypeDef(BaseValidatorModel):
+class DeleteResourcePolicyRequest(BaseValidatorModel):
     ResourceArn: str
 
 
-class DeleteTrailRequestTypeDef(BaseValidatorModel):
+class DeleteTrailRequest(BaseValidatorModel):
     Name: str
 
 
-class DeregisterOrganizationDelegatedAdminRequestTypeDef(BaseValidatorModel):
+class DeregisterOrganizationDelegatedAdminRequest(BaseValidatorModel):
     DelegatedAdminAccountId: str
 
 
-class DescribeQueryRequestTypeDef(BaseValidatorModel):
+class DescribeQueryRequest(BaseValidatorModel):
     EventDataStore: Optional[str] = None
     QueryId: Optional[str] = None
     QueryAlias: Optional[str] = None
@@ -101,7 +101,7 @@ class DescribeQueryRequestTypeDef(BaseValidatorModel):
     EventDataStoreOwnerAccountId: Optional[str] = None
 
 
-class QueryStatisticsForDescribeQueryTypeDef(BaseValidatorModel):
+class QueryStatisticsForDescribeQuery(BaseValidatorModel):
     EventsMatched: Optional[int] = None
     EventsScanned: Optional[int] = None
     BytesScanned: Optional[int] = None
@@ -109,12 +109,12 @@ class QueryStatisticsForDescribeQueryTypeDef(BaseValidatorModel):
     CreationTime: Optional[datetime] = None
 
 
-class DescribeTrailsRequestTypeDef(BaseValidatorModel):
+class DescribeTrailsRequest(BaseValidatorModel):
     trailNameList: Optional[Sequence[str]] = None
     includeShadowTrails: Optional[bool] = None
 
 
-class TrailTypeDef(BaseValidatorModel):
+class Trail(BaseValidatorModel):
     Name: Optional[str] = None
     S3BucketName: Optional[str] = None
     S3KeyPrefix: Optional[str] = None
@@ -133,30 +133,30 @@ class TrailTypeDef(BaseValidatorModel):
     IsOrganizationTrail: Optional[bool] = None
 
 
-class DisableFederationRequestTypeDef(BaseValidatorModel):
+class DisableFederationRequest(BaseValidatorModel):
     EventDataStore: str
 
 
-class EnableFederationRequestTypeDef(BaseValidatorModel):
+class EnableFederationRequest(BaseValidatorModel):
     EventDataStore: str
     FederationRoleArn: str
 
 
-class ResourceTypeDef(BaseValidatorModel):
+class Resource(BaseValidatorModel):
     ResourceType: Optional[str] = None
     ResourceName: Optional[str] = None
 
 
-class GenerateQueryRequestTypeDef(BaseValidatorModel):
+class GenerateQueryRequest(BaseValidatorModel):
     EventDataStores: Sequence[str]
     Prompt: str
 
 
-class GetChannelRequestTypeDef(BaseValidatorModel):
+class GetChannelRequest(BaseValidatorModel):
     Channel: str
 
 
-class IngestionStatusTypeDef(BaseValidatorModel):
+class IngestionStatus(BaseValidatorModel):
     LatestIngestionSuccessTime: Optional[datetime] = None
     LatestIngestionSuccessEventID: Optional[str] = None
     LatestIngestionErrorCode: Optional[str] = None
@@ -164,23 +164,23 @@ class IngestionStatusTypeDef(BaseValidatorModel):
     LatestIngestionAttemptEventID: Optional[str] = None
 
 
-class GetDashboardRequestTypeDef(BaseValidatorModel):
+class GetDashboardRequest(BaseValidatorModel):
     DashboardId: str
 
 
-class GetEventDataStoreRequestTypeDef(BaseValidatorModel):
+class GetEventDataStoreRequest(BaseValidatorModel):
     EventDataStore: str
 
 
-class GetEventSelectorsRequestTypeDef(BaseValidatorModel):
+class GetEventSelectorsRequest(BaseValidatorModel):
     TrailName: str
 
 
-class GetImportRequestTypeDef(BaseValidatorModel):
+class GetImportRequest(BaseValidatorModel):
     ImportId: str
 
 
-class ImportStatisticsTypeDef(BaseValidatorModel):
+class ImportStatistics(BaseValidatorModel):
     PrefixesFound: Optional[int] = None
     PrefixesCompleted: Optional[int] = None
     FilesCompleted: Optional[int] = None
@@ -188,16 +188,16 @@ class ImportStatisticsTypeDef(BaseValidatorModel):
     FailedEntries: Optional[int] = None
 
 
-class GetInsightSelectorsRequestTypeDef(BaseValidatorModel):
+class GetInsightSelectorsRequest(BaseValidatorModel):
     TrailName: Optional[str] = None
     EventDataStore: Optional[str] = None
 
 
-class InsightSelectorTypeDef(BaseValidatorModel):
+class InsightSelector(BaseValidatorModel):
     InsightType: Optional[InsightTypeType] = None
 
 
-class GetQueryResultsRequestTypeDef(BaseValidatorModel):
+class GetQueryResultsRequest(BaseValidatorModel):
     QueryId: str
     EventDataStore: Optional[str] = None
     NextToken: Optional[str] = None
@@ -205,25 +205,25 @@ class GetQueryResultsRequestTypeDef(BaseValidatorModel):
     EventDataStoreOwnerAccountId: Optional[str] = None
 
 
-class QueryStatisticsTypeDef(BaseValidatorModel):
+class QueryStatistics(BaseValidatorModel):
     ResultsCount: Optional[int] = None
     TotalResultsCount: Optional[int] = None
     BytesScanned: Optional[int] = None
 
 
-class GetResourcePolicyRequestTypeDef(BaseValidatorModel):
+class GetResourcePolicyRequest(BaseValidatorModel):
     ResourceArn: str
 
 
-class GetTrailRequestTypeDef(BaseValidatorModel):
+class GetTrailRequest(BaseValidatorModel):
     Name: str
 
 
-class GetTrailStatusRequestTypeDef(BaseValidatorModel):
+class GetTrailStatusRequest(BaseValidatorModel):
     Name: str
 
 
-class ImportFailureListItemTypeDef(BaseValidatorModel):
+class ImportFailureListItem(BaseValidatorModel):
     Location: Optional[str] = None
     Status: Optional[ImportFailureStatusType] = None
     ErrorType: Optional[str] = None
@@ -231,13 +231,13 @@ class ImportFailureListItemTypeDef(BaseValidatorModel):
     LastUpdatedTime: Optional[datetime] = None
 
 
-class S3ImportSourceTypeDef(BaseValidatorModel):
+class S3ImportSource(BaseValidatorModel):
     S3LocationUri: str
     S3BucketRegion: str
     S3BucketAccessRoleArn: str
 
 
-class ImportsListItemTypeDef(BaseValidatorModel):
+class ImportsListItem(BaseValidatorModel):
     ImportId: Optional[str] = None
     ImportStatus: Optional[ImportStatusType] = None
     Destinations: Optional[List[str]] = None
@@ -245,113 +245,113 @@ class ImportsListItemTypeDef(BaseValidatorModel):
     UpdatedTimestamp: Optional[datetime] = None
 
 
-class ListChannelsRequestTypeDef(BaseValidatorModel):
+class ListChannelsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListEventDataStoresRequestTypeDef(BaseValidatorModel):
+class ListEventDataStoresRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListImportFailuresRequestTypeDef(BaseValidatorModel):
+class ListImportFailuresRequest(BaseValidatorModel):
     ImportId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListImportsRequestTypeDef(BaseValidatorModel):
+class ListImportsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     Destination: Optional[str] = None
     ImportStatus: Optional[ImportStatusType] = None
     NextToken: Optional[str] = None
 
 
-class PublicKeyTypeDef(BaseValidatorModel):
+class PublicKey(BaseValidatorModel):
     Value: Optional[bytes] = None
     ValidityStartTime: Optional[datetime] = None
     ValidityEndTime: Optional[datetime] = None
     Fingerprint: Optional[str] = None
 
 
-class QueryTypeDef(BaseValidatorModel):
+class Query(BaseValidatorModel):
     QueryId: Optional[str] = None
     QueryStatus: Optional[QueryStatusType] = None
     CreationTime: Optional[datetime] = None
 
 
-class ListTagsRequestTypeDef(BaseValidatorModel):
+class ListTagsRequest(BaseValidatorModel):
     ResourceIdList: Sequence[str]
     NextToken: Optional[str] = None
 
 
-class ListTrailsRequestTypeDef(BaseValidatorModel):
+class ListTrailsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
-class TrailInfoTypeDef(BaseValidatorModel):
+class TrailInfo(BaseValidatorModel):
     TrailARN: Optional[str] = None
     Name: Optional[str] = None
     HomeRegion: Optional[str] = None
 
 
-class LookupAttributeTypeDef(BaseValidatorModel):
+class LookupAttribute(BaseValidatorModel):
     AttributeKey: LookupAttributeKeyType
     AttributeValue: str
 
 
-class PutResourcePolicyRequestTypeDef(BaseValidatorModel):
+class PutResourcePolicyRequest(BaseValidatorModel):
     ResourceArn: str
     ResourcePolicy: str
 
 
-class RefreshScheduleFrequencyTypeDef(BaseValidatorModel):
+class RefreshScheduleFrequency(BaseValidatorModel):
     Unit: Optional[RefreshScheduleFrequencyUnitType] = None
     Value: Optional[int] = None
 
 
-class RegisterOrganizationDelegatedAdminRequestTypeDef(BaseValidatorModel):
+class RegisterOrganizationDelegatedAdminRequest(BaseValidatorModel):
     MemberAccountId: str
 
 
-class RestoreEventDataStoreRequestTypeDef(BaseValidatorModel):
+class RestoreEventDataStoreRequest(BaseValidatorModel):
     EventDataStore: str
 
 
-class SearchSampleQueriesRequestTypeDef(BaseValidatorModel):
+class SearchSampleQueriesRequest(BaseValidatorModel):
     SearchPhrase: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class SearchSampleQueriesSearchResultTypeDef(BaseValidatorModel):
+class SearchSampleQueriesSearchResult(BaseValidatorModel):
     Name: Optional[str] = None
     Description: Optional[str] = None
     SQL: Optional[str] = None
     Relevance: Optional[float] = None
 
 
-class StartDashboardRefreshRequestTypeDef(BaseValidatorModel):
+class StartDashboardRefreshRequest(BaseValidatorModel):
     DashboardId: str
     QueryParameterValues: Optional[Mapping[str, str]] = None
 
 
-class StartEventDataStoreIngestionRequestTypeDef(BaseValidatorModel):
+class StartEventDataStoreIngestionRequest(BaseValidatorModel):
     EventDataStore: str
 
 
-class StartLoggingRequestTypeDef(BaseValidatorModel):
+class StartLoggingRequest(BaseValidatorModel):
     Name: str
 
 
-class StartQueryRequestTypeDef(BaseValidatorModel):
+class StartQueryRequest(BaseValidatorModel):
     QueryStatement: Optional[str] = None
     DeliveryS3Uri: Optional[str] = None
     QueryAlias: Optional[str] = None
@@ -359,19 +359,19 @@ class StartQueryRequestTypeDef(BaseValidatorModel):
     EventDataStoreOwnerAccountId: Optional[str] = None
 
 
-class StopEventDataStoreIngestionRequestTypeDef(BaseValidatorModel):
+class StopEventDataStoreIngestionRequest(BaseValidatorModel):
     EventDataStore: str
 
 
-class StopImportRequestTypeDef(BaseValidatorModel):
+class StopImportRequest(BaseValidatorModel):
     ImportId: str
 
 
-class StopLoggingRequestTypeDef(BaseValidatorModel):
+class StopLoggingRequest(BaseValidatorModel):
     Name: str
 
 
-class UpdateTrailRequestTypeDef(BaseValidatorModel):
+class UpdateTrailRequest(BaseValidatorModel):
     Name: str
     S3BucketName: Optional[str] = None
     S3KeyPrefix: Optional[str] = None
@@ -385,12 +385,12 @@ class UpdateTrailRequestTypeDef(BaseValidatorModel):
     IsOrganizationTrail: Optional[bool] = None
 
 
-class AddTagsRequestTypeDef(BaseValidatorModel):
+class AddTagsRequest(BaseValidatorModel):
     ResourceId: str
-    TagsList: Sequence[TagTypeDef]
+    TagsList: Sequence[Tag]
 
 
-class CreateTrailRequestTypeDef(BaseValidatorModel):
+class CreateTrailRequest(BaseValidatorModel):
     Name: str
     S3BucketName: str
     S3KeyPrefix: Optional[str] = None
@@ -402,32 +402,32 @@ class CreateTrailRequestTypeDef(BaseValidatorModel):
     CloudWatchLogsRoleArn: Optional[str] = None
     KmsKeyId: Optional[str] = None
     IsOrganizationTrail: Optional[bool] = None
-    TagsList: Optional[Sequence[TagTypeDef]] = None
+    TagsList: Optional[Sequence[Tag]] = None
 
 
-class RemoveTagsRequestTypeDef(BaseValidatorModel):
+class RemoveTagsRequest(BaseValidatorModel):
     ResourceId: str
-    TagsList: Sequence[TagTypeDef]
+    TagsList: Sequence[Tag]
 
 
-class ResourceTagTypeDef(BaseValidatorModel):
+class ResourceTag(BaseValidatorModel):
     ResourceId: Optional[str] = None
-    TagsList: Optional[List[TagTypeDef]] = None
+    TagsList: Optional[List[Tag]] = None
 
 
-class AdvancedEventSelectorOutputTypeDef(BaseValidatorModel):
-    FieldSelectors: List[AdvancedFieldSelectorOutputTypeDef]
+class AdvancedEventSelectorOutput(BaseValidatorModel):
+    FieldSelectors: List[AdvancedFieldSelectorOutput]
     Name: Optional[str] = None
 
 
-class CancelQueryResponseTypeDef(BaseValidatorModel):
+class CancelQueryResponse(BaseValidatorModel):
     QueryId: str
     QueryStatus: QueryStatusType
     EventDataStoreOwnerAccountId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateTrailResponseTypeDef(BaseValidatorModel):
+class CreateTrailResponse(BaseValidatorModel):
     Name: str
     S3BucketName: str
     S3KeyPrefix: str
@@ -441,37 +441,37 @@ class CreateTrailResponseTypeDef(BaseValidatorModel):
     CloudWatchLogsRoleArn: str
     KmsKeyId: str
     IsOrganizationTrail: bool
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DisableFederationResponseTypeDef(BaseValidatorModel):
+class DisableFederationResponse(BaseValidatorModel):
     EventDataStoreArn: str
     FederationStatus: FederationStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class EnableFederationResponseTypeDef(BaseValidatorModel):
+class EnableFederationResponse(BaseValidatorModel):
     EventDataStoreArn: str
     FederationStatus: FederationStatusType
     FederationRoleArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GenerateQueryResponseTypeDef(BaseValidatorModel):
+class GenerateQueryResponse(BaseValidatorModel):
     QueryStatement: str
     QueryAlias: str
     EventDataStoreOwnerAccountId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetResourcePolicyResponseTypeDef(BaseValidatorModel):
+class GetResourcePolicyResponse(BaseValidatorModel):
     ResourceArn: str
     ResourcePolicy: str
     DelegatedAdminResourcePolicy: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetTrailStatusResponseTypeDef(BaseValidatorModel):
+class GetTrailStatusResponse(BaseValidatorModel):
     IsLogging: bool
     LatestDeliveryError: str
     LatestNotificationError: str
@@ -489,39 +489,39 @@ class GetTrailStatusResponseTypeDef(BaseValidatorModel):
     LatestDeliveryAttemptSucceeded: str
     TimeLoggingStarted: str
     TimeLoggingStopped: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListInsightsMetricDataResponseTypeDef(BaseValidatorModel):
+class ListInsightsMetricDataResponse(BaseValidatorModel):
     EventSource: str
     EventName: str
     InsightType: InsightTypeType
     ErrorCode: str
     Timestamps: List[datetime]
     Values: List[float]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class PutResourcePolicyResponseTypeDef(BaseValidatorModel):
+class PutResourcePolicyResponse(BaseValidatorModel):
     ResourceArn: str
     ResourcePolicy: str
     DelegatedAdminResourcePolicy: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartDashboardRefreshResponseTypeDef(BaseValidatorModel):
+class StartDashboardRefreshResponse(BaseValidatorModel):
     RefreshId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartQueryResponseTypeDef(BaseValidatorModel):
+class StartQueryResponse(BaseValidatorModel):
     QueryId: str
     EventDataStoreOwnerAccountId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateTrailResponseTypeDef(BaseValidatorModel):
+class UpdateTrailResponse(BaseValidatorModel):
     Name: str
     S3BucketName: str
     S3KeyPrefix: str
@@ -535,275 +535,275 @@ class UpdateTrailResponseTypeDef(BaseValidatorModel):
     CloudWatchLogsRoleArn: str
     KmsKeyId: str
     IsOrganizationTrail: bool
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListChannelsResponseTypeDef(BaseValidatorModel):
-    Channels: List[ChannelTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListChannelsResponse(BaseValidatorModel):
+    Channels: List[Channel]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DestinationTypeDef(BaseValidatorModel):
+class Destination(BaseValidatorModel):
     pass
 
 
-class CreateChannelRequestTypeDef(BaseValidatorModel):
+class CreateChannelRequest(BaseValidatorModel):
     Name: str
     Source: str
-    Destinations: Sequence[DestinationTypeDef]
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Destinations: Sequence[Destination]
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class CreateChannelResponseTypeDef(BaseValidatorModel):
+class CreateChannelResponse(BaseValidatorModel):
     ChannelArn: str
     Name: str
     Source: str
-    Destinations: List[DestinationTypeDef]
-    Tags: List[TagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    Destinations: List[Destination]
+    Tags: List[Tag]
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateChannelRequestTypeDef(BaseValidatorModel):
+class UpdateChannelRequest(BaseValidatorModel):
     Channel: str
-    Destinations: Optional[Sequence[DestinationTypeDef]] = None
+    Destinations: Optional[Sequence[Destination]] = None
     Name: Optional[str] = None
 
 
-class UpdateChannelResponseTypeDef(BaseValidatorModel):
+class UpdateChannelResponse(BaseValidatorModel):
     ChannelArn: str
     Name: str
     Source: str
-    Destinations: List[DestinationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    Destinations: List[Destination]
+    ResponseMetadata: ResponseMetadata
 
 
-class DashboardDetailTypeDef(BaseValidatorModel):
+class DashboardDetail(BaseValidatorModel):
     pass
 
 
-class ListDashboardsResponseTypeDef(BaseValidatorModel):
-    Dashboards: List[DashboardDetailTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListDashboardsResponse(BaseValidatorModel):
+    Dashboards: List[DashboardDetail]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DataResourceOutputTypeDef(BaseValidatorModel):
+class DataResourceOutput(BaseValidatorModel):
     pass
 
 
-class EventSelectorOutputTypeDef(BaseValidatorModel):
+class EventSelectorOutput(BaseValidatorModel):
     ReadWriteType: Optional[ReadWriteTypeType] = None
     IncludeManagementEvents: Optional[bool] = None
-    DataResources: Optional[List[DataResourceOutputTypeDef]] = None
+    DataResources: Optional[List[DataResourceOutput]] = None
     ExcludeManagementEventSources: Optional[List[str]] = None
 
 
-class DescribeQueryResponseTypeDef(BaseValidatorModel):
+class DescribeQueryResponse(BaseValidatorModel):
     QueryId: str
     QueryString: str
     QueryStatus: QueryStatusType
-    QueryStatistics: QueryStatisticsForDescribeQueryTypeDef
+    QueryStatistics: QueryStatisticsForDescribeQuery
     ErrorMessage: str
     DeliveryS3Uri: str
     DeliveryStatus: DeliveryStatusType
     Prompt: str
     EventDataStoreOwnerAccountId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeTrailsResponseTypeDef(BaseValidatorModel):
-    trailList: List[TrailTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeTrailsResponse(BaseValidatorModel):
+    trailList: List[Trail]
+    ResponseMetadata: ResponseMetadata
 
 
-class GetTrailResponseTypeDef(BaseValidatorModel):
-    Trail: TrailTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetTrailResponse(BaseValidatorModel):
+    Trail: Trail
+    ResponseMetadata: ResponseMetadata
 
 
-class GetInsightSelectorsResponseTypeDef(BaseValidatorModel):
+class GetInsightSelectorsResponse(BaseValidatorModel):
     TrailARN: str
-    InsightSelectors: List[InsightSelectorTypeDef]
+    InsightSelectors: List[InsightSelector]
     EventDataStoreArn: str
     InsightsDestination: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class PutInsightSelectorsRequestTypeDef(BaseValidatorModel):
-    InsightSelectors: Sequence[InsightSelectorTypeDef]
+class PutInsightSelectorsRequest(BaseValidatorModel):
+    InsightSelectors: Sequence[InsightSelector]
     TrailName: Optional[str] = None
     EventDataStore: Optional[str] = None
     InsightsDestination: Optional[str] = None
 
 
-class PutInsightSelectorsResponseTypeDef(BaseValidatorModel):
+class PutInsightSelectorsResponse(BaseValidatorModel):
     TrailARN: str
-    InsightSelectors: List[InsightSelectorTypeDef]
+    InsightSelectors: List[InsightSelector]
     EventDataStoreArn: str
     InsightsDestination: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetQueryResultsResponseTypeDef(BaseValidatorModel):
+class GetQueryResultsResponse(BaseValidatorModel):
     QueryStatus: QueryStatusType
-    QueryStatistics: QueryStatisticsTypeDef
+    QueryStatistics: QueryStatistics
     QueryResultRows: List[List[Dict[str, str]]]
     ErrorMessage: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListImportFailuresResponseTypeDef(BaseValidatorModel):
-    Failures: List[ImportFailureListItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListImportFailuresResponse(BaseValidatorModel):
+    Failures: List[ImportFailureListItem]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ImportSourceTypeDef(BaseValidatorModel):
-    S3: S3ImportSourceTypeDef
+class ImportSource(BaseValidatorModel):
+    S3: S3ImportSource
 
 
-class ListImportsResponseTypeDef(BaseValidatorModel):
-    Imports: List[ImportsListItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListImportsResponse(BaseValidatorModel):
+    Imports: List[ImportsListItem]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListImportFailuresRequestPaginateTypeDef(BaseValidatorModel):
+class ListImportFailuresRequestPaginate(BaseValidatorModel):
     ImportId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListImportsRequestPaginateTypeDef(BaseValidatorModel):
+class ListImportsRequestPaginate(BaseValidatorModel):
     Destination: Optional[str] = None
     ImportStatus: Optional[ImportStatusType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListTagsRequestPaginateTypeDef(BaseValidatorModel):
+class ListTagsRequestPaginate(BaseValidatorModel):
     ResourceIdList: Sequence[str]
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListTrailsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListTrailsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class TimestampTypeDef(BaseValidatorModel):
+class Timestamp(BaseValidatorModel):
     pass
 
 
-class ListInsightsMetricDataRequestTypeDef(BaseValidatorModel):
+class ListInsightsMetricDataRequest(BaseValidatorModel):
     EventSource: str
     EventName: str
     InsightType: InsightTypeType
     ErrorCode: Optional[str] = None
-    StartTime: Optional[TimestampTypeDef] = None
-    EndTime: Optional[TimestampTypeDef] = None
+    StartTime: Optional[Timestamp] = None
+    EndTime: Optional[Timestamp] = None
     Period: Optional[int] = None
     DataType: Optional[InsightsMetricDataTypeType] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListPublicKeysRequestPaginateTypeDef(BaseValidatorModel):
-    StartTime: Optional[TimestampTypeDef] = None
-    EndTime: Optional[TimestampTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListPublicKeysRequestPaginate(BaseValidatorModel):
+    StartTime: Optional[Timestamp] = None
+    EndTime: Optional[Timestamp] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListPublicKeysRequestTypeDef(BaseValidatorModel):
-    StartTime: Optional[TimestampTypeDef] = None
-    EndTime: Optional[TimestampTypeDef] = None
+class ListPublicKeysRequest(BaseValidatorModel):
+    StartTime: Optional[Timestamp] = None
+    EndTime: Optional[Timestamp] = None
     NextToken: Optional[str] = None
 
 
-class ListQueriesRequestTypeDef(BaseValidatorModel):
+class ListQueriesRequest(BaseValidatorModel):
     EventDataStore: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
-    StartTime: Optional[TimestampTypeDef] = None
-    EndTime: Optional[TimestampTypeDef] = None
+    StartTime: Optional[Timestamp] = None
+    EndTime: Optional[Timestamp] = None
     QueryStatus: Optional[QueryStatusType] = None
 
 
-class ListPublicKeysResponseTypeDef(BaseValidatorModel):
-    PublicKeyList: List[PublicKeyTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListPublicKeysResponse(BaseValidatorModel):
+    PublicKeyList: List[PublicKey]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListQueriesResponseTypeDef(BaseValidatorModel):
-    Queries: List[QueryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListQueriesResponse(BaseValidatorModel):
+    Queries: List[Query]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListTrailsResponseTypeDef(BaseValidatorModel):
-    Trails: List[TrailInfoTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListTrailsResponse(BaseValidatorModel):
+    Trails: List[TrailInfo]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class LookupEventsRequestPaginateTypeDef(BaseValidatorModel):
-    LookupAttributes: Optional[Sequence[LookupAttributeTypeDef]] = None
-    StartTime: Optional[TimestampTypeDef] = None
-    EndTime: Optional[TimestampTypeDef] = None
+class LookupEventsRequestPaginate(BaseValidatorModel):
+    LookupAttributes: Optional[Sequence[LookupAttribute]] = None
+    StartTime: Optional[Timestamp] = None
+    EndTime: Optional[Timestamp] = None
     EventCategory: Optional[Literal["insight"]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class LookupEventsRequestTypeDef(BaseValidatorModel):
-    LookupAttributes: Optional[Sequence[LookupAttributeTypeDef]] = None
-    StartTime: Optional[TimestampTypeDef] = None
-    EndTime: Optional[TimestampTypeDef] = None
+class LookupEventsRequest(BaseValidatorModel):
+    LookupAttributes: Optional[Sequence[LookupAttribute]] = None
+    StartTime: Optional[Timestamp] = None
+    EndTime: Optional[Timestamp] = None
     EventCategory: Optional[Literal["insight"]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class RefreshScheduleTypeDef(BaseValidatorModel):
-    Frequency: Optional[RefreshScheduleFrequencyTypeDef] = None
+class RefreshSchedule(BaseValidatorModel):
+    Frequency: Optional[RefreshScheduleFrequency] = None
     Status: Optional[RefreshScheduleStatusType] = None
     TimeOfDay: Optional[str] = None
 
 
-class SearchSampleQueriesResponseTypeDef(BaseValidatorModel):
-    SearchResults: List[SearchSampleQueriesSearchResultTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class SearchSampleQueriesResponse(BaseValidatorModel):
+    SearchResults: List[SearchSampleQueriesSearchResult]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListTagsResponseTypeDef(BaseValidatorModel):
-    ResourceTagList: List[ResourceTagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListTagsResponse(BaseValidatorModel):
+    ResourceTagList: List[ResourceTag]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class CreateEventDataStoreResponseTypeDef(BaseValidatorModel):
+class CreateEventDataStoreResponse(BaseValidatorModel):
     EventDataStoreArn: str
     Name: str
     Status: EventDataStoreStatusType
-    AdvancedEventSelectors: List[AdvancedEventSelectorOutputTypeDef]
+    AdvancedEventSelectors: List[AdvancedEventSelectorOutput]
     MultiRegionEnabled: bool
     OrganizationEnabled: bool
     RetentionPeriod: int
     TerminationProtectionEnabled: bool
-    TagsList: List[TagTypeDef]
+    TagsList: List[Tag]
     CreatedTimestamp: datetime
     UpdatedTimestamp: datetime
     KmsKeyId: str
     BillingMode: BillingModeType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class EventDataStoreTypeDef(BaseValidatorModel):
+class EventDataStore(BaseValidatorModel):
     EventDataStoreArn: Optional[str] = None
     Name: Optional[str] = None
     TerminationProtectionEnabled: Optional[bool] = None
     Status: Optional[EventDataStoreStatusType] = None
-    AdvancedEventSelectors: Optional[List[AdvancedEventSelectorOutputTypeDef]] = None
+    AdvancedEventSelectors: Optional[List[AdvancedEventSelectorOutput]] = None
     MultiRegionEnabled: Optional[bool] = None
     OrganizationEnabled: Optional[bool] = None
     RetentionPeriod: Optional[int] = None
@@ -811,15 +811,15 @@ class EventDataStoreTypeDef(BaseValidatorModel):
     UpdatedTimestamp: Optional[datetime] = None
 
 
-class PartitionKeyTypeDef(BaseValidatorModel):
+class PartitionKey(BaseValidatorModel):
     pass
 
 
-class GetEventDataStoreResponseTypeDef(BaseValidatorModel):
+class GetEventDataStoreResponse(BaseValidatorModel):
     EventDataStoreArn: str
     Name: str
     Status: EventDataStoreStatusType
-    AdvancedEventSelectors: List[AdvancedEventSelectorOutputTypeDef]
+    AdvancedEventSelectors: List[AdvancedEventSelectorOutput]
     MultiRegionEnabled: bool
     OrganizationEnabled: bool
     RetentionPeriod: int
@@ -830,15 +830,15 @@ class GetEventDataStoreResponseTypeDef(BaseValidatorModel):
     BillingMode: BillingModeType
     FederationStatus: FederationStatusType
     FederationRoleArn: str
-    PartitionKeys: List[PartitionKeyTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    PartitionKeys: List[PartitionKey]
+    ResponseMetadata: ResponseMetadata
 
 
-class RestoreEventDataStoreResponseTypeDef(BaseValidatorModel):
+class RestoreEventDataStoreResponse(BaseValidatorModel):
     EventDataStoreArn: str
     Name: str
     Status: EventDataStoreStatusType
-    AdvancedEventSelectors: List[AdvancedEventSelectorOutputTypeDef]
+    AdvancedEventSelectors: List[AdvancedEventSelectorOutput]
     MultiRegionEnabled: bool
     OrganizationEnabled: bool
     RetentionPeriod: int
@@ -847,19 +847,19 @@ class RestoreEventDataStoreResponseTypeDef(BaseValidatorModel):
     UpdatedTimestamp: datetime
     KmsKeyId: str
     BillingMode: BillingModeType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class SourceConfigTypeDef(BaseValidatorModel):
+class SourceConfig(BaseValidatorModel):
     ApplyToAllRegions: Optional[bool] = None
-    AdvancedEventSelectors: Optional[List[AdvancedEventSelectorOutputTypeDef]] = None
+    AdvancedEventSelectors: Optional[List[AdvancedEventSelectorOutput]] = None
 
 
-class UpdateEventDataStoreResponseTypeDef(BaseValidatorModel):
+class UpdateEventDataStoreResponse(BaseValidatorModel):
     EventDataStoreArn: str
     Name: str
     Status: EventDataStoreStatusType
-    AdvancedEventSelectors: List[AdvancedEventSelectorOutputTypeDef]
+    AdvancedEventSelectors: List[AdvancedEventSelectorOutput]
     MultiRegionEnabled: bool
     OrganizationEnabled: bool
     RetentionPeriod: int
@@ -870,151 +870,151 @@ class UpdateEventDataStoreResponseTypeDef(BaseValidatorModel):
     BillingMode: BillingModeType
     FederationStatus: FederationStatusType
     FederationRoleArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class AdvancedFieldSelectorUnionTypeDef(BaseValidatorModel):
+class AdvancedFieldSelectorUnion(BaseValidatorModel):
     pass
 
 
-class AdvancedEventSelectorTypeDef(BaseValidatorModel):
-    FieldSelectors: Sequence[AdvancedFieldSelectorUnionTypeDef]
+class AdvancedEventSelector(BaseValidatorModel):
+    FieldSelectors: Sequence[AdvancedFieldSelectorUnion]
     Name: Optional[str] = None
 
 
-class GetEventSelectorsResponseTypeDef(BaseValidatorModel):
+class GetEventSelectorsResponse(BaseValidatorModel):
     TrailARN: str
-    EventSelectors: List[EventSelectorOutputTypeDef]
-    AdvancedEventSelectors: List[AdvancedEventSelectorOutputTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    EventSelectors: List[EventSelectorOutput]
+    AdvancedEventSelectors: List[AdvancedEventSelectorOutput]
+    ResponseMetadata: ResponseMetadata
 
 
-class PutEventSelectorsResponseTypeDef(BaseValidatorModel):
+class PutEventSelectorsResponse(BaseValidatorModel):
     TrailARN: str
-    EventSelectors: List[EventSelectorOutputTypeDef]
-    AdvancedEventSelectors: List[AdvancedEventSelectorOutputTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    EventSelectors: List[EventSelectorOutput]
+    AdvancedEventSelectors: List[AdvancedEventSelectorOutput]
+    ResponseMetadata: ResponseMetadata
 
 
-class DataResourceUnionTypeDef(BaseValidatorModel):
+class DataResourceUnion(BaseValidatorModel):
     pass
 
 
-class EventSelectorTypeDef(BaseValidatorModel):
+class EventSelector(BaseValidatorModel):
     ReadWriteType: Optional[ReadWriteTypeType] = None
     IncludeManagementEvents: Optional[bool] = None
-    DataResources: Optional[Sequence[DataResourceUnionTypeDef]] = None
+    DataResources: Optional[Sequence[DataResourceUnion]] = None
     ExcludeManagementEventSources: Optional[Sequence[str]] = None
 
 
-class EventTypeDef(BaseValidatorModel):
+class Event(BaseValidatorModel):
     pass
 
 
-class LookupEventsResponseTypeDef(BaseValidatorModel):
-    Events: List[EventTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class LookupEventsResponse(BaseValidatorModel):
+    Events: List[Event]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class GetImportResponseTypeDef(BaseValidatorModel):
+class GetImportResponse(BaseValidatorModel):
     ImportId: str
     Destinations: List[str]
-    ImportSource: ImportSourceTypeDef
+    ImportSource: ImportSource
     StartEventTime: datetime
     EndEventTime: datetime
     ImportStatus: ImportStatusType
     CreatedTimestamp: datetime
     UpdatedTimestamp: datetime
-    ImportStatistics: ImportStatisticsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    ImportStatistics: ImportStatistics
+    ResponseMetadata: ResponseMetadata
 
 
-class StartImportRequestTypeDef(BaseValidatorModel):
+class StartImportRequest(BaseValidatorModel):
     Destinations: Optional[Sequence[str]] = None
-    ImportSource: Optional[ImportSourceTypeDef] = None
-    StartEventTime: Optional[TimestampTypeDef] = None
-    EndEventTime: Optional[TimestampTypeDef] = None
+    ImportSource: Optional[ImportSource] = None
+    StartEventTime: Optional[Timestamp] = None
+    EndEventTime: Optional[Timestamp] = None
     ImportId: Optional[str] = None
 
 
-class StartImportResponseTypeDef(BaseValidatorModel):
+class StartImportResponse(BaseValidatorModel):
     ImportId: str
     Destinations: List[str]
-    ImportSource: ImportSourceTypeDef
+    ImportSource: ImportSource
     StartEventTime: datetime
     EndEventTime: datetime
     ImportStatus: ImportStatusType
     CreatedTimestamp: datetime
     UpdatedTimestamp: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StopImportResponseTypeDef(BaseValidatorModel):
+class StopImportResponse(BaseValidatorModel):
     ImportId: str
-    ImportSource: ImportSourceTypeDef
+    ImportSource: ImportSource
     Destinations: List[str]
     ImportStatus: ImportStatusType
     CreatedTimestamp: datetime
     UpdatedTimestamp: datetime
     StartEventTime: datetime
     EndEventTime: datetime
-    ImportStatistics: ImportStatisticsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    ImportStatistics: ImportStatistics
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateDashboardRequestTypeDef(BaseValidatorModel):
+class CreateDashboardRequest(BaseValidatorModel):
     Name: str
-    RefreshSchedule: Optional[RefreshScheduleTypeDef] = None
-    TagsList: Optional[Sequence[TagTypeDef]] = None
+    RefreshSchedule: Optional[RefreshSchedule] = None
+    TagsList: Optional[Sequence[Tag]] = None
     TerminationProtectionEnabled: Optional[bool] = None
-    Widgets: Optional[Sequence[RequestWidgetTypeDef]] = None
+    Widgets: Optional[Sequence[RequestWidget]] = None
 
 
-class UpdateDashboardRequestTypeDef(BaseValidatorModel):
+class UpdateDashboardRequest(BaseValidatorModel):
     DashboardId: str
-    Widgets: Optional[Sequence[RequestWidgetTypeDef]] = None
-    RefreshSchedule: Optional[RefreshScheduleTypeDef] = None
+    Widgets: Optional[Sequence[RequestWidget]] = None
+    RefreshSchedule: Optional[RefreshSchedule] = None
     TerminationProtectionEnabled: Optional[bool] = None
 
 
-class ListEventDataStoresResponseTypeDef(BaseValidatorModel):
-    EventDataStores: List[EventDataStoreTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListEventDataStoresResponse(BaseValidatorModel):
+    EventDataStores: List[EventDataStore]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class GetChannelResponseTypeDef(BaseValidatorModel):
+class GetChannelResponse(BaseValidatorModel):
     ChannelArn: str
     Name: str
     Source: str
-    SourceConfig: SourceConfigTypeDef
-    Destinations: List[DestinationTypeDef]
-    IngestionStatus: IngestionStatusTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    SourceConfig: SourceConfig
+    Destinations: List[Destination]
+    IngestionStatus: IngestionStatus
+    ResponseMetadata: ResponseMetadata
 
 
-class AdvancedEventSelectorUnionTypeDef(BaseValidatorModel):
+class AdvancedEventSelectorUnion(BaseValidatorModel):
     pass
 
 
-class CreateEventDataStoreRequestTypeDef(BaseValidatorModel):
+class CreateEventDataStoreRequest(BaseValidatorModel):
     Name: str
-    AdvancedEventSelectors: Optional[Sequence[AdvancedEventSelectorUnionTypeDef]] = None
+    AdvancedEventSelectors: Optional[Sequence[AdvancedEventSelectorUnion]] = None
     MultiRegionEnabled: Optional[bool] = None
     OrganizationEnabled: Optional[bool] = None
     RetentionPeriod: Optional[int] = None
     TerminationProtectionEnabled: Optional[bool] = None
-    TagsList: Optional[Sequence[TagTypeDef]] = None
+    TagsList: Optional[Sequence[Tag]] = None
     KmsKeyId: Optional[str] = None
     StartIngestion: Optional[bool] = None
     BillingMode: Optional[BillingModeType] = None
 
 
-class UpdateEventDataStoreRequestTypeDef(BaseValidatorModel):
+class UpdateEventDataStoreRequest(BaseValidatorModel):
     EventDataStore: str
     Name: Optional[str] = None
-    AdvancedEventSelectors: Optional[Sequence[AdvancedEventSelectorUnionTypeDef]] = None
+    AdvancedEventSelectors: Optional[Sequence[AdvancedEventSelectorUnion]] = None
     MultiRegionEnabled: Optional[bool] = None
     OrganizationEnabled: Optional[bool] = None
     RetentionPeriod: Optional[int] = None
@@ -1023,13 +1023,13 @@ class UpdateEventDataStoreRequestTypeDef(BaseValidatorModel):
     BillingMode: Optional[BillingModeType] = None
 
 
-class EventSelectorUnionTypeDef(BaseValidatorModel):
+class EventSelectorUnion(BaseValidatorModel):
     pass
 
 
-class PutEventSelectorsRequestTypeDef(BaseValidatorModel):
+class PutEventSelectorsRequest(BaseValidatorModel):
     TrailName: str
-    EventSelectors: Optional[Sequence[EventSelectorUnionTypeDef]] = None
-    AdvancedEventSelectors: Optional[Sequence[AdvancedEventSelectorUnionTypeDef]] = None
+    EventSelectors: Optional[Sequence[EventSelectorUnion]] = None
+    AdvancedEventSelectors: Optional[Sequence[AdvancedEventSelectorUnion]] = None
 
 

@@ -1,12 +1,12 @@
 # Chime Sdk Media Pipelines Classes
 
-# ActiveSpeakerOnlyConfigurationTypeDef
+# ActiveSpeakerOnlyConfiguration
 
 ### ActiveSpeakerPosition
 - **Type**: typing.Optional[typing.Literal['BottomLeft', 'BottomRight', 'TopLeft', 'TopRight']]
 
 
-# AmazonTranscribeCallAnalyticsProcessorConfigurationOutputTypeDef
+# AmazonTranscribeCallAnalyticsProcessorConfiguration
 
 ### LanguageCode
 - **Type**: typing.Literal['de-DE', 'en-AU', 'en-GB', 'en-US', 'es-US', 'fr-CA', 'fr-FR', 'it-IT', 'pt-BR']
@@ -43,56 +43,56 @@
 - **Type**: typing.Optional[bool]
 
 ### PostCallAnalyticsSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.PostCallAnalyticsSettingsTypeDef]
-
-### CallAnalyticsStreamCategories
-- **Type**: typing.Optional[typing.List[str]]
-
-
-# AmazonTranscribeCallAnalyticsProcessorConfigurationTypeDef
-
-### LanguageCode
-- **Type**: typing.Literal['de-DE', 'en-AU', 'en-GB', 'en-US', 'es-US', 'fr-CA', 'fr-FR', 'it-IT', 'pt-BR']
-- **Required**: Yes
-
-### VocabularyName
-- **Type**: typing.Optional[str]
-
-### VocabularyFilterName
-- **Type**: typing.Optional[str]
-
-### VocabularyFilterMethod
-- **Type**: typing.Optional[typing.Literal['mask', 'remove', 'tag']]
-
-### LanguageModelName
-- **Type**: typing.Optional[str]
-
-### EnablePartialResultsStabilization
-- **Type**: typing.Optional[bool]
-
-### PartialResultsStability
-- **Type**: typing.Optional[typing.Literal['high', 'low', 'medium']]
-
-### ContentIdentificationType
-- **Type**: typing.Optional[typing.Literal['PII']]
-
-### ContentRedactionType
-- **Type**: typing.Optional[typing.Literal['PII']]
-
-### PiiEntityTypes
-- **Type**: typing.Optional[str]
-
-### FilterPartialResults
-- **Type**: typing.Optional[bool]
-
-### PostCallAnalyticsSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.PostCallAnalyticsSettingsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### CallAnalyticsStreamCategories
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# AmazonTranscribeProcessorConfigurationTypeDef
+# AmazonTranscribeCallAnalyticsProcessorConfigurationOutput
+
+### LanguageCode
+- **Type**: typing.Literal['de-DE', 'en-AU', 'en-GB', 'en-US', 'es-US', 'fr-CA', 'fr-FR', 'it-IT', 'pt-BR']
+- **Required**: Yes
+
+### VocabularyName
+- **Type**: typing.Optional[str]
+
+### VocabularyFilterName
+- **Type**: typing.Optional[str]
+
+### VocabularyFilterMethod
+- **Type**: typing.Optional[typing.Literal['mask', 'remove', 'tag']]
+
+### LanguageModelName
+- **Type**: typing.Optional[str]
+
+### EnablePartialResultsStabilization
+- **Type**: typing.Optional[bool]
+
+### PartialResultsStability
+- **Type**: typing.Optional[typing.Literal['high', 'low', 'medium']]
+
+### ContentIdentificationType
+- **Type**: typing.Optional[typing.Literal['PII']]
+
+### ContentRedactionType
+- **Type**: typing.Optional[typing.Literal['PII']]
+
+### PiiEntityTypes
+- **Type**: typing.Optional[str]
+
+### FilterPartialResults
+- **Type**: typing.Optional[bool]
+
+### PostCallAnalyticsSettings
+- **Type**: <class 'NoneType'>
+
+### CallAnalyticsStreamCategories
+- **Type**: typing.Optional[typing.List[str]]
+
+
+# AmazonTranscribeProcessorConfiguration
 
 ### LanguageCode
 - **Type**: typing.Optional[typing.Literal['de-DE', 'en-AU', 'en-GB', 'en-US', 'es-US', 'fr-CA', 'fr-FR', 'it-IT', 'pt-BR']]
@@ -149,63 +149,63 @@
 - **Type**: typing.Optional[str]
 
 
-# ArtifactsConcatenationConfigurationTypeDef
+# ArtifactsConcatenationConfiguration
 
 ### Audio
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.AudioConcatenationConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.AudioConcatenationConfiguration'>
 - **Required**: Yes
 
 ### Video
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.VideoConcatenationConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.VideoConcatenationConfiguration'>
 - **Required**: Yes
 
 ### Content
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.ContentConcatenationConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.ContentConcatenationConfiguration'>
 - **Required**: Yes
 
 ### DataChannel
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.DataChannelConcatenationConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.DataChannelConcatenationConfiguration'>
 - **Required**: Yes
 
 ### TranscriptionMessages
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.TranscriptionMessagesConcatenationConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.TranscriptionMessagesConcatenationConfiguration'>
 - **Required**: Yes
 
 ### MeetingEvents
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.MeetingEventsConcatenationConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.MeetingEventsConcatenationConfiguration'>
 - **Required**: Yes
 
 ### CompositedVideo
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.CompositedVideoConcatenationConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.CompositedVideoConcatenationConfiguration'>
 - **Required**: Yes
 
 
-# ArtifactsConfigurationTypeDef
+# ArtifactsConfiguration
 
 ### Audio
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.AudioArtifactsConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.AudioArtifactsConfiguration'>
 - **Required**: Yes
 
 ### Video
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.VideoArtifactsConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.VideoArtifactsConfiguration'>
 - **Required**: Yes
 
 ### Content
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.ContentArtifactsConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.ContentArtifactsConfiguration'>
 - **Required**: Yes
 
 ### CompositedVideo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.CompositedVideoArtifactsConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.CompositedVideoArtifactsConfiguration]
 
 
-# AudioArtifactsConfigurationTypeDef
+# AudioArtifactsConfiguration
 
 ### MuxType
 - **Type**: typing.Literal['AudioOnly', 'AudioWithActiveSpeakerVideo', 'AudioWithCompositedVideo']
 - **Required**: Yes
 
 
-# AudioConcatenationConfigurationTypeDef
+# AudioConcatenationConfiguration
 
 ### State
 - **Type**: typing.Literal['Enabled']
@@ -218,7 +218,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ChannelDefinitionTypeDef
+# ChannelDefinition
 
 ### ChannelId
 - **Type**: <class 'int'>
@@ -228,38 +228,38 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['AGENT', 'CUSTOMER']]
 
 
-# ChimeSdkMeetingConcatenationConfigurationTypeDef
+# ChimeSdkMeetingConcatenationConfiguration
 
 ### ArtifactsConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.ArtifactsConcatenationConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.ArtifactsConcatenationConfiguration'>
 - **Required**: Yes
 
 
-# ChimeSdkMeetingConfigurationOutputTypeDef
+# ChimeSdkMeetingConfiguration
 
 ### SourceConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.SourceConfigurationOutputTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### ArtifactsConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.ArtifactsConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# ChimeSdkMeetingConfigurationTypeDef
+# ChimeSdkMeetingConfigurationOutput
 
 ### SourceConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.SourceConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.SourceConfigurationOutput]
 
 ### ArtifactsConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.ArtifactsConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# ChimeSdkMeetingConfigurationUnionTypeDef
+# ChimeSdkMeetingConfigurationUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ChimeSdkMeetingLiveConnectorConfigurationOutputTypeDef
+# ChimeSdkMeetingLiveConnectorConfiguration
 
 ### Arn
 - **Type**: <class 'str'>
@@ -270,13 +270,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CompositedVideo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.CompositedVideoArtifactsConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.CompositedVideoArtifactsConfiguration]
 
 ### SourceConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.SourceConfigurationOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.SourceConfigurationUnion]
 
 
-# ChimeSdkMeetingLiveConnectorConfigurationTypeDef
+# ChimeSdkMeetingLiveConnectorConfigurationOutput
 
 ### Arn
 - **Type**: <class 'str'>
@@ -287,22 +287,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CompositedVideo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.CompositedVideoArtifactsConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.CompositedVideoArtifactsConfiguration]
 
 ### SourceConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.SourceConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.SourceConfigurationOutput]
 
 
-# ChimeSdkMeetingLiveConnectorConfigurationUnionTypeDef
+# ChimeSdkMeetingLiveConnectorConfigurationUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CompositedVideoArtifactsConfigurationTypeDef
+# CompositedVideoArtifactsConfiguration
 
 ### GridViewConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.GridViewConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.GridViewConfiguration'>
 - **Required**: Yes
 
 ### Layout
@@ -312,26 +312,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['FHD', 'HD']]
 
 
-# CompositedVideoConcatenationConfigurationTypeDef
+# CompositedVideoConcatenationConfiguration
 
 ### State
 - **Type**: typing.Literal['Disabled', 'Enabled']
 - **Required**: Yes
 
 
-# ConcatenationSinkTypeDef
+# ConcatenationSink
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ConcatenationSourceTypeDef
+# ConcatenationSource
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ContentArtifactsConfigurationTypeDef
+# ContentArtifactsConfiguration
 
 ### State
 - **Type**: typing.Literal['Disabled', 'Enabled']
@@ -341,14 +341,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ContentOnly']]
 
 
-# ContentConcatenationConfigurationTypeDef
+# ContentConcatenationConfiguration
 
 ### State
 - **Type**: typing.Literal['Disabled', 'Enabled']
 - **Required**: Yes
 
 
-# CreateMediaCapturePipelineRequestTypeDef
+# CreateMediaCapturePipelineRequest
 
 ### SourceType
 - **Type**: typing.Literal['ChimeSdkMeeting']
@@ -370,58 +370,58 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ChimeSdkMeetingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.ChimeSdkMeetingConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.ChimeSdkMeetingConfigurationUnion]
 
 ### SseAwsKeyManagementParams
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.SseAwsKeyManagementParamsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### SinkIamRoleArn
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.Tag]]
 
 
-# CreateMediaCapturePipelineResponseTypeDef
+# CreateMediaCapturePipelineResponse
 
 ### MediaCapturePipeline
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.MediaCapturePipelineTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.MediaCapturePipeline'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateMediaConcatenationPipelineRequestTypeDef
+# CreateMediaConcatenationPipelineRequest
 
 ### Sources
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.ConcatenationSourceTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.ConcatenationSource]
 - **Required**: Yes
 
 ### Sinks
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.ConcatenationSinkTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.ConcatenationSink]
 - **Required**: Yes
 
 ### ClientRequestToken
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.Tag]]
 
 
-# CreateMediaConcatenationPipelineResponseTypeDef
+# CreateMediaConcatenationPipelineResponse
 
 ### MediaConcatenationPipeline
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.MediaConcatenationPipelineTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.MediaConcatenationPipeline'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateMediaInsightsPipelineConfigurationRequestTypeDef
+# CreateMediaInsightsPipelineConfigurationRequest
 
 ### MediaInsightsPipelineConfigurationName
 - **Type**: <class 'str'>
@@ -432,98 +432,98 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Elements
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.MediaInsightsPipelineConfigurationElementUnionTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.MediaInsightsPipelineConfigurationElementUnion]
 - **Required**: Yes
 
 ### RealTimeAlertConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.RealTimeAlertConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.RealTimeAlertConfigurationUnion]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.Tag]]
 
 ### ClientRequestToken
 - **Type**: typing.Optional[str]
 
 
-# CreateMediaInsightsPipelineConfigurationResponseTypeDef
+# CreateMediaInsightsPipelineConfigurationResponse
 
 ### MediaInsightsPipelineConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.MediaInsightsPipelineConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.MediaInsightsPipelineConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateMediaInsightsPipelineRequestTypeDef
+# CreateMediaInsightsPipelineRequest
 
 ### MediaInsightsPipelineConfigurationArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### KinesisVideoStreamSourceRuntimeConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.KinesisVideoStreamSourceRuntimeConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.KinesisVideoStreamSourceRuntimeConfigurationUnion]
 
 ### MediaInsightsRuntimeMetadata
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 ### KinesisVideoStreamRecordingSourceRuntimeConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.KinesisVideoStreamRecordingSourceRuntimeConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.KinesisVideoStreamRecordingSourceRuntimeConfigurationUnion]
 
 ### S3RecordingSinkRuntimeConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.S3RecordingSinkRuntimeConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.Tag]]
 
 ### ClientRequestToken
 - **Type**: typing.Optional[str]
 
 
-# CreateMediaInsightsPipelineResponseTypeDef
+# CreateMediaInsightsPipelineResponse
 
 ### MediaInsightsPipeline
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.MediaInsightsPipelineTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.MediaInsightsPipeline'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateMediaLiveConnectorPipelineRequestTypeDef
+# CreateMediaLiveConnectorPipelineRequest
 
 ### Sources
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.LiveConnectorSourceConfigurationUnionTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.LiveConnectorSourceConfigurationUnion]
 - **Required**: Yes
 
 ### Sinks
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.LiveConnectorSinkConfigurationTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.LiveConnectorSinkConfiguration]
 - **Required**: Yes
 
 ### ClientRequestToken
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.Tag]]
 
 
-# CreateMediaLiveConnectorPipelineResponseTypeDef
+# CreateMediaLiveConnectorPipelineResponse
 
 ### MediaLiveConnectorPipeline
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.MediaLiveConnectorPipelineTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.MediaLiveConnectorPipeline'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateMediaPipelineKinesisVideoStreamPoolRequestTypeDef
+# CreateMediaPipelineKinesisVideoStreamPoolRequest
 
 ### StreamConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.KinesisVideoStreamConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.KinesisVideoStreamConfiguration'>
 - **Required**: Yes
 
 ### PoolName
@@ -534,185 +534,185 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.Tag]]
 
 
-# CreateMediaPipelineKinesisVideoStreamPoolResponseTypeDef
+# CreateMediaPipelineKinesisVideoStreamPoolResponse
 
 ### KinesisVideoStreamPoolConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.KinesisVideoStreamPoolConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.KinesisVideoStreamPoolConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateMediaStreamPipelineRequestTypeDef
+# CreateMediaStreamPipelineRequest
 
 ### Sources
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.MediaStreamSourceTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.MediaStreamSource]
 - **Required**: Yes
 
 ### Sinks
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.MediaStreamSinkTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.MediaStreamSink]
 - **Required**: Yes
 
 ### ClientRequestToken
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.Tag]]
 
 
-# CreateMediaStreamPipelineResponseTypeDef
+# CreateMediaStreamPipelineResponse
 
 ### MediaStreamPipeline
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.MediaStreamPipelineTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.MediaStreamPipeline'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DataChannelConcatenationConfigurationTypeDef
+# DataChannelConcatenationConfiguration
 
 ### State
 - **Type**: typing.Literal['Disabled', 'Enabled']
 - **Required**: Yes
 
 
-# DeleteMediaCapturePipelineRequestTypeDef
+# DeleteMediaCapturePipelineRequest
 
 ### MediaPipelineId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteMediaInsightsPipelineConfigurationRequestTypeDef
+# DeleteMediaInsightsPipelineConfigurationRequest
 
 ### Identifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteMediaPipelineKinesisVideoStreamPoolRequestTypeDef
+# DeleteMediaPipelineKinesisVideoStreamPoolRequest
 
 ### Identifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteMediaPipelineRequestTypeDef
+# DeleteMediaPipelineRequest
 
 ### MediaPipelineId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# EmptyResponseMetadataTypeDef
+# EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# FragmentSelectorOutputTypeDef
+# FragmentSelector
 
 ### FragmentSelectorType
 - **Type**: typing.Literal['ProducerTimestamp', 'ServerTimestamp']
 - **Required**: Yes
 
 ### TimestampRange
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.TimestampRangeOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.TimestampRange'>
 - **Required**: Yes
 
 
-# FragmentSelectorTypeDef
+# FragmentSelectorOutput
 
 ### FragmentSelectorType
 - **Type**: typing.Literal['ProducerTimestamp', 'ServerTimestamp']
 - **Required**: Yes
 
 ### TimestampRange
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.TimestampRangeTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.TimestampRangeOutput'>
 - **Required**: Yes
 
 
-# GetMediaCapturePipelineRequestTypeDef
+# GetMediaCapturePipelineRequest
 
 ### MediaPipelineId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetMediaCapturePipelineResponseTypeDef
+# GetMediaCapturePipelineResponse
 
 ### MediaCapturePipeline
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.MediaCapturePipelineTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.MediaCapturePipeline'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetMediaInsightsPipelineConfigurationRequestTypeDef
+# GetMediaInsightsPipelineConfigurationRequest
 
 ### Identifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetMediaInsightsPipelineConfigurationResponseTypeDef
+# GetMediaInsightsPipelineConfigurationResponse
 
 ### MediaInsightsPipelineConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.MediaInsightsPipelineConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.MediaInsightsPipelineConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetMediaPipelineKinesisVideoStreamPoolRequestTypeDef
+# GetMediaPipelineKinesisVideoStreamPoolRequest
 
 ### Identifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetMediaPipelineKinesisVideoStreamPoolResponseTypeDef
+# GetMediaPipelineKinesisVideoStreamPoolResponse
 
 ### KinesisVideoStreamPoolConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.KinesisVideoStreamPoolConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.KinesisVideoStreamPoolConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetMediaPipelineRequestTypeDef
+# GetMediaPipelineRequest
 
 ### MediaPipelineId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetMediaPipelineResponseTypeDef
+# GetMediaPipelineResponse
 
 ### MediaPipeline
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.MediaPipelineTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.MediaPipeline'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetSpeakerSearchTaskRequestTypeDef
+# GetSpeakerSearchTaskRequest
 
 ### Identifier
 - **Type**: <class 'str'>
@@ -723,18 +723,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetSpeakerSearchTaskResponseTypeDef
+# GetSpeakerSearchTaskResponse
 
 ### SpeakerSearchTask
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.SpeakerSearchTaskTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.SpeakerSearchTask'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetVoiceToneAnalysisTaskRequestTypeDef
+# GetVoiceToneAnalysisTaskRequest
 
 ### Identifier
 - **Type**: <class 'str'>
@@ -745,43 +745,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetVoiceToneAnalysisTaskResponseTypeDef
+# GetVoiceToneAnalysisTaskResponse
 
 ### VoiceToneAnalysisTask
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.VoiceToneAnalysisTaskTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.VoiceToneAnalysisTask'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GridViewConfigurationTypeDef
+# GridViewConfiguration
 
 ### ContentShareLayout
 - **Type**: typing.Literal['ActiveSpeakerOnly', 'Horizontal', 'PresenterOnly', 'Vertical']
 - **Required**: Yes
 
 ### PresenterOnlyConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.PresenterOnlyConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### ActiveSpeakerOnlyConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.ActiveSpeakerOnlyConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### HorizontalLayoutConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.HorizontalLayoutConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### VerticalLayoutConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.VerticalLayoutConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### VideoAttribute
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.VideoAttributeTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### CanvasOrientation
 - **Type**: typing.Optional[typing.Literal['Landscape', 'Portrait']]
 
 
-# HorizontalLayoutConfigurationTypeDef
+# HorizontalLayoutConfiguration
 
 ### TileOrder
 - **Type**: typing.Optional[typing.Literal['JoinSequence', 'SpeakerSequence']]
@@ -796,28 +796,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# IssueDetectionConfigurationTypeDef
+# IssueDetectionConfiguration
 
 ### RuleName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# KeywordMatchConfigurationOutputTypeDef
-
-### RuleName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Keywords
-- **Type**: typing.List[str]
-- **Required**: Yes
-
-### Negate
-- **Type**: typing.Optional[bool]
-
-
-# KeywordMatchConfigurationTypeDef
+# KeywordMatchConfiguration
 
 ### RuleName
 - **Type**: <class 'str'>
@@ -831,13 +817,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# KinesisDataStreamSinkConfigurationTypeDef
+# KeywordMatchConfigurationOutput
+
+### RuleName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Keywords
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### Negate
+- **Type**: typing.Optional[bool]
+
+
+# KinesisDataStreamSinkConfiguration
 
 ### InsightsTarget
 - **Type**: typing.Optional[str]
 
 
-# KinesisVideoStreamConfigurationTypeDef
+# KinesisVideoStreamConfiguration
 
 ### Region
 - **Type**: <class 'str'>
@@ -847,13 +847,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# KinesisVideoStreamConfigurationUpdateTypeDef
+# KinesisVideoStreamConfigurationUpdate
 
 ### DataRetentionInHours
 - **Type**: typing.Optional[int]
 
 
-# KinesisVideoStreamPoolConfigurationTypeDef
+# KinesisVideoStreamPoolConfiguration
 
 ### PoolArn
 - **Type**: typing.Optional[str]
@@ -871,7 +871,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### StreamConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.KinesisVideoStreamConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.KinesisVideoStreamConfiguration]
 
 ### CreatedTimestamp
 - **Type**: typing.Optional[datetime.datetime]
@@ -880,7 +880,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# KinesisVideoStreamPoolSummaryTypeDef
+# KinesisVideoStreamPoolSummary
 
 ### PoolName
 - **Type**: typing.Optional[str]
@@ -892,38 +892,38 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# KinesisVideoStreamRecordingSourceRuntimeConfigurationOutputTypeDef
+# KinesisVideoStreamRecordingSourceRuntimeConfiguration
 
 ### Streams
-- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.RecordingStreamConfigurationTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.RecordingStreamConfiguration]
 - **Required**: Yes
 
 ### FragmentSelector
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.FragmentSelectorOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.FragmentSelector'>
 - **Required**: Yes
 
 
-# KinesisVideoStreamRecordingSourceRuntimeConfigurationTypeDef
+# KinesisVideoStreamRecordingSourceRuntimeConfigurationOutput
 
 ### Streams
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.RecordingStreamConfigurationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.RecordingStreamConfiguration]
 - **Required**: Yes
 
 ### FragmentSelector
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.FragmentSelectorTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.FragmentSelectorOutput'>
 - **Required**: Yes
 
 
-# KinesisVideoStreamRecordingSourceRuntimeConfigurationUnionTypeDef
+# KinesisVideoStreamRecordingSourceRuntimeConfigurationUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# KinesisVideoStreamSourceRuntimeConfigurationOutputTypeDef
+# KinesisVideoStreamSourceRuntimeConfiguration
 
 ### Streams
-- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.StreamConfigurationOutputTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.StreamConfiguration]
 - **Required**: Yes
 
 ### MediaEncoding
@@ -935,10 +935,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# KinesisVideoStreamSourceRuntimeConfigurationTypeDef
+# KinesisVideoStreamSourceRuntimeConfigurationOutput
 
 ### Streams
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.StreamConfigurationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.StreamConfigurationOutput]
 - **Required**: Yes
 
 ### MediaEncoding
@@ -950,13 +950,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# KinesisVideoStreamSourceRuntimeConfigurationUnionTypeDef
+# KinesisVideoStreamSourceRuntimeConfigurationUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# KinesisVideoStreamSourceTaskConfigurationTypeDef
+# KinesisVideoStreamSourceTaskConfiguration
 
 ### StreamArn
 - **Type**: <class 'str'>
@@ -970,13 +970,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# LambdaFunctionSinkConfigurationTypeDef
+# LambdaFunctionSinkConfiguration
 
 ### InsightsTarget
 - **Type**: typing.Optional[str]
 
 
-# ListMediaCapturePipelinesRequestTypeDef
+# ListMediaCapturePipelinesRequest
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -985,21 +985,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListMediaCapturePipelinesResponseTypeDef
+# ListMediaCapturePipelinesResponse
 
 ### MediaCapturePipelines
-- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.MediaCapturePipelineSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.MediaCapturePipelineSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListMediaInsightsPipelineConfigurationsRequestTypeDef
+# ListMediaInsightsPipelineConfigurationsRequest
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -1008,21 +1008,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListMediaInsightsPipelineConfigurationsResponseTypeDef
+# ListMediaInsightsPipelineConfigurationsResponse
 
 ### MediaInsightsPipelineConfigurations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.MediaInsightsPipelineConfigurationSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.MediaInsightsPipelineConfigurationSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListMediaPipelineKinesisVideoStreamPoolsRequestTypeDef
+# ListMediaPipelineKinesisVideoStreamPoolsRequest
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -1031,21 +1031,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListMediaPipelineKinesisVideoStreamPoolsResponseTypeDef
+# ListMediaPipelineKinesisVideoStreamPoolsResponse
 
 ### KinesisVideoStreamPools
-- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.KinesisVideoStreamPoolSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.KinesisVideoStreamPoolSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListMediaPipelinesRequestTypeDef
+# ListMediaPipelinesRequest
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -1054,39 +1054,39 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListMediaPipelinesResponseTypeDef
+# ListMediaPipelinesResponse
 
 ### MediaPipelines
-- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.MediaPipelineSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.MediaPipelineSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestTypeDef
+# ListTagsForResourceRequest
 
 ### ResourceARN
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ListTagsForResourceResponseTypeDef
+# ListTagsForResourceResponse
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.TagTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# LiveConnectorRTMPConfigurationTypeDef
+# LiveConnectorRTMPConfiguration
 
 ### Url
 - **Type**: <class 'str'>
@@ -1099,66 +1099,46 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# LiveConnectorSinkConfigurationTypeDef
+# LiveConnectorSinkConfiguration
 
 ### SinkType
 - **Type**: typing.Literal['RTMP']
 - **Required**: Yes
 
 ### RTMPConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.LiveConnectorRTMPConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.LiveConnectorRTMPConfiguration'>
 - **Required**: Yes
 
 
-# LiveConnectorSourceConfigurationOutputTypeDef
+# LiveConnectorSourceConfiguration
 
 ### SourceType
 - **Type**: typing.Literal['ChimeSdkMeeting']
 - **Required**: Yes
 
 ### ChimeSdkMeetingLiveConnectorConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.ChimeSdkMeetingLiveConnectorConfigurationOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.ChimeSdkMeetingLiveConnectorConfigurationUnion'>
 - **Required**: Yes
 
 
-# LiveConnectorSourceConfigurationTypeDef
+# LiveConnectorSourceConfigurationOutput
 
 ### SourceType
 - **Type**: typing.Literal['ChimeSdkMeeting']
 - **Required**: Yes
 
 ### ChimeSdkMeetingLiveConnectorConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.ChimeSdkMeetingLiveConnectorConfigurationUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.ChimeSdkMeetingLiveConnectorConfigurationOutput'>
 - **Required**: Yes
 
 
-# LiveConnectorSourceConfigurationUnionTypeDef
+# LiveConnectorSourceConfigurationUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# MediaCapturePipelineSourceConfigurationTypeDef
-
-### MediaPipelineArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ChimeSdkMeetingConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.ChimeSdkMeetingConcatenationConfigurationTypeDef'>
-- **Required**: Yes
-
-
-# MediaCapturePipelineSummaryTypeDef
-
-### MediaPipelineId
-- **Type**: typing.Optional[str]
-
-### MediaPipelineArn
-- **Type**: typing.Optional[str]
-
-
-# MediaCapturePipelineTypeDef
+# MediaCapturePipeline
 
 ### MediaPipelineId
 - **Type**: typing.Optional[str]
@@ -1188,16 +1168,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### ChimeSdkMeetingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.ChimeSdkMeetingConfigurationOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.ChimeSdkMeetingConfigurationOutput]
 
 ### SseAwsKeyManagementParams
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.SseAwsKeyManagementParamsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### SinkIamRoleArn
 - **Type**: typing.Optional[str]
 
 
-# MediaConcatenationPipelineTypeDef
+# MediaCapturePipelineSourceConfiguration
+
+### MediaPipelineArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ChimeSdkMeetingConfiguration
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.ChimeSdkMeetingConcatenationConfiguration'>
+- **Required**: Yes
+
+
+# MediaCapturePipelineSummary
+
+### MediaPipelineId
+- **Type**: typing.Optional[str]
+
+### MediaPipelineArn
+- **Type**: typing.Optional[str]
+
+
+# MediaConcatenationPipeline
 
 ### MediaPipelineId
 - **Type**: typing.Optional[str]
@@ -1206,10 +1206,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Sources
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.ConcatenationSourceTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.ConcatenationSource]]
 
 ### Sinks
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.ConcatenationSinkTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.ConcatenationSink]]
 
 ### Status
 - **Type**: typing.Optional[typing.Literal['Failed', 'InProgress', 'Initializing', 'NotStarted', 'Paused', 'Stopped', 'Stopping']]
@@ -1221,64 +1221,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# MediaInsightsPipelineConfigurationElementOutputTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# MediaInsightsPipelineConfigurationElementUnionTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# MediaInsightsPipelineConfigurationSummaryTypeDef
-
-### MediaInsightsPipelineConfigurationName
-- **Type**: typing.Optional[str]
-
-### MediaInsightsPipelineConfigurationId
-- **Type**: typing.Optional[str]
-
-### MediaInsightsPipelineConfigurationArn
-- **Type**: typing.Optional[str]
-
-
-# MediaInsightsPipelineConfigurationTypeDef
-
-### MediaInsightsPipelineConfigurationName
-- **Type**: typing.Optional[str]
-
-### MediaInsightsPipelineConfigurationArn
-- **Type**: typing.Optional[str]
-
-### ResourceAccessRoleArn
-- **Type**: typing.Optional[str]
-
-### RealTimeAlertConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.RealTimeAlertConfigurationOutputTypeDef]
-
-### Elements
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.MediaInsightsPipelineConfigurationElementOutputTypeDef]]
-
-### MediaInsightsPipelineConfigurationId
-- **Type**: typing.Optional[str]
-
-### CreatedTimestamp
-- **Type**: typing.Optional[datetime.datetime]
-
-### UpdatedTimestamp
-- **Type**: typing.Optional[datetime.datetime]
-
-
-# MediaInsightsPipelineElementStatusTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# MediaInsightsPipelineTypeDef
+# MediaInsightsPipeline
 
 ### MediaPipelineId
 - **Type**: typing.Optional[str]
@@ -1293,31 +1236,88 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Failed', 'InProgress', 'Initializing', 'NotStarted', 'Paused', 'Stopped', 'Stopping']]
 
 ### KinesisVideoStreamSourceRuntimeConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.KinesisVideoStreamSourceRuntimeConfigurationOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.KinesisVideoStreamSourceRuntimeConfigurationOutput]
 
 ### MediaInsightsRuntimeMetadata
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### KinesisVideoStreamRecordingSourceRuntimeConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.KinesisVideoStreamRecordingSourceRuntimeConfigurationOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.KinesisVideoStreamRecordingSourceRuntimeConfigurationOutput]
 
 ### S3RecordingSinkRuntimeConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.S3RecordingSinkRuntimeConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### CreatedTimestamp
 - **Type**: typing.Optional[datetime.datetime]
 
 ### ElementStatuses
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.MediaInsightsPipelineElementStatusTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.MediaInsightsPipelineElementStatus]]
 
 
-# MediaLiveConnectorPipelineTypeDef
+# MediaInsightsPipelineConfiguration
+
+### MediaInsightsPipelineConfigurationName
+- **Type**: typing.Optional[str]
+
+### MediaInsightsPipelineConfigurationArn
+- **Type**: typing.Optional[str]
+
+### ResourceAccessRoleArn
+- **Type**: typing.Optional[str]
+
+### RealTimeAlertConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.RealTimeAlertConfigurationOutput]
+
+### Elements
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.MediaInsightsPipelineConfigurationElementOutput]]
+
+### MediaInsightsPipelineConfigurationId
+- **Type**: typing.Optional[str]
+
+### CreatedTimestamp
+- **Type**: typing.Optional[datetime.datetime]
+
+### UpdatedTimestamp
+- **Type**: typing.Optional[datetime.datetime]
+
+
+# MediaInsightsPipelineConfigurationElementOutput
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# MediaInsightsPipelineConfigurationElementUnion
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# MediaInsightsPipelineConfigurationSummary
+
+### MediaInsightsPipelineConfigurationName
+- **Type**: typing.Optional[str]
+
+### MediaInsightsPipelineConfigurationId
+- **Type**: typing.Optional[str]
+
+### MediaInsightsPipelineConfigurationArn
+- **Type**: typing.Optional[str]
+
+
+# MediaInsightsPipelineElementStatus
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# MediaLiveConnectorPipeline
 
 ### Sources
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.LiveConnectorSourceConfigurationOutputTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.LiveConnectorSourceConfigurationOutput]]
 
 ### Sinks
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.LiveConnectorSinkConfigurationTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.LiveConnectorSinkConfiguration]]
 
 ### MediaPipelineId
 - **Type**: typing.Optional[str]
@@ -1335,34 +1335,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# MediaPipelineSummaryTypeDef
-
-### MediaPipelineId
-- **Type**: typing.Optional[str]
-
-### MediaPipelineArn
-- **Type**: typing.Optional[str]
-
-
-# MediaPipelineTypeDef
+# MediaPipeline
 
 ### MediaCapturePipeline
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.MediaCapturePipelineTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### MediaLiveConnectorPipeline
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.MediaLiveConnectorPipelineTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### MediaConcatenationPipeline
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.MediaConcatenationPipelineTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### MediaInsightsPipeline
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.MediaInsightsPipelineTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### MediaStreamPipeline
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.MediaStreamPipelineTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# MediaStreamPipelineTypeDef
+# MediaPipelineSummary
+
+### MediaPipelineId
+- **Type**: typing.Optional[str]
+
+### MediaPipelineArn
+- **Type**: typing.Optional[str]
+
+
+# MediaStreamPipeline
 
 ### MediaPipelineId
 - **Type**: typing.Optional[str]
@@ -1380,13 +1380,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Failed', 'InProgress', 'Initializing', 'NotStarted', 'Paused', 'Stopped', 'Stopping']]
 
 ### Sources
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.MediaStreamSourceTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.MediaStreamSource]]
 
 ### Sinks
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.MediaStreamSinkTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.MediaStreamSink]]
 
 
-# MediaStreamSinkTypeDef
+# MediaStreamSink
 
 ### SinkArn
 - **Type**: <class 'str'>
@@ -1405,7 +1405,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# MediaStreamSourceTypeDef
+# MediaStreamSource
 
 ### SourceType
 - **Type**: typing.Literal['ChimeSdkMeeting']
@@ -1416,14 +1416,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# MeetingEventsConcatenationConfigurationTypeDef
+# MeetingEventsConcatenationConfiguration
 
 ### State
 - **Type**: typing.Literal['Disabled', 'Enabled']
 - **Required**: Yes
 
 
-# PostCallAnalyticsSettingsTypeDef
+# PostCallAnalyticsSettings
 
 ### OutputLocation
 - **Type**: <class 'str'>
@@ -1440,55 +1440,55 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PresenterOnlyConfigurationTypeDef
+# PresenterOnlyConfiguration
 
 ### PresenterPosition
 - **Type**: typing.Optional[typing.Literal['BottomLeft', 'BottomRight', 'TopLeft', 'TopRight']]
 
 
-# RealTimeAlertConfigurationOutputTypeDef
+# RealTimeAlertConfiguration
 
 ### Disabled
 - **Type**: typing.Optional[bool]
 
 ### Rules
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.RealTimeAlertRuleOutputTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.RealTimeAlertRule]]
 
 
-# RealTimeAlertConfigurationTypeDef
+# RealTimeAlertConfigurationOutput
 
 ### Disabled
 - **Type**: typing.Optional[bool]
 
 ### Rules
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.RealTimeAlertRuleTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.RealTimeAlertRuleOutput]]
 
 
-# RealTimeAlertConfigurationUnionTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# RealTimeAlertRuleOutputTypeDef
+# RealTimeAlertConfigurationUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# RealTimeAlertRuleTypeDef
+# RealTimeAlertRule
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# RecordingStreamConfigurationTypeDef
+# RealTimeAlertRuleOutput
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# RecordingStreamConfiguration
 
 ### StreamArn
 - **Type**: typing.Optional[str]
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -1510,14 +1510,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# S3BucketSinkConfigurationTypeDef
+# S3BucketSinkConfiguration
 
 ### Destination
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# S3RecordingSinkConfigurationTypeDef
+# S3RecordingSinkConfiguration
 
 ### Destination
 - **Type**: typing.Optional[str]
@@ -1526,7 +1526,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Opus', 'Wav']]
 
 
-# S3RecordingSinkRuntimeConfigurationTypeDef
+# S3RecordingSinkRuntimeConfiguration
 
 ### Destination
 - **Type**: <class 'str'>
@@ -1537,16 +1537,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SelectedVideoStreamsOutputTypeDef
-
-### AttendeeIds
-- **Type**: typing.Optional[typing.List[str]]
-
-### ExternalUserIds
-- **Type**: typing.Optional[typing.List[str]]
-
-
-# SelectedVideoStreamsTypeDef
+# SelectedVideoStreams
 
 ### AttendeeIds
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -1555,13 +1546,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# SelectedVideoStreamsUnionTypeDef
+# SelectedVideoStreamsOutput
+
+### AttendeeIds
+- **Type**: typing.Optional[typing.List[str]]
+
+### ExternalUserIds
+- **Type**: typing.Optional[typing.List[str]]
+
+
+# SelectedVideoStreamsUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# SentimentConfigurationTypeDef
+# SentimentConfiguration
 
 ### RuleName
 - **Type**: <class 'str'>
@@ -1576,31 +1576,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SnsTopicSinkConfigurationTypeDef
+# SnsTopicSinkConfiguration
 
 ### InsightsTarget
 - **Type**: typing.Optional[str]
 
 
-# SourceConfigurationOutputTypeDef
+# SourceConfiguration
 
 ### SelectedVideoStreams
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.SelectedVideoStreamsOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.SelectedVideoStreamsUnion]
 
 
-# SourceConfigurationTypeDef
+# SourceConfigurationOutput
 
 ### SelectedVideoStreams
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.SelectedVideoStreamsUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.SelectedVideoStreamsOutput]
 
 
-# SourceConfigurationUnionTypeDef
+# SourceConfigurationUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# SpeakerSearchTaskTypeDef
+# SpeakerSearchTask
 
 ### SpeakerSearchTaskId
 - **Type**: typing.Optional[str]
@@ -1615,13 +1615,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# SqsQueueSinkConfigurationTypeDef
+# SqsQueueSinkConfiguration
 
 ### InsightsTarget
 - **Type**: typing.Optional[str]
 
 
-# SseAwsKeyManagementParamsTypeDef
+# SseAwsKeyManagementParams
 
 ### AwsKmsKeyId
 - **Type**: <class 'str'>
@@ -1631,7 +1631,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# StartSpeakerSearchTaskRequestTypeDef
+# StartSpeakerSearchTaskRequest
 
 ### Identifier
 - **Type**: <class 'str'>
@@ -1642,24 +1642,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### KinesisVideoStreamSourceTaskConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.KinesisVideoStreamSourceTaskConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### ClientRequestToken
 - **Type**: typing.Optional[str]
 
 
-# StartSpeakerSearchTaskResponseTypeDef
+# StartSpeakerSearchTaskResponse
 
 ### SpeakerSearchTask
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.SpeakerSearchTaskTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.SpeakerSearchTask'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# StartVoiceToneAnalysisTaskRequestTypeDef
+# StartVoiceToneAnalysisTaskRequest
 
 ### Identifier
 - **Type**: <class 'str'>
@@ -1670,24 +1670,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### KinesisVideoStreamSourceTaskConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.KinesisVideoStreamSourceTaskConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### ClientRequestToken
 - **Type**: typing.Optional[str]
 
 
-# StartVoiceToneAnalysisTaskResponseTypeDef
+# StartVoiceToneAnalysisTaskResponse
 
 ### VoiceToneAnalysisTask
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.VoiceToneAnalysisTaskTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.VoiceToneAnalysisTask'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# StopSpeakerSearchTaskRequestTypeDef
+# StopSpeakerSearchTaskRequest
 
 ### Identifier
 - **Type**: <class 'str'>
@@ -1698,7 +1698,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StopVoiceToneAnalysisTaskRequestTypeDef
+# StopVoiceToneAnalysisTaskRequest
 
 ### Identifier
 - **Type**: <class 'str'>
@@ -1709,66 +1709,55 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StreamChannelDefinitionOutputTypeDef
+# StreamChannelDefinition
 
 ### NumberOfChannels
 - **Type**: <class 'int'>
 - **Required**: Yes
 
 ### ChannelDefinitions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.ChannelDefinitionTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.ChannelDefinition]]
 
 
-# StreamChannelDefinitionTypeDef
+# StreamChannelDefinitionOutput
 
 ### NumberOfChannels
 - **Type**: <class 'int'>
 - **Required**: Yes
 
 ### ChannelDefinitions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.ChannelDefinitionTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.ChannelDefinition]]
 
 
-# StreamConfigurationOutputTypeDef
-
-### StreamArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### StreamChannelDefinition
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.StreamChannelDefinitionOutputTypeDef'>
-- **Required**: Yes
-
-### FragmentNumber
-- **Type**: typing.Optional[str]
-
-
-# StreamConfigurationTypeDef
+# StreamConfiguration
 
 ### StreamArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### StreamChannelDefinition
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.StreamChannelDefinitionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.StreamChannelDefinition'>
 - **Required**: Yes
 
 ### FragmentNumber
 - **Type**: typing.Optional[str]
 
 
-# TagResourceRequestTypeDef
+# StreamConfigurationOutput
 
-### ResourceARN
+### StreamArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.TagTypeDef]
+### StreamChannelDefinition
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.StreamChannelDefinitionOutput'>
 - **Required**: Yes
 
+### FragmentNumber
+- **Type**: typing.Optional[str]
 
-# TagTypeDef
+
+# Tag
 
 ### Key
 - **Type**: <class 'str'>
@@ -1779,42 +1768,53 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TimestampRangeOutputTypeDef
+# TagResourceRequest
 
-### StartTimestamp
-- **Type**: <class 'datetime.datetime'>
+### ResourceARN
+- **Type**: <class 'str'>
 - **Required**: Yes
 
-### EndTimestamp
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-
-# TimestampRangeTypeDef
-
-### StartTimestamp
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.TimestampTypeDef'>
-- **Required**: Yes
-
-### EndTimestamp
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.TimestampTypeDef'>
+### Tags
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.Tag]
 - **Required**: Yes
 
 
-# TimestampTypeDef
+# Timestamp
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# TranscriptionMessagesConcatenationConfigurationTypeDef
+# TimestampRange
+
+### StartTimestamp
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.Timestamp'>
+- **Required**: Yes
+
+### EndTimestamp
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.Timestamp'>
+- **Required**: Yes
+
+
+# TimestampRangeOutput
+
+### StartTimestamp
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### EndTimestamp
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+
+# TranscriptionMessagesConcatenationConfiguration
 
 ### State
 - **Type**: typing.Literal['Disabled', 'Enabled']
 - **Required**: Yes
 
 
-# UntagResourceRequestTypeDef
+# UntagResourceRequest
 
 ### ResourceARN
 - **Type**: <class 'str'>
@@ -1825,7 +1825,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateMediaInsightsPipelineConfigurationRequestTypeDef
+# UpdateMediaInsightsPipelineConfigurationRequest
 
 ### Identifier
 - **Type**: <class 'str'>
@@ -1836,25 +1836,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Elements
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.MediaInsightsPipelineConfigurationElementUnionTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.MediaInsightsPipelineConfigurationElementUnion]
 - **Required**: Yes
 
 ### RealTimeAlertConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.RealTimeAlertConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.RealTimeAlertConfigurationUnion]
 
 
-# UpdateMediaInsightsPipelineConfigurationResponseTypeDef
+# UpdateMediaInsightsPipelineConfigurationResponse
 
 ### MediaInsightsPipelineConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.MediaInsightsPipelineConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.MediaInsightsPipelineConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateMediaInsightsPipelineStatusRequestTypeDef
+# UpdateMediaInsightsPipelineStatusRequest
 
 ### Identifier
 - **Type**: <class 'str'>
@@ -1865,28 +1865,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateMediaPipelineKinesisVideoStreamPoolRequestTypeDef
+# UpdateMediaPipelineKinesisVideoStreamPoolRequest
 
 ### Identifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### StreamConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.KinesisVideoStreamConfigurationUpdateTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.KinesisVideoStreamConfigurationUpdate]
 
 
-# UpdateMediaPipelineKinesisVideoStreamPoolResponseTypeDef
+# UpdateMediaPipelineKinesisVideoStreamPoolResponse
 
 ### KinesisVideoStreamPoolConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.KinesisVideoStreamPoolConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.KinesisVideoStreamPoolConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_media_pipelines_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# VerticalLayoutConfigurationTypeDef
+# VerticalLayoutConfiguration
 
 ### TileOrder
 - **Type**: typing.Optional[typing.Literal['JoinSequence', 'SpeakerSequence']]
@@ -1901,7 +1901,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# VideoArtifactsConfigurationTypeDef
+# VideoArtifactsConfiguration
 
 ### State
 - **Type**: typing.Literal['Disabled', 'Enabled']
@@ -1911,7 +1911,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['VideoOnly']]
 
 
-# VideoAttributeTypeDef
+# VideoAttribute
 
 ### CornerRadius
 - **Type**: typing.Optional[int]
@@ -1926,14 +1926,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# VideoConcatenationConfigurationTypeDef
+# VideoConcatenationConfiguration
 
 ### State
 - **Type**: typing.Literal['Disabled', 'Enabled']
 - **Required**: Yes
 
 
-# VoiceAnalyticsProcessorConfigurationTypeDef
+# VoiceAnalyticsProcessorConfiguration
 
 ### SpeakerSearchStatus
 - **Type**: typing.Optional[typing.Literal['Disabled', 'Enabled']]
@@ -1942,13 +1942,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Disabled', 'Enabled']]
 
 
-# VoiceEnhancementSinkConfigurationTypeDef
+# VoiceEnhancementSinkConfiguration
 
 ### Disabled
 - **Type**: typing.Optional[bool]
 
 
-# VoiceToneAnalysisTaskTypeDef
+# VoiceToneAnalysisTask
 
 ### VoiceToneAnalysisTaskId
 - **Type**: typing.Optional[str]

@@ -6,10 +6,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CreateRuleRequestTypeDef
+# CreateRuleRequest
 
 ### RetentionPeriod
-- **Type**: <class 'aws_resource_validator.pydantic_models.rbin_classes.RetentionPeriodTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rbin_classes.RetentionPeriod'>
 - **Required**: Yes
 
 ### ResourceType
@@ -20,26 +20,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rbin_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rbin_classes.Tag]]
 
 ### ResourceTags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rbin_classes.ResourceTagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rbin_classes.ResourceTag]]
 
 ### LockConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rbin_classes.LockConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### ExcludeResourceTags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rbin_classes.ResourceTagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rbin_classes.ResourceTag]]
 
 
-# CreateRuleResponseTypeDef
+# CreateRuleResponse
 
 ### Identifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### RetentionPeriod
-- **Type**: <class 'aws_resource_validator.pydantic_models.rbin_classes.RetentionPeriodTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rbin_classes.RetentionPeriod'>
 - **Required**: Yes
 
 ### Description
@@ -47,7 +47,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rbin_classes.TagTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rbin_classes.Tag]
 - **Required**: Yes
 
 ### ResourceType
@@ -55,7 +55,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResourceTags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rbin_classes.ResourceTagTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rbin_classes.ResourceTag]
 - **Required**: Yes
 
 ### Status
@@ -63,7 +63,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LockConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.rbin_classes.LockConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rbin_classes.LockConfiguration'>
 - **Required**: Yes
 
 ### LockState
@@ -75,29 +75,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ExcludeResourceTags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rbin_classes.ResourceTagTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rbin_classes.ResourceTag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rbin_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rbin_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteRuleRequestTypeDef
+# DeleteRuleRequest
 
 ### Identifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetRuleRequestTypeDef
+# GetRuleRequest
 
 ### Identifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetRuleResponseTypeDef
+# GetRuleResponse
 
 ### Identifier
 - **Type**: <class 'str'>
@@ -112,11 +112,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### RetentionPeriod
-- **Type**: <class 'aws_resource_validator.pydantic_models.rbin_classes.RetentionPeriodTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rbin_classes.RetentionPeriod'>
 - **Required**: Yes
 
 ### ResourceTags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rbin_classes.ResourceTagTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rbin_classes.ResourceTag]
 - **Required**: Yes
 
 ### Status
@@ -124,7 +124,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LockConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.rbin_classes.LockConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rbin_classes.LockConfiguration'>
 - **Required**: Yes
 
 ### LockState
@@ -140,34 +140,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ExcludeResourceTags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rbin_classes.ResourceTagTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rbin_classes.ResourceTag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rbin_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rbin_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListRulesRequestPaginateTypeDef
-
-### ResourceType
-- **Type**: typing.Literal['EBS_SNAPSHOT', 'EC2_IMAGE']
-- **Required**: Yes
-
-### ResourceTags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rbin_classes.ResourceTagTypeDef]]
-
-### LockState
-- **Type**: typing.Optional[typing.Literal['locked', 'pending_unlock', 'unlocked']]
-
-### ExcludeResourceTags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rbin_classes.ResourceTagTypeDef]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rbin_classes.PaginatorConfigTypeDef]
-
-
-# ListRulesRequestTypeDef
+# ListRulesRequest
 
 ### ResourceType
 - **Type**: typing.Literal['EBS_SNAPSHOT', 'EC2_IMAGE']
@@ -180,66 +161,85 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ResourceTags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rbin_classes.ResourceTagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rbin_classes.ResourceTag]]
 
 ### LockState
 - **Type**: typing.Optional[typing.Literal['locked', 'pending_unlock', 'unlocked']]
 
 ### ExcludeResourceTags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rbin_classes.ResourceTagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rbin_classes.ResourceTag]]
 
 
-# ListRulesResponseTypeDef
+# ListRulesRequestPaginate
+
+### ResourceType
+- **Type**: typing.Literal['EBS_SNAPSHOT', 'EC2_IMAGE']
+- **Required**: Yes
+
+### ResourceTags
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rbin_classes.ResourceTag]]
+
+### LockState
+- **Type**: typing.Optional[typing.Literal['locked', 'pending_unlock', 'unlocked']]
+
+### ExcludeResourceTags
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rbin_classes.ResourceTag]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rbin_classes.PaginatorConfig]
+
+
+# ListRulesResponse
 
 ### Rules
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rbin_classes.RuleSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rbin_classes.RuleSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rbin_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rbin_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestTypeDef
+# ListTagsForResourceRequest
 
 ### ResourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ListTagsForResourceResponseTypeDef
+# ListTagsForResourceResponse
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rbin_classes.TagTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rbin_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rbin_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rbin_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# LockConfigurationTypeDef
+# LockConfiguration
 
 ### UnlockDelay
-- **Type**: <class 'aws_resource_validator.pydantic_models.rbin_classes.UnlockDelayTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rbin_classes.UnlockDelay'>
 - **Required**: Yes
 
 
-# LockRuleRequestTypeDef
+# LockRuleRequest
 
 ### Identifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### LockConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.rbin_classes.LockConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rbin_classes.LockConfiguration'>
 - **Required**: Yes
 
 
-# LockRuleResponseTypeDef
+# LockRuleResponse
 
 ### Identifier
 - **Type**: <class 'str'>
@@ -254,11 +254,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### RetentionPeriod
-- **Type**: <class 'aws_resource_validator.pydantic_models.rbin_classes.RetentionPeriodTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rbin_classes.RetentionPeriod'>
 - **Required**: Yes
 
 ### ResourceTags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rbin_classes.ResourceTagTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rbin_classes.ResourceTag]
 - **Required**: Yes
 
 ### Status
@@ -266,7 +266,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LockConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.rbin_classes.LockConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rbin_classes.LockConfiguration'>
 - **Required**: Yes
 
 ### LockState
@@ -278,15 +278,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ExcludeResourceTags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rbin_classes.ResourceTagTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rbin_classes.ResourceTag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rbin_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rbin_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -298,7 +298,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ResourceTagTypeDef
+# ResourceTag
 
 ### ResourceTagKey
 - **Type**: <class 'str'>
@@ -308,7 +308,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -330,7 +330,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RetentionPeriodTypeDef
+# RetentionPeriod
 
 ### RetentionPeriodValue
 - **Type**: <class 'int'>
@@ -341,7 +341,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RuleSummaryTypeDef
+# RuleSummary
 
 ### Identifier
 - **Type**: typing.Optional[str]
@@ -350,7 +350,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### RetentionPeriod
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rbin_classes.RetentionPeriodTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### LockState
 - **Type**: typing.Optional[typing.Literal['locked', 'pending_unlock', 'unlocked']]
@@ -359,18 +359,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TagResourceRequestTypeDef
-
-### ResourceArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.rbin_classes.TagTypeDef]
-- **Required**: Yes
-
-
-# TagTypeDef
+# Tag
 
 ### Key
 - **Type**: <class 'str'>
@@ -381,7 +370,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UnlockDelayTypeDef
+# TagResourceRequest
+
+### ResourceArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Tags
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.rbin_classes.Tag]
+- **Required**: Yes
+
+
+# UnlockDelay
 
 ### UnlockDelayValue
 - **Type**: <class 'int'>
@@ -392,14 +392,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UnlockRuleRequestTypeDef
+# UnlockRuleRequest
 
 ### Identifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# UnlockRuleResponseTypeDef
+# UnlockRuleResponse
 
 ### Identifier
 - **Type**: <class 'str'>
@@ -414,11 +414,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### RetentionPeriod
-- **Type**: <class 'aws_resource_validator.pydantic_models.rbin_classes.RetentionPeriodTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rbin_classes.RetentionPeriod'>
 - **Required**: Yes
 
 ### ResourceTags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rbin_classes.ResourceTagTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rbin_classes.ResourceTag]
 - **Required**: Yes
 
 ### Status
@@ -426,7 +426,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LockConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.rbin_classes.LockConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rbin_classes.LockConfiguration'>
 - **Required**: Yes
 
 ### LockState
@@ -442,15 +442,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ExcludeResourceTags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rbin_classes.ResourceTagTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rbin_classes.ResourceTag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rbin_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rbin_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UntagResourceRequestTypeDef
+# UntagResourceRequest
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -461,14 +461,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateRuleRequestTypeDef
+# UpdateRuleRequest
 
 ### Identifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### RetentionPeriod
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rbin_classes.RetentionPeriodTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### Description
 - **Type**: typing.Optional[str]
@@ -477,20 +477,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['EBS_SNAPSHOT', 'EC2_IMAGE']]
 
 ### ResourceTags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rbin_classes.ResourceTagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rbin_classes.ResourceTag]]
 
 ### ExcludeResourceTags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rbin_classes.ResourceTagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rbin_classes.ResourceTag]]
 
 
-# UpdateRuleResponseTypeDef
+# UpdateRuleResponse
 
 ### Identifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### RetentionPeriod
-- **Type**: <class 'aws_resource_validator.pydantic_models.rbin_classes.RetentionPeriodTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rbin_classes.RetentionPeriod'>
 - **Required**: Yes
 
 ### Description
@@ -502,7 +502,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResourceTags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rbin_classes.ResourceTagTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rbin_classes.ResourceTag]
 - **Required**: Yes
 
 ### Status
@@ -522,11 +522,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ExcludeResourceTags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rbin_classes.ResourceTagTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rbin_classes.ResourceTag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rbin_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rbin_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

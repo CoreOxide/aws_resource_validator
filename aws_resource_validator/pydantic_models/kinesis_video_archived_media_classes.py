@@ -12,7 +12,7 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.kinesis_video_archived_media_constants import *
 
-class FragmentTypeDef(BaseValidatorModel):
+class Fragment(BaseValidatorModel):
     FragmentNumber: Optional[str] = None
     FragmentSizeInBytes: Optional[int] = None
     ProducerTimestamp: Optional[datetime] = None
@@ -20,7 +20,7 @@ class FragmentTypeDef(BaseValidatorModel):
     FragmentLengthInMilliseconds: Optional[int] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -28,42 +28,42 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ImageTypeDef(BaseValidatorModel):
+class Image(BaseValidatorModel):
     TimeStamp: Optional[datetime] = None
     Error: Optional[ImageErrorType] = None
     ImageContent: Optional[str] = None
 
 
-class GetMediaForFragmentListInputTypeDef(BaseValidatorModel):
+class GetMediaForFragmentListInput(BaseValidatorModel):
     Fragments: Sequence[str]
     StreamName: Optional[str] = None
     StreamARN: Optional[str] = None
 
 
-class TimestampTypeDef(BaseValidatorModel):
+class Timestamp(BaseValidatorModel):
     pass
 
 
-class ClipTimestampRangeTypeDef(BaseValidatorModel):
-    StartTimestamp: TimestampTypeDef
-    EndTimestamp: TimestampTypeDef
+class ClipTimestampRange(BaseValidatorModel):
+    StartTimestamp: Timestamp
+    EndTimestamp: Timestamp
 
 
-class DASHTimestampRangeTypeDef(BaseValidatorModel):
-    StartTimestamp: Optional[TimestampTypeDef] = None
-    EndTimestamp: Optional[TimestampTypeDef] = None
+class DASHTimestampRange(BaseValidatorModel):
+    StartTimestamp: Optional[Timestamp] = None
+    EndTimestamp: Optional[Timestamp] = None
 
 
-class GetImagesInputTypeDef(BaseValidatorModel):
+class GetImagesInput(BaseValidatorModel):
     ImageSelectorType: ImageSelectorTypeType
-    StartTimestamp: TimestampTypeDef
-    EndTimestamp: TimestampTypeDef
+    StartTimestamp: Timestamp
+    EndTimestamp: Timestamp
     Format: FormatType
     StreamName: Optional[str] = None
     StreamARN: Optional[str] = None
@@ -75,48 +75,48 @@ class GetImagesInputTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
-class HLSTimestampRangeTypeDef(BaseValidatorModel):
-    StartTimestamp: Optional[TimestampTypeDef] = None
-    EndTimestamp: Optional[TimestampTypeDef] = None
+class HLSTimestampRange(BaseValidatorModel):
+    StartTimestamp: Optional[Timestamp] = None
+    EndTimestamp: Optional[Timestamp] = None
 
 
-class TimestampRangeTypeDef(BaseValidatorModel):
-    StartTimestamp: TimestampTypeDef
-    EndTimestamp: TimestampTypeDef
+class TimestampRange(BaseValidatorModel):
+    StartTimestamp: Timestamp
+    EndTimestamp: Timestamp
 
 
-class GetClipOutputTypeDef(BaseValidatorModel):
+class GetClipOutput(BaseValidatorModel):
     ContentType: str
     Payload: StreamingBody
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetDASHStreamingSessionURLOutputTypeDef(BaseValidatorModel):
+class GetDASHStreamingSessionURLOutput(BaseValidatorModel):
     DASHStreamingSessionURL: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetHLSStreamingSessionURLOutputTypeDef(BaseValidatorModel):
+class GetHLSStreamingSessionURLOutput(BaseValidatorModel):
     HLSStreamingSessionURL: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetMediaForFragmentListOutputTypeDef(BaseValidatorModel):
+class GetMediaForFragmentListOutput(BaseValidatorModel):
     ContentType: str
     Payload: StreamingBody
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListFragmentsOutputTypeDef(BaseValidatorModel):
-    Fragments: List[FragmentTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListFragmentsOutput(BaseValidatorModel):
+    Fragments: List[Fragment]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class GetImagesInputPaginateTypeDef(BaseValidatorModel):
+class GetImagesInputPaginate(BaseValidatorModel):
     ImageSelectorType: ImageSelectorTypeType
-    StartTimestamp: TimestampTypeDef
-    EndTimestamp: TimestampTypeDef
+    StartTimestamp: Timestamp
+    EndTimestamp: Timestamp
     Format: FormatType
     StreamName: Optional[str] = None
     StreamARN: Optional[str] = None
@@ -124,57 +124,57 @@ class GetImagesInputPaginateTypeDef(BaseValidatorModel):
     FormatConfig: Optional[Mapping[Literal["JPEGQuality"], str]] = None
     WidthPixels: Optional[int] = None
     HeightPixels: Optional[int] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class GetImagesOutputTypeDef(BaseValidatorModel):
-    Images: List[ImageTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetImagesOutput(BaseValidatorModel):
+    Images: List[Image]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ClipFragmentSelectorTypeDef(BaseValidatorModel):
+class ClipFragmentSelector(BaseValidatorModel):
     FragmentSelectorType: ClipFragmentSelectorTypeType
-    TimestampRange: ClipTimestampRangeTypeDef
+    TimestampRange: ClipTimestampRange
 
 
-class DASHFragmentSelectorTypeDef(BaseValidatorModel):
+class DASHFragmentSelector(BaseValidatorModel):
     FragmentSelectorType: Optional[DASHFragmentSelectorTypeType] = None
-    TimestampRange: Optional[DASHTimestampRangeTypeDef] = None
+    TimestampRange: Optional[DASHTimestampRange] = None
 
 
-class HLSFragmentSelectorTypeDef(BaseValidatorModel):
+class HLSFragmentSelector(BaseValidatorModel):
     FragmentSelectorType: Optional[HLSFragmentSelectorTypeType] = None
-    TimestampRange: Optional[HLSTimestampRangeTypeDef] = None
+    TimestampRange: Optional[HLSTimestampRange] = None
 
 
-class FragmentSelectorTypeDef(BaseValidatorModel):
+class FragmentSelector(BaseValidatorModel):
     FragmentSelectorType: FragmentSelectorTypeType
-    TimestampRange: TimestampRangeTypeDef
+    TimestampRange: TimestampRange
 
 
-class GetClipInputTypeDef(BaseValidatorModel):
-    ClipFragmentSelector: ClipFragmentSelectorTypeDef
+class GetClipInput(BaseValidatorModel):
+    ClipFragmentSelector: ClipFragmentSelector
     StreamName: Optional[str] = None
     StreamARN: Optional[str] = None
 
 
-class GetDASHStreamingSessionURLInputTypeDef(BaseValidatorModel):
+class GetDASHStreamingSessionURLInput(BaseValidatorModel):
     StreamName: Optional[str] = None
     StreamARN: Optional[str] = None
     PlaybackMode: Optional[DASHPlaybackModeType] = None
     DisplayFragmentTimestamp: Optional[DASHDisplayFragmentTimestampType] = None
     DisplayFragmentNumber: Optional[DASHDisplayFragmentNumberType] = None
-    DASHFragmentSelector: Optional[DASHFragmentSelectorTypeDef] = None
+    DASHFragmentSelector: Optional[DASHFragmentSelector] = None
     Expires: Optional[int] = None
     MaxManifestFragmentResults: Optional[int] = None
 
 
-class GetHLSStreamingSessionURLInputTypeDef(BaseValidatorModel):
+class GetHLSStreamingSessionURLInput(BaseValidatorModel):
     StreamName: Optional[str] = None
     StreamARN: Optional[str] = None
     PlaybackMode: Optional[HLSPlaybackModeType] = None
-    HLSFragmentSelector: Optional[HLSFragmentSelectorTypeDef] = None
+    HLSFragmentSelector: Optional[HLSFragmentSelector] = None
     ContainerFormat: Optional[ContainerFormatType] = None
     DiscontinuityMode: Optional[HLSDiscontinuityModeType] = None
     DisplayFragmentTimestamp: Optional[HLSDisplayFragmentTimestampType] = None
@@ -182,18 +182,18 @@ class GetHLSStreamingSessionURLInputTypeDef(BaseValidatorModel):
     MaxMediaPlaylistFragmentResults: Optional[int] = None
 
 
-class ListFragmentsInputPaginateTypeDef(BaseValidatorModel):
+class ListFragmentsInputPaginate(BaseValidatorModel):
     StreamName: Optional[str] = None
     StreamARN: Optional[str] = None
-    FragmentSelector: Optional[FragmentSelectorTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    FragmentSelector: Optional[FragmentSelector] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListFragmentsInputTypeDef(BaseValidatorModel):
+class ListFragmentsInput(BaseValidatorModel):
     StreamName: Optional[str] = None
     StreamARN: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
-    FragmentSelector: Optional[FragmentSelectorTypeDef] = None
+    FragmentSelector: Optional[FragmentSelector] = None
 
 

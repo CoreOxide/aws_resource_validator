@@ -12,20 +12,20 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.mediapackage_constants import *
 
-class AuthorizationTypeDef(BaseValidatorModel):
+class Authorization(BaseValidatorModel):
     CdnIdentifierSecret: str
     SecretsRoleArn: str
 
 
-class EgressAccessLogsTypeDef(BaseValidatorModel):
+class EgressAccessLogs(BaseValidatorModel):
     LogGroupName: Optional[str] = None
 
 
-class IngressAccessLogsTypeDef(BaseValidatorModel):
+class IngressAccessLogs(BaseValidatorModel):
     LogGroupName: Optional[str] = None
 
 
-class HlsManifestCreateOrUpdateParametersTypeDef(BaseValidatorModel):
+class HlsManifestCreateOrUpdateParameters(BaseValidatorModel):
     Id: str
     AdMarkers: Optional[AdMarkersType] = None
     AdTriggers: Optional[Sequence[AdTriggersElementType]] = None
@@ -37,13 +37,13 @@ class HlsManifestCreateOrUpdateParametersTypeDef(BaseValidatorModel):
     ProgramDateTimeIntervalSeconds: Optional[int] = None
 
 
-class StreamSelectionTypeDef(BaseValidatorModel):
+class StreamSelection(BaseValidatorModel):
     MaxVideoBitsPerSecond: Optional[int] = None
     MinVideoBitsPerSecond: Optional[int] = None
     StreamOrder: Optional[StreamOrderType] = None
 
 
-class HlsManifestTypeDef(BaseValidatorModel):
+class HlsManifest(BaseValidatorModel):
     Id: str
     AdMarkers: Optional[AdMarkersType] = None
     IncludeIframeOnlyStream: Optional[bool] = None
@@ -56,7 +56,7 @@ class HlsManifestTypeDef(BaseValidatorModel):
     AdsOnDeliveryRestrictions: Optional[AdsOnDeliveryRestrictionsType] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -64,342 +64,342 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class CreateChannelRequestTypeDef(BaseValidatorModel):
+class CreateChannelRequest(BaseValidatorModel):
     Id: str
     Description: Optional[str] = None
     Tags: Optional[Mapping[str, str]] = None
 
 
-class S3DestinationTypeDef(BaseValidatorModel):
+class S3Destination(BaseValidatorModel):
     BucketName: str
     ManifestKey: str
     RoleArn: str
 
 
-class DeleteChannelRequestTypeDef(BaseValidatorModel):
+class DeleteChannelRequest(BaseValidatorModel):
     Id: str
 
 
-class DeleteOriginEndpointRequestTypeDef(BaseValidatorModel):
+class DeleteOriginEndpointRequest(BaseValidatorModel):
     Id: str
 
 
-class DescribeChannelRequestTypeDef(BaseValidatorModel):
+class DescribeChannelRequest(BaseValidatorModel):
     Id: str
 
 
-class DescribeHarvestJobRequestTypeDef(BaseValidatorModel):
+class DescribeHarvestJobRequest(BaseValidatorModel):
     Id: str
 
 
-class DescribeOriginEndpointRequestTypeDef(BaseValidatorModel):
+class DescribeOriginEndpointRequest(BaseValidatorModel):
     Id: str
 
 
-class EncryptionContractConfigurationTypeDef(BaseValidatorModel):
+class EncryptionContractConfiguration(BaseValidatorModel):
     PresetSpeke20Audio: PresetSpeke20AudioType
     PresetSpeke20Video: PresetSpeke20VideoType
 
 
-class IngestEndpointTypeDef(BaseValidatorModel):
+class IngestEndpoint(BaseValidatorModel):
     Id: Optional[str] = None
     Password: Optional[str] = None
     Url: Optional[str] = None
     Username: Optional[str] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListChannelsRequestTypeDef(BaseValidatorModel):
+class ListChannelsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListHarvestJobsRequestTypeDef(BaseValidatorModel):
+class ListHarvestJobsRequest(BaseValidatorModel):
     IncludeChannelId: Optional[str] = None
     IncludeStatus: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListOriginEndpointsRequestTypeDef(BaseValidatorModel):
+class ListOriginEndpointsRequest(BaseValidatorModel):
     ChannelId: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
 
-class RotateChannelCredentialsRequestTypeDef(BaseValidatorModel):
+class RotateChannelCredentialsRequest(BaseValidatorModel):
     Id: str
 
 
-class RotateIngestEndpointCredentialsRequestTypeDef(BaseValidatorModel):
+class RotateIngestEndpointCredentialsRequest(BaseValidatorModel):
     Id: str
     IngestEndpointId: str
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     Tags: Mapping[str, str]
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     TagKeys: Sequence[str]
 
 
-class UpdateChannelRequestTypeDef(BaseValidatorModel):
+class UpdateChannelRequest(BaseValidatorModel):
     Id: str
     Description: Optional[str] = None
 
 
-class ConfigureLogsRequestTypeDef(BaseValidatorModel):
+class ConfigureLogsRequest(BaseValidatorModel):
     Id: str
-    EgressAccessLogs: Optional[EgressAccessLogsTypeDef] = None
-    IngressAccessLogs: Optional[IngressAccessLogsTypeDef] = None
+    EgressAccessLogs: Optional[EgressAccessLogs] = None
+    IngressAccessLogs: Optional[IngressAccessLogs] = None
 
 
-class EmptyResponseMetadataTypeDef(BaseValidatorModel):
-    ResponseMetadata: ResponseMetadataTypeDef
+class EmptyResponseMetadata(BaseValidatorModel):
+    ResponseMetadata: ResponseMetadata
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
+class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateHarvestJobRequestTypeDef(BaseValidatorModel):
+class CreateHarvestJobRequest(BaseValidatorModel):
     EndTime: str
     Id: str
     OriginEndpointId: str
-    S3Destination: S3DestinationTypeDef
+    S3Destination: S3Destination
     StartTime: str
 
 
-class CreateHarvestJobResponseTypeDef(BaseValidatorModel):
+class CreateHarvestJobResponse(BaseValidatorModel):
     Arn: str
     ChannelId: str
     CreatedAt: str
     EndTime: str
     Id: str
     OriginEndpointId: str
-    S3Destination: S3DestinationTypeDef
+    S3Destination: S3Destination
     StartTime: str
     Status: StatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeHarvestJobResponseTypeDef(BaseValidatorModel):
+class DescribeHarvestJobResponse(BaseValidatorModel):
     Arn: str
     ChannelId: str
     CreatedAt: str
     EndTime: str
     Id: str
     OriginEndpointId: str
-    S3Destination: S3DestinationTypeDef
+    S3Destination: S3Destination
     StartTime: str
     Status: StatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class HarvestJobTypeDef(BaseValidatorModel):
+class HarvestJob(BaseValidatorModel):
     Arn: Optional[str] = None
     ChannelId: Optional[str] = None
     CreatedAt: Optional[str] = None
     EndTime: Optional[str] = None
     Id: Optional[str] = None
     OriginEndpointId: Optional[str] = None
-    S3Destination: Optional[S3DestinationTypeDef] = None
+    S3Destination: Optional[S3Destination] = None
     StartTime: Optional[str] = None
     Status: Optional[StatusType] = None
 
 
-class SpekeKeyProviderOutputTypeDef(BaseValidatorModel):
+class SpekeKeyProviderOutput(BaseValidatorModel):
     ResourceId: str
     RoleArn: str
     SystemIds: List[str]
     Url: str
     CertificateArn: Optional[str] = None
-    EncryptionContractConfiguration: Optional[EncryptionContractConfigurationTypeDef] = None
+    EncryptionContractConfiguration: Optional[EncryptionContractConfiguration] = None
 
 
-class SpekeKeyProviderTypeDef(BaseValidatorModel):
+class SpekeKeyProvider(BaseValidatorModel):
     ResourceId: str
     RoleArn: str
     SystemIds: Sequence[str]
     Url: str
     CertificateArn: Optional[str] = None
-    EncryptionContractConfiguration: Optional[EncryptionContractConfigurationTypeDef] = None
+    EncryptionContractConfiguration: Optional[EncryptionContractConfiguration] = None
 
 
-class HlsIngestTypeDef(BaseValidatorModel):
-    IngestEndpoints: Optional[List[IngestEndpointTypeDef]] = None
+class HlsIngest(BaseValidatorModel):
+    IngestEndpoints: Optional[List[IngestEndpoint]] = None
 
 
-class ListChannelsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListChannelsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListHarvestJobsRequestPaginateTypeDef(BaseValidatorModel):
+class ListHarvestJobsRequestPaginate(BaseValidatorModel):
     IncludeChannelId: Optional[str] = None
     IncludeStatus: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListOriginEndpointsRequestPaginateTypeDef(BaseValidatorModel):
+class ListOriginEndpointsRequestPaginate(BaseValidatorModel):
     ChannelId: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListHarvestJobsResponseTypeDef(BaseValidatorModel):
-    HarvestJobs: List[HarvestJobTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListHarvestJobsResponse(BaseValidatorModel):
+    HarvestJobs: List[HarvestJob]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class CmafEncryptionOutputTypeDef(BaseValidatorModel):
-    SpekeKeyProvider: SpekeKeyProviderOutputTypeDef
+class CmafEncryptionOutput(BaseValidatorModel):
+    SpekeKeyProvider: SpekeKeyProviderOutput
     ConstantInitializationVector: Optional[str] = None
     EncryptionMethod: Optional[CmafEncryptionMethodType] = None
     KeyRotationIntervalSeconds: Optional[int] = None
 
 
-class DashEncryptionOutputTypeDef(BaseValidatorModel):
-    SpekeKeyProvider: SpekeKeyProviderOutputTypeDef
+class DashEncryptionOutput(BaseValidatorModel):
+    SpekeKeyProvider: SpekeKeyProviderOutput
     KeyRotationIntervalSeconds: Optional[int] = None
 
 
-class HlsEncryptionOutputTypeDef(BaseValidatorModel):
-    SpekeKeyProvider: SpekeKeyProviderOutputTypeDef
+class HlsEncryptionOutput(BaseValidatorModel):
+    SpekeKeyProvider: SpekeKeyProviderOutput
     ConstantInitializationVector: Optional[str] = None
     EncryptionMethod: Optional[EncryptionMethodType] = None
     KeyRotationIntervalSeconds: Optional[int] = None
     RepeatExtXKey: Optional[bool] = None
 
 
-class MssEncryptionOutputTypeDef(BaseValidatorModel):
-    SpekeKeyProvider: SpekeKeyProviderOutputTypeDef
+class MssEncryptionOutput(BaseValidatorModel):
+    SpekeKeyProvider: SpekeKeyProviderOutput
 
 
-class DashEncryptionTypeDef(BaseValidatorModel):
-    SpekeKeyProvider: SpekeKeyProviderTypeDef
+class DashEncryption(BaseValidatorModel):
+    SpekeKeyProvider: SpekeKeyProvider
     KeyRotationIntervalSeconds: Optional[int] = None
 
 
-class HlsEncryptionTypeDef(BaseValidatorModel):
-    SpekeKeyProvider: SpekeKeyProviderTypeDef
+class HlsEncryption(BaseValidatorModel):
+    SpekeKeyProvider: SpekeKeyProvider
     ConstantInitializationVector: Optional[str] = None
     EncryptionMethod: Optional[EncryptionMethodType] = None
     KeyRotationIntervalSeconds: Optional[int] = None
     RepeatExtXKey: Optional[bool] = None
 
 
-class MssEncryptionTypeDef(BaseValidatorModel):
-    SpekeKeyProvider: SpekeKeyProviderTypeDef
+class MssEncryption(BaseValidatorModel):
+    SpekeKeyProvider: SpekeKeyProvider
 
 
-class ChannelTypeDef(BaseValidatorModel):
+class Channel(BaseValidatorModel):
     Arn: Optional[str] = None
     CreatedAt: Optional[str] = None
     Description: Optional[str] = None
-    EgressAccessLogs: Optional[EgressAccessLogsTypeDef] = None
-    HlsIngest: Optional[HlsIngestTypeDef] = None
+    EgressAccessLogs: Optional[EgressAccessLogs] = None
+    HlsIngest: Optional[HlsIngest] = None
     Id: Optional[str] = None
-    IngressAccessLogs: Optional[IngressAccessLogsTypeDef] = None
+    IngressAccessLogs: Optional[IngressAccessLogs] = None
     Tags: Optional[Dict[str, str]] = None
 
 
-class ConfigureLogsResponseTypeDef(BaseValidatorModel):
+class ConfigureLogsResponse(BaseValidatorModel):
     Arn: str
     CreatedAt: str
     Description: str
-    EgressAccessLogs: EgressAccessLogsTypeDef
-    HlsIngest: HlsIngestTypeDef
+    EgressAccessLogs: EgressAccessLogs
+    HlsIngest: HlsIngest
     Id: str
-    IngressAccessLogs: IngressAccessLogsTypeDef
+    IngressAccessLogs: IngressAccessLogs
     Tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateChannelResponseTypeDef(BaseValidatorModel):
+class CreateChannelResponse(BaseValidatorModel):
     Arn: str
     CreatedAt: str
     Description: str
-    EgressAccessLogs: EgressAccessLogsTypeDef
-    HlsIngest: HlsIngestTypeDef
+    EgressAccessLogs: EgressAccessLogs
+    HlsIngest: HlsIngest
     Id: str
-    IngressAccessLogs: IngressAccessLogsTypeDef
+    IngressAccessLogs: IngressAccessLogs
     Tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeChannelResponseTypeDef(BaseValidatorModel):
+class DescribeChannelResponse(BaseValidatorModel):
     Arn: str
     CreatedAt: str
     Description: str
-    EgressAccessLogs: EgressAccessLogsTypeDef
-    HlsIngest: HlsIngestTypeDef
+    EgressAccessLogs: EgressAccessLogs
+    HlsIngest: HlsIngest
     Id: str
-    IngressAccessLogs: IngressAccessLogsTypeDef
+    IngressAccessLogs: IngressAccessLogs
     Tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class RotateChannelCredentialsResponseTypeDef(BaseValidatorModel):
+class RotateChannelCredentialsResponse(BaseValidatorModel):
     Arn: str
     CreatedAt: str
     Description: str
-    EgressAccessLogs: EgressAccessLogsTypeDef
-    HlsIngest: HlsIngestTypeDef
+    EgressAccessLogs: EgressAccessLogs
+    HlsIngest: HlsIngest
     Id: str
-    IngressAccessLogs: IngressAccessLogsTypeDef
+    IngressAccessLogs: IngressAccessLogs
     Tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class RotateIngestEndpointCredentialsResponseTypeDef(BaseValidatorModel):
+class RotateIngestEndpointCredentialsResponse(BaseValidatorModel):
     Arn: str
     CreatedAt: str
     Description: str
-    EgressAccessLogs: EgressAccessLogsTypeDef
-    HlsIngest: HlsIngestTypeDef
+    EgressAccessLogs: EgressAccessLogs
+    HlsIngest: HlsIngest
     Id: str
-    IngressAccessLogs: IngressAccessLogsTypeDef
+    IngressAccessLogs: IngressAccessLogs
     Tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateChannelResponseTypeDef(BaseValidatorModel):
+class UpdateChannelResponse(BaseValidatorModel):
     Arn: str
     CreatedAt: str
     Description: str
-    EgressAccessLogs: EgressAccessLogsTypeDef
-    HlsIngest: HlsIngestTypeDef
+    EgressAccessLogs: EgressAccessLogs
+    HlsIngest: HlsIngest
     Id: str
-    IngressAccessLogs: IngressAccessLogsTypeDef
+    IngressAccessLogs: IngressAccessLogs
     Tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CmafPackageTypeDef(BaseValidatorModel):
-    Encryption: Optional[CmafEncryptionOutputTypeDef] = None
-    HlsManifests: Optional[List[HlsManifestTypeDef]] = None
+class CmafPackage(BaseValidatorModel):
+    Encryption: Optional[CmafEncryptionOutput] = None
+    HlsManifests: Optional[List[HlsManifest]] = None
     SegmentDurationSeconds: Optional[int] = None
     SegmentPrefix: Optional[str] = None
-    StreamSelection: Optional[StreamSelectionTypeDef] = None
+    StreamSelection: Optional[StreamSelection] = None
 
 
-class DashPackageOutputTypeDef(BaseValidatorModel):
+class DashPackageOutput(BaseValidatorModel):
     AdTriggers: Optional[List[AdTriggersElementType]] = None
     AdsOnDeliveryRestrictions: Optional[AdsOnDeliveryRestrictionsType] = None
-    Encryption: Optional[DashEncryptionOutputTypeDef] = None
+    Encryption: Optional[DashEncryptionOutput] = None
     IncludeIframeOnlyStream: Optional[bool] = None
     ManifestLayout: Optional[ManifestLayoutType] = None
     ManifestWindowSeconds: Optional[int] = None
@@ -409,38 +409,38 @@ class DashPackageOutputTypeDef(BaseValidatorModel):
     Profile: Optional[ProfileType] = None
     SegmentDurationSeconds: Optional[int] = None
     SegmentTemplateFormat: Optional[SegmentTemplateFormatType] = None
-    StreamSelection: Optional[StreamSelectionTypeDef] = None
+    StreamSelection: Optional[StreamSelection] = None
     SuggestedPresentationDelaySeconds: Optional[int] = None
     UtcTiming: Optional[UtcTimingType] = None
     UtcTimingUri: Optional[str] = None
 
 
-class HlsPackageOutputTypeDef(BaseValidatorModel):
+class HlsPackageOutput(BaseValidatorModel):
     AdMarkers: Optional[AdMarkersType] = None
     AdTriggers: Optional[List[AdTriggersElementType]] = None
     AdsOnDeliveryRestrictions: Optional[AdsOnDeliveryRestrictionsType] = None
-    Encryption: Optional[HlsEncryptionOutputTypeDef] = None
+    Encryption: Optional[HlsEncryptionOutput] = None
     IncludeDvbSubtitles: Optional[bool] = None
     IncludeIframeOnlyStream: Optional[bool] = None
     PlaylistType: Optional[PlaylistTypeType] = None
     PlaylistWindowSeconds: Optional[int] = None
     ProgramDateTimeIntervalSeconds: Optional[int] = None
     SegmentDurationSeconds: Optional[int] = None
-    StreamSelection: Optional[StreamSelectionTypeDef] = None
+    StreamSelection: Optional[StreamSelection] = None
     UseAudioRenditionGroup: Optional[bool] = None
 
 
-class MssPackageOutputTypeDef(BaseValidatorModel):
-    Encryption: Optional[MssEncryptionOutputTypeDef] = None
+class MssPackageOutput(BaseValidatorModel):
+    Encryption: Optional[MssEncryptionOutput] = None
     ManifestWindowSeconds: Optional[int] = None
     SegmentDurationSeconds: Optional[int] = None
-    StreamSelection: Optional[StreamSelectionTypeDef] = None
+    StreamSelection: Optional[StreamSelection] = None
 
 
-class DashPackageTypeDef(BaseValidatorModel):
+class DashPackage(BaseValidatorModel):
     AdTriggers: Optional[Sequence[AdTriggersElementType]] = None
     AdsOnDeliveryRestrictions: Optional[AdsOnDeliveryRestrictionsType] = None
-    Encryption: Optional[DashEncryptionTypeDef] = None
+    Encryption: Optional[DashEncryption] = None
     IncludeIframeOnlyStream: Optional[bool] = None
     ManifestLayout: Optional[ManifestLayoutType] = None
     ManifestWindowSeconds: Optional[int] = None
@@ -450,105 +450,105 @@ class DashPackageTypeDef(BaseValidatorModel):
     Profile: Optional[ProfileType] = None
     SegmentDurationSeconds: Optional[int] = None
     SegmentTemplateFormat: Optional[SegmentTemplateFormatType] = None
-    StreamSelection: Optional[StreamSelectionTypeDef] = None
+    StreamSelection: Optional[StreamSelection] = None
     SuggestedPresentationDelaySeconds: Optional[int] = None
     UtcTiming: Optional[UtcTimingType] = None
     UtcTimingUri: Optional[str] = None
 
 
-class HlsPackageTypeDef(BaseValidatorModel):
+class HlsPackage(BaseValidatorModel):
     AdMarkers: Optional[AdMarkersType] = None
     AdTriggers: Optional[Sequence[AdTriggersElementType]] = None
     AdsOnDeliveryRestrictions: Optional[AdsOnDeliveryRestrictionsType] = None
-    Encryption: Optional[HlsEncryptionTypeDef] = None
+    Encryption: Optional[HlsEncryption] = None
     IncludeDvbSubtitles: Optional[bool] = None
     IncludeIframeOnlyStream: Optional[bool] = None
     PlaylistType: Optional[PlaylistTypeType] = None
     PlaylistWindowSeconds: Optional[int] = None
     ProgramDateTimeIntervalSeconds: Optional[int] = None
     SegmentDurationSeconds: Optional[int] = None
-    StreamSelection: Optional[StreamSelectionTypeDef] = None
+    StreamSelection: Optional[StreamSelection] = None
     UseAudioRenditionGroup: Optional[bool] = None
 
 
-class MssPackageTypeDef(BaseValidatorModel):
-    Encryption: Optional[MssEncryptionTypeDef] = None
+class MssPackage(BaseValidatorModel):
+    Encryption: Optional[MssEncryption] = None
     ManifestWindowSeconds: Optional[int] = None
     SegmentDurationSeconds: Optional[int] = None
-    StreamSelection: Optional[StreamSelectionTypeDef] = None
+    StreamSelection: Optional[StreamSelection] = None
 
 
-class SpekeKeyProviderUnionTypeDef(BaseValidatorModel):
+class SpekeKeyProviderUnion(BaseValidatorModel):
     pass
 
 
-class CmafEncryptionTypeDef(BaseValidatorModel):
-    SpekeKeyProvider: SpekeKeyProviderUnionTypeDef
+class CmafEncryption(BaseValidatorModel):
+    SpekeKeyProvider: SpekeKeyProviderUnion
     ConstantInitializationVector: Optional[str] = None
     EncryptionMethod: Optional[CmafEncryptionMethodType] = None
     KeyRotationIntervalSeconds: Optional[int] = None
 
 
-class ListChannelsResponseTypeDef(BaseValidatorModel):
-    Channels: List[ChannelTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListChannelsResponse(BaseValidatorModel):
+    Channels: List[Channel]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class CreateOriginEndpointResponseTypeDef(BaseValidatorModel):
+class CreateOriginEndpointResponse(BaseValidatorModel):
     Arn: str
-    Authorization: AuthorizationTypeDef
+    Authorization: Authorization
     ChannelId: str
-    CmafPackage: CmafPackageTypeDef
+    CmafPackage: CmafPackage
     CreatedAt: str
-    DashPackage: DashPackageOutputTypeDef
+    DashPackage: DashPackageOutput
     Description: str
-    HlsPackage: HlsPackageOutputTypeDef
+    HlsPackage: HlsPackageOutput
     Id: str
     ManifestName: str
-    MssPackage: MssPackageOutputTypeDef
+    MssPackage: MssPackageOutput
     Origination: OriginationType
     StartoverWindowSeconds: int
     Tags: Dict[str, str]
     TimeDelaySeconds: int
     Url: str
     Whitelist: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeOriginEndpointResponseTypeDef(BaseValidatorModel):
+class DescribeOriginEndpointResponse(BaseValidatorModel):
     Arn: str
-    Authorization: AuthorizationTypeDef
+    Authorization: Authorization
     ChannelId: str
-    CmafPackage: CmafPackageTypeDef
+    CmafPackage: CmafPackage
     CreatedAt: str
-    DashPackage: DashPackageOutputTypeDef
+    DashPackage: DashPackageOutput
     Description: str
-    HlsPackage: HlsPackageOutputTypeDef
+    HlsPackage: HlsPackageOutput
     Id: str
     ManifestName: str
-    MssPackage: MssPackageOutputTypeDef
+    MssPackage: MssPackageOutput
     Origination: OriginationType
     StartoverWindowSeconds: int
     Tags: Dict[str, str]
     TimeDelaySeconds: int
     Url: str
     Whitelist: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class OriginEndpointTypeDef(BaseValidatorModel):
+class OriginEndpoint(BaseValidatorModel):
     Arn: Optional[str] = None
-    Authorization: Optional[AuthorizationTypeDef] = None
+    Authorization: Optional[Authorization] = None
     ChannelId: Optional[str] = None
-    CmafPackage: Optional[CmafPackageTypeDef] = None
+    CmafPackage: Optional[CmafPackage] = None
     CreatedAt: Optional[str] = None
-    DashPackage: Optional[DashPackageOutputTypeDef] = None
+    DashPackage: Optional[DashPackageOutput] = None
     Description: Optional[str] = None
-    HlsPackage: Optional[HlsPackageOutputTypeDef] = None
+    HlsPackage: Optional[HlsPackageOutput] = None
     Id: Optional[str] = None
     ManifestName: Optional[str] = None
-    MssPackage: Optional[MssPackageOutputTypeDef] = None
+    MssPackage: Optional[MssPackageOutput] = None
     Origination: Optional[OriginationType] = None
     StartoverWindowSeconds: Optional[int] = None
     Tags: Optional[Dict[str, str]] = None
@@ -557,67 +557,67 @@ class OriginEndpointTypeDef(BaseValidatorModel):
     Whitelist: Optional[List[str]] = None
 
 
-class UpdateOriginEndpointResponseTypeDef(BaseValidatorModel):
+class UpdateOriginEndpointResponse(BaseValidatorModel):
     Arn: str
-    Authorization: AuthorizationTypeDef
+    Authorization: Authorization
     ChannelId: str
-    CmafPackage: CmafPackageTypeDef
+    CmafPackage: CmafPackage
     CreatedAt: str
-    DashPackage: DashPackageOutputTypeDef
+    DashPackage: DashPackageOutput
     Description: str
-    HlsPackage: HlsPackageOutputTypeDef
+    HlsPackage: HlsPackageOutput
     Id: str
     ManifestName: str
-    MssPackage: MssPackageOutputTypeDef
+    MssPackage: MssPackageOutput
     Origination: OriginationType
     StartoverWindowSeconds: int
     Tags: Dict[str, str]
     TimeDelaySeconds: int
     Url: str
     Whitelist: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListOriginEndpointsResponseTypeDef(BaseValidatorModel):
-    OriginEndpoints: List[OriginEndpointTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListOriginEndpointsResponse(BaseValidatorModel):
+    OriginEndpoints: List[OriginEndpoint]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class CmafEncryptionUnionTypeDef(BaseValidatorModel):
+class CmafEncryptionUnion(BaseValidatorModel):
     pass
 
 
-class CmafPackageCreateOrUpdateParametersTypeDef(BaseValidatorModel):
-    Encryption: Optional[CmafEncryptionUnionTypeDef] = None
-    HlsManifests: Optional[Sequence[HlsManifestCreateOrUpdateParametersTypeDef]] = None
+class CmafPackageCreateOrUpdateParameters(BaseValidatorModel):
+    Encryption: Optional[CmafEncryptionUnion] = None
+    HlsManifests: Optional[Sequence[HlsManifestCreateOrUpdateParameters]] = None
     SegmentDurationSeconds: Optional[int] = None
     SegmentPrefix: Optional[str] = None
-    StreamSelection: Optional[StreamSelectionTypeDef] = None
+    StreamSelection: Optional[StreamSelection] = None
 
 
-class DashPackageUnionTypeDef(BaseValidatorModel):
+class DashPackageUnion(BaseValidatorModel):
     pass
 
 
-class MssPackageUnionTypeDef(BaseValidatorModel):
+class MssPackageUnion(BaseValidatorModel):
     pass
 
 
-class HlsPackageUnionTypeDef(BaseValidatorModel):
+class HlsPackageUnion(BaseValidatorModel):
     pass
 
 
-class CreateOriginEndpointRequestTypeDef(BaseValidatorModel):
+class CreateOriginEndpointRequest(BaseValidatorModel):
     ChannelId: str
     Id: str
-    Authorization: Optional[AuthorizationTypeDef] = None
-    CmafPackage: Optional[CmafPackageCreateOrUpdateParametersTypeDef] = None
-    DashPackage: Optional[DashPackageUnionTypeDef] = None
+    Authorization: Optional[Authorization] = None
+    CmafPackage: Optional[CmafPackageCreateOrUpdateParameters] = None
+    DashPackage: Optional[DashPackageUnion] = None
     Description: Optional[str] = None
-    HlsPackage: Optional[HlsPackageUnionTypeDef] = None
+    HlsPackage: Optional[HlsPackageUnion] = None
     ManifestName: Optional[str] = None
-    MssPackage: Optional[MssPackageUnionTypeDef] = None
+    MssPackage: Optional[MssPackageUnion] = None
     Origination: Optional[OriginationType] = None
     StartoverWindowSeconds: Optional[int] = None
     Tags: Optional[Mapping[str, str]] = None
@@ -625,15 +625,15 @@ class CreateOriginEndpointRequestTypeDef(BaseValidatorModel):
     Whitelist: Optional[Sequence[str]] = None
 
 
-class UpdateOriginEndpointRequestTypeDef(BaseValidatorModel):
+class UpdateOriginEndpointRequest(BaseValidatorModel):
     Id: str
-    Authorization: Optional[AuthorizationTypeDef] = None
-    CmafPackage: Optional[CmafPackageCreateOrUpdateParametersTypeDef] = None
-    DashPackage: Optional[DashPackageUnionTypeDef] = None
+    Authorization: Optional[Authorization] = None
+    CmafPackage: Optional[CmafPackageCreateOrUpdateParameters] = None
+    DashPackage: Optional[DashPackageUnion] = None
     Description: Optional[str] = None
-    HlsPackage: Optional[HlsPackageUnionTypeDef] = None
+    HlsPackage: Optional[HlsPackageUnion] = None
     ManifestName: Optional[str] = None
-    MssPackage: Optional[MssPackageUnionTypeDef] = None
+    MssPackage: Optional[MssPackageUnion] = None
     Origination: Optional[OriginationType] = None
     StartoverWindowSeconds: Optional[int] = None
     TimeDelaySeconds: Optional[int] = None

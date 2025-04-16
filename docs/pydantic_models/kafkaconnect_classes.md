@@ -1,44 +1,26 @@
 # Kafkaconnect Classes
 
-# ApacheKafkaClusterDescriptionTypeDef
-
-### bootstrapServers
-- **Type**: typing.Optional[str]
-
-### vpc
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafkaconnect_classes.VpcDescriptionTypeDef]
-
-
-# ApacheKafkaClusterTypeDef
+# ApacheKafkaCluster
 
 ### bootstrapServers
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### vpc
-- **Type**: <class 'aws_resource_validator.pydantic_models.kafkaconnect_classes.VpcTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kafkaconnect_classes.Vpc'>
 - **Required**: Yes
 
 
-# AutoScalingDescriptionTypeDef
+# ApacheKafkaClusterDescription
 
-### maxWorkerCount
-- **Type**: typing.Optional[int]
+### bootstrapServers
+- **Type**: typing.Optional[str]
 
-### mcuCount
-- **Type**: typing.Optional[int]
-
-### minWorkerCount
-- **Type**: typing.Optional[int]
-
-### scaleInPolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafkaconnect_classes.ScaleInPolicyDescriptionTypeDef]
-
-### scaleOutPolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafkaconnect_classes.ScaleOutPolicyDescriptionTypeDef]
+### vpc
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafkaconnect_classes.VpcDescription]
 
 
-# AutoScalingTypeDef
+# AutoScaling
 
 ### maxWorkerCount
 - **Type**: <class 'int'>
@@ -53,13 +35,31 @@
 - **Required**: Yes
 
 ### scaleInPolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafkaconnect_classes.ScaleInPolicyTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafkaconnect_classes.ScaleInPolicy]
 
 ### scaleOutPolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafkaconnect_classes.ScaleOutPolicyTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafkaconnect_classes.ScaleOutPolicy]
 
 
-# AutoScalingUpdateTypeDef
+# AutoScalingDescription
+
+### maxWorkerCount
+- **Type**: typing.Optional[int]
+
+### mcuCount
+- **Type**: typing.Optional[int]
+
+### minWorkerCount
+- **Type**: typing.Optional[int]
+
+### scaleInPolicy
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafkaconnect_classes.ScaleInPolicyDescription]
+
+### scaleOutPolicy
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafkaconnect_classes.ScaleOutPolicyDescription]
+
+
+# AutoScalingUpdate
 
 ### maxWorkerCount
 - **Type**: <class 'int'>
@@ -74,11 +74,11 @@
 - **Required**: Yes
 
 ### scaleInPolicy
-- **Type**: <class 'aws_resource_validator.pydantic_models.kafkaconnect_classes.ScaleInPolicyUpdateTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kafkaconnect_classes.ScaleInPolicyUpdate'>
 - **Required**: Yes
 
 ### scaleOutPolicy
-- **Type**: <class 'aws_resource_validator.pydantic_models.kafkaconnect_classes.ScaleOutPolicyUpdateTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kafkaconnect_classes.ScaleOutPolicyUpdate'>
 - **Required**: Yes
 
 
@@ -88,43 +88,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CapacityDescriptionTypeDef
+# Capacity
 
 ### autoScaling
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafkaconnect_classes.AutoScalingDescriptionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafkaconnect_classes.AutoScaling]
 
 ### provisionedCapacity
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafkaconnect_classes.ProvisionedCapacityDescriptionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafkaconnect_classes.ProvisionedCapacity]
 
 
-# CapacityTypeDef
+# CapacityDescription
 
 ### autoScaling
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafkaconnect_classes.AutoScalingTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafkaconnect_classes.AutoScalingDescription]
 
 ### provisionedCapacity
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafkaconnect_classes.ProvisionedCapacityTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafkaconnect_classes.ProvisionedCapacityDescription]
 
 
-# CapacityUpdateTypeDef
+# CapacityUpdate
 
 ### autoScaling
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafkaconnect_classes.AutoScalingUpdateTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafkaconnect_classes.AutoScalingUpdate]
 
 ### provisionedCapacity
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafkaconnect_classes.ProvisionedCapacityUpdateTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafkaconnect_classes.ProvisionedCapacityUpdate]
 
 
-# CloudWatchLogsLogDeliveryDescriptionTypeDef
-
-### enabled
-- **Type**: typing.Optional[bool]
-
-### logGroup
-- **Type**: typing.Optional[str]
-
-
-# CloudWatchLogsLogDeliveryTypeDef
+# CloudWatchLogsLogDelivery
 
 ### enabled
 - **Type**: <class 'bool'>
@@ -134,7 +125,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ConnectorOperationStepTypeDef
+# CloudWatchLogsLogDeliveryDescription
+
+### enabled
+- **Type**: typing.Optional[bool]
+
+### logGroup
+- **Type**: typing.Optional[str]
+
+
+# ConnectorOperationStep
 
 ### stepType
 - **Type**: typing.Optional[typing.Literal['FINALIZE_UPDATE', 'INITIALIZE_UPDATE', 'UPDATE_CONNECTOR_CONFIGURATION', 'UPDATE_WORKER_SETTING', 'VALIDATE_UPDATE']]
@@ -143,7 +143,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CANCELLED', 'COMPLETED', 'FAILED', 'IN_PROGRESS', 'PENDING']]
 
 
-# ConnectorOperationSummaryTypeDef
+# ConnectorOperationSummary
 
 ### connectorOperationArn
 - **Type**: typing.Optional[str]
@@ -161,10 +161,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# ConnectorSummaryTypeDef
+# ConnectorSummary
 
 ### capacity
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafkaconnect_classes.CapacityDescriptionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafkaconnect_classes.CapacityDescription]
 
 ### connectorArn
 - **Type**: typing.Optional[str]
@@ -185,34 +185,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### kafkaCluster
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafkaconnect_classes.KafkaClusterDescriptionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafkaconnect_classes.KafkaClusterDescription]
 
 ### kafkaClusterClientAuthentication
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafkaconnect_classes.KafkaClusterClientAuthenticationDescriptionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafkaconnect_classes.KafkaClusterClientAuthenticationDescription]
 
 ### kafkaClusterEncryptionInTransit
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafkaconnect_classes.KafkaClusterEncryptionInTransitDescriptionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafkaconnect_classes.KafkaClusterEncryptionInTransitDescription]
 
 ### kafkaConnectVersion
 - **Type**: typing.Optional[str]
 
 ### logDelivery
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafkaconnect_classes.LogDeliveryDescriptionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafkaconnect_classes.LogDeliveryDescription]
 
 ### plugins
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kafkaconnect_classes.PluginDescriptionTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kafkaconnect_classes.PluginDescription]]
 
 ### serviceExecutionRoleArn
 - **Type**: typing.Optional[str]
 
 ### workerConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafkaconnect_classes.WorkerConfigurationDescriptionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafkaconnect_classes.WorkerConfigurationDescription]
 
 
-# CreateConnectorRequestTypeDef
+# CreateConnectorRequest
 
 ### capacity
-- **Type**: <class 'aws_resource_validator.pydantic_models.kafkaconnect_classes.CapacityTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kafkaconnect_classes.Capacity'>
 - **Required**: Yes
 
 ### connectorConfiguration
@@ -224,15 +224,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### kafkaCluster
-- **Type**: <class 'aws_resource_validator.pydantic_models.kafkaconnect_classes.KafkaClusterTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kafkaconnect_classes.KafkaCluster'>
 - **Required**: Yes
 
 ### kafkaClusterClientAuthentication
-- **Type**: <class 'aws_resource_validator.pydantic_models.kafkaconnect_classes.KafkaClusterClientAuthenticationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kafkaconnect_classes.KafkaClusterClientAuthentication'>
 - **Required**: Yes
 
 ### kafkaClusterEncryptionInTransit
-- **Type**: <class 'aws_resource_validator.pydantic_models.kafkaconnect_classes.KafkaClusterEncryptionInTransitTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kafkaconnect_classes.KafkaClusterEncryptionInTransit'>
 - **Required**: Yes
 
 ### kafkaConnectVersion
@@ -240,7 +240,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### plugins
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.kafkaconnect_classes.PluginTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.kafkaconnect_classes.Plugin]
 - **Required**: Yes
 
 ### serviceExecutionRoleArn
@@ -251,16 +251,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### logDelivery
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafkaconnect_classes.LogDeliveryTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafkaconnect_classes.LogDelivery]
 
 ### workerConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafkaconnect_classes.WorkerConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafkaconnect_classes.WorkerConfiguration]
 
 ### tags
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateConnectorResponseTypeDef
+# CreateConnectorResponse
 
 ### connectorArn
 - **Type**: <class 'str'>
@@ -275,18 +275,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kafkaconnect_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kafkaconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateCustomPluginRequestTypeDef
+# CreateCustomPluginRequest
 
 ### contentType
 - **Type**: typing.Literal['JAR', 'ZIP']
 - **Required**: Yes
 
 ### location
-- **Type**: <class 'aws_resource_validator.pydantic_models.kafkaconnect_classes.CustomPluginLocationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kafkaconnect_classes.CustomPluginLocation'>
 - **Required**: Yes
 
 ### name
@@ -300,7 +300,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateCustomPluginResponseTypeDef
+# CreateCustomPluginResponse
 
 ### customPluginArn
 - **Type**: <class 'str'>
@@ -319,11 +319,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kafkaconnect_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kafkaconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateWorkerConfigurationRequestTypeDef
+# CreateWorkerConfigurationRequest
 
 ### name
 - **Type**: <class 'str'>
@@ -340,14 +340,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateWorkerConfigurationResponseTypeDef
+# CreateWorkerConfigurationResponse
 
 ### creationTime
 - **Type**: <class 'datetime.datetime'>
 - **Required**: Yes
 
 ### latestRevision
-- **Type**: <class 'aws_resource_validator.pydantic_models.kafkaconnect_classes.WorkerConfigurationRevisionSummaryTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kafkaconnect_classes.WorkerConfigurationRevisionSummary'>
 - **Required**: Yes
 
 ### name
@@ -363,11 +363,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kafkaconnect_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kafkaconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CustomPluginDescriptionTypeDef
+# CustomPlugin
+
+### customPluginArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### revision
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+
+# CustomPluginDescription
 
 ### customPluginArn
 - **Type**: typing.Optional[str]
@@ -376,7 +387,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# CustomPluginFileDescriptionTypeDef
+# CustomPluginFileDescription
 
 ### fileMd5
 - **Type**: typing.Optional[str]
@@ -385,20 +396,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# CustomPluginLocationDescriptionTypeDef
+# CustomPluginLocation
 
 ### s3Location
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafkaconnect_classes.S3LocationDescriptionTypeDef]
-
-
-# CustomPluginLocationTypeDef
-
-### s3Location
-- **Type**: <class 'aws_resource_validator.pydantic_models.kafkaconnect_classes.S3LocationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kafkaconnect_classes.S3Location'>
 - **Required**: Yes
 
 
-# CustomPluginRevisionSummaryTypeDef
+# CustomPluginLocationDescription
+
+### s3Location
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafkaconnect_classes.S3LocationDescription]
+
+
+# CustomPluginRevisionSummary
 
 ### contentType
 - **Type**: typing.Optional[typing.Literal['JAR', 'ZIP']]
@@ -410,16 +421,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### fileDescription
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafkaconnect_classes.CustomPluginFileDescriptionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafkaconnect_classes.CustomPluginFileDescription]
 
 ### location
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafkaconnect_classes.CustomPluginLocationDescriptionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafkaconnect_classes.CustomPluginLocationDescription]
 
 ### revision
 - **Type**: typing.Optional[int]
 
 
-# CustomPluginSummaryTypeDef
+# CustomPluginSummary
 
 ### creationTime
 - **Type**: typing.Optional[datetime.datetime]
@@ -434,24 +445,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### latestRevision
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafkaconnect_classes.CustomPluginRevisionSummaryTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafkaconnect_classes.CustomPluginRevisionSummary]
 
 ### name
 - **Type**: typing.Optional[str]
 
 
-# CustomPluginTypeDef
-
-### customPluginArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### revision
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-
-# DeleteConnectorRequestTypeDef
+# DeleteConnectorRequest
 
 ### connectorArn
 - **Type**: <class 'str'>
@@ -461,7 +461,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteConnectorResponseTypeDef
+# DeleteConnectorResponse
 
 ### connectorArn
 - **Type**: <class 'str'>
@@ -472,18 +472,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kafkaconnect_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kafkaconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteCustomPluginRequestTypeDef
+# DeleteCustomPluginRequest
 
 ### customPluginArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteCustomPluginResponseTypeDef
+# DeleteCustomPluginResponse
 
 ### customPluginArn
 - **Type**: <class 'str'>
@@ -494,18 +494,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kafkaconnect_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kafkaconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteWorkerConfigurationRequestTypeDef
+# DeleteWorkerConfigurationRequest
 
 ### workerConfigurationArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteWorkerConfigurationResponseTypeDef
+# DeleteWorkerConfigurationResponse
 
 ### workerConfigurationArn
 - **Type**: <class 'str'>
@@ -516,18 +516,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kafkaconnect_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kafkaconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeConnectorOperationRequestTypeDef
+# DescribeConnectorOperationRequest
 
 ### connectorOperationArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeConnectorOperationResponseTypeDef
+# DescribeConnectorOperationResponse
 
 ### connectorArn
 - **Type**: <class 'str'>
@@ -546,11 +546,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### operationSteps
-- **Type**: typing.List[aws_resource_validator.pydantic_models.kafkaconnect_classes.ConnectorOperationStepTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.kafkaconnect_classes.ConnectorOperationStep]
 - **Required**: Yes
 
 ### originWorkerSetting
-- **Type**: <class 'aws_resource_validator.pydantic_models.kafkaconnect_classes.WorkerSettingTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kafkaconnect_classes.WorkerSetting'>
 - **Required**: Yes
 
 ### originConnectorConfiguration
@@ -558,7 +558,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### targetWorkerSetting
-- **Type**: <class 'aws_resource_validator.pydantic_models.kafkaconnect_classes.WorkerSettingTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kafkaconnect_classes.WorkerSetting'>
 - **Required**: Yes
 
 ### targetConnectorConfiguration
@@ -566,7 +566,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### errorInfo
-- **Type**: <class 'aws_resource_validator.pydantic_models.kafkaconnect_classes.StateDescriptionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kafkaconnect_classes.StateDescription'>
 - **Required**: Yes
 
 ### creationTime
@@ -578,21 +578,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kafkaconnect_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kafkaconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeConnectorRequestTypeDef
+# DescribeConnectorRequest
 
 ### connectorArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeConnectorResponseTypeDef
+# DescribeConnectorResponse
 
 ### capacity
-- **Type**: <class 'aws_resource_validator.pydantic_models.kafkaconnect_classes.CapacityDescriptionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kafkaconnect_classes.CapacityDescription'>
 - **Required**: Yes
 
 ### connectorArn
@@ -624,15 +624,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### kafkaCluster
-- **Type**: <class 'aws_resource_validator.pydantic_models.kafkaconnect_classes.KafkaClusterDescriptionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kafkaconnect_classes.KafkaClusterDescription'>
 - **Required**: Yes
 
 ### kafkaClusterClientAuthentication
-- **Type**: <class 'aws_resource_validator.pydantic_models.kafkaconnect_classes.KafkaClusterClientAuthenticationDescriptionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kafkaconnect_classes.KafkaClusterClientAuthenticationDescription'>
 - **Required**: Yes
 
 ### kafkaClusterEncryptionInTransit
-- **Type**: <class 'aws_resource_validator.pydantic_models.kafkaconnect_classes.KafkaClusterEncryptionInTransitDescriptionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kafkaconnect_classes.KafkaClusterEncryptionInTransitDescription'>
 - **Required**: Yes
 
 ### kafkaConnectVersion
@@ -640,11 +640,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### logDelivery
-- **Type**: <class 'aws_resource_validator.pydantic_models.kafkaconnect_classes.LogDeliveryDescriptionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kafkaconnect_classes.LogDeliveryDescription'>
 - **Required**: Yes
 
 ### plugins
-- **Type**: typing.List[aws_resource_validator.pydantic_models.kafkaconnect_classes.PluginDescriptionTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.kafkaconnect_classes.PluginDescription]
 - **Required**: Yes
 
 ### serviceExecutionRoleArn
@@ -652,26 +652,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### workerConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.kafkaconnect_classes.WorkerConfigurationDescriptionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kafkaconnect_classes.WorkerConfigurationDescription'>
 - **Required**: Yes
 
 ### stateDescription
-- **Type**: <class 'aws_resource_validator.pydantic_models.kafkaconnect_classes.StateDescriptionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kafkaconnect_classes.StateDescription'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kafkaconnect_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kafkaconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeCustomPluginRequestTypeDef
+# DescribeCustomPluginRequest
 
 ### customPluginArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeCustomPluginResponseTypeDef
+# DescribeCustomPluginResponse
 
 ### creationTime
 - **Type**: <class 'datetime.datetime'>
@@ -690,7 +690,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### latestRevision
-- **Type**: <class 'aws_resource_validator.pydantic_models.kafkaconnect_classes.CustomPluginRevisionSummaryTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kafkaconnect_classes.CustomPluginRevisionSummary'>
 - **Required**: Yes
 
 ### name
@@ -698,22 +698,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### stateDescription
-- **Type**: <class 'aws_resource_validator.pydantic_models.kafkaconnect_classes.StateDescriptionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kafkaconnect_classes.StateDescription'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kafkaconnect_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kafkaconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeWorkerConfigurationRequestTypeDef
+# DescribeWorkerConfigurationRequest
 
 ### workerConfigurationArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeWorkerConfigurationResponseTypeDef
+# DescribeWorkerConfigurationResponse
 
 ### creationTime
 - **Type**: <class 'datetime.datetime'>
@@ -724,7 +724,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### latestRevision
-- **Type**: <class 'aws_resource_validator.pydantic_models.kafkaconnect_classes.WorkerConfigurationRevisionDescriptionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kafkaconnect_classes.WorkerConfigurationRevisionDescription'>
 - **Required**: Yes
 
 ### name
@@ -740,20 +740,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kafkaconnect_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kafkaconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# FirehoseLogDeliveryDescriptionTypeDef
-
-### deliveryStream
-- **Type**: typing.Optional[str]
-
-### enabled
-- **Type**: typing.Optional[bool]
-
-
-# FirehoseLogDeliveryTypeDef
+# FirehoseLogDelivery
 
 ### enabled
 - **Type**: <class 'bool'>
@@ -763,56 +754,55 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# KafkaClusterClientAuthenticationDescriptionTypeDef
+# FirehoseLogDeliveryDescription
 
-### authenticationType
-- **Type**: typing.Optional[typing.Literal['IAM', 'NONE']]
+### deliveryStream
+- **Type**: typing.Optional[str]
+
+### enabled
+- **Type**: typing.Optional[bool]
 
 
-# KafkaClusterClientAuthenticationTypeDef
+# KafkaCluster
+
+### apacheKafkaCluster
+- **Type**: <class 'aws_resource_validator.pydantic_models.kafkaconnect_classes.ApacheKafkaCluster'>
+- **Required**: Yes
+
+
+# KafkaClusterClientAuthentication
 
 ### authenticationType
 - **Type**: typing.Literal['IAM', 'NONE']
 - **Required**: Yes
 
 
-# KafkaClusterDescriptionTypeDef
+# KafkaClusterClientAuthenticationDescription
+
+### authenticationType
+- **Type**: typing.Optional[typing.Literal['IAM', 'NONE']]
+
+
+# KafkaClusterDescription
 
 ### apacheKafkaCluster
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafkaconnect_classes.ApacheKafkaClusterDescriptionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafkaconnect_classes.ApacheKafkaClusterDescription]
 
 
-# KafkaClusterEncryptionInTransitDescriptionTypeDef
-
-### encryptionType
-- **Type**: typing.Optional[typing.Literal['PLAINTEXT', 'TLS']]
-
-
-# KafkaClusterEncryptionInTransitTypeDef
+# KafkaClusterEncryptionInTransit
 
 ### encryptionType
 - **Type**: typing.Literal['PLAINTEXT', 'TLS']
 - **Required**: Yes
 
 
-# KafkaClusterTypeDef
+# KafkaClusterEncryptionInTransitDescription
 
-### apacheKafkaCluster
-- **Type**: <class 'aws_resource_validator.pydantic_models.kafkaconnect_classes.ApacheKafkaClusterTypeDef'>
-- **Required**: Yes
-
-
-# ListConnectorOperationsRequestPaginateTypeDef
-
-### connectorArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafkaconnect_classes.PaginatorConfigTypeDef]
+### encryptionType
+- **Type**: typing.Optional[typing.Literal['PLAINTEXT', 'TLS']]
 
 
-# ListConnectorOperationsRequestTypeDef
+# ListConnectorOperationsRequest
 
 ### connectorArn
 - **Type**: <class 'str'>
@@ -825,30 +815,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListConnectorOperationsResponseTypeDef
+# ListConnectorOperationsRequestPaginate
+
+### connectorArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafkaconnect_classes.PaginatorConfig]
+
+
+# ListConnectorOperationsResponse
 
 ### connectorOperations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.kafkaconnect_classes.ConnectorOperationSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.kafkaconnect_classes.ConnectorOperationSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kafkaconnect_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kafkaconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListConnectorsRequestPaginateTypeDef
-
-### connectorNamePrefix
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafkaconnect_classes.PaginatorConfigTypeDef]
-
-
-# ListConnectorsRequestTypeDef
+# ListConnectorsRequest
 
 ### connectorNamePrefix
 - **Type**: typing.Optional[str]
@@ -860,30 +851,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListConnectorsResponseTypeDef
+# ListConnectorsRequestPaginate
+
+### connectorNamePrefix
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafkaconnect_classes.PaginatorConfig]
+
+
+# ListConnectorsResponse
 
 ### connectors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.kafkaconnect_classes.ConnectorSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.kafkaconnect_classes.ConnectorSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kafkaconnect_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kafkaconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListCustomPluginsRequestPaginateTypeDef
-
-### namePrefix
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafkaconnect_classes.PaginatorConfigTypeDef]
-
-
-# ListCustomPluginsRequestTypeDef
+# ListCustomPluginsRequest
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -895,48 +886,48 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListCustomPluginsResponseTypeDef
+# ListCustomPluginsRequestPaginate
+
+### namePrefix
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafkaconnect_classes.PaginatorConfig]
+
+
+# ListCustomPluginsResponse
 
 ### customPlugins
-- **Type**: typing.List[aws_resource_validator.pydantic_models.kafkaconnect_classes.CustomPluginSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.kafkaconnect_classes.CustomPluginSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kafkaconnect_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kafkaconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestTypeDef
+# ListTagsForResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ListTagsForResourceResponseTypeDef
+# ListTagsForResourceResponse
 
 ### tags
 - **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kafkaconnect_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kafkaconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListWorkerConfigurationsRequestPaginateTypeDef
-
-### namePrefix
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafkaconnect_classes.PaginatorConfigTypeDef]
-
-
-# ListWorkerConfigurationsRequestTypeDef
+# ListWorkerConfigurationsRequest
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -948,34 +939,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListWorkerConfigurationsResponseTypeDef
+# ListWorkerConfigurationsRequestPaginate
+
+### namePrefix
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafkaconnect_classes.PaginatorConfig]
+
+
+# ListWorkerConfigurationsResponse
 
 ### workerConfigurations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.kafkaconnect_classes.WorkerConfigurationSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.kafkaconnect_classes.WorkerConfigurationSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kafkaconnect_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kafkaconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# LogDeliveryDescriptionTypeDef
+# LogDelivery
 
 ### workerLogDelivery
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafkaconnect_classes.WorkerLogDeliveryDescriptionTypeDef]
-
-
-# LogDeliveryTypeDef
-
-### workerLogDelivery
-- **Type**: <class 'aws_resource_validator.pydantic_models.kafkaconnect_classes.WorkerLogDeliveryTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kafkaconnect_classes.WorkerLogDelivery'>
 - **Required**: Yes
 
 
-# PaginatorConfigTypeDef
+# LogDeliveryDescription
+
+### workerLogDelivery
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafkaconnect_classes.WorkerLogDeliveryDescription]
+
+
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -987,20 +987,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PluginDescriptionTypeDef
+# Plugin
 
 ### customPlugin
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafkaconnect_classes.CustomPluginDescriptionTypeDef]
-
-
-# PluginTypeDef
-
-### customPlugin
-- **Type**: <class 'aws_resource_validator.pydantic_models.kafkaconnect_classes.CustomPluginTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kafkaconnect_classes.CustomPlugin'>
 - **Required**: Yes
 
 
-# ProvisionedCapacityDescriptionTypeDef
+# PluginDescription
+
+### customPlugin
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafkaconnect_classes.CustomPluginDescription]
+
+
+# ProvisionedCapacity
+
+### mcuCount
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### workerCount
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+
+# ProvisionedCapacityDescription
 
 ### mcuCount
 - **Type**: typing.Optional[int]
@@ -1009,7 +1020,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ProvisionedCapacityTypeDef
+# ProvisionedCapacityUpdate
 
 ### mcuCount
 - **Type**: <class 'int'>
@@ -1020,18 +1031,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ProvisionedCapacityUpdateTypeDef
-
-### mcuCount
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### workerCount
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -1053,19 +1053,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# S3LocationDescriptionTypeDef
-
-### bucketArn
-- **Type**: typing.Optional[str]
-
-### fileKey
-- **Type**: typing.Optional[str]
-
-### objectVersion
-- **Type**: typing.Optional[str]
-
-
-# S3LocationTypeDef
+# S3Location
 
 ### bucketArn
 - **Type**: <class 'str'>
@@ -1079,19 +1067,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# S3LogDeliveryDescriptionTypeDef
+# S3LocationDescription
 
-### bucket
+### bucketArn
 - **Type**: typing.Optional[str]
 
-### enabled
-- **Type**: typing.Optional[bool]
+### fileKey
+- **Type**: typing.Optional[str]
 
-### prefix
+### objectVersion
 - **Type**: typing.Optional[str]
 
 
-# S3LogDeliveryTypeDef
+# S3LogDelivery
 
 ### enabled
 - **Type**: <class 'bool'>
@@ -1104,47 +1092,59 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ScaleInPolicyDescriptionTypeDef
+# S3LogDeliveryDescription
+
+### bucket
+- **Type**: typing.Optional[str]
+
+### enabled
+- **Type**: typing.Optional[bool]
+
+### prefix
+- **Type**: typing.Optional[str]
+
+
+# ScaleInPolicy
+
+### cpuUtilizationPercentage
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+
+# ScaleInPolicyDescription
 
 ### cpuUtilizationPercentage
 - **Type**: typing.Optional[int]
 
 
-# ScaleInPolicyTypeDef
+# ScaleInPolicyUpdate
 
 ### cpuUtilizationPercentage
 - **Type**: <class 'int'>
 - **Required**: Yes
 
 
-# ScaleInPolicyUpdateTypeDef
+# ScaleOutPolicy
 
 ### cpuUtilizationPercentage
 - **Type**: <class 'int'>
 - **Required**: Yes
 
 
-# ScaleOutPolicyDescriptionTypeDef
+# ScaleOutPolicyDescription
 
 ### cpuUtilizationPercentage
 - **Type**: typing.Optional[int]
 
 
-# ScaleOutPolicyTypeDef
+# ScaleOutPolicyUpdate
 
 ### cpuUtilizationPercentage
 - **Type**: <class 'int'>
 - **Required**: Yes
 
 
-# ScaleOutPolicyUpdateTypeDef
-
-### cpuUtilizationPercentage
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-
-# StateDescriptionTypeDef
+# StateDescription
 
 ### code
 - **Type**: typing.Optional[str]
@@ -1153,7 +1153,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TagResourceRequestTypeDef
+# TagResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -1164,7 +1164,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceRequestTypeDef
+# UntagResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -1175,7 +1175,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateConnectorRequestTypeDef
+# UpdateConnectorRequest
 
 ### connectorArn
 - **Type**: <class 'str'>
@@ -1186,13 +1186,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### capacity
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafkaconnect_classes.CapacityUpdateTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafkaconnect_classes.CapacityUpdate]
 
 ### connectorConfiguration
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# UpdateConnectorResponseTypeDef
+# UpdateConnectorResponse
 
 ### connectorArn
 - **Type**: <class 'str'>
@@ -1207,20 +1207,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kafkaconnect_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kafkaconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# VpcDescriptionTypeDef
-
-### securityGroups
-- **Type**: typing.Optional[typing.List[str]]
-
-### subnets
-- **Type**: typing.Optional[typing.List[str]]
-
-
-# VpcTypeDef
+# Vpc
 
 ### subnets
 - **Type**: typing.Sequence[str]
@@ -1230,7 +1221,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# WorkerConfigurationDescriptionTypeDef
+# VpcDescription
+
+### securityGroups
+- **Type**: typing.Optional[typing.List[str]]
+
+### subnets
+- **Type**: typing.Optional[typing.List[str]]
+
+
+# WorkerConfiguration
+
+### revision
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### workerConfigurationArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# WorkerConfigurationDescription
 
 ### revision
 - **Type**: typing.Optional[int]
@@ -1239,7 +1250,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# WorkerConfigurationRevisionDescriptionTypeDef
+# WorkerConfigurationRevisionDescription
 
 ### creationTime
 - **Type**: typing.Optional[datetime.datetime]
@@ -1254,7 +1265,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# WorkerConfigurationRevisionSummaryTypeDef
+# WorkerConfigurationRevisionSummary
 
 ### creationTime
 - **Type**: typing.Optional[datetime.datetime]
@@ -1266,7 +1277,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# WorkerConfigurationSummaryTypeDef
+# WorkerConfigurationSummary
 
 ### creationTime
 - **Type**: typing.Optional[datetime.datetime]
@@ -1275,7 +1286,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### latestRevision
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafkaconnect_classes.WorkerConfigurationRevisionSummaryTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafkaconnect_classes.WorkerConfigurationRevisionSummary]
 
 ### name
 - **Type**: typing.Optional[str]
@@ -1287,44 +1298,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'DELETING']]
 
 
-# WorkerConfigurationTypeDef
-
-### revision
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### workerConfigurationArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# WorkerLogDeliveryDescriptionTypeDef
+# WorkerLogDelivery
 
 ### cloudWatchLogs
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafkaconnect_classes.CloudWatchLogsLogDeliveryDescriptionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafkaconnect_classes.CloudWatchLogsLogDelivery]
 
 ### firehose
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafkaconnect_classes.FirehoseLogDeliveryDescriptionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafkaconnect_classes.FirehoseLogDelivery]
 
 ### s3
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafkaconnect_classes.S3LogDeliveryDescriptionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafkaconnect_classes.S3LogDelivery]
 
 
-# WorkerLogDeliveryTypeDef
+# WorkerLogDeliveryDescription
 
 ### cloudWatchLogs
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafkaconnect_classes.CloudWatchLogsLogDeliveryTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafkaconnect_classes.CloudWatchLogsLogDeliveryDescription]
 
 ### firehose
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafkaconnect_classes.FirehoseLogDeliveryTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafkaconnect_classes.FirehoseLogDeliveryDescription]
 
 ### s3
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafkaconnect_classes.S3LogDeliveryTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafkaconnect_classes.S3LogDeliveryDescription]
 
 
-# WorkerSettingTypeDef
+# WorkerSetting
 
 ### capacity
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafkaconnect_classes.CapacityDescriptionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kafkaconnect_classes.CapacityDescription]
 
 

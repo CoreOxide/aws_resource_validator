@@ -12,23 +12,23 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.appintegrations_constants import *
 
-class ApplicationAssociationSummaryTypeDef(BaseValidatorModel):
+class ApplicationAssociationSummary(BaseValidatorModel):
     ApplicationAssociationArn: Optional[str] = None
     ApplicationArn: Optional[str] = None
     ClientId: Optional[str] = None
 
 
-class ExternalUrlConfigOutputTypeDef(BaseValidatorModel):
+class ExternalUrlConfigOutput(BaseValidatorModel):
     AccessUrl: str
     ApprovedOrigins: Optional[List[str]] = None
 
 
-class ExternalUrlConfigTypeDef(BaseValidatorModel):
+class ExternalUrlConfig(BaseValidatorModel):
     AccessUrl: str
     ApprovedOrigins: Optional[Sequence[str]] = None
 
 
-class ApplicationSummaryTypeDef(BaseValidatorModel):
+class ApplicationSummary(BaseValidatorModel):
     Arn: Optional[str] = None
     Id: Optional[str] = None
     Name: Optional[str] = None
@@ -37,18 +37,18 @@ class ApplicationSummaryTypeDef(BaseValidatorModel):
     LastModifiedTime: Optional[datetime] = None
 
 
-class PublicationTypeDef(BaseValidatorModel):
+class Publication(BaseValidatorModel):
     Event: str
     Schema: str
     Description: Optional[str] = None
 
 
-class SubscriptionTypeDef(BaseValidatorModel):
+class Subscription(BaseValidatorModel):
     Event: str
     Description: Optional[str] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -56,45 +56,45 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class ScheduleConfigurationTypeDef(BaseValidatorModel):
+class ScheduleConfiguration(BaseValidatorModel):
     ScheduleExpression: str
     FirstExecutionFrom: Optional[str] = None
     Object: Optional[str] = None
 
 
-class FileConfigurationOutputTypeDef(BaseValidatorModel):
+class FileConfigurationOutput(BaseValidatorModel):
     Folders: List[str]
     Filters: Optional[Dict[str, List[str]]] = None
 
 
-class EventFilterTypeDef(BaseValidatorModel):
+class EventFilter(BaseValidatorModel):
     Source: str
 
 
-class LastExecutionStatusTypeDef(BaseValidatorModel):
+class LastExecutionStatus(BaseValidatorModel):
     ExecutionStatus: Optional[ExecutionStatusType] = None
     StatusMessage: Optional[str] = None
 
 
-class DataIntegrationSummaryTypeDef(BaseValidatorModel):
+class DataIntegrationSummary(BaseValidatorModel):
     Arn: Optional[str] = None
     Name: Optional[str] = None
     SourceURI: Optional[str] = None
 
 
-class DeleteApplicationRequestTypeDef(BaseValidatorModel):
+class DeleteApplicationRequest(BaseValidatorModel):
     Arn: str
 
 
-class DeleteDataIntegrationRequestTypeDef(BaseValidatorModel):
+class DeleteDataIntegrationRequest(BaseValidatorModel):
     DataIntegrationIdentifier: str
 
 
-class DeleteEventIntegrationRequestTypeDef(BaseValidatorModel):
+class DeleteEventIntegrationRequest(BaseValidatorModel):
     Name: str
 
 
-class EventIntegrationAssociationTypeDef(BaseValidatorModel):
+class EventIntegrationAssociation(BaseValidatorModel):
     EventIntegrationAssociationArn: Optional[str] = None
     EventIntegrationAssociationId: Optional[str] = None
     EventIntegrationName: Optional[str] = None
@@ -103,328 +103,328 @@ class EventIntegrationAssociationTypeDef(BaseValidatorModel):
     ClientAssociationMetadata: Optional[Dict[str, str]] = None
 
 
-class OnDemandConfigurationTypeDef(BaseValidatorModel):
+class OnDemandConfiguration(BaseValidatorModel):
     StartTime: str
     EndTime: Optional[str] = None
 
 
-class FileConfigurationTypeDef(BaseValidatorModel):
+class FileConfiguration(BaseValidatorModel):
     Folders: Sequence[str]
     Filters: Optional[Mapping[str, Sequence[str]]] = None
 
 
-class GetApplicationRequestTypeDef(BaseValidatorModel):
+class GetApplicationRequest(BaseValidatorModel):
     Arn: str
 
 
-class GetDataIntegrationRequestTypeDef(BaseValidatorModel):
+class GetDataIntegrationRequest(BaseValidatorModel):
     Identifier: str
 
 
-class GetEventIntegrationRequestTypeDef(BaseValidatorModel):
+class GetEventIntegrationRequest(BaseValidatorModel):
     Name: str
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListApplicationAssociationsRequestTypeDef(BaseValidatorModel):
+class ListApplicationAssociationsRequest(BaseValidatorModel):
     ApplicationId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListApplicationsRequestTypeDef(BaseValidatorModel):
+class ListApplicationsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListDataIntegrationAssociationsRequestTypeDef(BaseValidatorModel):
+class ListDataIntegrationAssociationsRequest(BaseValidatorModel):
     DataIntegrationIdentifier: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListDataIntegrationsRequestTypeDef(BaseValidatorModel):
+class ListDataIntegrationsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListEventIntegrationAssociationsRequestTypeDef(BaseValidatorModel):
+class ListEventIntegrationAssociationsRequest(BaseValidatorModel):
     EventIntegrationName: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListEventIntegrationsRequestTypeDef(BaseValidatorModel):
+class ListEventIntegrationsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
 
-class UpdateDataIntegrationRequestTypeDef(BaseValidatorModel):
+class UpdateDataIntegrationRequest(BaseValidatorModel):
     Identifier: str
     Name: Optional[str] = None
     Description: Optional[str] = None
 
 
-class UpdateEventIntegrationRequestTypeDef(BaseValidatorModel):
+class UpdateEventIntegrationRequest(BaseValidatorModel):
     Name: str
     Description: Optional[str] = None
 
 
-class ApplicationSourceConfigOutputTypeDef(BaseValidatorModel):
-    ExternalUrlConfig: Optional[ExternalUrlConfigOutputTypeDef] = None
+class ApplicationSourceConfigOutput(BaseValidatorModel):
+    ExternalUrlConfig: Optional[ExternalUrlConfigOutput] = None
 
 
-class ApplicationSourceConfigTypeDef(BaseValidatorModel):
-    ExternalUrlConfig: Optional[ExternalUrlConfigTypeDef] = None
+class ApplicationSourceConfig(BaseValidatorModel):
+    ExternalUrlConfig: Optional[ExternalUrlConfig] = None
 
 
-class CreateApplicationResponseTypeDef(BaseValidatorModel):
+class CreateApplicationResponse(BaseValidatorModel):
     Arn: str
     Id: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateDataIntegrationAssociationResponseTypeDef(BaseValidatorModel):
+class CreateDataIntegrationAssociationResponse(BaseValidatorModel):
     DataIntegrationAssociationId: str
     DataIntegrationArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateEventIntegrationResponseTypeDef(BaseValidatorModel):
+class CreateEventIntegrationResponse(BaseValidatorModel):
     EventIntegrationArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListApplicationAssociationsResponseTypeDef(BaseValidatorModel):
-    ApplicationAssociations: List[ApplicationAssociationSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListApplicationAssociationsResponse(BaseValidatorModel):
+    ApplicationAssociations: List[ApplicationAssociationSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListApplicationsResponseTypeDef(BaseValidatorModel):
-    Applications: List[ApplicationSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListApplicationsResponse(BaseValidatorModel):
+    Applications: List[ApplicationSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
+class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateDataIntegrationResponseTypeDef(BaseValidatorModel):
+class CreateDataIntegrationResponse(BaseValidatorModel):
     Arn: str
     Id: str
     Name: str
     Description: str
     KmsKey: str
     SourceURI: str
-    ScheduleConfiguration: ScheduleConfigurationTypeDef
+    ScheduleConfiguration: ScheduleConfiguration
     Tags: Dict[str, str]
     ClientToken: str
-    FileConfiguration: FileConfigurationOutputTypeDef
+    FileConfiguration: FileConfigurationOutput
     ObjectConfiguration: Dict[str, Dict[str, List[str]]]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetDataIntegrationResponseTypeDef(BaseValidatorModel):
+class GetDataIntegrationResponse(BaseValidatorModel):
     Arn: str
     Id: str
     Name: str
     Description: str
     KmsKey: str
     SourceURI: str
-    ScheduleConfiguration: ScheduleConfigurationTypeDef
+    ScheduleConfiguration: ScheduleConfiguration
     Tags: Dict[str, str]
-    FileConfiguration: FileConfigurationOutputTypeDef
+    FileConfiguration: FileConfigurationOutput
     ObjectConfiguration: Dict[str, Dict[str, List[str]]]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateEventIntegrationRequestTypeDef(BaseValidatorModel):
+class CreateEventIntegrationRequest(BaseValidatorModel):
     Name: str
-    EventFilter: EventFilterTypeDef
+    EventFilter: EventFilter
     EventBridgeBus: str
     Description: Optional[str] = None
     ClientToken: Optional[str] = None
     Tags: Optional[Mapping[str, str]] = None
 
 
-class EventIntegrationTypeDef(BaseValidatorModel):
+class EventIntegration(BaseValidatorModel):
     EventIntegrationArn: Optional[str] = None
     Name: Optional[str] = None
     Description: Optional[str] = None
-    EventFilter: Optional[EventFilterTypeDef] = None
+    EventFilter: Optional[EventFilter] = None
     EventBridgeBus: Optional[str] = None
     Tags: Optional[Dict[str, str]] = None
 
 
-class GetEventIntegrationResponseTypeDef(BaseValidatorModel):
+class GetEventIntegrationResponse(BaseValidatorModel):
     Name: str
     Description: str
     EventIntegrationArn: str
     EventBridgeBus: str
-    EventFilter: EventFilterTypeDef
+    EventFilter: EventFilter
     Tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListDataIntegrationsResponseTypeDef(BaseValidatorModel):
-    DataIntegrations: List[DataIntegrationSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListDataIntegrationsResponse(BaseValidatorModel):
+    DataIntegrations: List[DataIntegrationSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListEventIntegrationAssociationsResponseTypeDef(BaseValidatorModel):
-    EventIntegrationAssociations: List[EventIntegrationAssociationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListEventIntegrationAssociationsResponse(BaseValidatorModel):
+    EventIntegrationAssociations: List[EventIntegrationAssociation]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ExecutionConfigurationTypeDef(BaseValidatorModel):
+class ExecutionConfiguration(BaseValidatorModel):
     ExecutionMode: ExecutionModeType
-    OnDemandConfiguration: Optional[OnDemandConfigurationTypeDef] = None
-    ScheduleConfiguration: Optional[ScheduleConfigurationTypeDef] = None
+    OnDemandConfiguration: Optional[OnDemandConfiguration] = None
+    ScheduleConfiguration: Optional[ScheduleConfiguration] = None
 
 
-class ListApplicationAssociationsRequestPaginateTypeDef(BaseValidatorModel):
+class ListApplicationAssociationsRequestPaginate(BaseValidatorModel):
     ApplicationId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListApplicationsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListApplicationsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListDataIntegrationAssociationsRequestPaginateTypeDef(BaseValidatorModel):
+class ListDataIntegrationAssociationsRequestPaginate(BaseValidatorModel):
     DataIntegrationIdentifier: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListDataIntegrationsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListDataIntegrationsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListEventIntegrationAssociationsRequestPaginateTypeDef(BaseValidatorModel):
+class ListEventIntegrationAssociationsRequestPaginate(BaseValidatorModel):
     EventIntegrationName: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListEventIntegrationsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListEventIntegrationsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class GetApplicationResponseTypeDef(BaseValidatorModel):
+class GetApplicationResponse(BaseValidatorModel):
     Arn: str
     Id: str
     Name: str
     Namespace: str
     Description: str
-    ApplicationSourceConfig: ApplicationSourceConfigOutputTypeDef
-    Subscriptions: List[SubscriptionTypeDef]
-    Publications: List[PublicationTypeDef]
+    ApplicationSourceConfig: ApplicationSourceConfigOutput
+    Subscriptions: List[Subscription]
+    Publications: List[Publication]
     CreatedTime: datetime
     LastModifiedTime: datetime
     Tags: Dict[str, str]
     Permissions: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListEventIntegrationsResponseTypeDef(BaseValidatorModel):
-    EventIntegrations: List[EventIntegrationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListEventIntegrationsResponse(BaseValidatorModel):
+    EventIntegrations: List[EventIntegration]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class CreateDataIntegrationAssociationRequestTypeDef(BaseValidatorModel):
+class CreateDataIntegrationAssociationRequest(BaseValidatorModel):
     DataIntegrationIdentifier: str
     ClientId: Optional[str] = None
     ObjectConfiguration: Optional[Mapping[str, Mapping[str, Sequence[str]]]] = None
     DestinationURI: Optional[str] = None
     ClientAssociationMetadata: Optional[Mapping[str, str]] = None
     ClientToken: Optional[str] = None
-    ExecutionConfiguration: Optional[ExecutionConfigurationTypeDef] = None
+    ExecutionConfiguration: Optional[ExecutionConfiguration] = None
 
 
-class DataIntegrationAssociationSummaryTypeDef(BaseValidatorModel):
+class DataIntegrationAssociationSummary(BaseValidatorModel):
     DataIntegrationAssociationArn: Optional[str] = None
     DataIntegrationArn: Optional[str] = None
     ClientId: Optional[str] = None
     DestinationURI: Optional[str] = None
-    LastExecutionStatus: Optional[LastExecutionStatusTypeDef] = None
-    ExecutionConfiguration: Optional[ExecutionConfigurationTypeDef] = None
+    LastExecutionStatus: Optional[LastExecutionStatus] = None
+    ExecutionConfiguration: Optional[ExecutionConfiguration] = None
 
 
-class UpdateDataIntegrationAssociationRequestTypeDef(BaseValidatorModel):
+class UpdateDataIntegrationAssociationRequest(BaseValidatorModel):
     DataIntegrationIdentifier: str
     DataIntegrationAssociationIdentifier: str
-    ExecutionConfiguration: ExecutionConfigurationTypeDef
+    ExecutionConfiguration: ExecutionConfiguration
 
 
-class FileConfigurationUnionTypeDef(BaseValidatorModel):
+class FileConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class CreateDataIntegrationRequestTypeDef(BaseValidatorModel):
+class CreateDataIntegrationRequest(BaseValidatorModel):
     Name: str
     KmsKey: str
     Description: Optional[str] = None
     SourceURI: Optional[str] = None
-    ScheduleConfig: Optional[ScheduleConfigurationTypeDef] = None
+    ScheduleConfig: Optional[ScheduleConfiguration] = None
     Tags: Optional[Mapping[str, str]] = None
     ClientToken: Optional[str] = None
-    FileConfiguration: Optional[FileConfigurationUnionTypeDef] = None
+    FileConfiguration: Optional[FileConfigurationUnion] = None
     ObjectConfiguration: Optional[Mapping[str, Mapping[str, Sequence[str]]]] = None
 
 
-class ApplicationSourceConfigUnionTypeDef(BaseValidatorModel):
+class ApplicationSourceConfigUnion(BaseValidatorModel):
     pass
 
 
-class CreateApplicationRequestTypeDef(BaseValidatorModel):
+class CreateApplicationRequest(BaseValidatorModel):
     Name: str
     Namespace: str
-    ApplicationSourceConfig: ApplicationSourceConfigUnionTypeDef
+    ApplicationSourceConfig: ApplicationSourceConfigUnion
     Description: Optional[str] = None
-    Subscriptions: Optional[Sequence[SubscriptionTypeDef]] = None
-    Publications: Optional[Sequence[PublicationTypeDef]] = None
+    Subscriptions: Optional[Sequence[Subscription]] = None
+    Publications: Optional[Sequence[Publication]] = None
     ClientToken: Optional[str] = None
     Tags: Optional[Mapping[str, str]] = None
     Permissions: Optional[Sequence[str]] = None
 
 
-class UpdateApplicationRequestTypeDef(BaseValidatorModel):
+class UpdateApplicationRequest(BaseValidatorModel):
     Arn: str
     Name: Optional[str] = None
     Description: Optional[str] = None
-    ApplicationSourceConfig: Optional[ApplicationSourceConfigUnionTypeDef] = None
-    Subscriptions: Optional[Sequence[SubscriptionTypeDef]] = None
-    Publications: Optional[Sequence[PublicationTypeDef]] = None
+    ApplicationSourceConfig: Optional[ApplicationSourceConfigUnion] = None
+    Subscriptions: Optional[Sequence[Subscription]] = None
+    Publications: Optional[Sequence[Publication]] = None
     Permissions: Optional[Sequence[str]] = None
 
 
-class ListDataIntegrationAssociationsResponseTypeDef(BaseValidatorModel):
-    DataIntegrationAssociations: List[DataIntegrationAssociationSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListDataIntegrationAssociationsResponse(BaseValidatorModel):
+    DataIntegrationAssociations: List[DataIntegrationAssociationSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 

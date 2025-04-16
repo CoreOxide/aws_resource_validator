@@ -12,26 +12,26 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.databrew_constants import *
 
-class AllowedStatisticsOutputTypeDef(BaseValidatorModel):
+class AllowedStatisticsOutput(BaseValidatorModel):
     Statistics: List[str]
 
 
-class AllowedStatisticsTypeDef(BaseValidatorModel):
+class AllowedStatistics(BaseValidatorModel):
     Statistics: Sequence[str]
 
 
-class BatchDeleteRecipeVersionRequestTypeDef(BaseValidatorModel):
+class BatchDeleteRecipeVersionRequest(BaseValidatorModel):
     Name: str
     RecipeVersions: Sequence[str]
 
 
-class RecipeVersionErrorDetailTypeDef(BaseValidatorModel):
+class RecipeVersionErrorDetail(BaseValidatorModel):
     ErrorCode: Optional[str] = None
     ErrorMessage: Optional[str] = None
     RecipeVersion: Optional[str] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -39,199 +39,199 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class ColumnSelectorTypeDef(BaseValidatorModel):
+class ColumnSelector(BaseValidatorModel):
     Regex: Optional[str] = None
     Name: Optional[str] = None
 
 
-class ConditionExpressionTypeDef(BaseValidatorModel):
+class ConditionExpression(BaseValidatorModel):
     Condition: str
     TargetColumn: str
     Value: Optional[str] = None
 
 
-class JobSampleTypeDef(BaseValidatorModel):
+class JobSample(BaseValidatorModel):
     Mode: Optional[SampleModeType] = None
     Size: Optional[int] = None
 
 
-class S3LocationTypeDef(BaseValidatorModel):
+class S3Location(BaseValidatorModel):
     Bucket: str
     Key: Optional[str] = None
     BucketOwner: Optional[str] = None
 
 
-class ValidationConfigurationTypeDef(BaseValidatorModel):
+class ValidationConfiguration(BaseValidatorModel):
     RulesetArn: str
     ValidationMode: Optional[Literal["CHECK_ALL"]] = None
 
 
-class RecipeReferenceTypeDef(BaseValidatorModel):
+class RecipeReference(BaseValidatorModel):
     Name: str
     RecipeVersion: Optional[str] = None
 
 
-class CreateScheduleRequestTypeDef(BaseValidatorModel):
+class CreateScheduleRequest(BaseValidatorModel):
     CronExpression: str
     Name: str
     JobNames: Optional[Sequence[str]] = None
     Tags: Optional[Mapping[str, str]] = None
 
 
-class CsvOptionsTypeDef(BaseValidatorModel):
+class CsvOptions(BaseValidatorModel):
     Delimiter: Optional[str] = None
     HeaderRow: Optional[bool] = None
 
 
-class CsvOutputOptionsTypeDef(BaseValidatorModel):
+class CsvOutputOptions(BaseValidatorModel):
     Delimiter: Optional[str] = None
 
 
-class DatetimeOptionsTypeDef(BaseValidatorModel):
+class DatetimeOptions(BaseValidatorModel):
     Format: str
     TimezoneOffset: Optional[str] = None
     LocaleCode: Optional[str] = None
 
 
-class FilterExpressionOutputTypeDef(BaseValidatorModel):
+class FilterExpressionOutput(BaseValidatorModel):
     Expression: str
     ValuesMap: Dict[str, str]
 
 
-class FilterExpressionTypeDef(BaseValidatorModel):
+class FilterExpression(BaseValidatorModel):
     Expression: str
     ValuesMap: Mapping[str, str]
 
 
-class DeleteDatasetRequestTypeDef(BaseValidatorModel):
+class DeleteDatasetRequest(BaseValidatorModel):
     Name: str
 
 
-class DeleteJobRequestTypeDef(BaseValidatorModel):
+class DeleteJobRequest(BaseValidatorModel):
     Name: str
 
 
-class DeleteProjectRequestTypeDef(BaseValidatorModel):
+class DeleteProjectRequest(BaseValidatorModel):
     Name: str
 
 
-class DeleteRecipeVersionRequestTypeDef(BaseValidatorModel):
+class DeleteRecipeVersionRequest(BaseValidatorModel):
     Name: str
     RecipeVersion: str
 
 
-class DeleteRulesetRequestTypeDef(BaseValidatorModel):
+class DeleteRulesetRequest(BaseValidatorModel):
     Name: str
 
 
-class DeleteScheduleRequestTypeDef(BaseValidatorModel):
+class DeleteScheduleRequest(BaseValidatorModel):
     Name: str
 
 
-class DescribeDatasetRequestTypeDef(BaseValidatorModel):
+class DescribeDatasetRequest(BaseValidatorModel):
     Name: str
 
 
-class DescribeJobRequestTypeDef(BaseValidatorModel):
+class DescribeJobRequest(BaseValidatorModel):
     Name: str
 
 
-class DescribeJobRunRequestTypeDef(BaseValidatorModel):
+class DescribeJobRunRequest(BaseValidatorModel):
     Name: str
     RunId: str
 
 
-class DescribeProjectRequestTypeDef(BaseValidatorModel):
+class DescribeProjectRequest(BaseValidatorModel):
     Name: str
 
 
-class DescribeRecipeRequestTypeDef(BaseValidatorModel):
+class DescribeRecipeRequest(BaseValidatorModel):
     Name: str
     RecipeVersion: Optional[str] = None
 
 
-class DescribeRulesetRequestTypeDef(BaseValidatorModel):
+class DescribeRulesetRequest(BaseValidatorModel):
     Name: str
 
 
-class DescribeScheduleRequestTypeDef(BaseValidatorModel):
+class DescribeScheduleRequest(BaseValidatorModel):
     Name: str
 
 
-class ExcelOptionsOutputTypeDef(BaseValidatorModel):
+class ExcelOptionsOutput(BaseValidatorModel):
     SheetNames: Optional[List[str]] = None
     SheetIndexes: Optional[List[int]] = None
     HeaderRow: Optional[bool] = None
 
 
-class ExcelOptionsTypeDef(BaseValidatorModel):
+class ExcelOptions(BaseValidatorModel):
     SheetNames: Optional[Sequence[str]] = None
     SheetIndexes: Optional[Sequence[int]] = None
     HeaderRow: Optional[bool] = None
 
 
-class FilesLimitTypeDef(BaseValidatorModel):
+class FilesLimit(BaseValidatorModel):
     MaxFiles: int
     OrderedBy: Optional[Literal["LAST_MODIFIED_DATE"]] = None
     Order: Optional[OrderType] = None
 
 
-class JsonOptionsTypeDef(BaseValidatorModel):
+class JsonOptions(BaseValidatorModel):
     MultiLine: Optional[bool] = None
 
 
-class MetadataTypeDef(BaseValidatorModel):
+class Metadata(BaseValidatorModel):
     SourceArn: Optional[str] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListDatasetsRequestTypeDef(BaseValidatorModel):
+class ListDatasetsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListJobRunsRequestTypeDef(BaseValidatorModel):
+class ListJobRunsRequest(BaseValidatorModel):
     Name: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListJobsRequestTypeDef(BaseValidatorModel):
+class ListJobsRequest(BaseValidatorModel):
     DatasetName: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     ProjectName: Optional[str] = None
 
 
-class ListProjectsRequestTypeDef(BaseValidatorModel):
+class ListProjectsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListRecipeVersionsRequestTypeDef(BaseValidatorModel):
+class ListRecipeVersionsRequest(BaseValidatorModel):
     Name: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListRecipesRequestTypeDef(BaseValidatorModel):
+class ListRecipesRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     RecipeVersion: Optional[str] = None
 
 
-class ListRulesetsRequestTypeDef(BaseValidatorModel):
+class ListRulesetsRequest(BaseValidatorModel):
     TargetArn: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class RulesetItemTypeDef(BaseValidatorModel):
+class RulesetItem(BaseValidatorModel):
     Name: str
     TargetArn: str
     AccountId: Optional[str] = None
@@ -245,13 +245,13 @@ class RulesetItemTypeDef(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
-class ListSchedulesRequestTypeDef(BaseValidatorModel):
+class ListSchedulesRequest(BaseValidatorModel):
     JobName: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ScheduleTypeDef(BaseValidatorModel):
+class Schedule(BaseValidatorModel):
     Name: str
     AccountId: Optional[str] = None
     CreatedBy: Optional[str] = None
@@ -264,26 +264,26 @@ class ScheduleTypeDef(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
 
-class PublishRecipeRequestTypeDef(BaseValidatorModel):
+class PublishRecipeRequest(BaseValidatorModel):
     Name: str
     Description: Optional[str] = None
 
 
-class RecipeActionOutputTypeDef(BaseValidatorModel):
+class RecipeActionOutput(BaseValidatorModel):
     Operation: str
     Parameters: Optional[Dict[str, str]] = None
 
 
-class RecipeActionTypeDef(BaseValidatorModel):
+class RecipeAction(BaseValidatorModel):
     Operation: str
     Parameters: Optional[Mapping[str, str]] = None
 
 
-class ViewFrameTypeDef(BaseValidatorModel):
+class ViewFrame(BaseValidatorModel):
     StartColumnIndex: int
     ColumnRange: Optional[int] = None
     HiddenColumns: Optional[Sequence[str]] = None
@@ -292,129 +292,129 @@ class ViewFrameTypeDef(BaseValidatorModel):
     Analytics: Optional[AnalyticsModeType] = None
 
 
-class StartJobRunRequestTypeDef(BaseValidatorModel):
+class StartJobRunRequest(BaseValidatorModel):
     Name: str
 
 
-class StartProjectSessionRequestTypeDef(BaseValidatorModel):
+class StartProjectSessionRequest(BaseValidatorModel):
     Name: str
     AssumeControl: Optional[bool] = None
 
 
-class StatisticOverrideOutputTypeDef(BaseValidatorModel):
+class StatisticOverrideOutput(BaseValidatorModel):
     Statistic: str
     Parameters: Dict[str, str]
 
 
-class StatisticOverrideTypeDef(BaseValidatorModel):
+class StatisticOverride(BaseValidatorModel):
     Statistic: str
     Parameters: Mapping[str, str]
 
 
-class StopJobRunRequestTypeDef(BaseValidatorModel):
+class StopJobRunRequest(BaseValidatorModel):
     Name: str
     RunId: str
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     Tags: Mapping[str, str]
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     TagKeys: Sequence[str]
 
 
-class UpdateScheduleRequestTypeDef(BaseValidatorModel):
+class UpdateScheduleRequest(BaseValidatorModel):
     CronExpression: str
     Name: str
     JobNames: Optional[Sequence[str]] = None
 
 
-class EntityDetectorConfigurationOutputTypeDef(BaseValidatorModel):
+class EntityDetectorConfigurationOutput(BaseValidatorModel):
     EntityTypes: List[str]
-    AllowedStatistics: Optional[List[AllowedStatisticsOutputTypeDef]] = None
+    AllowedStatistics: Optional[List[AllowedStatisticsOutput]] = None
 
 
-class EntityDetectorConfigurationTypeDef(BaseValidatorModel):
+class EntityDetectorConfiguration(BaseValidatorModel):
     EntityTypes: Sequence[str]
-    AllowedStatistics: Optional[Sequence[AllowedStatisticsTypeDef]] = None
+    AllowedStatistics: Optional[Sequence[AllowedStatistics]] = None
 
 
-class BatchDeleteRecipeVersionResponseTypeDef(BaseValidatorModel):
+class BatchDeleteRecipeVersionResponse(BaseValidatorModel):
     Name: str
-    Errors: List[RecipeVersionErrorDetailTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    Errors: List[RecipeVersionErrorDetail]
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateDatasetResponseTypeDef(BaseValidatorModel):
+class CreateDatasetResponse(BaseValidatorModel):
     Name: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateProfileJobResponseTypeDef(BaseValidatorModel):
+class CreateProfileJobResponse(BaseValidatorModel):
     Name: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateProjectResponseTypeDef(BaseValidatorModel):
+class CreateProjectResponse(BaseValidatorModel):
     Name: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateRecipeJobResponseTypeDef(BaseValidatorModel):
+class CreateRecipeJobResponse(BaseValidatorModel):
     Name: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateRecipeResponseTypeDef(BaseValidatorModel):
+class CreateRecipeResponse(BaseValidatorModel):
     Name: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateRulesetResponseTypeDef(BaseValidatorModel):
+class CreateRulesetResponse(BaseValidatorModel):
     Name: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateScheduleResponseTypeDef(BaseValidatorModel):
+class CreateScheduleResponse(BaseValidatorModel):
     Name: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteDatasetResponseTypeDef(BaseValidatorModel):
+class DeleteDatasetResponse(BaseValidatorModel):
     Name: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteJobResponseTypeDef(BaseValidatorModel):
+class DeleteJobResponse(BaseValidatorModel):
     Name: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteProjectResponseTypeDef(BaseValidatorModel):
+class DeleteProjectResponse(BaseValidatorModel):
     Name: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteRecipeVersionResponseTypeDef(BaseValidatorModel):
+class DeleteRecipeVersionResponse(BaseValidatorModel):
     Name: str
     RecipeVersion: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteRulesetResponseTypeDef(BaseValidatorModel):
+class DeleteRulesetResponse(BaseValidatorModel):
     Name: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteScheduleResponseTypeDef(BaseValidatorModel):
+class DeleteScheduleResponse(BaseValidatorModel):
     Name: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeScheduleResponseTypeDef(BaseValidatorModel):
+class DescribeScheduleResponse(BaseValidatorModel):
     CreateDate: datetime
     CreatedBy: str
     JobNames: List[str]
@@ -424,115 +424,115 @@ class DescribeScheduleResponseTypeDef(BaseValidatorModel):
     CronExpression: str
     Tags: Dict[str, str]
     Name: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
+class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class PublishRecipeResponseTypeDef(BaseValidatorModel):
+class PublishRecipeResponse(BaseValidatorModel):
     Name: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class SendProjectSessionActionResponseTypeDef(BaseValidatorModel):
+class SendProjectSessionActionResponse(BaseValidatorModel):
     Result: str
     Name: str
     ActionId: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartJobRunResponseTypeDef(BaseValidatorModel):
+class StartJobRunResponse(BaseValidatorModel):
     RunId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartProjectSessionResponseTypeDef(BaseValidatorModel):
+class StartProjectSessionResponse(BaseValidatorModel):
     Name: str
     ClientSessionId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StopJobRunResponseTypeDef(BaseValidatorModel):
+class StopJobRunResponse(BaseValidatorModel):
     RunId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateDatasetResponseTypeDef(BaseValidatorModel):
+class UpdateDatasetResponse(BaseValidatorModel):
     Name: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateProfileJobResponseTypeDef(BaseValidatorModel):
+class UpdateProfileJobResponse(BaseValidatorModel):
     Name: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateProjectResponseTypeDef(BaseValidatorModel):
+class UpdateProjectResponse(BaseValidatorModel):
     LastModifiedDate: datetime
     Name: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateRecipeJobResponseTypeDef(BaseValidatorModel):
+class UpdateRecipeJobResponse(BaseValidatorModel):
     Name: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateRecipeResponseTypeDef(BaseValidatorModel):
+class UpdateRecipeResponse(BaseValidatorModel):
     Name: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateRulesetResponseTypeDef(BaseValidatorModel):
+class UpdateRulesetResponse(BaseValidatorModel):
     Name: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateScheduleResponseTypeDef(BaseValidatorModel):
+class UpdateScheduleResponse(BaseValidatorModel):
     Name: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DataCatalogInputDefinitionTypeDef(BaseValidatorModel):
+class DataCatalogInputDefinition(BaseValidatorModel):
     DatabaseName: str
     TableName: str
     CatalogId: Optional[str] = None
-    TempDirectory: Optional[S3LocationTypeDef] = None
+    TempDirectory: Optional[S3Location] = None
 
 
-class DatabaseInputDefinitionTypeDef(BaseValidatorModel):
+class DatabaseInputDefinition(BaseValidatorModel):
     GlueConnectionName: str
     DatabaseTableName: Optional[str] = None
-    TempDirectory: Optional[S3LocationTypeDef] = None
+    TempDirectory: Optional[S3Location] = None
     QueryString: Optional[str] = None
 
 
-class DatabaseTableOutputOptionsTypeDef(BaseValidatorModel):
+class DatabaseTableOutputOptions(BaseValidatorModel):
     TableName: str
-    TempDirectory: Optional[S3LocationTypeDef] = None
+    TempDirectory: Optional[S3Location] = None
 
 
-class S3TableOutputOptionsTypeDef(BaseValidatorModel):
-    Location: S3LocationTypeDef
+class S3TableOutputOptions(BaseValidatorModel):
+    Location: S3Location
 
 
-class SampleTypeDef(BaseValidatorModel):
+class Sample(BaseValidatorModel):
     pass
 
 
-class CreateProjectRequestTypeDef(BaseValidatorModel):
+class CreateProjectRequest(BaseValidatorModel):
     DatasetName: str
     Name: str
     RecipeName: str
     RoleArn: str
-    Sample: Optional[SampleTypeDef] = None
+    Sample: Optional[Sample] = None
     Tags: Optional[Mapping[str, str]] = None
 
 
-class DescribeProjectResponseTypeDef(BaseValidatorModel):
+class DescribeProjectResponse(BaseValidatorModel):
     CreateDate: datetime
     CreatedBy: str
     DatasetName: str
@@ -541,16 +541,16 @@ class DescribeProjectResponseTypeDef(BaseValidatorModel):
     Name: str
     RecipeName: str
     ResourceArn: str
-    Sample: SampleTypeDef
+    Sample: Sample
     RoleArn: str
     Tags: Dict[str, str]
     SessionStatus: SessionStatusType
     OpenedBy: str
     OpenDate: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ProjectTypeDef(BaseValidatorModel):
+class Project(BaseValidatorModel):
     Name: str
     RecipeName: str
     AccountId: Optional[str] = None
@@ -560,192 +560,192 @@ class ProjectTypeDef(BaseValidatorModel):
     LastModifiedDate: Optional[datetime] = None
     LastModifiedBy: Optional[str] = None
     ResourceArn: Optional[str] = None
-    Sample: Optional[SampleTypeDef] = None
+    Sample: Optional[Sample] = None
     Tags: Optional[Dict[str, str]] = None
     RoleArn: Optional[str] = None
     OpenedBy: Optional[str] = None
     OpenDate: Optional[datetime] = None
 
 
-class UpdateProjectRequestTypeDef(BaseValidatorModel):
+class UpdateProjectRequest(BaseValidatorModel):
     RoleArn: str
     Name: str
-    Sample: Optional[SampleTypeDef] = None
+    Sample: Optional[Sample] = None
 
 
-class OutputFormatOptionsTypeDef(BaseValidatorModel):
-    Csv: Optional[CsvOutputOptionsTypeDef] = None
+class OutputFormatOptions(BaseValidatorModel):
+    Csv: Optional[CsvOutputOptions] = None
 
 
-class FormatOptionsOutputTypeDef(BaseValidatorModel):
-    Json: Optional[JsonOptionsTypeDef] = None
-    Excel: Optional[ExcelOptionsOutputTypeDef] = None
-    Csv: Optional[CsvOptionsTypeDef] = None
+class FormatOptionsOutput(BaseValidatorModel):
+    Json: Optional[JsonOptions] = None
+    Excel: Optional[ExcelOptionsOutput] = None
+    Csv: Optional[CsvOptions] = None
 
 
-class FormatOptionsTypeDef(BaseValidatorModel):
-    Json: Optional[JsonOptionsTypeDef] = None
-    Excel: Optional[ExcelOptionsTypeDef] = None
-    Csv: Optional[CsvOptionsTypeDef] = None
+class FormatOptions(BaseValidatorModel):
+    Json: Optional[JsonOptions] = None
+    Excel: Optional[ExcelOptions] = None
+    Csv: Optional[CsvOptions] = None
 
 
-class ListDatasetsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListDatasetsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListJobRunsRequestPaginateTypeDef(BaseValidatorModel):
+class ListJobRunsRequestPaginate(BaseValidatorModel):
     Name: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListJobsRequestPaginateTypeDef(BaseValidatorModel):
+class ListJobsRequestPaginate(BaseValidatorModel):
     DatasetName: Optional[str] = None
     ProjectName: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListProjectsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListProjectsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListRecipeVersionsRequestPaginateTypeDef(BaseValidatorModel):
+class ListRecipeVersionsRequestPaginate(BaseValidatorModel):
     Name: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListRecipesRequestPaginateTypeDef(BaseValidatorModel):
+class ListRecipesRequestPaginate(BaseValidatorModel):
     RecipeVersion: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListRulesetsRequestPaginateTypeDef(BaseValidatorModel):
+class ListRulesetsRequestPaginate(BaseValidatorModel):
     TargetArn: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListSchedulesRequestPaginateTypeDef(BaseValidatorModel):
+class ListSchedulesRequestPaginate(BaseValidatorModel):
     JobName: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListRulesetsResponseTypeDef(BaseValidatorModel):
-    Rulesets: List[RulesetItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListRulesetsResponse(BaseValidatorModel):
+    Rulesets: List[RulesetItem]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListSchedulesResponseTypeDef(BaseValidatorModel):
-    Schedules: List[ScheduleTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListSchedulesResponse(BaseValidatorModel):
+    Schedules: List[Schedule]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class RecipeStepOutputTypeDef(BaseValidatorModel):
-    Action: RecipeActionOutputTypeDef
-    ConditionExpressions: Optional[List[ConditionExpressionTypeDef]] = None
+class RecipeStepOutput(BaseValidatorModel):
+    Action: RecipeActionOutput
+    ConditionExpressions: Optional[List[ConditionExpression]] = None
 
 
-class ThresholdTypeDef(BaseValidatorModel):
+class Threshold(BaseValidatorModel):
     pass
 
 
-class RuleOutputTypeDef(BaseValidatorModel):
+class RuleOutput(BaseValidatorModel):
     Name: str
     CheckExpression: str
     Disabled: Optional[bool] = None
     SubstitutionMap: Optional[Dict[str, str]] = None
-    Threshold: Optional[ThresholdTypeDef] = None
-    ColumnSelectors: Optional[List[ColumnSelectorTypeDef]] = None
+    Threshold: Optional[Threshold] = None
+    ColumnSelectors: Optional[List[ColumnSelector]] = None
 
 
-class RuleTypeDef(BaseValidatorModel):
+class Rule(BaseValidatorModel):
     Name: str
     CheckExpression: str
     Disabled: Optional[bool] = None
     SubstitutionMap: Optional[Mapping[str, str]] = None
-    Threshold: Optional[ThresholdTypeDef] = None
-    ColumnSelectors: Optional[Sequence[ColumnSelectorTypeDef]] = None
+    Threshold: Optional[Threshold] = None
+    ColumnSelectors: Optional[Sequence[ColumnSelector]] = None
 
 
-class StatisticsConfigurationOutputTypeDef(BaseValidatorModel):
+class StatisticsConfigurationOutput(BaseValidatorModel):
     IncludedStatistics: Optional[List[str]] = None
-    Overrides: Optional[List[StatisticOverrideOutputTypeDef]] = None
+    Overrides: Optional[List[StatisticOverrideOutput]] = None
 
 
-class StatisticsConfigurationTypeDef(BaseValidatorModel):
+class StatisticsConfiguration(BaseValidatorModel):
     IncludedStatistics: Optional[Sequence[str]] = None
-    Overrides: Optional[Sequence[StatisticOverrideTypeDef]] = None
+    Overrides: Optional[Sequence[StatisticOverride]] = None
 
 
-class InputTypeDef(BaseValidatorModel):
-    S3InputDefinition: Optional[S3LocationTypeDef] = None
-    DataCatalogInputDefinition: Optional[DataCatalogInputDefinitionTypeDef] = None
-    DatabaseInputDefinition: Optional[DatabaseInputDefinitionTypeDef] = None
-    Metadata: Optional[MetadataTypeDef] = None
+class Input(BaseValidatorModel):
+    S3InputDefinition: Optional[S3Location] = None
+    DataCatalogInputDefinition: Optional[DataCatalogInputDefinition] = None
+    DatabaseInputDefinition: Optional[DatabaseInputDefinition] = None
+    Metadata: Optional[Metadata] = None
 
 
-class DatabaseOutputTypeDef(BaseValidatorModel):
+class DatabaseOutput(BaseValidatorModel):
     GlueConnectionName: str
-    DatabaseOptions: DatabaseTableOutputOptionsTypeDef
+    DatabaseOptions: DatabaseTableOutputOptions
     DatabaseOutputMode: Optional[Literal["NEW_TABLE"]] = None
 
 
-class DataCatalogOutputTypeDef(BaseValidatorModel):
+class DataCatalogOutput(BaseValidatorModel):
     DatabaseName: str
     TableName: str
     CatalogId: Optional[str] = None
-    S3Options: Optional[S3TableOutputOptionsTypeDef] = None
-    DatabaseOptions: Optional[DatabaseTableOutputOptionsTypeDef] = None
+    S3Options: Optional[S3TableOutputOptions] = None
+    DatabaseOptions: Optional[DatabaseTableOutputOptions] = None
     Overwrite: Optional[bool] = None
 
 
-class ListProjectsResponseTypeDef(BaseValidatorModel):
-    Projects: List[ProjectTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListProjectsResponse(BaseValidatorModel):
+    Projects: List[Project]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ExtraTypeDef(BaseValidatorModel):
-    Location: S3LocationTypeDef
+class Extra(BaseValidatorModel):
+    Location: S3Location
     CompressionFormat: Optional[CompressionFormatType] = None
     Format: Optional[OutputFormatType] = None
     PartitionColumns: Optional[List[str]] = None
     Overwrite: Optional[bool] = None
-    FormatOptions: Optional[OutputFormatOptionsTypeDef] = None
+    FormatOptions: Optional[OutputFormatOptions] = None
     MaxOutputFiles: Optional[int] = None
 
 
-class OutputTypeDef(BaseValidatorModel):
-    Location: S3LocationTypeDef
+class Output(BaseValidatorModel):
+    Location: S3Location
     CompressionFormat: Optional[CompressionFormatType] = None
     Format: Optional[OutputFormatType] = None
     PartitionColumns: Optional[Sequence[str]] = None
     Overwrite: Optional[bool] = None
-    FormatOptions: Optional[OutputFormatOptionsTypeDef] = None
+    FormatOptions: Optional[OutputFormatOptions] = None
     MaxOutputFiles: Optional[int] = None
 
 
-class DatasetParameterOutputTypeDef(BaseValidatorModel):
+class DatasetParameterOutput(BaseValidatorModel):
     pass
 
 
-class PathOptionsOutputTypeDef(BaseValidatorModel):
-    LastModifiedDateCondition: Optional[FilterExpressionOutputTypeDef] = None
-    FilesLimit: Optional[FilesLimitTypeDef] = None
-    Parameters: Optional[Dict[str, DatasetParameterOutputTypeDef]] = None
+class PathOptionsOutput(BaseValidatorModel):
+    LastModifiedDateCondition: Optional[FilterExpressionOutput] = None
+    FilesLimit: Optional[FilesLimit] = None
+    Parameters: Optional[Dict[str, DatasetParameterOutput]] = None
 
 
-class DatasetParameterTypeDef(BaseValidatorModel):
+class DatasetParameter(BaseValidatorModel):
     pass
 
 
-class PathOptionsTypeDef(BaseValidatorModel):
-    LastModifiedDateCondition: Optional[FilterExpressionTypeDef] = None
-    FilesLimit: Optional[FilesLimitTypeDef] = None
-    Parameters: Optional[Mapping[str, DatasetParameterTypeDef]] = None
+class PathOptions(BaseValidatorModel):
+    LastModifiedDateCondition: Optional[FilterExpression] = None
+    FilesLimit: Optional[FilesLimit] = None
+    Parameters: Optional[Mapping[str, DatasetParameter]] = None
 
 
-class DescribeRecipeResponseTypeDef(BaseValidatorModel):
+class DescribeRecipeResponse(BaseValidatorModel):
     CreatedBy: str
     CreateDate: datetime
     LastModifiedBy: str
@@ -755,14 +755,14 @@ class DescribeRecipeResponseTypeDef(BaseValidatorModel):
     PublishedDate: datetime
     Description: str
     Name: str
-    Steps: List[RecipeStepOutputTypeDef]
+    Steps: List[RecipeStepOutput]
     Tags: Dict[str, str]
     ResourceArn: str
     RecipeVersion: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class RecipeTypeDef(BaseValidatorModel):
+class Recipe(BaseValidatorModel):
     Name: str
     CreatedBy: Optional[str] = None
     CreateDate: Optional[datetime] = None
@@ -773,45 +773,45 @@ class RecipeTypeDef(BaseValidatorModel):
     PublishedDate: Optional[datetime] = None
     Description: Optional[str] = None
     ResourceArn: Optional[str] = None
-    Steps: Optional[List[RecipeStepOutputTypeDef]] = None
+    Steps: Optional[List[RecipeStepOutput]] = None
     Tags: Optional[Dict[str, str]] = None
     RecipeVersion: Optional[str] = None
 
 
-class RecipeActionUnionTypeDef(BaseValidatorModel):
+class RecipeActionUnion(BaseValidatorModel):
     pass
 
 
-class RecipeStepTypeDef(BaseValidatorModel):
-    Action: RecipeActionUnionTypeDef
-    ConditionExpressions: Optional[Sequence[ConditionExpressionTypeDef]] = None
+class RecipeStep(BaseValidatorModel):
+    Action: RecipeActionUnion
+    ConditionExpressions: Optional[Sequence[ConditionExpression]] = None
 
 
-class DescribeRulesetResponseTypeDef(BaseValidatorModel):
+class DescribeRulesetResponse(BaseValidatorModel):
     Name: str
     Description: str
     TargetArn: str
-    Rules: List[RuleOutputTypeDef]
+    Rules: List[RuleOutput]
     CreateDate: datetime
     CreatedBy: str
     LastModifiedBy: str
     LastModifiedDate: datetime
     ResourceArn: str
     Tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ColumnStatisticsConfigurationOutputTypeDef(BaseValidatorModel):
-    Statistics: StatisticsConfigurationOutputTypeDef
-    Selectors: Optional[List[ColumnSelectorTypeDef]] = None
+class ColumnStatisticsConfigurationOutput(BaseValidatorModel):
+    Statistics: StatisticsConfigurationOutput
+    Selectors: Optional[List[ColumnSelector]] = None
 
 
-class ColumnStatisticsConfigurationTypeDef(BaseValidatorModel):
-    Statistics: StatisticsConfigurationTypeDef
-    Selectors: Optional[Sequence[ColumnSelectorTypeDef]] = None
+class ColumnStatisticsConfiguration(BaseValidatorModel):
+    Statistics: StatisticsConfiguration
+    Selectors: Optional[Sequence[ColumnSelector]] = None
 
 
-class JobRunTypeDef(BaseValidatorModel):
+class JobRun(BaseValidatorModel):
     Attempt: Optional[int] = None
     CompletedOn: Optional[datetime] = None
     DatasetName: Optional[str] = None
@@ -822,113 +822,113 @@ class JobRunTypeDef(BaseValidatorModel):
     State: Optional[JobRunStateType] = None
     LogSubscription: Optional[LogSubscriptionType] = None
     LogGroupName: Optional[str] = None
-    Outputs: Optional[List[ExtraTypeDef]] = None
-    DataCatalogOutputs: Optional[List[DataCatalogOutputTypeDef]] = None
-    DatabaseOutputs: Optional[List[DatabaseOutputTypeDef]] = None
-    RecipeReference: Optional[RecipeReferenceTypeDef] = None
+    Outputs: Optional[List[Extra]] = None
+    DataCatalogOutputs: Optional[List[DataCatalogOutput]] = None
+    DatabaseOutputs: Optional[List[DatabaseOutput]] = None
+    RecipeReference: Optional[RecipeReference] = None
     StartedBy: Optional[str] = None
     StartedOn: Optional[datetime] = None
-    JobSample: Optional[JobSampleTypeDef] = None
-    ValidationConfigurations: Optional[List[ValidationConfigurationTypeDef]] = None
+    JobSample: Optional[JobSample] = None
+    ValidationConfigurations: Optional[List[ValidationConfiguration]] = None
 
 
-class DatasetTypeDef(BaseValidatorModel):
+class Dataset(BaseValidatorModel):
     Name: str
-    Input: InputTypeDef
+    Input: Input
     AccountId: Optional[str] = None
     CreatedBy: Optional[str] = None
     CreateDate: Optional[datetime] = None
     Format: Optional[InputFormatType] = None
-    FormatOptions: Optional[FormatOptionsOutputTypeDef] = None
+    FormatOptions: Optional[FormatOptionsOutput] = None
     LastModifiedDate: Optional[datetime] = None
     LastModifiedBy: Optional[str] = None
     Source: Optional[SourceType] = None
-    PathOptions: Optional[PathOptionsOutputTypeDef] = None
+    PathOptions: Optional[PathOptionsOutput] = None
     Tags: Optional[Dict[str, str]] = None
     ResourceArn: Optional[str] = None
 
 
-class DescribeDatasetResponseTypeDef(BaseValidatorModel):
+class DescribeDatasetResponse(BaseValidatorModel):
     CreatedBy: str
     CreateDate: datetime
     Name: str
     Format: InputFormatType
-    FormatOptions: FormatOptionsOutputTypeDef
-    Input: InputTypeDef
+    FormatOptions: FormatOptionsOutput
+    Input: Input
     LastModifiedDate: datetime
     LastModifiedBy: str
     Source: SourceType
-    PathOptions: PathOptionsOutputTypeDef
+    PathOptions: PathOptionsOutput
     Tags: Dict[str, str]
     ResourceArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListRecipeVersionsResponseTypeDef(BaseValidatorModel):
-    Recipes: List[RecipeTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListRecipeVersionsResponse(BaseValidatorModel):
+    Recipes: List[Recipe]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListRecipesResponseTypeDef(BaseValidatorModel):
-    Recipes: List[RecipeTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListRecipesResponse(BaseValidatorModel):
+    Recipes: List[Recipe]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class RuleUnionTypeDef(BaseValidatorModel):
+class RuleUnion(BaseValidatorModel):
     pass
 
 
-class CreateRulesetRequestTypeDef(BaseValidatorModel):
+class CreateRulesetRequest(BaseValidatorModel):
     Name: str
     TargetArn: str
-    Rules: Sequence[RuleUnionTypeDef]
+    Rules: Sequence[RuleUnion]
     Description: Optional[str] = None
     Tags: Optional[Mapping[str, str]] = None
 
 
-class UpdateRulesetRequestTypeDef(BaseValidatorModel):
+class UpdateRulesetRequest(BaseValidatorModel):
     Name: str
-    Rules: Sequence[RuleUnionTypeDef]
+    Rules: Sequence[RuleUnion]
     Description: Optional[str] = None
 
 
-class ProfileConfigurationOutputTypeDef(BaseValidatorModel):
-    DatasetStatisticsConfiguration: Optional[StatisticsConfigurationOutputTypeDef] = None
-    ProfileColumns: Optional[List[ColumnSelectorTypeDef]] = None
-    ColumnStatisticsConfigurations: Optional[List[ColumnStatisticsConfigurationOutputTypeDef]] = None
-    EntityDetectorConfiguration: Optional[EntityDetectorConfigurationOutputTypeDef] = None
+class ProfileConfigurationOutput(BaseValidatorModel):
+    DatasetStatisticsConfiguration: Optional[StatisticsConfigurationOutput] = None
+    ProfileColumns: Optional[List[ColumnSelector]] = None
+    ColumnStatisticsConfigurations: Optional[List[ColumnStatisticsConfigurationOutput]] = None
+    EntityDetectorConfiguration: Optional[EntityDetectorConfigurationOutput] = None
 
 
-class ProfileConfigurationTypeDef(BaseValidatorModel):
-    DatasetStatisticsConfiguration: Optional[StatisticsConfigurationTypeDef] = None
-    ProfileColumns: Optional[Sequence[ColumnSelectorTypeDef]] = None
-    ColumnStatisticsConfigurations: Optional[Sequence[ColumnStatisticsConfigurationTypeDef]] = None
-    EntityDetectorConfiguration: Optional[EntityDetectorConfigurationTypeDef] = None
+class ProfileConfiguration(BaseValidatorModel):
+    DatasetStatisticsConfiguration: Optional[StatisticsConfiguration] = None
+    ProfileColumns: Optional[Sequence[ColumnSelector]] = None
+    ColumnStatisticsConfigurations: Optional[Sequence[ColumnStatisticsConfiguration]] = None
+    EntityDetectorConfiguration: Optional[EntityDetectorConfiguration] = None
 
 
-class ListJobRunsResponseTypeDef(BaseValidatorModel):
-    JobRuns: List[JobRunTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListJobRunsResponse(BaseValidatorModel):
+    JobRuns: List[JobRun]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class JobTypeDef(BaseValidatorModel):
+class Job(BaseValidatorModel):
     pass
 
 
-class ListJobsResponseTypeDef(BaseValidatorModel):
-    Jobs: List[JobTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListJobsResponse(BaseValidatorModel):
+    Jobs: List[Job]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class UnionTypeDef(BaseValidatorModel):
+class Union(BaseValidatorModel):
     pass
 
 
-class CreateRecipeJobRequestTypeDef(BaseValidatorModel):
+class CreateRecipeJobRequest(BaseValidatorModel):
     Name: str
     RoleArn: str
     DatasetName: Optional[str] = None
@@ -937,16 +937,16 @@ class CreateRecipeJobRequestTypeDef(BaseValidatorModel):
     LogSubscription: Optional[LogSubscriptionType] = None
     MaxCapacity: Optional[int] = None
     MaxRetries: Optional[int] = None
-    Outputs: Optional[Sequence[UnionTypeDef]] = None
-    DataCatalogOutputs: Optional[Sequence[DataCatalogOutputTypeDef]] = None
-    DatabaseOutputs: Optional[Sequence[DatabaseOutputTypeDef]] = None
+    Outputs: Optional[Sequence[Union]] = None
+    DataCatalogOutputs: Optional[Sequence[DataCatalogOutput]] = None
+    DatabaseOutputs: Optional[Sequence[DatabaseOutput]] = None
     ProjectName: Optional[str] = None
-    RecipeReference: Optional[RecipeReferenceTypeDef] = None
+    RecipeReference: Optional[RecipeReference] = None
     Tags: Optional[Mapping[str, str]] = None
     Timeout: Optional[int] = None
 
 
-class UpdateRecipeJobRequestTypeDef(BaseValidatorModel):
+class UpdateRecipeJobRequest(BaseValidatorModel):
     Name: str
     RoleArn: str
     EncryptionKeyArn: Optional[str] = None
@@ -954,125 +954,125 @@ class UpdateRecipeJobRequestTypeDef(BaseValidatorModel):
     LogSubscription: Optional[LogSubscriptionType] = None
     MaxCapacity: Optional[int] = None
     MaxRetries: Optional[int] = None
-    Outputs: Optional[Sequence[UnionTypeDef]] = None
-    DataCatalogOutputs: Optional[Sequence[DataCatalogOutputTypeDef]] = None
-    DatabaseOutputs: Optional[Sequence[DatabaseOutputTypeDef]] = None
+    Outputs: Optional[Sequence[Union]] = None
+    DataCatalogOutputs: Optional[Sequence[DataCatalogOutput]] = None
+    DatabaseOutputs: Optional[Sequence[DatabaseOutput]] = None
     Timeout: Optional[int] = None
 
 
-class ListDatasetsResponseTypeDef(BaseValidatorModel):
-    Datasets: List[DatasetTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListDatasetsResponse(BaseValidatorModel):
+    Datasets: List[Dataset]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class FormatOptionsUnionTypeDef(BaseValidatorModel):
+class FormatOptionsUnion(BaseValidatorModel):
     pass
 
 
-class PathOptionsUnionTypeDef(BaseValidatorModel):
+class PathOptionsUnion(BaseValidatorModel):
     pass
 
 
-class CreateDatasetRequestTypeDef(BaseValidatorModel):
+class CreateDatasetRequest(BaseValidatorModel):
     Name: str
-    Input: InputTypeDef
+    Input: Input
     Format: Optional[InputFormatType] = None
-    FormatOptions: Optional[FormatOptionsUnionTypeDef] = None
-    PathOptions: Optional[PathOptionsUnionTypeDef] = None
+    FormatOptions: Optional[FormatOptionsUnion] = None
+    PathOptions: Optional[PathOptionsUnion] = None
     Tags: Optional[Mapping[str, str]] = None
 
 
-class UpdateDatasetRequestTypeDef(BaseValidatorModel):
+class UpdateDatasetRequest(BaseValidatorModel):
     Name: str
-    Input: InputTypeDef
+    Input: Input
     Format: Optional[InputFormatType] = None
-    FormatOptions: Optional[FormatOptionsUnionTypeDef] = None
-    PathOptions: Optional[PathOptionsUnionTypeDef] = None
+    FormatOptions: Optional[FormatOptionsUnion] = None
+    PathOptions: Optional[PathOptionsUnion] = None
 
 
-class RecipeStepUnionTypeDef(BaseValidatorModel):
+class RecipeStepUnion(BaseValidatorModel):
     pass
 
 
-class CreateRecipeRequestTypeDef(BaseValidatorModel):
+class CreateRecipeRequest(BaseValidatorModel):
     Name: str
-    Steps: Sequence[RecipeStepUnionTypeDef]
+    Steps: Sequence[RecipeStepUnion]
     Description: Optional[str] = None
     Tags: Optional[Mapping[str, str]] = None
 
 
-class SendProjectSessionActionRequestTypeDef(BaseValidatorModel):
+class SendProjectSessionActionRequest(BaseValidatorModel):
     Name: str
     Preview: Optional[bool] = None
-    RecipeStep: Optional[RecipeStepUnionTypeDef] = None
+    RecipeStep: Optional[RecipeStepUnion] = None
     StepIndex: Optional[int] = None
     ClientSessionId: Optional[str] = None
-    ViewFrame: Optional[ViewFrameTypeDef] = None
+    ViewFrame: Optional[ViewFrame] = None
 
 
-class UpdateRecipeRequestTypeDef(BaseValidatorModel):
+class UpdateRecipeRequest(BaseValidatorModel):
     Name: str
     Description: Optional[str] = None
-    Steps: Optional[Sequence[RecipeStepUnionTypeDef]] = None
+    Steps: Optional[Sequence[RecipeStepUnion]] = None
 
 
-class DescribeJobRunResponseTypeDef(BaseValidatorModel):
+class DescribeJobRunResponse(BaseValidatorModel):
     Attempt: int
     CompletedOn: datetime
     DatasetName: str
     ErrorMessage: str
     ExecutionTime: int
     JobName: str
-    ProfileConfiguration: ProfileConfigurationOutputTypeDef
-    ValidationConfigurations: List[ValidationConfigurationTypeDef]
+    ProfileConfiguration: ProfileConfigurationOutput
+    ValidationConfigurations: List[ValidationConfiguration]
     RunId: str
     State: JobRunStateType
     LogSubscription: LogSubscriptionType
     LogGroupName: str
-    Outputs: List[ExtraTypeDef]
-    DataCatalogOutputs: List[DataCatalogOutputTypeDef]
-    DatabaseOutputs: List[DatabaseOutputTypeDef]
-    RecipeReference: RecipeReferenceTypeDef
+    Outputs: List[Extra]
+    DataCatalogOutputs: List[DataCatalogOutput]
+    DatabaseOutputs: List[DatabaseOutput]
+    RecipeReference: RecipeReference
     StartedBy: str
     StartedOn: datetime
-    JobSample: JobSampleTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    JobSample: JobSample
+    ResponseMetadata: ResponseMetadata
 
 
-class ProfileConfigurationUnionTypeDef(BaseValidatorModel):
+class ProfileConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class CreateProfileJobRequestTypeDef(BaseValidatorModel):
+class CreateProfileJobRequest(BaseValidatorModel):
     DatasetName: str
     Name: str
-    OutputLocation: S3LocationTypeDef
+    OutputLocation: S3Location
     RoleArn: str
     EncryptionKeyArn: Optional[str] = None
     EncryptionMode: Optional[EncryptionModeType] = None
     LogSubscription: Optional[LogSubscriptionType] = None
     MaxCapacity: Optional[int] = None
     MaxRetries: Optional[int] = None
-    Configuration: Optional[ProfileConfigurationUnionTypeDef] = None
-    ValidationConfigurations: Optional[Sequence[ValidationConfigurationTypeDef]] = None
+    Configuration: Optional[ProfileConfigurationUnion] = None
+    ValidationConfigurations: Optional[Sequence[ValidationConfiguration]] = None
     Tags: Optional[Mapping[str, str]] = None
     Timeout: Optional[int] = None
-    JobSample: Optional[JobSampleTypeDef] = None
+    JobSample: Optional[JobSample] = None
 
 
-class UpdateProfileJobRequestTypeDef(BaseValidatorModel):
+class UpdateProfileJobRequest(BaseValidatorModel):
     Name: str
-    OutputLocation: S3LocationTypeDef
+    OutputLocation: S3Location
     RoleArn: str
-    Configuration: Optional[ProfileConfigurationUnionTypeDef] = None
+    Configuration: Optional[ProfileConfigurationUnion] = None
     EncryptionKeyArn: Optional[str] = None
     EncryptionMode: Optional[EncryptionModeType] = None
     LogSubscription: Optional[LogSubscriptionType] = None
     MaxCapacity: Optional[int] = None
     MaxRetries: Optional[int] = None
-    ValidationConfigurations: Optional[Sequence[ValidationConfigurationTypeDef]] = None
+    ValidationConfigurations: Optional[Sequence[ValidationConfiguration]] = None
     Timeout: Optional[int] = None
-    JobSample: Optional[JobSampleTypeDef] = None
+    JobSample: Optional[JobSample] = None
 
 

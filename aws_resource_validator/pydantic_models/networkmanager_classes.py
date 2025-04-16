@@ -12,16 +12,16 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.networkmanager_constants import *
 
-class AWSLocationTypeDef(BaseValidatorModel):
+class AWSLocation(BaseValidatorModel):
     Zone: Optional[str] = None
     SubnetArn: Optional[str] = None
 
 
-class AcceptAttachmentRequestTypeDef(BaseValidatorModel):
+class AcceptAttachmentRequest(BaseValidatorModel):
     AttachmentId: str
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -29,19 +29,19 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class AccountStatusTypeDef(BaseValidatorModel):
+class AccountStatus(BaseValidatorModel):
     AccountId: Optional[str] = None
     SLRDeploymentStatus: Optional[str] = None
 
 
-class AssociateConnectPeerRequestTypeDef(BaseValidatorModel):
+class AssociateConnectPeerRequest(BaseValidatorModel):
     GlobalNetworkId: str
     ConnectPeerId: str
     DeviceId: str
     LinkId: Optional[str] = None
 
 
-class ConnectPeerAssociationTypeDef(BaseValidatorModel):
+class ConnectPeerAssociation(BaseValidatorModel):
     ConnectPeerId: Optional[str] = None
     GlobalNetworkId: Optional[str] = None
     DeviceId: Optional[str] = None
@@ -49,14 +49,14 @@ class ConnectPeerAssociationTypeDef(BaseValidatorModel):
     State: Optional[ConnectPeerAssociationStateType] = None
 
 
-class AssociateCustomerGatewayRequestTypeDef(BaseValidatorModel):
+class AssociateCustomerGatewayRequest(BaseValidatorModel):
     CustomerGatewayArn: str
     GlobalNetworkId: str
     DeviceId: str
     LinkId: Optional[str] = None
 
 
-class CustomerGatewayAssociationTypeDef(BaseValidatorModel):
+class CustomerGatewayAssociation(BaseValidatorModel):
     CustomerGatewayArn: Optional[str] = None
     GlobalNetworkId: Optional[str] = None
     DeviceId: Optional[str] = None
@@ -64,27 +64,27 @@ class CustomerGatewayAssociationTypeDef(BaseValidatorModel):
     State: Optional[CustomerGatewayAssociationStateType] = None
 
 
-class AssociateLinkRequestTypeDef(BaseValidatorModel):
+class AssociateLinkRequest(BaseValidatorModel):
     GlobalNetworkId: str
     DeviceId: str
     LinkId: str
 
 
-class LinkAssociationTypeDef(BaseValidatorModel):
+class LinkAssociation(BaseValidatorModel):
     GlobalNetworkId: Optional[str] = None
     DeviceId: Optional[str] = None
     LinkId: Optional[str] = None
     LinkAssociationState: Optional[LinkAssociationStateType] = None
 
 
-class AssociateTransitGatewayConnectPeerRequestTypeDef(BaseValidatorModel):
+class AssociateTransitGatewayConnectPeerRequest(BaseValidatorModel):
     GlobalNetworkId: str
     TransitGatewayConnectPeerArn: str
     DeviceId: str
     LinkId: Optional[str] = None
 
 
-class TransitGatewayConnectPeerAssociationTypeDef(BaseValidatorModel):
+class TransitGatewayConnectPeerAssociation(BaseValidatorModel):
     TransitGatewayConnectPeerArn: Optional[str] = None
     GlobalNetworkId: Optional[str] = None
     DeviceId: Optional[str] = None
@@ -92,42 +92,42 @@ class TransitGatewayConnectPeerAssociationTypeDef(BaseValidatorModel):
     State: Optional[TransitGatewayConnectPeerAssociationStateType] = None
 
 
-class AttachmentErrorTypeDef(BaseValidatorModel):
+class AttachmentError(BaseValidatorModel):
     Code: Optional[AttachmentErrorCodeType] = None
     Message: Optional[str] = None
     ResourceArn: Optional[str] = None
     RequestId: Optional[str] = None
 
 
-class TagTypeDef(BaseValidatorModel):
+class Tag(BaseValidatorModel):
     Key: Optional[str] = None
     Value: Optional[str] = None
 
 
-class BandwidthTypeDef(BaseValidatorModel):
+class Bandwidth(BaseValidatorModel):
     UploadSpeed: Optional[int] = None
     DownloadSpeed: Optional[int] = None
 
 
-class BgpOptionsTypeDef(BaseValidatorModel):
+class BgpOptions(BaseValidatorModel):
     PeerAsn: Optional[int] = None
 
 
-class ConnectPeerBgpConfigurationTypeDef(BaseValidatorModel):
+class ConnectPeerBgpConfiguration(BaseValidatorModel):
     CoreNetworkAsn: Optional[int] = None
     PeerAsn: Optional[int] = None
     CoreNetworkAddress: Optional[str] = None
     PeerAddress: Optional[str] = None
 
 
-class ConnectPeerErrorTypeDef(BaseValidatorModel):
+class ConnectPeerError(BaseValidatorModel):
     Code: Optional[ConnectPeerErrorCodeType] = None
     Message: Optional[str] = None
     ResourceArn: Optional[str] = None
     RequestId: Optional[str] = None
 
 
-class CoreNetworkChangeEventValuesTypeDef(BaseValidatorModel):
+class CoreNetworkChangeEventValues(BaseValidatorModel):
     EdgeLocation: Optional[str] = None
     SegmentName: Optional[str] = None
     NetworkFunctionGroupName: Optional[str] = None
@@ -135,30 +135,30 @@ class CoreNetworkChangeEventValuesTypeDef(BaseValidatorModel):
     Cidr: Optional[str] = None
 
 
-class CoreNetworkEdgeTypeDef(BaseValidatorModel):
+class CoreNetworkEdge(BaseValidatorModel):
     EdgeLocation: Optional[str] = None
     Asn: Optional[int] = None
     InsideCidrBlocks: Optional[List[str]] = None
 
 
-class CoreNetworkNetworkFunctionGroupIdentifierTypeDef(BaseValidatorModel):
+class CoreNetworkNetworkFunctionGroupIdentifier(BaseValidatorModel):
     CoreNetworkId: Optional[str] = None
     NetworkFunctionGroupName: Optional[str] = None
     EdgeLocation: Optional[str] = None
 
 
-class ServiceInsertionSegmentsTypeDef(BaseValidatorModel):
+class ServiceInsertionSegments(BaseValidatorModel):
     SendVia: Optional[List[str]] = None
     SendTo: Optional[List[str]] = None
 
 
-class CoreNetworkPolicyErrorTypeDef(BaseValidatorModel):
+class CoreNetworkPolicyError(BaseValidatorModel):
     ErrorCode: str
     Message: str
     Path: Optional[str] = None
 
 
-class CoreNetworkPolicyVersionTypeDef(BaseValidatorModel):
+class CoreNetworkPolicyVersion(BaseValidatorModel):
     CoreNetworkId: Optional[str] = None
     PolicyVersionId: Optional[int] = None
     Alias: Optional[CoreNetworkPolicyAliasType] = None
@@ -167,142 +167,142 @@ class CoreNetworkPolicyVersionTypeDef(BaseValidatorModel):
     ChangeSetState: Optional[ChangeSetStateType] = None
 
 
-class CoreNetworkSegmentEdgeIdentifierTypeDef(BaseValidatorModel):
+class CoreNetworkSegmentEdgeIdentifier(BaseValidatorModel):
     CoreNetworkId: Optional[str] = None
     SegmentName: Optional[str] = None
     EdgeLocation: Optional[str] = None
 
 
-class CoreNetworkSegmentTypeDef(BaseValidatorModel):
+class CoreNetworkSegment(BaseValidatorModel):
     Name: Optional[str] = None
     EdgeLocations: Optional[List[str]] = None
     SharedSegments: Optional[List[str]] = None
 
 
-class LocationTypeDef(BaseValidatorModel):
+class Location(BaseValidatorModel):
     Address: Optional[str] = None
     Latitude: Optional[str] = None
     Longitude: Optional[str] = None
 
 
-class VpcOptionsTypeDef(BaseValidatorModel):
+class VpcOptions(BaseValidatorModel):
     Ipv6Support: Optional[bool] = None
     ApplianceModeSupport: Optional[bool] = None
 
 
-class DeleteAttachmentRequestTypeDef(BaseValidatorModel):
+class DeleteAttachmentRequest(BaseValidatorModel):
     AttachmentId: str
 
 
-class DeleteConnectPeerRequestTypeDef(BaseValidatorModel):
+class DeleteConnectPeerRequest(BaseValidatorModel):
     ConnectPeerId: str
 
 
-class DeleteConnectionRequestTypeDef(BaseValidatorModel):
+class DeleteConnectionRequest(BaseValidatorModel):
     GlobalNetworkId: str
     ConnectionId: str
 
 
-class DeleteCoreNetworkPolicyVersionRequestTypeDef(BaseValidatorModel):
+class DeleteCoreNetworkPolicyVersionRequest(BaseValidatorModel):
     CoreNetworkId: str
     PolicyVersionId: int
 
 
-class DeleteCoreNetworkRequestTypeDef(BaseValidatorModel):
+class DeleteCoreNetworkRequest(BaseValidatorModel):
     CoreNetworkId: str
 
 
-class DeleteDeviceRequestTypeDef(BaseValidatorModel):
+class DeleteDeviceRequest(BaseValidatorModel):
     GlobalNetworkId: str
     DeviceId: str
 
 
-class DeleteGlobalNetworkRequestTypeDef(BaseValidatorModel):
+class DeleteGlobalNetworkRequest(BaseValidatorModel):
     GlobalNetworkId: str
 
 
-class DeleteLinkRequestTypeDef(BaseValidatorModel):
+class DeleteLinkRequest(BaseValidatorModel):
     GlobalNetworkId: str
     LinkId: str
 
 
-class DeletePeeringRequestTypeDef(BaseValidatorModel):
+class DeletePeeringRequest(BaseValidatorModel):
     PeeringId: str
 
 
-class DeleteResourcePolicyRequestTypeDef(BaseValidatorModel):
+class DeleteResourcePolicyRequest(BaseValidatorModel):
     ResourceArn: str
 
 
-class DeleteSiteRequestTypeDef(BaseValidatorModel):
+class DeleteSiteRequest(BaseValidatorModel):
     GlobalNetworkId: str
     SiteId: str
 
 
-class DeregisterTransitGatewayRequestTypeDef(BaseValidatorModel):
+class DeregisterTransitGatewayRequest(BaseValidatorModel):
     GlobalNetworkId: str
     TransitGatewayArn: str
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class DescribeGlobalNetworksRequestTypeDef(BaseValidatorModel):
+class DescribeGlobalNetworksRequest(BaseValidatorModel):
     GlobalNetworkIds: Optional[Sequence[str]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class DisassociateConnectPeerRequestTypeDef(BaseValidatorModel):
+class DisassociateConnectPeerRequest(BaseValidatorModel):
     GlobalNetworkId: str
     ConnectPeerId: str
 
 
-class DisassociateCustomerGatewayRequestTypeDef(BaseValidatorModel):
+class DisassociateCustomerGatewayRequest(BaseValidatorModel):
     GlobalNetworkId: str
     CustomerGatewayArn: str
 
 
-class DisassociateLinkRequestTypeDef(BaseValidatorModel):
+class DisassociateLinkRequest(BaseValidatorModel):
     GlobalNetworkId: str
     DeviceId: str
     LinkId: str
 
 
-class DisassociateTransitGatewayConnectPeerRequestTypeDef(BaseValidatorModel):
+class DisassociateTransitGatewayConnectPeerRequest(BaseValidatorModel):
     GlobalNetworkId: str
     TransitGatewayConnectPeerArn: str
 
 
-class EdgeOverrideTypeDef(BaseValidatorModel):
+class EdgeOverride(BaseValidatorModel):
     EdgeSets: Optional[List[List[str]]] = None
     UseEdge: Optional[str] = None
 
 
-class ExecuteCoreNetworkChangeSetRequestTypeDef(BaseValidatorModel):
+class ExecuteCoreNetworkChangeSetRequest(BaseValidatorModel):
     CoreNetworkId: str
     PolicyVersionId: int
 
 
-class GetConnectAttachmentRequestTypeDef(BaseValidatorModel):
+class GetConnectAttachmentRequest(BaseValidatorModel):
     AttachmentId: str
 
 
-class GetConnectPeerAssociationsRequestTypeDef(BaseValidatorModel):
+class GetConnectPeerAssociationsRequest(BaseValidatorModel):
     GlobalNetworkId: str
     ConnectPeerIds: Optional[Sequence[str]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class GetConnectPeerRequestTypeDef(BaseValidatorModel):
+class GetConnectPeerRequest(BaseValidatorModel):
     ConnectPeerId: str
 
 
-class GetConnectionsRequestTypeDef(BaseValidatorModel):
+class GetConnectionsRequest(BaseValidatorModel):
     GlobalNetworkId: str
     ConnectionIds: Optional[Sequence[str]] = None
     DeviceId: Optional[str] = None
@@ -310,38 +310,38 @@ class GetConnectionsRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
-class GetCoreNetworkChangeEventsRequestTypeDef(BaseValidatorModel):
+class GetCoreNetworkChangeEventsRequest(BaseValidatorModel):
     CoreNetworkId: str
     PolicyVersionId: int
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class GetCoreNetworkChangeSetRequestTypeDef(BaseValidatorModel):
+class GetCoreNetworkChangeSetRequest(BaseValidatorModel):
     CoreNetworkId: str
     PolicyVersionId: int
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class GetCoreNetworkPolicyRequestTypeDef(BaseValidatorModel):
+class GetCoreNetworkPolicyRequest(BaseValidatorModel):
     CoreNetworkId: str
     PolicyVersionId: Optional[int] = None
     Alias: Optional[CoreNetworkPolicyAliasType] = None
 
 
-class GetCoreNetworkRequestTypeDef(BaseValidatorModel):
+class GetCoreNetworkRequest(BaseValidatorModel):
     CoreNetworkId: str
 
 
-class GetCustomerGatewayAssociationsRequestTypeDef(BaseValidatorModel):
+class GetCustomerGatewayAssociationsRequest(BaseValidatorModel):
     GlobalNetworkId: str
     CustomerGatewayArns: Optional[Sequence[str]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class GetDevicesRequestTypeDef(BaseValidatorModel):
+class GetDevicesRequest(BaseValidatorModel):
     GlobalNetworkId: str
     DeviceIds: Optional[Sequence[str]] = None
     SiteId: Optional[str] = None
@@ -349,11 +349,11 @@ class GetDevicesRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
-class GetDirectConnectGatewayAttachmentRequestTypeDef(BaseValidatorModel):
+class GetDirectConnectGatewayAttachmentRequest(BaseValidatorModel):
     AttachmentId: str
 
 
-class GetLinkAssociationsRequestTypeDef(BaseValidatorModel):
+class GetLinkAssociationsRequest(BaseValidatorModel):
     GlobalNetworkId: str
     DeviceId: Optional[str] = None
     LinkId: Optional[str] = None
@@ -361,19 +361,19 @@ class GetLinkAssociationsRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
-class GetNetworkResourceCountsRequestTypeDef(BaseValidatorModel):
+class GetNetworkResourceCountsRequest(BaseValidatorModel):
     GlobalNetworkId: str
     ResourceType: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class NetworkResourceCountTypeDef(BaseValidatorModel):
+class NetworkResourceCount(BaseValidatorModel):
     ResourceType: Optional[str] = None
     Count: Optional[int] = None
 
 
-class GetNetworkResourceRelationshipsRequestTypeDef(BaseValidatorModel):
+class GetNetworkResourceRelationshipsRequest(BaseValidatorModel):
     GlobalNetworkId: str
     CoreNetworkId: Optional[str] = None
     RegisteredGatewayArn: Optional[str] = None
@@ -385,12 +385,12 @@ class GetNetworkResourceRelationshipsRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
-class RelationshipTypeDef(BaseValidatorModel):
+class Relationship(BaseValidatorModel):
     From: Optional[str] = None
     To: Optional[str] = None
 
 
-class GetNetworkResourcesRequestTypeDef(BaseValidatorModel):
+class GetNetworkResourcesRequest(BaseValidatorModel):
     GlobalNetworkId: str
     CoreNetworkId: Optional[str] = None
     RegisteredGatewayArn: Optional[str] = None
@@ -402,7 +402,7 @@ class GetNetworkResourcesRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
-class GetNetworkTelemetryRequestTypeDef(BaseValidatorModel):
+class GetNetworkTelemetryRequest(BaseValidatorModel):
     GlobalNetworkId: str
     CoreNetworkId: Optional[str] = None
     RegisteredGatewayArn: Optional[str] = None
@@ -414,53 +414,53 @@ class GetNetworkTelemetryRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
-class GetResourcePolicyRequestTypeDef(BaseValidatorModel):
+class GetResourcePolicyRequest(BaseValidatorModel):
     ResourceArn: str
 
 
-class GetRouteAnalysisRequestTypeDef(BaseValidatorModel):
+class GetRouteAnalysisRequest(BaseValidatorModel):
     GlobalNetworkId: str
     RouteAnalysisId: str
 
 
-class GetSiteToSiteVpnAttachmentRequestTypeDef(BaseValidatorModel):
+class GetSiteToSiteVpnAttachmentRequest(BaseValidatorModel):
     AttachmentId: str
 
 
-class GetSitesRequestTypeDef(BaseValidatorModel):
+class GetSitesRequest(BaseValidatorModel):
     GlobalNetworkId: str
     SiteIds: Optional[Sequence[str]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class GetTransitGatewayConnectPeerAssociationsRequestTypeDef(BaseValidatorModel):
+class GetTransitGatewayConnectPeerAssociationsRequest(BaseValidatorModel):
     GlobalNetworkId: str
     TransitGatewayConnectPeerArns: Optional[Sequence[str]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class GetTransitGatewayPeeringRequestTypeDef(BaseValidatorModel):
+class GetTransitGatewayPeeringRequest(BaseValidatorModel):
     PeeringId: str
 
 
-class GetTransitGatewayRegistrationsRequestTypeDef(BaseValidatorModel):
+class GetTransitGatewayRegistrationsRequest(BaseValidatorModel):
     GlobalNetworkId: str
     TransitGatewayArns: Optional[Sequence[str]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class GetTransitGatewayRouteTableAttachmentRequestTypeDef(BaseValidatorModel):
+class GetTransitGatewayRouteTableAttachmentRequest(BaseValidatorModel):
     AttachmentId: str
 
 
-class GetVpcAttachmentRequestTypeDef(BaseValidatorModel):
+class GetVpcAttachmentRequest(BaseValidatorModel):
     AttachmentId: str
 
 
-class ListAttachmentsRequestTypeDef(BaseValidatorModel):
+class ListAttachmentsRequest(BaseValidatorModel):
     CoreNetworkId: Optional[str] = None
     AttachmentType: Optional[AttachmentTypeType] = None
     EdgeLocation: Optional[str] = None
@@ -469,30 +469,30 @@ class ListAttachmentsRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
-class ListConnectPeersRequestTypeDef(BaseValidatorModel):
+class ListConnectPeersRequest(BaseValidatorModel):
     CoreNetworkId: Optional[str] = None
     ConnectAttachmentId: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListCoreNetworkPolicyVersionsRequestTypeDef(BaseValidatorModel):
+class ListCoreNetworkPolicyVersionsRequest(BaseValidatorModel):
     CoreNetworkId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListCoreNetworksRequestTypeDef(BaseValidatorModel):
+class ListCoreNetworksRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListOrganizationServiceAccessStatusRequestTypeDef(BaseValidatorModel):
+class ListOrganizationServiceAccessStatusRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListPeeringsRequestTypeDef(BaseValidatorModel):
+class ListPeeringsRequest(BaseValidatorModel):
     CoreNetworkId: Optional[str] = None
     PeeringType: Optional[Literal["TRANSIT_GATEWAY"]] = None
     EdgeLocation: Optional[str] = None
@@ -501,15 +501,15 @@ class ListPeeringsRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
 
-class NetworkFunctionGroupTypeDef(BaseValidatorModel):
+class NetworkFunctionGroup(BaseValidatorModel):
     Name: Optional[str] = None
 
 
-class NetworkResourceSummaryTypeDef(BaseValidatorModel):
+class NetworkResourceSummary(BaseValidatorModel):
     RegisteredGatewayArn: Optional[str] = None
     ResourceArn: Optional[str] = None
     ResourceType: Optional[str] = None
@@ -518,7 +518,7 @@ class NetworkResourceSummaryTypeDef(BaseValidatorModel):
     IsMiddlebox: Optional[bool] = None
 
 
-class NetworkRouteDestinationTypeDef(BaseValidatorModel):
+class NetworkRouteDestination(BaseValidatorModel):
     CoreNetworkAttachmentId: Optional[str] = None
     TransitGatewayAttachmentId: Optional[str] = None
     SegmentName: Optional[str] = None
@@ -528,11 +528,11 @@ class NetworkRouteDestinationTypeDef(BaseValidatorModel):
     ResourceId: Optional[str] = None
 
 
-class PermissionsErrorContextTypeDef(BaseValidatorModel):
+class PermissionsErrorContext(BaseValidatorModel):
     MissingPermission: Optional[str] = None
 
 
-class PutCoreNetworkPolicyRequestTypeDef(BaseValidatorModel):
+class PutCoreNetworkPolicyRequest(BaseValidatorModel):
     CoreNetworkId: str
     PolicyDocument: str
     Description: Optional[str] = None
@@ -540,61 +540,61 @@ class PutCoreNetworkPolicyRequestTypeDef(BaseValidatorModel):
     ClientToken: Optional[str] = None
 
 
-class PutResourcePolicyRequestTypeDef(BaseValidatorModel):
+class PutResourcePolicyRequest(BaseValidatorModel):
     PolicyDocument: str
     ResourceArn: str
 
 
-class RegisterTransitGatewayRequestTypeDef(BaseValidatorModel):
+class RegisterTransitGatewayRequest(BaseValidatorModel):
     GlobalNetworkId: str
     TransitGatewayArn: str
 
 
-class RejectAttachmentRequestTypeDef(BaseValidatorModel):
+class RejectAttachmentRequest(BaseValidatorModel):
     AttachmentId: str
 
 
-class RestoreCoreNetworkPolicyVersionRequestTypeDef(BaseValidatorModel):
+class RestoreCoreNetworkPolicyVersionRequest(BaseValidatorModel):
     CoreNetworkId: str
     PolicyVersionId: int
 
 
-class RouteAnalysisCompletionTypeDef(BaseValidatorModel):
+class RouteAnalysisCompletion(BaseValidatorModel):
     ResultCode: Optional[RouteAnalysisCompletionResultCodeType] = None
     ReasonCode: Optional[RouteAnalysisCompletionReasonCodeType] = None
     ReasonContext: Optional[Dict[str, str]] = None
 
 
-class RouteAnalysisEndpointOptionsSpecificationTypeDef(BaseValidatorModel):
+class RouteAnalysisEndpointOptionsSpecification(BaseValidatorModel):
     TransitGatewayAttachmentArn: Optional[str] = None
     IpAddress: Optional[str] = None
 
 
-class RouteAnalysisEndpointOptionsTypeDef(BaseValidatorModel):
+class RouteAnalysisEndpointOptions(BaseValidatorModel):
     TransitGatewayAttachmentArn: Optional[str] = None
     TransitGatewayArn: Optional[str] = None
     IpAddress: Optional[str] = None
 
 
-class WhenSentToTypeDef(BaseValidatorModel):
+class WhenSentTo(BaseValidatorModel):
     WhenSentToSegmentsList: Optional[List[str]] = None
 
 
-class StartOrganizationServiceAccessUpdateRequestTypeDef(BaseValidatorModel):
+class StartOrganizationServiceAccessUpdateRequest(BaseValidatorModel):
     Action: str
 
 
-class TransitGatewayRegistrationStateReasonTypeDef(BaseValidatorModel):
+class TransitGatewayRegistrationStateReason(BaseValidatorModel):
     Code: Optional[TransitGatewayRegistrationStateType] = None
     Message: Optional[str] = None
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     TagKeys: Sequence[str]
 
 
-class UpdateConnectionRequestTypeDef(BaseValidatorModel):
+class UpdateConnectionRequest(BaseValidatorModel):
     GlobalNetworkId: str
     ConnectionId: str
     LinkId: Optional[str] = None
@@ -602,121 +602,121 @@ class UpdateConnectionRequestTypeDef(BaseValidatorModel):
     Description: Optional[str] = None
 
 
-class UpdateCoreNetworkRequestTypeDef(BaseValidatorModel):
+class UpdateCoreNetworkRequest(BaseValidatorModel):
     CoreNetworkId: str
     Description: Optional[str] = None
 
 
-class UpdateDirectConnectGatewayAttachmentRequestTypeDef(BaseValidatorModel):
+class UpdateDirectConnectGatewayAttachmentRequest(BaseValidatorModel):
     AttachmentId: str
     EdgeLocations: Optional[Sequence[str]] = None
 
 
-class UpdateGlobalNetworkRequestTypeDef(BaseValidatorModel):
+class UpdateGlobalNetworkRequest(BaseValidatorModel):
     GlobalNetworkId: str
     Description: Optional[str] = None
 
 
-class UpdateNetworkResourceMetadataRequestTypeDef(BaseValidatorModel):
+class UpdateNetworkResourceMetadataRequest(BaseValidatorModel):
     GlobalNetworkId: str
     ResourceArn: str
     Metadata: Mapping[str, str]
 
 
-class GetResourcePolicyResponseTypeDef(BaseValidatorModel):
+class GetResourcePolicyResponse(BaseValidatorModel):
     PolicyDocument: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateNetworkResourceMetadataResponseTypeDef(BaseValidatorModel):
+class UpdateNetworkResourceMetadataResponse(BaseValidatorModel):
     ResourceArn: str
     Metadata: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class OrganizationStatusTypeDef(BaseValidatorModel):
+class OrganizationStatus(BaseValidatorModel):
     OrganizationId: Optional[str] = None
     OrganizationAwsServiceAccessStatus: Optional[str] = None
     SLRDeploymentStatus: Optional[str] = None
-    AccountStatusList: Optional[List[AccountStatusTypeDef]] = None
+    AccountStatusList: Optional[List[AccountStatus]] = None
 
 
-class AssociateConnectPeerResponseTypeDef(BaseValidatorModel):
-    ConnectPeerAssociation: ConnectPeerAssociationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class AssociateConnectPeerResponse(BaseValidatorModel):
+    ConnectPeerAssociation: ConnectPeerAssociation
+    ResponseMetadata: ResponseMetadata
 
 
-class DisassociateConnectPeerResponseTypeDef(BaseValidatorModel):
-    ConnectPeerAssociation: ConnectPeerAssociationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DisassociateConnectPeerResponse(BaseValidatorModel):
+    ConnectPeerAssociation: ConnectPeerAssociation
+    ResponseMetadata: ResponseMetadata
 
 
-class GetConnectPeerAssociationsResponseTypeDef(BaseValidatorModel):
-    ConnectPeerAssociations: List[ConnectPeerAssociationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetConnectPeerAssociationsResponse(BaseValidatorModel):
+    ConnectPeerAssociations: List[ConnectPeerAssociation]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class AssociateCustomerGatewayResponseTypeDef(BaseValidatorModel):
-    CustomerGatewayAssociation: CustomerGatewayAssociationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class AssociateCustomerGatewayResponse(BaseValidatorModel):
+    CustomerGatewayAssociation: CustomerGatewayAssociation
+    ResponseMetadata: ResponseMetadata
 
 
-class DisassociateCustomerGatewayResponseTypeDef(BaseValidatorModel):
-    CustomerGatewayAssociation: CustomerGatewayAssociationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DisassociateCustomerGatewayResponse(BaseValidatorModel):
+    CustomerGatewayAssociation: CustomerGatewayAssociation
+    ResponseMetadata: ResponseMetadata
 
 
-class GetCustomerGatewayAssociationsResponseTypeDef(BaseValidatorModel):
-    CustomerGatewayAssociations: List[CustomerGatewayAssociationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetCustomerGatewayAssociationsResponse(BaseValidatorModel):
+    CustomerGatewayAssociations: List[CustomerGatewayAssociation]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class AssociateLinkResponseTypeDef(BaseValidatorModel):
-    LinkAssociation: LinkAssociationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class AssociateLinkResponse(BaseValidatorModel):
+    LinkAssociation: LinkAssociation
+    ResponseMetadata: ResponseMetadata
 
 
-class DisassociateLinkResponseTypeDef(BaseValidatorModel):
-    LinkAssociation: LinkAssociationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DisassociateLinkResponse(BaseValidatorModel):
+    LinkAssociation: LinkAssociation
+    ResponseMetadata: ResponseMetadata
 
 
-class GetLinkAssociationsResponseTypeDef(BaseValidatorModel):
-    LinkAssociations: List[LinkAssociationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetLinkAssociationsResponse(BaseValidatorModel):
+    LinkAssociations: List[LinkAssociation]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class AssociateTransitGatewayConnectPeerResponseTypeDef(BaseValidatorModel):
-    TransitGatewayConnectPeerAssociation: TransitGatewayConnectPeerAssociationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class AssociateTransitGatewayConnectPeerResponse(BaseValidatorModel):
+    TransitGatewayConnectPeerAssociation: TransitGatewayConnectPeerAssociation
+    ResponseMetadata: ResponseMetadata
 
 
-class DisassociateTransitGatewayConnectPeerResponseTypeDef(BaseValidatorModel):
-    TransitGatewayConnectPeerAssociation: TransitGatewayConnectPeerAssociationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DisassociateTransitGatewayConnectPeerResponse(BaseValidatorModel):
+    TransitGatewayConnectPeerAssociation: TransitGatewayConnectPeerAssociation
+    ResponseMetadata: ResponseMetadata
 
 
-class GetTransitGatewayConnectPeerAssociationsResponseTypeDef(BaseValidatorModel):
-    TransitGatewayConnectPeerAssociations: List[TransitGatewayConnectPeerAssociationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetTransitGatewayConnectPeerAssociationsResponse(BaseValidatorModel):
+    TransitGatewayConnectPeerAssociations: List[TransitGatewayConnectPeerAssociation]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ConnectPeerSummaryTypeDef(BaseValidatorModel):
+class ConnectPeerSummary(BaseValidatorModel):
     CoreNetworkId: Optional[str] = None
     ConnectAttachmentId: Optional[str] = None
     ConnectPeerId: Optional[str] = None
     EdgeLocation: Optional[str] = None
     ConnectPeerState: Optional[ConnectPeerStateType] = None
     CreatedAt: Optional[datetime] = None
-    Tags: Optional[List[TagTypeDef]] = None
+    Tags: Optional[List[Tag]] = None
     SubnetArn: Optional[str] = None
 
 
-class ConnectionTypeDef(BaseValidatorModel):
+class Connection(BaseValidatorModel):
     ConnectionId: Optional[str] = None
     ConnectionArn: Optional[str] = None
     GlobalNetworkId: Optional[str] = None
@@ -727,86 +727,86 @@ class ConnectionTypeDef(BaseValidatorModel):
     Description: Optional[str] = None
     CreatedAt: Optional[datetime] = None
     State: Optional[ConnectionStateType] = None
-    Tags: Optional[List[TagTypeDef]] = None
+    Tags: Optional[List[Tag]] = None
 
 
-class CoreNetworkSummaryTypeDef(BaseValidatorModel):
+class CoreNetworkSummary(BaseValidatorModel):
     CoreNetworkId: Optional[str] = None
     CoreNetworkArn: Optional[str] = None
     GlobalNetworkId: Optional[str] = None
     OwnerAccountId: Optional[str] = None
     State: Optional[CoreNetworkStateType] = None
     Description: Optional[str] = None
-    Tags: Optional[List[TagTypeDef]] = None
+    Tags: Optional[List[Tag]] = None
 
 
-class CreateConnectionRequestTypeDef(BaseValidatorModel):
+class CreateConnectionRequest(BaseValidatorModel):
     GlobalNetworkId: str
     DeviceId: str
     ConnectedDeviceId: str
     LinkId: Optional[str] = None
     ConnectedLinkId: Optional[str] = None
     Description: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class CreateCoreNetworkRequestTypeDef(BaseValidatorModel):
+class CreateCoreNetworkRequest(BaseValidatorModel):
     GlobalNetworkId: str
     Description: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
     PolicyDocument: Optional[str] = None
     ClientToken: Optional[str] = None
 
 
-class CreateDirectConnectGatewayAttachmentRequestTypeDef(BaseValidatorModel):
+class CreateDirectConnectGatewayAttachmentRequest(BaseValidatorModel):
     CoreNetworkId: str
     DirectConnectGatewayArn: str
     EdgeLocations: Sequence[str]
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
     ClientToken: Optional[str] = None
 
 
-class CreateGlobalNetworkRequestTypeDef(BaseValidatorModel):
+class CreateGlobalNetworkRequest(BaseValidatorModel):
     Description: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class CreateSiteToSiteVpnAttachmentRequestTypeDef(BaseValidatorModel):
+class CreateSiteToSiteVpnAttachmentRequest(BaseValidatorModel):
     CoreNetworkId: str
     VpnConnectionArn: str
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
     ClientToken: Optional[str] = None
 
 
-class CreateTransitGatewayPeeringRequestTypeDef(BaseValidatorModel):
+class CreateTransitGatewayPeeringRequest(BaseValidatorModel):
     CoreNetworkId: str
     TransitGatewayArn: str
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
     ClientToken: Optional[str] = None
 
 
-class CreateTransitGatewayRouteTableAttachmentRequestTypeDef(BaseValidatorModel):
+class CreateTransitGatewayRouteTableAttachmentRequest(BaseValidatorModel):
     PeeringId: str
     TransitGatewayRouteTableArn: str
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
     ClientToken: Optional[str] = None
 
 
-class GlobalNetworkTypeDef(BaseValidatorModel):
+class GlobalNetwork(BaseValidatorModel):
     GlobalNetworkId: Optional[str] = None
     GlobalNetworkArn: Optional[str] = None
     Description: Optional[str] = None
     CreatedAt: Optional[datetime] = None
     State: Optional[GlobalNetworkStateType] = None
-    Tags: Optional[List[TagTypeDef]] = None
+    Tags: Optional[List[Tag]] = None
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
-    TagList: List[TagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListTagsForResourceResponse(BaseValidatorModel):
+    TagList: List[Tag]
+    ResponseMetadata: ResponseMetadata
 
 
-class NetworkResourceTypeDef(BaseValidatorModel):
+class NetworkResource(BaseValidatorModel):
     RegisteredGatewayArn: Optional[str] = None
     CoreNetworkId: Optional[str] = None
     AwsRegion: Optional[str] = None
@@ -816,56 +816,56 @@ class NetworkResourceTypeDef(BaseValidatorModel):
     ResourceArn: Optional[str] = None
     Definition: Optional[str] = None
     DefinitionTimestamp: Optional[datetime] = None
-    Tags: Optional[List[TagTypeDef]] = None
+    Tags: Optional[List[Tag]] = None
     Metadata: Optional[Dict[str, str]] = None
 
 
-class ProposedNetworkFunctionGroupChangeTypeDef(BaseValidatorModel):
-    Tags: Optional[List[TagTypeDef]] = None
+class ProposedNetworkFunctionGroupChange(BaseValidatorModel):
+    Tags: Optional[List[Tag]] = None
     AttachmentPolicyRuleNumber: Optional[int] = None
     NetworkFunctionGroupName: Optional[str] = None
 
 
-class ProposedSegmentChangeTypeDef(BaseValidatorModel):
-    Tags: Optional[List[TagTypeDef]] = None
+class ProposedSegmentChange(BaseValidatorModel):
+    Tags: Optional[List[Tag]] = None
     AttachmentPolicyRuleNumber: Optional[int] = None
     SegmentName: Optional[str] = None
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     ResourceArn: str
-    Tags: Sequence[TagTypeDef]
+    Tags: Sequence[Tag]
 
 
-class CreateConnectPeerRequestTypeDef(BaseValidatorModel):
+class CreateConnectPeerRequest(BaseValidatorModel):
     ConnectAttachmentId: str
     PeerAddress: str
     CoreNetworkAddress: Optional[str] = None
-    BgpOptions: Optional[BgpOptionsTypeDef] = None
+    BgpOptions: Optional[BgpOptions] = None
     InsideCidrBlocks: Optional[Sequence[str]] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
     ClientToken: Optional[str] = None
     SubnetArn: Optional[str] = None
 
 
-class ConnectAttachmentOptionsTypeDef(BaseValidatorModel):
+class ConnectAttachmentOptions(BaseValidatorModel):
     pass
 
 
-class CreateConnectAttachmentRequestTypeDef(BaseValidatorModel):
+class CreateConnectAttachmentRequest(BaseValidatorModel):
     CoreNetworkId: str
     EdgeLocation: str
     TransportAttachmentId: str
-    Options: ConnectAttachmentOptionsTypeDef
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Options: ConnectAttachmentOptions
+    Tags: Optional[Sequence[Tag]] = None
     ClientToken: Optional[str] = None
 
 
-class ConnectionHealthTypeDef(BaseValidatorModel):
+class ConnectionHealth(BaseValidatorModel):
     pass
 
 
-class NetworkTelemetryTypeDef(BaseValidatorModel):
+class NetworkTelemetry(BaseValidatorModel):
     RegisteredGatewayArn: Optional[str] = None
     CoreNetworkId: Optional[str] = None
     AwsRegion: Optional[str] = None
@@ -874,147 +874,136 @@ class NetworkTelemetryTypeDef(BaseValidatorModel):
     ResourceId: Optional[str] = None
     ResourceArn: Optional[str] = None
     Address: Optional[str] = None
-    Health: Optional[ConnectionHealthTypeDef] = None
+    Health: Optional[ConnectionHealth] = None
 
 
-class CoreNetworkNetworkFunctionGroupTypeDef(BaseValidatorModel):
+class CoreNetworkNetworkFunctionGroup(BaseValidatorModel):
     Name: Optional[str] = None
     EdgeLocations: Optional[List[str]] = None
-    Segments: Optional[ServiceInsertionSegmentsTypeDef] = None
+    Segments: Optional[ServiceInsertionSegments] = None
 
 
-class CoreNetworkPolicyTypeDef(BaseValidatorModel):
+class CoreNetworkPolicy(BaseValidatorModel):
     CoreNetworkId: Optional[str] = None
     PolicyVersionId: Optional[int] = None
     Alias: Optional[CoreNetworkPolicyAliasType] = None
     Description: Optional[str] = None
     CreatedAt: Optional[datetime] = None
     ChangeSetState: Optional[ChangeSetStateType] = None
-    PolicyErrors: Optional[List[CoreNetworkPolicyErrorTypeDef]] = None
+    PolicyErrors: Optional[List[CoreNetworkPolicyError]] = None
     PolicyDocument: Optional[str] = None
 
 
-class ListCoreNetworkPolicyVersionsResponseTypeDef(BaseValidatorModel):
-    CoreNetworkPolicyVersions: List[CoreNetworkPolicyVersionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListCoreNetworkPolicyVersionsResponse(BaseValidatorModel):
+    CoreNetworkPolicyVersions: List[CoreNetworkPolicyVersion]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class RouteTableIdentifierTypeDef(BaseValidatorModel):
+class RouteTableIdentifier(BaseValidatorModel):
     TransitGatewayRouteTableArn: Optional[str] = None
-    CoreNetworkSegmentEdge: Optional[CoreNetworkSegmentEdgeIdentifierTypeDef] = None
-    CoreNetworkNetworkFunctionGroup: Optional[CoreNetworkNetworkFunctionGroupIdentifierTypeDef] = None
+    CoreNetworkSegmentEdge: Optional[CoreNetworkSegmentEdgeIdentifier] = None
+    CoreNetworkNetworkFunctionGroup: Optional[CoreNetworkNetworkFunctionGroupIdentifier] = None
 
 
-class CreateSiteRequestTypeDef(BaseValidatorModel):
+class CreateSiteRequest(BaseValidatorModel):
     GlobalNetworkId: str
     Description: Optional[str] = None
-    Location: Optional[LocationTypeDef] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Location: Optional[Location] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class SiteTypeDef(BaseValidatorModel):
+class Site(BaseValidatorModel):
     SiteId: Optional[str] = None
     SiteArn: Optional[str] = None
     GlobalNetworkId: Optional[str] = None
     Description: Optional[str] = None
-    Location: Optional[LocationTypeDef] = None
+    Location: Optional[Location] = None
     CreatedAt: Optional[datetime] = None
     State: Optional[SiteStateType] = None
-    Tags: Optional[List[TagTypeDef]] = None
+    Tags: Optional[List[Tag]] = None
 
 
-class UpdateSiteRequestTypeDef(BaseValidatorModel):
+class UpdateSiteRequest(BaseValidatorModel):
     GlobalNetworkId: str
     SiteId: str
     Description: Optional[str] = None
-    Location: Optional[LocationTypeDef] = None
+    Location: Optional[Location] = None
 
 
-class CreateVpcAttachmentRequestTypeDef(BaseValidatorModel):
+class CreateVpcAttachmentRequest(BaseValidatorModel):
     CoreNetworkId: str
     VpcArn: str
     SubnetArns: Sequence[str]
-    Options: Optional[VpcOptionsTypeDef] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Options: Optional[VpcOptions] = None
+    Tags: Optional[Sequence[Tag]] = None
     ClientToken: Optional[str] = None
 
 
-class UpdateVpcAttachmentRequestTypeDef(BaseValidatorModel):
+class UpdateVpcAttachmentRequest(BaseValidatorModel):
     AttachmentId: str
     AddSubnetArns: Optional[Sequence[str]] = None
     RemoveSubnetArns: Optional[Sequence[str]] = None
-    Options: Optional[VpcOptionsTypeDef] = None
+    Options: Optional[VpcOptions] = None
 
 
-class DescribeGlobalNetworksRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeGlobalNetworksRequestPaginate(BaseValidatorModel):
     GlobalNetworkIds: Optional[Sequence[str]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class GetConnectPeerAssociationsRequestPaginateTypeDef(BaseValidatorModel):
+class GetConnectPeerAssociationsRequestPaginate(BaseValidatorModel):
     GlobalNetworkId: str
     ConnectPeerIds: Optional[Sequence[str]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class GetConnectionsRequestPaginateTypeDef(BaseValidatorModel):
+class GetConnectionsRequestPaginate(BaseValidatorModel):
     GlobalNetworkId: str
     ConnectionIds: Optional[Sequence[str]] = None
     DeviceId: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class GetCoreNetworkChangeEventsRequestPaginateTypeDef(BaseValidatorModel):
+class GetCoreNetworkChangeEventsRequestPaginate(BaseValidatorModel):
     CoreNetworkId: str
     PolicyVersionId: int
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class GetCoreNetworkChangeSetRequestPaginateTypeDef(BaseValidatorModel):
+class GetCoreNetworkChangeSetRequestPaginate(BaseValidatorModel):
     CoreNetworkId: str
     PolicyVersionId: int
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class GetCustomerGatewayAssociationsRequestPaginateTypeDef(BaseValidatorModel):
+class GetCustomerGatewayAssociationsRequestPaginate(BaseValidatorModel):
     GlobalNetworkId: str
     CustomerGatewayArns: Optional[Sequence[str]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class GetDevicesRequestPaginateTypeDef(BaseValidatorModel):
+class GetDevicesRequestPaginate(BaseValidatorModel):
     GlobalNetworkId: str
     DeviceIds: Optional[Sequence[str]] = None
     SiteId: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class GetLinkAssociationsRequestPaginateTypeDef(BaseValidatorModel):
+class GetLinkAssociationsRequestPaginate(BaseValidatorModel):
     GlobalNetworkId: str
     DeviceId: Optional[str] = None
     LinkId: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class GetNetworkResourceCountsRequestPaginateTypeDef(BaseValidatorModel):
+class GetNetworkResourceCountsRequestPaginate(BaseValidatorModel):
     GlobalNetworkId: str
     ResourceType: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class GetNetworkResourceRelationshipsRequestPaginateTypeDef(BaseValidatorModel):
-    GlobalNetworkId: str
-    CoreNetworkId: Optional[str] = None
-    RegisteredGatewayArn: Optional[str] = None
-    AwsRegion: Optional[str] = None
-    AccountId: Optional[str] = None
-    ResourceType: Optional[str] = None
-    ResourceArn: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
-
-
-class GetNetworkResourcesRequestPaginateTypeDef(BaseValidatorModel):
+class GetNetworkResourceRelationshipsRequestPaginate(BaseValidatorModel):
     GlobalNetworkId: str
     CoreNetworkId: Optional[str] = None
     RegisteredGatewayArn: Optional[str] = None
@@ -1022,10 +1011,10 @@ class GetNetworkResourcesRequestPaginateTypeDef(BaseValidatorModel):
     AccountId: Optional[str] = None
     ResourceType: Optional[str] = None
     ResourceArn: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class GetNetworkTelemetryRequestPaginateTypeDef(BaseValidatorModel):
+class GetNetworkResourcesRequestPaginate(BaseValidatorModel):
     GlobalNetworkId: str
     CoreNetworkId: Optional[str] = None
     RegisteredGatewayArn: Optional[str] = None
@@ -1033,169 +1022,180 @@ class GetNetworkTelemetryRequestPaginateTypeDef(BaseValidatorModel):
     AccountId: Optional[str] = None
     ResourceType: Optional[str] = None
     ResourceArn: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class GetSitesRequestPaginateTypeDef(BaseValidatorModel):
+class GetNetworkTelemetryRequestPaginate(BaseValidatorModel):
+    GlobalNetworkId: str
+    CoreNetworkId: Optional[str] = None
+    RegisteredGatewayArn: Optional[str] = None
+    AwsRegion: Optional[str] = None
+    AccountId: Optional[str] = None
+    ResourceType: Optional[str] = None
+    ResourceArn: Optional[str] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
+
+
+class GetSitesRequestPaginate(BaseValidatorModel):
     GlobalNetworkId: str
     SiteIds: Optional[Sequence[str]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class GetTransitGatewayConnectPeerAssociationsRequestPaginateTypeDef(BaseValidatorModel):
+class GetTransitGatewayConnectPeerAssociationsRequestPaginate(BaseValidatorModel):
     GlobalNetworkId: str
     TransitGatewayConnectPeerArns: Optional[Sequence[str]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class GetTransitGatewayRegistrationsRequestPaginateTypeDef(BaseValidatorModel):
+class GetTransitGatewayRegistrationsRequestPaginate(BaseValidatorModel):
     GlobalNetworkId: str
     TransitGatewayArns: Optional[Sequence[str]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListAttachmentsRequestPaginateTypeDef(BaseValidatorModel):
+class ListAttachmentsRequestPaginate(BaseValidatorModel):
     CoreNetworkId: Optional[str] = None
     AttachmentType: Optional[AttachmentTypeType] = None
     EdgeLocation: Optional[str] = None
     State: Optional[AttachmentStateType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListConnectPeersRequestPaginateTypeDef(BaseValidatorModel):
+class ListConnectPeersRequestPaginate(BaseValidatorModel):
     CoreNetworkId: Optional[str] = None
     ConnectAttachmentId: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListCoreNetworkPolicyVersionsRequestPaginateTypeDef(BaseValidatorModel):
+class ListCoreNetworkPolicyVersionsRequestPaginate(BaseValidatorModel):
     CoreNetworkId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListCoreNetworksRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListCoreNetworksRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListPeeringsRequestPaginateTypeDef(BaseValidatorModel):
+class ListPeeringsRequestPaginate(BaseValidatorModel):
     CoreNetworkId: Optional[str] = None
     PeeringType: Optional[Literal["TRANSIT_GATEWAY"]] = None
     EdgeLocation: Optional[str] = None
     State: Optional[PeeringStateType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class GetNetworkResourceCountsResponseTypeDef(BaseValidatorModel):
-    NetworkResourceCounts: List[NetworkResourceCountTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetNetworkResourceCountsResponse(BaseValidatorModel):
+    NetworkResourceCounts: List[NetworkResourceCount]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class GetNetworkResourceRelationshipsResponseTypeDef(BaseValidatorModel):
-    Relationships: List[RelationshipTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetNetworkResourceRelationshipsResponse(BaseValidatorModel):
+    Relationships: List[Relationship]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ViaTypeDef(BaseValidatorModel):
-    NetworkFunctionGroups: Optional[List[NetworkFunctionGroupTypeDef]] = None
-    WithEdgeOverrides: Optional[List[EdgeOverrideTypeDef]] = None
+class Via(BaseValidatorModel):
+    NetworkFunctionGroups: Optional[List[NetworkFunctionGroup]] = None
+    WithEdgeOverrides: Optional[List[EdgeOverride]] = None
 
 
-class PeeringErrorTypeDef(BaseValidatorModel):
+class PeeringError(BaseValidatorModel):
     Code: Optional[PeeringErrorCodeType] = None
     Message: Optional[str] = None
     ResourceArn: Optional[str] = None
     RequestId: Optional[str] = None
-    MissingPermissionsContext: Optional[PermissionsErrorContextTypeDef] = None
+    MissingPermissionsContext: Optional[PermissionsErrorContext] = None
 
 
-class StartRouteAnalysisRequestTypeDef(BaseValidatorModel):
+class StartRouteAnalysisRequest(BaseValidatorModel):
     GlobalNetworkId: str
-    Source: RouteAnalysisEndpointOptionsSpecificationTypeDef
-    Destination: RouteAnalysisEndpointOptionsSpecificationTypeDef
+    Source: RouteAnalysisEndpointOptionsSpecification
+    Destination: RouteAnalysisEndpointOptionsSpecification
     IncludeReturnPath: Optional[bool] = None
     UseMiddleboxes: Optional[bool] = None
 
 
-class TransitGatewayRegistrationTypeDef(BaseValidatorModel):
+class TransitGatewayRegistration(BaseValidatorModel):
     GlobalNetworkId: Optional[str] = None
     TransitGatewayArn: Optional[str] = None
-    State: Optional[TransitGatewayRegistrationStateReasonTypeDef] = None
+    State: Optional[TransitGatewayRegistrationStateReason] = None
 
 
-class ListOrganizationServiceAccessStatusResponseTypeDef(BaseValidatorModel):
-    OrganizationStatus: OrganizationStatusTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListOrganizationServiceAccessStatusResponse(BaseValidatorModel):
+    OrganizationStatus: OrganizationStatus
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class StartOrganizationServiceAccessUpdateResponseTypeDef(BaseValidatorModel):
-    OrganizationStatus: OrganizationStatusTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class StartOrganizationServiceAccessUpdateResponse(BaseValidatorModel):
+    OrganizationStatus: OrganizationStatus
+    ResponseMetadata: ResponseMetadata
 
 
-class ListConnectPeersResponseTypeDef(BaseValidatorModel):
-    ConnectPeers: List[ConnectPeerSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListConnectPeersResponse(BaseValidatorModel):
+    ConnectPeers: List[ConnectPeerSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class CreateConnectionResponseTypeDef(BaseValidatorModel):
-    Connection: ConnectionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateConnectionResponse(BaseValidatorModel):
+    Connection: Connection
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteConnectionResponseTypeDef(BaseValidatorModel):
-    Connection: ConnectionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeleteConnectionResponse(BaseValidatorModel):
+    Connection: Connection
+    ResponseMetadata: ResponseMetadata
 
 
-class GetConnectionsResponseTypeDef(BaseValidatorModel):
-    Connections: List[ConnectionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetConnectionsResponse(BaseValidatorModel):
+    Connections: List[Connection]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class UpdateConnectionResponseTypeDef(BaseValidatorModel):
-    Connection: ConnectionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateConnectionResponse(BaseValidatorModel):
+    Connection: Connection
+    ResponseMetadata: ResponseMetadata
 
 
-class ListCoreNetworksResponseTypeDef(BaseValidatorModel):
-    CoreNetworks: List[CoreNetworkSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListCoreNetworksResponse(BaseValidatorModel):
+    CoreNetworks: List[CoreNetworkSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class CreateGlobalNetworkResponseTypeDef(BaseValidatorModel):
-    GlobalNetwork: GlobalNetworkTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateGlobalNetworkResponse(BaseValidatorModel):
+    GlobalNetwork: GlobalNetwork
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteGlobalNetworkResponseTypeDef(BaseValidatorModel):
-    GlobalNetwork: GlobalNetworkTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeleteGlobalNetworkResponse(BaseValidatorModel):
+    GlobalNetwork: GlobalNetwork
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeGlobalNetworksResponseTypeDef(BaseValidatorModel):
-    GlobalNetworks: List[GlobalNetworkTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeGlobalNetworksResponse(BaseValidatorModel):
+    GlobalNetworks: List[GlobalNetwork]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class UpdateGlobalNetworkResponseTypeDef(BaseValidatorModel):
-    GlobalNetwork: GlobalNetworkTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateGlobalNetworkResponse(BaseValidatorModel):
+    GlobalNetwork: GlobalNetwork
+    ResponseMetadata: ResponseMetadata
 
 
-class GetNetworkResourcesResponseTypeDef(BaseValidatorModel):
-    NetworkResources: List[NetworkResourceTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetNetworkResourcesResponse(BaseValidatorModel):
+    NetworkResources: List[NetworkResource]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class AttachmentTypeDef(BaseValidatorModel):
+class Attachment(BaseValidatorModel):
     CoreNetworkId: Optional[str] = None
     CoreNetworkArn: Optional[str] = None
     AttachmentId: Optional[str] = None
@@ -1208,108 +1208,108 @@ class AttachmentTypeDef(BaseValidatorModel):
     AttachmentPolicyRuleNumber: Optional[int] = None
     SegmentName: Optional[str] = None
     NetworkFunctionGroupName: Optional[str] = None
-    Tags: Optional[List[TagTypeDef]] = None
-    ProposedSegmentChange: Optional[ProposedSegmentChangeTypeDef] = None
-    ProposedNetworkFunctionGroupChange: Optional[ProposedNetworkFunctionGroupChangeTypeDef] = None
+    Tags: Optional[List[Tag]] = None
+    ProposedSegmentChange: Optional[ProposedSegmentChange] = None
+    ProposedNetworkFunctionGroupChange: Optional[ProposedNetworkFunctionGroupChange] = None
     CreatedAt: Optional[datetime] = None
     UpdatedAt: Optional[datetime] = None
-    LastModificationErrors: Optional[List[AttachmentErrorTypeDef]] = None
+    LastModificationErrors: Optional[List[AttachmentError]] = None
 
 
-class LinkTypeDef(BaseValidatorModel):
+class Link(BaseValidatorModel):
     pass
 
 
-class CreateLinkResponseTypeDef(BaseValidatorModel):
-    Link: LinkTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateLinkResponse(BaseValidatorModel):
+    Link: Link
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteLinkResponseTypeDef(BaseValidatorModel):
-    Link: LinkTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeleteLinkResponse(BaseValidatorModel):
+    Link: Link
+    ResponseMetadata: ResponseMetadata
 
 
-class GetLinksResponseTypeDef(BaseValidatorModel):
-    Links: List[LinkTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetLinksResponse(BaseValidatorModel):
+    Links: List[Link]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class UpdateLinkResponseTypeDef(BaseValidatorModel):
-    Link: LinkTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateLinkResponse(BaseValidatorModel):
+    Link: Link
+    ResponseMetadata: ResponseMetadata
 
 
-class ConnectPeerConfigurationTypeDef(BaseValidatorModel):
+class ConnectPeerConfiguration(BaseValidatorModel):
     pass
 
 
-class ConnectPeerTypeDef(BaseValidatorModel):
+class ConnectPeer(BaseValidatorModel):
     CoreNetworkId: Optional[str] = None
     ConnectAttachmentId: Optional[str] = None
     ConnectPeerId: Optional[str] = None
     EdgeLocation: Optional[str] = None
     State: Optional[ConnectPeerStateType] = None
     CreatedAt: Optional[datetime] = None
-    Configuration: Optional[ConnectPeerConfigurationTypeDef] = None
-    Tags: Optional[List[TagTypeDef]] = None
+    Configuration: Optional[ConnectPeerConfiguration] = None
+    Tags: Optional[List[Tag]] = None
     SubnetArn: Optional[str] = None
-    LastModificationErrors: Optional[List[ConnectPeerErrorTypeDef]] = None
+    LastModificationErrors: Optional[List[ConnectPeerError]] = None
 
 
-class GetNetworkTelemetryResponseTypeDef(BaseValidatorModel):
-    NetworkTelemetry: List[NetworkTelemetryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetNetworkTelemetryResponse(BaseValidatorModel):
+    NetworkTelemetry: List[NetworkTelemetry]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class CoreNetworkChangeEventTypeDef(BaseValidatorModel):
+class CoreNetworkChangeEvent(BaseValidatorModel):
     pass
 
 
-class GetCoreNetworkChangeEventsResponseTypeDef(BaseValidatorModel):
-    CoreNetworkChangeEvents: List[CoreNetworkChangeEventTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetCoreNetworkChangeEventsResponse(BaseValidatorModel):
+    CoreNetworkChangeEvents: List[CoreNetworkChangeEvent]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class CoreNetworkTypeDef(BaseValidatorModel):
+class CoreNetwork(BaseValidatorModel):
     GlobalNetworkId: Optional[str] = None
     CoreNetworkId: Optional[str] = None
     CoreNetworkArn: Optional[str] = None
     Description: Optional[str] = None
     CreatedAt: Optional[datetime] = None
     State: Optional[CoreNetworkStateType] = None
-    Segments: Optional[List[CoreNetworkSegmentTypeDef]] = None
-    NetworkFunctionGroups: Optional[List[CoreNetworkNetworkFunctionGroupTypeDef]] = None
-    Edges: Optional[List[CoreNetworkEdgeTypeDef]] = None
-    Tags: Optional[List[TagTypeDef]] = None
+    Segments: Optional[List[CoreNetworkSegment]] = None
+    NetworkFunctionGroups: Optional[List[CoreNetworkNetworkFunctionGroup]] = None
+    Edges: Optional[List[CoreNetworkEdge]] = None
+    Tags: Optional[List[Tag]] = None
 
 
-class DeleteCoreNetworkPolicyVersionResponseTypeDef(BaseValidatorModel):
-    CoreNetworkPolicy: CoreNetworkPolicyTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeleteCoreNetworkPolicyVersionResponse(BaseValidatorModel):
+    CoreNetworkPolicy: CoreNetworkPolicy
+    ResponseMetadata: ResponseMetadata
 
 
-class GetCoreNetworkPolicyResponseTypeDef(BaseValidatorModel):
-    CoreNetworkPolicy: CoreNetworkPolicyTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetCoreNetworkPolicyResponse(BaseValidatorModel):
+    CoreNetworkPolicy: CoreNetworkPolicy
+    ResponseMetadata: ResponseMetadata
 
 
-class PutCoreNetworkPolicyResponseTypeDef(BaseValidatorModel):
-    CoreNetworkPolicy: CoreNetworkPolicyTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class PutCoreNetworkPolicyResponse(BaseValidatorModel):
+    CoreNetworkPolicy: CoreNetworkPolicy
+    ResponseMetadata: ResponseMetadata
 
 
-class RestoreCoreNetworkPolicyVersionResponseTypeDef(BaseValidatorModel):
-    CoreNetworkPolicy: CoreNetworkPolicyTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class RestoreCoreNetworkPolicyVersionResponse(BaseValidatorModel):
+    CoreNetworkPolicy: CoreNetworkPolicy
+    ResponseMetadata: ResponseMetadata
 
 
-class GetNetworkRoutesRequestTypeDef(BaseValidatorModel):
+class GetNetworkRoutesRequest(BaseValidatorModel):
     GlobalNetworkId: str
-    RouteTableIdentifier: RouteTableIdentifierTypeDef
+    RouteTableIdentifier: RouteTableIdentifier
     ExactCidrMatches: Optional[Sequence[str]] = None
     LongestPrefixMatches: Optional[Sequence[str]] = None
     SubnetOfMatches: Optional[Sequence[str]] = None
@@ -1320,82 +1320,82 @@ class GetNetworkRoutesRequestTypeDef(BaseValidatorModel):
     DestinationFilters: Optional[Mapping[str, Sequence[str]]] = None
 
 
-class DeviceTypeDef(BaseValidatorModel):
+class Device(BaseValidatorModel):
     pass
 
 
-class CreateDeviceResponseTypeDef(BaseValidatorModel):
-    Device: DeviceTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateDeviceResponse(BaseValidatorModel):
+    Device: Device
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteDeviceResponseTypeDef(BaseValidatorModel):
-    Device: DeviceTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeleteDeviceResponse(BaseValidatorModel):
+    Device: Device
+    ResponseMetadata: ResponseMetadata
 
 
-class GetDevicesResponseTypeDef(BaseValidatorModel):
-    Devices: List[DeviceTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetDevicesResponse(BaseValidatorModel):
+    Devices: List[Device]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class UpdateDeviceResponseTypeDef(BaseValidatorModel):
-    Device: DeviceTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateDeviceResponse(BaseValidatorModel):
+    Device: Device
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateSiteResponseTypeDef(BaseValidatorModel):
-    Site: SiteTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateSiteResponse(BaseValidatorModel):
+    Site: Site
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteSiteResponseTypeDef(BaseValidatorModel):
-    Site: SiteTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeleteSiteResponse(BaseValidatorModel):
+    Site: Site
+    ResponseMetadata: ResponseMetadata
 
 
-class GetSitesResponseTypeDef(BaseValidatorModel):
-    Sites: List[SiteTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetSitesResponse(BaseValidatorModel):
+    Sites: List[Site]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class UpdateSiteResponseTypeDef(BaseValidatorModel):
-    Site: SiteTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateSiteResponse(BaseValidatorModel):
+    Site: Site
+    ResponseMetadata: ResponseMetadata
 
 
-class ServiceInsertionActionTypeDef(BaseValidatorModel):
+class ServiceInsertionAction(BaseValidatorModel):
     Action: Optional[SegmentActionServiceInsertionType] = None
     Mode: Optional[SendViaModeType] = None
-    WhenSentTo: Optional[WhenSentToTypeDef] = None
-    Via: Optional[ViaTypeDef] = None
+    WhenSentTo: Optional[WhenSentTo] = None
+    Via: Optional[Via] = None
 
 
-class PathComponentTypeDef(BaseValidatorModel):
+class PathComponent(BaseValidatorModel):
     pass
 
 
-class RouteAnalysisPathTypeDef(BaseValidatorModel):
-    CompletionStatus: Optional[RouteAnalysisCompletionTypeDef] = None
-    Path: Optional[List[PathComponentTypeDef]] = None
+class RouteAnalysisPath(BaseValidatorModel):
+    CompletionStatus: Optional[RouteAnalysisCompletion] = None
+    Path: Optional[List[PathComponent]] = None
 
 
-class NetworkRouteTypeDef(BaseValidatorModel):
+class NetworkRoute(BaseValidatorModel):
     pass
 
 
-class GetNetworkRoutesResponseTypeDef(BaseValidatorModel):
+class GetNetworkRoutesResponse(BaseValidatorModel):
     RouteTableArn: str
-    CoreNetworkSegmentEdge: CoreNetworkSegmentEdgeIdentifierTypeDef
+    CoreNetworkSegmentEdge: CoreNetworkSegmentEdgeIdentifier
     RouteTableType: RouteTableTypeType
     RouteTableTimestamp: datetime
-    NetworkRoutes: List[NetworkRouteTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    NetworkRoutes: List[NetworkRoute]
+    ResponseMetadata: ResponseMetadata
 
 
-class PeeringTypeDef(BaseValidatorModel):
+class Peering(BaseValidatorModel):
     CoreNetworkId: Optional[str] = None
     CoreNetworkArn: Optional[str] = None
     PeeringId: Optional[str] = None
@@ -1404,112 +1404,112 @@ class PeeringTypeDef(BaseValidatorModel):
     State: Optional[PeeringStateType] = None
     EdgeLocation: Optional[str] = None
     ResourceArn: Optional[str] = None
-    Tags: Optional[List[TagTypeDef]] = None
+    Tags: Optional[List[Tag]] = None
     CreatedAt: Optional[datetime] = None
-    LastModificationErrors: Optional[List[PeeringErrorTypeDef]] = None
+    LastModificationErrors: Optional[List[PeeringError]] = None
 
 
-class DeregisterTransitGatewayResponseTypeDef(BaseValidatorModel):
-    TransitGatewayRegistration: TransitGatewayRegistrationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeregisterTransitGatewayResponse(BaseValidatorModel):
+    TransitGatewayRegistration: TransitGatewayRegistration
+    ResponseMetadata: ResponseMetadata
 
 
-class GetTransitGatewayRegistrationsResponseTypeDef(BaseValidatorModel):
-    TransitGatewayRegistrations: List[TransitGatewayRegistrationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetTransitGatewayRegistrationsResponse(BaseValidatorModel):
+    TransitGatewayRegistrations: List[TransitGatewayRegistration]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class RegisterTransitGatewayResponseTypeDef(BaseValidatorModel):
-    TransitGatewayRegistration: TransitGatewayRegistrationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class RegisterTransitGatewayResponse(BaseValidatorModel):
+    TransitGatewayRegistration: TransitGatewayRegistration
+    ResponseMetadata: ResponseMetadata
 
 
-class AcceptAttachmentResponseTypeDef(BaseValidatorModel):
-    Attachment: AttachmentTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class AcceptAttachmentResponse(BaseValidatorModel):
+    Attachment: Attachment
+    ResponseMetadata: ResponseMetadata
 
 
-class ConnectAttachmentTypeDef(BaseValidatorModel):
-    Attachment: Optional[AttachmentTypeDef] = None
+class ConnectAttachment(BaseValidatorModel):
+    Attachment: Optional[Attachment] = None
     TransportAttachmentId: Optional[str] = None
-    Options: Optional[ConnectAttachmentOptionsTypeDef] = None
+    Options: Optional[ConnectAttachmentOptions] = None
 
 
-class DeleteAttachmentResponseTypeDef(BaseValidatorModel):
-    Attachment: AttachmentTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeleteAttachmentResponse(BaseValidatorModel):
+    Attachment: Attachment
+    ResponseMetadata: ResponseMetadata
 
 
-class DirectConnectGatewayAttachmentTypeDef(BaseValidatorModel):
-    Attachment: Optional[AttachmentTypeDef] = None
+class DirectConnectGatewayAttachment(BaseValidatorModel):
+    Attachment: Optional[Attachment] = None
     DirectConnectGatewayArn: Optional[str] = None
 
 
-class ListAttachmentsResponseTypeDef(BaseValidatorModel):
-    Attachments: List[AttachmentTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAttachmentsResponse(BaseValidatorModel):
+    Attachments: List[Attachment]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class RejectAttachmentResponseTypeDef(BaseValidatorModel):
-    Attachment: AttachmentTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class RejectAttachmentResponse(BaseValidatorModel):
+    Attachment: Attachment
+    ResponseMetadata: ResponseMetadata
 
 
-class SiteToSiteVpnAttachmentTypeDef(BaseValidatorModel):
-    Attachment: Optional[AttachmentTypeDef] = None
+class SiteToSiteVpnAttachment(BaseValidatorModel):
+    Attachment: Optional[Attachment] = None
     VpnConnectionArn: Optional[str] = None
 
 
-class TransitGatewayRouteTableAttachmentTypeDef(BaseValidatorModel):
-    Attachment: Optional[AttachmentTypeDef] = None
+class TransitGatewayRouteTableAttachment(BaseValidatorModel):
+    Attachment: Optional[Attachment] = None
     PeeringId: Optional[str] = None
     TransitGatewayRouteTableArn: Optional[str] = None
 
 
-class VpcAttachmentTypeDef(BaseValidatorModel):
-    Attachment: Optional[AttachmentTypeDef] = None
+class VpcAttachment(BaseValidatorModel):
+    Attachment: Optional[Attachment] = None
     SubnetArns: Optional[List[str]] = None
-    Options: Optional[VpcOptionsTypeDef] = None
+    Options: Optional[VpcOptions] = None
 
 
-class CreateConnectPeerResponseTypeDef(BaseValidatorModel):
-    ConnectPeer: ConnectPeerTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateConnectPeerResponse(BaseValidatorModel):
+    ConnectPeer: ConnectPeer
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteConnectPeerResponseTypeDef(BaseValidatorModel):
-    ConnectPeer: ConnectPeerTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeleteConnectPeerResponse(BaseValidatorModel):
+    ConnectPeer: ConnectPeer
+    ResponseMetadata: ResponseMetadata
 
 
-class GetConnectPeerResponseTypeDef(BaseValidatorModel):
-    ConnectPeer: ConnectPeerTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetConnectPeerResponse(BaseValidatorModel):
+    ConnectPeer: ConnectPeer
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateCoreNetworkResponseTypeDef(BaseValidatorModel):
-    CoreNetwork: CoreNetworkTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateCoreNetworkResponse(BaseValidatorModel):
+    CoreNetwork: CoreNetwork
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteCoreNetworkResponseTypeDef(BaseValidatorModel):
-    CoreNetwork: CoreNetworkTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeleteCoreNetworkResponse(BaseValidatorModel):
+    CoreNetwork: CoreNetwork
+    ResponseMetadata: ResponseMetadata
 
 
-class GetCoreNetworkResponseTypeDef(BaseValidatorModel):
-    CoreNetwork: CoreNetworkTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetCoreNetworkResponse(BaseValidatorModel):
+    CoreNetwork: CoreNetwork
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateCoreNetworkResponseTypeDef(BaseValidatorModel):
-    CoreNetwork: CoreNetworkTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateCoreNetworkResponse(BaseValidatorModel):
+    CoreNetwork: CoreNetwork
+    ResponseMetadata: ResponseMetadata
 
 
-class CoreNetworkChangeValuesTypeDef(BaseValidatorModel):
+class CoreNetworkChangeValues(BaseValidatorModel):
     SegmentName: Optional[str] = None
     NetworkFunctionGroupName: Optional[str] = None
     EdgeLocations: Optional[List[str]] = None
@@ -1518,127 +1518,127 @@ class CoreNetworkChangeValuesTypeDef(BaseValidatorModel):
     DestinationIdentifier: Optional[str] = None
     InsideCidrBlocks: Optional[List[str]] = None
     SharedSegments: Optional[List[str]] = None
-    ServiceInsertionActions: Optional[List[ServiceInsertionActionTypeDef]] = None
+    ServiceInsertionActions: Optional[List[ServiceInsertionAction]] = None
 
 
-class RouteAnalysisTypeDef(BaseValidatorModel):
+class RouteAnalysis(BaseValidatorModel):
     GlobalNetworkId: Optional[str] = None
     OwnerAccountId: Optional[str] = None
     RouteAnalysisId: Optional[str] = None
     StartTimestamp: Optional[datetime] = None
     Status: Optional[RouteAnalysisStatusType] = None
-    Source: Optional[RouteAnalysisEndpointOptionsTypeDef] = None
-    Destination: Optional[RouteAnalysisEndpointOptionsTypeDef] = None
+    Source: Optional[RouteAnalysisEndpointOptions] = None
+    Destination: Optional[RouteAnalysisEndpointOptions] = None
     IncludeReturnPath: Optional[bool] = None
     UseMiddleboxes: Optional[bool] = None
-    ForwardPath: Optional[RouteAnalysisPathTypeDef] = None
-    ReturnPath: Optional[RouteAnalysisPathTypeDef] = None
+    ForwardPath: Optional[RouteAnalysisPath] = None
+    ReturnPath: Optional[RouteAnalysisPath] = None
 
 
-class DeletePeeringResponseTypeDef(BaseValidatorModel):
-    Peering: PeeringTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeletePeeringResponse(BaseValidatorModel):
+    Peering: Peering
+    ResponseMetadata: ResponseMetadata
 
 
-class ListPeeringsResponseTypeDef(BaseValidatorModel):
-    Peerings: List[PeeringTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListPeeringsResponse(BaseValidatorModel):
+    Peerings: List[Peering]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class TransitGatewayPeeringTypeDef(BaseValidatorModel):
-    Peering: Optional[PeeringTypeDef] = None
+class TransitGatewayPeering(BaseValidatorModel):
+    Peering: Optional[Peering] = None
     TransitGatewayArn: Optional[str] = None
     TransitGatewayPeeringAttachmentId: Optional[str] = None
 
 
-class CreateConnectAttachmentResponseTypeDef(BaseValidatorModel):
-    ConnectAttachment: ConnectAttachmentTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateConnectAttachmentResponse(BaseValidatorModel):
+    ConnectAttachment: ConnectAttachment
+    ResponseMetadata: ResponseMetadata
 
 
-class GetConnectAttachmentResponseTypeDef(BaseValidatorModel):
-    ConnectAttachment: ConnectAttachmentTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetConnectAttachmentResponse(BaseValidatorModel):
+    ConnectAttachment: ConnectAttachment
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateDirectConnectGatewayAttachmentResponseTypeDef(BaseValidatorModel):
-    DirectConnectGatewayAttachment: DirectConnectGatewayAttachmentTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateDirectConnectGatewayAttachmentResponse(BaseValidatorModel):
+    DirectConnectGatewayAttachment: DirectConnectGatewayAttachment
+    ResponseMetadata: ResponseMetadata
 
 
-class GetDirectConnectGatewayAttachmentResponseTypeDef(BaseValidatorModel):
-    DirectConnectGatewayAttachment: DirectConnectGatewayAttachmentTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetDirectConnectGatewayAttachmentResponse(BaseValidatorModel):
+    DirectConnectGatewayAttachment: DirectConnectGatewayAttachment
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateDirectConnectGatewayAttachmentResponseTypeDef(BaseValidatorModel):
-    DirectConnectGatewayAttachment: DirectConnectGatewayAttachmentTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateDirectConnectGatewayAttachmentResponse(BaseValidatorModel):
+    DirectConnectGatewayAttachment: DirectConnectGatewayAttachment
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateSiteToSiteVpnAttachmentResponseTypeDef(BaseValidatorModel):
-    SiteToSiteVpnAttachment: SiteToSiteVpnAttachmentTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateSiteToSiteVpnAttachmentResponse(BaseValidatorModel):
+    SiteToSiteVpnAttachment: SiteToSiteVpnAttachment
+    ResponseMetadata: ResponseMetadata
 
 
-class GetSiteToSiteVpnAttachmentResponseTypeDef(BaseValidatorModel):
-    SiteToSiteVpnAttachment: SiteToSiteVpnAttachmentTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetSiteToSiteVpnAttachmentResponse(BaseValidatorModel):
+    SiteToSiteVpnAttachment: SiteToSiteVpnAttachment
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateTransitGatewayRouteTableAttachmentResponseTypeDef(BaseValidatorModel):
-    TransitGatewayRouteTableAttachment: TransitGatewayRouteTableAttachmentTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateTransitGatewayRouteTableAttachmentResponse(BaseValidatorModel):
+    TransitGatewayRouteTableAttachment: TransitGatewayRouteTableAttachment
+    ResponseMetadata: ResponseMetadata
 
 
-class GetTransitGatewayRouteTableAttachmentResponseTypeDef(BaseValidatorModel):
-    TransitGatewayRouteTableAttachment: TransitGatewayRouteTableAttachmentTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetTransitGatewayRouteTableAttachmentResponse(BaseValidatorModel):
+    TransitGatewayRouteTableAttachment: TransitGatewayRouteTableAttachment
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateVpcAttachmentResponseTypeDef(BaseValidatorModel):
-    VpcAttachment: VpcAttachmentTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateVpcAttachmentResponse(BaseValidatorModel):
+    VpcAttachment: VpcAttachment
+    ResponseMetadata: ResponseMetadata
 
 
-class GetVpcAttachmentResponseTypeDef(BaseValidatorModel):
-    VpcAttachment: VpcAttachmentTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetVpcAttachmentResponse(BaseValidatorModel):
+    VpcAttachment: VpcAttachment
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateVpcAttachmentResponseTypeDef(BaseValidatorModel):
-    VpcAttachment: VpcAttachmentTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateVpcAttachmentResponse(BaseValidatorModel):
+    VpcAttachment: VpcAttachment
+    ResponseMetadata: ResponseMetadata
 
 
-class GetRouteAnalysisResponseTypeDef(BaseValidatorModel):
-    RouteAnalysis: RouteAnalysisTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetRouteAnalysisResponse(BaseValidatorModel):
+    RouteAnalysis: RouteAnalysis
+    ResponseMetadata: ResponseMetadata
 
 
-class StartRouteAnalysisResponseTypeDef(BaseValidatorModel):
-    RouteAnalysis: RouteAnalysisTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class StartRouteAnalysisResponse(BaseValidatorModel):
+    RouteAnalysis: RouteAnalysis
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateTransitGatewayPeeringResponseTypeDef(BaseValidatorModel):
-    TransitGatewayPeering: TransitGatewayPeeringTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateTransitGatewayPeeringResponse(BaseValidatorModel):
+    TransitGatewayPeering: TransitGatewayPeering
+    ResponseMetadata: ResponseMetadata
 
 
-class GetTransitGatewayPeeringResponseTypeDef(BaseValidatorModel):
-    TransitGatewayPeering: TransitGatewayPeeringTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetTransitGatewayPeeringResponse(BaseValidatorModel):
+    TransitGatewayPeering: TransitGatewayPeering
+    ResponseMetadata: ResponseMetadata
 
 
-class CoreNetworkChangeTypeDef(BaseValidatorModel):
+class CoreNetworkChange(BaseValidatorModel):
     pass
 
 
-class GetCoreNetworkChangeSetResponseTypeDef(BaseValidatorModel):
-    CoreNetworkChanges: List[CoreNetworkChangeTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetCoreNetworkChangeSetResponse(BaseValidatorModel):
+    CoreNetworkChanges: List[CoreNetworkChange]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 

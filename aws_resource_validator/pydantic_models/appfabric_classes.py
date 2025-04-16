@@ -12,35 +12,35 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.appfabric_constants import *
 
-class ApiKeyCredentialTypeDef(BaseValidatorModel):
+class ApiKeyCredential(BaseValidatorModel):
     apiKey: str
 
 
-class TenantTypeDef(BaseValidatorModel):
+class Tenant(BaseValidatorModel):
     tenantIdentifier: str
     tenantDisplayName: str
 
 
-class AppBundleSummaryTypeDef(BaseValidatorModel):
+class AppBundleSummary(BaseValidatorModel):
     arn: str
 
 
-class AppBundleTypeDef(BaseValidatorModel):
+class AppBundle(BaseValidatorModel):
     arn: str
     customerManagedKeyArn: Optional[str] = None
 
 
-class AuthRequestTypeDef(BaseValidatorModel):
+class AuthRequest(BaseValidatorModel):
     redirectUri: str
     code: str
 
 
-class BatchGetUserAccessTasksRequestTypeDef(BaseValidatorModel):
+class BatchGetUserAccessTasksRequest(BaseValidatorModel):
     appBundleIdentifier: str
     taskIdList: Sequence[str]
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -48,12 +48,12 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class TagTypeDef(BaseValidatorModel):
+class Tag(BaseValidatorModel):
     key: str
     value: str
 
 
-class IngestionTypeDef(BaseValidatorModel):
+class Ingestion(BaseValidatorModel):
     arn: str
     appBundleArn: str
     app: str
@@ -64,144 +64,144 @@ class IngestionTypeDef(BaseValidatorModel):
     ingestionType: Literal["auditLog"]
 
 
-class Oauth2CredentialTypeDef(BaseValidatorModel):
+class Oauth2Credential(BaseValidatorModel):
     clientId: str
     clientSecret: str
 
 
-class DeleteAppAuthorizationRequestTypeDef(BaseValidatorModel):
+class DeleteAppAuthorizationRequest(BaseValidatorModel):
     appBundleIdentifier: str
     appAuthorizationIdentifier: str
 
 
-class DeleteAppBundleRequestTypeDef(BaseValidatorModel):
+class DeleteAppBundleRequest(BaseValidatorModel):
     appBundleIdentifier: str
 
 
-class DeleteIngestionDestinationRequestTypeDef(BaseValidatorModel):
+class DeleteIngestionDestinationRequest(BaseValidatorModel):
     appBundleIdentifier: str
     ingestionIdentifier: str
     ingestionDestinationIdentifier: str
 
 
-class DeleteIngestionRequestTypeDef(BaseValidatorModel):
+class DeleteIngestionRequest(BaseValidatorModel):
     appBundleIdentifier: str
     ingestionIdentifier: str
 
 
-class FirehoseStreamTypeDef(BaseValidatorModel):
+class FirehoseStream(BaseValidatorModel):
     streamName: str
 
 
-class S3BucketTypeDef(BaseValidatorModel):
+class S3Bucket(BaseValidatorModel):
     bucketName: str
     prefix: Optional[str] = None
 
 
-class GetAppAuthorizationRequestTypeDef(BaseValidatorModel):
+class GetAppAuthorizationRequest(BaseValidatorModel):
     appBundleIdentifier: str
     appAuthorizationIdentifier: str
 
 
-class GetAppBundleRequestTypeDef(BaseValidatorModel):
+class GetAppBundleRequest(BaseValidatorModel):
     appBundleIdentifier: str
 
 
-class GetIngestionDestinationRequestTypeDef(BaseValidatorModel):
+class GetIngestionDestinationRequest(BaseValidatorModel):
     appBundleIdentifier: str
     ingestionIdentifier: str
     ingestionDestinationIdentifier: str
 
 
-class GetIngestionRequestTypeDef(BaseValidatorModel):
+class GetIngestionRequest(BaseValidatorModel):
     appBundleIdentifier: str
     ingestionIdentifier: str
 
 
-class IngestionDestinationSummaryTypeDef(BaseValidatorModel):
+class IngestionDestinationSummary(BaseValidatorModel):
     arn: str
 
 
-class IngestionSummaryTypeDef(BaseValidatorModel):
+class IngestionSummary(BaseValidatorModel):
     arn: str
     app: str
     tenantId: str
     state: IngestionStateType
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListAppAuthorizationsRequestTypeDef(BaseValidatorModel):
+class ListAppAuthorizationsRequest(BaseValidatorModel):
     appBundleIdentifier: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListAppBundlesRequestTypeDef(BaseValidatorModel):
+class ListAppBundlesRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListIngestionDestinationsRequestTypeDef(BaseValidatorModel):
+class ListIngestionDestinationsRequest(BaseValidatorModel):
     appBundleIdentifier: str
     ingestionIdentifier: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListIngestionsRequestTypeDef(BaseValidatorModel):
+class ListIngestionsRequest(BaseValidatorModel):
     appBundleIdentifier: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
 
-class StartIngestionRequestTypeDef(BaseValidatorModel):
+class StartIngestionRequest(BaseValidatorModel):
     ingestionIdentifier: str
     appBundleIdentifier: str
 
 
-class StartUserAccessTasksRequestTypeDef(BaseValidatorModel):
+class StartUserAccessTasksRequest(BaseValidatorModel):
     appBundleIdentifier: str
     email: str
 
 
-class StopIngestionRequestTypeDef(BaseValidatorModel):
+class StopIngestionRequest(BaseValidatorModel):
     ingestionIdentifier: str
     appBundleIdentifier: str
 
 
-class TaskErrorTypeDef(BaseValidatorModel):
+class TaskError(BaseValidatorModel):
     errorCode: Optional[str] = None
     errorMessage: Optional[str] = None
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
 
-class AppAuthorizationSummaryTypeDef(BaseValidatorModel):
+class AppAuthorizationSummary(BaseValidatorModel):
     appAuthorizationArn: str
     appBundleArn: str
     app: str
-    tenant: TenantTypeDef
+    tenant: Tenant
     status: AppAuthorizationStatusType
     updatedAt: datetime
 
 
-class AppAuthorizationTypeDef(BaseValidatorModel):
+class AppAuthorization(BaseValidatorModel):
     appAuthorizationArn: str
     appBundleArn: str
     app: str
-    tenant: TenantTypeDef
+    tenant: Tenant
     authType: AuthTypeType
     status: AppAuthorizationStatusType
     createdAt: datetime
@@ -210,114 +210,114 @@ class AppAuthorizationTypeDef(BaseValidatorModel):
     authUrl: Optional[str] = None
 
 
-class AuditLogProcessingConfigurationTypeDef(BaseValidatorModel):
+class AuditLogProcessingConfiguration(BaseValidatorModel):
     pass
 
 
-class ProcessingConfigurationTypeDef(BaseValidatorModel):
-    auditLog: Optional[AuditLogProcessingConfigurationTypeDef] = None
+class ProcessingConfiguration(BaseValidatorModel):
+    auditLog: Optional[AuditLogProcessingConfiguration] = None
 
 
-class ConnectAppAuthorizationRequestTypeDef(BaseValidatorModel):
+class ConnectAppAuthorizationRequest(BaseValidatorModel):
     appBundleIdentifier: str
     appAuthorizationIdentifier: str
-    authRequest: Optional[AuthRequestTypeDef] = None
+    authRequest: Optional[AuthRequest] = None
 
 
-class CreateAppBundleResponseTypeDef(BaseValidatorModel):
-    appBundle: AppBundleTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateAppBundleResponse(BaseValidatorModel):
+    appBundle: AppBundle
+    ResponseMetadata: ResponseMetadata
 
 
-class GetAppBundleResponseTypeDef(BaseValidatorModel):
-    appBundle: AppBundleTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetAppBundleResponse(BaseValidatorModel):
+    appBundle: AppBundle
+    ResponseMetadata: ResponseMetadata
 
 
-class ListAppBundlesResponseTypeDef(BaseValidatorModel):
-    appBundleSummaryList: List[AppBundleSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAppBundlesResponse(BaseValidatorModel):
+    appBundleSummaryList: List[AppBundleSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class CreateAppBundleRequestTypeDef(BaseValidatorModel):
+class CreateAppBundleRequest(BaseValidatorModel):
     clientToken: Optional[str] = None
     customerManagedKeyIdentifier: Optional[str] = None
-    tags: Optional[Sequence[TagTypeDef]] = None
+    tags: Optional[Sequence[Tag]] = None
 
 
-class CreateIngestionRequestTypeDef(BaseValidatorModel):
+class CreateIngestionRequest(BaseValidatorModel):
     appBundleIdentifier: str
     app: str
     tenantId: str
     ingestionType: Literal["auditLog"]
     clientToken: Optional[str] = None
-    tags: Optional[Sequence[TagTypeDef]] = None
+    tags: Optional[Sequence[Tag]] = None
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
-    tags: List[TagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListTagsForResourceResponse(BaseValidatorModel):
+    tags: List[Tag]
+    ResponseMetadata: ResponseMetadata
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     resourceArn: str
-    tags: Sequence[TagTypeDef]
+    tags: Sequence[Tag]
 
 
-class CreateIngestionResponseTypeDef(BaseValidatorModel):
-    ingestion: IngestionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateIngestionResponse(BaseValidatorModel):
+    ingestion: Ingestion
+    ResponseMetadata: ResponseMetadata
 
 
-class GetIngestionResponseTypeDef(BaseValidatorModel):
-    ingestion: IngestionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetIngestionResponse(BaseValidatorModel):
+    ingestion: Ingestion
+    ResponseMetadata: ResponseMetadata
 
 
-class CredentialTypeDef(BaseValidatorModel):
-    oauth2Credential: Optional[Oauth2CredentialTypeDef] = None
-    apiKeyCredential: Optional[ApiKeyCredentialTypeDef] = None
+class Credential(BaseValidatorModel):
+    oauth2Credential: Optional[Oauth2Credential] = None
+    apiKeyCredential: Optional[ApiKeyCredential] = None
 
 
-class DestinationTypeDef(BaseValidatorModel):
-    s3Bucket: Optional[S3BucketTypeDef] = None
-    firehoseStream: Optional[FirehoseStreamTypeDef] = None
+class Destination(BaseValidatorModel):
+    s3Bucket: Optional[S3Bucket] = None
+    firehoseStream: Optional[FirehoseStream] = None
 
 
-class ListIngestionDestinationsResponseTypeDef(BaseValidatorModel):
-    ingestionDestinations: List[IngestionDestinationSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListIngestionDestinationsResponse(BaseValidatorModel):
+    ingestionDestinations: List[IngestionDestinationSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListIngestionsResponseTypeDef(BaseValidatorModel):
-    ingestions: List[IngestionSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListIngestionsResponse(BaseValidatorModel):
+    ingestions: List[IngestionSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListAppAuthorizationsRequestPaginateTypeDef(BaseValidatorModel):
+class ListAppAuthorizationsRequestPaginate(BaseValidatorModel):
     appBundleIdentifier: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListAppBundlesRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListAppBundlesRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListIngestionDestinationsRequestPaginateTypeDef(BaseValidatorModel):
+class ListIngestionDestinationsRequestPaginate(BaseValidatorModel):
     appBundleIdentifier: str
     ingestionIdentifier: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListIngestionsRequestPaginateTypeDef(BaseValidatorModel):
+class ListIngestionsRequestPaginate(BaseValidatorModel):
     appBundleIdentifier: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class UserAccessResultItemTypeDef(BaseValidatorModel):
+class UserAccessResultItem(BaseValidatorModel):
     app: Optional[str] = None
     tenantId: Optional[str] = None
     tenantDisplayName: Optional[str] = None
@@ -329,116 +329,116 @@ class UserAccessResultItemTypeDef(BaseValidatorModel):
     userFirstName: Optional[str] = None
     userLastName: Optional[str] = None
     userStatus: Optional[str] = None
-    taskError: Optional[TaskErrorTypeDef] = None
+    taskError: Optional[TaskError] = None
 
 
-class UserAccessTaskItemTypeDef(BaseValidatorModel):
+class UserAccessTaskItem(BaseValidatorModel):
     app: str
     tenantId: str
     taskId: Optional[str] = None
-    error: Optional[TaskErrorTypeDef] = None
+    error: Optional[TaskError] = None
 
 
-class ConnectAppAuthorizationResponseTypeDef(BaseValidatorModel):
-    appAuthorizationSummary: AppAuthorizationSummaryTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class ConnectAppAuthorizationResponse(BaseValidatorModel):
+    appAuthorizationSummary: AppAuthorizationSummary
+    ResponseMetadata: ResponseMetadata
 
 
-class ListAppAuthorizationsResponseTypeDef(BaseValidatorModel):
-    appAuthorizationSummaryList: List[AppAuthorizationSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAppAuthorizationsResponse(BaseValidatorModel):
+    appAuthorizationSummaryList: List[AppAuthorizationSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class CreateAppAuthorizationResponseTypeDef(BaseValidatorModel):
-    appAuthorization: AppAuthorizationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateAppAuthorizationResponse(BaseValidatorModel):
+    appAuthorization: AppAuthorization
+    ResponseMetadata: ResponseMetadata
 
 
-class GetAppAuthorizationResponseTypeDef(BaseValidatorModel):
-    appAuthorization: AppAuthorizationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetAppAuthorizationResponse(BaseValidatorModel):
+    appAuthorization: AppAuthorization
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateAppAuthorizationResponseTypeDef(BaseValidatorModel):
-    appAuthorization: AppAuthorizationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateAppAuthorizationResponse(BaseValidatorModel):
+    appAuthorization: AppAuthorization
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateAppAuthorizationRequestTypeDef(BaseValidatorModel):
+class CreateAppAuthorizationRequest(BaseValidatorModel):
     appBundleIdentifier: str
     app: str
-    credential: CredentialTypeDef
-    tenant: TenantTypeDef
+    credential: Credential
+    tenant: Tenant
     authType: AuthTypeType
     clientToken: Optional[str] = None
-    tags: Optional[Sequence[TagTypeDef]] = None
+    tags: Optional[Sequence[Tag]] = None
 
 
-class UpdateAppAuthorizationRequestTypeDef(BaseValidatorModel):
+class UpdateAppAuthorizationRequest(BaseValidatorModel):
     appBundleIdentifier: str
     appAuthorizationIdentifier: str
-    credential: Optional[CredentialTypeDef] = None
-    tenant: Optional[TenantTypeDef] = None
+    credential: Optional[Credential] = None
+    tenant: Optional[Tenant] = None
 
 
-class AuditLogDestinationConfigurationTypeDef(BaseValidatorModel):
-    destination: DestinationTypeDef
+class AuditLogDestinationConfiguration(BaseValidatorModel):
+    destination: Destination
 
 
-class BatchGetUserAccessTasksResponseTypeDef(BaseValidatorModel):
-    userAccessResultsList: List[UserAccessResultItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchGetUserAccessTasksResponse(BaseValidatorModel):
+    userAccessResultsList: List[UserAccessResultItem]
+    ResponseMetadata: ResponseMetadata
 
 
-class StartUserAccessTasksResponseTypeDef(BaseValidatorModel):
-    userAccessTasksList: List[UserAccessTaskItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class StartUserAccessTasksResponse(BaseValidatorModel):
+    userAccessTasksList: List[UserAccessTaskItem]
+    ResponseMetadata: ResponseMetadata
 
 
-class DestinationConfigurationTypeDef(BaseValidatorModel):
-    auditLog: Optional[AuditLogDestinationConfigurationTypeDef] = None
+class DestinationConfiguration(BaseValidatorModel):
+    auditLog: Optional[AuditLogDestinationConfiguration] = None
 
 
-class CreateIngestionDestinationRequestTypeDef(BaseValidatorModel):
+class CreateIngestionDestinationRequest(BaseValidatorModel):
     appBundleIdentifier: str
     ingestionIdentifier: str
-    processingConfiguration: ProcessingConfigurationTypeDef
-    destinationConfiguration: DestinationConfigurationTypeDef
+    processingConfiguration: ProcessingConfiguration
+    destinationConfiguration: DestinationConfiguration
     clientToken: Optional[str] = None
-    tags: Optional[Sequence[TagTypeDef]] = None
+    tags: Optional[Sequence[Tag]] = None
 
 
-class IngestionDestinationTypeDef(BaseValidatorModel):
+class IngestionDestination(BaseValidatorModel):
     arn: str
     ingestionArn: str
-    processingConfiguration: ProcessingConfigurationTypeDef
-    destinationConfiguration: DestinationConfigurationTypeDef
+    processingConfiguration: ProcessingConfiguration
+    destinationConfiguration: DestinationConfiguration
     status: Optional[IngestionDestinationStatusType] = None
     statusReason: Optional[str] = None
     createdAt: Optional[datetime] = None
     updatedAt: Optional[datetime] = None
 
 
-class UpdateIngestionDestinationRequestTypeDef(BaseValidatorModel):
+class UpdateIngestionDestinationRequest(BaseValidatorModel):
     appBundleIdentifier: str
     ingestionIdentifier: str
     ingestionDestinationIdentifier: str
-    destinationConfiguration: DestinationConfigurationTypeDef
+    destinationConfiguration: DestinationConfiguration
 
 
-class CreateIngestionDestinationResponseTypeDef(BaseValidatorModel):
-    ingestionDestination: IngestionDestinationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateIngestionDestinationResponse(BaseValidatorModel):
+    ingestionDestination: IngestionDestination
+    ResponseMetadata: ResponseMetadata
 
 
-class GetIngestionDestinationResponseTypeDef(BaseValidatorModel):
-    ingestionDestination: IngestionDestinationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetIngestionDestinationResponse(BaseValidatorModel):
+    ingestionDestination: IngestionDestination
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateIngestionDestinationResponseTypeDef(BaseValidatorModel):
-    ingestionDestination: IngestionDestinationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateIngestionDestinationResponse(BaseValidatorModel):
+    ingestionDestination: IngestionDestination
+    ResponseMetadata: ResponseMetadata
 
 

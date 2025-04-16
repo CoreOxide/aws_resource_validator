@@ -6,25 +6,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BatchGetMetricsRequestTypeDef
+# BatchGetMetricsRequest
 
 ### MetricQueries
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_metrics_classes.MetricQueryTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_metrics_classes.MetricQuery]
 - **Required**: Yes
 
 
-# BatchGetMetricsResponseTypeDef
+# BatchGetMetricsResponse
 
 ### MetricQueryResults
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_metrics_classes.MetricQueryResultTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_metrics_classes.MetricQueryResult]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_metrics_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_metrics_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# BatchPutMetricsErrorTypeDef
+# BatchPutMetricsError
 
 ### Code
 - **Type**: typing.Optional[typing.Literal['CONFLICT_ERROR', 'INTERNAL_ERROR', 'METRIC_LIMIT_EXCEEDED', 'VALIDATION_ERROR']]
@@ -33,47 +33,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# BatchPutMetricsRequestTypeDef
+# BatchPutMetricsRequest
 
 ### TrialComponentName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### MetricData
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_metrics_classes.RawMetricDataTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_metrics_classes.RawMetricData]
 - **Required**: Yes
 
 
-# BatchPutMetricsResponseTypeDef
+# BatchPutMetricsResponse
 
 ### Errors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_metrics_classes.BatchPutMetricsErrorTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_metrics_classes.BatchPutMetricsError]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_metrics_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_metrics_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# MetricQueryResultTypeDef
-
-### Status
-- **Type**: typing.Literal['Complete', 'InternalError', 'Truncated', 'ValidationError']
-- **Required**: Yes
-
-### XAxisValues
-- **Type**: typing.List[int]
-- **Required**: Yes
-
-### MetricValues
-- **Type**: typing.List[float]
-- **Required**: Yes
-
-### Message
-- **Type**: typing.Optional[str]
-
-
-# MetricQueryTypeDef
+# MetricQuery
 
 ### MetricName
 - **Type**: <class 'str'>
@@ -102,14 +84,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# RawMetricDataTypeDef
+# MetricQueryResult
+
+### Status
+- **Type**: typing.Literal['Complete', 'InternalError', 'Truncated', 'ValidationError']
+- **Required**: Yes
+
+### XAxisValues
+- **Type**: typing.List[int]
+- **Required**: Yes
+
+### MetricValues
+- **Type**: typing.List[float]
+- **Required**: Yes
+
+### Message
+- **Type**: typing.Optional[str]
+
+
+# RawMetricData
 
 ### MetricName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Timestamp
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_metrics_classes.TimestampTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_metrics_classes.Timestamp'>
 - **Required**: Yes
 
 ### Value
@@ -120,7 +120,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -142,7 +142,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TimestampTypeDef
+# Timestamp
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 

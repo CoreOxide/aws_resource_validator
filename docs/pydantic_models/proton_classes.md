@@ -1,23 +1,23 @@
 # Proton Classes
 
-# AcceptEnvironmentAccountConnectionOutputTypeDef
+# AcceptEnvironmentAccountConnectionOutput
 
 ### environmentAccountConnection
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.EnvironmentAccountConnectionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.EnvironmentAccountConnection'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# AccountSettingsTypeDef
+# AccountSettings
 
 ### pipelineCodebuildRoleArn
 - **Type**: typing.Optional[str]
 
 ### pipelineProvisioningRepository
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.RepositoryBranchTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.RepositoryBranch]
 
 ### pipelineServiceRoleArn
 - **Type**: typing.Optional[str]
@@ -29,43 +29,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CancelComponentDeploymentInputTypeDef
+# CancelComponentDeploymentInput
 
 ### componentName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# CancelComponentDeploymentOutputTypeDef
+# CancelComponentDeploymentOutput
 
 ### component
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ComponentTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.Component'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CancelEnvironmentDeploymentInputTypeDef
+# CancelEnvironmentDeploymentInput
 
 ### environmentName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# CancelEnvironmentDeploymentOutputTypeDef
+# CancelEnvironmentDeploymentOutput
 
 ### environment
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.EnvironmentTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.Environment'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CancelServiceInstanceDeploymentInputTypeDef
+# CancelServiceInstanceDeploymentInput
 
 ### serviceInstanceName
 - **Type**: <class 'str'>
@@ -76,36 +76,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CancelServiceInstanceDeploymentOutputTypeDef
+# CancelServiceInstanceDeploymentOutput
 
 ### serviceInstance
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ServiceInstanceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ServiceInstance'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CancelServicePipelineDeploymentInputTypeDef
+# CancelServicePipelineDeploymentInput
 
 ### serviceName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# CancelServicePipelineDeploymentOutputTypeDef
+# CancelServicePipelineDeploymentOutput
 
 ### pipeline
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ServicePipelineTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ServicePipeline'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CompatibleEnvironmentTemplateInputTypeDef
+# CompatibleEnvironmentTemplate
 
 ### majorVersion
 - **Type**: <class 'str'>
@@ -116,7 +116,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CompatibleEnvironmentTemplateTypeDef
+# CompatibleEnvironmentTemplateInput
 
 ### majorVersion
 - **Type**: <class 'str'>
@@ -127,70 +127,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ComponentStateTypeDef
-
-### serviceInstanceName
-- **Type**: typing.Optional[str]
-
-### serviceName
-- **Type**: typing.Optional[str]
-
-### serviceSpec
-- **Type**: typing.Optional[str]
-
-### templateFile
-- **Type**: typing.Optional[str]
-
-
-# ComponentSummaryTypeDef
-
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### createdAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### deploymentStatus
-- **Type**: typing.Literal['CANCELLED', 'CANCELLING', 'DELETE_COMPLETE', 'DELETE_FAILED', 'DELETE_IN_PROGRESS', 'FAILED', 'IN_PROGRESS', 'SUCCEEDED']
-- **Required**: Yes
-
-### environmentName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### lastModifiedAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### deploymentStatusMessage
-- **Type**: typing.Optional[str]
-
-### lastAttemptedDeploymentId
-- **Type**: typing.Optional[str]
-
-### lastDeploymentAttemptedAt
-- **Type**: typing.Optional[datetime.datetime]
-
-### lastDeploymentSucceededAt
-- **Type**: typing.Optional[datetime.datetime]
-
-### lastSucceededDeploymentId
-- **Type**: typing.Optional[str]
-
-### serviceInstanceName
-- **Type**: typing.Optional[str]
-
-### serviceName
-- **Type**: typing.Optional[str]
-
-
-# ComponentTypeDef
+# Component
 
 ### arn
 - **Type**: <class 'str'>
@@ -247,31 +184,94 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CountsSummaryTypeDef
+# ComponentState
+
+### serviceInstanceName
+- **Type**: typing.Optional[str]
+
+### serviceName
+- **Type**: typing.Optional[str]
+
+### serviceSpec
+- **Type**: typing.Optional[str]
+
+### templateFile
+- **Type**: typing.Optional[str]
+
+
+# ComponentSummary
+
+### arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### deploymentStatus
+- **Type**: typing.Literal['CANCELLED', 'CANCELLING', 'DELETE_COMPLETE', 'DELETE_FAILED', 'DELETE_IN_PROGRESS', 'FAILED', 'IN_PROGRESS', 'SUCCEEDED']
+- **Required**: Yes
+
+### environmentName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### lastModifiedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### deploymentStatusMessage
+- **Type**: typing.Optional[str]
+
+### lastAttemptedDeploymentId
+- **Type**: typing.Optional[str]
+
+### lastDeploymentAttemptedAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### lastDeploymentSucceededAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### lastSucceededDeploymentId
+- **Type**: typing.Optional[str]
+
+### serviceInstanceName
+- **Type**: typing.Optional[str]
+
+### serviceName
+- **Type**: typing.Optional[str]
+
+
+# CountsSummary
 
 ### components
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.ResourceCountsSummaryTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.ResourceCountsSummary]
 
 ### environmentTemplates
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.ResourceCountsSummaryTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.ResourceCountsSummary]
 
 ### environments
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.ResourceCountsSummaryTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.ResourceCountsSummary]
 
 ### pipelines
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.ResourceCountsSummaryTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.ResourceCountsSummary]
 
 ### serviceInstances
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.ResourceCountsSummaryTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.ResourceCountsSummary]
 
 ### serviceTemplates
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.ResourceCountsSummaryTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.ResourceCountsSummary]
 
 ### services
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.ResourceCountsSummaryTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.ResourceCountsSummary]
 
 
-# CreateComponentInputTypeDef
+# CreateComponentInput
 
 ### manifest
 - **Type**: <class 'str'>
@@ -304,21 +304,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.proton_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.proton_classes.Tag]]
 
 
-# CreateComponentOutputTypeDef
+# CreateComponentOutput
 
 ### component
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ComponentTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.Component'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateEnvironmentAccountConnectionInputTypeDef
+# CreateEnvironmentAccountConnectionInput
 
 ### environmentName
 - **Type**: <class 'str'>
@@ -341,21 +341,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.proton_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.proton_classes.Tag]]
 
 
-# CreateEnvironmentAccountConnectionOutputTypeDef
+# CreateEnvironmentAccountConnectionOutput
 
 ### environmentAccountConnection
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.EnvironmentAccountConnectionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.EnvironmentAccountConnection'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateEnvironmentInputTypeDef
+# CreateEnvironmentInput
 
 ### name
 - **Type**: <class 'str'>
@@ -389,27 +389,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### provisioningRepository
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.RepositoryBranchInputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.RepositoryBranchInput]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.proton_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.proton_classes.Tag]]
 
 ### templateMinorVersion
 - **Type**: typing.Optional[str]
 
 
-# CreateEnvironmentOutputTypeDef
+# CreateEnvironmentOutput
 
 ### environment
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.EnvironmentTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.Environment'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateEnvironmentTemplateInputTypeDef
+# CreateEnvironmentTemplateInput
 
 ### name
 - **Type**: <class 'str'>
@@ -428,24 +428,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CUSTOMER_MANAGED']]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.proton_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.proton_classes.Tag]]
 
 
-# CreateEnvironmentTemplateOutputTypeDef
+# CreateEnvironmentTemplateOutput
 
 ### environmentTemplate
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.EnvironmentTemplateTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.EnvironmentTemplate'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateEnvironmentTemplateVersionInputTypeDef
+# CreateEnvironmentTemplateVersionInput
 
 ### source
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.TemplateVersionSourceInputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.TemplateVersionSourceInput'>
 - **Required**: Yes
 
 ### templateName
@@ -462,21 +462,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.proton_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.proton_classes.Tag]]
 
 
-# CreateEnvironmentTemplateVersionOutputTypeDef
+# CreateEnvironmentTemplateVersionOutput
 
 ### environmentTemplateVersion
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.EnvironmentTemplateVersionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.EnvironmentTemplateVersion'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateRepositoryInputTypeDef
+# CreateRepositoryInput
 
 ### connectionArn
 - **Type**: <class 'str'>
@@ -494,21 +494,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.proton_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.proton_classes.Tag]]
 
 
-# CreateRepositoryOutputTypeDef
+# CreateRepositoryOutput
 
 ### repository
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.RepositoryTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.Repository'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateServiceInputTypeDef
+# CreateServiceInput
 
 ### name
 - **Type**: <class 'str'>
@@ -539,13 +539,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.proton_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.proton_classes.Tag]]
 
 ### templateMinorVersion
 - **Type**: typing.Optional[str]
 
 
-# CreateServiceInstanceInputTypeDef
+# CreateServiceInstanceInput
 
 ### name
 - **Type**: <class 'str'>
@@ -563,7 +563,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.proton_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.proton_classes.Tag]]
 
 ### templateMajorVersion
 - **Type**: typing.Optional[str]
@@ -572,29 +572,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateServiceInstanceOutputTypeDef
+# CreateServiceInstanceOutput
 
 ### serviceInstance
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ServiceInstanceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ServiceInstance'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateServiceOutputTypeDef
+# CreateServiceOutput
 
 ### service
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ServiceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.Service'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateServiceSyncConfigInputTypeDef
+# CreateServiceSyncConfigInput
 
 ### branch
 - **Type**: <class 'str'>
@@ -617,18 +617,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateServiceSyncConfigOutputTypeDef
+# CreateServiceSyncConfigOutput
 
 ### serviceSyncConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ServiceSyncConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ServiceSyncConfig'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateServiceTemplateInputTypeDef
+# CreateServiceTemplateInput
 
 ### name
 - **Type**: <class 'str'>
@@ -647,28 +647,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CUSTOMER_MANAGED']]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.proton_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.proton_classes.Tag]]
 
 
-# CreateServiceTemplateOutputTypeDef
+# CreateServiceTemplateOutput
 
 ### serviceTemplate
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ServiceTemplateTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ServiceTemplate'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateServiceTemplateVersionInputTypeDef
+# CreateServiceTemplateVersionInput
 
 ### compatibleEnvironmentTemplates
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.proton_classes.CompatibleEnvironmentTemplateInputTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.proton_classes.CompatibleEnvironmentTemplateInput]
 - **Required**: Yes
 
 ### source
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.TemplateVersionSourceInputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.TemplateVersionSourceInput'>
 - **Required**: Yes
 
 ### templateName
@@ -688,21 +688,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['DIRECTLY_DEFINED']]]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.proton_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.proton_classes.Tag]]
 
 
-# CreateServiceTemplateVersionOutputTypeDef
+# CreateServiceTemplateVersionOutput
 
 ### serviceTemplateVersion
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ServiceTemplateVersionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ServiceTemplateVersion'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateTemplateSyncConfigInputTypeDef
+# CreateTemplateSyncConfigInput
 
 ### branch
 - **Type**: <class 'str'>
@@ -728,94 +728,94 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateTemplateSyncConfigOutputTypeDef
+# CreateTemplateSyncConfigOutput
 
 ### templateSyncConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.TemplateSyncConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.TemplateSyncConfig'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteComponentInputTypeDef
+# DeleteComponentInput
 
 ### name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteComponentOutputTypeDef
+# DeleteComponentOutput
 
 ### component
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ComponentTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.Component'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteDeploymentOutputTypeDef
+# DeleteDeploymentOutput
 
 ### deployment
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.DeploymentTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.Deployment'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteEnvironmentAccountConnectionOutputTypeDef
+# DeleteEnvironmentAccountConnectionOutput
 
 ### environmentAccountConnection
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.EnvironmentAccountConnectionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.EnvironmentAccountConnection'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteEnvironmentInputTypeDef
+# DeleteEnvironmentInput
 
 ### name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteEnvironmentOutputTypeDef
+# DeleteEnvironmentOutput
 
 ### environment
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.EnvironmentTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.Environment'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteEnvironmentTemplateInputTypeDef
+# DeleteEnvironmentTemplateInput
 
 ### name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteEnvironmentTemplateOutputTypeDef
+# DeleteEnvironmentTemplateOutput
 
 ### environmentTemplate
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.EnvironmentTemplateTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.EnvironmentTemplate'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteEnvironmentTemplateVersionInputTypeDef
+# DeleteEnvironmentTemplateVersionInput
 
 ### majorVersion
 - **Type**: <class 'str'>
@@ -830,18 +830,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteEnvironmentTemplateVersionOutputTypeDef
+# DeleteEnvironmentTemplateVersionOutput
 
 ### environmentTemplateVersion
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.EnvironmentTemplateVersionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.EnvironmentTemplateVersion'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteRepositoryInputTypeDef
+# DeleteRepositoryInput
 
 ### name
 - **Type**: <class 'str'>
@@ -852,72 +852,72 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteRepositoryOutputTypeDef
+# DeleteRepositoryOutput
 
 ### repository
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.RepositoryTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.Repository'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteServiceInputTypeDef
+# DeleteServiceInput
 
 ### name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteServiceOutputTypeDef
+# DeleteServiceOutput
 
 ### service
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ServiceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.Service'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteServiceSyncConfigInputTypeDef
+# DeleteServiceSyncConfigInput
 
 ### serviceName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteServiceSyncConfigOutputTypeDef
+# DeleteServiceSyncConfigOutput
 
 ### serviceSyncConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ServiceSyncConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ServiceSyncConfig'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteServiceTemplateInputTypeDef
+# DeleteServiceTemplateInput
 
 ### name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteServiceTemplateOutputTypeDef
+# DeleteServiceTemplateOutput
 
 ### serviceTemplate
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ServiceTemplateTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ServiceTemplate'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteServiceTemplateVersionInputTypeDef
+# DeleteServiceTemplateVersionInput
 
 ### majorVersion
 - **Type**: <class 'str'>
@@ -932,18 +932,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteServiceTemplateVersionOutputTypeDef
+# DeleteServiceTemplateVersionOutput
 
 ### serviceTemplateVersion
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ServiceTemplateVersionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ServiceTemplateVersion'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteTemplateSyncConfigInputTypeDef
+# DeleteTemplateSyncConfigInput
 
 ### templateName
 - **Type**: <class 'str'>
@@ -954,57 +954,132 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteTemplateSyncConfigOutputTypeDef
+# DeleteTemplateSyncConfigOutput
 
 ### templateSyncConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.TemplateSyncConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.TemplateSyncConfig'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeploymentStateTypeDef
+# Deployment
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# DeploymentState
 
 ### component
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.ComponentStateTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.ComponentState]
 
 ### environment
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.EnvironmentStateTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.EnvironmentState]
 
 ### serviceInstance
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.ServiceInstanceStateTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.ServiceInstanceState]
 
 ### servicePipeline
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.ServicePipelineStateTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.ServicePipelineState]
 
 
-# DeploymentSummaryTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# DeploymentTypeDef
+# DeploymentSummary
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# EnvironmentAccountConnectionSummaryTypeDef
+# Environment
+
+### arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### deploymentStatus
+- **Type**: typing.Literal['CANCELLED', 'CANCELLING', 'DELETE_COMPLETE', 'DELETE_FAILED', 'DELETE_IN_PROGRESS', 'FAILED', 'IN_PROGRESS', 'SUCCEEDED']
+- **Required**: Yes
+
+### lastDeploymentAttemptedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### lastDeploymentSucceededAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### templateMajorVersion
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### templateMinorVersion
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### templateName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### codebuildRoleArn
+- **Type**: typing.Optional[str]
+
+### componentRoleArn
+- **Type**: typing.Optional[str]
+
+### deploymentStatusMessage
+- **Type**: typing.Optional[str]
+
+### description
+- **Type**: typing.Optional[str]
+
+### environmentAccountConnectionId
+- **Type**: typing.Optional[str]
+
+### environmentAccountId
+- **Type**: typing.Optional[str]
+
+### lastAttemptedDeploymentId
+- **Type**: typing.Optional[str]
+
+### lastSucceededDeploymentId
+- **Type**: typing.Optional[str]
+
+### protonServiceRoleArn
+- **Type**: typing.Optional[str]
+
+### provisioning
+- **Type**: typing.Optional[typing.Literal['CUSTOMER_MANAGED']]
+
+### provisioningRepository
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.RepositoryBranch]
+
+### spec
+- **Type**: typing.Optional[str]
+
+
+# EnvironmentAccountConnection
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# EnvironmentAccountConnectionTypeDef
+# EnvironmentAccountConnectionSummary
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# EnvironmentStateTypeDef
+# EnvironmentState
 
 ### templateMajorVersion
 - **Type**: <class 'str'>
@@ -1022,7 +1097,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# EnvironmentSummaryTypeDef
+# EnvironmentSummary
 
 ### arn
 - **Type**: <class 'str'>
@@ -1088,49 +1163,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CUSTOMER_MANAGED']]
 
 
-# EnvironmentTemplateFilterTypeDef
-
-### majorVersion
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### templateName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# EnvironmentTemplateSummaryTypeDef
-
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### createdAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### lastModifiedAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### description
-- **Type**: typing.Optional[str]
-
-### displayName
-- **Type**: typing.Optional[str]
-
-### provisioning
-- **Type**: typing.Optional[typing.Literal['CUSTOMER_MANAGED']]
-
-### recommendedVersion
-- **Type**: typing.Optional[str]
-
-
-# EnvironmentTemplateTypeDef
+# EnvironmentTemplate
 
 ### arn
 - **Type**: <class 'str'>
@@ -1164,7 +1197,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# EnvironmentTemplateVersionSummaryTypeDef
+# EnvironmentTemplateFilter
+
+### majorVersion
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### templateName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# EnvironmentTemplateSummary
 
 ### arn
 - **Type**: <class 'str'>
@@ -1178,33 +1222,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'datetime.datetime'>
 - **Required**: Yes
 
-### majorVersion
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### minorVersion
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### status
-- **Type**: typing.Literal['DRAFT', 'PUBLISHED', 'REGISTRATION_FAILED', 'REGISTRATION_IN_PROGRESS']
-- **Required**: Yes
-
-### templateName
+### name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### description
 - **Type**: typing.Optional[str]
 
-### recommendedMinorVersion
+### displayName
 - **Type**: typing.Optional[str]
 
-### statusMessage
+### provisioning
+- **Type**: typing.Optional[typing.Literal['CUSTOMER_MANAGED']]
+
+### recommendedVersion
 - **Type**: typing.Optional[str]
 
 
-# EnvironmentTemplateVersionTypeDef
+# EnvironmentTemplateVersion
 
 ### arn
 - **Type**: <class 'str'>
@@ -1247,7 +1282,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# EnvironmentTypeDef
+# EnvironmentTemplateVersionSummary
 
 ### arn
 - **Type**: <class 'str'>
@@ -1257,189 +1292,154 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'datetime.datetime'>
 - **Required**: Yes
 
-### deploymentStatus
-- **Type**: typing.Literal['CANCELLED', 'CANCELLING', 'DELETE_COMPLETE', 'DELETE_FAILED', 'DELETE_IN_PROGRESS', 'FAILED', 'IN_PROGRESS', 'SUCCEEDED']
-- **Required**: Yes
-
-### lastDeploymentAttemptedAt
+### lastModifiedAt
 - **Type**: <class 'datetime.datetime'>
 - **Required**: Yes
 
-### lastDeploymentSucceededAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### name
+### majorVersion
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### templateMajorVersion
+### minorVersion
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### templateMinorVersion
-- **Type**: <class 'str'>
+### status
+- **Type**: typing.Literal['DRAFT', 'PUBLISHED', 'REGISTRATION_FAILED', 'REGISTRATION_IN_PROGRESS']
 - **Required**: Yes
 
 ### templateName
 - **Type**: <class 'str'>
 - **Required**: Yes
-
-### codebuildRoleArn
-- **Type**: typing.Optional[str]
-
-### componentRoleArn
-- **Type**: typing.Optional[str]
-
-### deploymentStatusMessage
-- **Type**: typing.Optional[str]
 
 ### description
 - **Type**: typing.Optional[str]
 
-### environmentAccountConnectionId
+### recommendedMinorVersion
 - **Type**: typing.Optional[str]
 
-### environmentAccountId
-- **Type**: typing.Optional[str]
-
-### lastAttemptedDeploymentId
-- **Type**: typing.Optional[str]
-
-### lastSucceededDeploymentId
-- **Type**: typing.Optional[str]
-
-### protonServiceRoleArn
-- **Type**: typing.Optional[str]
-
-### provisioning
-- **Type**: typing.Optional[typing.Literal['CUSTOMER_MANAGED']]
-
-### provisioningRepository
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.RepositoryBranchTypeDef]
-
-### spec
+### statusMessage
 - **Type**: typing.Optional[str]
 
 
-# GetAccountSettingsOutputTypeDef
+# GetAccountSettingsOutput
 
 ### accountSettings
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.AccountSettingsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.AccountSettings'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetComponentInputTypeDef
+# GetComponentInput
 
 ### name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetComponentInputWaitExtraTypeDef
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### WaiterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.WaiterConfigTypeDef]
-
-
-# GetComponentInputWaitTypeDef
+# GetComponentInputWait
 
 ### name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### WaiterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.WaiterConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# GetComponentOutputTypeDef
+# GetComponentInputWaitExtra
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### WaiterConfig
+- **Type**: <class 'NoneType'>
+
+
+# GetComponentOutput
 
 ### component
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ComponentTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.Component'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetDeploymentOutputTypeDef
+# GetDeploymentOutput
 
 ### deployment
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.DeploymentTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.Deployment'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetEnvironmentAccountConnectionOutputTypeDef
+# GetEnvironmentAccountConnectionOutput
 
 ### environmentAccountConnection
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.EnvironmentAccountConnectionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.EnvironmentAccountConnection'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetEnvironmentInputTypeDef
+# GetEnvironmentInput
 
 ### name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetEnvironmentInputWaitTypeDef
+# GetEnvironmentInputWait
 
 ### name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### WaiterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.WaiterConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# GetEnvironmentOutputTypeDef
+# GetEnvironmentOutput
 
 ### environment
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.EnvironmentTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.Environment'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetEnvironmentTemplateInputTypeDef
+# GetEnvironmentTemplateInput
 
 ### name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetEnvironmentTemplateOutputTypeDef
+# GetEnvironmentTemplateOutput
 
 ### environmentTemplate
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.EnvironmentTemplateTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.EnvironmentTemplate'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetEnvironmentTemplateVersionInputTypeDef
+# GetEnvironmentTemplateVersionInput
 
 ### majorVersion
 - **Type**: <class 'str'>
@@ -1454,7 +1454,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetEnvironmentTemplateVersionInputWaitTypeDef
+# GetEnvironmentTemplateVersionInputWait
 
 ### majorVersion
 - **Type**: <class 'str'>
@@ -1469,21 +1469,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### WaiterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.WaiterConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# GetEnvironmentTemplateVersionOutputTypeDef
+# GetEnvironmentTemplateVersionOutput
 
 ### environmentTemplateVersion
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.EnvironmentTemplateVersionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.EnvironmentTemplateVersion'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetRepositoryInputTypeDef
+# GetRepositoryInput
 
 ### name
 - **Type**: <class 'str'>
@@ -1494,18 +1494,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetRepositoryOutputTypeDef
+# GetRepositoryOutput
 
 ### repository
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.RepositoryTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.Repository'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetRepositorySyncStatusInputTypeDef
+# GetRepositorySyncStatusInput
 
 ### branch
 - **Type**: <class 'str'>
@@ -1524,76 +1524,76 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetRepositorySyncStatusOutputTypeDef
+# GetRepositorySyncStatusOutput
 
 ### latestSync
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.RepositorySyncAttemptTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.RepositorySyncAttempt'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetResourcesSummaryOutputTypeDef
+# GetResourcesSummaryOutput
 
 ### counts
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.CountsSummaryTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.CountsSummary'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetServiceInputTypeDef
+# GetServiceInput
 
 ### name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetServiceInputWaitExtraExtraExtraTypeDef
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### WaiterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.WaiterConfigTypeDef]
-
-
-# GetServiceInputWaitExtraExtraTypeDef
+# GetServiceInputWait
 
 ### name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### WaiterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.WaiterConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# GetServiceInputWaitExtraTypeDef
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### WaiterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.WaiterConfigTypeDef]
-
-
-# GetServiceInputWaitTypeDef
+# GetServiceInputWaitExtra
 
 ### name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### WaiterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.WaiterConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# GetServiceInstanceInputTypeDef
+# GetServiceInputWaitExtraExtra
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### WaiterConfig
+- **Type**: <class 'NoneType'>
+
+
+# GetServiceInputWaitExtraExtraExtra
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### WaiterConfig
+- **Type**: <class 'NoneType'>
+
+
+# GetServiceInstanceInput
 
 ### name
 - **Type**: <class 'str'>
@@ -1604,7 +1604,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetServiceInstanceInputWaitTypeDef
+# GetServiceInstanceInputWait
 
 ### name
 - **Type**: <class 'str'>
@@ -1615,21 +1615,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### WaiterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.WaiterConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# GetServiceInstanceOutputTypeDef
+# GetServiceInstanceOutput
 
 ### serviceInstance
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ServiceInstanceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ServiceInstance'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetServiceInstanceSyncStatusInputTypeDef
+# GetServiceInstanceSyncStatusInput
 
 ### serviceInstanceName
 - **Type**: <class 'str'>
@@ -1640,37 +1640,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetServiceInstanceSyncStatusOutputTypeDef
+# GetServiceInstanceSyncStatusOutput
 
 ### desiredState
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.RevisionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.Revision'>
 - **Required**: Yes
 
 ### latestSuccessfulSync
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResourceSyncAttemptTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResourceSyncAttempt'>
 - **Required**: Yes
 
 ### latestSync
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResourceSyncAttemptTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResourceSyncAttempt'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetServiceOutputTypeDef
+# GetServiceOutput
 
 ### service
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ServiceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.Service'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetServiceSyncBlockerSummaryInputTypeDef
+# GetServiceSyncBlockerSummaryInput
 
 ### serviceName
 - **Type**: <class 'str'>
@@ -1680,54 +1680,54 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetServiceSyncBlockerSummaryOutputTypeDef
+# GetServiceSyncBlockerSummaryOutput
 
 ### serviceSyncBlockerSummary
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ServiceSyncBlockerSummaryTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ServiceSyncBlockerSummary'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetServiceSyncConfigInputTypeDef
+# GetServiceSyncConfigInput
 
 ### serviceName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetServiceSyncConfigOutputTypeDef
+# GetServiceSyncConfigOutput
 
 ### serviceSyncConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ServiceSyncConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ServiceSyncConfig'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetServiceTemplateInputTypeDef
+# GetServiceTemplateInput
 
 ### name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetServiceTemplateOutputTypeDef
+# GetServiceTemplateOutput
 
 ### serviceTemplate
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ServiceTemplateTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ServiceTemplate'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetServiceTemplateVersionInputTypeDef
+# GetServiceTemplateVersionInput
 
 ### majorVersion
 - **Type**: <class 'str'>
@@ -1742,7 +1742,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetServiceTemplateVersionInputWaitTypeDef
+# GetServiceTemplateVersionInputWait
 
 ### majorVersion
 - **Type**: <class 'str'>
@@ -1757,21 +1757,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### WaiterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.WaiterConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# GetServiceTemplateVersionOutputTypeDef
+# GetServiceTemplateVersionOutput
 
 ### serviceTemplateVersion
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ServiceTemplateVersionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ServiceTemplateVersion'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetTemplateSyncConfigInputTypeDef
+# GetTemplateSyncConfigInput
 
 ### templateName
 - **Type**: <class 'str'>
@@ -1782,18 +1782,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetTemplateSyncConfigOutputTypeDef
+# GetTemplateSyncConfigOutput
 
 ### templateSyncConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.TemplateSyncConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.TemplateSyncConfig'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetTemplateSyncStatusInputTypeDef
+# GetTemplateSyncStatusInput
 
 ### templateName
 - **Type**: <class 'str'>
@@ -1808,39 +1808,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetTemplateSyncStatusOutputTypeDef
+# GetTemplateSyncStatusOutput
 
 ### desiredState
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.RevisionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.Revision'>
 - **Required**: Yes
 
 ### latestSuccessfulSync
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResourceSyncAttemptTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResourceSyncAttempt'>
 - **Required**: Yes
 
 ### latestSync
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResourceSyncAttemptTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResourceSyncAttempt'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListComponentOutputsInputPaginateTypeDef
-
-### componentName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### deploymentId
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.PaginatorConfigTypeDef]
-
-
-# ListComponentOutputsInputTypeDef
+# ListComponentOutputsInput
 
 ### componentName
 - **Type**: <class 'str'>
@@ -1853,70 +1840,68 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListComponentOutputsOutputTypeDef
+# ListComponentOutputsInputPaginate
+
+### componentName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### deploymentId
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.PaginatorConfig]
+
+
+# ListComponentOutputsOutput
 
 ### outputs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.proton_classes.OutputTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.proton_classes.Output]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListComponentProvisionedResourcesInputPaginateTypeDef
+# ListComponentProvisionedResourcesInput
+
+### componentName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+
+# ListComponentProvisionedResourcesInputPaginate
 
 ### componentName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.PaginatorConfig]
 
 
-# ListComponentProvisionedResourcesInputTypeDef
-
-### componentName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### nextToken
-- **Type**: typing.Optional[str]
-
-
-# ListComponentProvisionedResourcesOutputTypeDef
+# ListComponentProvisionedResourcesOutput
 
 ### provisionedResources
-- **Type**: typing.List[aws_resource_validator.pydantic_models.proton_classes.ProvisionedResourceTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.proton_classes.ProvisionedResource]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListComponentsInputPaginateTypeDef
-
-### environmentName
-- **Type**: typing.Optional[str]
-
-### serviceInstanceName
-- **Type**: typing.Optional[str]
-
-### serviceName
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.PaginatorConfigTypeDef]
-
-
-# ListComponentsInputTypeDef
+# ListComponentsInput
 
 ### environmentName
 - **Type**: typing.Optional[str]
@@ -1934,39 +1919,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListComponentsOutputTypeDef
+# ListComponentsInputPaginate
+
+### environmentName
+- **Type**: typing.Optional[str]
+
+### serviceInstanceName
+- **Type**: typing.Optional[str]
+
+### serviceName
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.PaginatorConfig]
+
+
+# ListComponentsOutput
 
 ### components
-- **Type**: typing.List[aws_resource_validator.pydantic_models.proton_classes.ComponentSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.proton_classes.ComponentSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListDeploymentsInputPaginateTypeDef
-
-### componentName
-- **Type**: typing.Optional[str]
-
-### environmentName
-- **Type**: typing.Optional[str]
-
-### serviceInstanceName
-- **Type**: typing.Optional[str]
-
-### serviceName
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.PaginatorConfigTypeDef]
-
-
-# ListDeploymentsInputTypeDef
+# ListDeploymentsInput
 
 ### componentName
 - **Type**: typing.Optional[str]
@@ -1987,37 +1969,39 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListDeploymentsOutputTypeDef
+# ListDeploymentsInputPaginate
+
+### componentName
+- **Type**: typing.Optional[str]
+
+### environmentName
+- **Type**: typing.Optional[str]
+
+### serviceInstanceName
+- **Type**: typing.Optional[str]
+
+### serviceName
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.PaginatorConfig]
+
+
+# ListDeploymentsOutput
 
 ### deployments
-- **Type**: typing.List[aws_resource_validator.pydantic_models.proton_classes.DeploymentSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.proton_classes.DeploymentSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListEnvironmentAccountConnectionsInputPaginateTypeDef
-
-### requestedBy
-- **Type**: typing.Literal['ENVIRONMENT_ACCOUNT', 'MANAGEMENT_ACCOUNT']
-- **Required**: Yes
-
-### environmentName
-- **Type**: typing.Optional[str]
-
-### statuses
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['CONNECTED', 'PENDING', 'REJECTED']]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.PaginatorConfigTypeDef]
-
-
-# ListEnvironmentAccountConnectionsInputTypeDef
+# ListEnvironmentAccountConnectionsInput
 
 ### requestedBy
 - **Type**: typing.Literal['ENVIRONMENT_ACCOUNT', 'MANAGEMENT_ACCOUNT']
@@ -2036,21 +2020,50 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['CONNECTED', 'PENDING', 'REJECTED']]]
 
 
-# ListEnvironmentAccountConnectionsOutputTypeDef
+# ListEnvironmentAccountConnectionsInputPaginate
+
+### requestedBy
+- **Type**: typing.Literal['ENVIRONMENT_ACCOUNT', 'MANAGEMENT_ACCOUNT']
+- **Required**: Yes
+
+### environmentName
+- **Type**: typing.Optional[str]
+
+### statuses
+- **Type**: typing.Optional[typing.Sequence[typing.Literal['CONNECTED', 'PENDING', 'REJECTED']]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.PaginatorConfig]
+
+
+# ListEnvironmentAccountConnectionsOutput
 
 ### environmentAccountConnections
-- **Type**: typing.List[aws_resource_validator.pydantic_models.proton_classes.EnvironmentAccountConnectionSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.proton_classes.EnvironmentAccountConnectionSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListEnvironmentOutputsInputPaginateTypeDef
+# ListEnvironmentOutputsInput
+
+### environmentName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### deploymentId
+- **Type**: typing.Optional[str]
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+
+# ListEnvironmentOutputsInputPaginate
 
 ### environmentName
 - **Type**: <class 'str'>
@@ -2060,84 +2073,58 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.PaginatorConfig]
 
 
-# ListEnvironmentOutputsInputTypeDef
-
-### environmentName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### deploymentId
-- **Type**: typing.Optional[str]
-
-### nextToken
-- **Type**: typing.Optional[str]
-
-
-# ListEnvironmentOutputsOutputTypeDef
+# ListEnvironmentOutputsOutput
 
 ### outputs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.proton_classes.OutputTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.proton_classes.Output]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListEnvironmentProvisionedResourcesInputPaginateTypeDef
+# ListEnvironmentProvisionedResourcesInput
+
+### environmentName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+
+# ListEnvironmentProvisionedResourcesInputPaginate
 
 ### environmentName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.PaginatorConfig]
 
 
-# ListEnvironmentProvisionedResourcesInputTypeDef
-
-### environmentName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### nextToken
-- **Type**: typing.Optional[str]
-
-
-# ListEnvironmentProvisionedResourcesOutputTypeDef
+# ListEnvironmentProvisionedResourcesOutput
 
 ### provisionedResources
-- **Type**: typing.List[aws_resource_validator.pydantic_models.proton_classes.ProvisionedResourceTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.proton_classes.ProvisionedResource]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListEnvironmentTemplateVersionsInputPaginateTypeDef
-
-### templateName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### majorVersion
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.PaginatorConfigTypeDef]
-
-
-# ListEnvironmentTemplateVersionsInputTypeDef
+# ListEnvironmentTemplateVersionsInput
 
 ### templateName
 - **Type**: <class 'str'>
@@ -2153,27 +2140,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListEnvironmentTemplateVersionsOutputTypeDef
+# ListEnvironmentTemplateVersionsInputPaginate
+
+### templateName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### majorVersion
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.PaginatorConfig]
+
+
+# ListEnvironmentTemplateVersionsOutput
 
 ### templateVersions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.proton_classes.EnvironmentTemplateVersionSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.proton_classes.EnvironmentTemplateVersionSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListEnvironmentTemplatesInputPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.PaginatorConfigTypeDef]
-
-
-# ListEnvironmentTemplatesInputTypeDef
+# ListEnvironmentTemplatesInput
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -2182,33 +2176,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListEnvironmentTemplatesOutputTypeDef
+# ListEnvironmentTemplatesInputPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.PaginatorConfig]
+
+
+# ListEnvironmentTemplatesOutput
 
 ### templates
-- **Type**: typing.List[aws_resource_validator.pydantic_models.proton_classes.EnvironmentTemplateSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.proton_classes.EnvironmentTemplateSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListEnvironmentsInputPaginateTypeDef
+# ListEnvironmentsInput
 
 ### environmentTemplates
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.proton_classes.EnvironmentTemplateFilterTypeDef]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.PaginatorConfigTypeDef]
-
-
-# ListEnvironmentsInputTypeDef
-
-### environmentTemplates
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.proton_classes.EnvironmentTemplateFilterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.proton_classes.EnvironmentTemplateFilter]]
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -2217,27 +2208,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListEnvironmentsOutputTypeDef
+# ListEnvironmentsInputPaginate
+
+### environmentTemplates
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.proton_classes.EnvironmentTemplateFilter]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.PaginatorConfig]
+
+
+# ListEnvironmentsOutput
 
 ### environments
-- **Type**: typing.List[aws_resource_validator.pydantic_models.proton_classes.EnvironmentSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.proton_classes.EnvironmentSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListRepositoriesInputPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.PaginatorConfigTypeDef]
-
-
-# ListRepositoriesInputTypeDef
+# ListRepositoriesInput
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -2246,21 +2240,45 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListRepositoriesOutputTypeDef
+# ListRepositoriesInputPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.PaginatorConfig]
+
+
+# ListRepositoriesOutput
 
 ### repositories
-- **Type**: typing.List[aws_resource_validator.pydantic_models.proton_classes.RepositorySummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.proton_classes.RepositorySummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListRepositorySyncDefinitionsInputPaginateTypeDef
+# ListRepositorySyncDefinitionsInput
+
+### repositoryName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### repositoryProvider
+- **Type**: typing.Literal['BITBUCKET', 'GITHUB', 'GITHUB_ENTERPRISE']
+- **Required**: Yes
+
+### syncType
+- **Type**: typing.Literal['SERVICE_SYNC', 'TEMPLATE_SYNC']
+- **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+
+# ListRepositorySyncDefinitionsInputPaginate
 
 ### repositoryName
 - **Type**: <class 'str'>
@@ -2275,42 +2293,41 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.PaginatorConfig]
 
 
-# ListRepositorySyncDefinitionsInputTypeDef
-
-### repositoryName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### repositoryProvider
-- **Type**: typing.Literal['BITBUCKET', 'GITHUB', 'GITHUB_ENTERPRISE']
-- **Required**: Yes
-
-### syncType
-- **Type**: typing.Literal['SERVICE_SYNC', 'TEMPLATE_SYNC']
-- **Required**: Yes
-
-### nextToken
-- **Type**: typing.Optional[str]
-
-
-# ListRepositorySyncDefinitionsOutputTypeDef
+# ListRepositorySyncDefinitionsOutput
 
 ### syncDefinitions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.proton_classes.RepositorySyncDefinitionTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.proton_classes.RepositorySyncDefinition]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListServiceInstanceOutputsInputPaginateTypeDef
+# ListServiceInstanceOutputsInput
+
+### serviceInstanceName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### serviceName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### deploymentId
+- **Type**: typing.Optional[str]
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+
+# ListServiceInstanceOutputsInputPaginate
 
 ### serviceInstanceName
 - **Type**: <class 'str'>
@@ -2324,41 +2341,38 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.PaginatorConfig]
 
 
-# ListServiceInstanceOutputsInputTypeDef
-
-### serviceInstanceName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### serviceName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### deploymentId
-- **Type**: typing.Optional[str]
-
-### nextToken
-- **Type**: typing.Optional[str]
-
-
-# ListServiceInstanceOutputsOutputTypeDef
+# ListServiceInstanceOutputsOutput
 
 ### outputs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.proton_classes.OutputTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.proton_classes.Output]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListServiceInstanceProvisionedResourcesInputPaginateTypeDef
+# ListServiceInstanceProvisionedResourcesInput
+
+### serviceInstanceName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### serviceName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+
+# ListServiceInstanceProvisionedResourcesInputPaginate
 
 ### serviceInstanceName
 - **Type**: <class 'str'>
@@ -2369,38 +2383,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.PaginatorConfig]
 
 
-# ListServiceInstanceProvisionedResourcesInputTypeDef
-
-### serviceInstanceName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### serviceName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### nextToken
-- **Type**: typing.Optional[str]
-
-
-# ListServiceInstanceProvisionedResourcesOutputTypeDef
+# ListServiceInstanceProvisionedResourcesOutput
 
 ### provisionedResources
-- **Type**: typing.List[aws_resource_validator.pydantic_models.proton_classes.ProvisionedResourceTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.proton_classes.ProvisionedResource]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListServiceInstancesFilterTypeDef
+# ListServiceInstancesFilter
 
 ### key
 - **Type**: typing.Optional[typing.Literal['createdAtAfter', 'createdAtBefore', 'deployedTemplateVersionStatus', 'deploymentStatus', 'environmentName', 'lastDeploymentAttemptedAtAfter', 'lastDeploymentAttemptedAtBefore', 'name', 'serviceName', 'templateName']]
@@ -2409,28 +2409,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListServiceInstancesInputPaginateTypeDef
+# ListServiceInstancesInput
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.proton_classes.ListServiceInstancesFilterTypeDef]]
-
-### serviceName
-- **Type**: typing.Optional[str]
-
-### sortBy
-- **Type**: typing.Optional[typing.Literal['createdAt', 'deploymentStatus', 'environmentName', 'lastDeploymentAttemptedAt', 'name', 'serviceName', 'templateName']]
-
-### sortOrder
-- **Type**: typing.Optional[typing.Literal['ASCENDING', 'DESCENDING']]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.PaginatorConfigTypeDef]
-
-
-# ListServiceInstancesInputTypeDef
-
-### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.proton_classes.ListServiceInstancesFilterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.proton_classes.ListServiceInstancesFilter]]
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -2448,21 +2430,52 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ASCENDING', 'DESCENDING']]
 
 
-# ListServiceInstancesOutputTypeDef
+# ListServiceInstancesInputPaginate
+
+### filters
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.proton_classes.ListServiceInstancesFilter]]
+
+### serviceName
+- **Type**: typing.Optional[str]
+
+### sortBy
+- **Type**: typing.Optional[typing.Literal['createdAt', 'deploymentStatus', 'environmentName', 'lastDeploymentAttemptedAt', 'name', 'serviceName', 'templateName']]
+
+### sortOrder
+- **Type**: typing.Optional[typing.Literal['ASCENDING', 'DESCENDING']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.PaginatorConfig]
+
+
+# ListServiceInstancesOutput
 
 ### serviceInstances
-- **Type**: typing.List[aws_resource_validator.pydantic_models.proton_classes.ServiceInstanceSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.proton_classes.ServiceInstanceSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListServicePipelineOutputsInputPaginateTypeDef
+# ListServicePipelineOutputsInput
+
+### serviceName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### deploymentId
+- **Type**: typing.Optional[str]
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+
+# ListServicePipelineOutputsInputPaginate
 
 ### serviceName
 - **Type**: <class 'str'>
@@ -2472,84 +2485,58 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.PaginatorConfig]
 
 
-# ListServicePipelineOutputsInputTypeDef
-
-### serviceName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### deploymentId
-- **Type**: typing.Optional[str]
-
-### nextToken
-- **Type**: typing.Optional[str]
-
-
-# ListServicePipelineOutputsOutputTypeDef
+# ListServicePipelineOutputsOutput
 
 ### outputs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.proton_classes.OutputTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.proton_classes.Output]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListServicePipelineProvisionedResourcesInputPaginateTypeDef
+# ListServicePipelineProvisionedResourcesInput
+
+### serviceName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+
+# ListServicePipelineProvisionedResourcesInputPaginate
 
 ### serviceName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.PaginatorConfig]
 
 
-# ListServicePipelineProvisionedResourcesInputTypeDef
-
-### serviceName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### nextToken
-- **Type**: typing.Optional[str]
-
-
-# ListServicePipelineProvisionedResourcesOutputTypeDef
+# ListServicePipelineProvisionedResourcesOutput
 
 ### provisionedResources
-- **Type**: typing.List[aws_resource_validator.pydantic_models.proton_classes.ProvisionedResourceTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.proton_classes.ProvisionedResource]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListServiceTemplateVersionsInputPaginateTypeDef
-
-### templateName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### majorVersion
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.PaginatorConfigTypeDef]
-
-
-# ListServiceTemplateVersionsInputTypeDef
+# ListServiceTemplateVersionsInput
 
 ### templateName
 - **Type**: <class 'str'>
@@ -2565,27 +2552,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListServiceTemplateVersionsOutputTypeDef
+# ListServiceTemplateVersionsInputPaginate
+
+### templateName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### majorVersion
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.PaginatorConfig]
+
+
+# ListServiceTemplateVersionsOutput
 
 ### templateVersions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.proton_classes.ServiceTemplateVersionSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.proton_classes.ServiceTemplateVersionSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListServiceTemplatesInputPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.PaginatorConfigTypeDef]
-
-
-# ListServiceTemplatesInputTypeDef
+# ListServiceTemplatesInput
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -2594,27 +2588,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListServiceTemplatesOutputTypeDef
+# ListServiceTemplatesInputPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.PaginatorConfig]
+
+
+# ListServiceTemplatesOutput
 
 ### templates
-- **Type**: typing.List[aws_resource_validator.pydantic_models.proton_classes.ServiceTemplateSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.proton_classes.ServiceTemplateSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListServicesInputPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.PaginatorConfigTypeDef]
-
-
-# ListServicesInputTypeDef
+# ListServicesInput
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -2623,31 +2617,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListServicesOutputTypeDef
+# ListServicesInputPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.PaginatorConfig]
+
+
+# ListServicesOutput
 
 ### services
-- **Type**: typing.List[aws_resource_validator.pydantic_models.proton_classes.ServiceSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.proton_classes.ServiceSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceInputPaginateTypeDef
-
-### resourceArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.PaginatorConfigTypeDef]
-
-
-# ListTagsForResourceInputTypeDef
+# ListTagsForResourceInput
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -2660,21 +2650,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceOutputTypeDef
+# ListTagsForResourceInputPaginate
+
+### resourceArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.PaginatorConfig]
+
+
+# ListTagsForResourceOutput
 
 ### tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.proton_classes.TagTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.proton_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# NotifyResourceDeploymentStatusChangeInputTypeDef
+# NotifyResourceDeploymentStatusChangeInput
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -2684,7 +2684,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### outputs
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.proton_classes.OutputTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.proton_classes.Output]]
 
 ### status
 - **Type**: typing.Optional[typing.Literal['FAILED', 'IN_PROGRESS', 'SUCCEEDED']]
@@ -2693,7 +2693,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# OutputTypeDef
+# Output
 
 ### key
 - **Type**: typing.Optional[str]
@@ -2702,7 +2702,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -2714,7 +2714,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ProvisionedResourceTypeDef
+# ProvisionedResource
 
 ### identifier
 - **Type**: typing.Optional[str]
@@ -2726,111 +2726,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CLOUDFORMATION', 'TERRAFORM']]
 
 
-# RejectEnvironmentAccountConnectionOutputTypeDef
+# RejectEnvironmentAccountConnectionOutput
 
 ### environmentAccountConnection
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.EnvironmentAccountConnectionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.EnvironmentAccountConnection'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# RepositoryBranchInputTypeDef
-
-### branch
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### provider
-- **Type**: typing.Literal['BITBUCKET', 'GITHUB', 'GITHUB_ENTERPRISE']
-- **Required**: Yes
-
-
-# RepositoryBranchTypeDef
-
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### branch
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### provider
-- **Type**: typing.Literal['BITBUCKET', 'GITHUB', 'GITHUB_ENTERPRISE']
-- **Required**: Yes
-
-
-# RepositorySummaryTypeDef
-
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### connectionArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### provider
-- **Type**: typing.Literal['BITBUCKET', 'GITHUB', 'GITHUB_ENTERPRISE']
-- **Required**: Yes
-
-
-# RepositorySyncAttemptTypeDef
-
-### events
-- **Type**: typing.List[aws_resource_validator.pydantic_models.proton_classes.RepositorySyncEventTypeDef]
-- **Required**: Yes
-
-### startedAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### status
-- **Type**: typing.Literal['FAILED', 'INITIATED', 'IN_PROGRESS', 'QUEUED', 'SUCCEEDED']
-- **Required**: Yes
-
-
-# RepositorySyncDefinitionTypeDef
-
-### branch
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### directory
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### parent
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### target
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# RepositorySyncEventTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# RepositoryTypeDef
+# Repository
 
 ### arn
 - **Type**: <class 'str'>
@@ -2852,7 +2759,100 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ResourceCountsSummaryTypeDef
+# RepositoryBranch
+
+### arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### branch
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### provider
+- **Type**: typing.Literal['BITBUCKET', 'GITHUB', 'GITHUB_ENTERPRISE']
+- **Required**: Yes
+
+
+# RepositoryBranchInput
+
+### branch
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### provider
+- **Type**: typing.Literal['BITBUCKET', 'GITHUB', 'GITHUB_ENTERPRISE']
+- **Required**: Yes
+
+
+# RepositorySummary
+
+### arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### connectionArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### provider
+- **Type**: typing.Literal['BITBUCKET', 'GITHUB', 'GITHUB_ENTERPRISE']
+- **Required**: Yes
+
+
+# RepositorySyncAttempt
+
+### events
+- **Type**: typing.List[aws_resource_validator.pydantic_models.proton_classes.RepositorySyncEvent]
+- **Required**: Yes
+
+### startedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['FAILED', 'INITIATED', 'IN_PROGRESS', 'QUEUED', 'SUCCEEDED']
+- **Required**: Yes
+
+
+# RepositorySyncDefinition
+
+### branch
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### directory
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### parent
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### target
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# RepositorySyncEvent
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# ResourceCountsSummary
 
 ### total
 - **Type**: <class 'int'>
@@ -2871,14 +2871,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ResourceSyncAttemptTypeDef
+# ResourceSyncAttempt
 
 ### events
-- **Type**: typing.List[aws_resource_validator.pydantic_models.proton_classes.ResourceSyncEventTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.proton_classes.ResourceSyncEvent]
 - **Required**: Yes
 
 ### initialRevision
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.RevisionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.Revision'>
 - **Required**: Yes
 
 ### startedAt
@@ -2894,17 +2894,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### targetRevision
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.RevisionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.Revision'>
 - **Required**: Yes
 
 
-# ResourceSyncEventTypeDef
+# ResourceSyncEvent
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -2926,7 +2926,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RevisionTypeDef
+# Revision
 
 ### branch
 - **Type**: <class 'str'>
@@ -2949,7 +2949,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# S3ObjectSourceTypeDef
+# S3ObjectSource
 
 ### bucket
 - **Type**: <class 'str'>
@@ -2960,35 +2960,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ServiceInstanceStateTypeDef
-
-### spec
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### templateMajorVersion
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### templateMinorVersion
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### templateName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### lastSuccessfulComponentDeploymentIds
-- **Type**: typing.Optional[typing.List[str]]
-
-### lastSuccessfulEnvironmentDeploymentId
-- **Type**: typing.Optional[str]
-
-### lastSuccessfulServicePipelineDeploymentId
-- **Type**: typing.Optional[str]
-
-
-# ServiceInstanceSummaryTypeDef
+# Service
 
 ### arn
 - **Type**: <class 'str'>
@@ -2998,19 +2970,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'datetime.datetime'>
 - **Required**: Yes
 
-### deploymentStatus
-- **Type**: typing.Literal['CANCELLED', 'CANCELLING', 'DELETE_COMPLETE', 'DELETE_FAILED', 'DELETE_IN_PROGRESS', 'FAILED', 'IN_PROGRESS', 'SUCCEEDED']
-- **Required**: Yes
-
-### environmentName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### lastDeploymentAttemptedAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### lastDeploymentSucceededAt
+### lastModifiedAt
 - **Type**: <class 'datetime.datetime'>
 - **Required**: Yes
 
@@ -3018,33 +2978,38 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### serviceName
+### spec
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### templateMajorVersion
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### templateMinorVersion
-- **Type**: <class 'str'>
+### status
+- **Type**: typing.Literal['ACTIVE', 'CREATE_FAILED', 'CREATE_FAILED_CLEANUP_COMPLETE', 'CREATE_FAILED_CLEANUP_FAILED', 'CREATE_FAILED_CLEANUP_IN_PROGRESS', 'CREATE_IN_PROGRESS', 'DELETE_FAILED', 'DELETE_IN_PROGRESS', 'UPDATE_COMPLETE_CLEANUP_FAILED', 'UPDATE_FAILED', 'UPDATE_FAILED_CLEANUP_COMPLETE', 'UPDATE_FAILED_CLEANUP_FAILED', 'UPDATE_FAILED_CLEANUP_IN_PROGRESS', 'UPDATE_IN_PROGRESS']
 - **Required**: Yes
 
 ### templateName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### deploymentStatusMessage
+### branchName
 - **Type**: typing.Optional[str]
 
-### lastAttemptedDeploymentId
+### description
 - **Type**: typing.Optional[str]
 
-### lastSucceededDeploymentId
+### pipeline
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.ServicePipeline]
+
+### repositoryConnectionArn
+- **Type**: typing.Optional[str]
+
+### repositoryId
+- **Type**: typing.Optional[str]
+
+### statusMessage
 - **Type**: typing.Optional[str]
 
 
-# ServiceInstanceTypeDef
+# ServiceInstance
 
 ### arn
 - **Type**: <class 'str'>
@@ -3106,7 +3071,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ServicePipelineStateTypeDef
+# ServiceInstanceState
+
+### spec
+- **Type**: <class 'str'>
+- **Required**: Yes
 
 ### templateMajorVersion
 - **Type**: <class 'str'>
@@ -3120,11 +3089,73 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### spec
+### lastSuccessfulComponentDeploymentIds
+- **Type**: typing.Optional[typing.List[str]]
+
+### lastSuccessfulEnvironmentDeploymentId
+- **Type**: typing.Optional[str]
+
+### lastSuccessfulServicePipelineDeploymentId
 - **Type**: typing.Optional[str]
 
 
-# ServicePipelineTypeDef
+# ServiceInstanceSummary
+
+### arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### deploymentStatus
+- **Type**: typing.Literal['CANCELLED', 'CANCELLING', 'DELETE_COMPLETE', 'DELETE_FAILED', 'DELETE_IN_PROGRESS', 'FAILED', 'IN_PROGRESS', 'SUCCEEDED']
+- **Required**: Yes
+
+### environmentName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### lastDeploymentAttemptedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### lastDeploymentSucceededAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### serviceName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### templateMajorVersion
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### templateMinorVersion
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### templateName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### deploymentStatusMessage
+- **Type**: typing.Optional[str]
+
+### lastAttemptedDeploymentId
+- **Type**: typing.Optional[str]
+
+### lastSucceededDeploymentId
+- **Type**: typing.Optional[str]
+
+
+# ServicePipeline
 
 ### arn
 - **Type**: <class 'str'>
@@ -3171,7 +3202,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ServiceSummaryTypeDef
+# ServicePipelineState
+
+### templateMajorVersion
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### templateMinorVersion
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### templateName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### spec
+- **Type**: typing.Optional[str]
+
+
+# ServiceSummary
 
 ### arn
 - **Type**: <class 'str'>
@@ -3204,20 +3253,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ServiceSyncBlockerSummaryTypeDef
+# ServiceSyncBlockerSummary
 
 ### serviceName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### latestBlockers
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.proton_classes.SyncBlockerTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.proton_classes.SyncBlocker]]
 
 ### serviceInstanceName
 - **Type**: typing.Optional[str]
 
 
-# ServiceSyncConfigTypeDef
+# ServiceSyncConfig
 
 ### branch
 - **Type**: <class 'str'>
@@ -3240,38 +3289,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ServiceTemplateSummaryTypeDef
-
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### createdAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### lastModifiedAt
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### description
-- **Type**: typing.Optional[str]
-
-### displayName
-- **Type**: typing.Optional[str]
-
-### pipelineProvisioning
-- **Type**: typing.Optional[typing.Literal['CUSTOMER_MANAGED']]
-
-### recommendedVersion
-- **Type**: typing.Optional[str]
-
-
-# ServiceTemplateTypeDef
+# ServiceTemplate
 
 ### arn
 - **Type**: <class 'str'>
@@ -3305,7 +3323,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ServiceTemplateVersionSummaryTypeDef
+# ServiceTemplateSummary
 
 ### arn
 - **Type**: <class 'str'>
@@ -3319,40 +3337,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'datetime.datetime'>
 - **Required**: Yes
 
-### majorVersion
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### minorVersion
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### status
-- **Type**: typing.Literal['DRAFT', 'PUBLISHED', 'REGISTRATION_FAILED', 'REGISTRATION_IN_PROGRESS']
-- **Required**: Yes
-
-### templateName
+### name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### description
 - **Type**: typing.Optional[str]
 
-### recommendedMinorVersion
+### displayName
 - **Type**: typing.Optional[str]
 
-### statusMessage
+### pipelineProvisioning
+- **Type**: typing.Optional[typing.Literal['CUSTOMER_MANAGED']]
+
+### recommendedVersion
 - **Type**: typing.Optional[str]
 
 
-# ServiceTemplateVersionTypeDef
+# ServiceTemplateVersion
 
 ### arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### compatibleEnvironmentTemplates
-- **Type**: typing.List[aws_resource_validator.pydantic_models.proton_classes.CompatibleEnvironmentTemplateTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.proton_classes.CompatibleEnvironmentTemplate]
 - **Required**: Yes
 
 ### createdAt
@@ -3395,7 +3404,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[typing.Literal['DIRECTLY_DEFINED']]]
 
 
-# ServiceTypeDef
+# ServiceTemplateVersionSummary
 
 ### arn
 - **Type**: <class 'str'>
@@ -3409,42 +3418,39 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'datetime.datetime'>
 - **Required**: Yes
 
-### name
+### majorVersion
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### spec
+### minorVersion
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### status
-- **Type**: typing.Literal['ACTIVE', 'CREATE_FAILED', 'CREATE_FAILED_CLEANUP_COMPLETE', 'CREATE_FAILED_CLEANUP_FAILED', 'CREATE_FAILED_CLEANUP_IN_PROGRESS', 'CREATE_IN_PROGRESS', 'DELETE_FAILED', 'DELETE_IN_PROGRESS', 'UPDATE_COMPLETE_CLEANUP_FAILED', 'UPDATE_FAILED', 'UPDATE_FAILED_CLEANUP_COMPLETE', 'UPDATE_FAILED_CLEANUP_FAILED', 'UPDATE_FAILED_CLEANUP_IN_PROGRESS', 'UPDATE_IN_PROGRESS']
+- **Type**: typing.Literal['DRAFT', 'PUBLISHED', 'REGISTRATION_FAILED', 'REGISTRATION_IN_PROGRESS']
 - **Required**: Yes
 
 ### templateName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### branchName
-- **Type**: typing.Optional[str]
-
 ### description
 - **Type**: typing.Optional[str]
 
-### pipeline
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.ServicePipelineTypeDef]
-
-### repositoryConnectionArn
-- **Type**: typing.Optional[str]
-
-### repositoryId
+### recommendedMinorVersion
 - **Type**: typing.Optional[str]
 
 ### statusMessage
 - **Type**: typing.Optional[str]
 
 
-# SyncBlockerContextTypeDef
+# SyncBlocker
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# SyncBlockerContext
 
 ### key
 - **Type**: <class 'str'>
@@ -3455,35 +3461,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SyncBlockerTypeDef
+# Tag
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### key
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### value
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-# TagResourceInputTypeDef
+
+# TagResourceInput
 
 ### resourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.proton_classes.TagTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.proton_classes.Tag]
 - **Required**: Yes
 
 
-# TagTypeDef
-
-### key
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### value
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# TemplateSyncConfigTypeDef
+# TemplateSyncConfig
 
 ### branch
 - **Type**: <class 'str'>
@@ -3509,13 +3509,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TemplateVersionSourceInputTypeDef
+# TemplateVersionSourceInput
 
 ### s3
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.S3ObjectSourceTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.S3ObjectSource]
 
 
-# UntagResourceInputTypeDef
+# UntagResourceInput
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -3526,7 +3526,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateAccountSettingsInputTypeDef
+# UpdateAccountSettingsInput
 
 ### deletePipelineProvisioningRepository
 - **Type**: typing.Optional[bool]
@@ -3535,24 +3535,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### pipelineProvisioningRepository
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.RepositoryBranchInputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.RepositoryBranchInput]
 
 ### pipelineServiceRoleArn
 - **Type**: typing.Optional[str]
 
 
-# UpdateAccountSettingsOutputTypeDef
+# UpdateAccountSettingsOutput
 
 ### accountSettings
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.AccountSettingsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.AccountSettings'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateComponentInputTypeDef
+# UpdateComponentInput
 
 ### deploymentType
 - **Type**: typing.Literal['CURRENT_VERSION', 'NONE']
@@ -3581,29 +3581,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateComponentOutputTypeDef
+# UpdateComponentOutput
 
 ### component
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ComponentTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.Component'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateEnvironmentAccountConnectionOutputTypeDef
+# UpdateEnvironmentAccountConnectionOutput
 
 ### environmentAccountConnection
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.EnvironmentAccountConnectionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.EnvironmentAccountConnection'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateEnvironmentInputTypeDef
+# UpdateEnvironmentInput
 
 ### deploymentType
 - **Type**: typing.Literal['CURRENT_VERSION', 'MAJOR_VERSION', 'MINOR_VERSION', 'NONE']
@@ -3629,7 +3629,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### provisioningRepository
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.RepositoryBranchInputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.proton_classes.RepositoryBranchInput]
 
 ### spec
 - **Type**: typing.Optional[str]
@@ -3641,18 +3641,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateEnvironmentOutputTypeDef
+# UpdateEnvironmentOutput
 
 ### environment
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.EnvironmentTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.Environment'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateEnvironmentTemplateInputTypeDef
+# UpdateEnvironmentTemplateInput
 
 ### name
 - **Type**: <class 'str'>
@@ -3665,18 +3665,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateEnvironmentTemplateOutputTypeDef
+# UpdateEnvironmentTemplateOutput
 
 ### environmentTemplate
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.EnvironmentTemplateTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.EnvironmentTemplate'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateEnvironmentTemplateVersionInputTypeDef
+# UpdateEnvironmentTemplateVersionInput
 
 ### majorVersion
 - **Type**: <class 'str'>
@@ -3697,18 +3697,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DRAFT', 'PUBLISHED', 'REGISTRATION_FAILED', 'REGISTRATION_IN_PROGRESS']]
 
 
-# UpdateEnvironmentTemplateVersionOutputTypeDef
+# UpdateEnvironmentTemplateVersionOutput
 
 ### environmentTemplateVersion
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.EnvironmentTemplateVersionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.EnvironmentTemplateVersion'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateServiceInputTypeDef
+# UpdateServiceInput
 
 ### name
 - **Type**: <class 'str'>
@@ -3721,7 +3721,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateServiceInstanceInputTypeDef
+# UpdateServiceInstanceInput
 
 ### deploymentType
 - **Type**: typing.Literal['CURRENT_VERSION', 'MAJOR_VERSION', 'MINOR_VERSION', 'NONE']
@@ -3748,29 +3748,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateServiceInstanceOutputTypeDef
+# UpdateServiceInstanceOutput
 
 ### serviceInstance
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ServiceInstanceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ServiceInstance'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateServiceOutputTypeDef
+# UpdateServiceOutput
 
 ### service
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ServiceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.Service'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateServicePipelineInputTypeDef
+# UpdateServicePipelineInput
 
 ### deploymentType
 - **Type**: typing.Literal['CURRENT_VERSION', 'MAJOR_VERSION', 'MINOR_VERSION', 'NONE']
@@ -3791,18 +3791,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateServicePipelineOutputTypeDef
+# UpdateServicePipelineOutput
 
 ### pipeline
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ServicePipelineTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ServicePipeline'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateServiceSyncBlockerOutputTypeDef
+# UpdateServiceSyncBlockerOutput
 
 ### serviceInstanceName
 - **Type**: <class 'str'>
@@ -3813,15 +3813,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### serviceSyncBlocker
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.SyncBlockerTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.SyncBlocker'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateServiceSyncConfigInputTypeDef
+# UpdateServiceSyncConfigInput
 
 ### branch
 - **Type**: <class 'str'>
@@ -3844,18 +3844,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateServiceSyncConfigOutputTypeDef
+# UpdateServiceSyncConfigOutput
 
 ### serviceSyncConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ServiceSyncConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ServiceSyncConfig'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateServiceTemplateInputTypeDef
+# UpdateServiceTemplateInput
 
 ### name
 - **Type**: <class 'str'>
@@ -3868,18 +3868,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateServiceTemplateOutputTypeDef
+# UpdateServiceTemplateOutput
 
 ### serviceTemplate
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ServiceTemplateTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ServiceTemplate'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateServiceTemplateVersionInputTypeDef
+# UpdateServiceTemplateVersionInput
 
 ### majorVersion
 - **Type**: <class 'str'>
@@ -3894,7 +3894,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### compatibleEnvironmentTemplates
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.proton_classes.CompatibleEnvironmentTemplateInputTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.proton_classes.CompatibleEnvironmentTemplateInput]]
 
 ### description
 - **Type**: typing.Optional[str]
@@ -3906,18 +3906,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['DIRECTLY_DEFINED']]]
 
 
-# UpdateServiceTemplateVersionOutputTypeDef
+# UpdateServiceTemplateVersionOutput
 
 ### serviceTemplateVersion
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ServiceTemplateVersionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ServiceTemplateVersion'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateTemplateSyncConfigInputTypeDef
+# UpdateTemplateSyncConfigInput
 
 ### branch
 - **Type**: <class 'str'>
@@ -3943,18 +3943,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateTemplateSyncConfigOutputTypeDef
+# UpdateTemplateSyncConfigOutput
 
 ### templateSyncConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.TemplateSyncConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.TemplateSyncConfig'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.proton_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# WaiterConfigTypeDef
+# WaiterConfig
 
 ### Delay
 - **Type**: typing.Optional[int]

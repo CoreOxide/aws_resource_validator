@@ -12,7 +12,7 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.workmail_constants import *
 
-class AccessControlRuleTypeDef(BaseValidatorModel):
+class AccessControlRule(BaseValidatorModel):
     Name: Optional[str] = None
     Effect: Optional[AccessControlRuleEffectType] = None
     Description: Optional[str] = None
@@ -28,24 +28,24 @@ class AccessControlRuleTypeDef(BaseValidatorModel):
     NotImpersonationRoleIds: Optional[List[str]] = None
 
 
-class AssociateDelegateToResourceRequestTypeDef(BaseValidatorModel):
+class AssociateDelegateToResourceRequest(BaseValidatorModel):
     OrganizationId: str
     ResourceId: str
     EntityId: str
 
 
-class AssociateMemberToGroupRequestTypeDef(BaseValidatorModel):
+class AssociateMemberToGroupRequest(BaseValidatorModel):
     OrganizationId: str
     GroupId: str
     MemberId: str
 
 
-class AssumeImpersonationRoleRequestTypeDef(BaseValidatorModel):
+class AssumeImpersonationRoleRequest(BaseValidatorModel):
     OrganizationId: str
     ImpersonationRoleId: str
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -53,52 +53,52 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class LambdaAvailabilityProviderTypeDef(BaseValidatorModel):
+class LambdaAvailabilityProvider(BaseValidatorModel):
     LambdaArn: str
 
 
-class RedactedEwsAvailabilityProviderTypeDef(BaseValidatorModel):
+class RedactedEwsAvailabilityProvider(BaseValidatorModel):
     EwsEndpoint: Optional[str] = None
     EwsUsername: Optional[str] = None
 
 
-class BookingOptionsTypeDef(BaseValidatorModel):
+class BookingOptions(BaseValidatorModel):
     AutoAcceptRequests: Optional[bool] = None
     AutoDeclineRecurringRequests: Optional[bool] = None
     AutoDeclineConflictingRequests: Optional[bool] = None
 
 
-class CancelMailboxExportJobRequestTypeDef(BaseValidatorModel):
+class CancelMailboxExportJobRequest(BaseValidatorModel):
     ClientToken: str
     JobId: str
     OrganizationId: str
 
 
-class CreateAliasRequestTypeDef(BaseValidatorModel):
+class CreateAliasRequest(BaseValidatorModel):
     OrganizationId: str
     EntityId: str
     Alias: str
 
 
-class EwsAvailabilityProviderTypeDef(BaseValidatorModel):
+class EwsAvailabilityProvider(BaseValidatorModel):
     EwsEndpoint: str
     EwsUsername: str
     EwsPassword: str
 
 
-class CreateGroupRequestTypeDef(BaseValidatorModel):
+class CreateGroupRequest(BaseValidatorModel):
     OrganizationId: str
     Name: str
     HiddenFromGlobalAddressList: Optional[bool] = None
 
 
-class CreateIdentityCenterApplicationRequestTypeDef(BaseValidatorModel):
+class CreateIdentityCenterApplicationRequest(BaseValidatorModel):
     Name: str
     InstanceArn: str
     ClientToken: Optional[str] = None
 
 
-class CreateMobileDeviceAccessRuleRequestTypeDef(BaseValidatorModel):
+class CreateMobileDeviceAccessRuleRequest(BaseValidatorModel):
     OrganizationId: str
     Name: str
     Effect: MobileDeviceAccessRuleEffectType
@@ -114,12 +114,12 @@ class CreateMobileDeviceAccessRuleRequestTypeDef(BaseValidatorModel):
     NotDeviceUserAgents: Optional[Sequence[str]] = None
 
 
-class DomainTypeDef(BaseValidatorModel):
+class Domain(BaseValidatorModel):
     DomainName: str
     HostedZoneId: Optional[str] = None
 
 
-class CreateUserRequestTypeDef(BaseValidatorModel):
+class CreateUserRequest(BaseValidatorModel):
     OrganizationId: str
     Name: str
     DisplayName: str
@@ -131,62 +131,62 @@ class CreateUserRequestTypeDef(BaseValidatorModel):
     IdentityProviderUserId: Optional[str] = None
 
 
-class DeleteAccessControlRuleRequestTypeDef(BaseValidatorModel):
+class DeleteAccessControlRuleRequest(BaseValidatorModel):
     OrganizationId: str
     Name: str
 
 
-class DeleteAliasRequestTypeDef(BaseValidatorModel):
+class DeleteAliasRequest(BaseValidatorModel):
     OrganizationId: str
     EntityId: str
     Alias: str
 
 
-class DeleteAvailabilityConfigurationRequestTypeDef(BaseValidatorModel):
+class DeleteAvailabilityConfigurationRequest(BaseValidatorModel):
     OrganizationId: str
     DomainName: str
 
 
-class DeleteEmailMonitoringConfigurationRequestTypeDef(BaseValidatorModel):
+class DeleteEmailMonitoringConfigurationRequest(BaseValidatorModel):
     OrganizationId: str
 
 
-class DeleteGroupRequestTypeDef(BaseValidatorModel):
+class DeleteGroupRequest(BaseValidatorModel):
     OrganizationId: str
     GroupId: str
 
 
-class DeleteIdentityCenterApplicationRequestTypeDef(BaseValidatorModel):
+class DeleteIdentityCenterApplicationRequest(BaseValidatorModel):
     ApplicationArn: str
 
 
-class DeleteIdentityProviderConfigurationRequestTypeDef(BaseValidatorModel):
+class DeleteIdentityProviderConfigurationRequest(BaseValidatorModel):
     OrganizationId: str
 
 
-class DeleteImpersonationRoleRequestTypeDef(BaseValidatorModel):
+class DeleteImpersonationRoleRequest(BaseValidatorModel):
     OrganizationId: str
     ImpersonationRoleId: str
 
 
-class DeleteMailboxPermissionsRequestTypeDef(BaseValidatorModel):
+class DeleteMailboxPermissionsRequest(BaseValidatorModel):
     OrganizationId: str
     EntityId: str
     GranteeId: str
 
 
-class DeleteMobileDeviceAccessOverrideRequestTypeDef(BaseValidatorModel):
+class DeleteMobileDeviceAccessOverrideRequest(BaseValidatorModel):
     OrganizationId: str
     UserId: str
     DeviceId: str
 
 
-class DeleteMobileDeviceAccessRuleRequestTypeDef(BaseValidatorModel):
+class DeleteMobileDeviceAccessRuleRequest(BaseValidatorModel):
     OrganizationId: str
     MobileDeviceAccessRuleId: str
 
 
-class DeleteOrganizationRequestTypeDef(BaseValidatorModel):
+class DeleteOrganizationRequest(BaseValidatorModel):
     OrganizationId: str
     DeleteDirectory: bool
     ClientToken: Optional[str] = None
@@ -194,106 +194,106 @@ class DeleteOrganizationRequestTypeDef(BaseValidatorModel):
     DeleteIdentityCenterApplication: Optional[bool] = None
 
 
-class DeletePersonalAccessTokenRequestTypeDef(BaseValidatorModel):
+class DeletePersonalAccessTokenRequest(BaseValidatorModel):
     OrganizationId: str
     PersonalAccessTokenId: str
 
 
-class DeleteResourceRequestTypeDef(BaseValidatorModel):
+class DeleteResourceRequest(BaseValidatorModel):
     OrganizationId: str
     ResourceId: str
 
 
-class DeleteRetentionPolicyRequestTypeDef(BaseValidatorModel):
+class DeleteRetentionPolicyRequest(BaseValidatorModel):
     OrganizationId: str
     Id: str
 
 
-class DeleteUserRequestTypeDef(BaseValidatorModel):
+class DeleteUserRequest(BaseValidatorModel):
     OrganizationId: str
     UserId: str
 
 
-class DeregisterFromWorkMailRequestTypeDef(BaseValidatorModel):
+class DeregisterFromWorkMailRequest(BaseValidatorModel):
     OrganizationId: str
     EntityId: str
 
 
-class DeregisterMailDomainRequestTypeDef(BaseValidatorModel):
+class DeregisterMailDomainRequest(BaseValidatorModel):
     OrganizationId: str
     DomainName: str
 
 
-class DescribeEmailMonitoringConfigurationRequestTypeDef(BaseValidatorModel):
+class DescribeEmailMonitoringConfigurationRequest(BaseValidatorModel):
     OrganizationId: str
 
 
-class DescribeEntityRequestTypeDef(BaseValidatorModel):
+class DescribeEntityRequest(BaseValidatorModel):
     OrganizationId: str
     Email: str
 
 
-class DescribeGroupRequestTypeDef(BaseValidatorModel):
+class DescribeGroupRequest(BaseValidatorModel):
     OrganizationId: str
     GroupId: str
 
 
-class DescribeIdentityProviderConfigurationRequestTypeDef(BaseValidatorModel):
+class DescribeIdentityProviderConfigurationRequest(BaseValidatorModel):
     OrganizationId: str
 
 
-class IdentityCenterConfigurationTypeDef(BaseValidatorModel):
+class IdentityCenterConfiguration(BaseValidatorModel):
     InstanceArn: str
     ApplicationArn: str
 
 
-class PersonalAccessTokenConfigurationTypeDef(BaseValidatorModel):
+class PersonalAccessTokenConfiguration(BaseValidatorModel):
     Status: PersonalAccessTokenConfigurationStatusType
     LifetimeInDays: Optional[int] = None
 
 
-class DescribeInboundDmarcSettingsRequestTypeDef(BaseValidatorModel):
+class DescribeInboundDmarcSettingsRequest(BaseValidatorModel):
     OrganizationId: str
 
 
-class DescribeMailboxExportJobRequestTypeDef(BaseValidatorModel):
+class DescribeMailboxExportJobRequest(BaseValidatorModel):
     JobId: str
     OrganizationId: str
 
 
-class DescribeOrganizationRequestTypeDef(BaseValidatorModel):
+class DescribeOrganizationRequest(BaseValidatorModel):
     OrganizationId: str
 
 
-class DescribeResourceRequestTypeDef(BaseValidatorModel):
+class DescribeResourceRequest(BaseValidatorModel):
     OrganizationId: str
     ResourceId: str
 
 
-class DescribeUserRequestTypeDef(BaseValidatorModel):
+class DescribeUserRequest(BaseValidatorModel):
     OrganizationId: str
     UserId: str
 
 
-class DisassociateDelegateFromResourceRequestTypeDef(BaseValidatorModel):
+class DisassociateDelegateFromResourceRequest(BaseValidatorModel):
     OrganizationId: str
     ResourceId: str
     EntityId: str
 
 
-class DisassociateMemberFromGroupRequestTypeDef(BaseValidatorModel):
+class DisassociateMemberFromGroupRequest(BaseValidatorModel):
     OrganizationId: str
     GroupId: str
     MemberId: str
 
 
-class FolderConfigurationTypeDef(BaseValidatorModel):
+class FolderConfiguration(BaseValidatorModel):
     Name: FolderNameType
     Action: RetentionActionType
     Period: Optional[int] = None
 
 
-class GetAccessControlEffectRequestTypeDef(BaseValidatorModel):
+class GetAccessControlEffectRequest(BaseValidatorModel):
     OrganizationId: str
     IpAddress: str
     Action: str
@@ -301,27 +301,27 @@ class GetAccessControlEffectRequestTypeDef(BaseValidatorModel):
     ImpersonationRoleId: Optional[str] = None
 
 
-class GetDefaultRetentionPolicyRequestTypeDef(BaseValidatorModel):
+class GetDefaultRetentionPolicyRequest(BaseValidatorModel):
     OrganizationId: str
 
 
-class GetImpersonationRoleEffectRequestTypeDef(BaseValidatorModel):
+class GetImpersonationRoleEffectRequest(BaseValidatorModel):
     OrganizationId: str
     ImpersonationRoleId: str
     TargetUser: str
 
 
-class ImpersonationMatchedRuleTypeDef(BaseValidatorModel):
+class ImpersonationMatchedRule(BaseValidatorModel):
     ImpersonationRuleId: Optional[str] = None
     Name: Optional[str] = None
 
 
-class GetImpersonationRoleRequestTypeDef(BaseValidatorModel):
+class GetImpersonationRoleRequest(BaseValidatorModel):
     OrganizationId: str
     ImpersonationRoleId: str
 
 
-class ImpersonationRuleOutputTypeDef(BaseValidatorModel):
+class ImpersonationRuleOutput(BaseValidatorModel):
     ImpersonationRuleId: str
     Effect: AccessEffectType
     Name: Optional[str] = None
@@ -330,17 +330,17 @@ class ImpersonationRuleOutputTypeDef(BaseValidatorModel):
     NotTargetUsers: Optional[List[str]] = None
 
 
-class GetMailDomainRequestTypeDef(BaseValidatorModel):
+class GetMailDomainRequest(BaseValidatorModel):
     OrganizationId: str
     DomainName: str
 
 
-class GetMailboxDetailsRequestTypeDef(BaseValidatorModel):
+class GetMailboxDetailsRequest(BaseValidatorModel):
     OrganizationId: str
     UserId: str
 
 
-class GetMobileDeviceAccessEffectRequestTypeDef(BaseValidatorModel):
+class GetMobileDeviceAccessEffectRequest(BaseValidatorModel):
     OrganizationId: str
     DeviceType: Optional[str] = None
     DeviceModel: Optional[str] = None
@@ -348,28 +348,28 @@ class GetMobileDeviceAccessEffectRequestTypeDef(BaseValidatorModel):
     DeviceUserAgent: Optional[str] = None
 
 
-class MobileDeviceAccessMatchedRuleTypeDef(BaseValidatorModel):
+class MobileDeviceAccessMatchedRule(BaseValidatorModel):
     MobileDeviceAccessRuleId: Optional[str] = None
     Name: Optional[str] = None
 
 
-class GetMobileDeviceAccessOverrideRequestTypeDef(BaseValidatorModel):
+class GetMobileDeviceAccessOverrideRequest(BaseValidatorModel):
     OrganizationId: str
     UserId: str
     DeviceId: str
 
 
-class GetPersonalAccessTokenMetadataRequestTypeDef(BaseValidatorModel):
+class GetPersonalAccessTokenMetadataRequest(BaseValidatorModel):
     OrganizationId: str
     PersonalAccessTokenId: str
 
 
-class GroupIdentifierTypeDef(BaseValidatorModel):
+class GroupIdentifier(BaseValidatorModel):
     GroupId: Optional[str] = None
     GroupName: Optional[str] = None
 
 
-class GroupTypeDef(BaseValidatorModel):
+class Group(BaseValidatorModel):
     Id: Optional[str] = None
     Email: Optional[str] = None
     Name: Optional[str] = None
@@ -378,7 +378,7 @@ class GroupTypeDef(BaseValidatorModel):
     DisabledDate: Optional[datetime] = None
 
 
-class ImpersonationRuleTypeDef(BaseValidatorModel):
+class ImpersonationRule(BaseValidatorModel):
     ImpersonationRuleId: str
     Effect: AccessEffectType
     Name: Optional[str] = None
@@ -387,70 +387,70 @@ class ImpersonationRuleTypeDef(BaseValidatorModel):
     NotTargetUsers: Optional[Sequence[str]] = None
 
 
-class ListAccessControlRulesRequestTypeDef(BaseValidatorModel):
+class ListAccessControlRulesRequest(BaseValidatorModel):
     OrganizationId: str
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListAliasesRequestTypeDef(BaseValidatorModel):
+class ListAliasesRequest(BaseValidatorModel):
     OrganizationId: str
     EntityId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListAvailabilityConfigurationsRequestTypeDef(BaseValidatorModel):
+class ListAvailabilityConfigurationsRequest(BaseValidatorModel):
     OrganizationId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListGroupMembersRequestTypeDef(BaseValidatorModel):
+class ListGroupMembersRequest(BaseValidatorModel):
     OrganizationId: str
     GroupId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListGroupsFiltersTypeDef(BaseValidatorModel):
+class ListGroupsFilters(BaseValidatorModel):
     NamePrefix: Optional[str] = None
     PrimaryEmailPrefix: Optional[str] = None
     State: Optional[EntityStateType] = None
 
 
-class ListGroupsForEntityFiltersTypeDef(BaseValidatorModel):
+class ListGroupsForEntityFilters(BaseValidatorModel):
     GroupNamePrefix: Optional[str] = None
 
 
-class ListImpersonationRolesRequestTypeDef(BaseValidatorModel):
+class ListImpersonationRolesRequest(BaseValidatorModel):
     OrganizationId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListMailDomainsRequestTypeDef(BaseValidatorModel):
+class ListMailDomainsRequest(BaseValidatorModel):
     OrganizationId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class MailDomainSummaryTypeDef(BaseValidatorModel):
+class MailDomainSummary(BaseValidatorModel):
     DomainName: Optional[str] = None
     DefaultDomain: Optional[bool] = None
 
 
-class ListMailboxExportJobsRequestTypeDef(BaseValidatorModel):
+class ListMailboxExportJobsRequest(BaseValidatorModel):
     OrganizationId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class MailboxExportJobTypeDef(BaseValidatorModel):
+class MailboxExportJob(BaseValidatorModel):
     JobId: Optional[str] = None
     EntityId: Optional[str] = None
     Description: Optional[str] = None
@@ -462,20 +462,20 @@ class MailboxExportJobTypeDef(BaseValidatorModel):
     EndTime: Optional[datetime] = None
 
 
-class ListMailboxPermissionsRequestTypeDef(BaseValidatorModel):
+class ListMailboxPermissionsRequest(BaseValidatorModel):
     OrganizationId: str
     EntityId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class PermissionTypeDef(BaseValidatorModel):
+class Permission(BaseValidatorModel):
     GranteeId: str
     GranteeType: MemberTypeType
     PermissionValues: List[PermissionTypeType]
 
 
-class ListMobileDeviceAccessOverridesRequestTypeDef(BaseValidatorModel):
+class ListMobileDeviceAccessOverridesRequest(BaseValidatorModel):
     OrganizationId: str
     UserId: Optional[str] = None
     DeviceId: Optional[str] = None
@@ -483,7 +483,7 @@ class ListMobileDeviceAccessOverridesRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
-class MobileDeviceAccessOverrideTypeDef(BaseValidatorModel):
+class MobileDeviceAccessOverride(BaseValidatorModel):
     UserId: Optional[str] = None
     DeviceId: Optional[str] = None
     Effect: Optional[MobileDeviceAccessRuleEffectType] = None
@@ -492,11 +492,11 @@ class MobileDeviceAccessOverrideTypeDef(BaseValidatorModel):
     DateModified: Optional[datetime] = None
 
 
-class ListMobileDeviceAccessRulesRequestTypeDef(BaseValidatorModel):
+class ListMobileDeviceAccessRulesRequest(BaseValidatorModel):
     OrganizationId: str
 
 
-class MobileDeviceAccessRuleTypeDef(BaseValidatorModel):
+class MobileDeviceAccessRule(BaseValidatorModel):
     MobileDeviceAccessRuleId: Optional[str] = None
     Name: Optional[str] = None
     Description: Optional[str] = None
@@ -513,12 +513,12 @@ class MobileDeviceAccessRuleTypeDef(BaseValidatorModel):
     DateModified: Optional[datetime] = None
 
 
-class ListOrganizationsRequestTypeDef(BaseValidatorModel):
+class ListOrganizationsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class OrganizationSummaryTypeDef(BaseValidatorModel):
+class OrganizationSummary(BaseValidatorModel):
     OrganizationId: Optional[str] = None
     Alias: Optional[str] = None
     DefaultMailDomain: Optional[str] = None
@@ -526,14 +526,14 @@ class OrganizationSummaryTypeDef(BaseValidatorModel):
     State: Optional[str] = None
 
 
-class ListPersonalAccessTokensRequestTypeDef(BaseValidatorModel):
+class ListPersonalAccessTokensRequest(BaseValidatorModel):
     OrganizationId: str
     UserId: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class PersonalAccessTokenSummaryTypeDef(BaseValidatorModel):
+class PersonalAccessTokenSummary(BaseValidatorModel):
     PersonalAccessTokenId: Optional[str] = None
     UserId: Optional[str] = None
     Name: Optional[str] = None
@@ -543,29 +543,29 @@ class PersonalAccessTokenSummaryTypeDef(BaseValidatorModel):
     Scopes: Optional[List[str]] = None
 
 
-class ListResourceDelegatesRequestTypeDef(BaseValidatorModel):
+class ListResourceDelegatesRequest(BaseValidatorModel):
     OrganizationId: str
     ResourceId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListResourcesFiltersTypeDef(BaseValidatorModel):
+class ListResourcesFilters(BaseValidatorModel):
     NamePrefix: Optional[str] = None
     PrimaryEmailPrefix: Optional[str] = None
     State: Optional[EntityStateType] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceARN: str
 
 
-class TagTypeDef(BaseValidatorModel):
+class Tag(BaseValidatorModel):
     Key: str
     Value: str
 
 
-class ListUsersFiltersTypeDef(BaseValidatorModel):
+class ListUsersFilters(BaseValidatorModel):
     UsernamePrefix: Optional[str] = None
     DisplayNamePrefix: Optional[str] = None
     PrimaryEmailPrefix: Optional[str] = None
@@ -573,7 +573,7 @@ class ListUsersFiltersTypeDef(BaseValidatorModel):
     IdentityProviderUserIdPrefix: Optional[str] = None
 
 
-class UserTypeDef(BaseValidatorModel):
+class User(BaseValidatorModel):
     Id: Optional[str] = None
     Email: Optional[str] = None
     Name: Optional[str] = None
@@ -586,7 +586,7 @@ class UserTypeDef(BaseValidatorModel):
     IdentityProviderIdentityStoreId: Optional[str] = None
 
 
-class PutAccessControlRuleRequestTypeDef(BaseValidatorModel):
+class PutAccessControlRuleRequest(BaseValidatorModel):
     Name: str
     Effect: AccessControlRuleEffectType
     Description: str
@@ -601,25 +601,25 @@ class PutAccessControlRuleRequestTypeDef(BaseValidatorModel):
     NotImpersonationRoleIds: Optional[Sequence[str]] = None
 
 
-class PutEmailMonitoringConfigurationRequestTypeDef(BaseValidatorModel):
+class PutEmailMonitoringConfigurationRequest(BaseValidatorModel):
     OrganizationId: str
     RoleArn: str
     LogGroupArn: str
 
 
-class PutInboundDmarcSettingsRequestTypeDef(BaseValidatorModel):
+class PutInboundDmarcSettingsRequest(BaseValidatorModel):
     OrganizationId: str
     Enforced: bool
 
 
-class PutMailboxPermissionsRequestTypeDef(BaseValidatorModel):
+class PutMailboxPermissionsRequest(BaseValidatorModel):
     OrganizationId: str
     EntityId: str
     GranteeId: str
     PermissionValues: Sequence[PermissionTypeType]
 
 
-class PutMobileDeviceAccessOverrideRequestTypeDef(BaseValidatorModel):
+class PutMobileDeviceAccessOverrideRequest(BaseValidatorModel):
     OrganizationId: str
     UserId: str
     DeviceId: str
@@ -627,25 +627,25 @@ class PutMobileDeviceAccessOverrideRequestTypeDef(BaseValidatorModel):
     Description: Optional[str] = None
 
 
-class RegisterMailDomainRequestTypeDef(BaseValidatorModel):
+class RegisterMailDomainRequest(BaseValidatorModel):
     OrganizationId: str
     DomainName: str
     ClientToken: Optional[str] = None
 
 
-class RegisterToWorkMailRequestTypeDef(BaseValidatorModel):
+class RegisterToWorkMailRequest(BaseValidatorModel):
     OrganizationId: str
     EntityId: str
     Email: str
 
 
-class ResetPasswordRequestTypeDef(BaseValidatorModel):
+class ResetPasswordRequest(BaseValidatorModel):
     OrganizationId: str
     UserId: str
     Password: str
 
 
-class StartMailboxExportJobRequestTypeDef(BaseValidatorModel):
+class StartMailboxExportJobRequest(BaseValidatorModel):
     ClientToken: str
     OrganizationId: str
     EntityId: str
@@ -656,29 +656,29 @@ class StartMailboxExportJobRequestTypeDef(BaseValidatorModel):
     Description: Optional[str] = None
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     ResourceARN: str
     TagKeys: Sequence[str]
 
 
-class UpdateDefaultMailDomainRequestTypeDef(BaseValidatorModel):
+class UpdateDefaultMailDomainRequest(BaseValidatorModel):
     OrganizationId: str
     DomainName: str
 
 
-class UpdateGroupRequestTypeDef(BaseValidatorModel):
+class UpdateGroupRequest(BaseValidatorModel):
     OrganizationId: str
     GroupId: str
     HiddenFromGlobalAddressList: Optional[bool] = None
 
 
-class UpdateMailboxQuotaRequestTypeDef(BaseValidatorModel):
+class UpdateMailboxQuotaRequest(BaseValidatorModel):
     OrganizationId: str
     UserId: str
     MailboxQuota: int
 
 
-class UpdateMobileDeviceAccessRuleRequestTypeDef(BaseValidatorModel):
+class UpdateMobileDeviceAccessRuleRequest(BaseValidatorModel):
     OrganizationId: str
     MobileDeviceAccessRuleId: str
     Name: str
@@ -694,13 +694,13 @@ class UpdateMobileDeviceAccessRuleRequestTypeDef(BaseValidatorModel):
     NotDeviceUserAgents: Optional[Sequence[str]] = None
 
 
-class UpdatePrimaryEmailAddressRequestTypeDef(BaseValidatorModel):
+class UpdatePrimaryEmailAddressRequest(BaseValidatorModel):
     OrganizationId: str
     EntityId: str
     Email: str
 
 
-class UpdateUserRequestTypeDef(BaseValidatorModel):
+class UpdateUserRequest(BaseValidatorModel):
     OrganizationId: str
     UserId: str
     Role: Optional[UserRoleType] = None
@@ -721,60 +721,60 @@ class UpdateUserRequestTypeDef(BaseValidatorModel):
     IdentityProviderUserId: Optional[str] = None
 
 
-class AssumeImpersonationRoleResponseTypeDef(BaseValidatorModel):
+class AssumeImpersonationRoleResponse(BaseValidatorModel):
     Token: str
     ExpiresIn: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateGroupResponseTypeDef(BaseValidatorModel):
+class CreateGroupResponse(BaseValidatorModel):
     GroupId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateIdentityCenterApplicationResponseTypeDef(BaseValidatorModel):
+class CreateIdentityCenterApplicationResponse(BaseValidatorModel):
     ApplicationArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateImpersonationRoleResponseTypeDef(BaseValidatorModel):
+class CreateImpersonationRoleResponse(BaseValidatorModel):
     ImpersonationRoleId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateMobileDeviceAccessRuleResponseTypeDef(BaseValidatorModel):
+class CreateMobileDeviceAccessRuleResponse(BaseValidatorModel):
     MobileDeviceAccessRuleId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateOrganizationResponseTypeDef(BaseValidatorModel):
+class CreateOrganizationResponse(BaseValidatorModel):
     OrganizationId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateResourceResponseTypeDef(BaseValidatorModel):
+class CreateResourceResponse(BaseValidatorModel):
     ResourceId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateUserResponseTypeDef(BaseValidatorModel):
+class CreateUserResponse(BaseValidatorModel):
     UserId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteOrganizationResponseTypeDef(BaseValidatorModel):
+class DeleteOrganizationResponse(BaseValidatorModel):
     OrganizationId: str
     State: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeEmailMonitoringConfigurationResponseTypeDef(BaseValidatorModel):
+class DescribeEmailMonitoringConfigurationResponse(BaseValidatorModel):
     RoleArn: str
     LogGroupArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeGroupResponseTypeDef(BaseValidatorModel):
+class DescribeGroupResponse(BaseValidatorModel):
     GroupId: str
     Name: str
     Email: str
@@ -782,15 +782,15 @@ class DescribeGroupResponseTypeDef(BaseValidatorModel):
     EnabledDate: datetime
     DisabledDate: datetime
     HiddenFromGlobalAddressList: bool
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeInboundDmarcSettingsResponseTypeDef(BaseValidatorModel):
+class DescribeInboundDmarcSettingsResponse(BaseValidatorModel):
     Enforced: bool
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeMailboxExportJobResponseTypeDef(BaseValidatorModel):
+class DescribeMailboxExportJobResponse(BaseValidatorModel):
     EntityId: str
     Description: str
     RoleArn: str
@@ -803,10 +803,10 @@ class DescribeMailboxExportJobResponseTypeDef(BaseValidatorModel):
     ErrorInfo: str
     StartTime: datetime
     EndTime: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeOrganizationResponseTypeDef(BaseValidatorModel):
+class DescribeOrganizationResponse(BaseValidatorModel):
     OrganizationId: str
     Alias: str
     State: str
@@ -818,10 +818,10 @@ class DescribeOrganizationResponseTypeDef(BaseValidatorModel):
     ARN: str
     MigrationAdmin: str
     InteroperabilityEnabled: bool
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeUserResponseTypeDef(BaseValidatorModel):
+class DescribeUserResponse(BaseValidatorModel):
     UserId: str
     Name: str
     Email: str
@@ -847,32 +847,32 @@ class DescribeUserResponseTypeDef(BaseValidatorModel):
     Office: str
     IdentityProviderUserId: str
     IdentityProviderIdentityStoreId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetAccessControlEffectResponseTypeDef(BaseValidatorModel):
+class GetAccessControlEffectResponse(BaseValidatorModel):
     Effect: AccessControlRuleEffectType
     MatchedRules: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetMailboxDetailsResponseTypeDef(BaseValidatorModel):
+class GetMailboxDetailsResponse(BaseValidatorModel):
     MailboxQuota: int
     MailboxSize: float
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetMobileDeviceAccessOverrideResponseTypeDef(BaseValidatorModel):
+class GetMobileDeviceAccessOverrideResponse(BaseValidatorModel):
     UserId: str
     DeviceId: str
     Effect: MobileDeviceAccessRuleEffectType
     Description: str
     DateCreated: datetime
     DateModified: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetPersonalAccessTokenMetadataResponseTypeDef(BaseValidatorModel):
+class GetPersonalAccessTokenMetadataResponse(BaseValidatorModel):
     PersonalAccessTokenId: str
     UserId: str
     Name: str
@@ -880,318 +880,318 @@ class GetPersonalAccessTokenMetadataResponseTypeDef(BaseValidatorModel):
     DateLastUsed: datetime
     ExpiresTime: datetime
     Scopes: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListAccessControlRulesResponseTypeDef(BaseValidatorModel):
-    Rules: List[AccessControlRuleTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAccessControlRulesResponse(BaseValidatorModel):
+    Rules: List[AccessControlRule]
+    ResponseMetadata: ResponseMetadata
 
 
-class ListAliasesResponseTypeDef(BaseValidatorModel):
+class ListAliasesResponse(BaseValidatorModel):
     Aliases: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class StartMailboxExportJobResponseTypeDef(BaseValidatorModel):
+class StartMailboxExportJobResponse(BaseValidatorModel):
     JobId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class TestAvailabilityConfigurationResponseTypeDef(BaseValidatorModel):
+class TestAvailabilityConfigurationResponse(BaseValidatorModel):
     TestPassed: bool
     FailureReason: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class AvailabilityConfigurationTypeDef(BaseValidatorModel):
+class AvailabilityConfiguration(BaseValidatorModel):
     DomainName: Optional[str] = None
     ProviderType: Optional[AvailabilityProviderTypeType] = None
-    EwsProvider: Optional[RedactedEwsAvailabilityProviderTypeDef] = None
-    LambdaProvider: Optional[LambdaAvailabilityProviderTypeDef] = None
+    EwsProvider: Optional[RedactedEwsAvailabilityProvider] = None
+    LambdaProvider: Optional[LambdaAvailabilityProvider] = None
     DateCreated: Optional[datetime] = None
     DateModified: Optional[datetime] = None
 
 
-class CreateAvailabilityConfigurationRequestTypeDef(BaseValidatorModel):
+class CreateAvailabilityConfigurationRequest(BaseValidatorModel):
     OrganizationId: str
     DomainName: str
     ClientToken: Optional[str] = None
-    EwsProvider: Optional[EwsAvailabilityProviderTypeDef] = None
-    LambdaProvider: Optional[LambdaAvailabilityProviderTypeDef] = None
+    EwsProvider: Optional[EwsAvailabilityProvider] = None
+    LambdaProvider: Optional[LambdaAvailabilityProvider] = None
 
 
-class TestAvailabilityConfigurationRequestTypeDef(BaseValidatorModel):
+class TestAvailabilityConfigurationRequest(BaseValidatorModel):
     OrganizationId: str
     DomainName: Optional[str] = None
-    EwsProvider: Optional[EwsAvailabilityProviderTypeDef] = None
-    LambdaProvider: Optional[LambdaAvailabilityProviderTypeDef] = None
+    EwsProvider: Optional[EwsAvailabilityProvider] = None
+    LambdaProvider: Optional[LambdaAvailabilityProvider] = None
 
 
-class UpdateAvailabilityConfigurationRequestTypeDef(BaseValidatorModel):
+class UpdateAvailabilityConfigurationRequest(BaseValidatorModel):
     OrganizationId: str
     DomainName: str
-    EwsProvider: Optional[EwsAvailabilityProviderTypeDef] = None
-    LambdaProvider: Optional[LambdaAvailabilityProviderTypeDef] = None
+    EwsProvider: Optional[EwsAvailabilityProvider] = None
+    LambdaProvider: Optional[LambdaAvailabilityProvider] = None
 
 
-class CreateOrganizationRequestTypeDef(BaseValidatorModel):
+class CreateOrganizationRequest(BaseValidatorModel):
     Alias: str
     DirectoryId: Optional[str] = None
     ClientToken: Optional[str] = None
-    Domains: Optional[Sequence[DomainTypeDef]] = None
+    Domains: Optional[Sequence[Domain]] = None
     KmsKeyArn: Optional[str] = None
     EnableInteroperability: Optional[bool] = None
 
 
-class DelegateTypeDef(BaseValidatorModel):
+class Delegate(BaseValidatorModel):
     pass
 
 
-class ListResourceDelegatesResponseTypeDef(BaseValidatorModel):
-    Delegates: List[DelegateTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListResourceDelegatesResponse(BaseValidatorModel):
+    Delegates: List[Delegate]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeIdentityProviderConfigurationResponseTypeDef(BaseValidatorModel):
+class DescribeIdentityProviderConfigurationResponse(BaseValidatorModel):
     AuthenticationMode: IdentityProviderAuthenticationModeType
-    IdentityCenterConfiguration: IdentityCenterConfigurationTypeDef
-    PersonalAccessTokenConfiguration: PersonalAccessTokenConfigurationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    IdentityCenterConfiguration: IdentityCenterConfiguration
+    PersonalAccessTokenConfiguration: PersonalAccessTokenConfiguration
+    ResponseMetadata: ResponseMetadata
 
 
-class PutIdentityProviderConfigurationRequestTypeDef(BaseValidatorModel):
+class PutIdentityProviderConfigurationRequest(BaseValidatorModel):
     OrganizationId: str
     AuthenticationMode: IdentityProviderAuthenticationModeType
-    IdentityCenterConfiguration: IdentityCenterConfigurationTypeDef
-    PersonalAccessTokenConfiguration: PersonalAccessTokenConfigurationTypeDef
+    IdentityCenterConfiguration: IdentityCenterConfiguration
+    PersonalAccessTokenConfiguration: PersonalAccessTokenConfiguration
 
 
-class DnsRecordTypeDef(BaseValidatorModel):
+class DnsRecord(BaseValidatorModel):
     pass
 
 
-class GetMailDomainResponseTypeDef(BaseValidatorModel):
-    Records: List[DnsRecordTypeDef]
+class GetMailDomainResponse(BaseValidatorModel):
+    Records: List[DnsRecord]
     IsTestDomain: bool
     IsDefault: bool
     OwnershipVerificationStatus: DnsRecordVerificationStatusType
     DkimVerificationStatus: DnsRecordVerificationStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetDefaultRetentionPolicyResponseTypeDef(BaseValidatorModel):
+class GetDefaultRetentionPolicyResponse(BaseValidatorModel):
     Id: str
     Name: str
     Description: str
-    FolderConfigurations: List[FolderConfigurationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    FolderConfigurations: List[FolderConfiguration]
+    ResponseMetadata: ResponseMetadata
 
 
-class PutRetentionPolicyRequestTypeDef(BaseValidatorModel):
+class PutRetentionPolicyRequest(BaseValidatorModel):
     OrganizationId: str
     Name: str
-    FolderConfigurations: Sequence[FolderConfigurationTypeDef]
+    FolderConfigurations: Sequence[FolderConfiguration]
     Id: Optional[str] = None
     Description: Optional[str] = None
 
 
-class GetMobileDeviceAccessEffectResponseTypeDef(BaseValidatorModel):
+class GetMobileDeviceAccessEffectResponse(BaseValidatorModel):
     Effect: MobileDeviceAccessRuleEffectType
-    MatchedRules: List[MobileDeviceAccessMatchedRuleTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    MatchedRules: List[MobileDeviceAccessMatchedRule]
+    ResponseMetadata: ResponseMetadata
 
 
-class ListGroupsForEntityResponseTypeDef(BaseValidatorModel):
-    Groups: List[GroupIdentifierTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListGroupsForEntityResponse(BaseValidatorModel):
+    Groups: List[GroupIdentifier]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListGroupsResponseTypeDef(BaseValidatorModel):
-    Groups: List[GroupTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListGroupsResponse(BaseValidatorModel):
+    Groups: List[Group]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ImpersonationRoleTypeDef(BaseValidatorModel):
+class ImpersonationRole(BaseValidatorModel):
     pass
 
 
-class ListImpersonationRolesResponseTypeDef(BaseValidatorModel):
-    Roles: List[ImpersonationRoleTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListImpersonationRolesResponse(BaseValidatorModel):
+    Roles: List[ImpersonationRole]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListAliasesRequestPaginateTypeDef(BaseValidatorModel):
+class ListAliasesRequestPaginate(BaseValidatorModel):
     OrganizationId: str
     EntityId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListAvailabilityConfigurationsRequestPaginateTypeDef(BaseValidatorModel):
+class ListAvailabilityConfigurationsRequestPaginate(BaseValidatorModel):
     OrganizationId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListGroupMembersRequestPaginateTypeDef(BaseValidatorModel):
+class ListGroupMembersRequestPaginate(BaseValidatorModel):
     OrganizationId: str
     GroupId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListMailboxPermissionsRequestPaginateTypeDef(BaseValidatorModel):
+class ListMailboxPermissionsRequestPaginate(BaseValidatorModel):
     OrganizationId: str
     EntityId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListOrganizationsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListOrganizationsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListPersonalAccessTokensRequestPaginateTypeDef(BaseValidatorModel):
+class ListPersonalAccessTokensRequestPaginate(BaseValidatorModel):
     OrganizationId: str
     UserId: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListResourceDelegatesRequestPaginateTypeDef(BaseValidatorModel):
+class ListResourceDelegatesRequestPaginate(BaseValidatorModel):
     OrganizationId: str
     ResourceId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class MemberTypeDef(BaseValidatorModel):
+class Member(BaseValidatorModel):
     pass
 
 
-class ListGroupMembersResponseTypeDef(BaseValidatorModel):
-    Members: List[MemberTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListGroupMembersResponse(BaseValidatorModel):
+    Members: List[Member]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListGroupsRequestPaginateTypeDef(BaseValidatorModel):
+class ListGroupsRequestPaginate(BaseValidatorModel):
     OrganizationId: str
-    Filters: Optional[ListGroupsFiltersTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Optional[ListGroupsFilters] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListGroupsRequestTypeDef(BaseValidatorModel):
+class ListGroupsRequest(BaseValidatorModel):
     OrganizationId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
-    Filters: Optional[ListGroupsFiltersTypeDef] = None
+    Filters: Optional[ListGroupsFilters] = None
 
 
-class ListGroupsForEntityRequestTypeDef(BaseValidatorModel):
+class ListGroupsForEntityRequest(BaseValidatorModel):
     OrganizationId: str
     EntityId: str
-    Filters: Optional[ListGroupsForEntityFiltersTypeDef] = None
+    Filters: Optional[ListGroupsForEntityFilters] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListMailDomainsResponseTypeDef(BaseValidatorModel):
-    MailDomains: List[MailDomainSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListMailDomainsResponse(BaseValidatorModel):
+    MailDomains: List[MailDomainSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListMailboxExportJobsResponseTypeDef(BaseValidatorModel):
-    Jobs: List[MailboxExportJobTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListMailboxExportJobsResponse(BaseValidatorModel):
+    Jobs: List[MailboxExportJob]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListMailboxPermissionsResponseTypeDef(BaseValidatorModel):
-    Permissions: List[PermissionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListMailboxPermissionsResponse(BaseValidatorModel):
+    Permissions: List[Permission]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListMobileDeviceAccessOverridesResponseTypeDef(BaseValidatorModel):
-    Overrides: List[MobileDeviceAccessOverrideTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListMobileDeviceAccessOverridesResponse(BaseValidatorModel):
+    Overrides: List[MobileDeviceAccessOverride]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListMobileDeviceAccessRulesResponseTypeDef(BaseValidatorModel):
-    Rules: List[MobileDeviceAccessRuleTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListMobileDeviceAccessRulesResponse(BaseValidatorModel):
+    Rules: List[MobileDeviceAccessRule]
+    ResponseMetadata: ResponseMetadata
 
 
-class ListOrganizationsResponseTypeDef(BaseValidatorModel):
-    OrganizationSummaries: List[OrganizationSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListOrganizationsResponse(BaseValidatorModel):
+    OrganizationSummaries: List[OrganizationSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListPersonalAccessTokensResponseTypeDef(BaseValidatorModel):
-    PersonalAccessTokenSummaries: List[PersonalAccessTokenSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListPersonalAccessTokensResponse(BaseValidatorModel):
+    PersonalAccessTokenSummaries: List[PersonalAccessTokenSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListResourcesRequestPaginateTypeDef(BaseValidatorModel):
+class ListResourcesRequestPaginate(BaseValidatorModel):
     OrganizationId: str
-    Filters: Optional[ListResourcesFiltersTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Optional[ListResourcesFilters] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListResourcesRequestTypeDef(BaseValidatorModel):
+class ListResourcesRequest(BaseValidatorModel):
     OrganizationId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
-    Filters: Optional[ListResourcesFiltersTypeDef] = None
+    Filters: Optional[ListResourcesFilters] = None
 
 
-class ResourceTypeDef(BaseValidatorModel):
+class Resource(BaseValidatorModel):
     pass
 
 
-class ListResourcesResponseTypeDef(BaseValidatorModel):
-    Resources: List[ResourceTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListResourcesResponse(BaseValidatorModel):
+    Resources: List[Resource]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
-    Tags: List[TagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListTagsForResourceResponse(BaseValidatorModel):
+    Tags: List[Tag]
+    ResponseMetadata: ResponseMetadata
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     ResourceARN: str
-    Tags: Sequence[TagTypeDef]
+    Tags: Sequence[Tag]
 
 
-class ListUsersRequestPaginateTypeDef(BaseValidatorModel):
+class ListUsersRequestPaginate(BaseValidatorModel):
     OrganizationId: str
-    Filters: Optional[ListUsersFiltersTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Optional[ListUsersFilters] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListUsersRequestTypeDef(BaseValidatorModel):
+class ListUsersRequest(BaseValidatorModel):
     OrganizationId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
-    Filters: Optional[ListUsersFiltersTypeDef] = None
+    Filters: Optional[ListUsersFilters] = None
 
 
-class ListUsersResponseTypeDef(BaseValidatorModel):
-    Users: List[UserTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListUsersResponse(BaseValidatorModel):
+    Users: List[User]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListAvailabilityConfigurationsResponseTypeDef(BaseValidatorModel):
-    AvailabilityConfigurations: List[AvailabilityConfigurationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAvailabilityConfigurationsResponse(BaseValidatorModel):
+    AvailabilityConfigurations: List[AvailabilityConfiguration]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 

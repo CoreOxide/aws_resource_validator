@@ -1,6 +1,6 @@
 # Artifact Classes
 
-# AccountSettingsTypeDef
+# AccountSettings
 
 ### notificationSubscriptionStatus
 - **Type**: typing.Optional[typing.Literal['NOT_SUBSCRIBED', 'SUBSCRIBED']]
@@ -12,24 +12,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CustomerAgreementSummaryTypeDef
+# CustomerAgreementSummary
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# GetAccountSettingsResponseTypeDef
+# GetAccountSettingsResponse
 
 ### accountSettings
-- **Type**: <class 'aws_resource_validator.pydantic_models.artifact_classes.AccountSettingsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.artifact_classes.AccountSettings'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.artifact_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.artifact_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetReportMetadataRequestTypeDef
+# GetReportMetadataRequest
 
 ### reportId
 - **Type**: <class 'str'>
@@ -39,18 +39,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# GetReportMetadataResponseTypeDef
+# GetReportMetadataResponse
 
 ### reportDetails
-- **Type**: <class 'aws_resource_validator.pydantic_models.artifact_classes.ReportDetailTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.artifact_classes.ReportDetail'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.artifact_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.artifact_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetReportRequestTypeDef
+# GetReportRequest
 
 ### reportId
 - **Type**: <class 'str'>
@@ -64,18 +64,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# GetReportResponseTypeDef
+# GetReportResponse
 
 ### documentPresignedUrl
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.artifact_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.artifact_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetTermForReportRequestTypeDef
+# GetTermForReportRequest
 
 ### reportId
 - **Type**: <class 'str'>
@@ -85,7 +85,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# GetTermForReportResponseTypeDef
+# GetTermForReportResponse
 
 ### documentPresignedUrl
 - **Type**: <class 'str'>
@@ -96,17 +96,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.artifact_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.artifact_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListCustomerAgreementsRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.artifact_classes.PaginatorConfigTypeDef]
-
-
-# ListCustomerAgreementsRequestTypeDef
+# ListCustomerAgreementsRequest
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -115,27 +109,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListCustomerAgreementsResponseTypeDef
+# ListCustomerAgreementsRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.artifact_classes.PaginatorConfig]
+
+
+# ListCustomerAgreementsResponse
 
 ### customerAgreements
-- **Type**: typing.List[aws_resource_validator.pydantic_models.artifact_classes.CustomerAgreementSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.artifact_classes.CustomerAgreementSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.artifact_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.artifact_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListReportsRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.artifact_classes.PaginatorConfigTypeDef]
-
-
-# ListReportsRequestTypeDef
+# ListReportsRequest
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -144,21 +138,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListReportsResponseTypeDef
+# ListReportsRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.artifact_classes.PaginatorConfig]
+
+
+# ListReportsResponse
 
 ### reports
-- **Type**: typing.List[aws_resource_validator.pydantic_models.artifact_classes.ReportSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.artifact_classes.ReportSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.artifact_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.artifact_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -170,36 +170,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PutAccountSettingsRequestTypeDef
+# PutAccountSettingsRequest
 
 ### notificationSubscriptionStatus
 - **Type**: typing.Optional[typing.Literal['NOT_SUBSCRIBED', 'SUBSCRIBED']]
 
 
-# PutAccountSettingsResponseTypeDef
+# PutAccountSettingsResponse
 
 ### accountSettings
-- **Type**: <class 'aws_resource_validator.pydantic_models.artifact_classes.AccountSettingsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.artifact_classes.AccountSettings'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.artifact_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.artifact_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ReportDetailTypeDef
+# ReportDetail
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ReportSummaryTypeDef
+# ReportSummary
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>

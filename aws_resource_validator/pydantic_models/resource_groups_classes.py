@@ -12,17 +12,17 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.resource_groups_constants import *
 
-class AccountSettingsTypeDef(BaseValidatorModel):
+class AccountSettings(BaseValidatorModel):
     GroupLifecycleEventsDesiredStatus: Optional[GroupLifecycleEventsDesiredStatusType] = None
     GroupLifecycleEventsStatus: Optional[GroupLifecycleEventsStatusType] = None
     GroupLifecycleEventsStatusMessage: Optional[str] = None
 
 
-class CancelTagSyncTaskInputTypeDef(BaseValidatorModel):
+class CancelTagSyncTaskInput(BaseValidatorModel):
     TaskArn: str
 
 
-class GroupTypeDef(BaseValidatorModel):
+class Group(BaseValidatorModel):
     GroupArn: str
     Name: str
     Description: Optional[str] = None
@@ -32,7 +32,7 @@ class GroupTypeDef(BaseValidatorModel):
     ApplicationTag: Optional[Dict[str, str]] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -40,55 +40,55 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class DeleteGroupInputTypeDef(BaseValidatorModel):
+class DeleteGroupInput(BaseValidatorModel):
     GroupName: Optional[str] = None
     Group: Optional[str] = None
 
 
-class FailedResourceTypeDef(BaseValidatorModel):
+class FailedResource(BaseValidatorModel):
     ResourceArn: Optional[str] = None
     ErrorMessage: Optional[str] = None
     ErrorCode: Optional[str] = None
 
 
-class GetGroupConfigurationInputTypeDef(BaseValidatorModel):
+class GetGroupConfigurationInput(BaseValidatorModel):
     Group: Optional[str] = None
 
 
-class GetGroupInputTypeDef(BaseValidatorModel):
+class GetGroupInput(BaseValidatorModel):
     GroupName: Optional[str] = None
     Group: Optional[str] = None
 
 
-class GetGroupQueryInputTypeDef(BaseValidatorModel):
+class GetGroupQueryInput(BaseValidatorModel):
     GroupName: Optional[str] = None
     Group: Optional[str] = None
 
 
-class GetTagSyncTaskInputTypeDef(BaseValidatorModel):
+class GetTagSyncTaskInput(BaseValidatorModel):
     TaskArn: str
 
 
-class GetTagsInputTypeDef(BaseValidatorModel):
+class GetTagsInput(BaseValidatorModel):
     Arn: str
 
 
-class GroupConfigurationParameterOutputTypeDef(BaseValidatorModel):
+class GroupConfigurationParameterOutput(BaseValidatorModel):
     Name: str
     Values: Optional[List[str]] = None
 
 
-class GroupConfigurationParameterTypeDef(BaseValidatorModel):
+class GroupConfigurationParameter(BaseValidatorModel):
     Name: str
     Values: Optional[Sequence[str]] = None
 
 
-class GroupFilterTypeDef(BaseValidatorModel):
+class GroupFilter(BaseValidatorModel):
     Name: GroupFilterNameType
     Values: Sequence[str]
 
 
-class GroupIdentifierTypeDef(BaseValidatorModel):
+class GroupIdentifier(BaseValidatorModel):
     GroupName: Optional[str] = None
     GroupArn: Optional[str] = None
     Description: Optional[str] = None
@@ -97,16 +97,16 @@ class GroupIdentifierTypeDef(BaseValidatorModel):
     DisplayName: Optional[str] = None
 
 
-class GroupResourcesInputTypeDef(BaseValidatorModel):
+class GroupResourcesInput(BaseValidatorModel):
     Group: str
     ResourceArns: Sequence[str]
 
 
-class PendingResourceTypeDef(BaseValidatorModel):
+class PendingResource(BaseValidatorModel):
     ResourceArn: Optional[str] = None
 
 
-class GroupingStatusesItemTypeDef(BaseValidatorModel):
+class GroupingStatusesItem(BaseValidatorModel):
     ResourceArn: Optional[str] = None
     Action: Optional[GroupingTypeType] = None
     Status: Optional[GroupingStatusType] = None
@@ -115,42 +115,42 @@ class GroupingStatusesItemTypeDef(BaseValidatorModel):
     UpdatedAt: Optional[datetime] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ResourceFilterTypeDef(BaseValidatorModel):
+class ResourceFilter(BaseValidatorModel):
     Name: Literal["resource-type"]
     Values: Sequence[str]
 
 
-class ResourceIdentifierTypeDef(BaseValidatorModel):
+class ResourceIdentifier(BaseValidatorModel):
     ResourceArn: Optional[str] = None
     ResourceType: Optional[str] = None
 
 
-class ResourceStatusTypeDef(BaseValidatorModel):
+class ResourceStatus(BaseValidatorModel):
     Name: Optional[Literal["PENDING"]] = None
 
 
-class QueryErrorTypeDef(BaseValidatorModel):
+class QueryError(BaseValidatorModel):
     ErrorCode: Optional[QueryErrorCodeType] = None
     Message: Optional[str] = None
 
 
-class ListGroupingStatusesFilterTypeDef(BaseValidatorModel):
+class ListGroupingStatusesFilter(BaseValidatorModel):
     Name: ListGroupingStatusesFilterNameType
     Values: Sequence[str]
 
 
-class ListTagSyncTasksFilterTypeDef(BaseValidatorModel):
+class ListTagSyncTasksFilter(BaseValidatorModel):
     GroupArn: Optional[str] = None
     GroupName: Optional[str] = None
 
 
-class TagSyncTaskItemTypeDef(BaseValidatorModel):
+class TagSyncTaskItem(BaseValidatorModel):
     GroupArn: Optional[str] = None
     GroupName: Optional[str] = None
     TaskArn: Optional[str] = None
@@ -162,33 +162,33 @@ class TagSyncTaskItemTypeDef(BaseValidatorModel):
     CreatedAt: Optional[datetime] = None
 
 
-class StartTagSyncTaskInputTypeDef(BaseValidatorModel):
+class StartTagSyncTaskInput(BaseValidatorModel):
     Group: str
     TagKey: str
     TagValue: str
     RoleArn: str
 
 
-class TagInputTypeDef(BaseValidatorModel):
+class TagInput(BaseValidatorModel):
     Arn: str
     Tags: Mapping[str, str]
 
 
-class UngroupResourcesInputTypeDef(BaseValidatorModel):
+class UngroupResourcesInput(BaseValidatorModel):
     Group: str
     ResourceArns: Sequence[str]
 
 
-class UntagInputTypeDef(BaseValidatorModel):
+class UntagInput(BaseValidatorModel):
     Arn: str
     Keys: Sequence[str]
 
 
-class UpdateAccountSettingsInputTypeDef(BaseValidatorModel):
+class UpdateAccountSettingsInput(BaseValidatorModel):
     GroupLifecycleEventsDesiredStatus: Optional[GroupLifecycleEventsDesiredStatusType] = None
 
 
-class UpdateGroupInputTypeDef(BaseValidatorModel):
+class UpdateGroupInput(BaseValidatorModel):
     GroupName: Optional[str] = None
     Group: Optional[str] = None
     Description: Optional[str] = None
@@ -197,47 +197,47 @@ class UpdateGroupInputTypeDef(BaseValidatorModel):
     DisplayName: Optional[str] = None
 
 
-class ResourceQueryTypeDef(BaseValidatorModel):
+class ResourceQuery(BaseValidatorModel):
     pass
 
 
-class GroupQueryTypeDef(BaseValidatorModel):
+class GroupQuery(BaseValidatorModel):
     GroupName: str
-    ResourceQuery: ResourceQueryTypeDef
+    ResourceQuery: ResourceQuery
 
 
-class SearchResourcesInputTypeDef(BaseValidatorModel):
-    ResourceQuery: ResourceQueryTypeDef
+class SearchResourcesInput(BaseValidatorModel):
+    ResourceQuery: ResourceQuery
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class UpdateGroupQueryInputTypeDef(BaseValidatorModel):
-    ResourceQuery: ResourceQueryTypeDef
+class UpdateGroupQueryInput(BaseValidatorModel):
+    ResourceQuery: ResourceQuery
     GroupName: Optional[str] = None
     Group: Optional[str] = None
 
 
-class DeleteGroupOutputTypeDef(BaseValidatorModel):
-    Group: GroupTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeleteGroupOutput(BaseValidatorModel):
+    Group: Group
+    ResponseMetadata: ResponseMetadata
 
 
-class EmptyResponseMetadataTypeDef(BaseValidatorModel):
-    ResponseMetadata: ResponseMetadataTypeDef
+class EmptyResponseMetadata(BaseValidatorModel):
+    ResponseMetadata: ResponseMetadata
 
 
-class GetAccountSettingsOutputTypeDef(BaseValidatorModel):
-    AccountSettings: AccountSettingsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetAccountSettingsOutput(BaseValidatorModel):
+    AccountSettings: AccountSettings
+    ResponseMetadata: ResponseMetadata
 
 
-class GetGroupOutputTypeDef(BaseValidatorModel):
-    Group: GroupTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetGroupOutput(BaseValidatorModel):
+    Group: Group
+    ResponseMetadata: ResponseMetadata
 
 
-class GetTagSyncTaskOutputTypeDef(BaseValidatorModel):
+class GetTagSyncTaskOutput(BaseValidatorModel):
     GroupArn: str
     GroupName: str
     TaskArn: str
@@ -247,207 +247,207 @@ class GetTagSyncTaskOutputTypeDef(BaseValidatorModel):
     Status: TagSyncTaskStatusType
     ErrorMessage: str
     CreatedAt: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetTagsOutputTypeDef(BaseValidatorModel):
+class GetTagsOutput(BaseValidatorModel):
     Arn: str
     Tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartTagSyncTaskOutputTypeDef(BaseValidatorModel):
+class StartTagSyncTaskOutput(BaseValidatorModel):
     GroupArn: str
     GroupName: str
     TaskArn: str
     TagKey: str
     TagValue: str
     RoleArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class TagOutputTypeDef(BaseValidatorModel):
+class TagOutput(BaseValidatorModel):
     Arn: str
     Tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UntagOutputTypeDef(BaseValidatorModel):
+class UntagOutput(BaseValidatorModel):
     Arn: str
     Keys: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateAccountSettingsOutputTypeDef(BaseValidatorModel):
-    AccountSettings: AccountSettingsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateAccountSettingsOutput(BaseValidatorModel):
+    AccountSettings: AccountSettings
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateGroupOutputTypeDef(BaseValidatorModel):
-    Group: GroupTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateGroupOutput(BaseValidatorModel):
+    Group: Group
+    ResponseMetadata: ResponseMetadata
 
 
-class ListGroupsInputTypeDef(BaseValidatorModel):
-    Filters: Optional[Sequence[GroupFilterTypeDef]] = None
+class ListGroupsInput(BaseValidatorModel):
+    Filters: Optional[Sequence[GroupFilter]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListGroupsOutputTypeDef(BaseValidatorModel):
-    GroupIdentifiers: List[GroupIdentifierTypeDef]
-    Groups: List[GroupTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListGroupsOutput(BaseValidatorModel):
+    GroupIdentifiers: List[GroupIdentifier]
+    Groups: List[Group]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class GroupResourcesOutputTypeDef(BaseValidatorModel):
+class GroupResourcesOutput(BaseValidatorModel):
     Succeeded: List[str]
-    Failed: List[FailedResourceTypeDef]
-    Pending: List[PendingResourceTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    Failed: List[FailedResource]
+    Pending: List[PendingResource]
+    ResponseMetadata: ResponseMetadata
 
 
-class UngroupResourcesOutputTypeDef(BaseValidatorModel):
+class UngroupResourcesOutput(BaseValidatorModel):
     Succeeded: List[str]
-    Failed: List[FailedResourceTypeDef]
-    Pending: List[PendingResourceTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    Failed: List[FailedResource]
+    Pending: List[PendingResource]
+    ResponseMetadata: ResponseMetadata
 
 
-class ListGroupingStatusesOutputTypeDef(BaseValidatorModel):
+class ListGroupingStatusesOutput(BaseValidatorModel):
     Group: str
-    GroupingStatuses: List[GroupingStatusesItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    GroupingStatuses: List[GroupingStatusesItem]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListGroupsInputPaginateTypeDef(BaseValidatorModel):
-    Filters: Optional[Sequence[GroupFilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListGroupsInputPaginate(BaseValidatorModel):
+    Filters: Optional[Sequence[GroupFilter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class SearchResourcesInputPaginateTypeDef(BaseValidatorModel):
-    ResourceQuery: ResourceQueryTypeDef
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class SearchResourcesInputPaginate(BaseValidatorModel):
+    ResourceQuery: ResourceQuery
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListGroupResourcesInputPaginateTypeDef(BaseValidatorModel):
+class ListGroupResourcesInputPaginate(BaseValidatorModel):
     GroupName: Optional[str] = None
     Group: Optional[str] = None
-    Filters: Optional[Sequence[ResourceFilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Optional[Sequence[ResourceFilter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListGroupResourcesInputTypeDef(BaseValidatorModel):
+class ListGroupResourcesInput(BaseValidatorModel):
     GroupName: Optional[str] = None
     Group: Optional[str] = None
-    Filters: Optional[Sequence[ResourceFilterTypeDef]] = None
+    Filters: Optional[Sequence[ResourceFilter]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListGroupResourcesItemTypeDef(BaseValidatorModel):
-    Identifier: Optional[ResourceIdentifierTypeDef] = None
-    Status: Optional[ResourceStatusTypeDef] = None
+class ListGroupResourcesItem(BaseValidatorModel):
+    Identifier: Optional[ResourceIdentifier] = None
+    Status: Optional[ResourceStatus] = None
 
 
-class SearchResourcesOutputTypeDef(BaseValidatorModel):
-    ResourceIdentifiers: List[ResourceIdentifierTypeDef]
-    QueryErrors: List[QueryErrorTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class SearchResourcesOutput(BaseValidatorModel):
+    ResourceIdentifiers: List[ResourceIdentifier]
+    QueryErrors: List[QueryError]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListGroupingStatusesInputPaginateTypeDef(BaseValidatorModel):
+class ListGroupingStatusesInputPaginate(BaseValidatorModel):
     Group: str
-    Filters: Optional[Sequence[ListGroupingStatusesFilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Optional[Sequence[ListGroupingStatusesFilter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListGroupingStatusesInputTypeDef(BaseValidatorModel):
+class ListGroupingStatusesInput(BaseValidatorModel):
     Group: str
     MaxResults: Optional[int] = None
-    Filters: Optional[Sequence[ListGroupingStatusesFilterTypeDef]] = None
+    Filters: Optional[Sequence[ListGroupingStatusesFilter]] = None
     NextToken: Optional[str] = None
 
 
-class ListTagSyncTasksInputPaginateTypeDef(BaseValidatorModel):
-    Filters: Optional[Sequence[ListTagSyncTasksFilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListTagSyncTasksInputPaginate(BaseValidatorModel):
+    Filters: Optional[Sequence[ListTagSyncTasksFilter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListTagSyncTasksInputTypeDef(BaseValidatorModel):
-    Filters: Optional[Sequence[ListTagSyncTasksFilterTypeDef]] = None
+class ListTagSyncTasksInput(BaseValidatorModel):
+    Filters: Optional[Sequence[ListTagSyncTasksFilter]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListTagSyncTasksOutputTypeDef(BaseValidatorModel):
-    TagSyncTasks: List[TagSyncTaskItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListTagSyncTasksOutput(BaseValidatorModel):
+    TagSyncTasks: List[TagSyncTaskItem]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class GetGroupQueryOutputTypeDef(BaseValidatorModel):
-    GroupQuery: GroupQueryTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetGroupQueryOutput(BaseValidatorModel):
+    GroupQuery: GroupQuery
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateGroupQueryOutputTypeDef(BaseValidatorModel):
-    GroupQuery: GroupQueryTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateGroupQueryOutput(BaseValidatorModel):
+    GroupQuery: GroupQuery
+    ResponseMetadata: ResponseMetadata
 
 
-class GroupConfigurationItemOutputTypeDef(BaseValidatorModel):
+class GroupConfigurationItemOutput(BaseValidatorModel):
     pass
 
 
-class GroupConfigurationTypeDef(BaseValidatorModel):
-    Configuration: Optional[List[GroupConfigurationItemOutputTypeDef]] = None
-    ProposedConfiguration: Optional[List[GroupConfigurationItemOutputTypeDef]] = None
+class GroupConfiguration(BaseValidatorModel):
+    Configuration: Optional[List[GroupConfigurationItemOutput]] = None
+    ProposedConfiguration: Optional[List[GroupConfigurationItemOutput]] = None
     Status: Optional[GroupConfigurationStatusType] = None
     FailureReason: Optional[str] = None
 
 
-class ListGroupResourcesOutputTypeDef(BaseValidatorModel):
-    Resources: List[ListGroupResourcesItemTypeDef]
-    ResourceIdentifiers: List[ResourceIdentifierTypeDef]
-    QueryErrors: List[QueryErrorTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListGroupResourcesOutput(BaseValidatorModel):
+    Resources: List[ListGroupResourcesItem]
+    ResourceIdentifiers: List[ResourceIdentifier]
+    QueryErrors: List[QueryError]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class CreateGroupOutputTypeDef(BaseValidatorModel):
-    Group: GroupTypeDef
-    ResourceQuery: ResourceQueryTypeDef
+class CreateGroupOutput(BaseValidatorModel):
+    Group: Group
+    ResourceQuery: ResourceQuery
     Tags: Dict[str, str]
-    GroupConfiguration: GroupConfigurationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    GroupConfiguration: GroupConfiguration
+    ResponseMetadata: ResponseMetadata
 
 
-class GetGroupConfigurationOutputTypeDef(BaseValidatorModel):
-    GroupConfiguration: GroupConfigurationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetGroupConfigurationOutput(BaseValidatorModel):
+    GroupConfiguration: GroupConfiguration
+    ResponseMetadata: ResponseMetadata
 
 
-class GroupConfigurationItemUnionTypeDef(BaseValidatorModel):
+class GroupConfigurationItemUnion(BaseValidatorModel):
     pass
 
 
-class CreateGroupInputTypeDef(BaseValidatorModel):
+class CreateGroupInput(BaseValidatorModel):
     Name: str
     Description: Optional[str] = None
-    ResourceQuery: Optional[ResourceQueryTypeDef] = None
+    ResourceQuery: Optional[ResourceQuery] = None
     Tags: Optional[Mapping[str, str]] = None
-    Configuration: Optional[Sequence[GroupConfigurationItemUnionTypeDef]] = None
+    Configuration: Optional[Sequence[GroupConfigurationItemUnion]] = None
     Criticality: Optional[int] = None
     Owner: Optional[str] = None
     DisplayName: Optional[str] = None
 
 
-class PutGroupConfigurationInputTypeDef(BaseValidatorModel):
+class PutGroupConfigurationInput(BaseValidatorModel):
     Group: Optional[str] = None
-    Configuration: Optional[Sequence[GroupConfigurationItemUnionTypeDef]] = None
+    Configuration: Optional[Sequence[GroupConfigurationItemUnion]] = None
 
 

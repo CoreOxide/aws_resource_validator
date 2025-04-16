@@ -12,7 +12,7 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.iotdeviceadvisor_constants import *
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -20,51 +20,51 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class DeleteSuiteDefinitionRequestTypeDef(BaseValidatorModel):
+class DeleteSuiteDefinitionRequest(BaseValidatorModel):
     suiteDefinitionId: str
 
 
-class DeviceUnderTestTypeDef(BaseValidatorModel):
+class DeviceUnderTest(BaseValidatorModel):
     thingArn: Optional[str] = None
     certificateArn: Optional[str] = None
     deviceRoleArn: Optional[str] = None
 
 
-class GetEndpointRequestTypeDef(BaseValidatorModel):
+class GetEndpointRequest(BaseValidatorModel):
     thingArn: Optional[str] = None
     certificateArn: Optional[str] = None
     deviceRoleArn: Optional[str] = None
     authenticationMethod: Optional[AuthenticationMethodType] = None
 
 
-class GetSuiteDefinitionRequestTypeDef(BaseValidatorModel):
+class GetSuiteDefinitionRequest(BaseValidatorModel):
     suiteDefinitionId: str
     suiteDefinitionVersion: Optional[str] = None
 
 
-class GetSuiteRunReportRequestTypeDef(BaseValidatorModel):
+class GetSuiteRunReportRequest(BaseValidatorModel):
     suiteDefinitionId: str
     suiteRunId: str
 
 
-class GetSuiteRunRequestTypeDef(BaseValidatorModel):
+class GetSuiteRunRequest(BaseValidatorModel):
     suiteDefinitionId: str
     suiteRunId: str
 
 
-class ListSuiteDefinitionsRequestTypeDef(BaseValidatorModel):
+class ListSuiteDefinitionsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListSuiteRunsRequestTypeDef(BaseValidatorModel):
+class ListSuiteRunsRequest(BaseValidatorModel):
     suiteDefinitionId: Optional[str] = None
     suiteDefinitionVersion: Optional[str] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class SuiteRunInformationTypeDef(BaseValidatorModel):
+class SuiteRunInformation(BaseValidatorModel):
     suiteDefinitionId: Optional[str] = None
     suiteDefinitionVersion: Optional[str] = None
     suiteDefinitionName: Optional[str] = None
@@ -77,21 +77,21 @@ class SuiteRunInformationTypeDef(BaseValidatorModel):
     failed: Optional[int] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
 
-class StopSuiteRunRequestTypeDef(BaseValidatorModel):
+class StopSuiteRunRequest(BaseValidatorModel):
     suiteDefinitionId: str
     suiteRunId: str
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
 
-class TestCaseScenarioTypeDef(BaseValidatorModel):
+class TestCaseScenario(BaseValidatorModel):
     testCaseScenarioId: Optional[str] = None
     testCaseScenarioType: Optional[TestCaseScenarioTypeType] = None
     status: Optional[TestCaseScenarioStatusType] = None
@@ -99,101 +99,101 @@ class TestCaseScenarioTypeDef(BaseValidatorModel):
     systemMessage: Optional[str] = None
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
 
-class CreateSuiteDefinitionResponseTypeDef(BaseValidatorModel):
+class CreateSuiteDefinitionResponse(BaseValidatorModel):
     suiteDefinitionId: str
     suiteDefinitionArn: str
     suiteDefinitionName: str
     createdAt: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetEndpointResponseTypeDef(BaseValidatorModel):
+class GetEndpointResponse(BaseValidatorModel):
     endpoint: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetSuiteRunReportResponseTypeDef(BaseValidatorModel):
+class GetSuiteRunReportResponse(BaseValidatorModel):
     qualificationReportDownloadUrl: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
+class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartSuiteRunResponseTypeDef(BaseValidatorModel):
+class StartSuiteRunResponse(BaseValidatorModel):
     suiteRunId: str
     suiteRunArn: str
     createdAt: datetime
     endpoint: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateSuiteDefinitionResponseTypeDef(BaseValidatorModel):
+class UpdateSuiteDefinitionResponse(BaseValidatorModel):
     suiteDefinitionId: str
     suiteDefinitionArn: str
     suiteDefinitionName: str
     suiteDefinitionVersion: str
     createdAt: datetime
     lastUpdatedAt: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class SuiteDefinitionConfigurationOutputTypeDef(BaseValidatorModel):
+class SuiteDefinitionConfigurationOutput(BaseValidatorModel):
     suiteDefinitionName: str
     rootGroup: str
     devicePermissionRoleArn: str
-    devices: Optional[List[DeviceUnderTestTypeDef]] = None
+    devices: Optional[List[DeviceUnderTest]] = None
     intendedForQualification: Optional[bool] = None
     isLongDurationTest: Optional[bool] = None
     protocol: Optional[ProtocolType] = None
 
 
-class SuiteDefinitionConfigurationTypeDef(BaseValidatorModel):
+class SuiteDefinitionConfiguration(BaseValidatorModel):
     suiteDefinitionName: str
     rootGroup: str
     devicePermissionRoleArn: str
-    devices: Optional[Sequence[DeviceUnderTestTypeDef]] = None
+    devices: Optional[Sequence[DeviceUnderTest]] = None
     intendedForQualification: Optional[bool] = None
     isLongDurationTest: Optional[bool] = None
     protocol: Optional[ProtocolType] = None
 
 
-class SuiteDefinitionInformationTypeDef(BaseValidatorModel):
+class SuiteDefinitionInformation(BaseValidatorModel):
     suiteDefinitionId: Optional[str] = None
     suiteDefinitionName: Optional[str] = None
-    defaultDevices: Optional[List[DeviceUnderTestTypeDef]] = None
+    defaultDevices: Optional[List[DeviceUnderTest]] = None
     intendedForQualification: Optional[bool] = None
     isLongDurationTest: Optional[bool] = None
     protocol: Optional[ProtocolType] = None
     createdAt: Optional[datetime] = None
 
 
-class SuiteRunConfigurationOutputTypeDef(BaseValidatorModel):
-    primaryDevice: DeviceUnderTestTypeDef
+class SuiteRunConfigurationOutput(BaseValidatorModel):
+    primaryDevice: DeviceUnderTest
     selectedTestList: Optional[List[str]] = None
     parallelRun: Optional[bool] = None
 
 
-class SuiteRunConfigurationTypeDef(BaseValidatorModel):
-    primaryDevice: DeviceUnderTestTypeDef
+class SuiteRunConfiguration(BaseValidatorModel):
+    primaryDevice: DeviceUnderTest
     selectedTestList: Optional[Sequence[str]] = None
     parallelRun: Optional[bool] = None
 
 
-class ListSuiteRunsResponseTypeDef(BaseValidatorModel):
-    suiteRunsList: List[SuiteRunInformationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListSuiteRunsResponse(BaseValidatorModel):
+    suiteRunsList: List[SuiteRunInformation]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class TestCaseRunTypeDef(BaseValidatorModel):
+class TestCaseRun(BaseValidatorModel):
     testCaseRunId: Optional[str] = None
     testCaseDefinitionId: Optional[str] = None
     testCaseDefinitionName: Optional[str] = None
@@ -203,75 +203,75 @@ class TestCaseRunTypeDef(BaseValidatorModel):
     logUrl: Optional[str] = None
     warnings: Optional[str] = None
     failure: Optional[str] = None
-    testScenarios: Optional[List[TestCaseScenarioTypeDef]] = None
+    testScenarios: Optional[List[TestCaseScenario]] = None
 
 
-class GetSuiteDefinitionResponseTypeDef(BaseValidatorModel):
+class GetSuiteDefinitionResponse(BaseValidatorModel):
     suiteDefinitionId: str
     suiteDefinitionArn: str
     suiteDefinitionVersion: str
     latestVersion: str
-    suiteDefinitionConfiguration: SuiteDefinitionConfigurationOutputTypeDef
+    suiteDefinitionConfiguration: SuiteDefinitionConfigurationOutput
     createdAt: datetime
     lastModifiedAt: datetime
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListSuiteDefinitionsResponseTypeDef(BaseValidatorModel):
-    suiteDefinitionInformationList: List[SuiteDefinitionInformationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListSuiteDefinitionsResponse(BaseValidatorModel):
+    suiteDefinitionInformationList: List[SuiteDefinitionInformation]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class GroupResultTypeDef(BaseValidatorModel):
+class GroupResult(BaseValidatorModel):
     groupId: Optional[str] = None
     groupName: Optional[str] = None
-    tests: Optional[List[TestCaseRunTypeDef]] = None
+    tests: Optional[List[TestCaseRun]] = None
 
 
-class SuiteDefinitionConfigurationUnionTypeDef(BaseValidatorModel):
+class SuiteDefinitionConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class CreateSuiteDefinitionRequestTypeDef(BaseValidatorModel):
-    suiteDefinitionConfiguration: SuiteDefinitionConfigurationUnionTypeDef
+class CreateSuiteDefinitionRequest(BaseValidatorModel):
+    suiteDefinitionConfiguration: SuiteDefinitionConfigurationUnion
     tags: Optional[Mapping[str, str]] = None
     clientToken: Optional[str] = None
 
 
-class UpdateSuiteDefinitionRequestTypeDef(BaseValidatorModel):
+class UpdateSuiteDefinitionRequest(BaseValidatorModel):
     suiteDefinitionId: str
-    suiteDefinitionConfiguration: SuiteDefinitionConfigurationUnionTypeDef
+    suiteDefinitionConfiguration: SuiteDefinitionConfigurationUnion
 
 
-class SuiteRunConfigurationUnionTypeDef(BaseValidatorModel):
+class SuiteRunConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class StartSuiteRunRequestTypeDef(BaseValidatorModel):
+class StartSuiteRunRequest(BaseValidatorModel):
     suiteDefinitionId: str
-    suiteRunConfiguration: SuiteRunConfigurationUnionTypeDef
+    suiteRunConfiguration: SuiteRunConfigurationUnion
     suiteDefinitionVersion: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
 
-class TestResultTypeDef(BaseValidatorModel):
-    groups: Optional[List[GroupResultTypeDef]] = None
+class TestResult(BaseValidatorModel):
+    groups: Optional[List[GroupResult]] = None
 
 
-class GetSuiteRunResponseTypeDef(BaseValidatorModel):
+class GetSuiteRunResponse(BaseValidatorModel):
     suiteDefinitionId: str
     suiteDefinitionVersion: str
     suiteRunId: str
     suiteRunArn: str
-    suiteRunConfiguration: SuiteRunConfigurationOutputTypeDef
-    testResult: TestResultTypeDef
+    suiteRunConfiguration: SuiteRunConfigurationOutput
+    testResult: TestResult
     startTime: datetime
     endTime: datetime
     status: SuiteRunStatusType
     errorReason: str
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 

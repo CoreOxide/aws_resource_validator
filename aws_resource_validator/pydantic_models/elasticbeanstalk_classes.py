@@ -12,12 +12,12 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.elasticbeanstalk_constants import *
 
-class AbortEnvironmentUpdateMessageTypeDef(BaseValidatorModel):
+class AbortEnvironmentUpdateMessage(BaseValidatorModel):
     EnvironmentId: Optional[str] = None
     EnvironmentName: Optional[str] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -25,7 +25,7 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class LatencyTypeDef(BaseValidatorModel):
+class Latency(BaseValidatorModel):
     P999: Optional[float] = None
     P99: Optional[float] = None
     P95: Optional[float] = None
@@ -36,52 +36,52 @@ class LatencyTypeDef(BaseValidatorModel):
     P10: Optional[float] = None
 
 
-class StatusCodesTypeDef(BaseValidatorModel):
+class StatusCodes(BaseValidatorModel):
     Status2xx: Optional[int] = None
     Status3xx: Optional[int] = None
     Status4xx: Optional[int] = None
     Status5xx: Optional[int] = None
 
 
-class S3LocationTypeDef(BaseValidatorModel):
+class S3Location(BaseValidatorModel):
     S3Bucket: Optional[str] = None
     S3Key: Optional[str] = None
 
 
-class SourceBuildInformationTypeDef(BaseValidatorModel):
+class SourceBuildInformation(BaseValidatorModel):
     SourceType: SourceTypeType
     SourceRepository: SourceRepositoryType
     SourceLocation: str
 
 
-class MaxAgeRuleTypeDef(BaseValidatorModel):
+class MaxAgeRule(BaseValidatorModel):
     Enabled: bool
     MaxAgeInDays: Optional[int] = None
     DeleteSourceFromS3: Optional[bool] = None
 
 
-class MaxCountRuleTypeDef(BaseValidatorModel):
+class MaxCountRule(BaseValidatorModel):
     Enabled: bool
     MaxCount: Optional[int] = None
     DeleteSourceFromS3: Optional[bool] = None
 
 
-class ApplyEnvironmentManagedActionRequestTypeDef(BaseValidatorModel):
+class ApplyEnvironmentManagedActionRequest(BaseValidatorModel):
     ActionId: str
     EnvironmentName: Optional[str] = None
     EnvironmentId: Optional[str] = None
 
 
-class AssociateEnvironmentOperationsRoleMessageTypeDef(BaseValidatorModel):
+class AssociateEnvironmentOperationsRoleMessage(BaseValidatorModel):
     EnvironmentName: str
     OperationsRole: str
 
 
-class AutoScalingGroupTypeDef(BaseValidatorModel):
+class AutoScalingGroup(BaseValidatorModel):
     Name: Optional[str] = None
 
 
-class BuildConfigurationTypeDef(BaseValidatorModel):
+class BuildConfiguration(BaseValidatorModel):
     CodeBuildServiceRole: str
     Image: str
     ArtifactName: Optional[str] = None
@@ -89,11 +89,11 @@ class BuildConfigurationTypeDef(BaseValidatorModel):
     TimeoutInMinutes: Optional[int] = None
 
 
-class BuilderTypeDef(BaseValidatorModel):
+class Builder(BaseValidatorModel):
     ARN: Optional[str] = None
 
 
-class CPUUtilizationTypeDef(BaseValidatorModel):
+class CPUUtilization(BaseValidatorModel):
     User: Optional[float] = None
     Nice: Optional[float] = None
     System: Optional[float] = None
@@ -104,47 +104,47 @@ class CPUUtilizationTypeDef(BaseValidatorModel):
     Privileged: Optional[float] = None
 
 
-class CheckDNSAvailabilityMessageTypeDef(BaseValidatorModel):
+class CheckDNSAvailabilityMessage(BaseValidatorModel):
     CNAMEPrefix: str
 
 
-class ComposeEnvironmentsMessageTypeDef(BaseValidatorModel):
+class ComposeEnvironmentsMessage(BaseValidatorModel):
     ApplicationName: Optional[str] = None
     GroupName: Optional[str] = None
     VersionLabels: Optional[Sequence[str]] = None
 
 
-class ConfigurationOptionSettingTypeDef(BaseValidatorModel):
+class ConfigurationOptionSetting(BaseValidatorModel):
     ResourceName: Optional[str] = None
     Namespace: Optional[str] = None
     OptionName: Optional[str] = None
     Value: Optional[str] = None
 
 
-class ValidationMessageTypeDef(BaseValidatorModel):
+class ValidationMessage(BaseValidatorModel):
     Message: Optional[str] = None
     Severity: Optional[ValidationSeverityType] = None
     Namespace: Optional[str] = None
     OptionName: Optional[str] = None
 
 
-class TagTypeDef(BaseValidatorModel):
+class Tag(BaseValidatorModel):
     Key: Optional[str] = None
     Value: Optional[str] = None
 
 
-class SourceConfigurationTypeDef(BaseValidatorModel):
+class SourceConfiguration(BaseValidatorModel):
     ApplicationName: Optional[str] = None
     TemplateName: Optional[str] = None
 
 
-class OptionSpecificationTypeDef(BaseValidatorModel):
+class OptionSpecification(BaseValidatorModel):
     ResourceName: Optional[str] = None
     Namespace: Optional[str] = None
     OptionName: Optional[str] = None
 
 
-class PlatformSummaryTypeDef(BaseValidatorModel):
+class PlatformSummary(BaseValidatorModel):
     PlatformArn: Optional[str] = None
     PlatformOwner: Optional[str] = None
     PlatformStatus: Optional[PlatformStatusType] = None
@@ -159,80 +159,80 @@ class PlatformSummaryTypeDef(BaseValidatorModel):
     PlatformBranchLifecycleState: Optional[str] = None
 
 
-class CustomAmiTypeDef(BaseValidatorModel):
+class CustomAmi(BaseValidatorModel):
     VirtualizationType: Optional[str] = None
     ImageId: Optional[str] = None
 
 
-class DeleteApplicationMessageTypeDef(BaseValidatorModel):
+class DeleteApplicationMessage(BaseValidatorModel):
     ApplicationName: str
     TerminateEnvByForce: Optional[bool] = None
 
 
-class DeleteApplicationVersionMessageTypeDef(BaseValidatorModel):
+class DeleteApplicationVersionMessage(BaseValidatorModel):
     ApplicationName: str
     VersionLabel: str
     DeleteSourceBundle: Optional[bool] = None
 
 
-class DeleteConfigurationTemplateMessageTypeDef(BaseValidatorModel):
+class DeleteConfigurationTemplateMessage(BaseValidatorModel):
     ApplicationName: str
     TemplateName: str
 
 
-class DeleteEnvironmentConfigurationMessageTypeDef(BaseValidatorModel):
+class DeleteEnvironmentConfigurationMessage(BaseValidatorModel):
     ApplicationName: str
     EnvironmentName: str
 
 
-class DeletePlatformVersionRequestTypeDef(BaseValidatorModel):
+class DeletePlatformVersionRequest(BaseValidatorModel):
     PlatformArn: Optional[str] = None
 
 
-class DeploymentTypeDef(BaseValidatorModel):
+class Deployment(BaseValidatorModel):
     VersionLabel: Optional[str] = None
     DeploymentId: Optional[int] = None
     Status: Optional[str] = None
     DeploymentTime: Optional[datetime] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class DescribeApplicationVersionsMessageTypeDef(BaseValidatorModel):
+class DescribeApplicationVersionsMessage(BaseValidatorModel):
     ApplicationName: Optional[str] = None
     VersionLabels: Optional[Sequence[str]] = None
     MaxRecords: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class DescribeApplicationsMessageTypeDef(BaseValidatorModel):
+class DescribeApplicationsMessage(BaseValidatorModel):
     ApplicationNames: Optional[Sequence[str]] = None
 
 
-class DescribeConfigurationSettingsMessageTypeDef(BaseValidatorModel):
+class DescribeConfigurationSettingsMessage(BaseValidatorModel):
     ApplicationName: str
     TemplateName: Optional[str] = None
     EnvironmentName: Optional[str] = None
 
 
-class DescribeEnvironmentHealthRequestTypeDef(BaseValidatorModel):
+class DescribeEnvironmentHealthRequest(BaseValidatorModel):
     EnvironmentName: Optional[str] = None
     EnvironmentId: Optional[str] = None
     AttributeNames: Optional[Sequence[EnvironmentHealthAttributeType]] = None
 
 
-class DescribeEnvironmentManagedActionHistoryRequestTypeDef(BaseValidatorModel):
+class DescribeEnvironmentManagedActionHistoryRequest(BaseValidatorModel):
     EnvironmentId: Optional[str] = None
     EnvironmentName: Optional[str] = None
     NextToken: Optional[str] = None
     MaxItems: Optional[int] = None
 
 
-class ManagedActionHistoryItemTypeDef(BaseValidatorModel):
+class ManagedActionHistoryItem(BaseValidatorModel):
     ActionId: Optional[str] = None
     ActionType: Optional[ActionTypeType] = None
     ActionDescription: Optional[str] = None
@@ -243,13 +243,13 @@ class ManagedActionHistoryItemTypeDef(BaseValidatorModel):
     FinishedTime: Optional[datetime] = None
 
 
-class DescribeEnvironmentManagedActionsRequestTypeDef(BaseValidatorModel):
+class DescribeEnvironmentManagedActionsRequest(BaseValidatorModel):
     EnvironmentName: Optional[str] = None
     EnvironmentId: Optional[str] = None
     Status: Optional[ActionStatusType] = None
 
 
-class ManagedActionTypeDef(BaseValidatorModel):
+class ManagedAction(BaseValidatorModel):
     ActionId: Optional[str] = None
     ActionDescription: Optional[str] = None
     ActionType: Optional[ActionTypeType] = None
@@ -257,69 +257,69 @@ class ManagedActionTypeDef(BaseValidatorModel):
     WindowStartTime: Optional[datetime] = None
 
 
-class DescribeEnvironmentResourcesMessageTypeDef(BaseValidatorModel):
+class DescribeEnvironmentResourcesMessage(BaseValidatorModel):
     EnvironmentId: Optional[str] = None
     EnvironmentName: Optional[str] = None
 
 
-class WaiterConfigTypeDef(BaseValidatorModel):
+class WaiterConfig(BaseValidatorModel):
     Delay: Optional[int] = None
     MaxAttempts: Optional[int] = None
 
 
-class DescribeInstancesHealthRequestTypeDef(BaseValidatorModel):
+class DescribeInstancesHealthRequest(BaseValidatorModel):
     EnvironmentName: Optional[str] = None
     EnvironmentId: Optional[str] = None
     AttributeNames: Optional[Sequence[InstancesHealthAttributeType]] = None
     NextToken: Optional[str] = None
 
 
-class DescribePlatformVersionRequestTypeDef(BaseValidatorModel):
+class DescribePlatformVersionRequest(BaseValidatorModel):
     PlatformArn: Optional[str] = None
 
 
-class DisassociateEnvironmentOperationsRoleMessageTypeDef(BaseValidatorModel):
+class DisassociateEnvironmentOperationsRoleMessage(BaseValidatorModel):
     EnvironmentName: str
 
 
-class EnvironmentLinkTypeDef(BaseValidatorModel):
+class EnvironmentLink(BaseValidatorModel):
     LinkName: Optional[str] = None
     EnvironmentName: Optional[str] = None
 
 
-class EnvironmentInfoDescriptionTypeDef(BaseValidatorModel):
+class EnvironmentInfoDescription(BaseValidatorModel):
     InfoType: Optional[EnvironmentInfoTypeType] = None
     Ec2InstanceId: Optional[str] = None
     SampleTimestamp: Optional[datetime] = None
     Message: Optional[str] = None
 
 
-class InstanceTypeDef(BaseValidatorModel):
+class Instance(BaseValidatorModel):
     Id: Optional[str] = None
 
 
-class LaunchConfigurationTypeDef(BaseValidatorModel):
+class LaunchConfiguration(BaseValidatorModel):
     Name: Optional[str] = None
 
 
-class LaunchTemplateTypeDef(BaseValidatorModel):
+class LaunchTemplate(BaseValidatorModel):
     Id: Optional[str] = None
 
 
-class LoadBalancerTypeDef(BaseValidatorModel):
+class LoadBalancer(BaseValidatorModel):
     Name: Optional[str] = None
 
 
-class QueueTypeDef(BaseValidatorModel):
+class Queue(BaseValidatorModel):
     Name: Optional[str] = None
     URL: Optional[str] = None
 
 
-class TriggerTypeDef(BaseValidatorModel):
+class Trigger(BaseValidatorModel):
     Name: Optional[str] = None
 
 
-class EventDescriptionTypeDef(BaseValidatorModel):
+class EventDescription(BaseValidatorModel):
     EventDate: Optional[datetime] = None
     Message: Optional[str] = None
     ApplicationName: Optional[str] = None
@@ -331,18 +331,18 @@ class EventDescriptionTypeDef(BaseValidatorModel):
     Severity: Optional[EventSeverityType] = None
 
 
-class SolutionStackDescriptionTypeDef(BaseValidatorModel):
+class SolutionStackDescription(BaseValidatorModel):
     SolutionStackName: Optional[str] = None
     PermittedFileTypes: Optional[List[str]] = None
 
 
-class SearchFilterTypeDef(BaseValidatorModel):
+class SearchFilter(BaseValidatorModel):
     Attribute: Optional[str] = None
     Operator: Optional[str] = None
     Values: Optional[Sequence[str]] = None
 
 
-class PlatformBranchSummaryTypeDef(BaseValidatorModel):
+class PlatformBranchSummary(BaseValidatorModel):
     PlatformName: Optional[str] = None
     BranchName: Optional[str] = None
     LifecycleState: Optional[str] = None
@@ -350,129 +350,129 @@ class PlatformBranchSummaryTypeDef(BaseValidatorModel):
     SupportedTierList: Optional[List[str]] = None
 
 
-class ListTagsForResourceMessageTypeDef(BaseValidatorModel):
+class ListTagsForResourceMessage(BaseValidatorModel):
     ResourceArn: str
 
 
-class PlatformFrameworkTypeDef(BaseValidatorModel):
+class PlatformFramework(BaseValidatorModel):
     Name: Optional[str] = None
     Version: Optional[str] = None
 
 
-class PlatformProgrammingLanguageTypeDef(BaseValidatorModel):
+class PlatformProgrammingLanguage(BaseValidatorModel):
     Name: Optional[str] = None
     Version: Optional[str] = None
 
 
-class RebuildEnvironmentMessageTypeDef(BaseValidatorModel):
+class RebuildEnvironmentMessage(BaseValidatorModel):
     EnvironmentId: Optional[str] = None
     EnvironmentName: Optional[str] = None
 
 
-class RequestEnvironmentInfoMessageTypeDef(BaseValidatorModel):
+class RequestEnvironmentInfoMessage(BaseValidatorModel):
     InfoType: EnvironmentInfoTypeType
     EnvironmentId: Optional[str] = None
     EnvironmentName: Optional[str] = None
 
 
-class ResourceQuotaTypeDef(BaseValidatorModel):
+class ResourceQuota(BaseValidatorModel):
     Maximum: Optional[int] = None
 
 
-class RestartAppServerMessageTypeDef(BaseValidatorModel):
+class RestartAppServerMessage(BaseValidatorModel):
     EnvironmentId: Optional[str] = None
     EnvironmentName: Optional[str] = None
 
 
-class RetrieveEnvironmentInfoMessageTypeDef(BaseValidatorModel):
+class RetrieveEnvironmentInfoMessage(BaseValidatorModel):
     InfoType: EnvironmentInfoTypeType
     EnvironmentId: Optional[str] = None
     EnvironmentName: Optional[str] = None
 
 
-class SwapEnvironmentCNAMEsMessageTypeDef(BaseValidatorModel):
+class SwapEnvironmentCNAMEsMessage(BaseValidatorModel):
     SourceEnvironmentId: Optional[str] = None
     SourceEnvironmentName: Optional[str] = None
     DestinationEnvironmentId: Optional[str] = None
     DestinationEnvironmentName: Optional[str] = None
 
 
-class TerminateEnvironmentMessageTypeDef(BaseValidatorModel):
+class TerminateEnvironmentMessage(BaseValidatorModel):
     EnvironmentId: Optional[str] = None
     EnvironmentName: Optional[str] = None
     TerminateResources: Optional[bool] = None
     ForceTerminate: Optional[bool] = None
 
 
-class UpdateApplicationMessageTypeDef(BaseValidatorModel):
+class UpdateApplicationMessage(BaseValidatorModel):
     ApplicationName: str
     Description: Optional[str] = None
 
 
-class UpdateApplicationVersionMessageTypeDef(BaseValidatorModel):
+class UpdateApplicationVersionMessage(BaseValidatorModel):
     ApplicationName: str
     VersionLabel: str
     Description: Optional[str] = None
 
 
-class ApplyEnvironmentManagedActionResultTypeDef(BaseValidatorModel):
+class ApplyEnvironmentManagedActionResult(BaseValidatorModel):
     ActionId: str
     ActionDescription: str
     ActionType: ActionTypeType
     Status: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CheckDNSAvailabilityResultMessageTypeDef(BaseValidatorModel):
+class CheckDNSAvailabilityResultMessage(BaseValidatorModel):
     Available: bool
     FullyQualifiedCNAME: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateStorageLocationResultMessageTypeDef(BaseValidatorModel):
+class CreateStorageLocationResultMessage(BaseValidatorModel):
     S3Bucket: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class EmptyResponseMetadataTypeDef(BaseValidatorModel):
-    ResponseMetadata: ResponseMetadataTypeDef
+class EmptyResponseMetadata(BaseValidatorModel):
+    ResponseMetadata: ResponseMetadata
 
 
-class ApplicationMetricsTypeDef(BaseValidatorModel):
+class ApplicationMetrics(BaseValidatorModel):
     Duration: Optional[int] = None
     RequestCount: Optional[int] = None
-    StatusCodes: Optional[StatusCodesTypeDef] = None
-    Latency: Optional[LatencyTypeDef] = None
+    StatusCodes: Optional[StatusCodes] = None
+    Latency: Optional[Latency] = None
 
 
-class ApplicationVersionDescriptionTypeDef(BaseValidatorModel):
+class ApplicationVersionDescription(BaseValidatorModel):
     ApplicationVersionArn: Optional[str] = None
     ApplicationName: Optional[str] = None
     Description: Optional[str] = None
     VersionLabel: Optional[str] = None
-    SourceBuildInformation: Optional[SourceBuildInformationTypeDef] = None
+    SourceBuildInformation: Optional[SourceBuildInformation] = None
     BuildArn: Optional[str] = None
-    SourceBundle: Optional[S3LocationTypeDef] = None
+    SourceBundle: Optional[S3Location] = None
     DateCreated: Optional[datetime] = None
     DateUpdated: Optional[datetime] = None
     Status: Optional[ApplicationVersionStatusType] = None
 
 
-class ApplicationVersionLifecycleConfigTypeDef(BaseValidatorModel):
-    MaxCountRule: Optional[MaxCountRuleTypeDef] = None
-    MaxAgeRule: Optional[MaxAgeRuleTypeDef] = None
+class ApplicationVersionLifecycleConfig(BaseValidatorModel):
+    MaxCountRule: Optional[MaxCountRule] = None
+    MaxAgeRule: Optional[MaxAgeRule] = None
 
 
-class SystemStatusTypeDef(BaseValidatorModel):
-    CPUUtilization: Optional[CPUUtilizationTypeDef] = None
+class SystemStatus(BaseValidatorModel):
+    CPUUtilization: Optional[CPUUtilization] = None
     LoadAverage: Optional[List[float]] = None
 
 
-class OptionRestrictionRegexTypeDef(BaseValidatorModel):
+class OptionRestrictionRegex(BaseValidatorModel):
     pass
 
 
-class ConfigurationOptionDescriptionTypeDef(BaseValidatorModel):
+class ConfigurationOptionDescription(BaseValidatorModel):
     Namespace: Optional[str] = None
     Name: Optional[str] = None
     DefaultValue: Optional[str] = None
@@ -483,10 +483,10 @@ class ConfigurationOptionDescriptionTypeDef(BaseValidatorModel):
     MinValue: Optional[int] = None
     MaxValue: Optional[int] = None
     MaxLength: Optional[int] = None
-    Regex: Optional[OptionRestrictionRegexTypeDef] = None
+    Regex: Optional[OptionRestrictionRegex] = None
 
 
-class ConfigurationSettingsDescriptionResponseTypeDef(BaseValidatorModel):
+class ConfigurationSettingsDescriptionResponse(BaseValidatorModel):
     SolutionStackName: str
     PlatformArn: str
     ApplicationName: str
@@ -496,11 +496,11 @@ class ConfigurationSettingsDescriptionResponseTypeDef(BaseValidatorModel):
     DeploymentStatus: ConfigurationDeploymentStatusType
     DateCreated: datetime
     DateUpdated: datetime
-    OptionSettings: List[ConfigurationOptionSettingTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    OptionSettings: List[ConfigurationOptionSetting]
+    ResponseMetadata: ResponseMetadata
 
 
-class ConfigurationSettingsDescriptionTypeDef(BaseValidatorModel):
+class ConfigurationSettingsDescription(BaseValidatorModel):
     SolutionStackName: Optional[str] = None
     PlatformArn: Optional[str] = None
     ApplicationName: Optional[str] = None
@@ -510,185 +510,185 @@ class ConfigurationSettingsDescriptionTypeDef(BaseValidatorModel):
     DeploymentStatus: Optional[ConfigurationDeploymentStatusType] = None
     DateCreated: Optional[datetime] = None
     DateUpdated: Optional[datetime] = None
-    OptionSettings: Optional[List[ConfigurationOptionSettingTypeDef]] = None
+    OptionSettings: Optional[List[ConfigurationOptionSetting]] = None
 
 
-class ValidateConfigurationSettingsMessageTypeDef(BaseValidatorModel):
+class ValidateConfigurationSettingsMessage(BaseValidatorModel):
     ApplicationName: str
-    OptionSettings: Sequence[ConfigurationOptionSettingTypeDef]
+    OptionSettings: Sequence[ConfigurationOptionSetting]
     TemplateName: Optional[str] = None
     EnvironmentName: Optional[str] = None
 
 
-class ConfigurationSettingsValidationMessagesTypeDef(BaseValidatorModel):
-    Messages: List[ValidationMessageTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ConfigurationSettingsValidationMessages(BaseValidatorModel):
+    Messages: List[ValidationMessage]
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateApplicationVersionMessageTypeDef(BaseValidatorModel):
+class CreateApplicationVersionMessage(BaseValidatorModel):
     ApplicationName: str
     VersionLabel: str
     Description: Optional[str] = None
-    SourceBuildInformation: Optional[SourceBuildInformationTypeDef] = None
-    SourceBundle: Optional[S3LocationTypeDef] = None
-    BuildConfiguration: Optional[BuildConfigurationTypeDef] = None
+    SourceBuildInformation: Optional[SourceBuildInformation] = None
+    SourceBundle: Optional[S3Location] = None
+    BuildConfiguration: Optional[BuildConfiguration] = None
     AutoCreateApplication: Optional[bool] = None
     Process: Optional[bool] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class CreatePlatformVersionRequestTypeDef(BaseValidatorModel):
+class CreatePlatformVersionRequest(BaseValidatorModel):
     PlatformName: str
     PlatformVersion: str
-    PlatformDefinitionBundle: S3LocationTypeDef
+    PlatformDefinitionBundle: S3Location
     EnvironmentName: Optional[str] = None
-    OptionSettings: Optional[Sequence[ConfigurationOptionSettingTypeDef]] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    OptionSettings: Optional[Sequence[ConfigurationOptionSetting]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class ResourceTagsDescriptionMessageTypeDef(BaseValidatorModel):
+class ResourceTagsDescriptionMessage(BaseValidatorModel):
     ResourceArn: str
-    ResourceTags: List[TagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResourceTags: List[Tag]
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateTagsForResourceMessageTypeDef(BaseValidatorModel):
+class UpdateTagsForResourceMessage(BaseValidatorModel):
     ResourceArn: str
-    TagsToAdd: Optional[Sequence[TagTypeDef]] = None
+    TagsToAdd: Optional[Sequence[Tag]] = None
     TagsToRemove: Optional[Sequence[str]] = None
 
 
-class CreateConfigurationTemplateMessageTypeDef(BaseValidatorModel):
+class CreateConfigurationTemplateMessage(BaseValidatorModel):
     ApplicationName: str
     TemplateName: str
     SolutionStackName: Optional[str] = None
     PlatformArn: Optional[str] = None
-    SourceConfiguration: Optional[SourceConfigurationTypeDef] = None
+    SourceConfiguration: Optional[SourceConfiguration] = None
     EnvironmentId: Optional[str] = None
     Description: Optional[str] = None
-    OptionSettings: Optional[Sequence[ConfigurationOptionSettingTypeDef]] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    OptionSettings: Optional[Sequence[ConfigurationOptionSetting]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class EnvironmentTierTypeDef(BaseValidatorModel):
+class EnvironmentTier(BaseValidatorModel):
     pass
 
 
-class CreateEnvironmentMessageTypeDef(BaseValidatorModel):
+class CreateEnvironmentMessage(BaseValidatorModel):
     ApplicationName: str
     EnvironmentName: Optional[str] = None
     GroupName: Optional[str] = None
     Description: Optional[str] = None
     CNAMEPrefix: Optional[str] = None
-    Tier: Optional[EnvironmentTierTypeDef] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tier: Optional[EnvironmentTier] = None
+    Tags: Optional[Sequence[Tag]] = None
     VersionLabel: Optional[str] = None
     TemplateName: Optional[str] = None
     SolutionStackName: Optional[str] = None
     PlatformArn: Optional[str] = None
-    OptionSettings: Optional[Sequence[ConfigurationOptionSettingTypeDef]] = None
-    OptionsToRemove: Optional[Sequence[OptionSpecificationTypeDef]] = None
+    OptionSettings: Optional[Sequence[ConfigurationOptionSetting]] = None
+    OptionsToRemove: Optional[Sequence[OptionSpecification]] = None
     OperationsRole: Optional[str] = None
 
 
-class DescribeConfigurationOptionsMessageTypeDef(BaseValidatorModel):
+class DescribeConfigurationOptionsMessage(BaseValidatorModel):
     ApplicationName: Optional[str] = None
     TemplateName: Optional[str] = None
     EnvironmentName: Optional[str] = None
     SolutionStackName: Optional[str] = None
     PlatformArn: Optional[str] = None
-    Options: Optional[Sequence[OptionSpecificationTypeDef]] = None
+    Options: Optional[Sequence[OptionSpecification]] = None
 
 
-class UpdateConfigurationTemplateMessageTypeDef(BaseValidatorModel):
+class UpdateConfigurationTemplateMessage(BaseValidatorModel):
     ApplicationName: str
     TemplateName: str
     Description: Optional[str] = None
-    OptionSettings: Optional[Sequence[ConfigurationOptionSettingTypeDef]] = None
-    OptionsToRemove: Optional[Sequence[OptionSpecificationTypeDef]] = None
+    OptionSettings: Optional[Sequence[ConfigurationOptionSetting]] = None
+    OptionsToRemove: Optional[Sequence[OptionSpecification]] = None
 
 
-class UpdateEnvironmentMessageTypeDef(BaseValidatorModel):
+class UpdateEnvironmentMessage(BaseValidatorModel):
     ApplicationName: Optional[str] = None
     EnvironmentId: Optional[str] = None
     EnvironmentName: Optional[str] = None
     GroupName: Optional[str] = None
     Description: Optional[str] = None
-    Tier: Optional[EnvironmentTierTypeDef] = None
+    Tier: Optional[EnvironmentTier] = None
     VersionLabel: Optional[str] = None
     TemplateName: Optional[str] = None
     SolutionStackName: Optional[str] = None
     PlatformArn: Optional[str] = None
-    OptionSettings: Optional[Sequence[ConfigurationOptionSettingTypeDef]] = None
-    OptionsToRemove: Optional[Sequence[OptionSpecificationTypeDef]] = None
+    OptionSettings: Optional[Sequence[ConfigurationOptionSetting]] = None
+    OptionsToRemove: Optional[Sequence[OptionSpecification]] = None
 
 
-class CreatePlatformVersionResultTypeDef(BaseValidatorModel):
-    PlatformSummary: PlatformSummaryTypeDef
-    Builder: BuilderTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreatePlatformVersionResult(BaseValidatorModel):
+    PlatformSummary: PlatformSummary
+    Builder: Builder
+    ResponseMetadata: ResponseMetadata
 
 
-class DeletePlatformVersionResultTypeDef(BaseValidatorModel):
-    PlatformSummary: PlatformSummaryTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeletePlatformVersionResult(BaseValidatorModel):
+    PlatformSummary: PlatformSummary
+    ResponseMetadata: ResponseMetadata
 
 
-class ListPlatformVersionsResultTypeDef(BaseValidatorModel):
-    PlatformSummaryList: List[PlatformSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListPlatformVersionsResult(BaseValidatorModel):
+    PlatformSummaryList: List[PlatformSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeApplicationVersionsMessagePaginateTypeDef(BaseValidatorModel):
+class DescribeApplicationVersionsMessagePaginate(BaseValidatorModel):
     ApplicationName: Optional[str] = None
     VersionLabels: Optional[Sequence[str]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeEnvironmentManagedActionHistoryRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeEnvironmentManagedActionHistoryRequestPaginate(BaseValidatorModel):
     EnvironmentId: Optional[str] = None
     EnvironmentName: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeEnvironmentManagedActionHistoryResultTypeDef(BaseValidatorModel):
-    ManagedActionHistoryItems: List[ManagedActionHistoryItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeEnvironmentManagedActionHistoryResult(BaseValidatorModel):
+    ManagedActionHistoryItems: List[ManagedActionHistoryItem]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeEnvironmentManagedActionsResultTypeDef(BaseValidatorModel):
-    ManagedActions: List[ManagedActionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeEnvironmentManagedActionsResult(BaseValidatorModel):
+    ManagedActions: List[ManagedAction]
+    ResponseMetadata: ResponseMetadata
 
 
-class TimestampTypeDef(BaseValidatorModel):
+class Timestamp(BaseValidatorModel):
     pass
 
 
-class DescribeEnvironmentsMessagePaginateTypeDef(BaseValidatorModel):
+class DescribeEnvironmentsMessagePaginate(BaseValidatorModel):
     ApplicationName: Optional[str] = None
     VersionLabel: Optional[str] = None
     EnvironmentIds: Optional[Sequence[str]] = None
     EnvironmentNames: Optional[Sequence[str]] = None
     IncludeDeleted: Optional[bool] = None
-    IncludedDeletedBackTo: Optional[TimestampTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    IncludedDeletedBackTo: Optional[Timestamp] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeEnvironmentsMessageTypeDef(BaseValidatorModel):
+class DescribeEnvironmentsMessage(BaseValidatorModel):
     ApplicationName: Optional[str] = None
     VersionLabel: Optional[str] = None
     EnvironmentIds: Optional[Sequence[str]] = None
     EnvironmentNames: Optional[Sequence[str]] = None
     IncludeDeleted: Optional[bool] = None
-    IncludedDeletedBackTo: Optional[TimestampTypeDef] = None
+    IncludedDeletedBackTo: Optional[Timestamp] = None
     MaxRecords: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class DescribeEventsMessagePaginateTypeDef(BaseValidatorModel):
+class DescribeEventsMessagePaginate(BaseValidatorModel):
     ApplicationName: Optional[str] = None
     VersionLabel: Optional[str] = None
     TemplateName: Optional[str] = None
@@ -697,12 +697,12 @@ class DescribeEventsMessagePaginateTypeDef(BaseValidatorModel):
     PlatformArn: Optional[str] = None
     RequestId: Optional[str] = None
     Severity: Optional[EventSeverityType] = None
-    StartTime: Optional[TimestampTypeDef] = None
-    EndTime: Optional[TimestampTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    StartTime: Optional[Timestamp] = None
+    EndTime: Optional[Timestamp] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeEventsMessageTypeDef(BaseValidatorModel):
+class DescribeEventsMessage(BaseValidatorModel):
     ApplicationName: Optional[str] = None
     VersionLabel: Optional[str] = None
     TemplateName: Optional[str] = None
@@ -711,114 +711,114 @@ class DescribeEventsMessageTypeDef(BaseValidatorModel):
     PlatformArn: Optional[str] = None
     RequestId: Optional[str] = None
     Severity: Optional[EventSeverityType] = None
-    StartTime: Optional[TimestampTypeDef] = None
-    EndTime: Optional[TimestampTypeDef] = None
+    StartTime: Optional[Timestamp] = None
+    EndTime: Optional[Timestamp] = None
     MaxRecords: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class DescribeEnvironmentsMessageWaitExtraExtraTypeDef(BaseValidatorModel):
+class DescribeEnvironmentsMessageWaitExtraExtra(BaseValidatorModel):
     ApplicationName: Optional[str] = None
     VersionLabel: Optional[str] = None
     EnvironmentIds: Optional[Sequence[str]] = None
     EnvironmentNames: Optional[Sequence[str]] = None
     IncludeDeleted: Optional[bool] = None
-    IncludedDeletedBackTo: Optional[TimestampTypeDef] = None
+    IncludedDeletedBackTo: Optional[Timestamp] = None
     MaxRecords: Optional[int] = None
     NextToken: Optional[str] = None
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class DescribeEnvironmentsMessageWaitExtraTypeDef(BaseValidatorModel):
+class DescribeEnvironmentsMessageWaitExtra(BaseValidatorModel):
     ApplicationName: Optional[str] = None
     VersionLabel: Optional[str] = None
     EnvironmentIds: Optional[Sequence[str]] = None
     EnvironmentNames: Optional[Sequence[str]] = None
     IncludeDeleted: Optional[bool] = None
-    IncludedDeletedBackTo: Optional[TimestampTypeDef] = None
+    IncludedDeletedBackTo: Optional[Timestamp] = None
     MaxRecords: Optional[int] = None
     NextToken: Optional[str] = None
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class DescribeEnvironmentsMessageWaitTypeDef(BaseValidatorModel):
+class DescribeEnvironmentsMessageWait(BaseValidatorModel):
     ApplicationName: Optional[str] = None
     VersionLabel: Optional[str] = None
     EnvironmentIds: Optional[Sequence[str]] = None
     EnvironmentNames: Optional[Sequence[str]] = None
     IncludeDeleted: Optional[bool] = None
-    IncludedDeletedBackTo: Optional[TimestampTypeDef] = None
+    IncludedDeletedBackTo: Optional[Timestamp] = None
     MaxRecords: Optional[int] = None
     NextToken: Optional[str] = None
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class RetrieveEnvironmentInfoResultMessageTypeDef(BaseValidatorModel):
-    EnvironmentInfo: List[EnvironmentInfoDescriptionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class RetrieveEnvironmentInfoResultMessage(BaseValidatorModel):
+    EnvironmentInfo: List[EnvironmentInfoDescription]
+    ResponseMetadata: ResponseMetadata
 
 
-class EnvironmentResourceDescriptionTypeDef(BaseValidatorModel):
+class EnvironmentResourceDescription(BaseValidatorModel):
     EnvironmentName: Optional[str] = None
-    AutoScalingGroups: Optional[List[AutoScalingGroupTypeDef]] = None
-    Instances: Optional[List[InstanceTypeDef]] = None
-    LaunchConfigurations: Optional[List[LaunchConfigurationTypeDef]] = None
-    LaunchTemplates: Optional[List[LaunchTemplateTypeDef]] = None
-    LoadBalancers: Optional[List[LoadBalancerTypeDef]] = None
-    Triggers: Optional[List[TriggerTypeDef]] = None
-    Queues: Optional[List[QueueTypeDef]] = None
+    AutoScalingGroups: Optional[List[AutoScalingGroup]] = None
+    Instances: Optional[List[Instance]] = None
+    LaunchConfigurations: Optional[List[LaunchConfiguration]] = None
+    LaunchTemplates: Optional[List[LaunchTemplate]] = None
+    LoadBalancers: Optional[List[LoadBalancer]] = None
+    Triggers: Optional[List[Trigger]] = None
+    Queues: Optional[List[Queue]] = None
 
 
-class EventDescriptionsMessageTypeDef(BaseValidatorModel):
-    Events: List[EventDescriptionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class EventDescriptionsMessage(BaseValidatorModel):
+    Events: List[EventDescription]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListAvailableSolutionStacksResultMessageTypeDef(BaseValidatorModel):
+class ListAvailableSolutionStacksResultMessage(BaseValidatorModel):
     SolutionStacks: List[str]
-    SolutionStackDetails: List[SolutionStackDescriptionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    SolutionStackDetails: List[SolutionStackDescription]
+    ResponseMetadata: ResponseMetadata
 
 
-class ListPlatformBranchesRequestTypeDef(BaseValidatorModel):
-    Filters: Optional[Sequence[SearchFilterTypeDef]] = None
+class ListPlatformBranchesRequest(BaseValidatorModel):
+    Filters: Optional[Sequence[SearchFilter]] = None
     MaxRecords: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListPlatformBranchesResultTypeDef(BaseValidatorModel):
-    PlatformBranchSummaryList: List[PlatformBranchSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListPlatformBranchesResult(BaseValidatorModel):
+    PlatformBranchSummaryList: List[PlatformBranchSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class PlatformFilterTypeDef(BaseValidatorModel):
+class PlatformFilter(BaseValidatorModel):
     pass
 
 
-class ListPlatformVersionsRequestPaginateTypeDef(BaseValidatorModel):
-    Filters: Optional[Sequence[PlatformFilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListPlatformVersionsRequestPaginate(BaseValidatorModel):
+    Filters: Optional[Sequence[PlatformFilter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListPlatformVersionsRequestTypeDef(BaseValidatorModel):
-    Filters: Optional[Sequence[PlatformFilterTypeDef]] = None
+class ListPlatformVersionsRequest(BaseValidatorModel):
+    Filters: Optional[Sequence[PlatformFilter]] = None
     MaxRecords: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListenerTypeDef(BaseValidatorModel):
+class Listener(BaseValidatorModel):
     pass
 
 
-class LoadBalancerDescriptionTypeDef(BaseValidatorModel):
+class LoadBalancerDescription(BaseValidatorModel):
     LoadBalancerName: Optional[str] = None
     Domain: Optional[str] = None
-    Listeners: Optional[List[ListenerTypeDef]] = None
+    Listeners: Optional[List[Listener]] = None
 
 
-class PlatformDescriptionTypeDef(BaseValidatorModel):
+class PlatformDescription(BaseValidatorModel):
     PlatformArn: Optional[str] = None
     PlatformOwner: Optional[str] = None
     PlatformName: Optional[str] = None
@@ -832,9 +832,9 @@ class PlatformDescriptionTypeDef(BaseValidatorModel):
     Maintainer: Optional[str] = None
     OperatingSystemName: Optional[str] = None
     OperatingSystemVersion: Optional[str] = None
-    ProgrammingLanguages: Optional[List[PlatformProgrammingLanguageTypeDef]] = None
-    Frameworks: Optional[List[PlatformFrameworkTypeDef]] = None
-    CustomAmiList: Optional[List[CustomAmiTypeDef]] = None
+    ProgrammingLanguages: Optional[List[PlatformProgrammingLanguage]] = None
+    Frameworks: Optional[List[PlatformFramework]] = None
+    CustomAmiList: Optional[List[CustomAmi]] = None
     SupportedTierList: Optional[List[str]] = None
     SupportedAddonList: Optional[List[str]] = None
     PlatformLifecycleState: Optional[str] = None
@@ -842,91 +842,91 @@ class PlatformDescriptionTypeDef(BaseValidatorModel):
     PlatformBranchLifecycleState: Optional[str] = None
 
 
-class ResourceQuotasTypeDef(BaseValidatorModel):
-    ApplicationQuota: Optional[ResourceQuotaTypeDef] = None
-    ApplicationVersionQuota: Optional[ResourceQuotaTypeDef] = None
-    EnvironmentQuota: Optional[ResourceQuotaTypeDef] = None
-    ConfigurationTemplateQuota: Optional[ResourceQuotaTypeDef] = None
-    CustomPlatformQuota: Optional[ResourceQuotaTypeDef] = None
+class ResourceQuotas(BaseValidatorModel):
+    ApplicationQuota: Optional[ResourceQuota] = None
+    ApplicationVersionQuota: Optional[ResourceQuota] = None
+    EnvironmentQuota: Optional[ResourceQuota] = None
+    ConfigurationTemplateQuota: Optional[ResourceQuota] = None
+    CustomPlatformQuota: Optional[ResourceQuota] = None
 
 
-class InstanceHealthSummaryTypeDef(BaseValidatorModel):
+class InstanceHealthSummary(BaseValidatorModel):
     pass
 
 
-class DescribeEnvironmentHealthResultTypeDef(BaseValidatorModel):
+class DescribeEnvironmentHealthResult(BaseValidatorModel):
     EnvironmentName: str
     HealthStatus: str
     Status: EnvironmentHealthType
     Color: str
     Causes: List[str]
-    ApplicationMetrics: ApplicationMetricsTypeDef
-    InstancesHealth: InstanceHealthSummaryTypeDef
+    ApplicationMetrics: ApplicationMetrics
+    InstancesHealth: InstanceHealthSummary
     RefreshedAt: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ApplicationVersionDescriptionMessageTypeDef(BaseValidatorModel):
-    ApplicationVersion: ApplicationVersionDescriptionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class ApplicationVersionDescriptionMessage(BaseValidatorModel):
+    ApplicationVersion: ApplicationVersionDescription
+    ResponseMetadata: ResponseMetadata
 
 
-class ApplicationVersionDescriptionsMessageTypeDef(BaseValidatorModel):
-    ApplicationVersions: List[ApplicationVersionDescriptionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ApplicationVersionDescriptionsMessage(BaseValidatorModel):
+    ApplicationVersions: List[ApplicationVersionDescription]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ApplicationResourceLifecycleConfigTypeDef(BaseValidatorModel):
+class ApplicationResourceLifecycleConfig(BaseValidatorModel):
     ServiceRole: Optional[str] = None
-    VersionLifecycleConfig: Optional[ApplicationVersionLifecycleConfigTypeDef] = None
+    VersionLifecycleConfig: Optional[ApplicationVersionLifecycleConfig] = None
 
 
-class SingleInstanceHealthTypeDef(BaseValidatorModel):
+class SingleInstanceHealth(BaseValidatorModel):
     InstanceId: Optional[str] = None
     HealthStatus: Optional[str] = None
     Color: Optional[str] = None
     Causes: Optional[List[str]] = None
     LaunchedAt: Optional[datetime] = None
-    ApplicationMetrics: Optional[ApplicationMetricsTypeDef] = None
-    System: Optional[SystemStatusTypeDef] = None
-    Deployment: Optional[DeploymentTypeDef] = None
+    ApplicationMetrics: Optional[ApplicationMetrics] = None
+    System: Optional[SystemStatus] = None
+    Deployment: Optional[Deployment] = None
     AvailabilityZone: Optional[str] = None
     InstanceType: Optional[str] = None
 
 
-class ConfigurationOptionsDescriptionTypeDef(BaseValidatorModel):
+class ConfigurationOptionsDescription(BaseValidatorModel):
     SolutionStackName: str
     PlatformArn: str
-    Options: List[ConfigurationOptionDescriptionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    Options: List[ConfigurationOptionDescription]
+    ResponseMetadata: ResponseMetadata
 
 
-class ConfigurationSettingsDescriptionsTypeDef(BaseValidatorModel):
-    ConfigurationSettings: List[ConfigurationSettingsDescriptionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ConfigurationSettingsDescriptions(BaseValidatorModel):
+    ConfigurationSettings: List[ConfigurationSettingsDescription]
+    ResponseMetadata: ResponseMetadata
 
 
-class EnvironmentResourceDescriptionsMessageTypeDef(BaseValidatorModel):
-    EnvironmentResources: EnvironmentResourceDescriptionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class EnvironmentResourceDescriptionsMessage(BaseValidatorModel):
+    EnvironmentResources: EnvironmentResourceDescription
+    ResponseMetadata: ResponseMetadata
 
 
-class EnvironmentResourcesDescriptionTypeDef(BaseValidatorModel):
-    LoadBalancer: Optional[LoadBalancerDescriptionTypeDef] = None
+class EnvironmentResourcesDescription(BaseValidatorModel):
+    LoadBalancer: Optional[LoadBalancerDescription] = None
 
 
-class DescribePlatformVersionResultTypeDef(BaseValidatorModel):
-    PlatformDescription: PlatformDescriptionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribePlatformVersionResult(BaseValidatorModel):
+    PlatformDescription: PlatformDescription
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeAccountAttributesResultTypeDef(BaseValidatorModel):
-    ResourceQuotas: ResourceQuotasTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeAccountAttributesResult(BaseValidatorModel):
+    ResourceQuotas: ResourceQuotas
+    ResponseMetadata: ResponseMetadata
 
 
-class ApplicationDescriptionTypeDef(BaseValidatorModel):
+class ApplicationDescription(BaseValidatorModel):
     ApplicationArn: Optional[str] = None
     ApplicationName: Optional[str] = None
     Description: Optional[str] = None
@@ -934,35 +934,35 @@ class ApplicationDescriptionTypeDef(BaseValidatorModel):
     DateUpdated: Optional[datetime] = None
     Versions: Optional[List[str]] = None
     ConfigurationTemplates: Optional[List[str]] = None
-    ResourceLifecycleConfig: Optional[ApplicationResourceLifecycleConfigTypeDef] = None
+    ResourceLifecycleConfig: Optional[ApplicationResourceLifecycleConfig] = None
 
 
-class ApplicationResourceLifecycleDescriptionMessageTypeDef(BaseValidatorModel):
+class ApplicationResourceLifecycleDescriptionMessage(BaseValidatorModel):
     ApplicationName: str
-    ResourceLifecycleConfig: ApplicationResourceLifecycleConfigTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResourceLifecycleConfig: ApplicationResourceLifecycleConfig
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateApplicationMessageTypeDef(BaseValidatorModel):
+class CreateApplicationMessage(BaseValidatorModel):
     ApplicationName: str
     Description: Optional[str] = None
-    ResourceLifecycleConfig: Optional[ApplicationResourceLifecycleConfigTypeDef] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    ResourceLifecycleConfig: Optional[ApplicationResourceLifecycleConfig] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class UpdateApplicationResourceLifecycleMessageTypeDef(BaseValidatorModel):
+class UpdateApplicationResourceLifecycleMessage(BaseValidatorModel):
     ApplicationName: str
-    ResourceLifecycleConfig: ApplicationResourceLifecycleConfigTypeDef
+    ResourceLifecycleConfig: ApplicationResourceLifecycleConfig
 
 
-class DescribeInstancesHealthResultTypeDef(BaseValidatorModel):
-    InstanceHealthList: List[SingleInstanceHealthTypeDef]
+class DescribeInstancesHealthResult(BaseValidatorModel):
+    InstanceHealthList: List[SingleInstanceHealth]
     RefreshedAt: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class EnvironmentDescriptionResponseTypeDef(BaseValidatorModel):
+class EnvironmentDescriptionResponse(BaseValidatorModel):
     EnvironmentName: str
     EnvironmentId: str
     ApplicationName: str
@@ -979,15 +979,15 @@ class EnvironmentDescriptionResponseTypeDef(BaseValidatorModel):
     AbortableOperationInProgress: bool
     Health: EnvironmentHealthType
     HealthStatus: EnvironmentHealthStatusType
-    Resources: EnvironmentResourcesDescriptionTypeDef
-    Tier: EnvironmentTierTypeDef
-    EnvironmentLinks: List[EnvironmentLinkTypeDef]
+    Resources: EnvironmentResourcesDescription
+    Tier: EnvironmentTier
+    EnvironmentLinks: List[EnvironmentLink]
     EnvironmentArn: str
     OperationsRole: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class EnvironmentDescriptionTypeDef(BaseValidatorModel):
+class EnvironmentDescription(BaseValidatorModel):
     EnvironmentName: Optional[str] = None
     EnvironmentId: Optional[str] = None
     ApplicationName: Optional[str] = None
@@ -1004,26 +1004,26 @@ class EnvironmentDescriptionTypeDef(BaseValidatorModel):
     AbortableOperationInProgress: Optional[bool] = None
     Health: Optional[EnvironmentHealthType] = None
     HealthStatus: Optional[EnvironmentHealthStatusType] = None
-    Resources: Optional[EnvironmentResourcesDescriptionTypeDef] = None
-    Tier: Optional[EnvironmentTierTypeDef] = None
-    EnvironmentLinks: Optional[List[EnvironmentLinkTypeDef]] = None
+    Resources: Optional[EnvironmentResourcesDescription] = None
+    Tier: Optional[EnvironmentTier] = None
+    EnvironmentLinks: Optional[List[EnvironmentLink]] = None
     EnvironmentArn: Optional[str] = None
     OperationsRole: Optional[str] = None
 
 
-class ApplicationDescriptionMessageTypeDef(BaseValidatorModel):
-    Application: ApplicationDescriptionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class ApplicationDescriptionMessage(BaseValidatorModel):
+    Application: ApplicationDescription
+    ResponseMetadata: ResponseMetadata
 
 
-class ApplicationDescriptionsMessageTypeDef(BaseValidatorModel):
-    Applications: List[ApplicationDescriptionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ApplicationDescriptionsMessage(BaseValidatorModel):
+    Applications: List[ApplicationDescription]
+    ResponseMetadata: ResponseMetadata
 
 
-class EnvironmentDescriptionsMessageTypeDef(BaseValidatorModel):
-    Environments: List[EnvironmentDescriptionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class EnvironmentDescriptionsMessage(BaseValidatorModel):
+    Environments: List[EnvironmentDescription]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 

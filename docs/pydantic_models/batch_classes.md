@@ -1,6 +1,12 @@
 # Batch Classes
 
-# ArrayPropertiesDetailTypeDef
+# ArrayProperties
+
+### size
+- **Type**: typing.Optional[int]
+
+
+# ArrayPropertiesDetail
 
 ### statusSummary
 - **Type**: typing.Optional[typing.Dict[str, int]]
@@ -12,7 +18,7 @@
 - **Type**: typing.Optional[int]
 
 
-# ArrayPropertiesSummaryTypeDef
+# ArrayPropertiesSummary
 
 ### size
 - **Type**: typing.Optional[int]
@@ -21,13 +27,7 @@
 - **Type**: typing.Optional[int]
 
 
-# ArrayPropertiesTypeDef
-
-### size
-- **Type**: typing.Optional[int]
-
-
-# AttemptContainerDetailTypeDef
+# AttemptContainerDetail
 
 ### containerInstanceArn
 - **Type**: typing.Optional[str]
@@ -45,13 +45,13 @@
 - **Type**: typing.Optional[str]
 
 ### networkInterfaces
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.NetworkInterfaceTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.NetworkInterface]]
 
 
-# AttemptDetailTypeDef
+# AttemptDetail
 
 ### container
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.AttemptContainerDetailTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.AttemptContainerDetail]
 
 ### startedAt
 - **Type**: typing.Optional[int]
@@ -63,10 +63,10 @@
 - **Type**: typing.Optional[str]
 
 ### taskProperties
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.AttemptEcsTaskDetailsTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.AttemptEcsTaskDetails]]
 
 
-# AttemptEcsTaskDetailsTypeDef
+# AttemptEcsTaskDetails
 
 ### containerInstanceArn
 - **Type**: typing.Optional[str]
@@ -75,10 +75,10 @@
 - **Type**: typing.Optional[str]
 
 ### containers
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.AttemptTaskContainerDetailsTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.AttemptTaskContainerDetails]]
 
 
-# AttemptTaskContainerDetailsTypeDef
+# AttemptTaskContainerDetails
 
 ### exitCode
 - **Type**: typing.Optional[int]
@@ -93,7 +93,7 @@
 - **Type**: typing.Optional[str]
 
 ### networkInterfaces
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.NetworkInterfaceTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.NetworkInterface]]
 
 
 # BaseValidatorModel
@@ -102,7 +102,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CancelJobRequestTypeDef
+# CancelJobRequest
 
 ### jobId
 - **Type**: <class 'str'>
@@ -113,13 +113,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ComputeEnvironmentDetailTypeDef
+# ComputeEnvironmentDetail
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ComputeEnvironmentOrderTypeDef
+# ComputeEnvironmentOrder
 
 ### order
 - **Type**: <class 'int'>
@@ -130,31 +130,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ComputeResourceUpdateTypeDef
+# ComputeResourceUpdate
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ConsumableResourcePropertiesOutputTypeDef
+# ConsumableResourceProperties
 
 ### consumableResourceList
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.ConsumableResourceRequirementTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.ConsumableResourceRequirement]]
 
 
-# ConsumableResourcePropertiesTypeDef
+# ConsumableResourcePropertiesOutput
 
 ### consumableResourceList
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.ConsumableResourceRequirementTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.ConsumableResourceRequirement]]
 
 
-# ConsumableResourcePropertiesUnionTypeDef
+# ConsumableResourcePropertiesUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ConsumableResourceRequirementTypeDef
+# ConsumableResourceRequirement
 
 ### consumableResource
 - **Type**: typing.Optional[str]
@@ -163,7 +163,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ConsumableResourceSummaryTypeDef
+# ConsumableResourceSummary
 
 ### consumableResourceArn
 - **Type**: <class 'str'>
@@ -183,7 +183,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ContainerDetailTypeDef
+# ContainerDetail
 
 ### image
 - **Type**: typing.Optional[str]
@@ -204,19 +204,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### volumes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.VolumeTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.Volume]]
 
 ### environment
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.KeyValuePairTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.KeyValuePair]]
 
 ### mountPoints
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.MountPointTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.MountPoint]]
 
 ### readonlyRootFilesystem
 - **Type**: typing.Optional[bool]
 
 ### ulimits
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.UlimitTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.Ulimit]]
 
 ### privileged
 - **Type**: typing.Optional[bool]
@@ -243,37 +243,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### networkInterfaces
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.NetworkInterfaceTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.NetworkInterface]]
 
 ### resourceRequirements
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.ResourceRequirementTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.ResourceRequirement]]
 
 ### linuxParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.LinuxParametersOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.LinuxParametersOutput]
 
 ### logConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.LogConfigurationOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.LogConfigurationOutput]
 
 ### secrets
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.SecretTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.Secret]]
 
 ### networkConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.NetworkConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.NetworkConfiguration]
 
 ### fargatePlatformConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.FargatePlatformConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.FargatePlatformConfiguration]
 
 ### ephemeralStorage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.EphemeralStorageTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.EphemeralStorage]
 
 ### runtimePlatform
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.RuntimePlatformTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.RuntimePlatform]
 
 ### repositoryCredentials
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.RepositoryCredentialsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.RepositoryCredentials]
 
 
-# ContainerOverridesTypeDef
+# ContainerOverrides
 
 ### vcpus
 - **Type**: typing.Optional[int]
@@ -288,13 +288,85 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### environment
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.KeyValuePairTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.KeyValuePair]]
 
 ### resourceRequirements
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.ResourceRequirementTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.ResourceRequirement]]
 
 
-# ContainerPropertiesOutputTypeDef
+# ContainerProperties
+
+### image
+- **Type**: typing.Optional[str]
+
+### vcpus
+- **Type**: typing.Optional[int]
+
+### memory
+- **Type**: typing.Optional[int]
+
+### command
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### jobRoleArn
+- **Type**: typing.Optional[str]
+
+### executionRoleArn
+- **Type**: typing.Optional[str]
+
+### volumes
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.Volume]]
+
+### environment
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.KeyValuePair]]
+
+### mountPoints
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.MountPoint]]
+
+### readonlyRootFilesystem
+- **Type**: typing.Optional[bool]
+
+### privileged
+- **Type**: typing.Optional[bool]
+
+### ulimits
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.Ulimit]]
+
+### user
+- **Type**: typing.Optional[str]
+
+### instanceType
+- **Type**: typing.Optional[str]
+
+### resourceRequirements
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.ResourceRequirement]]
+
+### linuxParameters
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.LinuxParameters]
+
+### logConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.LogConfiguration]
+
+### secrets
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.Secret]]
+
+### networkConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.NetworkConfiguration]
+
+### fargatePlatformConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.FargatePlatformConfiguration]
+
+### ephemeralStorage
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.EphemeralStorage]
+
+### runtimePlatform
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.RuntimePlatform]
+
+### repositoryCredentials
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.RepositoryCredentials]
+
+
+# ContainerPropertiesOutput
 
 ### image
 - **Type**: typing.Optional[str]
@@ -315,13 +387,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### volumes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.VolumeTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.Volume]]
 
 ### environment
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.KeyValuePairTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.KeyValuePair]]
 
 ### mountPoints
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.MountPointTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.MountPoint]]
 
 ### readonlyRootFilesystem
 - **Type**: typing.Optional[bool]
@@ -330,7 +402,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### ulimits
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.UlimitTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.Ulimit]]
 
 ### user
 - **Type**: typing.Optional[str]
@@ -339,106 +411,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### resourceRequirements
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.ResourceRequirementTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.ResourceRequirement]]
 
 ### linuxParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.LinuxParametersOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.LinuxParametersOutput]
 
 ### logConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.LogConfigurationOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.LogConfigurationOutput]
 
 ### secrets
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.SecretTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.Secret]]
 
 ### networkConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.NetworkConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.NetworkConfiguration]
 
 ### fargatePlatformConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.FargatePlatformConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.FargatePlatformConfiguration]
 
 ### ephemeralStorage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.EphemeralStorageTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.EphemeralStorage]
 
 ### runtimePlatform
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.RuntimePlatformTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.RuntimePlatform]
 
 ### repositoryCredentials
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.RepositoryCredentialsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.RepositoryCredentials]
 
 
-# ContainerPropertiesTypeDef
-
-### image
-- **Type**: typing.Optional[str]
-
-### vcpus
-- **Type**: typing.Optional[int]
-
-### memory
-- **Type**: typing.Optional[int]
-
-### command
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### jobRoleArn
-- **Type**: typing.Optional[str]
-
-### executionRoleArn
-- **Type**: typing.Optional[str]
-
-### volumes
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.VolumeTypeDef]]
-
-### environment
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.KeyValuePairTypeDef]]
-
-### mountPoints
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.MountPointTypeDef]]
-
-### readonlyRootFilesystem
-- **Type**: typing.Optional[bool]
-
-### privileged
-- **Type**: typing.Optional[bool]
-
-### ulimits
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.UlimitTypeDef]]
-
-### user
-- **Type**: typing.Optional[str]
-
-### instanceType
-- **Type**: typing.Optional[str]
-
-### resourceRequirements
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.ResourceRequirementTypeDef]]
-
-### linuxParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.LinuxParametersTypeDef]
-
-### logConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.LogConfigurationTypeDef]
-
-### secrets
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.SecretTypeDef]]
-
-### networkConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.NetworkConfigurationTypeDef]
-
-### fargatePlatformConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.FargatePlatformConfigurationTypeDef]
-
-### ephemeralStorage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.EphemeralStorageTypeDef]
-
-### runtimePlatform
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.RuntimePlatformTypeDef]
-
-### repositoryCredentials
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.RepositoryCredentialsTypeDef]
-
-
-# ContainerSummaryTypeDef
+# ContainerSummary
 
 ### exitCode
 - **Type**: typing.Optional[int]
@@ -447,7 +447,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateComputeEnvironmentResponseTypeDef
+# CreateComputeEnvironmentResponse
 
 ### computeEnvironmentName
 - **Type**: <class 'str'>
@@ -458,11 +458,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.batch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.batch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateConsumableResourceRequestTypeDef
+# CreateConsumableResourceRequest
 
 ### consumableResourceName
 - **Type**: <class 'str'>
@@ -478,7 +478,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateConsumableResourceResponseTypeDef
+# CreateConsumableResourceResponse
 
 ### consumableResourceName
 - **Type**: <class 'str'>
@@ -489,11 +489,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.batch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.batch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateJobQueueRequestTypeDef
+# CreateJobQueueRequest
 
 ### jobQueueName
 - **Type**: <class 'str'>
@@ -504,7 +504,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### computeEnvironmentOrder
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.ComputeEnvironmentOrderTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.ComputeEnvironmentOrder]
 - **Required**: Yes
 
 ### state
@@ -517,10 +517,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 ### jobStateTimeLimitActions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.JobStateTimeLimitActionTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.JobStateTimeLimitAction]]
 
 
-# CreateJobQueueResponseTypeDef
+# CreateJobQueueResponse
 
 ### jobQueueName
 - **Type**: <class 'str'>
@@ -531,24 +531,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.batch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.batch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateSchedulingPolicyRequestTypeDef
+# CreateSchedulingPolicyRequest
 
 ### name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### fairsharePolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.FairsharePolicyUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.FairsharePolicyUnion]
 
 ### tags
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateSchedulingPolicyResponseTypeDef
+# CreateSchedulingPolicyResponse
 
 ### name
 - **Type**: <class 'str'>
@@ -559,55 +559,46 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.batch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.batch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteComputeEnvironmentRequestTypeDef
+# DeleteComputeEnvironmentRequest
 
 ### computeEnvironment
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteConsumableResourceRequestTypeDef
+# DeleteConsumableResourceRequest
 
 ### consumableResource
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteJobQueueRequestTypeDef
+# DeleteJobQueueRequest
 
 ### jobQueue
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteSchedulingPolicyRequestTypeDef
+# DeleteSchedulingPolicyRequest
 
 ### arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeregisterJobDefinitionRequestTypeDef
+# DeregisterJobDefinitionRequest
 
 ### jobDefinition
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeComputeEnvironmentsRequestPaginateTypeDef
-
-### computeEnvironments
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.PaginatorConfigTypeDef]
-
-
-# DescribeComputeEnvironmentsRequestTypeDef
+# DescribeComputeEnvironmentsRequest
 
 ### computeEnvironments
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -619,28 +610,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeComputeEnvironmentsResponseTypeDef
+# DescribeComputeEnvironmentsRequestPaginate
 
 ### computeEnvironments
-- **Type**: typing.List[aws_resource_validator.pydantic_models.batch_classes.ComputeEnvironmentDetailTypeDef]
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.PaginatorConfig]
+
+
+# DescribeComputeEnvironmentsResponse
+
+### computeEnvironments
+- **Type**: typing.List[aws_resource_validator.pydantic_models.batch_classes.ComputeEnvironmentDetail]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.batch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.batch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# DescribeConsumableResourceRequestTypeDef
+# DescribeConsumableResourceRequest
 
 ### consumableResource
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeConsumableResourceResponseTypeDef
+# DescribeConsumableResourceResponse
 
 ### consumableResourceName
 - **Type**: <class 'str'>
@@ -675,26 +675,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.batch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.batch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeJobDefinitionsRequestPaginateTypeDef
-
-### jobDefinitions
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### jobDefinitionName
-- **Type**: typing.Optional[str]
-
-### status
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.PaginatorConfigTypeDef]
-
-
-# DescribeJobDefinitionsRequestTypeDef
+# DescribeJobDefinitionsRequest
 
 ### jobDefinitions
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -712,30 +697,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeJobDefinitionsResponseTypeDef
+# DescribeJobDefinitionsRequestPaginate
 
 ### jobDefinitions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.batch_classes.JobDefinitionTypeDef]
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### jobDefinitionName
+- **Type**: typing.Optional[str]
+
+### status
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.PaginatorConfig]
+
+
+# DescribeJobDefinitionsResponse
+
+### jobDefinitions
+- **Type**: typing.List[aws_resource_validator.pydantic_models.batch_classes.JobDefinition]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.batch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.batch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# DescribeJobQueuesRequestPaginateTypeDef
-
-### jobQueues
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.PaginatorConfigTypeDef]
-
-
-# DescribeJobQueuesRequestTypeDef
+# DescribeJobQueuesRequest
 
 ### jobQueues
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -747,70 +738,66 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeJobQueuesResponseTypeDef
+# DescribeJobQueuesRequestPaginate
 
 ### jobQueues
-- **Type**: typing.List[aws_resource_validator.pydantic_models.batch_classes.JobQueueDetailTypeDef]
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.PaginatorConfig]
+
+
+# DescribeJobQueuesResponse
+
+### jobQueues
+- **Type**: typing.List[aws_resource_validator.pydantic_models.batch_classes.JobQueueDetail]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.batch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.batch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# DescribeJobsRequestTypeDef
+# DescribeJobsRequest
 
 ### jobs
 - **Type**: typing.Sequence[str]
 - **Required**: Yes
 
 
-# DescribeJobsResponseTypeDef
+# DescribeJobsResponse
 
 ### jobs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.batch_classes.JobDetailTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.batch_classes.JobDetail]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.batch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.batch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeSchedulingPoliciesRequestTypeDef
+# DescribeSchedulingPoliciesRequest
 
 ### arns
 - **Type**: typing.Sequence[str]
 - **Required**: Yes
 
 
-# DescribeSchedulingPoliciesResponseTypeDef
+# DescribeSchedulingPoliciesResponse
 
 ### schedulingPolicies
-- **Type**: typing.List[aws_resource_validator.pydantic_models.batch_classes.SchedulingPolicyDetailTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.batch_classes.SchedulingPolicyDetail]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.batch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.batch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeviceOutputTypeDef
-
-### hostPath
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### containerPath
-- **Type**: typing.Optional[str]
-
-### permissions
-- **Type**: typing.Optional[typing.List[typing.Literal['MKNOD', 'READ', 'WRITE']]]
-
-
-# DeviceTypeDef
+# Device
 
 ### hostPath
 - **Type**: <class 'str'>
@@ -823,7 +810,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['MKNOD', 'READ', 'WRITE']]]
 
 
-# EFSAuthorizationConfigTypeDef
+# DeviceOutput
+
+### hostPath
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### containerPath
+- **Type**: typing.Optional[str]
+
+### permissions
+- **Type**: typing.Optional[typing.List[typing.Literal['MKNOD', 'READ', 'WRITE']]]
+
+
+# EFSAuthorizationConfig
 
 ### accessPointId
 - **Type**: typing.Optional[str]
@@ -832,7 +832,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
 
 
-# EFSVolumeConfigurationTypeDef
+# EFSVolumeConfiguration
 
 ### fileSystemId
 - **Type**: <class 'str'>
@@ -848,10 +848,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### authorizationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.EFSAuthorizationConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.EFSAuthorizationConfig]
 
 
-# Ec2ConfigurationTypeDef
+# Ec2Configuration
 
 ### imageType
 - **Type**: <class 'str'>
@@ -864,36 +864,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# EcsPropertiesDetailTypeDef
+# EcsProperties
 
 ### taskProperties
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.EcsTaskDetailsTypeDef]]
-
-
-# EcsPropertiesOutputTypeDef
-
-### taskProperties
-- **Type**: typing.List[aws_resource_validator.pydantic_models.batch_classes.EcsTaskPropertiesOutputTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.EcsTaskProperties]
 - **Required**: Yes
 
 
-# EcsPropertiesOverrideTypeDef
+# EcsPropertiesDetail
 
 ### taskProperties
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.TaskPropertiesOverrideTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.EcsTaskDetails]]
 
 
-# EcsPropertiesTypeDef
+# EcsPropertiesOutput
 
 ### taskProperties
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.EcsTaskPropertiesTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.batch_classes.EcsTaskPropertiesOutput]
 - **Required**: Yes
 
 
-# EcsTaskDetailsTypeDef
+# EcsPropertiesOverride
+
+### taskProperties
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.TaskPropertiesOverride]]
+
+
+# EcsTaskDetails
 
 ### containers
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.TaskContainerDetailsTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.TaskContainerDetails]]
 
 ### containerInstanceArn
 - **Type**: typing.Optional[str]
@@ -902,7 +902,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ephemeralStorage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.EphemeralStorageTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.EphemeralStorage]
 
 ### executionRoleArn
 - **Type**: typing.Optional[str]
@@ -920,23 +920,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### networkConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.NetworkConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.NetworkConfiguration]
 
 ### runtimePlatform
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.RuntimePlatformTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.RuntimePlatform]
 
 ### volumes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.VolumeTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.Volume]]
 
 
-# EcsTaskPropertiesOutputTypeDef
+# EcsTaskProperties
 
 ### containers
-- **Type**: typing.List[aws_resource_validator.pydantic_models.batch_classes.TaskContainerPropertiesOutputTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.TaskContainerProperties]
 - **Required**: Yes
 
 ### ephemeralStorage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.EphemeralStorageTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.EphemeralStorage]
 
 ### executionRoleArn
 - **Type**: typing.Optional[str]
@@ -954,23 +954,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### networkConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.NetworkConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.NetworkConfiguration]
 
 ### runtimePlatform
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.RuntimePlatformTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.RuntimePlatform]
 
 ### volumes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.VolumeTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.Volume]]
 
 
-# EcsTaskPropertiesTypeDef
+# EcsTaskPropertiesOutput
 
 ### containers
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.TaskContainerPropertiesTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.batch_classes.TaskContainerPropertiesOutput]
 - **Required**: Yes
 
 ### ephemeralStorage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.EphemeralStorageTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.EphemeralStorage]
 
 ### executionRoleArn
 - **Type**: typing.Optional[str]
@@ -988,16 +988,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### networkConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.NetworkConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.NetworkConfiguration]
 
 ### runtimePlatform
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.RuntimePlatformTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.RuntimePlatform]
 
 ### volumes
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.VolumeTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.Volume]]
 
 
-# EksAttemptContainerDetailTypeDef
+# EksAttemptContainerDetail
 
 ### name
 - **Type**: typing.Optional[str]
@@ -1012,13 +1012,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# EksAttemptDetailTypeDef
+# EksAttemptDetail
 
 ### containers
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.EksAttemptContainerDetailTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.EksAttemptContainerDetail]]
 
 ### initContainers
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.EksAttemptContainerDetailTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.EksAttemptContainerDetail]]
 
 ### eksClusterArn
 - **Type**: typing.Optional[str]
@@ -1042,7 +1042,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# EksConfigurationTypeDef
+# EksConfiguration
 
 ### eksClusterArn
 - **Type**: <class 'str'>
@@ -1053,7 +1053,38 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# EksContainerDetailTypeDef
+# EksContainer
+
+### image
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: typing.Optional[str]
+
+### imagePullPolicy
+- **Type**: typing.Optional[str]
+
+### command
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### args
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### env
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.EksContainerEnvironmentVariable]]
+
+### resources
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.EksContainerResourceRequirements]
+
+### volumeMounts
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.EksContainerVolumeMount]]
+
+### securityContext
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.EksContainerSecurityContext]
+
+
+# EksContainerDetail
 
 ### name
 - **Type**: typing.Optional[str]
@@ -1071,10 +1102,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 ### env
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.EksContainerEnvironmentVariableTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.EksContainerEnvironmentVariable]]
 
 ### resources
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.EksContainerResourceRequirementsOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.EksContainerResourceRequirementsOutput]
 
 ### exitCode
 - **Type**: typing.Optional[int]
@@ -1083,13 +1114,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### volumeMounts
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.EksContainerVolumeMountTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.EksContainerVolumeMount]]
 
 ### securityContext
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.EksContainerSecurityContextTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.EksContainerSecurityContext]
 
 
-# EksContainerEnvironmentVariableTypeDef
+# EksContainerEnvironmentVariable
 
 ### name
 - **Type**: <class 'str'>
@@ -1099,7 +1130,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# EksContainerOutputTypeDef
+# EksContainerOutput
 
 ### image
 - **Type**: <class 'str'>
@@ -1118,19 +1149,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 ### env
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.EksContainerEnvironmentVariableTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.EksContainerEnvironmentVariable]]
 
 ### resources
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.EksContainerResourceRequirementsOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.EksContainerResourceRequirementsOutput]
 
 ### volumeMounts
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.EksContainerVolumeMountTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.EksContainerVolumeMount]]
 
 ### securityContext
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.EksContainerSecurityContextTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.EksContainerSecurityContext]
 
 
-# EksContainerOverrideTypeDef
+# EksContainerOverride
 
 ### name
 - **Type**: typing.Optional[str]
@@ -1145,22 +1176,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### env
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.EksContainerEnvironmentVariableTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.EksContainerEnvironmentVariable]]
 
 ### resources
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.EksContainerResourceRequirementsUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.EksContainerResourceRequirementsUnion]
 
 
-# EksContainerResourceRequirementsOutputTypeDef
-
-### limits
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-### requests
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-
-# EksContainerResourceRequirementsTypeDef
+# EksContainerResourceRequirements
 
 ### limits
 - **Type**: typing.Optional[typing.Mapping[str, str]]
@@ -1169,13 +1191,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# EksContainerResourceRequirementsUnionTypeDef
+# EksContainerResourceRequirementsOutput
+
+### limits
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+### requests
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+
+# EksContainerResourceRequirementsUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# EksContainerSecurityContextTypeDef
+# EksContainerSecurityContext
 
 ### runAsUser
 - **Type**: typing.Optional[int]
@@ -1196,38 +1227,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# EksContainerTypeDef
-
-### image
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### name
-- **Type**: typing.Optional[str]
-
-### imagePullPolicy
-- **Type**: typing.Optional[str]
-
-### command
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### args
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### env
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.EksContainerEnvironmentVariableTypeDef]]
-
-### resources
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.EksContainerResourceRequirementsTypeDef]
-
-### volumeMounts
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.EksContainerVolumeMountTypeDef]]
-
-### securityContext
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.EksContainerSecurityContextTypeDef]
-
-
-# EksContainerVolumeMountTypeDef
+# EksContainerVolumeMount
 
 ### name
 - **Type**: typing.Optional[str]
@@ -1242,7 +1242,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# EksEmptyDirTypeDef
+# EksEmptyDir
 
 ### medium
 - **Type**: typing.Optional[str]
@@ -1251,25 +1251,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# EksHostPathTypeDef
+# EksHostPath
 
 ### path
 - **Type**: typing.Optional[str]
 
 
-# EksMetadataOutputTypeDef
-
-### labels
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-### annotations
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-### namespace
-- **Type**: typing.Optional[str]
-
-
-# EksMetadataTypeDef
+# EksMetadata
 
 ### labels
 - **Type**: typing.Optional[typing.Mapping[str, str]]
@@ -1281,13 +1269,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# EksMetadataUnionTypeDef
+# EksMetadataOutput
+
+### labels
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+### annotations
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+### namespace
+- **Type**: typing.Optional[str]
+
+
+# EksMetadataUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# EksPersistentVolumeClaimTypeDef
+# EksPersistentVolumeClaim
 
 ### claimName
 - **Type**: <class 'str'>
@@ -1297,7 +1297,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# EksPodPropertiesDetailTypeDef
+# EksPodProperties
 
 ### serviceAccountName
 - **Type**: typing.Optional[str]
@@ -1309,16 +1309,46 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### imagePullSecrets
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.ImagePullSecretTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.ImagePullSecret]]
 
 ### containers
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.EksContainerDetailTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.EksContainer]]
 
 ### initContainers
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.EksContainerDetailTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.EksContainer]]
 
 ### volumes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.EksVolumeTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.EksVolume]]
+
+### metadata
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.EksMetadata]
+
+### shareProcessNamespace
+- **Type**: typing.Optional[bool]
+
+
+# EksPodPropertiesDetail
+
+### serviceAccountName
+- **Type**: typing.Optional[str]
+
+### hostNetwork
+- **Type**: typing.Optional[bool]
+
+### dnsPolicy
+- **Type**: typing.Optional[str]
+
+### imagePullSecrets
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.ImagePullSecret]]
+
+### containers
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.EksContainerDetail]]
+
+### initContainers
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.EksContainerDetail]]
+
+### volumes
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.EksVolume]]
 
 ### podName
 - **Type**: typing.Optional[str]
@@ -1327,13 +1357,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### metadata
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.EksMetadataOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.EksMetadataOutput]
 
 ### shareProcessNamespace
 - **Type**: typing.Optional[bool]
 
 
-# EksPodPropertiesOutputTypeDef
+# EksPodPropertiesOutput
 
 ### serviceAccountName
 - **Type**: typing.Optional[str]
@@ -1345,91 +1375,61 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### imagePullSecrets
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.ImagePullSecretTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.ImagePullSecret]]
 
 ### containers
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.EksContainerOutputTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.EksContainerOutput]]
 
 ### initContainers
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.EksContainerOutputTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.EksContainerOutput]]
 
 ### volumes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.EksVolumeTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.EksVolume]]
 
 ### metadata
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.EksMetadataOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.EksMetadataOutput]
 
 ### shareProcessNamespace
 - **Type**: typing.Optional[bool]
 
 
-# EksPodPropertiesOverrideTypeDef
+# EksPodPropertiesOverride
 
 ### containers
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.EksContainerOverrideTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.EksContainerOverride]]
 
 ### initContainers
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.EksContainerOverrideTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.EksContainerOverride]]
 
 ### metadata
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.EksMetadataUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.EksMetadataUnion]
 
 
-# EksPodPropertiesTypeDef
-
-### serviceAccountName
-- **Type**: typing.Optional[str]
-
-### hostNetwork
-- **Type**: typing.Optional[bool]
-
-### dnsPolicy
-- **Type**: typing.Optional[str]
-
-### imagePullSecrets
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.ImagePullSecretTypeDef]]
-
-### containers
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.EksContainerTypeDef]]
-
-### initContainers
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.EksContainerTypeDef]]
-
-### volumes
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.EksVolumeTypeDef]]
-
-### metadata
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.EksMetadataTypeDef]
-
-### shareProcessNamespace
-- **Type**: typing.Optional[bool]
-
-
-# EksPropertiesDetailTypeDef
+# EksProperties
 
 ### podProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.EksPodPropertiesDetailTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.EksPodProperties]
 
 
-# EksPropertiesOutputTypeDef
-
-### podProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.EksPodPropertiesOutputTypeDef]
-
-
-# EksPropertiesOverrideTypeDef
+# EksPropertiesDetail
 
 ### podProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.EksPodPropertiesOverrideTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.EksPodPropertiesDetail]
 
 
-# EksPropertiesTypeDef
+# EksPropertiesOutput
 
 ### podProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.EksPodPropertiesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.EksPodPropertiesOutput]
 
 
-# EksSecretTypeDef
+# EksPropertiesOverride
+
+### podProperties
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.EksPodPropertiesOverride]
+
+
+# EksSecret
 
 ### secretName
 - **Type**: <class 'str'>
@@ -1439,33 +1439,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# EksVolumeTypeDef
+# EksVolume
 
 ### name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### hostPath
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.EksHostPathTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.EksHostPath]
 
 ### emptyDir
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.EksEmptyDirTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.EksEmptyDir]
 
 ### secret
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.EksSecretTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.EksSecret]
 
 ### persistentVolumeClaim
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.EksPersistentVolumeClaimTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.EksPersistentVolumeClaim]
 
 
-# EphemeralStorageTypeDef
+# EphemeralStorage
 
 ### sizeInGiB
 - **Type**: <class 'int'>
 - **Required**: Yes
 
 
-# EvaluateOnExitTypeDef
+# EvaluateOnExit
 
 ### action
 - **Type**: typing.Literal['EXIT', 'RETRY']
@@ -1481,7 +1481,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# FairsharePolicyOutputTypeDef
+# FairsharePolicy
 
 ### shareDecaySeconds
 - **Type**: typing.Optional[int]
@@ -1490,10 +1490,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### shareDistribution
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.ShareAttributesTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.ShareAttributes]]
 
 
-# FairsharePolicyTypeDef
+# FairsharePolicyOutput
 
 ### shareDecaySeconds
 - **Type**: typing.Optional[int]
@@ -1502,31 +1502,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### shareDistribution
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.ShareAttributesTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.ShareAttributes]]
 
 
-# FairsharePolicyUnionTypeDef
+# FairsharePolicyUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# FargatePlatformConfigurationTypeDef
+# FargatePlatformConfiguration
 
 ### platformVersion
 - **Type**: typing.Optional[str]
 
 
-# FrontOfQueueDetailTypeDef
+# FrontOfQueueDetail
 
 ### jobs
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.FrontOfQueueJobSummaryTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.FrontOfQueueJobSummary]]
 
 ### lastUpdatedAt
 - **Type**: typing.Optional[int]
 
 
-# FrontOfQueueJobSummaryTypeDef
+# FrontOfQueueJobSummary
 
 ### jobArn
 - **Type**: typing.Optional[str]
@@ -1535,50 +1535,50 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# GetJobQueueSnapshotRequestTypeDef
+# GetJobQueueSnapshotRequest
 
 ### jobQueue
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetJobQueueSnapshotResponseTypeDef
+# GetJobQueueSnapshotResponse
 
 ### frontOfQueue
-- **Type**: <class 'aws_resource_validator.pydantic_models.batch_classes.FrontOfQueueDetailTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.batch_classes.FrontOfQueueDetail'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.batch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.batch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# HostTypeDef
+# Host
 
 ### sourcePath
 - **Type**: typing.Optional[str]
 
 
-# ImagePullSecretTypeDef
+# ImagePullSecret
 
 ### name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# JobDefinitionTypeDef
+# JobDefinition
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# JobDependencyTypeDef
+# JobDependency
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# JobDetailTypeDef
+# JobDetail
 
 ### jobName
 - **Type**: <class 'str'>
@@ -1614,7 +1614,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### attempts
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.AttemptDetailTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.AttemptDetail]]
 
 ### statusReason
 - **Type**: typing.Optional[str]
@@ -1623,31 +1623,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### retryStrategy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.RetryStrategyOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.RetryStrategyOutput]
 
 ### stoppedAt
 - **Type**: typing.Optional[int]
 
 ### dependsOn
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.JobDependencyTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.JobDependency]]
 
 ### parameters
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### container
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.ContainerDetailTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.ContainerDetail]
 
 ### nodeDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.NodeDetailsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.NodeDetails]
 
 ### nodeProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.NodePropertiesOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.NodePropertiesOutput]
 
 ### arrayProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.ArrayPropertiesDetailTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.ArrayPropertiesDetail]
 
 ### timeout
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.JobTimeoutTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.JobTimeout]
 
 ### tags
 - **Type**: typing.Optional[typing.Dict[str, str]]
@@ -1659,13 +1659,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[typing.Literal['EC2', 'FARGATE']]]
 
 ### eksProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.EksPropertiesDetailTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.EksPropertiesDetail]
 
 ### eksAttempts
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.EksAttemptDetailTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.EksAttemptDetail]]
 
 ### ecsProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.EcsPropertiesDetailTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.EcsPropertiesDetail]
 
 ### isCancelled
 - **Type**: typing.Optional[bool]
@@ -1674,10 +1674,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### consumableResourceProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.ConsumableResourcePropertiesOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.ConsumableResourcePropertiesOutput]
 
 
-# JobQueueDetailTypeDef
+# JobQueueDetail
 
 ### jobQueueName
 - **Type**: <class 'str'>
@@ -1696,7 +1696,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### computeEnvironmentOrder
-- **Type**: typing.List[aws_resource_validator.pydantic_models.batch_classes.ComputeEnvironmentOrderTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.batch_classes.ComputeEnvironmentOrder]
 - **Required**: Yes
 
 ### schedulingPolicyArn
@@ -1712,10 +1712,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### jobStateTimeLimitActions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.JobStateTimeLimitActionTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.JobStateTimeLimitAction]]
 
 
-# JobStateTimeLimitActionTypeDef
+# JobStateTimeLimitAction
 
 ### reason
 - **Type**: <class 'str'>
@@ -1734,7 +1734,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# JobSummaryTypeDef
+# JobSummary
 
 ### jobId
 - **Type**: <class 'str'>
@@ -1763,25 +1763,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### container
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.ContainerSummaryTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.ContainerSummary]
 
 ### arrayProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.ArrayPropertiesSummaryTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.ArrayPropertiesSummary]
 
 ### nodeProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.NodePropertiesSummaryTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.NodePropertiesSummary]
 
 ### jobDefinition
 - **Type**: typing.Optional[str]
 
 
-# JobTimeoutTypeDef
+# JobTimeout
 
 ### attemptDurationSeconds
 - **Type**: typing.Optional[int]
 
 
-# KeyValuePairTypeDef
+# KeyValuePair
 
 ### name
 - **Type**: typing.Optional[str]
@@ -1790,7 +1790,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# KeyValuesPairTypeDef
+# KeyValuesPair
 
 ### name
 - **Type**: typing.Optional[str]
@@ -1799,7 +1799,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# LaunchTemplateSpecificationOutputTypeDef
+# LaunchTemplateSpecification
 
 ### launchTemplateId
 - **Type**: typing.Optional[str]
@@ -1811,10 +1811,40 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### overrides
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.LaunchTemplateSpecificationOverrideOutputTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.LaunchTemplateSpecificationOverrideUnion]]
 
 
-# LaunchTemplateSpecificationOverrideOutputTypeDef
+# LaunchTemplateSpecificationOutput
+
+### launchTemplateId
+- **Type**: typing.Optional[str]
+
+### launchTemplateName
+- **Type**: typing.Optional[str]
+
+### version
+- **Type**: typing.Optional[str]
+
+### overrides
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.LaunchTemplateSpecificationOverrideOutput]]
+
+
+# LaunchTemplateSpecificationOverride
+
+### launchTemplateId
+- **Type**: typing.Optional[str]
+
+### launchTemplateName
+- **Type**: typing.Optional[str]
+
+### version
+- **Type**: typing.Optional[str]
+
+### targetInstanceTypes
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+
+# LaunchTemplateSpecificationOverrideOutput
 
 ### launchTemplateId
 - **Type**: typing.Optional[str]
@@ -1829,46 +1859,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# LaunchTemplateSpecificationOverrideTypeDef
-
-### launchTemplateId
-- **Type**: typing.Optional[str]
-
-### launchTemplateName
-- **Type**: typing.Optional[str]
-
-### version
-- **Type**: typing.Optional[str]
-
-### targetInstanceTypes
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-
-# LaunchTemplateSpecificationOverrideUnionTypeDef
+# LaunchTemplateSpecificationOverrideUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# LaunchTemplateSpecificationTypeDef
-
-### launchTemplateId
-- **Type**: typing.Optional[str]
-
-### launchTemplateName
-- **Type**: typing.Optional[str]
-
-### version
-- **Type**: typing.Optional[str]
-
-### overrides
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.LaunchTemplateSpecificationOverrideUnionTypeDef]]
-
-
-# LinuxParametersOutputTypeDef
+# LinuxParameters
 
 ### devices
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.DeviceOutputTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.Device]]
 
 ### initProcessEnabled
 - **Type**: typing.Optional[bool]
@@ -1877,7 +1877,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### tmpfs
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.TmpfsOutputTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.Tmpfs]]
 
 ### maxSwap
 - **Type**: typing.Optional[int]
@@ -1886,10 +1886,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# LinuxParametersTypeDef
+# LinuxParametersOutput
 
 ### devices
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.DeviceTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.DeviceOutput]]
 
 ### initProcessEnabled
 - **Type**: typing.Optional[bool]
@@ -1898,7 +1898,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### tmpfs
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.TmpfsTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.TmpfsOutput]]
 
 ### maxSwap
 - **Type**: typing.Optional[int]
@@ -1907,19 +1907,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListConsumableResourcesRequestPaginateTypeDef
+# ListConsumableResourcesRequest
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.KeyValuesPairTypeDef]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.PaginatorConfigTypeDef]
-
-
-# ListConsumableResourcesRequestTypeDef
-
-### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.KeyValuesPairTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.KeyValuesPair]]
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -1928,41 +1919,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListConsumableResourcesResponseTypeDef
+# ListConsumableResourcesRequestPaginate
+
+### filters
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.KeyValuesPair]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.PaginatorConfig]
+
+
+# ListConsumableResourcesResponse
 
 ### consumableResources
-- **Type**: typing.List[aws_resource_validator.pydantic_models.batch_classes.ConsumableResourceSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.batch_classes.ConsumableResourceSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.batch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.batch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListJobsByConsumableResourceRequestPaginateTypeDef
+# ListJobsByConsumableResourceRequest
 
 ### consumableResource
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.KeyValuesPairTypeDef]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.PaginatorConfigTypeDef]
-
-
-# ListJobsByConsumableResourceRequestTypeDef
-
-### consumableResource
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.KeyValuesPairTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.KeyValuesPair]]
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -1971,21 +1958,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListJobsByConsumableResourceResponseTypeDef
+# ListJobsByConsumableResourceRequestPaginate
+
+### consumableResource
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### filters
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.KeyValuesPair]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.PaginatorConfig]
+
+
+# ListJobsByConsumableResourceResponse
 
 ### jobs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.batch_classes.ListJobsByConsumableResourceSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.batch_classes.ListJobsByConsumableResourceSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.batch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.batch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListJobsByConsumableResourceSummaryTypeDef
+# ListJobsByConsumableResourceSummary
 
 ### jobArn
 - **Type**: <class 'str'>
@@ -2012,7 +2012,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### consumableResourceProperties
-- **Type**: <class 'aws_resource_validator.pydantic_models.batch_classes.ConsumableResourcePropertiesOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.batch_classes.ConsumableResourcePropertiesOutput'>
 - **Required**: Yes
 
 ### jobDefinitionArn
@@ -2028,28 +2028,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListJobsRequestPaginateTypeDef
-
-### jobQueue
-- **Type**: typing.Optional[str]
-
-### arrayJobId
-- **Type**: typing.Optional[str]
-
-### multiNodeJobId
-- **Type**: typing.Optional[str]
-
-### jobStatus
-- **Type**: typing.Optional[typing.Literal['FAILED', 'PENDING', 'RUNNABLE', 'RUNNING', 'STARTING', 'SUBMITTED', 'SUCCEEDED']]
-
-### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.KeyValuesPairTypeDef]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.PaginatorConfigTypeDef]
-
-
-# ListJobsRequestTypeDef
+# ListJobsRequest
 
 ### jobQueue
 - **Type**: typing.Optional[str]
@@ -2070,30 +2049,45 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.KeyValuesPairTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.KeyValuesPair]]
 
 
-# ListJobsResponseTypeDef
+# ListJobsRequestPaginate
+
+### jobQueue
+- **Type**: typing.Optional[str]
+
+### arrayJobId
+- **Type**: typing.Optional[str]
+
+### multiNodeJobId
+- **Type**: typing.Optional[str]
+
+### jobStatus
+- **Type**: typing.Optional[typing.Literal['FAILED', 'PENDING', 'RUNNABLE', 'RUNNING', 'STARTING', 'SUBMITTED', 'SUCCEEDED']]
+
+### filters
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.KeyValuesPair]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.PaginatorConfig]
+
+
+# ListJobsResponse
 
 ### jobSummaryList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.batch_classes.JobSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.batch_classes.JobSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.batch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.batch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListSchedulingPoliciesRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.PaginatorConfigTypeDef]
-
-
-# ListSchedulingPoliciesRequestTypeDef
+# ListSchedulingPoliciesRequest
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -2102,52 +2096,45 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListSchedulingPoliciesResponseTypeDef
+# ListSchedulingPoliciesRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.PaginatorConfig]
+
+
+# ListSchedulingPoliciesResponse
 
 ### schedulingPolicies
-- **Type**: typing.List[aws_resource_validator.pydantic_models.batch_classes.SchedulingPolicyListingDetailTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.batch_classes.SchedulingPolicyListingDetail]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.batch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.batch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestTypeDef
+# ListTagsForResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ListTagsForResourceResponseTypeDef
+# ListTagsForResourceResponse
 
 ### tags
 - **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.batch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.batch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# LogConfigurationOutputTypeDef
-
-### logDriver
-- **Type**: typing.Literal['awslogs', 'fluentd', 'gelf', 'journald', 'json-file', 'splunk', 'syslog']
-- **Required**: Yes
-
-### options
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-### secretOptions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.SecretTypeDef]]
-
-
-# LogConfigurationTypeDef
+# LogConfiguration
 
 ### logDriver
 - **Type**: typing.Literal['awslogs', 'fluentd', 'gelf', 'journald', 'json-file', 'splunk', 'syslog']
@@ -2157,10 +2144,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 ### secretOptions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.SecretTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.Secret]]
 
 
-# MountPointTypeDef
+# LogConfigurationOutput
+
+### logDriver
+- **Type**: typing.Literal['awslogs', 'fluentd', 'gelf', 'journald', 'json-file', 'splunk', 'syslog']
+- **Required**: Yes
+
+### options
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+### secretOptions
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.Secret]]
+
+
+# MountPoint
 
 ### containerPath
 - **Type**: typing.Optional[str]
@@ -2172,13 +2172,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# NetworkConfigurationTypeDef
+# NetworkConfiguration
 
 ### assignPublicIp
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
 
 
-# NetworkInterfaceTypeDef
+# NetworkInterface
 
 ### attachmentId
 - **Type**: typing.Optional[str]
@@ -2190,7 +2190,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# NodeDetailsTypeDef
+# NodeDetails
 
 ### nodeIndex
 - **Type**: typing.Optional[int]
@@ -2199,16 +2199,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# NodeOverridesTypeDef
+# NodeOverrides
 
 ### numNodes
 - **Type**: typing.Optional[int]
 
 ### nodePropertyOverrides
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.NodePropertyOverrideTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.NodePropertyOverride]]
 
 
-# NodePropertiesOutputTypeDef
+# NodeProperties
 
 ### numNodes
 - **Type**: <class 'int'>
@@ -2219,11 +2219,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### nodeRangeProperties
-- **Type**: typing.List[aws_resource_validator.pydantic_models.batch_classes.NodeRangePropertyOutputTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.NodeRangeProperty]
 - **Required**: Yes
 
 
-# NodePropertiesSummaryTypeDef
+# NodePropertiesOutput
+
+### numNodes
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### mainNode
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### nodeRangeProperties
+- **Type**: typing.List[aws_resource_validator.pydantic_models.batch_classes.NodeRangePropertyOutput]
+- **Required**: Yes
+
+
+# NodePropertiesSummary
 
 ### isMainNode
 - **Type**: typing.Optional[bool]
@@ -2235,88 +2250,73 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# NodePropertiesTypeDef
-
-### numNodes
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### mainNode
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### nodeRangeProperties
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.NodeRangePropertyTypeDef]
-- **Required**: Yes
-
-
-# NodePropertyOverrideTypeDef
+# NodePropertyOverride
 
 ### targetNodes
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### containerOverrides
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.ContainerOverridesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.ContainerOverrides]
 
 ### ecsPropertiesOverride
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.EcsPropertiesOverrideTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.EcsPropertiesOverride]
 
 ### instanceTypes
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### eksPropertiesOverride
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.EksPropertiesOverrideTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.EksPropertiesOverride]
 
 ### consumableResourcePropertiesOverride
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.ConsumableResourcePropertiesUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.ConsumableResourcePropertiesUnion]
 
 
-# NodeRangePropertyOutputTypeDef
-
-### targetNodes
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### container
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.ContainerPropertiesOutputTypeDef]
-
-### instanceTypes
-- **Type**: typing.Optional[typing.List[str]]
-
-### ecsProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.EcsPropertiesOutputTypeDef]
-
-### eksProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.EksPropertiesOutputTypeDef]
-
-### consumableResourceProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.ConsumableResourcePropertiesOutputTypeDef]
-
-
-# NodeRangePropertyTypeDef
+# NodeRangeProperty
 
 ### targetNodes
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### container
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.ContainerPropertiesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.ContainerProperties]
 
 ### instanceTypes
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### ecsProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.EcsPropertiesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.EcsProperties]
 
 ### eksProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.EksPropertiesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.EksProperties]
 
 ### consumableResourceProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.ConsumableResourcePropertiesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.ConsumableResourceProperties]
 
 
-# PaginatorConfigTypeDef
+# NodeRangePropertyOutput
+
+### targetNodes
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### container
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.ContainerPropertiesOutput]
+
+### instanceTypes
+- **Type**: typing.Optional[typing.List[str]]
+
+### ecsProperties
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.EcsPropertiesOutput]
+
+### eksProperties
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.EksPropertiesOutput]
+
+### consumableResourceProperties
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.ConsumableResourcePropertiesOutput]
+
+
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -2328,7 +2328,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RegisterJobDefinitionResponseTypeDef
+# RegisterJobDefinitionResponse
 
 ### jobDefinitionName
 - **Type**: <class 'str'>
@@ -2343,24 +2343,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.batch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.batch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# RepositoryCredentialsTypeDef
+# RepositoryCredentials
 
 ### credentialsParameter
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ResourceRequirementTypeDef
+# ResourceRequirement
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -2382,31 +2382,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RetryStrategyOutputTypeDef
+# RetryStrategy
 
 ### attempts
 - **Type**: typing.Optional[int]
 
 ### evaluateOnExit
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.EvaluateOnExitTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.EvaluateOnExit]]
 
 
-# RetryStrategyTypeDef
+# RetryStrategyOutput
 
 ### attempts
 - **Type**: typing.Optional[int]
 
 ### evaluateOnExit
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.EvaluateOnExitTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.EvaluateOnExit]]
 
 
-# RetryStrategyUnionTypeDef
+# RetryStrategyUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# RuntimePlatformTypeDef
+# RuntimePlatform
 
 ### operatingSystemFamily
 - **Type**: typing.Optional[str]
@@ -2415,7 +2415,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SchedulingPolicyDetailTypeDef
+# SchedulingPolicyDetail
 
 ### name
 - **Type**: <class 'str'>
@@ -2426,20 +2426,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### fairsharePolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.FairsharePolicyOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.FairsharePolicyOutput]
 
 ### tags
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 
-# SchedulingPolicyListingDetailTypeDef
+# SchedulingPolicyListingDetail
 
 ### arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# SecretTypeDef
+# Secret
 
 ### name
 - **Type**: <class 'str'>
@@ -2450,7 +2450,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ShareAttributesTypeDef
+# ShareAttributes
 
 ### shareIdentifier
 - **Type**: <class 'str'>
@@ -2460,7 +2460,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# SubmitJobRequestTypeDef
+# SubmitJobRequest
 
 ### jobName
 - **Type**: <class 'str'>
@@ -2481,43 +2481,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### arrayProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.ArrayPropertiesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.ArrayProperties]
 
 ### dependsOn
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.JobDependencyTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.JobDependency]]
 
 ### parameters
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 ### containerOverrides
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.ContainerOverridesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.ContainerOverrides]
 
 ### nodeOverrides
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.NodeOverridesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.NodeOverrides]
 
 ### retryStrategy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.RetryStrategyUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.RetryStrategyUnion]
 
 ### propagateTags
 - **Type**: typing.Optional[bool]
 
 ### timeout
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.JobTimeoutTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.JobTimeout]
 
 ### tags
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 ### eksPropertiesOverride
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.EksPropertiesOverrideTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.EksPropertiesOverride]
 
 ### ecsPropertiesOverride
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.EcsPropertiesOverrideTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.EcsPropertiesOverride]
 
 ### consumableResourcePropertiesOverride
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.ConsumableResourcePropertiesUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.ConsumableResourcePropertiesUnion]
 
 
-# SubmitJobResponseTypeDef
+# SubmitJobResponse
 
 ### jobArn
 - **Type**: <class 'str'>
@@ -2532,11 +2532,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.batch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.batch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# TagResourceRequestTypeDef
+# TagResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -2547,7 +2547,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TaskContainerDependencyTypeDef
+# TaskContainerDependency
 
 ### containerName
 - **Type**: typing.Optional[str]
@@ -2556,16 +2556,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TaskContainerDetailsTypeDef
+# TaskContainerDetails
 
 ### command
 - **Type**: typing.Optional[typing.List[str]]
 
 ### dependsOn
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.TaskContainerDependencyTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.TaskContainerDependency]]
 
 ### environment
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.KeyValuePairTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.KeyValuePair]]
 
 ### essential
 - **Type**: typing.Optional[bool]
@@ -2574,13 +2574,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### linuxParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.LinuxParametersOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.LinuxParametersOutput]
 
 ### logConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.LogConfigurationOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.LogConfigurationOutput]
 
 ### mountPoints
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.MountPointTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.MountPoint]]
 
 ### name
 - **Type**: typing.Optional[str]
@@ -2592,16 +2592,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### repositoryCredentials
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.RepositoryCredentialsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.RepositoryCredentials]
 
 ### resourceRequirements
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.ResourceRequirementTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.ResourceRequirement]]
 
 ### secrets
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.SecretTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.Secret]]
 
 ### ulimits
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.UlimitTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.Ulimit]]
 
 ### user
 - **Type**: typing.Optional[str]
@@ -2616,25 +2616,77 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### networkInterfaces
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.NetworkInterfaceTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.NetworkInterface]]
 
 
-# TaskContainerOverridesTypeDef
+# TaskContainerOverrides
 
 ### command
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### environment
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.KeyValuePairTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.KeyValuePair]]
 
 ### name
 - **Type**: typing.Optional[str]
 
 ### resourceRequirements
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.ResourceRequirementTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.ResourceRequirement]]
 
 
-# TaskContainerPropertiesOutputTypeDef
+# TaskContainerProperties
+
+### image
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### command
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### dependsOn
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.TaskContainerDependency]]
+
+### environment
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.KeyValuePair]]
+
+### essential
+- **Type**: typing.Optional[bool]
+
+### linuxParameters
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.LinuxParameters]
+
+### logConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.LogConfiguration]
+
+### mountPoints
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.MountPoint]]
+
+### name
+- **Type**: typing.Optional[str]
+
+### privileged
+- **Type**: typing.Optional[bool]
+
+### readonlyRootFilesystem
+- **Type**: typing.Optional[bool]
+
+### repositoryCredentials
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.RepositoryCredentials]
+
+### resourceRequirements
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.ResourceRequirement]]
+
+### secrets
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.Secret]]
+
+### ulimits
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.Ulimit]]
+
+### user
+- **Type**: typing.Optional[str]
+
+
+# TaskContainerPropertiesOutput
 
 ### image
 - **Type**: <class 'str'>
@@ -2644,22 +2696,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 ### dependsOn
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.TaskContainerDependencyTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.TaskContainerDependency]]
 
 ### environment
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.KeyValuePairTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.KeyValuePair]]
 
 ### essential
 - **Type**: typing.Optional[bool]
 
 ### linuxParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.LinuxParametersOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.LinuxParametersOutput]
 
 ### logConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.LogConfigurationOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.LogConfigurationOutput]
 
 ### mountPoints
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.MountPointTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.MountPoint]]
 
 ### name
 - **Type**: typing.Optional[str]
@@ -2671,80 +2723,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### repositoryCredentials
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.RepositoryCredentialsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.RepositoryCredentials]
 
 ### resourceRequirements
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.ResourceRequirementTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.ResourceRequirement]]
 
 ### secrets
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.SecretTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.Secret]]
 
 ### ulimits
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.UlimitTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.batch_classes.Ulimit]]
 
 ### user
 - **Type**: typing.Optional[str]
 
 
-# TaskContainerPropertiesTypeDef
-
-### image
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### command
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### dependsOn
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.TaskContainerDependencyTypeDef]]
-
-### environment
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.KeyValuePairTypeDef]]
-
-### essential
-- **Type**: typing.Optional[bool]
-
-### linuxParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.LinuxParametersTypeDef]
-
-### logConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.LogConfigurationTypeDef]
-
-### mountPoints
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.MountPointTypeDef]]
-
-### name
-- **Type**: typing.Optional[str]
-
-### privileged
-- **Type**: typing.Optional[bool]
-
-### readonlyRootFilesystem
-- **Type**: typing.Optional[bool]
-
-### repositoryCredentials
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.RepositoryCredentialsTypeDef]
-
-### resourceRequirements
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.ResourceRequirementTypeDef]]
-
-### secrets
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.SecretTypeDef]]
-
-### ulimits
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.UlimitTypeDef]]
-
-### user
-- **Type**: typing.Optional[str]
-
-
-# TaskPropertiesOverrideTypeDef
+# TaskPropertiesOverride
 
 ### containers
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.TaskContainerOverridesTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.TaskContainerOverrides]]
 
 
-# TerminateJobRequestTypeDef
+# TerminateJobRequest
 
 ### jobId
 - **Type**: <class 'str'>
@@ -2755,21 +2755,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TmpfsOutputTypeDef
-
-### containerPath
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### size
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### mountOptions
-- **Type**: typing.Optional[typing.List[str]]
-
-
-# TmpfsTypeDef
+# Tmpfs
 
 ### containerPath
 - **Type**: <class 'str'>
@@ -2783,7 +2769,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# UlimitTypeDef
+# TmpfsOutput
+
+### containerPath
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### size
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### mountOptions
+- **Type**: typing.Optional[typing.List[str]]
+
+
+# Ulimit
 
 ### hardLimit
 - **Type**: <class 'int'>
@@ -2798,7 +2798,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceRequestTypeDef
+# UntagResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -2809,7 +2809,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateComputeEnvironmentRequestTypeDef
+# UpdateComputeEnvironmentRequest
 
 ### computeEnvironment
 - **Type**: <class 'str'>
@@ -2822,19 +2822,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### computeResources
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.ComputeResourceUpdateTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.ComputeResourceUpdate]
 
 ### serviceRole
 - **Type**: typing.Optional[str]
 
 ### updatePolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.UpdatePolicyTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.UpdatePolicy]
 
 ### context
 - **Type**: typing.Optional[str]
 
 
-# UpdateComputeEnvironmentResponseTypeDef
+# UpdateComputeEnvironmentResponse
 
 ### computeEnvironmentName
 - **Type**: <class 'str'>
@@ -2845,11 +2845,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.batch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.batch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateConsumableResourceRequestTypeDef
+# UpdateConsumableResourceRequest
 
 ### consumableResource
 - **Type**: <class 'str'>
@@ -2865,7 +2865,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateConsumableResourceResponseTypeDef
+# UpdateConsumableResourceResponse
 
 ### consumableResourceName
 - **Type**: <class 'str'>
@@ -2880,11 +2880,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.batch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.batch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateJobQueueRequestTypeDef
+# UpdateJobQueueRequest
 
 ### jobQueue
 - **Type**: <class 'str'>
@@ -2900,13 +2900,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### computeEnvironmentOrder
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.ComputeEnvironmentOrderTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.ComputeEnvironmentOrder]]
 
 ### jobStateTimeLimitActions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.JobStateTimeLimitActionTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.batch_classes.JobStateTimeLimitAction]]
 
 
-# UpdateJobQueueResponseTypeDef
+# UpdateJobQueueResponse
 
 ### jobQueueName
 - **Type**: <class 'str'>
@@ -2917,11 +2917,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.batch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.batch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdatePolicyTypeDef
+# UpdatePolicy
 
 ### terminateJobsOnUpdate
 - **Type**: typing.Optional[bool]
@@ -2930,25 +2930,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# UpdateSchedulingPolicyRequestTypeDef
+# UpdateSchedulingPolicyRequest
 
 ### arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### fairsharePolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.FairsharePolicyUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.FairsharePolicyUnion]
 
 
-# VolumeTypeDef
+# Volume
 
 ### host
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.HostTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.Host]
 
 ### name
 - **Type**: typing.Optional[str]
 
 ### efsVolumeConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.EFSVolumeConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.batch_classes.EFSVolumeConfiguration]
 
 

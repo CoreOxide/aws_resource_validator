@@ -12,24 +12,24 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.connect_contact_lens_constants import *
 
-class PointOfInterestTypeDef(BaseValidatorModel):
+class PointOfInterest(BaseValidatorModel):
     BeginOffsetMillis: int
     EndOffsetMillis: int
 
 
-class CharacterOffsetsTypeDef(BaseValidatorModel):
+class CharacterOffsets(BaseValidatorModel):
     BeginOffsetChar: int
     EndOffsetChar: int
 
 
-class ListRealtimeContactAnalysisSegmentsRequestTypeDef(BaseValidatorModel):
+class ListRealtimeContactAnalysisSegmentsRequest(BaseValidatorModel):
     InstanceId: str
     ContactId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -37,26 +37,26 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class PostContactSummaryTypeDef(BaseValidatorModel):
+class PostContactSummary(BaseValidatorModel):
     Status: PostContactSummaryStatusType
     Content: Optional[str] = None
     FailureCode: Optional[PostContactSummaryFailureCodeType] = None
 
 
-class CategoryDetailsTypeDef(BaseValidatorModel):
-    PointsOfInterest: List[PointOfInterestTypeDef]
+class CategoryDetails(BaseValidatorModel):
+    PointsOfInterest: List[PointOfInterest]
 
 
-class IssueDetectedTypeDef(BaseValidatorModel):
-    CharacterOffsets: CharacterOffsetsTypeDef
+class IssueDetected(BaseValidatorModel):
+    CharacterOffsets: CharacterOffsets
 
 
-class CategoriesTypeDef(BaseValidatorModel):
+class Categories(BaseValidatorModel):
     MatchedCategories: List[str]
-    MatchedDetails: Dict[str, CategoryDetailsTypeDef]
+    MatchedDetails: Dict[str, CategoryDetails]
 
 
-class TranscriptTypeDef(BaseValidatorModel):
+class Transcript(BaseValidatorModel):
     Id: str
     ParticipantId: str
     ParticipantRole: str
@@ -64,18 +64,18 @@ class TranscriptTypeDef(BaseValidatorModel):
     BeginOffsetMillis: int
     EndOffsetMillis: int
     Sentiment: SentimentValueType
-    IssuesDetected: Optional[List[IssueDetectedTypeDef]] = None
+    IssuesDetected: Optional[List[IssueDetected]] = None
 
 
-class RealtimeContactAnalysisSegmentTypeDef(BaseValidatorModel):
-    Transcript: Optional[TranscriptTypeDef] = None
-    Categories: Optional[CategoriesTypeDef] = None
-    PostContactSummary: Optional[PostContactSummaryTypeDef] = None
+class RealtimeContactAnalysisSegment(BaseValidatorModel):
+    Transcript: Optional[Transcript] = None
+    Categories: Optional[Categories] = None
+    PostContactSummary: Optional[PostContactSummary] = None
 
 
-class ListRealtimeContactAnalysisSegmentsResponseTypeDef(BaseValidatorModel):
-    Segments: List[RealtimeContactAnalysisSegmentTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListRealtimeContactAnalysisSegmentsResponse(BaseValidatorModel):
+    Segments: List[RealtimeContactAnalysisSegment]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 

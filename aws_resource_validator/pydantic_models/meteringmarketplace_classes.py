@@ -12,7 +12,7 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.meteringmarketplace_constants import *
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -20,100 +20,100 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class RegisterUsageRequestTypeDef(BaseValidatorModel):
+class RegisterUsageRequest(BaseValidatorModel):
     ProductCode: str
     PublicKeyVersion: int
     Nonce: Optional[str] = None
 
 
-class ResolveCustomerRequestTypeDef(BaseValidatorModel):
+class ResolveCustomerRequest(BaseValidatorModel):
     RegistrationToken: str
 
 
-class TagTypeDef(BaseValidatorModel):
+class Tag(BaseValidatorModel):
     Key: str
     Value: str
 
 
-class MeterUsageResultTypeDef(BaseValidatorModel):
+class MeterUsageResult(BaseValidatorModel):
     MeteringRecordId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class RegisterUsageResultTypeDef(BaseValidatorModel):
+class RegisterUsageResult(BaseValidatorModel):
     PublicKeyRotationTimestamp: datetime
     Signature: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ResolveCustomerResultTypeDef(BaseValidatorModel):
+class ResolveCustomerResult(BaseValidatorModel):
     CustomerIdentifier: str
     ProductCode: str
     CustomerAWSAccountId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UsageAllocationOutputTypeDef(BaseValidatorModel):
+class UsageAllocationOutput(BaseValidatorModel):
     AllocatedUsageQuantity: int
-    Tags: Optional[List[TagTypeDef]] = None
+    Tags: Optional[List[Tag]] = None
 
 
-class UsageAllocationTypeDef(BaseValidatorModel):
+class UsageAllocation(BaseValidatorModel):
     AllocatedUsageQuantity: int
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class UsageRecordOutputTypeDef(BaseValidatorModel):
+class UsageRecordOutput(BaseValidatorModel):
     Timestamp: datetime
     CustomerIdentifier: str
     Dimension: str
     Quantity: Optional[int] = None
-    UsageAllocations: Optional[List[UsageAllocationOutputTypeDef]] = None
+    UsageAllocations: Optional[List[UsageAllocationOutput]] = None
 
 
-class UsageRecordResultTypeDef(BaseValidatorModel):
-    UsageRecord: Optional[UsageRecordOutputTypeDef] = None
+class UsageRecordResult(BaseValidatorModel):
+    UsageRecord: Optional[UsageRecordOutput] = None
     MeteringRecordId: Optional[str] = None
     Status: Optional[UsageRecordResultStatusType] = None
 
 
-class UsageAllocationUnionTypeDef(BaseValidatorModel):
+class UsageAllocationUnion(BaseValidatorModel):
     pass
 
 
-class TimestampTypeDef(BaseValidatorModel):
+class Timestamp(BaseValidatorModel):
     pass
 
 
-class MeterUsageRequestTypeDef(BaseValidatorModel):
+class MeterUsageRequest(BaseValidatorModel):
     ProductCode: str
-    Timestamp: TimestampTypeDef
+    Timestamp: Timestamp
     UsageDimension: str
     UsageQuantity: Optional[int] = None
     DryRun: Optional[bool] = None
-    UsageAllocations: Optional[Sequence[UsageAllocationUnionTypeDef]] = None
+    UsageAllocations: Optional[Sequence[UsageAllocationUnion]] = None
 
 
-class UsageRecordTypeDef(BaseValidatorModel):
-    Timestamp: TimestampTypeDef
+class UsageRecord(BaseValidatorModel):
+    Timestamp: Timestamp
     CustomerIdentifier: str
     Dimension: str
     Quantity: Optional[int] = None
-    UsageAllocations: Optional[Sequence[UsageAllocationUnionTypeDef]] = None
+    UsageAllocations: Optional[Sequence[UsageAllocationUnion]] = None
 
 
-class BatchMeterUsageResultTypeDef(BaseValidatorModel):
-    Results: List[UsageRecordResultTypeDef]
-    UnprocessedRecords: List[UsageRecordOutputTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchMeterUsageResult(BaseValidatorModel):
+    Results: List[UsageRecordResult]
+    UnprocessedRecords: List[UsageRecordOutput]
+    ResponseMetadata: ResponseMetadata
 
 
-class UsageRecordUnionTypeDef(BaseValidatorModel):
+class UsageRecordUnion(BaseValidatorModel):
     pass
 
 
-class BatchMeterUsageRequestTypeDef(BaseValidatorModel):
-    UsageRecords: Sequence[UsageRecordUnionTypeDef]
+class BatchMeterUsageRequest(BaseValidatorModel):
+    UsageRecords: Sequence[UsageRecordUnion]
     ProductCode: str
 
 

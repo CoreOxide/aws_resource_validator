@@ -12,7 +12,7 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.comprehend_constants import *
 
-class AugmentedManifestsListItemOutputTypeDef(BaseValidatorModel):
+class AugmentedManifestsListItemOutput(BaseValidatorModel):
     S3Uri: str
     AttributeNames: List[str]
     Split: Optional[SplitType] = None
@@ -21,7 +21,7 @@ class AugmentedManifestsListItemOutputTypeDef(BaseValidatorModel):
     DocumentType: Optional[AugmentedManifestsDocumentTypeFormatType] = None
 
 
-class AugmentedManifestsListItemTypeDef(BaseValidatorModel):
+class AugmentedManifestsListItem(BaseValidatorModel):
     S3Uri: str
     AttributeNames: Sequence[str]
     Split: Optional[SplitType] = None
@@ -30,22 +30,22 @@ class AugmentedManifestsListItemTypeDef(BaseValidatorModel):
     DocumentType: Optional[AugmentedManifestsDocumentTypeFormatType] = None
 
 
-class DominantLanguageTypeDef(BaseValidatorModel):
+class DominantLanguage(BaseValidatorModel):
     LanguageCode: Optional[str] = None
     Score: Optional[float] = None
 
 
-class BatchDetectDominantLanguageRequestTypeDef(BaseValidatorModel):
+class BatchDetectDominantLanguageRequest(BaseValidatorModel):
     TextList: Sequence[str]
 
 
-class BatchItemErrorTypeDef(BaseValidatorModel):
+class BatchItemError(BaseValidatorModel):
     Index: Optional[int] = None
     ErrorCode: Optional[str] = None
     ErrorMessage: Optional[str] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -53,52 +53,52 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class BatchDetectEntitiesRequestTypeDef(BaseValidatorModel):
+class BatchDetectEntitiesRequest(BaseValidatorModel):
     TextList: Sequence[str]
     LanguageCode: LanguageCodeType
 
 
-class BatchDetectKeyPhrasesRequestTypeDef(BaseValidatorModel):
+class BatchDetectKeyPhrasesRequest(BaseValidatorModel):
     TextList: Sequence[str]
     LanguageCode: LanguageCodeType
 
 
-class SentimentScoreTypeDef(BaseValidatorModel):
+class SentimentScore(BaseValidatorModel):
     Positive: Optional[float] = None
     Negative: Optional[float] = None
     Neutral: Optional[float] = None
     Mixed: Optional[float] = None
 
 
-class BatchDetectSentimentRequestTypeDef(BaseValidatorModel):
+class BatchDetectSentimentRequest(BaseValidatorModel):
     TextList: Sequence[str]
     LanguageCode: LanguageCodeType
 
 
-class BatchDetectSyntaxRequestTypeDef(BaseValidatorModel):
+class BatchDetectSyntaxRequest(BaseValidatorModel):
     TextList: Sequence[str]
     LanguageCode: SyntaxLanguageCodeType
 
 
-class BatchDetectTargetedSentimentRequestTypeDef(BaseValidatorModel):
+class BatchDetectTargetedSentimentRequest(BaseValidatorModel):
     TextList: Sequence[str]
     LanguageCode: LanguageCodeType
 
 
-class ChildBlockTypeDef(BaseValidatorModel):
+class ChildBlock(BaseValidatorModel):
     ChildBlockId: Optional[str] = None
     BeginOffset: Optional[int] = None
     EndOffset: Optional[int] = None
 
 
-class BoundingBoxTypeDef(BaseValidatorModel):
+class BoundingBox(BaseValidatorModel):
     Height: Optional[float] = None
     Left: Optional[float] = None
     Top: Optional[float] = None
     Width: Optional[float] = None
 
 
-class ClassifierEvaluationMetricsTypeDef(BaseValidatorModel):
+class ClassifierEvaluationMetrics(BaseValidatorModel):
     Accuracy: Optional[float] = None
     Precision: Optional[float] = None
     Recall: Optional[float] = None
@@ -109,57 +109,57 @@ class ClassifierEvaluationMetricsTypeDef(BaseValidatorModel):
     HammingLoss: Optional[float] = None
 
 
-class DocumentClassTypeDef(BaseValidatorModel):
+class DocumentClass(BaseValidatorModel):
     Name: Optional[str] = None
     Score: Optional[float] = None
     Page: Optional[int] = None
 
 
-class DocumentLabelTypeDef(BaseValidatorModel):
+class DocumentLabel(BaseValidatorModel):
     Name: Optional[str] = None
     Score: Optional[float] = None
     Page: Optional[int] = None
 
 
-class ErrorsListItemTypeDef(BaseValidatorModel):
+class ErrorsListItem(BaseValidatorModel):
     Page: Optional[int] = None
     ErrorCode: Optional[PageBasedErrorCodeType] = None
     ErrorMessage: Optional[str] = None
 
 
-class WarningsListItemTypeDef(BaseValidatorModel):
+class WarningsListItem(BaseValidatorModel):
     Page: Optional[int] = None
     WarnCode: Optional[PageBasedWarningCodeType] = None
     WarnMessage: Optional[str] = None
 
 
-class EntityLabelTypeDef(BaseValidatorModel):
+class EntityLabel(BaseValidatorModel):
     Name: Optional[PiiEntityTypeType] = None
     Score: Optional[float] = None
 
 
-class TagTypeDef(BaseValidatorModel):
+class Tag(BaseValidatorModel):
     Key: str
     Value: Optional[str] = None
 
 
-class DocumentClassifierOutputDataConfigTypeDef(BaseValidatorModel):
+class DocumentClassifierOutputDataConfig(BaseValidatorModel):
     S3Uri: Optional[str] = None
     KmsKeyId: Optional[str] = None
     FlywheelStatsS3Prefix: Optional[str] = None
 
 
-class VpcConfigOutputTypeDef(BaseValidatorModel):
+class VpcConfigOutput(BaseValidatorModel):
     SecurityGroupIds: List[str]
     Subnets: List[str]
 
 
-class VpcConfigTypeDef(BaseValidatorModel):
+class VpcConfig(BaseValidatorModel):
     SecurityGroupIds: Sequence[str]
     Subnets: Sequence[str]
 
 
-class DatasetAugmentedManifestsListItemTypeDef(BaseValidatorModel):
+class DatasetAugmentedManifestsListItem(BaseValidatorModel):
     AttributeNames: Sequence[str]
     S3Uri: str
     AnnotationDataS3Uri: Optional[str] = None
@@ -167,25 +167,25 @@ class DatasetAugmentedManifestsListItemTypeDef(BaseValidatorModel):
     DocumentType: Optional[AugmentedManifestsDocumentTypeFormatType] = None
 
 
-class DatasetDocumentClassifierInputDataConfigTypeDef(BaseValidatorModel):
+class DatasetDocumentClassifierInputDataConfig(BaseValidatorModel):
     S3Uri: str
     LabelDelimiter: Optional[str] = None
 
 
-class DatasetEntityRecognizerAnnotationsTypeDef(BaseValidatorModel):
+class DatasetEntityRecognizerAnnotations(BaseValidatorModel):
     S3Uri: str
 
 
-class DatasetEntityRecognizerDocumentsTypeDef(BaseValidatorModel):
+class DatasetEntityRecognizerDocuments(BaseValidatorModel):
     S3Uri: str
     InputFormat: Optional[InputFormatType] = None
 
 
-class DatasetEntityRecognizerEntityListTypeDef(BaseValidatorModel):
+class DatasetEntityRecognizerEntityList(BaseValidatorModel):
     S3Uri: str
 
 
-class DatasetPropertiesTypeDef(BaseValidatorModel):
+class DatasetProperties(BaseValidatorModel):
     DatasetArn: Optional[str] = None
     DatasetName: Optional[str] = None
     DatasetType: Optional[DatasetTypeType] = None
@@ -198,48 +198,48 @@ class DatasetPropertiesTypeDef(BaseValidatorModel):
     EndTime: Optional[datetime] = None
 
 
-class DeleteDocumentClassifierRequestTypeDef(BaseValidatorModel):
+class DeleteDocumentClassifierRequest(BaseValidatorModel):
     DocumentClassifierArn: str
 
 
-class DeleteEndpointRequestTypeDef(BaseValidatorModel):
+class DeleteEndpointRequest(BaseValidatorModel):
     EndpointArn: str
 
 
-class DeleteEntityRecognizerRequestTypeDef(BaseValidatorModel):
+class DeleteEntityRecognizerRequest(BaseValidatorModel):
     EntityRecognizerArn: str
 
 
-class DeleteFlywheelRequestTypeDef(BaseValidatorModel):
+class DeleteFlywheelRequest(BaseValidatorModel):
     FlywheelArn: str
 
 
-class DeleteResourcePolicyRequestTypeDef(BaseValidatorModel):
+class DeleteResourcePolicyRequest(BaseValidatorModel):
     ResourceArn: str
     PolicyRevisionId: Optional[str] = None
 
 
-class DescribeDatasetRequestTypeDef(BaseValidatorModel):
+class DescribeDatasetRequest(BaseValidatorModel):
     DatasetArn: str
 
 
-class DescribeDocumentClassificationJobRequestTypeDef(BaseValidatorModel):
+class DescribeDocumentClassificationJobRequest(BaseValidatorModel):
     JobId: str
 
 
-class DescribeDocumentClassifierRequestTypeDef(BaseValidatorModel):
+class DescribeDocumentClassifierRequest(BaseValidatorModel):
     DocumentClassifierArn: str
 
 
-class DescribeDominantLanguageDetectionJobRequestTypeDef(BaseValidatorModel):
+class DescribeDominantLanguageDetectionJobRequest(BaseValidatorModel):
     JobId: str
 
 
-class DescribeEndpointRequestTypeDef(BaseValidatorModel):
+class DescribeEndpointRequest(BaseValidatorModel):
     EndpointArn: str
 
 
-class EndpointPropertiesTypeDef(BaseValidatorModel):
+class EndpointProperties(BaseValidatorModel):
     EndpointArn: Optional[str] = None
     Status: Optional[EndpointStatusType] = None
     Message: Optional[str] = None
@@ -254,84 +254,84 @@ class EndpointPropertiesTypeDef(BaseValidatorModel):
     FlywheelArn: Optional[str] = None
 
 
-class DescribeEntitiesDetectionJobRequestTypeDef(BaseValidatorModel):
+class DescribeEntitiesDetectionJobRequest(BaseValidatorModel):
     JobId: str
 
 
-class DescribeEntityRecognizerRequestTypeDef(BaseValidatorModel):
+class DescribeEntityRecognizerRequest(BaseValidatorModel):
     EntityRecognizerArn: str
 
 
-class DescribeEventsDetectionJobRequestTypeDef(BaseValidatorModel):
+class DescribeEventsDetectionJobRequest(BaseValidatorModel):
     JobId: str
 
 
-class DescribeFlywheelIterationRequestTypeDef(BaseValidatorModel):
+class DescribeFlywheelIterationRequest(BaseValidatorModel):
     FlywheelArn: str
     FlywheelIterationId: str
 
 
-class DescribeFlywheelRequestTypeDef(BaseValidatorModel):
+class DescribeFlywheelRequest(BaseValidatorModel):
     FlywheelArn: str
 
 
-class DescribeKeyPhrasesDetectionJobRequestTypeDef(BaseValidatorModel):
+class DescribeKeyPhrasesDetectionJobRequest(BaseValidatorModel):
     JobId: str
 
 
-class DescribePiiEntitiesDetectionJobRequestTypeDef(BaseValidatorModel):
+class DescribePiiEntitiesDetectionJobRequest(BaseValidatorModel):
     JobId: str
 
 
-class DescribeResourcePolicyRequestTypeDef(BaseValidatorModel):
+class DescribeResourcePolicyRequest(BaseValidatorModel):
     ResourceArn: str
 
 
-class DescribeSentimentDetectionJobRequestTypeDef(BaseValidatorModel):
+class DescribeSentimentDetectionJobRequest(BaseValidatorModel):
     JobId: str
 
 
-class DescribeTargetedSentimentDetectionJobRequestTypeDef(BaseValidatorModel):
+class DescribeTargetedSentimentDetectionJobRequest(BaseValidatorModel):
     JobId: str
 
 
-class DescribeTopicsDetectionJobRequestTypeDef(BaseValidatorModel):
+class DescribeTopicsDetectionJobRequest(BaseValidatorModel):
     JobId: str
 
 
-class DocumentClassificationConfigOutputTypeDef(BaseValidatorModel):
+class DocumentClassificationConfigOutput(BaseValidatorModel):
     Mode: DocumentClassifierModeType
     Labels: Optional[List[str]] = None
 
 
-class DocumentClassificationConfigTypeDef(BaseValidatorModel):
+class DocumentClassificationConfig(BaseValidatorModel):
     Mode: DocumentClassifierModeType
     Labels: Optional[Sequence[str]] = None
 
 
-class OutputDataConfigTypeDef(BaseValidatorModel):
+class OutputDataConfig(BaseValidatorModel):
     S3Uri: str
     KmsKeyId: Optional[str] = None
 
 
-class DocumentClassifierDocumentsTypeDef(BaseValidatorModel):
+class DocumentClassifierDocuments(BaseValidatorModel):
     S3Uri: str
     TestS3Uri: Optional[str] = None
 
 
-class DocumentReaderConfigOutputTypeDef(BaseValidatorModel):
+class DocumentReaderConfigOutput(BaseValidatorModel):
     DocumentReadAction: DocumentReadActionType
     DocumentReadMode: Optional[DocumentReadModeType] = None
     FeatureTypes: Optional[List[DocumentReadFeatureTypesType]] = None
 
 
-class DocumentReaderConfigTypeDef(BaseValidatorModel):
+class DocumentReaderConfig(BaseValidatorModel):
     DocumentReadAction: DocumentReadActionType
     DocumentReadMode: Optional[DocumentReadModeType] = None
     FeatureTypes: Optional[Sequence[DocumentReadFeatureTypesType]] = None
 
 
-class DocumentClassifierSummaryTypeDef(BaseValidatorModel):
+class DocumentClassifierSummary(BaseValidatorModel):
     DocumentClassifierName: Optional[str] = None
     NumberOfVersions: Optional[int] = None
     LatestVersionCreatedAt: Optional[datetime] = None
@@ -339,43 +339,43 @@ class DocumentClassifierSummaryTypeDef(BaseValidatorModel):
     LatestVersionStatus: Optional[ModelStatusType] = None
 
 
-class ExtractedCharactersListItemTypeDef(BaseValidatorModel):
+class ExtractedCharactersListItem(BaseValidatorModel):
     Page: Optional[int] = None
     Count: Optional[int] = None
 
 
-class EntityRecognizerAnnotationsTypeDef(BaseValidatorModel):
+class EntityRecognizerAnnotations(BaseValidatorModel):
     S3Uri: str
     TestS3Uri: Optional[str] = None
 
 
-class EntityRecognizerDocumentsTypeDef(BaseValidatorModel):
+class EntityRecognizerDocuments(BaseValidatorModel):
     S3Uri: str
     TestS3Uri: Optional[str] = None
     InputFormat: Optional[InputFormatType] = None
 
 
-class EntityRecognizerEntityListTypeDef(BaseValidatorModel):
+class EntityRecognizerEntityList(BaseValidatorModel):
     S3Uri: str
 
 
-class EntityRecognizerEvaluationMetricsTypeDef(BaseValidatorModel):
+class EntityRecognizerEvaluationMetrics(BaseValidatorModel):
     Precision: Optional[float] = None
     Recall: Optional[float] = None
     F1Score: Optional[float] = None
 
 
-class EntityTypesEvaluationMetricsTypeDef(BaseValidatorModel):
+class EntityTypesEvaluationMetrics(BaseValidatorModel):
     Precision: Optional[float] = None
     Recall: Optional[float] = None
     F1Score: Optional[float] = None
 
 
-class EntityRecognizerOutputDataConfigTypeDef(BaseValidatorModel):
+class EntityRecognizerOutputDataConfig(BaseValidatorModel):
     FlywheelStatsS3Prefix: Optional[str] = None
 
 
-class EntityRecognizerSummaryTypeDef(BaseValidatorModel):
+class EntityRecognizerSummary(BaseValidatorModel):
     RecognizerName: Optional[str] = None
     NumberOfVersions: Optional[int] = None
     LatestVersionCreatedAt: Optional[datetime] = None
@@ -383,14 +383,14 @@ class EntityRecognizerSummaryTypeDef(BaseValidatorModel):
     LatestVersionStatus: Optional[ModelStatusType] = None
 
 
-class FlywheelModelEvaluationMetricsTypeDef(BaseValidatorModel):
+class FlywheelModelEvaluationMetrics(BaseValidatorModel):
     AverageF1Score: Optional[float] = None
     AveragePrecision: Optional[float] = None
     AverageRecall: Optional[float] = None
     AverageAccuracy: Optional[float] = None
 
 
-class FlywheelSummaryTypeDef(BaseValidatorModel):
+class FlywheelSummary(BaseValidatorModel):
     FlywheelArn: Optional[str] = None
     ActiveModelArn: Optional[str] = None
     DataLakeS3Uri: Optional[str] = None
@@ -402,111 +402,111 @@ class FlywheelSummaryTypeDef(BaseValidatorModel):
     LatestFlywheelIteration: Optional[str] = None
 
 
-class PointTypeDef(BaseValidatorModel):
+class Point(BaseValidatorModel):
     X: Optional[float] = None
     Y: Optional[float] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListDocumentClassifierSummariesRequestTypeDef(BaseValidatorModel):
+class ListDocumentClassifierSummariesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListEntityRecognizerSummariesRequestTypeDef(BaseValidatorModel):
+class ListEntityRecognizerSummariesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
 
-class PartOfSpeechTagTypeDef(BaseValidatorModel):
+class PartOfSpeechTag(BaseValidatorModel):
     Tag: Optional[PartOfSpeechTagTypeType] = None
     Score: Optional[float] = None
 
 
-class PiiOutputDataConfigTypeDef(BaseValidatorModel):
+class PiiOutputDataConfig(BaseValidatorModel):
     S3Uri: str
     KmsKeyId: Optional[str] = None
 
 
-class RedactionConfigOutputTypeDef(BaseValidatorModel):
+class RedactionConfigOutput(BaseValidatorModel):
     PiiEntityTypes: Optional[List[PiiEntityTypeType]] = None
     MaskMode: Optional[PiiEntitiesDetectionMaskModeType] = None
     MaskCharacter: Optional[str] = None
 
 
-class PutResourcePolicyRequestTypeDef(BaseValidatorModel):
+class PutResourcePolicyRequest(BaseValidatorModel):
     ResourceArn: str
     ResourcePolicy: str
     PolicyRevisionId: Optional[str] = None
 
 
-class RedactionConfigTypeDef(BaseValidatorModel):
+class RedactionConfig(BaseValidatorModel):
     PiiEntityTypes: Optional[Sequence[PiiEntityTypeType]] = None
     MaskMode: Optional[PiiEntitiesDetectionMaskModeType] = None
     MaskCharacter: Optional[str] = None
 
 
-class StartFlywheelIterationRequestTypeDef(BaseValidatorModel):
+class StartFlywheelIterationRequest(BaseValidatorModel):
     FlywheelArn: str
     ClientRequestToken: Optional[str] = None
 
 
-class StopDominantLanguageDetectionJobRequestTypeDef(BaseValidatorModel):
+class StopDominantLanguageDetectionJobRequest(BaseValidatorModel):
     JobId: str
 
 
-class StopEntitiesDetectionJobRequestTypeDef(BaseValidatorModel):
+class StopEntitiesDetectionJobRequest(BaseValidatorModel):
     JobId: str
 
 
-class StopEventsDetectionJobRequestTypeDef(BaseValidatorModel):
+class StopEventsDetectionJobRequest(BaseValidatorModel):
     JobId: str
 
 
-class StopKeyPhrasesDetectionJobRequestTypeDef(BaseValidatorModel):
+class StopKeyPhrasesDetectionJobRequest(BaseValidatorModel):
     JobId: str
 
 
-class StopPiiEntitiesDetectionJobRequestTypeDef(BaseValidatorModel):
+class StopPiiEntitiesDetectionJobRequest(BaseValidatorModel):
     JobId: str
 
 
-class StopSentimentDetectionJobRequestTypeDef(BaseValidatorModel):
+class StopSentimentDetectionJobRequest(BaseValidatorModel):
     JobId: str
 
 
-class StopTargetedSentimentDetectionJobRequestTypeDef(BaseValidatorModel):
+class StopTargetedSentimentDetectionJobRequest(BaseValidatorModel):
     JobId: str
 
 
-class StopTrainingDocumentClassifierRequestTypeDef(BaseValidatorModel):
+class StopTrainingDocumentClassifierRequest(BaseValidatorModel):
     DocumentClassifierArn: str
 
 
-class StopTrainingEntityRecognizerRequestTypeDef(BaseValidatorModel):
+class StopTrainingEntityRecognizerRequest(BaseValidatorModel):
     EntityRecognizerArn: str
 
 
-class ToxicContentTypeDef(BaseValidatorModel):
+class ToxicContent(BaseValidatorModel):
     Name: Optional[ToxicContentTypeType] = None
     Score: Optional[float] = None
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     TagKeys: Sequence[str]
 
 
-class UpdateEndpointRequestTypeDef(BaseValidatorModel):
+class UpdateEndpointRequest(BaseValidatorModel):
     EndpointArn: str
     DesiredModelArn: Optional[str] = None
     DesiredInferenceUnits: Optional[int] = None
@@ -514,507 +514,507 @@ class UpdateEndpointRequestTypeDef(BaseValidatorModel):
     FlywheelArn: Optional[str] = None
 
 
-class BatchDetectDominantLanguageItemResultTypeDef(BaseValidatorModel):
+class BatchDetectDominantLanguageItemResult(BaseValidatorModel):
     Index: Optional[int] = None
-    Languages: Optional[List[DominantLanguageTypeDef]] = None
+    Languages: Optional[List[DominantLanguage]] = None
 
 
-class CreateDatasetResponseTypeDef(BaseValidatorModel):
+class CreateDatasetResponse(BaseValidatorModel):
     DatasetArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateDocumentClassifierResponseTypeDef(BaseValidatorModel):
+class CreateDocumentClassifierResponse(BaseValidatorModel):
     DocumentClassifierArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateEndpointResponseTypeDef(BaseValidatorModel):
+class CreateEndpointResponse(BaseValidatorModel):
     EndpointArn: str
     ModelArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateEntityRecognizerResponseTypeDef(BaseValidatorModel):
+class CreateEntityRecognizerResponse(BaseValidatorModel):
     EntityRecognizerArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateFlywheelResponseTypeDef(BaseValidatorModel):
+class CreateFlywheelResponse(BaseValidatorModel):
     FlywheelArn: str
     ActiveModelArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeResourcePolicyResponseTypeDef(BaseValidatorModel):
+class DescribeResourcePolicyResponse(BaseValidatorModel):
     ResourcePolicy: str
     CreationTime: datetime
     LastModifiedTime: datetime
     PolicyRevisionId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DetectDominantLanguageResponseTypeDef(BaseValidatorModel):
-    Languages: List[DominantLanguageTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DetectDominantLanguageResponse(BaseValidatorModel):
+    Languages: List[DominantLanguage]
+    ResponseMetadata: ResponseMetadata
 
 
-class ImportModelResponseTypeDef(BaseValidatorModel):
+class ImportModelResponse(BaseValidatorModel):
     ModelArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class PutResourcePolicyResponseTypeDef(BaseValidatorModel):
+class PutResourcePolicyResponse(BaseValidatorModel):
     PolicyRevisionId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartDocumentClassificationJobResponseTypeDef(BaseValidatorModel):
+class StartDocumentClassificationJobResponse(BaseValidatorModel):
     JobId: str
     JobArn: str
     JobStatus: JobStatusType
     DocumentClassifierArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartDominantLanguageDetectionJobResponseTypeDef(BaseValidatorModel):
+class StartDominantLanguageDetectionJobResponse(BaseValidatorModel):
     JobId: str
     JobArn: str
     JobStatus: JobStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartEntitiesDetectionJobResponseTypeDef(BaseValidatorModel):
+class StartEntitiesDetectionJobResponse(BaseValidatorModel):
     JobId: str
     JobArn: str
     JobStatus: JobStatusType
     EntityRecognizerArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartEventsDetectionJobResponseTypeDef(BaseValidatorModel):
+class StartEventsDetectionJobResponse(BaseValidatorModel):
     JobId: str
     JobArn: str
     JobStatus: JobStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartFlywheelIterationResponseTypeDef(BaseValidatorModel):
+class StartFlywheelIterationResponse(BaseValidatorModel):
     FlywheelArn: str
     FlywheelIterationId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartKeyPhrasesDetectionJobResponseTypeDef(BaseValidatorModel):
+class StartKeyPhrasesDetectionJobResponse(BaseValidatorModel):
     JobId: str
     JobArn: str
     JobStatus: JobStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartPiiEntitiesDetectionJobResponseTypeDef(BaseValidatorModel):
+class StartPiiEntitiesDetectionJobResponse(BaseValidatorModel):
     JobId: str
     JobArn: str
     JobStatus: JobStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartSentimentDetectionJobResponseTypeDef(BaseValidatorModel):
+class StartSentimentDetectionJobResponse(BaseValidatorModel):
     JobId: str
     JobArn: str
     JobStatus: JobStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartTargetedSentimentDetectionJobResponseTypeDef(BaseValidatorModel):
+class StartTargetedSentimentDetectionJobResponse(BaseValidatorModel):
     JobId: str
     JobArn: str
     JobStatus: JobStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartTopicsDetectionJobResponseTypeDef(BaseValidatorModel):
+class StartTopicsDetectionJobResponse(BaseValidatorModel):
     JobId: str
     JobArn: str
     JobStatus: JobStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StopDominantLanguageDetectionJobResponseTypeDef(BaseValidatorModel):
+class StopDominantLanguageDetectionJobResponse(BaseValidatorModel):
     JobId: str
     JobStatus: JobStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StopEntitiesDetectionJobResponseTypeDef(BaseValidatorModel):
+class StopEntitiesDetectionJobResponse(BaseValidatorModel):
     JobId: str
     JobStatus: JobStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StopEventsDetectionJobResponseTypeDef(BaseValidatorModel):
+class StopEventsDetectionJobResponse(BaseValidatorModel):
     JobId: str
     JobStatus: JobStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StopKeyPhrasesDetectionJobResponseTypeDef(BaseValidatorModel):
+class StopKeyPhrasesDetectionJobResponse(BaseValidatorModel):
     JobId: str
     JobStatus: JobStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StopPiiEntitiesDetectionJobResponseTypeDef(BaseValidatorModel):
+class StopPiiEntitiesDetectionJobResponse(BaseValidatorModel):
     JobId: str
     JobStatus: JobStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StopSentimentDetectionJobResponseTypeDef(BaseValidatorModel):
+class StopSentimentDetectionJobResponse(BaseValidatorModel):
     JobId: str
     JobStatus: JobStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StopTargetedSentimentDetectionJobResponseTypeDef(BaseValidatorModel):
+class StopTargetedSentimentDetectionJobResponse(BaseValidatorModel):
     JobId: str
     JobStatus: JobStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateEndpointResponseTypeDef(BaseValidatorModel):
+class UpdateEndpointResponse(BaseValidatorModel):
     DesiredModelArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class KeyPhraseTypeDef(BaseValidatorModel):
+class KeyPhrase(BaseValidatorModel):
     pass
 
 
-class BatchDetectKeyPhrasesItemResultTypeDef(BaseValidatorModel):
+class BatchDetectKeyPhrasesItemResult(BaseValidatorModel):
     Index: Optional[int] = None
-    KeyPhrases: Optional[List[KeyPhraseTypeDef]] = None
+    KeyPhrases: Optional[List[KeyPhrase]] = None
 
 
-class DetectKeyPhrasesResponseTypeDef(BaseValidatorModel):
-    KeyPhrases: List[KeyPhraseTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DetectKeyPhrasesResponse(BaseValidatorModel):
+    KeyPhrases: List[KeyPhrase]
+    ResponseMetadata: ResponseMetadata
 
 
-class BatchDetectSentimentItemResultTypeDef(BaseValidatorModel):
+class BatchDetectSentimentItemResult(BaseValidatorModel):
     Index: Optional[int] = None
     Sentiment: Optional[SentimentTypeType] = None
-    SentimentScore: Optional[SentimentScoreTypeDef] = None
+    SentimentScore: Optional[SentimentScore] = None
 
 
-class DetectSentimentResponseTypeDef(BaseValidatorModel):
+class DetectSentimentResponse(BaseValidatorModel):
     Sentiment: SentimentTypeType
-    SentimentScore: SentimentScoreTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    SentimentScore: SentimentScore
+    ResponseMetadata: ResponseMetadata
 
 
-class MentionSentimentTypeDef(BaseValidatorModel):
+class MentionSentiment(BaseValidatorModel):
     Sentiment: Optional[SentimentTypeType] = None
-    SentimentScore: Optional[SentimentScoreTypeDef] = None
+    SentimentScore: Optional[SentimentScore] = None
 
 
-class BlockReferenceTypeDef(BaseValidatorModel):
+class BlockReference(BaseValidatorModel):
     BlockId: Optional[str] = None
     BeginOffset: Optional[int] = None
     EndOffset: Optional[int] = None
-    ChildBlocks: Optional[List[ChildBlockTypeDef]] = None
+    ChildBlocks: Optional[List[ChildBlock]] = None
 
 
-class ClassifierMetadataTypeDef(BaseValidatorModel):
+class ClassifierMetadata(BaseValidatorModel):
     NumberOfLabels: Optional[int] = None
     NumberOfTrainedDocuments: Optional[int] = None
     NumberOfTestDocuments: Optional[int] = None
-    EvaluationMetrics: Optional[ClassifierEvaluationMetricsTypeDef] = None
+    EvaluationMetrics: Optional[ClassifierEvaluationMetrics] = None
 
 
-class ContainsPiiEntitiesResponseTypeDef(BaseValidatorModel):
-    Labels: List[EntityLabelTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ContainsPiiEntitiesResponse(BaseValidatorModel):
+    Labels: List[EntityLabel]
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateEndpointRequestTypeDef(BaseValidatorModel):
+class CreateEndpointRequest(BaseValidatorModel):
     EndpointName: str
     DesiredInferenceUnits: int
     ModelArn: Optional[str] = None
     ClientRequestToken: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
     DataAccessRoleArn: Optional[str] = None
     FlywheelArn: Optional[str] = None
 
 
-class ImportModelRequestTypeDef(BaseValidatorModel):
+class ImportModelRequest(BaseValidatorModel):
     SourceModelArn: str
     ModelName: Optional[str] = None
     VersionName: Optional[str] = None
     ModelKmsKeyId: Optional[str] = None
     DataAccessRoleArn: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
+class ListTagsForResourceResponse(BaseValidatorModel):
     ResourceArn: str
-    Tags: List[TagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    Tags: List[Tag]
+    ResponseMetadata: ResponseMetadata
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     ResourceArn: str
-    Tags: Sequence[TagTypeDef]
+    Tags: Sequence[Tag]
 
 
-class DataSecurityConfigOutputTypeDef(BaseValidatorModel):
+class DataSecurityConfigOutput(BaseValidatorModel):
     ModelKmsKeyId: Optional[str] = None
     VolumeKmsKeyId: Optional[str] = None
     DataLakeKmsKeyId: Optional[str] = None
-    VpcConfig: Optional[VpcConfigOutputTypeDef] = None
+    VpcConfig: Optional[VpcConfigOutput] = None
 
 
-class DataSecurityConfigTypeDef(BaseValidatorModel):
+class DataSecurityConfig(BaseValidatorModel):
     ModelKmsKeyId: Optional[str] = None
     VolumeKmsKeyId: Optional[str] = None
     DataLakeKmsKeyId: Optional[str] = None
-    VpcConfig: Optional[VpcConfigTypeDef] = None
+    VpcConfig: Optional[VpcConfig] = None
 
 
-class DatasetEntityRecognizerInputDataConfigTypeDef(BaseValidatorModel):
-    Documents: DatasetEntityRecognizerDocumentsTypeDef
-    Annotations: Optional[DatasetEntityRecognizerAnnotationsTypeDef] = None
-    EntityList: Optional[DatasetEntityRecognizerEntityListTypeDef] = None
+class DatasetEntityRecognizerInputDataConfig(BaseValidatorModel):
+    Documents: DatasetEntityRecognizerDocuments
+    Annotations: Optional[DatasetEntityRecognizerAnnotations] = None
+    EntityList: Optional[DatasetEntityRecognizerEntityList] = None
 
 
-class TimestampTypeDef(BaseValidatorModel):
+class Timestamp(BaseValidatorModel):
     pass
 
 
-class DatasetFilterTypeDef(BaseValidatorModel):
+class DatasetFilter(BaseValidatorModel):
     Status: Optional[DatasetStatusType] = None
     DatasetType: Optional[DatasetTypeType] = None
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
+    CreationTimeAfter: Optional[Timestamp] = None
+    CreationTimeBefore: Optional[Timestamp] = None
 
 
-class DocumentClassificationJobFilterTypeDef(BaseValidatorModel):
+class DocumentClassificationJobFilter(BaseValidatorModel):
     JobName: Optional[str] = None
     JobStatus: Optional[JobStatusType] = None
-    SubmitTimeBefore: Optional[TimestampTypeDef] = None
-    SubmitTimeAfter: Optional[TimestampTypeDef] = None
+    SubmitTimeBefore: Optional[Timestamp] = None
+    SubmitTimeAfter: Optional[Timestamp] = None
 
 
-class DocumentClassifierFilterTypeDef(BaseValidatorModel):
+class DocumentClassifierFilter(BaseValidatorModel):
     Status: Optional[ModelStatusType] = None
     DocumentClassifierName: Optional[str] = None
-    SubmitTimeBefore: Optional[TimestampTypeDef] = None
-    SubmitTimeAfter: Optional[TimestampTypeDef] = None
+    SubmitTimeBefore: Optional[Timestamp] = None
+    SubmitTimeAfter: Optional[Timestamp] = None
 
 
-class DominantLanguageDetectionJobFilterTypeDef(BaseValidatorModel):
+class DominantLanguageDetectionJobFilter(BaseValidatorModel):
     JobName: Optional[str] = None
     JobStatus: Optional[JobStatusType] = None
-    SubmitTimeBefore: Optional[TimestampTypeDef] = None
-    SubmitTimeAfter: Optional[TimestampTypeDef] = None
+    SubmitTimeBefore: Optional[Timestamp] = None
+    SubmitTimeAfter: Optional[Timestamp] = None
 
 
-class EndpointFilterTypeDef(BaseValidatorModel):
+class EndpointFilter(BaseValidatorModel):
     ModelArn: Optional[str] = None
     Status: Optional[EndpointStatusType] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
+    CreationTimeBefore: Optional[Timestamp] = None
+    CreationTimeAfter: Optional[Timestamp] = None
 
 
-class EntitiesDetectionJobFilterTypeDef(BaseValidatorModel):
+class EntitiesDetectionJobFilter(BaseValidatorModel):
     JobName: Optional[str] = None
     JobStatus: Optional[JobStatusType] = None
-    SubmitTimeBefore: Optional[TimestampTypeDef] = None
-    SubmitTimeAfter: Optional[TimestampTypeDef] = None
+    SubmitTimeBefore: Optional[Timestamp] = None
+    SubmitTimeAfter: Optional[Timestamp] = None
 
 
-class EntityRecognizerFilterTypeDef(BaseValidatorModel):
+class EntityRecognizerFilter(BaseValidatorModel):
     Status: Optional[ModelStatusType] = None
     RecognizerName: Optional[str] = None
-    SubmitTimeBefore: Optional[TimestampTypeDef] = None
-    SubmitTimeAfter: Optional[TimestampTypeDef] = None
+    SubmitTimeBefore: Optional[Timestamp] = None
+    SubmitTimeAfter: Optional[Timestamp] = None
 
 
-class EventsDetectionJobFilterTypeDef(BaseValidatorModel):
+class EventsDetectionJobFilter(BaseValidatorModel):
     JobName: Optional[str] = None
     JobStatus: Optional[JobStatusType] = None
-    SubmitTimeBefore: Optional[TimestampTypeDef] = None
-    SubmitTimeAfter: Optional[TimestampTypeDef] = None
+    SubmitTimeBefore: Optional[Timestamp] = None
+    SubmitTimeAfter: Optional[Timestamp] = None
 
 
-class FlywheelFilterTypeDef(BaseValidatorModel):
+class FlywheelFilter(BaseValidatorModel):
     Status: Optional[FlywheelStatusType] = None
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
+    CreationTimeAfter: Optional[Timestamp] = None
+    CreationTimeBefore: Optional[Timestamp] = None
 
 
-class FlywheelIterationFilterTypeDef(BaseValidatorModel):
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
+class FlywheelIterationFilter(BaseValidatorModel):
+    CreationTimeAfter: Optional[Timestamp] = None
+    CreationTimeBefore: Optional[Timestamp] = None
 
 
-class KeyPhrasesDetectionJobFilterTypeDef(BaseValidatorModel):
+class KeyPhrasesDetectionJobFilter(BaseValidatorModel):
     JobName: Optional[str] = None
     JobStatus: Optional[JobStatusType] = None
-    SubmitTimeBefore: Optional[TimestampTypeDef] = None
-    SubmitTimeAfter: Optional[TimestampTypeDef] = None
+    SubmitTimeBefore: Optional[Timestamp] = None
+    SubmitTimeAfter: Optional[Timestamp] = None
 
 
-class PiiEntitiesDetectionJobFilterTypeDef(BaseValidatorModel):
+class PiiEntitiesDetectionJobFilter(BaseValidatorModel):
     JobName: Optional[str] = None
     JobStatus: Optional[JobStatusType] = None
-    SubmitTimeBefore: Optional[TimestampTypeDef] = None
-    SubmitTimeAfter: Optional[TimestampTypeDef] = None
+    SubmitTimeBefore: Optional[Timestamp] = None
+    SubmitTimeAfter: Optional[Timestamp] = None
 
 
-class SentimentDetectionJobFilterTypeDef(BaseValidatorModel):
+class SentimentDetectionJobFilter(BaseValidatorModel):
     JobName: Optional[str] = None
     JobStatus: Optional[JobStatusType] = None
-    SubmitTimeBefore: Optional[TimestampTypeDef] = None
-    SubmitTimeAfter: Optional[TimestampTypeDef] = None
+    SubmitTimeBefore: Optional[Timestamp] = None
+    SubmitTimeAfter: Optional[Timestamp] = None
 
 
-class TargetedSentimentDetectionJobFilterTypeDef(BaseValidatorModel):
+class TargetedSentimentDetectionJobFilter(BaseValidatorModel):
     JobName: Optional[str] = None
     JobStatus: Optional[JobStatusType] = None
-    SubmitTimeBefore: Optional[TimestampTypeDef] = None
-    SubmitTimeAfter: Optional[TimestampTypeDef] = None
+    SubmitTimeBefore: Optional[Timestamp] = None
+    SubmitTimeAfter: Optional[Timestamp] = None
 
 
-class TopicsDetectionJobFilterTypeDef(BaseValidatorModel):
+class TopicsDetectionJobFilter(BaseValidatorModel):
     JobName: Optional[str] = None
     JobStatus: Optional[JobStatusType] = None
-    SubmitTimeBefore: Optional[TimestampTypeDef] = None
-    SubmitTimeAfter: Optional[TimestampTypeDef] = None
+    SubmitTimeBefore: Optional[Timestamp] = None
+    SubmitTimeAfter: Optional[Timestamp] = None
 
 
-class DescribeDatasetResponseTypeDef(BaseValidatorModel):
-    DatasetProperties: DatasetPropertiesTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeDatasetResponse(BaseValidatorModel):
+    DatasetProperties: DatasetProperties
+    ResponseMetadata: ResponseMetadata
 
 
-class ListDatasetsResponseTypeDef(BaseValidatorModel):
-    DatasetPropertiesList: List[DatasetPropertiesTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListDatasetsResponse(BaseValidatorModel):
+    DatasetPropertiesList: List[DatasetProperties]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeEndpointResponseTypeDef(BaseValidatorModel):
-    EndpointProperties: EndpointPropertiesTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeEndpointResponse(BaseValidatorModel):
+    EndpointProperties: EndpointProperties
+    ResponseMetadata: ResponseMetadata
 
 
-class ListEndpointsResponseTypeDef(BaseValidatorModel):
-    EndpointPropertiesList: List[EndpointPropertiesTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListEndpointsResponse(BaseValidatorModel):
+    EndpointPropertiesList: List[EndpointProperties]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class PiiEntityTypeDef(BaseValidatorModel):
+class PiiEntity(BaseValidatorModel):
     pass
 
 
-class DetectPiiEntitiesResponseTypeDef(BaseValidatorModel):
-    Entities: List[PiiEntityTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DetectPiiEntitiesResponse(BaseValidatorModel):
+    Entities: List[PiiEntity]
+    ResponseMetadata: ResponseMetadata
 
 
-class TextSegmentTypeDef(BaseValidatorModel):
+class TextSegment(BaseValidatorModel):
     pass
 
 
-class DetectToxicContentRequestTypeDef(BaseValidatorModel):
-    TextSegments: Sequence[TextSegmentTypeDef]
+class DetectToxicContentRequest(BaseValidatorModel):
+    TextSegments: Sequence[TextSegment]
     LanguageCode: LanguageCodeType
 
 
-class DocumentClassifierInputDataConfigOutputTypeDef(BaseValidatorModel):
+class DocumentClassifierInputDataConfigOutput(BaseValidatorModel):
     DataFormat: Optional[DocumentClassifierDataFormatType] = None
     S3Uri: Optional[str] = None
     TestS3Uri: Optional[str] = None
     LabelDelimiter: Optional[str] = None
-    AugmentedManifests: Optional[List[AugmentedManifestsListItemOutputTypeDef]] = None
+    AugmentedManifests: Optional[List[AugmentedManifestsListItemOutput]] = None
     DocumentType: Optional[DocumentClassifierDocumentTypeFormatType] = None
-    Documents: Optional[DocumentClassifierDocumentsTypeDef] = None
-    DocumentReaderConfig: Optional[DocumentReaderConfigOutputTypeDef] = None
+    Documents: Optional[DocumentClassifierDocuments] = None
+    DocumentReaderConfig: Optional[DocumentReaderConfigOutput] = None
 
 
-class InputDataConfigOutputTypeDef(BaseValidatorModel):
+class InputDataConfigOutput(BaseValidatorModel):
     S3Uri: str
     InputFormat: Optional[InputFormatType] = None
-    DocumentReaderConfig: Optional[DocumentReaderConfigOutputTypeDef] = None
+    DocumentReaderConfig: Optional[DocumentReaderConfigOutput] = None
 
 
-class DocumentClassifierInputDataConfigTypeDef(BaseValidatorModel):
+class DocumentClassifierInputDataConfig(BaseValidatorModel):
     DataFormat: Optional[DocumentClassifierDataFormatType] = None
     S3Uri: Optional[str] = None
     TestS3Uri: Optional[str] = None
     LabelDelimiter: Optional[str] = None
-    AugmentedManifests: Optional[Sequence[AugmentedManifestsListItemTypeDef]] = None
+    AugmentedManifests: Optional[Sequence[AugmentedManifestsListItem]] = None
     DocumentType: Optional[DocumentClassifierDocumentTypeFormatType] = None
-    Documents: Optional[DocumentClassifierDocumentsTypeDef] = None
-    DocumentReaderConfig: Optional[DocumentReaderConfigTypeDef] = None
+    Documents: Optional[DocumentClassifierDocuments] = None
+    DocumentReaderConfig: Optional[DocumentReaderConfig] = None
 
 
-class InputDataConfigTypeDef(BaseValidatorModel):
+class InputDataConfig(BaseValidatorModel):
     S3Uri: str
     InputFormat: Optional[InputFormatType] = None
-    DocumentReaderConfig: Optional[DocumentReaderConfigTypeDef] = None
+    DocumentReaderConfig: Optional[DocumentReaderConfig] = None
 
 
-class ListDocumentClassifierSummariesResponseTypeDef(BaseValidatorModel):
-    DocumentClassifierSummariesList: List[DocumentClassifierSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListDocumentClassifierSummariesResponse(BaseValidatorModel):
+    DocumentClassifierSummariesList: List[DocumentClassifierSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DocumentMetadataTypeDef(BaseValidatorModel):
+class DocumentMetadata(BaseValidatorModel):
     Pages: Optional[int] = None
-    ExtractedCharacters: Optional[List[ExtractedCharactersListItemTypeDef]] = None
+    ExtractedCharacters: Optional[List[ExtractedCharactersListItem]] = None
 
 
-class EntityTypesListItemTypeDef(BaseValidatorModel):
+class EntityTypesListItem(BaseValidatorModel):
     pass
 
 
-class EntityRecognitionConfigOutputTypeDef(BaseValidatorModel):
-    EntityTypes: List[EntityTypesListItemTypeDef]
+class EntityRecognitionConfigOutput(BaseValidatorModel):
+    EntityTypes: List[EntityTypesListItem]
 
 
-class EntityRecognitionConfigTypeDef(BaseValidatorModel):
-    EntityTypes: Sequence[EntityTypesListItemTypeDef]
+class EntityRecognitionConfig(BaseValidatorModel):
+    EntityTypes: Sequence[EntityTypesListItem]
 
 
-class EntityRecognizerInputDataConfigOutputTypeDef(BaseValidatorModel):
-    EntityTypes: List[EntityTypesListItemTypeDef]
+class EntityRecognizerInputDataConfigOutput(BaseValidatorModel):
+    EntityTypes: List[EntityTypesListItem]
     DataFormat: Optional[EntityRecognizerDataFormatType] = None
-    Documents: Optional[EntityRecognizerDocumentsTypeDef] = None
-    Annotations: Optional[EntityRecognizerAnnotationsTypeDef] = None
-    EntityList: Optional[EntityRecognizerEntityListTypeDef] = None
-    AugmentedManifests: Optional[List[AugmentedManifestsListItemOutputTypeDef]] = None
+    Documents: Optional[EntityRecognizerDocuments] = None
+    Annotations: Optional[EntityRecognizerAnnotations] = None
+    EntityList: Optional[EntityRecognizerEntityList] = None
+    AugmentedManifests: Optional[List[AugmentedManifestsListItemOutput]] = None
 
 
-class EntityRecognizerInputDataConfigTypeDef(BaseValidatorModel):
-    EntityTypes: Sequence[EntityTypesListItemTypeDef]
+class EntityRecognizerInputDataConfig(BaseValidatorModel):
+    EntityTypes: Sequence[EntityTypesListItem]
     DataFormat: Optional[EntityRecognizerDataFormatType] = None
-    Documents: Optional[EntityRecognizerDocumentsTypeDef] = None
-    Annotations: Optional[EntityRecognizerAnnotationsTypeDef] = None
-    EntityList: Optional[EntityRecognizerEntityListTypeDef] = None
-    AugmentedManifests: Optional[Sequence[AugmentedManifestsListItemTypeDef]] = None
+    Documents: Optional[EntityRecognizerDocuments] = None
+    Annotations: Optional[EntityRecognizerAnnotations] = None
+    EntityList: Optional[EntityRecognizerEntityList] = None
+    AugmentedManifests: Optional[Sequence[AugmentedManifestsListItem]] = None
 
 
-class ListEntityRecognizerSummariesResponseTypeDef(BaseValidatorModel):
-    EntityRecognizerSummariesList: List[EntityRecognizerSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListEntityRecognizerSummariesResponse(BaseValidatorModel):
+    EntityRecognizerSummariesList: List[EntityRecognizerSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class FlywheelIterationPropertiesTypeDef(BaseValidatorModel):
+class FlywheelIterationProperties(BaseValidatorModel):
     FlywheelArn: Optional[str] = None
     FlywheelIterationId: Optional[str] = None
     CreationTime: Optional[datetime] = None
@@ -1022,206 +1022,206 @@ class FlywheelIterationPropertiesTypeDef(BaseValidatorModel):
     Status: Optional[FlywheelIterationStatusType] = None
     Message: Optional[str] = None
     EvaluatedModelArn: Optional[str] = None
-    EvaluatedModelMetrics: Optional[FlywheelModelEvaluationMetricsTypeDef] = None
+    EvaluatedModelMetrics: Optional[FlywheelModelEvaluationMetrics] = None
     TrainedModelArn: Optional[str] = None
-    TrainedModelMetrics: Optional[FlywheelModelEvaluationMetricsTypeDef] = None
+    TrainedModelMetrics: Optional[FlywheelModelEvaluationMetrics] = None
     EvaluationManifestS3Prefix: Optional[str] = None
 
 
-class ListFlywheelsResponseTypeDef(BaseValidatorModel):
-    FlywheelSummaryList: List[FlywheelSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListFlywheelsResponse(BaseValidatorModel):
+    FlywheelSummaryList: List[FlywheelSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class GeometryTypeDef(BaseValidatorModel):
-    BoundingBox: Optional[BoundingBoxTypeDef] = None
-    Polygon: Optional[List[PointTypeDef]] = None
+class Geometry(BaseValidatorModel):
+    BoundingBox: Optional[BoundingBox] = None
+    Polygon: Optional[List[Point]] = None
 
 
-class ToxicLabelsTypeDef(BaseValidatorModel):
-    Labels: Optional[List[ToxicContentTypeDef]] = None
+class ToxicLabels(BaseValidatorModel):
+    Labels: Optional[List[ToxicContent]] = None
     Toxicity: Optional[float] = None
 
 
-class BatchDetectDominantLanguageResponseTypeDef(BaseValidatorModel):
-    ResultList: List[BatchDetectDominantLanguageItemResultTypeDef]
-    ErrorList: List[BatchItemErrorTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchDetectDominantLanguageResponse(BaseValidatorModel):
+    ResultList: List[BatchDetectDominantLanguageItemResult]
+    ErrorList: List[BatchItemError]
+    ResponseMetadata: ResponseMetadata
 
 
-class BatchDetectKeyPhrasesResponseTypeDef(BaseValidatorModel):
-    ResultList: List[BatchDetectKeyPhrasesItemResultTypeDef]
-    ErrorList: List[BatchItemErrorTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchDetectKeyPhrasesResponse(BaseValidatorModel):
+    ResultList: List[BatchDetectKeyPhrasesItemResult]
+    ErrorList: List[BatchItemError]
+    ResponseMetadata: ResponseMetadata
 
 
-class BatchDetectSentimentResponseTypeDef(BaseValidatorModel):
-    ResultList: List[BatchDetectSentimentItemResultTypeDef]
-    ErrorList: List[BatchItemErrorTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchDetectSentimentResponse(BaseValidatorModel):
+    ResultList: List[BatchDetectSentimentItemResult]
+    ErrorList: List[BatchItemError]
+    ResponseMetadata: ResponseMetadata
 
 
-class VpcConfigUnionTypeDef(BaseValidatorModel):
+class VpcConfigUnion(BaseValidatorModel):
     pass
 
 
-class UpdateDataSecurityConfigTypeDef(BaseValidatorModel):
+class UpdateDataSecurityConfig(BaseValidatorModel):
     ModelKmsKeyId: Optional[str] = None
     VolumeKmsKeyId: Optional[str] = None
-    VpcConfig: Optional[VpcConfigUnionTypeDef] = None
+    VpcConfig: Optional[VpcConfigUnion] = None
 
 
-class DatasetInputDataConfigTypeDef(BaseValidatorModel):
-    AugmentedManifests: Optional[Sequence[DatasetAugmentedManifestsListItemTypeDef]] = None
+class DatasetInputDataConfig(BaseValidatorModel):
+    AugmentedManifests: Optional[Sequence[DatasetAugmentedManifestsListItem]] = None
     DataFormat: Optional[DatasetDataFormatType] = None
-    DocumentClassifierInputDataConfig: Optional[DatasetDocumentClassifierInputDataConfigTypeDef] = None
-    EntityRecognizerInputDataConfig: Optional[DatasetEntityRecognizerInputDataConfigTypeDef] = None
+    DocumentClassifierInputDataConfig: Optional[DatasetDocumentClassifierInputDataConfig] = None
+    EntityRecognizerInputDataConfig: Optional[DatasetEntityRecognizerInputDataConfig] = None
 
 
-class ListDatasetsRequestTypeDef(BaseValidatorModel):
+class ListDatasetsRequest(BaseValidatorModel):
     FlywheelArn: Optional[str] = None
-    Filter: Optional[DatasetFilterTypeDef] = None
+    Filter: Optional[DatasetFilter] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListDocumentClassificationJobsRequestPaginateTypeDef(BaseValidatorModel):
-    Filter: Optional[DocumentClassificationJobFilterTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListDocumentClassificationJobsRequestPaginate(BaseValidatorModel):
+    Filter: Optional[DocumentClassificationJobFilter] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListDocumentClassificationJobsRequestTypeDef(BaseValidatorModel):
-    Filter: Optional[DocumentClassificationJobFilterTypeDef] = None
+class ListDocumentClassificationJobsRequest(BaseValidatorModel):
+    Filter: Optional[DocumentClassificationJobFilter] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListDocumentClassifiersRequestPaginateTypeDef(BaseValidatorModel):
-    Filter: Optional[DocumentClassifierFilterTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListDocumentClassifiersRequestPaginate(BaseValidatorModel):
+    Filter: Optional[DocumentClassifierFilter] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListDocumentClassifiersRequestTypeDef(BaseValidatorModel):
-    Filter: Optional[DocumentClassifierFilterTypeDef] = None
+class ListDocumentClassifiersRequest(BaseValidatorModel):
+    Filter: Optional[DocumentClassifierFilter] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListDominantLanguageDetectionJobsRequestPaginateTypeDef(BaseValidatorModel):
-    Filter: Optional[DominantLanguageDetectionJobFilterTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListDominantLanguageDetectionJobsRequestPaginate(BaseValidatorModel):
+    Filter: Optional[DominantLanguageDetectionJobFilter] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListDominantLanguageDetectionJobsRequestTypeDef(BaseValidatorModel):
-    Filter: Optional[DominantLanguageDetectionJobFilterTypeDef] = None
+class ListDominantLanguageDetectionJobsRequest(BaseValidatorModel):
+    Filter: Optional[DominantLanguageDetectionJobFilter] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListEndpointsRequestPaginateTypeDef(BaseValidatorModel):
-    Filter: Optional[EndpointFilterTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListEndpointsRequestPaginate(BaseValidatorModel):
+    Filter: Optional[EndpointFilter] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListEndpointsRequestTypeDef(BaseValidatorModel):
-    Filter: Optional[EndpointFilterTypeDef] = None
+class ListEndpointsRequest(BaseValidatorModel):
+    Filter: Optional[EndpointFilter] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListEntitiesDetectionJobsRequestPaginateTypeDef(BaseValidatorModel):
-    Filter: Optional[EntitiesDetectionJobFilterTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListEntitiesDetectionJobsRequestPaginate(BaseValidatorModel):
+    Filter: Optional[EntitiesDetectionJobFilter] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListEntitiesDetectionJobsRequestTypeDef(BaseValidatorModel):
-    Filter: Optional[EntitiesDetectionJobFilterTypeDef] = None
+class ListEntitiesDetectionJobsRequest(BaseValidatorModel):
+    Filter: Optional[EntitiesDetectionJobFilter] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListEntityRecognizersRequestPaginateTypeDef(BaseValidatorModel):
-    Filter: Optional[EntityRecognizerFilterTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListEntityRecognizersRequestPaginate(BaseValidatorModel):
+    Filter: Optional[EntityRecognizerFilter] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListEntityRecognizersRequestTypeDef(BaseValidatorModel):
-    Filter: Optional[EntityRecognizerFilterTypeDef] = None
+class ListEntityRecognizersRequest(BaseValidatorModel):
+    Filter: Optional[EntityRecognizerFilter] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListEventsDetectionJobsRequestTypeDef(BaseValidatorModel):
-    Filter: Optional[EventsDetectionJobFilterTypeDef] = None
+class ListEventsDetectionJobsRequest(BaseValidatorModel):
+    Filter: Optional[EventsDetectionJobFilter] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListFlywheelsRequestTypeDef(BaseValidatorModel):
-    Filter: Optional[FlywheelFilterTypeDef] = None
+class ListFlywheelsRequest(BaseValidatorModel):
+    Filter: Optional[FlywheelFilter] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListFlywheelIterationHistoryRequestTypeDef(BaseValidatorModel):
+class ListFlywheelIterationHistoryRequest(BaseValidatorModel):
     FlywheelArn: str
-    Filter: Optional[FlywheelIterationFilterTypeDef] = None
+    Filter: Optional[FlywheelIterationFilter] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListKeyPhrasesDetectionJobsRequestPaginateTypeDef(BaseValidatorModel):
-    Filter: Optional[KeyPhrasesDetectionJobFilterTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListKeyPhrasesDetectionJobsRequestPaginate(BaseValidatorModel):
+    Filter: Optional[KeyPhrasesDetectionJobFilter] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListKeyPhrasesDetectionJobsRequestTypeDef(BaseValidatorModel):
-    Filter: Optional[KeyPhrasesDetectionJobFilterTypeDef] = None
+class ListKeyPhrasesDetectionJobsRequest(BaseValidatorModel):
+    Filter: Optional[KeyPhrasesDetectionJobFilter] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListPiiEntitiesDetectionJobsRequestPaginateTypeDef(BaseValidatorModel):
-    Filter: Optional[PiiEntitiesDetectionJobFilterTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListPiiEntitiesDetectionJobsRequestPaginate(BaseValidatorModel):
+    Filter: Optional[PiiEntitiesDetectionJobFilter] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListPiiEntitiesDetectionJobsRequestTypeDef(BaseValidatorModel):
-    Filter: Optional[PiiEntitiesDetectionJobFilterTypeDef] = None
+class ListPiiEntitiesDetectionJobsRequest(BaseValidatorModel):
+    Filter: Optional[PiiEntitiesDetectionJobFilter] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListSentimentDetectionJobsRequestPaginateTypeDef(BaseValidatorModel):
-    Filter: Optional[SentimentDetectionJobFilterTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListSentimentDetectionJobsRequestPaginate(BaseValidatorModel):
+    Filter: Optional[SentimentDetectionJobFilter] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListSentimentDetectionJobsRequestTypeDef(BaseValidatorModel):
-    Filter: Optional[SentimentDetectionJobFilterTypeDef] = None
+class ListSentimentDetectionJobsRequest(BaseValidatorModel):
+    Filter: Optional[SentimentDetectionJobFilter] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListTargetedSentimentDetectionJobsRequestTypeDef(BaseValidatorModel):
-    Filter: Optional[TargetedSentimentDetectionJobFilterTypeDef] = None
+class ListTargetedSentimentDetectionJobsRequest(BaseValidatorModel):
+    Filter: Optional[TargetedSentimentDetectionJobFilter] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListTopicsDetectionJobsRequestPaginateTypeDef(BaseValidatorModel):
-    Filter: Optional[TopicsDetectionJobFilterTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListTopicsDetectionJobsRequestPaginate(BaseValidatorModel):
+    Filter: Optional[TopicsDetectionJobFilter] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListTopicsDetectionJobsRequestTypeDef(BaseValidatorModel):
-    Filter: Optional[TopicsDetectionJobFilterTypeDef] = None
+class ListTopicsDetectionJobsRequest(BaseValidatorModel):
+    Filter: Optional[TopicsDetectionJobFilter] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class DocumentClassifierPropertiesTypeDef(BaseValidatorModel):
+class DocumentClassifierProperties(BaseValidatorModel):
     DocumentClassifierArn: Optional[str] = None
     LanguageCode: Optional[LanguageCodeType] = None
     Status: Optional[ModelStatusType] = None
@@ -1230,12 +1230,12 @@ class DocumentClassifierPropertiesTypeDef(BaseValidatorModel):
     EndTime: Optional[datetime] = None
     TrainingStartTime: Optional[datetime] = None
     TrainingEndTime: Optional[datetime] = None
-    InputDataConfig: Optional[DocumentClassifierInputDataConfigOutputTypeDef] = None
-    OutputDataConfig: Optional[DocumentClassifierOutputDataConfigTypeDef] = None
-    ClassifierMetadata: Optional[ClassifierMetadataTypeDef] = None
+    InputDataConfig: Optional[DocumentClassifierInputDataConfigOutput] = None
+    OutputDataConfig: Optional[DocumentClassifierOutputDataConfig] = None
+    ClassifierMetadata: Optional[ClassifierMetadata] = None
     DataAccessRoleArn: Optional[str] = None
     VolumeKmsKeyId: Optional[str] = None
-    VpcConfig: Optional[VpcConfigOutputTypeDef] = None
+    VpcConfig: Optional[VpcConfigOutput] = None
     Mode: Optional[DocumentClassifierModeType] = None
     ModelKmsKeyId: Optional[str] = None
     VersionName: Optional[str] = None
@@ -1243,7 +1243,7 @@ class DocumentClassifierPropertiesTypeDef(BaseValidatorModel):
     FlywheelArn: Optional[str] = None
 
 
-class DocumentClassificationJobPropertiesTypeDef(BaseValidatorModel):
+class DocumentClassificationJobProperties(BaseValidatorModel):
     JobId: Optional[str] = None
     JobArn: Optional[str] = None
     JobName: Optional[str] = None
@@ -1252,15 +1252,15 @@ class DocumentClassificationJobPropertiesTypeDef(BaseValidatorModel):
     SubmitTime: Optional[datetime] = None
     EndTime: Optional[datetime] = None
     DocumentClassifierArn: Optional[str] = None
-    InputDataConfig: Optional[InputDataConfigOutputTypeDef] = None
-    OutputDataConfig: Optional[OutputDataConfigTypeDef] = None
+    InputDataConfig: Optional[InputDataConfigOutput] = None
+    OutputDataConfig: Optional[OutputDataConfig] = None
     DataAccessRoleArn: Optional[str] = None
     VolumeKmsKeyId: Optional[str] = None
-    VpcConfig: Optional[VpcConfigOutputTypeDef] = None
+    VpcConfig: Optional[VpcConfigOutput] = None
     FlywheelArn: Optional[str] = None
 
 
-class DominantLanguageDetectionJobPropertiesTypeDef(BaseValidatorModel):
+class DominantLanguageDetectionJobProperties(BaseValidatorModel):
     JobId: Optional[str] = None
     JobArn: Optional[str] = None
     JobName: Optional[str] = None
@@ -1268,14 +1268,14 @@ class DominantLanguageDetectionJobPropertiesTypeDef(BaseValidatorModel):
     Message: Optional[str] = None
     SubmitTime: Optional[datetime] = None
     EndTime: Optional[datetime] = None
-    InputDataConfig: Optional[InputDataConfigOutputTypeDef] = None
-    OutputDataConfig: Optional[OutputDataConfigTypeDef] = None
+    InputDataConfig: Optional[InputDataConfigOutput] = None
+    OutputDataConfig: Optional[OutputDataConfig] = None
     DataAccessRoleArn: Optional[str] = None
     VolumeKmsKeyId: Optional[str] = None
-    VpcConfig: Optional[VpcConfigOutputTypeDef] = None
+    VpcConfig: Optional[VpcConfigOutput] = None
 
 
-class EntitiesDetectionJobPropertiesTypeDef(BaseValidatorModel):
+class EntitiesDetectionJobProperties(BaseValidatorModel):
     JobId: Optional[str] = None
     JobArn: Optional[str] = None
     JobName: Optional[str] = None
@@ -1284,16 +1284,16 @@ class EntitiesDetectionJobPropertiesTypeDef(BaseValidatorModel):
     SubmitTime: Optional[datetime] = None
     EndTime: Optional[datetime] = None
     EntityRecognizerArn: Optional[str] = None
-    InputDataConfig: Optional[InputDataConfigOutputTypeDef] = None
-    OutputDataConfig: Optional[OutputDataConfigTypeDef] = None
+    InputDataConfig: Optional[InputDataConfigOutput] = None
+    OutputDataConfig: Optional[OutputDataConfig] = None
     LanguageCode: Optional[LanguageCodeType] = None
     DataAccessRoleArn: Optional[str] = None
     VolumeKmsKeyId: Optional[str] = None
-    VpcConfig: Optional[VpcConfigOutputTypeDef] = None
+    VpcConfig: Optional[VpcConfigOutput] = None
     FlywheelArn: Optional[str] = None
 
 
-class EventsDetectionJobPropertiesTypeDef(BaseValidatorModel):
+class EventsDetectionJobProperties(BaseValidatorModel):
     JobId: Optional[str] = None
     JobArn: Optional[str] = None
     JobName: Optional[str] = None
@@ -1301,14 +1301,14 @@ class EventsDetectionJobPropertiesTypeDef(BaseValidatorModel):
     Message: Optional[str] = None
     SubmitTime: Optional[datetime] = None
     EndTime: Optional[datetime] = None
-    InputDataConfig: Optional[InputDataConfigOutputTypeDef] = None
-    OutputDataConfig: Optional[OutputDataConfigTypeDef] = None
+    InputDataConfig: Optional[InputDataConfigOutput] = None
+    OutputDataConfig: Optional[OutputDataConfig] = None
     LanguageCode: Optional[LanguageCodeType] = None
     DataAccessRoleArn: Optional[str] = None
     TargetEventTypes: Optional[List[str]] = None
 
 
-class KeyPhrasesDetectionJobPropertiesTypeDef(BaseValidatorModel):
+class KeyPhrasesDetectionJobProperties(BaseValidatorModel):
     JobId: Optional[str] = None
     JobArn: Optional[str] = None
     JobName: Optional[str] = None
@@ -1316,15 +1316,15 @@ class KeyPhrasesDetectionJobPropertiesTypeDef(BaseValidatorModel):
     Message: Optional[str] = None
     SubmitTime: Optional[datetime] = None
     EndTime: Optional[datetime] = None
-    InputDataConfig: Optional[InputDataConfigOutputTypeDef] = None
-    OutputDataConfig: Optional[OutputDataConfigTypeDef] = None
+    InputDataConfig: Optional[InputDataConfigOutput] = None
+    OutputDataConfig: Optional[OutputDataConfig] = None
     LanguageCode: Optional[LanguageCodeType] = None
     DataAccessRoleArn: Optional[str] = None
     VolumeKmsKeyId: Optional[str] = None
-    VpcConfig: Optional[VpcConfigOutputTypeDef] = None
+    VpcConfig: Optional[VpcConfigOutput] = None
 
 
-class PiiEntitiesDetectionJobPropertiesTypeDef(BaseValidatorModel):
+class PiiEntitiesDetectionJobProperties(BaseValidatorModel):
     JobId: Optional[str] = None
     JobArn: Optional[str] = None
     JobName: Optional[str] = None
@@ -1332,15 +1332,15 @@ class PiiEntitiesDetectionJobPropertiesTypeDef(BaseValidatorModel):
     Message: Optional[str] = None
     SubmitTime: Optional[datetime] = None
     EndTime: Optional[datetime] = None
-    InputDataConfig: Optional[InputDataConfigOutputTypeDef] = None
-    OutputDataConfig: Optional[PiiOutputDataConfigTypeDef] = None
-    RedactionConfig: Optional[RedactionConfigOutputTypeDef] = None
+    InputDataConfig: Optional[InputDataConfigOutput] = None
+    OutputDataConfig: Optional[PiiOutputDataConfig] = None
+    RedactionConfig: Optional[RedactionConfigOutput] = None
     LanguageCode: Optional[LanguageCodeType] = None
     DataAccessRoleArn: Optional[str] = None
     Mode: Optional[PiiEntitiesDetectionModeType] = None
 
 
-class SentimentDetectionJobPropertiesTypeDef(BaseValidatorModel):
+class SentimentDetectionJobProperties(BaseValidatorModel):
     JobId: Optional[str] = None
     JobArn: Optional[str] = None
     JobName: Optional[str] = None
@@ -1348,15 +1348,15 @@ class SentimentDetectionJobPropertiesTypeDef(BaseValidatorModel):
     Message: Optional[str] = None
     SubmitTime: Optional[datetime] = None
     EndTime: Optional[datetime] = None
-    InputDataConfig: Optional[InputDataConfigOutputTypeDef] = None
-    OutputDataConfig: Optional[OutputDataConfigTypeDef] = None
+    InputDataConfig: Optional[InputDataConfigOutput] = None
+    OutputDataConfig: Optional[OutputDataConfig] = None
     LanguageCode: Optional[LanguageCodeType] = None
     DataAccessRoleArn: Optional[str] = None
     VolumeKmsKeyId: Optional[str] = None
-    VpcConfig: Optional[VpcConfigOutputTypeDef] = None
+    VpcConfig: Optional[VpcConfigOutput] = None
 
 
-class TargetedSentimentDetectionJobPropertiesTypeDef(BaseValidatorModel):
+class TargetedSentimentDetectionJobProperties(BaseValidatorModel):
     JobId: Optional[str] = None
     JobArn: Optional[str] = None
     JobName: Optional[str] = None
@@ -1364,15 +1364,15 @@ class TargetedSentimentDetectionJobPropertiesTypeDef(BaseValidatorModel):
     Message: Optional[str] = None
     SubmitTime: Optional[datetime] = None
     EndTime: Optional[datetime] = None
-    InputDataConfig: Optional[InputDataConfigOutputTypeDef] = None
-    OutputDataConfig: Optional[OutputDataConfigTypeDef] = None
+    InputDataConfig: Optional[InputDataConfigOutput] = None
+    OutputDataConfig: Optional[OutputDataConfig] = None
     LanguageCode: Optional[LanguageCodeType] = None
     DataAccessRoleArn: Optional[str] = None
     VolumeKmsKeyId: Optional[str] = None
-    VpcConfig: Optional[VpcConfigOutputTypeDef] = None
+    VpcConfig: Optional[VpcConfigOutput] = None
 
 
-class TopicsDetectionJobPropertiesTypeDef(BaseValidatorModel):
+class TopicsDetectionJobProperties(BaseValidatorModel):
     JobId: Optional[str] = None
     JobArn: Optional[str] = None
     JobName: Optional[str] = None
@@ -1380,370 +1380,370 @@ class TopicsDetectionJobPropertiesTypeDef(BaseValidatorModel):
     Message: Optional[str] = None
     SubmitTime: Optional[datetime] = None
     EndTime: Optional[datetime] = None
-    InputDataConfig: Optional[InputDataConfigOutputTypeDef] = None
-    OutputDataConfig: Optional[OutputDataConfigTypeDef] = None
+    InputDataConfig: Optional[InputDataConfigOutput] = None
+    OutputDataConfig: Optional[OutputDataConfig] = None
     NumberOfTopics: Optional[int] = None
     DataAccessRoleArn: Optional[str] = None
     VolumeKmsKeyId: Optional[str] = None
-    VpcConfig: Optional[VpcConfigOutputTypeDef] = None
+    VpcConfig: Optional[VpcConfigOutput] = None
 
 
-class DocumentTypeListItemTypeDef(BaseValidatorModel):
+class DocumentTypeListItem(BaseValidatorModel):
     pass
 
 
-class ClassifyDocumentResponseTypeDef(BaseValidatorModel):
-    Classes: List[DocumentClassTypeDef]
-    Labels: List[DocumentLabelTypeDef]
-    DocumentMetadata: DocumentMetadataTypeDef
-    DocumentType: List[DocumentTypeListItemTypeDef]
-    Errors: List[ErrorsListItemTypeDef]
-    Warnings: List[WarningsListItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ClassifyDocumentResponse(BaseValidatorModel):
+    Classes: List[DocumentClass]
+    Labels: List[DocumentLabel]
+    DocumentMetadata: DocumentMetadata
+    DocumentType: List[DocumentTypeListItem]
+    Errors: List[ErrorsListItem]
+    Warnings: List[WarningsListItem]
+    ResponseMetadata: ResponseMetadata
 
 
-class TaskConfigOutputTypeDef(BaseValidatorModel):
+class TaskConfigOutput(BaseValidatorModel):
     LanguageCode: LanguageCodeType
-    DocumentClassificationConfig: Optional[DocumentClassificationConfigOutputTypeDef] = None
-    EntityRecognitionConfig: Optional[EntityRecognitionConfigOutputTypeDef] = None
+    DocumentClassificationConfig: Optional[DocumentClassificationConfigOutput] = None
+    EntityRecognitionConfig: Optional[EntityRecognitionConfigOutput] = None
 
 
-class TaskConfigTypeDef(BaseValidatorModel):
+class TaskConfig(BaseValidatorModel):
     LanguageCode: LanguageCodeType
-    DocumentClassificationConfig: Optional[DocumentClassificationConfigTypeDef] = None
-    EntityRecognitionConfig: Optional[EntityRecognitionConfigTypeDef] = None
+    DocumentClassificationConfig: Optional[DocumentClassificationConfig] = None
+    EntityRecognitionConfig: Optional[EntityRecognitionConfig] = None
 
 
-class EntityRecognizerMetadataEntityTypesListItemTypeDef(BaseValidatorModel):
+class EntityRecognizerMetadataEntityTypesListItem(BaseValidatorModel):
     pass
 
 
-class EntityRecognizerMetadataTypeDef(BaseValidatorModel):
+class EntityRecognizerMetadata(BaseValidatorModel):
     NumberOfTrainedDocuments: Optional[int] = None
     NumberOfTestDocuments: Optional[int] = None
-    EvaluationMetrics: Optional[EntityRecognizerEvaluationMetricsTypeDef] = None
-    EntityTypes: Optional[List[EntityRecognizerMetadataEntityTypesListItemTypeDef]] = None
+    EvaluationMetrics: Optional[EntityRecognizerEvaluationMetrics] = None
+    EntityTypes: Optional[List[EntityRecognizerMetadataEntityTypesListItem]] = None
 
 
-class DescribeFlywheelIterationResponseTypeDef(BaseValidatorModel):
-    FlywheelIterationProperties: FlywheelIterationPropertiesTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeFlywheelIterationResponse(BaseValidatorModel):
+    FlywheelIterationProperties: FlywheelIterationProperties
+    ResponseMetadata: ResponseMetadata
 
 
-class ListFlywheelIterationHistoryResponseTypeDef(BaseValidatorModel):
-    FlywheelIterationPropertiesList: List[FlywheelIterationPropertiesTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListFlywheelIterationHistoryResponse(BaseValidatorModel):
+    FlywheelIterationPropertiesList: List[FlywheelIterationProperties]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class SyntaxTokenTypeDef(BaseValidatorModel):
+class SyntaxToken(BaseValidatorModel):
     pass
 
 
-class BatchDetectSyntaxItemResultTypeDef(BaseValidatorModel):
+class BatchDetectSyntaxItemResult(BaseValidatorModel):
     Index: Optional[int] = None
-    SyntaxTokens: Optional[List[SyntaxTokenTypeDef]] = None
+    SyntaxTokens: Optional[List[SyntaxToken]] = None
 
 
-class DetectSyntaxResponseTypeDef(BaseValidatorModel):
-    SyntaxTokens: List[SyntaxTokenTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DetectSyntaxResponse(BaseValidatorModel):
+    SyntaxTokens: List[SyntaxToken]
+    ResponseMetadata: ResponseMetadata
 
 
-class DetectToxicContentResponseTypeDef(BaseValidatorModel):
-    ResultList: List[ToxicLabelsTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DetectToxicContentResponse(BaseValidatorModel):
+    ResultList: List[ToxicLabels]
+    ResponseMetadata: ResponseMetadata
 
 
-class TargetedSentimentMentionTypeDef(BaseValidatorModel):
+class TargetedSentimentMention(BaseValidatorModel):
     pass
 
 
-class TargetedSentimentEntityTypeDef(BaseValidatorModel):
+class TargetedSentimentEntity(BaseValidatorModel):
     DescriptiveMentionIndex: Optional[List[int]] = None
-    Mentions: Optional[List[TargetedSentimentMentionTypeDef]] = None
+    Mentions: Optional[List[TargetedSentimentMention]] = None
 
 
-class EntityTypeDef(BaseValidatorModel):
+class Entity(BaseValidatorModel):
     pass
 
 
-class BatchDetectEntitiesItemResultTypeDef(BaseValidatorModel):
+class BatchDetectEntitiesItemResult(BaseValidatorModel):
     Index: Optional[int] = None
-    Entities: Optional[List[EntityTypeDef]] = None
+    Entities: Optional[List[Entity]] = None
 
 
-class UpdateFlywheelRequestTypeDef(BaseValidatorModel):
+class UpdateFlywheelRequest(BaseValidatorModel):
     FlywheelArn: str
     ActiveModelArn: Optional[str] = None
     DataAccessRoleArn: Optional[str] = None
-    DataSecurityConfig: Optional[UpdateDataSecurityConfigTypeDef] = None
+    DataSecurityConfig: Optional[UpdateDataSecurityConfig] = None
 
 
-class CreateDatasetRequestTypeDef(BaseValidatorModel):
+class CreateDatasetRequest(BaseValidatorModel):
     FlywheelArn: str
     DatasetName: str
-    InputDataConfig: DatasetInputDataConfigTypeDef
+    InputDataConfig: DatasetInputDataConfig
     DatasetType: Optional[DatasetTypeType] = None
     Description: Optional[str] = None
     ClientRequestToken: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class DescribeDocumentClassifierResponseTypeDef(BaseValidatorModel):
-    DocumentClassifierProperties: DocumentClassifierPropertiesTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeDocumentClassifierResponse(BaseValidatorModel):
+    DocumentClassifierProperties: DocumentClassifierProperties
+    ResponseMetadata: ResponseMetadata
 
 
-class ListDocumentClassifiersResponseTypeDef(BaseValidatorModel):
-    DocumentClassifierPropertiesList: List[DocumentClassifierPropertiesTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListDocumentClassifiersResponse(BaseValidatorModel):
+    DocumentClassifierPropertiesList: List[DocumentClassifierProperties]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeDocumentClassificationJobResponseTypeDef(BaseValidatorModel):
-    DocumentClassificationJobProperties: DocumentClassificationJobPropertiesTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeDocumentClassificationJobResponse(BaseValidatorModel):
+    DocumentClassificationJobProperties: DocumentClassificationJobProperties
+    ResponseMetadata: ResponseMetadata
 
 
-class ListDocumentClassificationJobsResponseTypeDef(BaseValidatorModel):
-    DocumentClassificationJobPropertiesList: List[DocumentClassificationJobPropertiesTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListDocumentClassificationJobsResponse(BaseValidatorModel):
+    DocumentClassificationJobPropertiesList: List[DocumentClassificationJobProperties]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeDominantLanguageDetectionJobResponseTypeDef(BaseValidatorModel):
-    DominantLanguageDetectionJobProperties: DominantLanguageDetectionJobPropertiesTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeDominantLanguageDetectionJobResponse(BaseValidatorModel):
+    DominantLanguageDetectionJobProperties: DominantLanguageDetectionJobProperties
+    ResponseMetadata: ResponseMetadata
 
 
-class ListDominantLanguageDetectionJobsResponseTypeDef(BaseValidatorModel):
-    DominantLanguageDetectionJobPropertiesList: List[DominantLanguageDetectionJobPropertiesTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListDominantLanguageDetectionJobsResponse(BaseValidatorModel):
+    DominantLanguageDetectionJobPropertiesList: List[DominantLanguageDetectionJobProperties]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeEntitiesDetectionJobResponseTypeDef(BaseValidatorModel):
-    EntitiesDetectionJobProperties: EntitiesDetectionJobPropertiesTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeEntitiesDetectionJobResponse(BaseValidatorModel):
+    EntitiesDetectionJobProperties: EntitiesDetectionJobProperties
+    ResponseMetadata: ResponseMetadata
 
 
-class ListEntitiesDetectionJobsResponseTypeDef(BaseValidatorModel):
-    EntitiesDetectionJobPropertiesList: List[EntitiesDetectionJobPropertiesTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListEntitiesDetectionJobsResponse(BaseValidatorModel):
+    EntitiesDetectionJobPropertiesList: List[EntitiesDetectionJobProperties]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeEventsDetectionJobResponseTypeDef(BaseValidatorModel):
-    EventsDetectionJobProperties: EventsDetectionJobPropertiesTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeEventsDetectionJobResponse(BaseValidatorModel):
+    EventsDetectionJobProperties: EventsDetectionJobProperties
+    ResponseMetadata: ResponseMetadata
 
 
-class ListEventsDetectionJobsResponseTypeDef(BaseValidatorModel):
-    EventsDetectionJobPropertiesList: List[EventsDetectionJobPropertiesTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListEventsDetectionJobsResponse(BaseValidatorModel):
+    EventsDetectionJobPropertiesList: List[EventsDetectionJobProperties]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeKeyPhrasesDetectionJobResponseTypeDef(BaseValidatorModel):
-    KeyPhrasesDetectionJobProperties: KeyPhrasesDetectionJobPropertiesTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeKeyPhrasesDetectionJobResponse(BaseValidatorModel):
+    KeyPhrasesDetectionJobProperties: KeyPhrasesDetectionJobProperties
+    ResponseMetadata: ResponseMetadata
 
 
-class ListKeyPhrasesDetectionJobsResponseTypeDef(BaseValidatorModel):
-    KeyPhrasesDetectionJobPropertiesList: List[KeyPhrasesDetectionJobPropertiesTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListKeyPhrasesDetectionJobsResponse(BaseValidatorModel):
+    KeyPhrasesDetectionJobPropertiesList: List[KeyPhrasesDetectionJobProperties]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribePiiEntitiesDetectionJobResponseTypeDef(BaseValidatorModel):
-    PiiEntitiesDetectionJobProperties: PiiEntitiesDetectionJobPropertiesTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribePiiEntitiesDetectionJobResponse(BaseValidatorModel):
+    PiiEntitiesDetectionJobProperties: PiiEntitiesDetectionJobProperties
+    ResponseMetadata: ResponseMetadata
 
 
-class ListPiiEntitiesDetectionJobsResponseTypeDef(BaseValidatorModel):
-    PiiEntitiesDetectionJobPropertiesList: List[PiiEntitiesDetectionJobPropertiesTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListPiiEntitiesDetectionJobsResponse(BaseValidatorModel):
+    PiiEntitiesDetectionJobPropertiesList: List[PiiEntitiesDetectionJobProperties]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeSentimentDetectionJobResponseTypeDef(BaseValidatorModel):
-    SentimentDetectionJobProperties: SentimentDetectionJobPropertiesTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeSentimentDetectionJobResponse(BaseValidatorModel):
+    SentimentDetectionJobProperties: SentimentDetectionJobProperties
+    ResponseMetadata: ResponseMetadata
 
 
-class ListSentimentDetectionJobsResponseTypeDef(BaseValidatorModel):
-    SentimentDetectionJobPropertiesList: List[SentimentDetectionJobPropertiesTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListSentimentDetectionJobsResponse(BaseValidatorModel):
+    SentimentDetectionJobPropertiesList: List[SentimentDetectionJobProperties]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeTargetedSentimentDetectionJobResponseTypeDef(BaseValidatorModel):
-    TargetedSentimentDetectionJobProperties: TargetedSentimentDetectionJobPropertiesTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeTargetedSentimentDetectionJobResponse(BaseValidatorModel):
+    TargetedSentimentDetectionJobProperties: TargetedSentimentDetectionJobProperties
+    ResponseMetadata: ResponseMetadata
 
 
-class ListTargetedSentimentDetectionJobsResponseTypeDef(BaseValidatorModel):
-    TargetedSentimentDetectionJobPropertiesList: List[ TargetedSentimentDetectionJobPropertiesTypeDef ]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListTargetedSentimentDetectionJobsResponse(BaseValidatorModel):
+    TargetedSentimentDetectionJobPropertiesList: List[ TargetedSentimentDetectionJobProperties ]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeTopicsDetectionJobResponseTypeDef(BaseValidatorModel):
-    TopicsDetectionJobProperties: TopicsDetectionJobPropertiesTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeTopicsDetectionJobResponse(BaseValidatorModel):
+    TopicsDetectionJobProperties: TopicsDetectionJobProperties
+    ResponseMetadata: ResponseMetadata
 
 
-class ListTopicsDetectionJobsResponseTypeDef(BaseValidatorModel):
-    TopicsDetectionJobPropertiesList: List[TopicsDetectionJobPropertiesTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListTopicsDetectionJobsResponse(BaseValidatorModel):
+    TopicsDetectionJobPropertiesList: List[TopicsDetectionJobProperties]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DocumentClassifierInputDataConfigUnionTypeDef(BaseValidatorModel):
+class DocumentClassifierInputDataConfigUnion(BaseValidatorModel):
     pass
 
 
-class CreateDocumentClassifierRequestTypeDef(BaseValidatorModel):
+class CreateDocumentClassifierRequest(BaseValidatorModel):
     DocumentClassifierName: str
     DataAccessRoleArn: str
-    InputDataConfig: DocumentClassifierInputDataConfigUnionTypeDef
+    InputDataConfig: DocumentClassifierInputDataConfigUnion
     LanguageCode: LanguageCodeType
     VersionName: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
-    OutputDataConfig: Optional[DocumentClassifierOutputDataConfigTypeDef] = None
+    Tags: Optional[Sequence[Tag]] = None
+    OutputDataConfig: Optional[DocumentClassifierOutputDataConfig] = None
     ClientRequestToken: Optional[str] = None
     VolumeKmsKeyId: Optional[str] = None
-    VpcConfig: Optional[VpcConfigUnionTypeDef] = None
+    VpcConfig: Optional[VpcConfigUnion] = None
     Mode: Optional[DocumentClassifierModeType] = None
     ModelKmsKeyId: Optional[str] = None
     ModelPolicy: Optional[str] = None
 
 
-class InputDataConfigUnionTypeDef(BaseValidatorModel):
+class InputDataConfigUnion(BaseValidatorModel):
     pass
 
 
-class StartDocumentClassificationJobRequestTypeDef(BaseValidatorModel):
-    InputDataConfig: InputDataConfigUnionTypeDef
-    OutputDataConfig: OutputDataConfigTypeDef
+class StartDocumentClassificationJobRequest(BaseValidatorModel):
+    InputDataConfig: InputDataConfigUnion
+    OutputDataConfig: OutputDataConfig
     DataAccessRoleArn: str
     JobName: Optional[str] = None
     DocumentClassifierArn: Optional[str] = None
     ClientRequestToken: Optional[str] = None
     VolumeKmsKeyId: Optional[str] = None
-    VpcConfig: Optional[VpcConfigUnionTypeDef] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    VpcConfig: Optional[VpcConfigUnion] = None
+    Tags: Optional[Sequence[Tag]] = None
     FlywheelArn: Optional[str] = None
 
 
-class StartDominantLanguageDetectionJobRequestTypeDef(BaseValidatorModel):
-    InputDataConfig: InputDataConfigUnionTypeDef
-    OutputDataConfig: OutputDataConfigTypeDef
+class StartDominantLanguageDetectionJobRequest(BaseValidatorModel):
+    InputDataConfig: InputDataConfigUnion
+    OutputDataConfig: OutputDataConfig
     DataAccessRoleArn: str
     JobName: Optional[str] = None
     ClientRequestToken: Optional[str] = None
     VolumeKmsKeyId: Optional[str] = None
-    VpcConfig: Optional[VpcConfigUnionTypeDef] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    VpcConfig: Optional[VpcConfigUnion] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class StartEntitiesDetectionJobRequestTypeDef(BaseValidatorModel):
-    InputDataConfig: InputDataConfigUnionTypeDef
-    OutputDataConfig: OutputDataConfigTypeDef
+class StartEntitiesDetectionJobRequest(BaseValidatorModel):
+    InputDataConfig: InputDataConfigUnion
+    OutputDataConfig: OutputDataConfig
     DataAccessRoleArn: str
     LanguageCode: LanguageCodeType
     JobName: Optional[str] = None
     EntityRecognizerArn: Optional[str] = None
     ClientRequestToken: Optional[str] = None
     VolumeKmsKeyId: Optional[str] = None
-    VpcConfig: Optional[VpcConfigUnionTypeDef] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    VpcConfig: Optional[VpcConfigUnion] = None
+    Tags: Optional[Sequence[Tag]] = None
     FlywheelArn: Optional[str] = None
 
 
-class StartEventsDetectionJobRequestTypeDef(BaseValidatorModel):
-    InputDataConfig: InputDataConfigUnionTypeDef
-    OutputDataConfig: OutputDataConfigTypeDef
+class StartEventsDetectionJobRequest(BaseValidatorModel):
+    InputDataConfig: InputDataConfigUnion
+    OutputDataConfig: OutputDataConfig
     DataAccessRoleArn: str
     LanguageCode: LanguageCodeType
     TargetEventTypes: Sequence[str]
     JobName: Optional[str] = None
     ClientRequestToken: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class StartKeyPhrasesDetectionJobRequestTypeDef(BaseValidatorModel):
-    InputDataConfig: InputDataConfigUnionTypeDef
-    OutputDataConfig: OutputDataConfigTypeDef
+class StartKeyPhrasesDetectionJobRequest(BaseValidatorModel):
+    InputDataConfig: InputDataConfigUnion
+    OutputDataConfig: OutputDataConfig
     DataAccessRoleArn: str
     LanguageCode: LanguageCodeType
     JobName: Optional[str] = None
     ClientRequestToken: Optional[str] = None
     VolumeKmsKeyId: Optional[str] = None
-    VpcConfig: Optional[VpcConfigUnionTypeDef] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    VpcConfig: Optional[VpcConfigUnion] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class RedactionConfigUnionTypeDef(BaseValidatorModel):
+class RedactionConfigUnion(BaseValidatorModel):
     pass
 
 
-class StartPiiEntitiesDetectionJobRequestTypeDef(BaseValidatorModel):
-    InputDataConfig: InputDataConfigUnionTypeDef
-    OutputDataConfig: OutputDataConfigTypeDef
+class StartPiiEntitiesDetectionJobRequest(BaseValidatorModel):
+    InputDataConfig: InputDataConfigUnion
+    OutputDataConfig: OutputDataConfig
     Mode: PiiEntitiesDetectionModeType
     DataAccessRoleArn: str
     LanguageCode: LanguageCodeType
-    RedactionConfig: Optional[RedactionConfigUnionTypeDef] = None
+    RedactionConfig: Optional[RedactionConfigUnion] = None
     JobName: Optional[str] = None
     ClientRequestToken: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class StartSentimentDetectionJobRequestTypeDef(BaseValidatorModel):
-    InputDataConfig: InputDataConfigUnionTypeDef
-    OutputDataConfig: OutputDataConfigTypeDef
+class StartSentimentDetectionJobRequest(BaseValidatorModel):
+    InputDataConfig: InputDataConfigUnion
+    OutputDataConfig: OutputDataConfig
     DataAccessRoleArn: str
     LanguageCode: LanguageCodeType
     JobName: Optional[str] = None
     ClientRequestToken: Optional[str] = None
     VolumeKmsKeyId: Optional[str] = None
-    VpcConfig: Optional[VpcConfigUnionTypeDef] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    VpcConfig: Optional[VpcConfigUnion] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class StartTargetedSentimentDetectionJobRequestTypeDef(BaseValidatorModel):
-    InputDataConfig: InputDataConfigUnionTypeDef
-    OutputDataConfig: OutputDataConfigTypeDef
+class StartTargetedSentimentDetectionJobRequest(BaseValidatorModel):
+    InputDataConfig: InputDataConfigUnion
+    OutputDataConfig: OutputDataConfig
     DataAccessRoleArn: str
     LanguageCode: LanguageCodeType
     JobName: Optional[str] = None
     ClientRequestToken: Optional[str] = None
     VolumeKmsKeyId: Optional[str] = None
-    VpcConfig: Optional[VpcConfigUnionTypeDef] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    VpcConfig: Optional[VpcConfigUnion] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class StartTopicsDetectionJobRequestTypeDef(BaseValidatorModel):
-    InputDataConfig: InputDataConfigUnionTypeDef
-    OutputDataConfig: OutputDataConfigTypeDef
+class StartTopicsDetectionJobRequest(BaseValidatorModel):
+    InputDataConfig: InputDataConfigUnion
+    OutputDataConfig: OutputDataConfig
     DataAccessRoleArn: str
     JobName: Optional[str] = None
     NumberOfTopics: Optional[int] = None
     ClientRequestToken: Optional[str] = None
     VolumeKmsKeyId: Optional[str] = None
-    VpcConfig: Optional[VpcConfigUnionTypeDef] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    VpcConfig: Optional[VpcConfigUnion] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class FlywheelPropertiesTypeDef(BaseValidatorModel):
+class FlywheelProperties(BaseValidatorModel):
     FlywheelArn: Optional[str] = None
     ActiveModelArn: Optional[str] = None
     DataAccessRoleArn: Optional[str] = None
-    TaskConfig: Optional[TaskConfigOutputTypeDef] = None
+    TaskConfig: Optional[TaskConfigOutput] = None
     DataLakeS3Uri: Optional[str] = None
-    DataSecurityConfig: Optional[DataSecurityConfigOutputTypeDef] = None
+    DataSecurityConfig: Optional[DataSecurityConfigOutput] = None
     Status: Optional[FlywheelStatusType] = None
     ModelType: Optional[ModelTypeType] = None
     Message: Optional[str] = None
@@ -1752,25 +1752,25 @@ class FlywheelPropertiesTypeDef(BaseValidatorModel):
     LatestFlywheelIteration: Optional[str] = None
 
 
-class EntityRecognizerInputDataConfigUnionTypeDef(BaseValidatorModel):
+class EntityRecognizerInputDataConfigUnion(BaseValidatorModel):
     pass
 
 
-class CreateEntityRecognizerRequestTypeDef(BaseValidatorModel):
+class CreateEntityRecognizerRequest(BaseValidatorModel):
     RecognizerName: str
     DataAccessRoleArn: str
-    InputDataConfig: EntityRecognizerInputDataConfigUnionTypeDef
+    InputDataConfig: EntityRecognizerInputDataConfigUnion
     LanguageCode: LanguageCodeType
     VersionName: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
     ClientRequestToken: Optional[str] = None
     VolumeKmsKeyId: Optional[str] = None
-    VpcConfig: Optional[VpcConfigUnionTypeDef] = None
+    VpcConfig: Optional[VpcConfigUnion] = None
     ModelKmsKeyId: Optional[str] = None
     ModelPolicy: Optional[str] = None
 
 
-class EntityRecognizerPropertiesTypeDef(BaseValidatorModel):
+class EntityRecognizerProperties(BaseValidatorModel):
     EntityRecognizerArn: Optional[str] = None
     LanguageCode: Optional[LanguageCodeType] = None
     Status: Optional[ModelStatusType] = None
@@ -1779,97 +1779,97 @@ class EntityRecognizerPropertiesTypeDef(BaseValidatorModel):
     EndTime: Optional[datetime] = None
     TrainingStartTime: Optional[datetime] = None
     TrainingEndTime: Optional[datetime] = None
-    InputDataConfig: Optional[EntityRecognizerInputDataConfigOutputTypeDef] = None
-    RecognizerMetadata: Optional[EntityRecognizerMetadataTypeDef] = None
+    InputDataConfig: Optional[EntityRecognizerInputDataConfigOutput] = None
+    RecognizerMetadata: Optional[EntityRecognizerMetadata] = None
     DataAccessRoleArn: Optional[str] = None
     VolumeKmsKeyId: Optional[str] = None
-    VpcConfig: Optional[VpcConfigOutputTypeDef] = None
+    VpcConfig: Optional[VpcConfigOutput] = None
     ModelKmsKeyId: Optional[str] = None
     VersionName: Optional[str] = None
     SourceModelArn: Optional[str] = None
     FlywheelArn: Optional[str] = None
-    OutputDataConfig: Optional[EntityRecognizerOutputDataConfigTypeDef] = None
+    OutputDataConfig: Optional[EntityRecognizerOutputDataConfig] = None
 
 
-class BlockTypeDef(BaseValidatorModel):
+class Block(BaseValidatorModel):
     pass
 
 
-class DetectEntitiesResponseTypeDef(BaseValidatorModel):
-    Entities: List[EntityTypeDef]
-    DocumentMetadata: DocumentMetadataTypeDef
-    DocumentType: List[DocumentTypeListItemTypeDef]
-    Blocks: List[BlockTypeDef]
-    Errors: List[ErrorsListItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DetectEntitiesResponse(BaseValidatorModel):
+    Entities: List[Entity]
+    DocumentMetadata: DocumentMetadata
+    DocumentType: List[DocumentTypeListItem]
+    Blocks: List[Block]
+    Errors: List[ErrorsListItem]
+    ResponseMetadata: ResponseMetadata
 
 
-class BatchDetectSyntaxResponseTypeDef(BaseValidatorModel):
-    ResultList: List[BatchDetectSyntaxItemResultTypeDef]
-    ErrorList: List[BatchItemErrorTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchDetectSyntaxResponse(BaseValidatorModel):
+    ResultList: List[BatchDetectSyntaxItemResult]
+    ErrorList: List[BatchItemError]
+    ResponseMetadata: ResponseMetadata
 
 
-class BatchDetectTargetedSentimentItemResultTypeDef(BaseValidatorModel):
+class BatchDetectTargetedSentimentItemResult(BaseValidatorModel):
     Index: Optional[int] = None
-    Entities: Optional[List[TargetedSentimentEntityTypeDef]] = None
+    Entities: Optional[List[TargetedSentimentEntity]] = None
 
 
-class DetectTargetedSentimentResponseTypeDef(BaseValidatorModel):
-    Entities: List[TargetedSentimentEntityTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DetectTargetedSentimentResponse(BaseValidatorModel):
+    Entities: List[TargetedSentimentEntity]
+    ResponseMetadata: ResponseMetadata
 
 
-class BatchDetectEntitiesResponseTypeDef(BaseValidatorModel):
-    ResultList: List[BatchDetectEntitiesItemResultTypeDef]
-    ErrorList: List[BatchItemErrorTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchDetectEntitiesResponse(BaseValidatorModel):
+    ResultList: List[BatchDetectEntitiesItemResult]
+    ErrorList: List[BatchItemError]
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeFlywheelResponseTypeDef(BaseValidatorModel):
-    FlywheelProperties: FlywheelPropertiesTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeFlywheelResponse(BaseValidatorModel):
+    FlywheelProperties: FlywheelProperties
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateFlywheelResponseTypeDef(BaseValidatorModel):
-    FlywheelProperties: FlywheelPropertiesTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateFlywheelResponse(BaseValidatorModel):
+    FlywheelProperties: FlywheelProperties
+    ResponseMetadata: ResponseMetadata
 
 
-class DataSecurityConfigUnionTypeDef(BaseValidatorModel):
+class DataSecurityConfigUnion(BaseValidatorModel):
     pass
 
 
-class TaskConfigUnionTypeDef(BaseValidatorModel):
+class TaskConfigUnion(BaseValidatorModel):
     pass
 
 
-class CreateFlywheelRequestTypeDef(BaseValidatorModel):
+class CreateFlywheelRequest(BaseValidatorModel):
     FlywheelName: str
     DataAccessRoleArn: str
     DataLakeS3Uri: str
     ActiveModelArn: Optional[str] = None
-    TaskConfig: Optional[TaskConfigUnionTypeDef] = None
+    TaskConfig: Optional[TaskConfigUnion] = None
     ModelType: Optional[ModelTypeType] = None
-    DataSecurityConfig: Optional[DataSecurityConfigUnionTypeDef] = None
+    DataSecurityConfig: Optional[DataSecurityConfigUnion] = None
     ClientRequestToken: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class DescribeEntityRecognizerResponseTypeDef(BaseValidatorModel):
-    EntityRecognizerProperties: EntityRecognizerPropertiesTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeEntityRecognizerResponse(BaseValidatorModel):
+    EntityRecognizerProperties: EntityRecognizerProperties
+    ResponseMetadata: ResponseMetadata
 
 
-class ListEntityRecognizersResponseTypeDef(BaseValidatorModel):
-    EntityRecognizerPropertiesList: List[EntityRecognizerPropertiesTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListEntityRecognizersResponse(BaseValidatorModel):
+    EntityRecognizerPropertiesList: List[EntityRecognizerProperties]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class BatchDetectTargetedSentimentResponseTypeDef(BaseValidatorModel):
-    ResultList: List[BatchDetectTargetedSentimentItemResultTypeDef]
-    ErrorList: List[BatchItemErrorTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchDetectTargetedSentimentResponse(BaseValidatorModel):
+    ResultList: List[BatchDetectTargetedSentimentItemResult]
+    ErrorList: List[BatchItemError]
+    ResponseMetadata: ResponseMetadata
 
 

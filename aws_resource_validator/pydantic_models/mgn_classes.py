@@ -12,14 +12,14 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.mgn_constants import *
 
-class ApplicationAggregatedStatusTypeDef(BaseValidatorModel):
+class ApplicationAggregatedStatus(BaseValidatorModel):
     healthStatus: Optional[ApplicationHealthStatusType] = None
     lastUpdateDateTime: Optional[str] = None
     progressStatus: Optional[ApplicationProgressStatusType] = None
     totalSourceServers: Optional[int] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -27,62 +27,62 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class ArchiveApplicationRequestTypeDef(BaseValidatorModel):
+class ArchiveApplicationRequest(BaseValidatorModel):
     applicationID: str
     accountID: Optional[str] = None
 
 
-class ArchiveWaveRequestTypeDef(BaseValidatorModel):
+class ArchiveWaveRequest(BaseValidatorModel):
     waveID: str
     accountID: Optional[str] = None
 
 
-class AssociateApplicationsRequestTypeDef(BaseValidatorModel):
+class AssociateApplicationsRequest(BaseValidatorModel):
     applicationIDs: Sequence[str]
     waveID: str
     accountID: Optional[str] = None
 
 
-class AssociateSourceServersRequestTypeDef(BaseValidatorModel):
+class AssociateSourceServersRequest(BaseValidatorModel):
     applicationID: str
     sourceServerIDs: Sequence[str]
     accountID: Optional[str] = None
 
 
-class CPUTypeDef(BaseValidatorModel):
+class CPU(BaseValidatorModel):
     cores: Optional[int] = None
     modelName: Optional[str] = None
 
 
-class ChangeServerLifeCycleStateSourceServerLifecycleTypeDef(BaseValidatorModel):
+class ChangeServerLifeCycleStateSourceServerLifecycle(BaseValidatorModel):
     state: ChangeServerLifeCycleStateSourceServerLifecycleStateType
 
 
-class ConnectorSsmCommandConfigTypeDef(BaseValidatorModel):
+class ConnectorSsmCommandConfig(BaseValidatorModel):
     cloudWatchOutputEnabled: bool
     s3OutputEnabled: bool
     cloudWatchLogGroupName: Optional[str] = None
     outputS3BucketName: Optional[str] = None
 
 
-class CreateApplicationRequestTypeDef(BaseValidatorModel):
+class CreateApplicationRequest(BaseValidatorModel):
     name: str
     accountID: Optional[str] = None
     description: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
 
-class LaunchTemplateDiskConfTypeDef(BaseValidatorModel):
+class LaunchTemplateDiskConf(BaseValidatorModel):
     iops: Optional[int] = None
     throughput: Optional[int] = None
     volumeType: Optional[VolumeTypeType] = None
 
 
-class LicensingTypeDef(BaseValidatorModel):
+class Licensing(BaseValidatorModel):
     osByol: Optional[bool] = None
 
 
-class CreateReplicationConfigurationTemplateRequestTypeDef(BaseValidatorModel):
+class CreateReplicationConfigurationTemplateRequest(BaseValidatorModel):
     associateDefaultSecurityGroup: bool
     bandwidthThrottling: int
     createPublicIP: bool
@@ -99,19 +99,19 @@ class CreateReplicationConfigurationTemplateRequestTypeDef(BaseValidatorModel):
     useFipsEndpoint: Optional[bool] = None
 
 
-class CreateWaveRequestTypeDef(BaseValidatorModel):
+class CreateWaveRequest(BaseValidatorModel):
     name: str
     accountID: Optional[str] = None
     description: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
 
-class DataReplicationErrorTypeDef(BaseValidatorModel):
+class DataReplicationError(BaseValidatorModel):
     error: Optional[DataReplicationErrorStringType] = None
     rawError: Optional[str] = None
 
 
-class DataReplicationInfoReplicatedDiskTypeDef(BaseValidatorModel):
+class DataReplicationInfoReplicatedDisk(BaseValidatorModel):
     backloggedStorageBytes: Optional[int] = None
     deviceName: Optional[str] = None
     replicatedStorageBytes: Optional[int] = None
@@ -119,79 +119,79 @@ class DataReplicationInfoReplicatedDiskTypeDef(BaseValidatorModel):
     totalStorageBytes: Optional[int] = None
 
 
-class DataReplicationInitiationStepTypeDef(BaseValidatorModel):
+class DataReplicationInitiationStep(BaseValidatorModel):
     name: Optional[DataReplicationInitiationStepNameType] = None
     status: Optional[DataReplicationInitiationStepStatusType] = None
 
 
-class DeleteApplicationRequestTypeDef(BaseValidatorModel):
+class DeleteApplicationRequest(BaseValidatorModel):
     applicationID: str
     accountID: Optional[str] = None
 
 
-class DeleteConnectorRequestTypeDef(BaseValidatorModel):
+class DeleteConnectorRequest(BaseValidatorModel):
     connectorID: str
 
 
-class DeleteJobRequestTypeDef(BaseValidatorModel):
+class DeleteJobRequest(BaseValidatorModel):
     jobID: str
     accountID: Optional[str] = None
 
 
-class DeleteLaunchConfigurationTemplateRequestTypeDef(BaseValidatorModel):
+class DeleteLaunchConfigurationTemplateRequest(BaseValidatorModel):
     launchConfigurationTemplateID: str
 
 
-class DeleteReplicationConfigurationTemplateRequestTypeDef(BaseValidatorModel):
+class DeleteReplicationConfigurationTemplateRequest(BaseValidatorModel):
     replicationConfigurationTemplateID: str
 
 
-class DeleteSourceServerRequestTypeDef(BaseValidatorModel):
+class DeleteSourceServerRequest(BaseValidatorModel):
     sourceServerID: str
     accountID: Optional[str] = None
 
 
-class DeleteVcenterClientRequestTypeDef(BaseValidatorModel):
+class DeleteVcenterClientRequest(BaseValidatorModel):
     vcenterClientID: str
 
 
-class DeleteWaveRequestTypeDef(BaseValidatorModel):
+class DeleteWaveRequest(BaseValidatorModel):
     waveID: str
     accountID: Optional[str] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class DescribeJobLogItemsRequestTypeDef(BaseValidatorModel):
+class DescribeJobLogItemsRequest(BaseValidatorModel):
     jobID: str
     accountID: Optional[str] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class DescribeJobsRequestFiltersTypeDef(BaseValidatorModel):
+class DescribeJobsRequestFilters(BaseValidatorModel):
     fromDate: Optional[str] = None
     jobIDs: Optional[Sequence[str]] = None
     toDate: Optional[str] = None
 
 
-class DescribeLaunchConfigurationTemplatesRequestTypeDef(BaseValidatorModel):
+class DescribeLaunchConfigurationTemplatesRequest(BaseValidatorModel):
     launchConfigurationTemplateIDs: Optional[Sequence[str]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class DescribeReplicationConfigurationTemplatesRequestTypeDef(BaseValidatorModel):
+class DescribeReplicationConfigurationTemplatesRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     replicationConfigurationTemplateIDs: Optional[Sequence[str]] = None
 
 
-class ReplicationConfigurationTemplateTypeDef(BaseValidatorModel):
+class ReplicationConfigurationTemplate(BaseValidatorModel):
     replicationConfigurationTemplateID: str
     arn: Optional[str] = None
     associateDefaultSecurityGroup: Optional[bool] = None
@@ -210,7 +210,7 @@ class ReplicationConfigurationTemplateTypeDef(BaseValidatorModel):
     useFipsEndpoint: Optional[bool] = None
 
 
-class DescribeSourceServersRequestFiltersTypeDef(BaseValidatorModel):
+class DescribeSourceServersRequestFilters(BaseValidatorModel):
     applicationIDs: Optional[Sequence[str]] = None
     isArchived: Optional[bool] = None
     lifeCycleStates: Optional[Sequence[LifeCycleStateType]] = None
@@ -218,12 +218,12 @@ class DescribeSourceServersRequestFiltersTypeDef(BaseValidatorModel):
     sourceServerIDs: Optional[Sequence[str]] = None
 
 
-class DescribeVcenterClientsRequestTypeDef(BaseValidatorModel):
+class DescribeVcenterClientsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class VcenterClientTypeDef(BaseValidatorModel):
+class VcenterClient(BaseValidatorModel):
     arn: Optional[str] = None
     datacenterName: Optional[str] = None
     hostname: Optional[str] = None
@@ -234,49 +234,49 @@ class VcenterClientTypeDef(BaseValidatorModel):
     vcenterUUID: Optional[str] = None
 
 
-class DisassociateApplicationsRequestTypeDef(BaseValidatorModel):
+class DisassociateApplicationsRequest(BaseValidatorModel):
     applicationIDs: Sequence[str]
     waveID: str
     accountID: Optional[str] = None
 
 
-class DisassociateSourceServersRequestTypeDef(BaseValidatorModel):
+class DisassociateSourceServersRequest(BaseValidatorModel):
     applicationID: str
     sourceServerIDs: Sequence[str]
     accountID: Optional[str] = None
 
 
-class DisconnectFromServiceRequestTypeDef(BaseValidatorModel):
+class DisconnectFromServiceRequest(BaseValidatorModel):
     sourceServerID: str
     accountID: Optional[str] = None
 
 
-class ExportErrorDataTypeDef(BaseValidatorModel):
+class ExportErrorData(BaseValidatorModel):
     rawError: Optional[str] = None
 
 
-class ExportTaskSummaryTypeDef(BaseValidatorModel):
+class ExportTaskSummary(BaseValidatorModel):
     applicationsCount: Optional[int] = None
     serversCount: Optional[int] = None
     wavesCount: Optional[int] = None
 
 
-class FinalizeCutoverRequestTypeDef(BaseValidatorModel):
+class FinalizeCutoverRequest(BaseValidatorModel):
     sourceServerID: str
     accountID: Optional[str] = None
 
 
-class GetLaunchConfigurationRequestTypeDef(BaseValidatorModel):
+class GetLaunchConfigurationRequest(BaseValidatorModel):
     sourceServerID: str
     accountID: Optional[str] = None
 
 
-class GetReplicationConfigurationRequestTypeDef(BaseValidatorModel):
+class GetReplicationConfigurationRequest(BaseValidatorModel):
     sourceServerID: str
     accountID: Optional[str] = None
 
 
-class IdentificationHintsTypeDef(BaseValidatorModel):
+class IdentificationHints(BaseValidatorModel):
     awsInstanceID: Optional[str] = None
     fqdn: Optional[str] = None
     hostname: Optional[str] = None
@@ -284,7 +284,7 @@ class IdentificationHintsTypeDef(BaseValidatorModel):
     vmWareUuid: Optional[str] = None
 
 
-class ImportErrorDataTypeDef(BaseValidatorModel):
+class ImportErrorData(BaseValidatorModel):
     accountID: Optional[str] = None
     applicationID: Optional[str] = None
     ec2LaunchTemplateID: Optional[str] = None
@@ -294,163 +294,163 @@ class ImportErrorDataTypeDef(BaseValidatorModel):
     waveID: Optional[str] = None
 
 
-class ImportTaskSummaryApplicationsTypeDef(BaseValidatorModel):
+class ImportTaskSummaryApplications(BaseValidatorModel):
     createdCount: Optional[int] = None
     modifiedCount: Optional[int] = None
 
 
-class ImportTaskSummaryServersTypeDef(BaseValidatorModel):
+class ImportTaskSummaryServers(BaseValidatorModel):
     createdCount: Optional[int] = None
     modifiedCount: Optional[int] = None
 
 
-class ImportTaskSummaryWavesTypeDef(BaseValidatorModel):
+class ImportTaskSummaryWaves(BaseValidatorModel):
     createdCount: Optional[int] = None
     modifiedCount: Optional[int] = None
 
 
-class S3BucketSourceTypeDef(BaseValidatorModel):
+class S3BucketSource(BaseValidatorModel):
     s3Bucket: str
     s3Key: str
     s3BucketOwner: Optional[str] = None
 
 
-class JobLogEventDataTypeDef(BaseValidatorModel):
+class JobLogEventData(BaseValidatorModel):
     conversionServerID: Optional[str] = None
     rawError: Optional[str] = None
     sourceServerID: Optional[str] = None
     targetInstanceID: Optional[str] = None
 
 
-class LaunchedInstanceTypeDef(BaseValidatorModel):
+class LaunchedInstance(BaseValidatorModel):
     ec2InstanceID: Optional[str] = None
     firstBoot: Optional[FirstBootType] = None
     jobID: Optional[str] = None
 
 
-class LifeCycleLastCutoverFinalizedTypeDef(BaseValidatorModel):
+class LifeCycleLastCutoverFinalized(BaseValidatorModel):
     apiCallDateTime: Optional[str] = None
 
 
-class LifeCycleLastCutoverInitiatedTypeDef(BaseValidatorModel):
-    apiCallDateTime: Optional[str] = None
-    jobID: Optional[str] = None
-
-
-class LifeCycleLastCutoverRevertedTypeDef(BaseValidatorModel):
-    apiCallDateTime: Optional[str] = None
-
-
-class LifeCycleLastTestFinalizedTypeDef(BaseValidatorModel):
-    apiCallDateTime: Optional[str] = None
-
-
-class LifeCycleLastTestInitiatedTypeDef(BaseValidatorModel):
+class LifeCycleLastCutoverInitiated(BaseValidatorModel):
     apiCallDateTime: Optional[str] = None
     jobID: Optional[str] = None
 
 
-class LifeCycleLastTestRevertedTypeDef(BaseValidatorModel):
+class LifeCycleLastCutoverReverted(BaseValidatorModel):
     apiCallDateTime: Optional[str] = None
 
 
-class ListApplicationsRequestFiltersTypeDef(BaseValidatorModel):
+class LifeCycleLastTestFinalized(BaseValidatorModel):
+    apiCallDateTime: Optional[str] = None
+
+
+class LifeCycleLastTestInitiated(BaseValidatorModel):
+    apiCallDateTime: Optional[str] = None
+    jobID: Optional[str] = None
+
+
+class LifeCycleLastTestReverted(BaseValidatorModel):
+    apiCallDateTime: Optional[str] = None
+
+
+class ListApplicationsRequestFilters(BaseValidatorModel):
     applicationIDs: Optional[Sequence[str]] = None
     isArchived: Optional[bool] = None
     waveIDs: Optional[Sequence[str]] = None
 
 
-class ListConnectorsRequestFiltersTypeDef(BaseValidatorModel):
+class ListConnectorsRequestFilters(BaseValidatorModel):
     connectorIDs: Optional[Sequence[str]] = None
 
 
-class ListExportErrorsRequestTypeDef(BaseValidatorModel):
+class ListExportErrorsRequest(BaseValidatorModel):
     exportID: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListExportsRequestFiltersTypeDef(BaseValidatorModel):
+class ListExportsRequestFilters(BaseValidatorModel):
     exportIDs: Optional[Sequence[str]] = None
 
 
-class ListImportErrorsRequestTypeDef(BaseValidatorModel):
+class ListImportErrorsRequest(BaseValidatorModel):
     importID: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListImportsRequestFiltersTypeDef(BaseValidatorModel):
+class ListImportsRequestFilters(BaseValidatorModel):
     importIDs: Optional[Sequence[str]] = None
 
 
-class ListManagedAccountsRequestTypeDef(BaseValidatorModel):
+class ListManagedAccountsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ManagedAccountTypeDef(BaseValidatorModel):
+class ManagedAccount(BaseValidatorModel):
     accountId: Optional[str] = None
 
 
-class SourceServerActionsRequestFiltersTypeDef(BaseValidatorModel):
+class SourceServerActionsRequestFilters(BaseValidatorModel):
     actionIDs: Optional[Sequence[str]] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
 
-class TemplateActionsRequestFiltersTypeDef(BaseValidatorModel):
+class TemplateActionsRequestFilters(BaseValidatorModel):
     actionIDs: Optional[Sequence[str]] = None
 
 
-class ListWavesRequestFiltersTypeDef(BaseValidatorModel):
+class ListWavesRequestFilters(BaseValidatorModel):
     isArchived: Optional[bool] = None
     waveIDs: Optional[Sequence[str]] = None
 
 
-class MarkAsArchivedRequestTypeDef(BaseValidatorModel):
+class MarkAsArchivedRequest(BaseValidatorModel):
     sourceServerID: str
     accountID: Optional[str] = None
 
 
-class NetworkInterfaceTypeDef(BaseValidatorModel):
+class NetworkInterface(BaseValidatorModel):
     ips: Optional[List[str]] = None
     isPrimary: Optional[bool] = None
     macAddress: Optional[str] = None
 
 
-class OSTypeDef(BaseValidatorModel):
+class OS(BaseValidatorModel):
     fullString: Optional[str] = None
 
 
-class PauseReplicationRequestTypeDef(BaseValidatorModel):
+class PauseReplicationRequest(BaseValidatorModel):
     sourceServerID: str
     accountID: Optional[str] = None
 
 
-class SsmExternalParameterTypeDef(BaseValidatorModel):
+class SsmExternalParameter(BaseValidatorModel):
     dynamicPath: Optional[str] = None
 
 
-class SsmParameterStoreParameterTypeDef(BaseValidatorModel):
+class SsmParameterStoreParameter(BaseValidatorModel):
     parameterName: str
     parameterType: Literal["STRING"]
 
 
-class RemoveSourceServerActionRequestTypeDef(BaseValidatorModel):
+class RemoveSourceServerActionRequest(BaseValidatorModel):
     actionID: str
     sourceServerID: str
     accountID: Optional[str] = None
 
 
-class RemoveTemplateActionRequestTypeDef(BaseValidatorModel):
+class RemoveTemplateActionRequest(BaseValidatorModel):
     actionID: str
     launchConfigurationTemplateID: str
 
 
-class ReplicationConfigurationReplicatedDiskTypeDef(BaseValidatorModel):
+class ReplicationConfigurationReplicatedDisk(BaseValidatorModel):
     deviceName: Optional[str] = None
     iops: Optional[int] = None
     isBootDisk: Optional[bool] = None
@@ -458,83 +458,83 @@ class ReplicationConfigurationReplicatedDiskTypeDef(BaseValidatorModel):
     throughput: Optional[int] = None
 
 
-class ResumeReplicationRequestTypeDef(BaseValidatorModel):
+class ResumeReplicationRequest(BaseValidatorModel):
     sourceServerID: str
     accountID: Optional[str] = None
 
 
-class RetryDataReplicationRequestTypeDef(BaseValidatorModel):
+class RetryDataReplicationRequest(BaseValidatorModel):
     sourceServerID: str
     accountID: Optional[str] = None
 
 
-class SourceServerConnectorActionTypeDef(BaseValidatorModel):
+class SourceServerConnectorAction(BaseValidatorModel):
     connectorArn: Optional[str] = None
     credentialsSecretArn: Optional[str] = None
 
 
-class StartCutoverRequestTypeDef(BaseValidatorModel):
+class StartCutoverRequest(BaseValidatorModel):
     sourceServerIDs: Sequence[str]
     accountID: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
 
-class StartExportRequestTypeDef(BaseValidatorModel):
+class StartExportRequest(BaseValidatorModel):
     s3Bucket: str
     s3Key: str
     s3BucketOwner: Optional[str] = None
 
 
-class StartReplicationRequestTypeDef(BaseValidatorModel):
+class StartReplicationRequest(BaseValidatorModel):
     sourceServerID: str
     accountID: Optional[str] = None
 
 
-class StartTestRequestTypeDef(BaseValidatorModel):
+class StartTestRequest(BaseValidatorModel):
     sourceServerIDs: Sequence[str]
     accountID: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
 
-class StopReplicationRequestTypeDef(BaseValidatorModel):
+class StopReplicationRequest(BaseValidatorModel):
     sourceServerID: str
     accountID: Optional[str] = None
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
 
-class TerminateTargetInstancesRequestTypeDef(BaseValidatorModel):
+class TerminateTargetInstancesRequest(BaseValidatorModel):
     sourceServerIDs: Sequence[str]
     accountID: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
 
-class UnarchiveApplicationRequestTypeDef(BaseValidatorModel):
+class UnarchiveApplicationRequest(BaseValidatorModel):
     applicationID: str
     accountID: Optional[str] = None
 
 
-class UnarchiveWaveRequestTypeDef(BaseValidatorModel):
+class UnarchiveWaveRequest(BaseValidatorModel):
     waveID: str
     accountID: Optional[str] = None
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
 
-class UpdateApplicationRequestTypeDef(BaseValidatorModel):
+class UpdateApplicationRequest(BaseValidatorModel):
     applicationID: str
     accountID: Optional[str] = None
     description: Optional[str] = None
     name: Optional[str] = None
 
 
-class UpdateReplicationConfigurationTemplateRequestTypeDef(BaseValidatorModel):
+class UpdateReplicationConfigurationTemplateRequest(BaseValidatorModel):
     replicationConfigurationTemplateID: str
     arn: Optional[str] = None
     associateDefaultSecurityGroup: Optional[bool] = None
@@ -552,20 +552,20 @@ class UpdateReplicationConfigurationTemplateRequestTypeDef(BaseValidatorModel):
     useFipsEndpoint: Optional[bool] = None
 
 
-class UpdateSourceServerReplicationTypeRequestTypeDef(BaseValidatorModel):
+class UpdateSourceServerReplicationTypeRequest(BaseValidatorModel):
     replicationType: ReplicationTypeType
     sourceServerID: str
     accountID: Optional[str] = None
 
 
-class UpdateWaveRequestTypeDef(BaseValidatorModel):
+class UpdateWaveRequest(BaseValidatorModel):
     waveID: str
     accountID: Optional[str] = None
     description: Optional[str] = None
     name: Optional[str] = None
 
 
-class WaveAggregatedStatusTypeDef(BaseValidatorModel):
+class WaveAggregatedStatus(BaseValidatorModel):
     healthStatus: Optional[WaveHealthStatusType] = None
     lastUpdateDateTime: Optional[str] = None
     progressStatus: Optional[WaveProgressStatusType] = None
@@ -573,8 +573,8 @@ class WaveAggregatedStatusTypeDef(BaseValidatorModel):
     totalApplications: Optional[int] = None
 
 
-class ApplicationTypeDef(BaseValidatorModel):
-    applicationAggregatedStatus: Optional[ApplicationAggregatedStatusTypeDef] = None
+class Application(BaseValidatorModel):
+    applicationAggregatedStatus: Optional[ApplicationAggregatedStatus] = None
     applicationID: Optional[str] = None
     arn: Optional[str] = None
     creationDateTime: Optional[str] = None
@@ -586,8 +586,8 @@ class ApplicationTypeDef(BaseValidatorModel):
     waveID: Optional[str] = None
 
 
-class ApplicationResponseTypeDef(BaseValidatorModel):
-    applicationAggregatedStatus: ApplicationAggregatedStatusTypeDef
+class ApplicationResponse(BaseValidatorModel):
+    applicationAggregatedStatus: ApplicationAggregatedStatus
     applicationID: str
     arn: str
     creationDateTime: str
@@ -597,19 +597,19 @@ class ApplicationResponseTypeDef(BaseValidatorModel):
     name: str
     tags: Dict[str, str]
     waveID: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class EmptyResponseMetadataTypeDef(BaseValidatorModel):
-    ResponseMetadata: ResponseMetadataTypeDef
+class EmptyResponseMetadata(BaseValidatorModel):
+    ResponseMetadata: ResponseMetadata
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
+class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ReplicationConfigurationTemplateResponseTypeDef(BaseValidatorModel):
+class ReplicationConfigurationTemplateResponse(BaseValidatorModel):
     arn: str
     associateDefaultSecurityGroup: bool
     bandwidthThrottling: int
@@ -626,131 +626,131 @@ class ReplicationConfigurationTemplateResponseTypeDef(BaseValidatorModel):
     tags: Dict[str, str]
     useDedicatedReplicationServer: bool
     useFipsEndpoint: bool
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ChangeServerLifeCycleStateRequestTypeDef(BaseValidatorModel):
-    lifeCycle: ChangeServerLifeCycleStateSourceServerLifecycleTypeDef
+class ChangeServerLifeCycleStateRequest(BaseValidatorModel):
+    lifeCycle: ChangeServerLifeCycleStateSourceServerLifecycle
     sourceServerID: str
     accountID: Optional[str] = None
 
 
-class ConnectorResponseTypeDef(BaseValidatorModel):
+class ConnectorResponse(BaseValidatorModel):
     arn: str
     connectorID: str
     name: str
-    ssmCommandConfig: ConnectorSsmCommandConfigTypeDef
+    ssmCommandConfig: ConnectorSsmCommandConfig
     ssmInstanceID: str
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ConnectorTypeDef(BaseValidatorModel):
+class Connector(BaseValidatorModel):
     arn: Optional[str] = None
     connectorID: Optional[str] = None
     name: Optional[str] = None
-    ssmCommandConfig: Optional[ConnectorSsmCommandConfigTypeDef] = None
+    ssmCommandConfig: Optional[ConnectorSsmCommandConfig] = None
     ssmInstanceID: Optional[str] = None
     tags: Optional[Dict[str, str]] = None
 
 
-class CreateConnectorRequestTypeDef(BaseValidatorModel):
+class CreateConnectorRequest(BaseValidatorModel):
     name: str
     ssmInstanceID: str
-    ssmCommandConfig: Optional[ConnectorSsmCommandConfigTypeDef] = None
+    ssmCommandConfig: Optional[ConnectorSsmCommandConfig] = None
     tags: Optional[Mapping[str, str]] = None
 
 
-class UpdateConnectorRequestTypeDef(BaseValidatorModel):
+class UpdateConnectorRequest(BaseValidatorModel):
     connectorID: str
     name: Optional[str] = None
-    ssmCommandConfig: Optional[ConnectorSsmCommandConfigTypeDef] = None
+    ssmCommandConfig: Optional[ConnectorSsmCommandConfig] = None
 
 
-class DataReplicationInitiationTypeDef(BaseValidatorModel):
+class DataReplicationInitiation(BaseValidatorModel):
     nextAttemptDateTime: Optional[str] = None
     startDateTime: Optional[str] = None
-    steps: Optional[List[DataReplicationInitiationStepTypeDef]] = None
+    steps: Optional[List[DataReplicationInitiationStep]] = None
 
 
-class DescribeJobLogItemsRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeJobLogItemsRequestPaginate(BaseValidatorModel):
     jobID: str
     accountID: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeLaunchConfigurationTemplatesRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeLaunchConfigurationTemplatesRequestPaginate(BaseValidatorModel):
     launchConfigurationTemplateIDs: Optional[Sequence[str]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeReplicationConfigurationTemplatesRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeReplicationConfigurationTemplatesRequestPaginate(BaseValidatorModel):
     replicationConfigurationTemplateIDs: Optional[Sequence[str]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeVcenterClientsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class DescribeVcenterClientsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListExportErrorsRequestPaginateTypeDef(BaseValidatorModel):
+class ListExportErrorsRequestPaginate(BaseValidatorModel):
     exportID: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListImportErrorsRequestPaginateTypeDef(BaseValidatorModel):
+class ListImportErrorsRequestPaginate(BaseValidatorModel):
     importID: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListManagedAccountsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListManagedAccountsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeJobsRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeJobsRequestPaginate(BaseValidatorModel):
     accountID: Optional[str] = None
-    filters: Optional[DescribeJobsRequestFiltersTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    filters: Optional[DescribeJobsRequestFilters] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeJobsRequestTypeDef(BaseValidatorModel):
+class DescribeJobsRequest(BaseValidatorModel):
     accountID: Optional[str] = None
-    filters: Optional[DescribeJobsRequestFiltersTypeDef] = None
+    filters: Optional[DescribeJobsRequestFilters] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class DescribeReplicationConfigurationTemplatesResponseTypeDef(BaseValidatorModel):
-    items: List[ReplicationConfigurationTemplateTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeReplicationConfigurationTemplatesResponse(BaseValidatorModel):
+    items: List[ReplicationConfigurationTemplate]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class DescribeSourceServersRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeSourceServersRequestPaginate(BaseValidatorModel):
     accountID: Optional[str] = None
-    filters: Optional[DescribeSourceServersRequestFiltersTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    filters: Optional[DescribeSourceServersRequestFilters] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeSourceServersRequestTypeDef(BaseValidatorModel):
+class DescribeSourceServersRequest(BaseValidatorModel):
     accountID: Optional[str] = None
-    filters: Optional[DescribeSourceServersRequestFiltersTypeDef] = None
+    filters: Optional[DescribeSourceServersRequestFilters] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class DescribeVcenterClientsResponseTypeDef(BaseValidatorModel):
-    items: List[VcenterClientTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeVcenterClientsResponse(BaseValidatorModel):
+    items: List[VcenterClient]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ExportTaskErrorTypeDef(BaseValidatorModel):
-    errorData: Optional[ExportErrorDataTypeDef] = None
+class ExportTaskError(BaseValidatorModel):
+    errorData: Optional[ExportErrorData] = None
     errorDateTime: Optional[str] = None
 
 
-class ExportTaskTypeDef(BaseValidatorModel):
+class ExportTask(BaseValidatorModel):
     creationDateTime: Optional[str] = None
     endDateTime: Optional[str] = None
     exportID: Optional[str] = None
@@ -759,153 +759,153 @@ class ExportTaskTypeDef(BaseValidatorModel):
     s3BucketOwner: Optional[str] = None
     s3Key: Optional[str] = None
     status: Optional[ExportStatusType] = None
-    summary: Optional[ExportTaskSummaryTypeDef] = None
+    summary: Optional[ExportTaskSummary] = None
 
 
-class ImportTaskErrorTypeDef(BaseValidatorModel):
-    errorData: Optional[ImportErrorDataTypeDef] = None
+class ImportTaskError(BaseValidatorModel):
+    errorData: Optional[ImportErrorData] = None
     errorDateTime: Optional[str] = None
     errorType: Optional[ImportErrorTypeType] = None
 
 
-class ImportTaskSummaryTypeDef(BaseValidatorModel):
-    applications: Optional[ImportTaskSummaryApplicationsTypeDef] = None
-    servers: Optional[ImportTaskSummaryServersTypeDef] = None
-    waves: Optional[ImportTaskSummaryWavesTypeDef] = None
+class ImportTaskSummary(BaseValidatorModel):
+    applications: Optional[ImportTaskSummaryApplications] = None
+    servers: Optional[ImportTaskSummaryServers] = None
+    waves: Optional[ImportTaskSummaryWaves] = None
 
 
-class StartImportRequestTypeDef(BaseValidatorModel):
-    s3BucketSource: S3BucketSourceTypeDef
+class StartImportRequest(BaseValidatorModel):
+    s3BucketSource: S3BucketSource
     clientToken: Optional[str] = None
 
 
-class JobLogTypeDef(BaseValidatorModel):
+class JobLog(BaseValidatorModel):
     event: Optional[JobLogEventType] = None
-    eventData: Optional[JobLogEventDataTypeDef] = None
+    eventData: Optional[JobLogEventData] = None
     logDateTime: Optional[str] = None
 
 
-class LifeCycleLastCutoverTypeDef(BaseValidatorModel):
-    finalized: Optional[LifeCycleLastCutoverFinalizedTypeDef] = None
-    initiated: Optional[LifeCycleLastCutoverInitiatedTypeDef] = None
-    reverted: Optional[LifeCycleLastCutoverRevertedTypeDef] = None
+class LifeCycleLastCutover(BaseValidatorModel):
+    finalized: Optional[LifeCycleLastCutoverFinalized] = None
+    initiated: Optional[LifeCycleLastCutoverInitiated] = None
+    reverted: Optional[LifeCycleLastCutoverReverted] = None
 
 
-class LifeCycleLastTestTypeDef(BaseValidatorModel):
-    finalized: Optional[LifeCycleLastTestFinalizedTypeDef] = None
-    initiated: Optional[LifeCycleLastTestInitiatedTypeDef] = None
-    reverted: Optional[LifeCycleLastTestRevertedTypeDef] = None
+class LifeCycleLastTest(BaseValidatorModel):
+    finalized: Optional[LifeCycleLastTestFinalized] = None
+    initiated: Optional[LifeCycleLastTestInitiated] = None
+    reverted: Optional[LifeCycleLastTestReverted] = None
 
 
-class ListApplicationsRequestPaginateTypeDef(BaseValidatorModel):
+class ListApplicationsRequestPaginate(BaseValidatorModel):
     accountID: Optional[str] = None
-    filters: Optional[ListApplicationsRequestFiltersTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    filters: Optional[ListApplicationsRequestFilters] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListApplicationsRequestTypeDef(BaseValidatorModel):
+class ListApplicationsRequest(BaseValidatorModel):
     accountID: Optional[str] = None
-    filters: Optional[ListApplicationsRequestFiltersTypeDef] = None
+    filters: Optional[ListApplicationsRequestFilters] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListConnectorsRequestPaginateTypeDef(BaseValidatorModel):
-    filters: Optional[ListConnectorsRequestFiltersTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListConnectorsRequestPaginate(BaseValidatorModel):
+    filters: Optional[ListConnectorsRequestFilters] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListConnectorsRequestTypeDef(BaseValidatorModel):
-    filters: Optional[ListConnectorsRequestFiltersTypeDef] = None
+class ListConnectorsRequest(BaseValidatorModel):
+    filters: Optional[ListConnectorsRequestFilters] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListExportsRequestPaginateTypeDef(BaseValidatorModel):
-    filters: Optional[ListExportsRequestFiltersTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListExportsRequestPaginate(BaseValidatorModel):
+    filters: Optional[ListExportsRequestFilters] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListExportsRequestTypeDef(BaseValidatorModel):
-    filters: Optional[ListExportsRequestFiltersTypeDef] = None
+class ListExportsRequest(BaseValidatorModel):
+    filters: Optional[ListExportsRequestFilters] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListImportsRequestPaginateTypeDef(BaseValidatorModel):
-    filters: Optional[ListImportsRequestFiltersTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListImportsRequestPaginate(BaseValidatorModel):
+    filters: Optional[ListImportsRequestFilters] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListImportsRequestTypeDef(BaseValidatorModel):
-    filters: Optional[ListImportsRequestFiltersTypeDef] = None
+class ListImportsRequest(BaseValidatorModel):
+    filters: Optional[ListImportsRequestFilters] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListManagedAccountsResponseTypeDef(BaseValidatorModel):
-    items: List[ManagedAccountTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListManagedAccountsResponse(BaseValidatorModel):
+    items: List[ManagedAccount]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListSourceServerActionsRequestPaginateTypeDef(BaseValidatorModel):
+class ListSourceServerActionsRequestPaginate(BaseValidatorModel):
     sourceServerID: str
     accountID: Optional[str] = None
-    filters: Optional[SourceServerActionsRequestFiltersTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    filters: Optional[SourceServerActionsRequestFilters] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListSourceServerActionsRequestTypeDef(BaseValidatorModel):
+class ListSourceServerActionsRequest(BaseValidatorModel):
     sourceServerID: str
     accountID: Optional[str] = None
-    filters: Optional[SourceServerActionsRequestFiltersTypeDef] = None
+    filters: Optional[SourceServerActionsRequestFilters] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListTemplateActionsRequestPaginateTypeDef(BaseValidatorModel):
+class ListTemplateActionsRequestPaginate(BaseValidatorModel):
     launchConfigurationTemplateID: str
-    filters: Optional[TemplateActionsRequestFiltersTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    filters: Optional[TemplateActionsRequestFilters] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListTemplateActionsRequestTypeDef(BaseValidatorModel):
+class ListTemplateActionsRequest(BaseValidatorModel):
     launchConfigurationTemplateID: str
-    filters: Optional[TemplateActionsRequestFiltersTypeDef] = None
+    filters: Optional[TemplateActionsRequestFilters] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListWavesRequestPaginateTypeDef(BaseValidatorModel):
+class ListWavesRequestPaginate(BaseValidatorModel):
     accountID: Optional[str] = None
-    filters: Optional[ListWavesRequestFiltersTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    filters: Optional[ListWavesRequestFilters] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListWavesRequestTypeDef(BaseValidatorModel):
+class ListWavesRequest(BaseValidatorModel):
     accountID: Optional[str] = None
-    filters: Optional[ListWavesRequestFiltersTypeDef] = None
+    filters: Optional[ListWavesRequestFilters] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class DiskTypeDef(BaseValidatorModel):
+class Disk(BaseValidatorModel):
     pass
 
 
-class SourcePropertiesTypeDef(BaseValidatorModel):
-    cpus: Optional[List[CPUTypeDef]] = None
-    disks: Optional[List[DiskTypeDef]] = None
-    identificationHints: Optional[IdentificationHintsTypeDef] = None
+class SourceProperties(BaseValidatorModel):
+    cpus: Optional[List[CPU]] = None
+    disks: Optional[List[Disk]] = None
+    identificationHints: Optional[IdentificationHints] = None
     lastUpdatedDateTime: Optional[str] = None
-    networkInterfaces: Optional[List[NetworkInterfaceTypeDef]] = None
-    os: Optional[OSTypeDef] = None
+    networkInterfaces: Optional[List[NetworkInterface]] = None
+    os: Optional[OS] = None
     ramBytes: Optional[int] = None
     recommendedInstanceType: Optional[str] = None
 
 
-class PutSourceServerActionRequestTypeDef(BaseValidatorModel):
+class PutSourceServerActionRequest(BaseValidatorModel):
     actionID: str
     actionName: str
     documentIdentifier: str
@@ -916,13 +916,13 @@ class PutSourceServerActionRequestTypeDef(BaseValidatorModel):
     category: Optional[ActionCategoryType] = None
     description: Optional[str] = None
     documentVersion: Optional[str] = None
-    externalParameters: Optional[Mapping[str, SsmExternalParameterTypeDef]] = None
+    externalParameters: Optional[Mapping[str, SsmExternalParameter]] = None
     mustSucceedForCutover: Optional[bool] = None
-    parameters: Optional[Mapping[str, Sequence[SsmParameterStoreParameterTypeDef]]] = None
+    parameters: Optional[Mapping[str, Sequence[SsmParameterStoreParameter]]] = None
     timeoutSeconds: Optional[int] = None
 
 
-class PutTemplateActionRequestTypeDef(BaseValidatorModel):
+class PutTemplateActionRequest(BaseValidatorModel):
     actionID: str
     actionName: str
     documentIdentifier: str
@@ -932,14 +932,14 @@ class PutTemplateActionRequestTypeDef(BaseValidatorModel):
     category: Optional[ActionCategoryType] = None
     description: Optional[str] = None
     documentVersion: Optional[str] = None
-    externalParameters: Optional[Mapping[str, SsmExternalParameterTypeDef]] = None
+    externalParameters: Optional[Mapping[str, SsmExternalParameter]] = None
     mustSucceedForCutover: Optional[bool] = None
     operatingSystem: Optional[str] = None
-    parameters: Optional[Mapping[str, Sequence[SsmParameterStoreParameterTypeDef]]] = None
+    parameters: Optional[Mapping[str, Sequence[SsmParameterStoreParameter]]] = None
     timeoutSeconds: Optional[int] = None
 
 
-class SourceServerActionDocumentResponseTypeDef(BaseValidatorModel):
+class SourceServerActionDocumentResponse(BaseValidatorModel):
     actionID: str
     actionName: str
     active: bool
@@ -947,15 +947,15 @@ class SourceServerActionDocumentResponseTypeDef(BaseValidatorModel):
     description: str
     documentIdentifier: str
     documentVersion: str
-    externalParameters: Dict[str, SsmExternalParameterTypeDef]
+    externalParameters: Dict[str, SsmExternalParameter]
     mustSucceedForCutover: bool
     order: int
-    parameters: Dict[str, List[SsmParameterStoreParameterTypeDef]]
+    parameters: Dict[str, List[SsmParameterStoreParameter]]
     timeoutSeconds: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class SourceServerActionDocumentTypeDef(BaseValidatorModel):
+class SourceServerActionDocument(BaseValidatorModel):
     actionID: Optional[str] = None
     actionName: Optional[str] = None
     active: Optional[bool] = None
@@ -963,32 +963,32 @@ class SourceServerActionDocumentTypeDef(BaseValidatorModel):
     description: Optional[str] = None
     documentIdentifier: Optional[str] = None
     documentVersion: Optional[str] = None
-    externalParameters: Optional[Dict[str, SsmExternalParameterTypeDef]] = None
+    externalParameters: Optional[Dict[str, SsmExternalParameter]] = None
     mustSucceedForCutover: Optional[bool] = None
     order: Optional[int] = None
-    parameters: Optional[Dict[str, List[SsmParameterStoreParameterTypeDef]]] = None
+    parameters: Optional[Dict[str, List[SsmParameterStoreParameter]]] = None
     timeoutSeconds: Optional[int] = None
 
 
-class SsmDocumentOutputTypeDef(BaseValidatorModel):
+class SsmDocumentOutput(BaseValidatorModel):
     actionName: str
     ssmDocumentName: str
-    externalParameters: Optional[Dict[str, SsmExternalParameterTypeDef]] = None
+    externalParameters: Optional[Dict[str, SsmExternalParameter]] = None
     mustSucceedForCutover: Optional[bool] = None
-    parameters: Optional[Dict[str, List[SsmParameterStoreParameterTypeDef]]] = None
+    parameters: Optional[Dict[str, List[SsmParameterStoreParameter]]] = None
     timeoutSeconds: Optional[int] = None
 
 
-class SsmDocumentTypeDef(BaseValidatorModel):
+class SsmDocument(BaseValidatorModel):
     actionName: str
     ssmDocumentName: str
-    externalParameters: Optional[Mapping[str, SsmExternalParameterTypeDef]] = None
+    externalParameters: Optional[Mapping[str, SsmExternalParameter]] = None
     mustSucceedForCutover: Optional[bool] = None
-    parameters: Optional[Mapping[str, Sequence[SsmParameterStoreParameterTypeDef]]] = None
+    parameters: Optional[Mapping[str, Sequence[SsmParameterStoreParameter]]] = None
     timeoutSeconds: Optional[int] = None
 
 
-class TemplateActionDocumentResponseTypeDef(BaseValidatorModel):
+class TemplateActionDocumentResponse(BaseValidatorModel):
     actionID: str
     actionName: str
     active: bool
@@ -996,16 +996,16 @@ class TemplateActionDocumentResponseTypeDef(BaseValidatorModel):
     description: str
     documentIdentifier: str
     documentVersion: str
-    externalParameters: Dict[str, SsmExternalParameterTypeDef]
+    externalParameters: Dict[str, SsmExternalParameter]
     mustSucceedForCutover: bool
     operatingSystem: str
     order: int
-    parameters: Dict[str, List[SsmParameterStoreParameterTypeDef]]
+    parameters: Dict[str, List[SsmParameterStoreParameter]]
     timeoutSeconds: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class TemplateActionDocumentTypeDef(BaseValidatorModel):
+class TemplateActionDocument(BaseValidatorModel):
     actionID: Optional[str] = None
     actionName: Optional[str] = None
     active: Optional[bool] = None
@@ -1013,15 +1013,15 @@ class TemplateActionDocumentTypeDef(BaseValidatorModel):
     description: Optional[str] = None
     documentIdentifier: Optional[str] = None
     documentVersion: Optional[str] = None
-    externalParameters: Optional[Dict[str, SsmExternalParameterTypeDef]] = None
+    externalParameters: Optional[Dict[str, SsmExternalParameter]] = None
     mustSucceedForCutover: Optional[bool] = None
     operatingSystem: Optional[str] = None
     order: Optional[int] = None
-    parameters: Optional[Dict[str, List[SsmParameterStoreParameterTypeDef]]] = None
+    parameters: Optional[Dict[str, List[SsmParameterStoreParameter]]] = None
     timeoutSeconds: Optional[int] = None
 
 
-class ReplicationConfigurationTypeDef(BaseValidatorModel):
+class ReplicationConfiguration(BaseValidatorModel):
     associateDefaultSecurityGroup: bool
     bandwidthThrottling: int
     createPublicIP: bool
@@ -1030,7 +1030,7 @@ class ReplicationConfigurationTypeDef(BaseValidatorModel):
     ebsEncryption: ReplicationConfigurationEbsEncryptionType
     ebsEncryptionKeyArn: str
     name: str
-    replicatedDisks: List[ReplicationConfigurationReplicatedDiskTypeDef]
+    replicatedDisks: List[ReplicationConfigurationReplicatedDisk]
     replicationServerInstanceType: str
     replicationServersSecurityGroupsIDs: List[str]
     sourceServerID: str
@@ -1038,10 +1038,10 @@ class ReplicationConfigurationTypeDef(BaseValidatorModel):
     stagingAreaTags: Dict[str, str]
     useDedicatedReplicationServer: bool
     useFipsEndpoint: bool
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateReplicationConfigurationRequestTypeDef(BaseValidatorModel):
+class UpdateReplicationConfigurationRequest(BaseValidatorModel):
     sourceServerID: str
     accountID: Optional[str] = None
     associateDefaultSecurityGroup: Optional[bool] = None
@@ -1052,7 +1052,7 @@ class UpdateReplicationConfigurationRequestTypeDef(BaseValidatorModel):
     ebsEncryption: Optional[ReplicationConfigurationEbsEncryptionType] = None
     ebsEncryptionKeyArn: Optional[str] = None
     name: Optional[str] = None
-    replicatedDisks: Optional[Sequence[ReplicationConfigurationReplicatedDiskTypeDef]] = None
+    replicatedDisks: Optional[Sequence[ReplicationConfigurationReplicatedDisk]] = None
     replicationServerInstanceType: Optional[str] = None
     replicationServersSecurityGroupsIDs: Optional[Sequence[str]] = None
     stagingAreaSubnetId: Optional[str] = None
@@ -1061,13 +1061,13 @@ class UpdateReplicationConfigurationRequestTypeDef(BaseValidatorModel):
     useFipsEndpoint: Optional[bool] = None
 
 
-class UpdateSourceServerRequestTypeDef(BaseValidatorModel):
+class UpdateSourceServerRequest(BaseValidatorModel):
     sourceServerID: str
     accountID: Optional[str] = None
-    connectorAction: Optional[SourceServerConnectorActionTypeDef] = None
+    connectorAction: Optional[SourceServerConnectorAction] = None
 
 
-class WaveResponseTypeDef(BaseValidatorModel):
+class WaveResponse(BaseValidatorModel):
     arn: str
     creationDateTime: str
     description: str
@@ -1075,12 +1075,12 @@ class WaveResponseTypeDef(BaseValidatorModel):
     lastModifiedDateTime: str
     name: str
     tags: Dict[str, str]
-    waveAggregatedStatus: WaveAggregatedStatusTypeDef
+    waveAggregatedStatus: WaveAggregatedStatus
     waveID: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class WaveTypeDef(BaseValidatorModel):
+class Wave(BaseValidatorModel):
     arn: Optional[str] = None
     creationDateTime: Optional[str] = None
     description: Optional[str] = None
@@ -1088,175 +1088,175 @@ class WaveTypeDef(BaseValidatorModel):
     lastModifiedDateTime: Optional[str] = None
     name: Optional[str] = None
     tags: Optional[Dict[str, str]] = None
-    waveAggregatedStatus: Optional[WaveAggregatedStatusTypeDef] = None
+    waveAggregatedStatus: Optional[WaveAggregatedStatus] = None
     waveID: Optional[str] = None
 
 
-class ListApplicationsResponseTypeDef(BaseValidatorModel):
-    items: List[ApplicationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListApplicationsResponse(BaseValidatorModel):
+    items: List[Application]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListConnectorsResponseTypeDef(BaseValidatorModel):
-    items: List[ConnectorTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListConnectorsResponse(BaseValidatorModel):
+    items: List[Connector]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class DataReplicationInfoTypeDef(BaseValidatorModel):
-    dataReplicationError: Optional[DataReplicationErrorTypeDef] = None
-    dataReplicationInitiation: Optional[DataReplicationInitiationTypeDef] = None
+class DataReplicationInfo(BaseValidatorModel):
+    dataReplicationError: Optional[DataReplicationError] = None
+    dataReplicationInitiation: Optional[DataReplicationInitiation] = None
     dataReplicationState: Optional[DataReplicationStateType] = None
     etaDateTime: Optional[str] = None
     lagDuration: Optional[str] = None
     lastSnapshotDateTime: Optional[str] = None
-    replicatedDisks: Optional[List[DataReplicationInfoReplicatedDiskTypeDef]] = None
+    replicatedDisks: Optional[List[DataReplicationInfoReplicatedDisk]] = None
 
 
-class ListExportErrorsResponseTypeDef(BaseValidatorModel):
-    items: List[ExportTaskErrorTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListExportErrorsResponse(BaseValidatorModel):
+    items: List[ExportTaskError]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListExportsResponseTypeDef(BaseValidatorModel):
-    items: List[ExportTaskTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListExportsResponse(BaseValidatorModel):
+    items: List[ExportTask]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class StartExportResponseTypeDef(BaseValidatorModel):
-    exportTask: ExportTaskTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class StartExportResponse(BaseValidatorModel):
+    exportTask: ExportTask
+    ResponseMetadata: ResponseMetadata
 
 
-class ListImportErrorsResponseTypeDef(BaseValidatorModel):
-    items: List[ImportTaskErrorTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListImportErrorsResponse(BaseValidatorModel):
+    items: List[ImportTaskError]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ImportTaskTypeDef(BaseValidatorModel):
+class ImportTask(BaseValidatorModel):
     creationDateTime: Optional[str] = None
     endDateTime: Optional[str] = None
     importID: Optional[str] = None
     progressPercentage: Optional[float] = None
-    s3BucketSource: Optional[S3BucketSourceTypeDef] = None
+    s3BucketSource: Optional[S3BucketSource] = None
     status: Optional[ImportStatusType] = None
-    summary: Optional[ImportTaskSummaryTypeDef] = None
+    summary: Optional[ImportTaskSummary] = None
 
 
-class DescribeJobLogItemsResponseTypeDef(BaseValidatorModel):
-    items: List[JobLogTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeJobLogItemsResponse(BaseValidatorModel):
+    items: List[JobLog]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class LifeCycleTypeDef(BaseValidatorModel):
+class LifeCycle(BaseValidatorModel):
     addedToServiceDateTime: Optional[str] = None
     elapsedReplicationDuration: Optional[str] = None
     firstByteDateTime: Optional[str] = None
-    lastCutover: Optional[LifeCycleLastCutoverTypeDef] = None
+    lastCutover: Optional[LifeCycleLastCutover] = None
     lastSeenByServiceDateTime: Optional[str] = None
-    lastTest: Optional[LifeCycleLastTestTypeDef] = None
+    lastTest: Optional[LifeCycleLastTest] = None
     state: Optional[LifeCycleStateType] = None
 
 
-class ListSourceServerActionsResponseTypeDef(BaseValidatorModel):
-    items: List[SourceServerActionDocumentTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListSourceServerActionsResponse(BaseValidatorModel):
+    items: List[SourceServerActionDocument]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class JobPostLaunchActionsLaunchStatusTypeDef(BaseValidatorModel):
+class JobPostLaunchActionsLaunchStatus(BaseValidatorModel):
     executionID: Optional[str] = None
     executionStatus: Optional[PostLaunchActionExecutionStatusType] = None
     failureReason: Optional[str] = None
-    ssmDocument: Optional[SsmDocumentOutputTypeDef] = None
+    ssmDocument: Optional[SsmDocumentOutput] = None
     ssmDocumentType: Optional[SsmDocumentTypeType] = None
 
 
-class PostLaunchActionsOutputTypeDef(BaseValidatorModel):
+class PostLaunchActionsOutput(BaseValidatorModel):
     cloudWatchLogGroupName: Optional[str] = None
     deployment: Optional[PostLaunchActionsDeploymentTypeType] = None
     s3LogBucket: Optional[str] = None
     s3OutputKeyPrefix: Optional[str] = None
-    ssmDocuments: Optional[List[SsmDocumentOutputTypeDef]] = None
+    ssmDocuments: Optional[List[SsmDocumentOutput]] = None
 
 
-class PostLaunchActionsTypeDef(BaseValidatorModel):
+class PostLaunchActions(BaseValidatorModel):
     cloudWatchLogGroupName: Optional[str] = None
     deployment: Optional[PostLaunchActionsDeploymentTypeType] = None
     s3LogBucket: Optional[str] = None
     s3OutputKeyPrefix: Optional[str] = None
-    ssmDocuments: Optional[Sequence[SsmDocumentTypeDef]] = None
+    ssmDocuments: Optional[Sequence[SsmDocument]] = None
 
 
-class ListTemplateActionsResponseTypeDef(BaseValidatorModel):
-    items: List[TemplateActionDocumentTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListTemplateActionsResponse(BaseValidatorModel):
+    items: List[TemplateActionDocument]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListWavesResponseTypeDef(BaseValidatorModel):
-    items: List[WaveTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListWavesResponse(BaseValidatorModel):
+    items: List[Wave]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListImportsResponseTypeDef(BaseValidatorModel):
-    items: List[ImportTaskTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListImportsResponse(BaseValidatorModel):
+    items: List[ImportTask]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class StartImportResponseTypeDef(BaseValidatorModel):
-    importTask: ImportTaskTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class StartImportResponse(BaseValidatorModel):
+    importTask: ImportTask
+    ResponseMetadata: ResponseMetadata
 
 
-class SourceServerResponseTypeDef(BaseValidatorModel):
+class SourceServerResponse(BaseValidatorModel):
     applicationID: str
     arn: str
-    connectorAction: SourceServerConnectorActionTypeDef
-    dataReplicationInfo: DataReplicationInfoTypeDef
+    connectorAction: SourceServerConnectorAction
+    dataReplicationInfo: DataReplicationInfo
     fqdnForActionFramework: str
     isArchived: bool
-    launchedInstance: LaunchedInstanceTypeDef
-    lifeCycle: LifeCycleTypeDef
+    launchedInstance: LaunchedInstance
+    lifeCycle: LifeCycle
     replicationType: ReplicationTypeType
-    sourceProperties: SourcePropertiesTypeDef
+    sourceProperties: SourceProperties
     sourceServerID: str
     tags: Dict[str, str]
     userProvidedID: str
     vcenterClientID: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class SourceServerTypeDef(BaseValidatorModel):
+class SourceServer(BaseValidatorModel):
     applicationID: Optional[str] = None
     arn: Optional[str] = None
-    connectorAction: Optional[SourceServerConnectorActionTypeDef] = None
-    dataReplicationInfo: Optional[DataReplicationInfoTypeDef] = None
+    connectorAction: Optional[SourceServerConnectorAction] = None
+    dataReplicationInfo: Optional[DataReplicationInfo] = None
     fqdnForActionFramework: Optional[str] = None
     isArchived: Optional[bool] = None
-    launchedInstance: Optional[LaunchedInstanceTypeDef] = None
-    lifeCycle: Optional[LifeCycleTypeDef] = None
+    launchedInstance: Optional[LaunchedInstance] = None
+    lifeCycle: Optional[LifeCycle] = None
     replicationType: Optional[ReplicationTypeType] = None
-    sourceProperties: Optional[SourcePropertiesTypeDef] = None
+    sourceProperties: Optional[SourceProperties] = None
     sourceServerID: Optional[str] = None
     tags: Optional[Dict[str, str]] = None
     userProvidedID: Optional[str] = None
     vcenterClientID: Optional[str] = None
 
 
-class PostLaunchActionsStatusTypeDef(BaseValidatorModel):
-    postLaunchActionsLaunchStatusList: Optional[List[JobPostLaunchActionsLaunchStatusTypeDef]] = None
+class PostLaunchActionsStatus(BaseValidatorModel):
+    postLaunchActionsLaunchStatusList: Optional[List[JobPostLaunchActionsLaunchStatus]] = None
     ssmAgentDiscoveryDatetime: Optional[str] = None
 
 
-class LaunchConfigurationTemplateResponseTypeDef(BaseValidatorModel):
+class LaunchConfigurationTemplateResponse(BaseValidatorModel):
     arn: str
     associatePublicIpAddress: bool
     bootMode: BootModeType
@@ -1264,20 +1264,20 @@ class LaunchConfigurationTemplateResponseTypeDef(BaseValidatorModel):
     copyTags: bool
     ec2LaunchTemplateID: str
     enableMapAutoTagging: bool
-    largeVolumeConf: LaunchTemplateDiskConfTypeDef
+    largeVolumeConf: LaunchTemplateDiskConf
     launchConfigurationTemplateID: str
     launchDisposition: LaunchDispositionType
-    licensing: LicensingTypeDef
+    licensing: Licensing
     mapAutoTaggingMpeID: str
-    postLaunchActions: PostLaunchActionsOutputTypeDef
-    smallVolumeConf: LaunchTemplateDiskConfTypeDef
+    postLaunchActions: PostLaunchActionsOutput
+    smallVolumeConf: LaunchTemplateDiskConf
     smallVolumeMaxSize: int
     tags: Dict[str, str]
     targetInstanceTypeRightSizingMethod: TargetInstanceTypeRightSizingMethodType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class LaunchConfigurationTemplateTypeDef(BaseValidatorModel):
+class LaunchConfigurationTemplate(BaseValidatorModel):
     launchConfigurationTemplateID: str
     arn: Optional[str] = None
     associatePublicIpAddress: Optional[bool] = None
@@ -1286,74 +1286,74 @@ class LaunchConfigurationTemplateTypeDef(BaseValidatorModel):
     copyTags: Optional[bool] = None
     ec2LaunchTemplateID: Optional[str] = None
     enableMapAutoTagging: Optional[bool] = None
-    largeVolumeConf: Optional[LaunchTemplateDiskConfTypeDef] = None
+    largeVolumeConf: Optional[LaunchTemplateDiskConf] = None
     launchDisposition: Optional[LaunchDispositionType] = None
-    licensing: Optional[LicensingTypeDef] = None
+    licensing: Optional[Licensing] = None
     mapAutoTaggingMpeID: Optional[str] = None
-    postLaunchActions: Optional[PostLaunchActionsOutputTypeDef] = None
-    smallVolumeConf: Optional[LaunchTemplateDiskConfTypeDef] = None
+    postLaunchActions: Optional[PostLaunchActionsOutput] = None
+    smallVolumeConf: Optional[LaunchTemplateDiskConf] = None
     smallVolumeMaxSize: Optional[int] = None
     tags: Optional[Dict[str, str]] = None
     targetInstanceTypeRightSizingMethod: Optional[TargetInstanceTypeRightSizingMethodType] = None
 
 
-class LaunchConfigurationTypeDef(BaseValidatorModel):
+class LaunchConfiguration(BaseValidatorModel):
     bootMode: BootModeType
     copyPrivateIp: bool
     copyTags: bool
     ec2LaunchTemplateID: str
     enableMapAutoTagging: bool
     launchDisposition: LaunchDispositionType
-    licensing: LicensingTypeDef
+    licensing: Licensing
     mapAutoTaggingMpeID: str
     name: str
-    postLaunchActions: PostLaunchActionsOutputTypeDef
+    postLaunchActions: PostLaunchActionsOutput
     sourceServerID: str
     targetInstanceTypeRightSizingMethod: TargetInstanceTypeRightSizingMethodType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeSourceServersResponseTypeDef(BaseValidatorModel):
-    items: List[SourceServerTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeSourceServersResponse(BaseValidatorModel):
+    items: List[SourceServer]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ParticipatingServerTypeDef(BaseValidatorModel):
+class ParticipatingServer(BaseValidatorModel):
     sourceServerID: str
     launchStatus: Optional[LaunchStatusType] = None
     launchedEc2InstanceID: Optional[str] = None
-    postLaunchActionsStatus: Optional[PostLaunchActionsStatusTypeDef] = None
+    postLaunchActionsStatus: Optional[PostLaunchActionsStatus] = None
 
 
-class DescribeLaunchConfigurationTemplatesResponseTypeDef(BaseValidatorModel):
-    items: List[LaunchConfigurationTemplateTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeLaunchConfigurationTemplatesResponse(BaseValidatorModel):
+    items: List[LaunchConfigurationTemplate]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class PostLaunchActionsUnionTypeDef(BaseValidatorModel):
+class PostLaunchActionsUnion(BaseValidatorModel):
     pass
 
 
-class CreateLaunchConfigurationTemplateRequestTypeDef(BaseValidatorModel):
+class CreateLaunchConfigurationTemplateRequest(BaseValidatorModel):
     associatePublicIpAddress: Optional[bool] = None
     bootMode: Optional[BootModeType] = None
     copyPrivateIp: Optional[bool] = None
     copyTags: Optional[bool] = None
     enableMapAutoTagging: Optional[bool] = None
-    largeVolumeConf: Optional[LaunchTemplateDiskConfTypeDef] = None
+    largeVolumeConf: Optional[LaunchTemplateDiskConf] = None
     launchDisposition: Optional[LaunchDispositionType] = None
-    licensing: Optional[LicensingTypeDef] = None
+    licensing: Optional[Licensing] = None
     mapAutoTaggingMpeID: Optional[str] = None
-    postLaunchActions: Optional[PostLaunchActionsUnionTypeDef] = None
-    smallVolumeConf: Optional[LaunchTemplateDiskConfTypeDef] = None
+    postLaunchActions: Optional[PostLaunchActionsUnion] = None
+    smallVolumeConf: Optional[LaunchTemplateDiskConf] = None
     smallVolumeMaxSize: Optional[int] = None
     tags: Optional[Mapping[str, str]] = None
     targetInstanceTypeRightSizingMethod: Optional[TargetInstanceTypeRightSizingMethodType] = None
 
 
-class UpdateLaunchConfigurationRequestTypeDef(BaseValidatorModel):
+class UpdateLaunchConfigurationRequest(BaseValidatorModel):
     sourceServerID: str
     accountID: Optional[str] = None
     bootMode: Optional[BootModeType] = None
@@ -1361,52 +1361,52 @@ class UpdateLaunchConfigurationRequestTypeDef(BaseValidatorModel):
     copyTags: Optional[bool] = None
     enableMapAutoTagging: Optional[bool] = None
     launchDisposition: Optional[LaunchDispositionType] = None
-    licensing: Optional[LicensingTypeDef] = None
+    licensing: Optional[Licensing] = None
     mapAutoTaggingMpeID: Optional[str] = None
     name: Optional[str] = None
-    postLaunchActions: Optional[PostLaunchActionsUnionTypeDef] = None
+    postLaunchActions: Optional[PostLaunchActionsUnion] = None
     targetInstanceTypeRightSizingMethod: Optional[TargetInstanceTypeRightSizingMethodType] = None
 
 
-class UpdateLaunchConfigurationTemplateRequestTypeDef(BaseValidatorModel):
+class UpdateLaunchConfigurationTemplateRequest(BaseValidatorModel):
     launchConfigurationTemplateID: str
     associatePublicIpAddress: Optional[bool] = None
     bootMode: Optional[BootModeType] = None
     copyPrivateIp: Optional[bool] = None
     copyTags: Optional[bool] = None
     enableMapAutoTagging: Optional[bool] = None
-    largeVolumeConf: Optional[LaunchTemplateDiskConfTypeDef] = None
+    largeVolumeConf: Optional[LaunchTemplateDiskConf] = None
     launchDisposition: Optional[LaunchDispositionType] = None
-    licensing: Optional[LicensingTypeDef] = None
+    licensing: Optional[Licensing] = None
     mapAutoTaggingMpeID: Optional[str] = None
-    postLaunchActions: Optional[PostLaunchActionsUnionTypeDef] = None
-    smallVolumeConf: Optional[LaunchTemplateDiskConfTypeDef] = None
+    postLaunchActions: Optional[PostLaunchActionsUnion] = None
+    smallVolumeConf: Optional[LaunchTemplateDiskConf] = None
     smallVolumeMaxSize: Optional[int] = None
     targetInstanceTypeRightSizingMethod: Optional[TargetInstanceTypeRightSizingMethodType] = None
 
 
-class JobTypeDef(BaseValidatorModel):
+class Job(BaseValidatorModel):
     pass
 
 
-class DescribeJobsResponseTypeDef(BaseValidatorModel):
-    items: List[JobTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeJobsResponse(BaseValidatorModel):
+    items: List[Job]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class StartCutoverResponseTypeDef(BaseValidatorModel):
-    job: JobTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class StartCutoverResponse(BaseValidatorModel):
+    job: Job
+    ResponseMetadata: ResponseMetadata
 
 
-class StartTestResponseTypeDef(BaseValidatorModel):
-    job: JobTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class StartTestResponse(BaseValidatorModel):
+    job: Job
+    ResponseMetadata: ResponseMetadata
 
 
-class TerminateTargetInstancesResponseTypeDef(BaseValidatorModel):
-    job: JobTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class TerminateTargetInstancesResponse(BaseValidatorModel):
+    job: Job
+    ResponseMetadata: ResponseMetadata
 
 

@@ -1,13 +1,13 @@
 # Greengrassv2 Classes
 
-# AssociateClientDeviceWithCoreDeviceEntryTypeDef
+# AssociateClientDeviceWithCoreDeviceEntry
 
 ### thingName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# AssociateClientDeviceWithCoreDeviceErrorEntryTypeDef
+# AssociateClientDeviceWithCoreDeviceErrorEntry
 
 ### thingName
 - **Type**: typing.Optional[str]
@@ -19,25 +19,25 @@
 - **Type**: typing.Optional[str]
 
 
-# AssociateServiceRoleToAccountRequestTypeDef
+# AssociateServiceRoleToAccountRequest
 
 ### roleArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# AssociateServiceRoleToAccountResponseTypeDef
+# AssociateServiceRoleToAccountResponse
 
 ### associatedAt
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.greengrassv2_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.greengrassv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# AssociatedClientDeviceTypeDef
+# AssociatedClientDevice
 
 ### thingName
 - **Type**: typing.Optional[str]
@@ -52,73 +52,73 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BatchAssociateClientDeviceWithCoreDeviceRequestTypeDef
+# BatchAssociateClientDeviceWithCoreDeviceRequest
 
 ### coreDeviceThingName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### entries
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.greengrassv2_classes.AssociateClientDeviceWithCoreDeviceEntryTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.greengrassv2_classes.AssociateClientDeviceWithCoreDeviceEntry]]
 
 
-# BatchAssociateClientDeviceWithCoreDeviceResponseTypeDef
+# BatchAssociateClientDeviceWithCoreDeviceResponse
 
 ### errorEntries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.greengrassv2_classes.AssociateClientDeviceWithCoreDeviceErrorEntryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.greengrassv2_classes.AssociateClientDeviceWithCoreDeviceErrorEntry]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.greengrassv2_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.greengrassv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# BatchDisassociateClientDeviceFromCoreDeviceRequestTypeDef
+# BatchDisassociateClientDeviceFromCoreDeviceRequest
 
 ### coreDeviceThingName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### entries
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.greengrassv2_classes.DisassociateClientDeviceFromCoreDeviceEntryTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.greengrassv2_classes.DisassociateClientDeviceFromCoreDeviceEntry]]
 
 
-# BatchDisassociateClientDeviceFromCoreDeviceResponseTypeDef
+# BatchDisassociateClientDeviceFromCoreDeviceResponse
 
 ### errorEntries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.greengrassv2_classes.DisassociateClientDeviceFromCoreDeviceErrorEntryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.greengrassv2_classes.DisassociateClientDeviceFromCoreDeviceErrorEntry]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.greengrassv2_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.greengrassv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# BlobTypeDef
+# Blob
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CancelDeploymentRequestTypeDef
+# CancelDeploymentRequest
 
 ### deploymentId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# CancelDeploymentResponseTypeDef
+# CancelDeploymentResponse
 
 ### message
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.greengrassv2_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.greengrassv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CloudComponentStatusTypeDef
+# CloudComponentStatus
 
 ### componentState
 - **Type**: typing.Optional[typing.Literal['DEPLOYABLE', 'DEPRECATED', 'FAILED', 'INITIATED', 'REQUESTED']]
@@ -136,7 +136,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ComponentCandidateTypeDef
+# Component
+
+### arn
+- **Type**: typing.Optional[str]
+
+### componentName
+- **Type**: typing.Optional[str]
+
+### latestVersion
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.greengrassv2_classes.ComponentLatestVersion]
+
+
+# ComponentCandidate
 
 ### componentName
 - **Type**: typing.Optional[str]
@@ -148,16 +160,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# ComponentConfigurationUpdateOutputTypeDef
-
-### merge
-- **Type**: typing.Optional[str]
-
-### reset
-- **Type**: typing.Optional[typing.List[str]]
-
-
-# ComponentConfigurationUpdateTypeDef
+# ComponentConfigurationUpdate
 
 ### merge
 - **Type**: typing.Optional[str]
@@ -166,13 +169,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# ComponentConfigurationUpdateUnionTypeDef
+# ComponentConfigurationUpdateOutput
+
+### merge
+- **Type**: typing.Optional[str]
+
+### reset
+- **Type**: typing.Optional[typing.List[str]]
+
+
+# ComponentConfigurationUpdateUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ComponentDependencyRequirementTypeDef
+# ComponentDependencyRequirement
 
 ### versionRequirement
 - **Type**: typing.Optional[str]
@@ -181,39 +193,39 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['HARD', 'SOFT']]
 
 
-# ComponentDeploymentSpecificationOutputTypeDef
+# ComponentDeploymentSpecification
 
 ### componentVersion
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### configurationUpdate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.greengrassv2_classes.ComponentConfigurationUpdateOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.greengrassv2_classes.ComponentConfigurationUpdateUnion]
 
 ### runWith
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.greengrassv2_classes.ComponentRunWithTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.greengrassv2_classes.ComponentRunWith]
 
 
-# ComponentDeploymentSpecificationTypeDef
+# ComponentDeploymentSpecificationOutput
 
 ### componentVersion
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### configurationUpdate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.greengrassv2_classes.ComponentConfigurationUpdateUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.greengrassv2_classes.ComponentConfigurationUpdateOutput]
 
 ### runWith
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.greengrassv2_classes.ComponentRunWithTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.greengrassv2_classes.ComponentRunWith]
 
 
-# ComponentDeploymentSpecificationUnionTypeDef
+# ComponentDeploymentSpecificationUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ComponentLatestVersionTypeDef
+# ComponentLatestVersion
 
 ### arn
 - **Type**: typing.Optional[str]
@@ -231,19 +243,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### platforms
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.greengrassv2_classes.ComponentPlatformOutputTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.greengrassv2_classes.ComponentPlatformOutput]]
 
 
-# ComponentPlatformOutputTypeDef
-
-### name
-- **Type**: typing.Optional[str]
-
-### attributes
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-
-# ComponentPlatformTypeDef
+# ComponentPlatform
 
 ### name
 - **Type**: typing.Optional[str]
@@ -252,37 +255,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# ComponentPlatformUnionTypeDef
+# ComponentPlatformOutput
+
+### name
+- **Type**: typing.Optional[str]
+
+### attributes
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+
+# ComponentPlatformUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ComponentRunWithTypeDef
+# ComponentRunWith
 
 ### posixUser
 - **Type**: typing.Optional[str]
 
 ### systemResourceLimits
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.greengrassv2_classes.SystemResourceLimitsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.greengrassv2_classes.SystemResourceLimits]
 
 ### windowsUser
 - **Type**: typing.Optional[str]
 
 
-# ComponentTypeDef
-
-### arn
-- **Type**: typing.Optional[str]
-
-### componentName
-- **Type**: typing.Optional[str]
-
-### latestVersion
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.greengrassv2_classes.ComponentLatestVersionTypeDef]
-
-
-# ComponentVersionListItemTypeDef
+# ComponentVersionListItem
 
 ### componentName
 - **Type**: typing.Optional[str]
@@ -294,13 +294,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ConnectivityInfoTypeDef
+# ConnectivityInfo
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CoreDeviceTypeDef
+# CoreDevice
 
 ### coreDeviceThingName
 - **Type**: typing.Optional[str]
@@ -321,13 +321,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateComponentVersionRequestTypeDef
+# CreateComponentVersionRequest
 
 ### inlineRecipe
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.greengrassv2_classes.BlobTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.greengrassv2_classes.Blob]
 
 ### lambdaFunction
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.greengrassv2_classes.LambdaFunctionRecipeSourceTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.greengrassv2_classes.LambdaFunctionRecipeSource]
 
 ### tags
 - **Type**: typing.Optional[typing.Mapping[str, str]]
@@ -336,7 +336,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateComponentVersionResponseTypeDef
+# CreateComponentVersionResponse
 
 ### arn
 - **Type**: <class 'str'>
@@ -355,15 +355,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### status
-- **Type**: <class 'aws_resource_validator.pydantic_models.greengrassv2_classes.CloudComponentStatusTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.greengrassv2_classes.CloudComponentStatus'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.greengrassv2_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.greengrassv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateDeploymentRequestTypeDef
+# CreateDeploymentRequest
 
 ### targetArn
 - **Type**: <class 'str'>
@@ -373,13 +373,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### components
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.greengrassv2_classes.ComponentDeploymentSpecificationUnionTypeDef]]
+- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.greengrassv2_classes.ComponentDeploymentSpecificationUnion]]
 
 ### iotJobConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.greengrassv2_classes.DeploymentIoTJobConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.greengrassv2_classes.DeploymentIoTJobConfigurationUnion]
 
 ### deploymentPolicies
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.greengrassv2_classes.DeploymentPoliciesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.greengrassv2_classes.DeploymentPolicies]
 
 ### parentTargetArn
 - **Type**: typing.Optional[str]
@@ -391,7 +391,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateDeploymentResponseTypeDef
+# CreateDeploymentResponse
 
 ### deploymentId
 - **Type**: <class 'str'>
@@ -406,89 +406,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.greengrassv2_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.greengrassv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteComponentRequestTypeDef
+# DeleteComponentRequest
 
 ### arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteCoreDeviceRequestTypeDef
+# DeleteCoreDeviceRequest
 
 ### coreDeviceThingName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteDeploymentRequestTypeDef
+# DeleteDeploymentRequest
 
 ### deploymentId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeploymentComponentUpdatePolicyTypeDef
-
-### timeoutInSeconds
-- **Type**: typing.Optional[int]
-
-### action
-- **Type**: typing.Optional[typing.Literal['NOTIFY_COMPONENTS', 'SKIP_NOTIFY_COMPONENTS']]
-
-
-# DeploymentConfigurationValidationPolicyTypeDef
-
-### timeoutInSeconds
-- **Type**: typing.Optional[int]
-
-
-# DeploymentIoTJobConfigurationOutputTypeDef
-
-### jobExecutionsRolloutConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.greengrassv2_classes.IoTJobExecutionsRolloutConfigTypeDef]
-
-### abortConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.greengrassv2_classes.IoTJobAbortConfigOutputTypeDef]
-
-### timeoutConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.greengrassv2_classes.IoTJobTimeoutConfigTypeDef]
-
-
-# DeploymentIoTJobConfigurationTypeDef
-
-### jobExecutionsRolloutConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.greengrassv2_classes.IoTJobExecutionsRolloutConfigTypeDef]
-
-### abortConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.greengrassv2_classes.IoTJobAbortConfigTypeDef]
-
-### timeoutConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.greengrassv2_classes.IoTJobTimeoutConfigTypeDef]
-
-
-# DeploymentIoTJobConfigurationUnionTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# DeploymentPoliciesTypeDef
-
-### failureHandlingPolicy
-- **Type**: typing.Optional[typing.Literal['DO_NOTHING', 'ROLLBACK']]
-
-### componentUpdatePolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.greengrassv2_classes.DeploymentComponentUpdatePolicyTypeDef]
-
-### configurationValidationPolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.greengrassv2_classes.DeploymentConfigurationValidationPolicyTypeDef]
-
-
-# DeploymentTypeDef
+# Deployment
 
 ### targetArn
 - **Type**: typing.Optional[str]
@@ -515,14 +458,71 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeComponentRequestTypeDef
+# DeploymentComponentUpdatePolicy
+
+### timeoutInSeconds
+- **Type**: typing.Optional[int]
+
+### action
+- **Type**: typing.Optional[typing.Literal['NOTIFY_COMPONENTS', 'SKIP_NOTIFY_COMPONENTS']]
+
+
+# DeploymentConfigurationValidationPolicy
+
+### timeoutInSeconds
+- **Type**: typing.Optional[int]
+
+
+# DeploymentIoTJobConfiguration
+
+### jobExecutionsRolloutConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.greengrassv2_classes.IoTJobExecutionsRolloutConfig]
+
+### abortConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.greengrassv2_classes.IoTJobAbortConfig]
+
+### timeoutConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.greengrassv2_classes.IoTJobTimeoutConfig]
+
+
+# DeploymentIoTJobConfigurationOutput
+
+### jobExecutionsRolloutConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.greengrassv2_classes.IoTJobExecutionsRolloutConfig]
+
+### abortConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.greengrassv2_classes.IoTJobAbortConfigOutput]
+
+### timeoutConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.greengrassv2_classes.IoTJobTimeoutConfig]
+
+
+# DeploymentIoTJobConfigurationUnion
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# DeploymentPolicies
+
+### failureHandlingPolicy
+- **Type**: typing.Optional[typing.Literal['DO_NOTHING', 'ROLLBACK']]
+
+### componentUpdatePolicy
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.greengrassv2_classes.DeploymentComponentUpdatePolicy]
+
+### configurationValidationPolicy
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.greengrassv2_classes.DeploymentConfigurationValidationPolicy]
+
+
+# DescribeComponentRequest
 
 ### arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeComponentResponseTypeDef
+# DescribeComponentResponse
 
 ### arn
 - **Type**: <class 'str'>
@@ -549,11 +549,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### status
-- **Type**: <class 'aws_resource_validator.pydantic_models.greengrassv2_classes.CloudComponentStatusTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.greengrassv2_classes.CloudComponentStatus'>
 - **Required**: Yes
 
 ### platforms
-- **Type**: typing.List[aws_resource_validator.pydantic_models.greengrassv2_classes.ComponentPlatformOutputTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.greengrassv2_classes.ComponentPlatformOutput]
 - **Required**: Yes
 
 ### tags
@@ -561,18 +561,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.greengrassv2_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.greengrassv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DisassociateClientDeviceFromCoreDeviceEntryTypeDef
+# DisassociateClientDeviceFromCoreDeviceEntry
 
 ### thingName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DisassociateClientDeviceFromCoreDeviceErrorEntryTypeDef
+# DisassociateClientDeviceFromCoreDeviceErrorEntry
 
 ### thingName
 - **Type**: typing.Optional[str]
@@ -584,27 +584,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DisassociateServiceRoleFromAccountResponseTypeDef
+# DisassociateServiceRoleFromAccountResponse
 
 ### disassociatedAt
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.greengrassv2_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.greengrassv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# EffectiveDeploymentStatusDetailsTypeDef
-
-### errorStack
-- **Type**: typing.Optional[typing.List[str]]
-
-### errorTypes
-- **Type**: typing.Optional[typing.List[str]]
-
-
-# EffectiveDeploymentTypeDef
+# EffectiveDeployment
 
 ### deploymentId
 - **Type**: <class 'str'>
@@ -643,17 +634,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### statusDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.greengrassv2_classes.EffectiveDeploymentStatusDetailsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.greengrassv2_classes.EffectiveDeploymentStatusDetails]
 
 
-# EmptyResponseMetadataTypeDef
+# EffectiveDeploymentStatusDetails
+
+### errorStack
+- **Type**: typing.Optional[typing.List[str]]
+
+### errorTypes
+- **Type**: typing.Optional[typing.List[str]]
+
+
+# EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.greengrassv2_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.greengrassv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetComponentRequestTypeDef
+# GetComponentRequest
 
 ### arn
 - **Type**: <class 'str'>
@@ -663,7 +663,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['JSON', 'YAML']]
 
 
-# GetComponentResponseTypeDef
+# GetComponentResponse
 
 ### recipeOutputFormat
 - **Type**: typing.Literal['JSON', 'YAML']
@@ -678,11 +678,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.greengrassv2_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.greengrassv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetComponentVersionArtifactRequestTypeDef
+# GetComponentVersionArtifactRequest
 
 ### arn
 - **Type**: <class 'str'>
@@ -699,28 +699,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['fips', 'standard']]
 
 
-# GetComponentVersionArtifactResponseTypeDef
+# GetComponentVersionArtifactResponse
 
 ### preSignedUrl
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.greengrassv2_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.greengrassv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetConnectivityInfoRequestTypeDef
+# GetConnectivityInfoRequest
 
 ### thingName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetConnectivityInfoResponseTypeDef
+# GetConnectivityInfoResponse
 
 ### connectivityInfo
-- **Type**: typing.List[aws_resource_validator.pydantic_models.greengrassv2_classes.ConnectivityInfoTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.greengrassv2_classes.ConnectivityInfo]
 - **Required**: Yes
 
 ### message
@@ -728,18 +728,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.greengrassv2_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.greengrassv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetCoreDeviceRequestTypeDef
+# GetCoreDeviceRequest
 
 ### coreDeviceThingName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetCoreDeviceResponseTypeDef
+# GetCoreDeviceResponse
 
 ### coreDeviceThingName
 - **Type**: <class 'str'>
@@ -774,18 +774,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.greengrassv2_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.greengrassv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetDeploymentRequestTypeDef
+# GetDeploymentRequest
 
 ### deploymentId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetDeploymentResponseTypeDef
+# GetDeploymentResponse
 
 ### targetArn
 - **Type**: <class 'str'>
@@ -816,15 +816,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### components
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.greengrassv2_classes.ComponentDeploymentSpecificationOutputTypeDef]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.greengrassv2_classes.ComponentDeploymentSpecificationOutput]
 - **Required**: Yes
 
 ### deploymentPolicies
-- **Type**: <class 'aws_resource_validator.pydantic_models.greengrassv2_classes.DeploymentPoliciesTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.greengrassv2_classes.DeploymentPolicies'>
 - **Required**: Yes
 
 ### iotJobConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.greengrassv2_classes.DeploymentIoTJobConfigurationOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.greengrassv2_classes.DeploymentIoTJobConfigurationOutput'>
 - **Required**: Yes
 
 ### creationTimestamp
@@ -844,11 +844,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.greengrassv2_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.greengrassv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetServiceRoleForAccountResponseTypeDef
+# GetServiceRoleForAccountResponse
 
 ### associatedAt
 - **Type**: <class 'str'>
@@ -859,11 +859,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.greengrassv2_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.greengrassv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# InstalledComponentTypeDef
+# InstalledComponent
 
 ### componentName
 - **Type**: typing.Optional[str]
@@ -893,21 +893,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# IoTJobAbortConfigOutputTypeDef
+# IoTJobAbortConfig
 
 ### criteriaList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.greengrassv2_classes.IoTJobAbortCriteriaTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.greengrassv2_classes.IoTJobAbortCriteria]
 - **Required**: Yes
 
 
-# IoTJobAbortConfigTypeDef
+# IoTJobAbortConfigOutput
 
 ### criteriaList
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.greengrassv2_classes.IoTJobAbortCriteriaTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.greengrassv2_classes.IoTJobAbortCriteria]
 - **Required**: Yes
 
 
-# IoTJobAbortCriteriaTypeDef
+# IoTJobAbortCriteria
 
 ### failureType
 - **Type**: typing.Literal['ALL', 'FAILED', 'REJECTED', 'TIMED_OUT']
@@ -926,16 +926,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# IoTJobExecutionsRolloutConfigTypeDef
+# IoTJobExecutionsRolloutConfig
 
 ### exponentialRate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.greengrassv2_classes.IoTJobExponentialRolloutRateTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.greengrassv2_classes.IoTJobExponentialRolloutRate]
 
 ### maximumPerMinute
 - **Type**: typing.Optional[int]
 
 
-# IoTJobExponentialRolloutRateTypeDef
+# IoTJobExponentialRolloutRate
 
 ### baseRatePerMinute
 - **Type**: <class 'int'>
@@ -946,11 +946,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### rateIncreaseCriteria
-- **Type**: <class 'aws_resource_validator.pydantic_models.greengrassv2_classes.IoTJobRateIncreaseCriteriaTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.greengrassv2_classes.IoTJobRateIncreaseCriteria'>
 - **Required**: Yes
 
 
-# IoTJobRateIncreaseCriteriaTypeDef
+# IoTJobRateIncreaseCriteria
 
 ### numberOfNotifiedThings
 - **Type**: typing.Optional[int]
@@ -959,13 +959,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# IoTJobTimeoutConfigTypeDef
+# IoTJobTimeoutConfig
 
 ### inProgressTimeoutInMinutes
 - **Type**: typing.Optional[int]
 
 
-# LambdaContainerParamsTypeDef
+# LambdaContainerParams
 
 ### memorySizeInKB
 - **Type**: typing.Optional[int]
@@ -974,13 +974,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### volumes
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.greengrassv2_classes.LambdaVolumeMountTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.greengrassv2_classes.LambdaVolumeMount]]
 
 ### devices
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.greengrassv2_classes.LambdaDeviceMountTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.greengrassv2_classes.LambdaDeviceMount]]
 
 
-# LambdaDeviceMountTypeDef
+# LambdaDeviceMount
 
 ### path
 - **Type**: <class 'str'>
@@ -993,16 +993,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# LambdaEventSourceTypeDef
+# LambdaEventSource
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# LambdaExecutionParametersTypeDef
+# LambdaExecutionParameters
 
 ### eventSources
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.greengrassv2_classes.LambdaEventSourceTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.greengrassv2_classes.LambdaEventSource]]
 
 ### maxQueueSize
 - **Type**: typing.Optional[int]
@@ -1032,10 +1032,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 ### linuxProcessParams
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.greengrassv2_classes.LambdaLinuxProcessParamsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.greengrassv2_classes.LambdaLinuxProcessParams]
 
 
-# LambdaFunctionRecipeSourceTypeDef
+# LambdaFunctionRecipeSource
 
 ### lambdaArn
 - **Type**: <class 'str'>
@@ -1048,25 +1048,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### componentPlatforms
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.greengrassv2_classes.ComponentPlatformUnionTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.greengrassv2_classes.ComponentPlatformUnion]]
 
 ### componentDependencies
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.greengrassv2_classes.ComponentDependencyRequirementTypeDef]]
+- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.greengrassv2_classes.ComponentDependencyRequirement]]
 
 ### componentLambdaParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.greengrassv2_classes.LambdaExecutionParametersTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.greengrassv2_classes.LambdaExecutionParameters]
 
 
-# LambdaLinuxProcessParamsTypeDef
+# LambdaLinuxProcessParams
 
 ### isolationMode
 - **Type**: typing.Optional[typing.Literal['GreengrassContainer', 'NoContainer']]
 
 ### containerParams
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.greengrassv2_classes.LambdaContainerParamsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.greengrassv2_classes.LambdaContainerParams]
 
 
-# LambdaVolumeMountTypeDef
+# LambdaVolumeMount
 
 ### sourcePath
 - **Type**: <class 'str'>
@@ -1083,17 +1083,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# ListClientDevicesAssociatedWithCoreDeviceRequestPaginateTypeDef
-
-### coreDeviceThingName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.greengrassv2_classes.PaginatorConfigTypeDef]
-
-
-# ListClientDevicesAssociatedWithCoreDeviceRequestTypeDef
+# ListClientDevicesAssociatedWithCoreDeviceRequest
 
 ### coreDeviceThingName
 - **Type**: <class 'str'>
@@ -1106,31 +1096,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListClientDevicesAssociatedWithCoreDeviceResponseTypeDef
+# ListClientDevicesAssociatedWithCoreDeviceRequestPaginate
+
+### coreDeviceThingName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.greengrassv2_classes.PaginatorConfig]
+
+
+# ListClientDevicesAssociatedWithCoreDeviceResponse
 
 ### associatedClientDevices
-- **Type**: typing.List[aws_resource_validator.pydantic_models.greengrassv2_classes.AssociatedClientDeviceTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.greengrassv2_classes.AssociatedClientDevice]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.greengrassv2_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.greengrassv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListComponentVersionsRequestPaginateTypeDef
-
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.greengrassv2_classes.PaginatorConfigTypeDef]
-
-
-# ListComponentVersionsRequestTypeDef
+# ListComponentVersionsRequest
 
 ### arn
 - **Type**: <class 'str'>
@@ -1143,30 +1133,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListComponentVersionsResponseTypeDef
+# ListComponentVersionsRequestPaginate
+
+### arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.greengrassv2_classes.PaginatorConfig]
+
+
+# ListComponentVersionsResponse
 
 ### componentVersions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.greengrassv2_classes.ComponentVersionListItemTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.greengrassv2_classes.ComponentVersionListItem]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.greengrassv2_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.greengrassv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListComponentsRequestPaginateTypeDef
-
-### scope
-- **Type**: typing.Optional[typing.Literal['PRIVATE', 'PUBLIC']]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.greengrassv2_classes.PaginatorConfigTypeDef]
-
-
-# ListComponentsRequestTypeDef
+# ListComponentsRequest
 
 ### scope
 - **Type**: typing.Optional[typing.Literal['PRIVATE', 'PUBLIC']]
@@ -1178,36 +1169,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListComponentsResponseTypeDef
+# ListComponentsRequestPaginate
+
+### scope
+- **Type**: typing.Optional[typing.Literal['PRIVATE', 'PUBLIC']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.greengrassv2_classes.PaginatorConfig]
+
+
+# ListComponentsResponse
 
 ### components
-- **Type**: typing.List[aws_resource_validator.pydantic_models.greengrassv2_classes.ComponentTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.greengrassv2_classes.Component]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.greengrassv2_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.greengrassv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListCoreDevicesRequestPaginateTypeDef
-
-### thingGroupArn
-- **Type**: typing.Optional[str]
-
-### status
-- **Type**: typing.Optional[typing.Literal['HEALTHY', 'UNHEALTHY']]
-
-### runtime
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.greengrassv2_classes.PaginatorConfigTypeDef]
-
-
-# ListCoreDevicesRequestTypeDef
+# ListCoreDevicesRequest
 
 ### thingGroupArn
 - **Type**: typing.Optional[str]
@@ -1225,36 +1210,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListCoreDevicesResponseTypeDef
+# ListCoreDevicesRequestPaginate
+
+### thingGroupArn
+- **Type**: typing.Optional[str]
+
+### status
+- **Type**: typing.Optional[typing.Literal['HEALTHY', 'UNHEALTHY']]
+
+### runtime
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.greengrassv2_classes.PaginatorConfig]
+
+
+# ListCoreDevicesResponse
 
 ### coreDevices
-- **Type**: typing.List[aws_resource_validator.pydantic_models.greengrassv2_classes.CoreDeviceTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.greengrassv2_classes.CoreDevice]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.greengrassv2_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.greengrassv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListDeploymentsRequestPaginateTypeDef
-
-### targetArn
-- **Type**: typing.Optional[str]
-
-### historyFilter
-- **Type**: typing.Optional[typing.Literal['ALL', 'LATEST_ONLY']]
-
-### parentTargetArn
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.greengrassv2_classes.PaginatorConfigTypeDef]
-
-
-# ListDeploymentsRequestTypeDef
+# ListDeploymentsRequest
 
 ### targetArn
 - **Type**: typing.Optional[str]
@@ -1272,31 +1257,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListDeploymentsResponseTypeDef
+# ListDeploymentsRequestPaginate
+
+### targetArn
+- **Type**: typing.Optional[str]
+
+### historyFilter
+- **Type**: typing.Optional[typing.Literal['ALL', 'LATEST_ONLY']]
+
+### parentTargetArn
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.greengrassv2_classes.PaginatorConfig]
+
+
+# ListDeploymentsResponse
 
 ### deployments
-- **Type**: typing.List[aws_resource_validator.pydantic_models.greengrassv2_classes.DeploymentTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.greengrassv2_classes.Deployment]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.greengrassv2_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.greengrassv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListEffectiveDeploymentsRequestPaginateTypeDef
-
-### coreDeviceThingName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.greengrassv2_classes.PaginatorConfigTypeDef]
-
-
-# ListEffectiveDeploymentsRequestTypeDef
+# ListEffectiveDeploymentsRequest
 
 ### coreDeviceThingName
 - **Type**: <class 'str'>
@@ -1309,34 +1299,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListEffectiveDeploymentsResponseTypeDef
+# ListEffectiveDeploymentsRequestPaginate
+
+### coreDeviceThingName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.greengrassv2_classes.PaginatorConfig]
+
+
+# ListEffectiveDeploymentsResponse
 
 ### effectiveDeployments
-- **Type**: typing.List[aws_resource_validator.pydantic_models.greengrassv2_classes.EffectiveDeploymentTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.greengrassv2_classes.EffectiveDeployment]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.greengrassv2_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.greengrassv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListInstalledComponentsRequestPaginateTypeDef
-
-### coreDeviceThingName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### topologyFilter
-- **Type**: typing.Optional[typing.Literal['ALL', 'ROOT']]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.greengrassv2_classes.PaginatorConfigTypeDef]
-
-
-# ListInstalledComponentsRequestTypeDef
+# ListInstalledComponentsRequest
 
 ### coreDeviceThingName
 - **Type**: <class 'str'>
@@ -1352,39 +1339,52 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ALL', 'ROOT']]
 
 
-# ListInstalledComponentsResponseTypeDef
+# ListInstalledComponentsRequestPaginate
+
+### coreDeviceThingName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### topologyFilter
+- **Type**: typing.Optional[typing.Literal['ALL', 'ROOT']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.greengrassv2_classes.PaginatorConfig]
+
+
+# ListInstalledComponentsResponse
 
 ### installedComponents
-- **Type**: typing.List[aws_resource_validator.pydantic_models.greengrassv2_classes.InstalledComponentTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.greengrassv2_classes.InstalledComponent]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.greengrassv2_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.greengrassv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestTypeDef
+# ListTagsForResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ListTagsForResourceResponseTypeDef
+# ListTagsForResourceResponse
 
 ### tags
 - **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.greengrassv2_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.greengrassv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -1396,27 +1396,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ResolveComponentCandidatesRequestTypeDef
+# ResolveComponentCandidatesRequest
 
 ### platform
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.greengrassv2_classes.ComponentPlatformUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.greengrassv2_classes.ComponentPlatformUnion]
 
 ### componentCandidates
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.greengrassv2_classes.ComponentCandidateTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.greengrassv2_classes.ComponentCandidate]]
 
 
-# ResolveComponentCandidatesResponseTypeDef
+# ResolveComponentCandidatesResponse
 
 ### resolvedComponentVersions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.greengrassv2_classes.ResolvedComponentVersionTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.greengrassv2_classes.ResolvedComponentVersion]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.greengrassv2_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.greengrassv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ResolvedComponentVersionTypeDef
+# ResolvedComponentVersion
 
 ### arn
 - **Type**: typing.Optional[str]
@@ -1437,7 +1437,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -1459,7 +1459,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SystemResourceLimitsTypeDef
+# SystemResourceLimits
 
 ### memory
 - **Type**: typing.Optional[int]
@@ -1468,7 +1468,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# TagResourceRequestTypeDef
+# TagResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -1479,7 +1479,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceRequestTypeDef
+# UntagResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -1490,18 +1490,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateConnectivityInfoRequestTypeDef
+# UpdateConnectivityInfoRequest
 
 ### thingName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### connectivityInfo
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.greengrassv2_classes.ConnectivityInfoTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.greengrassv2_classes.ConnectivityInfo]
 - **Required**: Yes
 
 
-# UpdateConnectivityInfoResponseTypeDef
+# UpdateConnectivityInfoResponse
 
 ### version
 - **Type**: <class 'str'>
@@ -1512,7 +1512,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.greengrassv2_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.greengrassv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

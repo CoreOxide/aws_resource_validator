@@ -1,26 +1,26 @@
 # Kendra Classes
 
-# AccessControlConfigurationSummaryTypeDef
+# AccessControlConfigurationSummary
 
 ### Id
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# AccessControlListConfigurationTypeDef
+# AccessControlListConfiguration
 
 ### KeyPath
 - **Type**: typing.Optional[str]
 
 
-# AclConfigurationTypeDef
+# AclConfiguration
 
 ### AllowedGroupsColumnName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# AdditionalResultAttributeTypeDef
+# AdditionalResultAttribute
 
 ### Key
 - **Type**: <class 'str'>
@@ -31,63 +31,17 @@
 - **Required**: Yes
 
 ### Value
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.AdditionalResultAttributeValueTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.AdditionalResultAttributeValue'>
 - **Required**: Yes
 
 
-# AdditionalResultAttributeValueTypeDef
+# AdditionalResultAttributeValue
 
 ### TextWithHighlightsValue
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.TextWithHighlightsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.TextWithHighlights]
 
 
-# AlfrescoConfigurationOutputTypeDef
-
-### SiteUrl
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### SiteId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### SecretArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### SslCertificateS3Path
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.S3PathTypeDef'>
-- **Required**: Yes
-
-### CrawlSystemFolders
-- **Type**: typing.Optional[bool]
-
-### CrawlComments
-- **Type**: typing.Optional[bool]
-
-### EntityFilter
-- **Type**: typing.Optional[typing.List[typing.Literal['blog', 'documentLibrary', 'wiki']]]
-
-### DocumentLibraryFieldMappings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMappingTypeDef]]
-
-### BlogFieldMappings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMappingTypeDef]]
-
-### WikiFieldMappings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMappingTypeDef]]
-
-### InclusionPatterns
-- **Type**: typing.Optional[typing.List[str]]
-
-### ExclusionPatterns
-- **Type**: typing.Optional[typing.List[str]]
-
-### VpcConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.DataSourceVpcConfigurationOutputTypeDef]
-
-
-# AlfrescoConfigurationTypeDef
+# AlfrescoConfiguration
 
 ### SiteUrl
 - **Type**: <class 'str'>
@@ -102,7 +56,7 @@
 - **Required**: Yes
 
 ### SslCertificateS3Path
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.S3PathTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.S3Path'>
 - **Required**: Yes
 
 ### CrawlSystemFolders
@@ -115,13 +69,13 @@
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['blog', 'documentLibrary', 'wiki']]]
 
 ### DocumentLibraryFieldMappings
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMappingTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMapping]]
 
 ### BlogFieldMappings
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMappingTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMapping]]
 
 ### WikiFieldMappings
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMappingTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMapping]]
 
 ### InclusionPatterns
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -130,10 +84,56 @@
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### VpcConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.DataSourceVpcConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.DataSourceVpcConfiguration]
 
 
-# AssociateEntitiesToExperienceRequestTypeDef
+# AlfrescoConfigurationOutput
+
+### SiteUrl
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### SiteId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### SecretArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### SslCertificateS3Path
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.S3Path'>
+- **Required**: Yes
+
+### CrawlSystemFolders
+- **Type**: typing.Optional[bool]
+
+### CrawlComments
+- **Type**: typing.Optional[bool]
+
+### EntityFilter
+- **Type**: typing.Optional[typing.List[typing.Literal['blog', 'documentLibrary', 'wiki']]]
+
+### DocumentLibraryFieldMappings
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMapping]]
+
+### BlogFieldMappings
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMapping]]
+
+### WikiFieldMappings
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMapping]]
+
+### InclusionPatterns
+- **Type**: typing.Optional[typing.List[str]]
+
+### ExclusionPatterns
+- **Type**: typing.Optional[typing.List[str]]
+
+### VpcConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.DataSourceVpcConfigurationOutput]
+
+
+# AssociateEntitiesToExperienceRequest
 
 ### Id
 - **Type**: <class 'str'>
@@ -144,22 +144,22 @@
 - **Required**: Yes
 
 ### EntityList
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.EntityConfigurationTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.EntityConfiguration]
 - **Required**: Yes
 
 
-# AssociateEntitiesToExperienceResponseTypeDef
+# AssociateEntitiesToExperienceResponse
 
 ### FailedEntityList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_classes.FailedEntityTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_classes.FailedEntity]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# AssociatePersonasToEntitiesRequestTypeDef
+# AssociatePersonasToEntitiesRequest
 
 ### Id
 - **Type**: <class 'str'>
@@ -170,22 +170,22 @@
 - **Required**: Yes
 
 ### Personas
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.EntityPersonaConfigurationTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.EntityPersonaConfiguration]
 - **Required**: Yes
 
 
-# AssociatePersonasToEntitiesResponseTypeDef
+# AssociatePersonasToEntitiesResponse
 
 ### FailedEntityList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_classes.FailedEntityTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_classes.FailedEntity]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# AttributeFilterTypeDef
+# AttributeFilter
 
 ### AndAllFilters
 - **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
@@ -197,37 +197,37 @@
 - **Type**: typing.Optional[typing.Mapping[str, typing.Any]]
 
 ### EqualsTo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.DocumentAttributeUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.DocumentAttributeUnion]
 
 ### ContainsAll
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.DocumentAttributeUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.DocumentAttributeUnion]
 
 ### ContainsAny
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.DocumentAttributeUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.DocumentAttributeUnion]
 
 ### GreaterThan
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.DocumentAttributeUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.DocumentAttributeUnion]
 
 ### GreaterThanOrEquals
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.DocumentAttributeUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.DocumentAttributeUnion]
 
 ### LessThan
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.DocumentAttributeUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.DocumentAttributeUnion]
 
 ### LessThanOrEquals
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.DocumentAttributeUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.DocumentAttributeUnion]
 
 
-# AttributeSuggestionsDescribeConfigTypeDef
+# AttributeSuggestionsDescribeConfig
 
 ### SuggestableConfigList
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.SuggestableConfigTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.SuggestableConfig]]
 
 ### AttributeSuggestionsMode
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'INACTIVE']]
 
 
-# AttributeSuggestionsGetConfigTypeDef
+# AttributeSuggestionsGetConfig
 
 ### SuggestionAttributes
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -236,31 +236,31 @@
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### AttributeFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.AttributeFilterTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### UserContext
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.UserContextTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# AttributeSuggestionsUpdateConfigTypeDef
+# AttributeSuggestionsUpdateConfig
 
 ### SuggestableConfigList
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.SuggestableConfigTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.SuggestableConfig]]
 
 ### AttributeSuggestionsMode
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'INACTIVE']]
 
 
-# AuthenticationConfigurationOutputTypeDef
+# AuthenticationConfiguration
 
 ### BasicAuthentication
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.BasicAuthenticationConfigurationTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.BasicAuthenticationConfiguration]]
 
 
-# AuthenticationConfigurationTypeDef
+# AuthenticationConfigurationOutput
 
 ### BasicAuthentication
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.BasicAuthenticationConfigurationTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.BasicAuthenticationConfiguration]]
 
 
 # BaseValidatorModel
@@ -269,7 +269,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BasicAuthenticationConfigurationTypeDef
+# BasicAuthenticationConfiguration
 
 ### Host
 - **Type**: <class 'str'>
@@ -284,7 +284,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# BatchDeleteDocumentRequestTypeDef
+# BatchDeleteDocumentRequest
 
 ### IndexId
 - **Type**: <class 'str'>
@@ -295,10 +295,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DataSourceSyncJobMetricTarget
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.DataSourceSyncJobMetricTargetTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# BatchDeleteDocumentResponseFailedDocumentTypeDef
+# BatchDeleteDocumentResponse
+
+### FailedDocuments
+- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_classes.BatchDeleteDocumentResponseFailedDocument]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
+# BatchDeleteDocumentResponseFailedDocument
 
 ### Id
 - **Type**: typing.Optional[str]
@@ -313,18 +324,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# BatchDeleteDocumentResponseTypeDef
-
-### FailedDocuments
-- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_classes.BatchDeleteDocumentResponseFailedDocumentTypeDef]
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# BatchDeleteFeaturedResultsSetErrorTypeDef
+# BatchDeleteFeaturedResultsSetError
 
 ### Id
 - **Type**: <class 'str'>
@@ -339,7 +339,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# BatchDeleteFeaturedResultsSetRequestTypeDef
+# BatchDeleteFeaturedResultsSetRequest
 
 ### IndexId
 - **Type**: <class 'str'>
@@ -350,29 +350,44 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# BatchDeleteFeaturedResultsSetResponseTypeDef
+# BatchDeleteFeaturedResultsSetResponse
 
 ### Errors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_classes.BatchDeleteFeaturedResultsSetErrorTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_classes.BatchDeleteFeaturedResultsSetError]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# BatchGetDocumentStatusRequestTypeDef
+# BatchGetDocumentStatusRequest
 
 ### IndexId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### DocumentInfoList
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.DocumentInfoTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.DocumentInfo]
 - **Required**: Yes
 
 
-# BatchGetDocumentStatusResponseErrorTypeDef
+# BatchGetDocumentStatusResponse
+
+### Errors
+- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_classes.BatchGetDocumentStatusResponseError]
+- **Required**: Yes
+
+### DocumentStatusList
+- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_classes.Status]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
+# BatchGetDocumentStatusResponseError
 
 ### DocumentId
 - **Type**: typing.Optional[str]
@@ -387,39 +402,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# BatchGetDocumentStatusResponseTypeDef
-
-### Errors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_classes.BatchGetDocumentStatusResponseErrorTypeDef]
-- **Required**: Yes
-
-### DocumentStatusList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_classes.StatusTypeDef]
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# BatchPutDocumentRequestTypeDef
+# BatchPutDocumentRequest
 
 ### IndexId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Documents
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.DocumentTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.Document]
 - **Required**: Yes
 
 ### RoleArn
 - **Type**: typing.Optional[str]
 
 ### CustomDocumentEnrichmentConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.CustomDocumentEnrichmentConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.CustomDocumentEnrichmentConfigurationUnion]
 
 
-# BatchPutDocumentResponseFailedDocumentTypeDef
+# BatchPutDocumentResponse
+
+### FailedDocuments
+- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_classes.BatchPutDocumentResponseFailedDocument]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
+# BatchPutDocumentResponseFailedDocument
 
 ### Id
 - **Type**: typing.Optional[str]
@@ -434,24 +445,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# BatchPutDocumentResponseTypeDef
-
-### FailedDocuments
-- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_classes.BatchPutDocumentResponseFailedDocumentTypeDef]
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# BlobTypeDef
+# Blob
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BoxConfigurationOutputTypeDef
+# BoxConfiguration
 
 ### EnterpriseId
 - **Type**: <class 'str'>
@@ -474,28 +474,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### FileFieldMappings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMappingTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMapping]]
 
 ### TaskFieldMappings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMappingTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMapping]]
 
 ### CommentFieldMappings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMappingTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMapping]]
 
 ### WebLinkFieldMappings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMappingTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMapping]]
 
 ### InclusionPatterns
-- **Type**: typing.Optional[typing.List[str]]
+- **Type**: typing.Optional[typing.Sequence[str]]
 
 ### ExclusionPatterns
-- **Type**: typing.Optional[typing.List[str]]
+- **Type**: typing.Optional[typing.Sequence[str]]
 
 ### VpcConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.DataSourceVpcConfigurationOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.DataSourceVpcConfiguration]
 
 
-# BoxConfigurationTypeDef
+# BoxConfigurationOutput
 
 ### EnterpriseId
 - **Type**: <class 'str'>
@@ -518,28 +518,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### FileFieldMappings
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMappingTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMapping]]
 
 ### TaskFieldMappings
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMappingTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMapping]]
 
 ### CommentFieldMappings
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMappingTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMapping]]
 
 ### WebLinkFieldMappings
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMappingTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMapping]]
 
 ### InclusionPatterns
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### ExclusionPatterns
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### VpcConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.DataSourceVpcConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.DataSourceVpcConfigurationOutput]
 
 
-# CapacityUnitsConfigurationTypeDef
+# CapacityUnitsConfiguration
 
 ### StorageCapacityUnits
 - **Type**: <class 'int'>
@@ -550,32 +550,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ClearQuerySuggestionsRequestTypeDef
+# ClearQuerySuggestionsRequest
 
 ### IndexId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ClickFeedbackTypeDef
+# ClickFeedback
 
 ### ResultId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ClickTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.TimestampTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.Timestamp'>
 - **Required**: Yes
 
 
-# CollapseConfigurationTypeDef
+# CollapseConfiguration
 
 ### DocumentAttributeKey
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### SortingConfigurations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.SortingConfigurationTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.SortingConfiguration]]
 
 ### MissingAttributeKeyStrategy
 - **Type**: typing.Optional[typing.Literal['COLLAPSE', 'EXPAND', 'IGNORE']]
@@ -584,20 +584,41 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### ExpandConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.ExpandConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# CollapsedResultDetailTypeDef
+# CollapsedResultDetail
 
 ### DocumentAttribute
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.DocumentAttributeOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.DocumentAttributeOutput'>
 - **Required**: Yes
 
 ### ExpandedResults
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.ExpandedResultItemTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.ExpandedResultItem]]
 
 
-# ColumnConfigurationOutputTypeDef
+# ColumnConfiguration
+
+### DocumentIdColumnName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### DocumentDataColumnName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ChangeDetectingColumns
+- **Type**: typing.Sequence[str]
+- **Required**: Yes
+
+### DocumentTitleColumnName
+- **Type**: typing.Optional[str]
+
+### FieldMappings
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMapping]]
+
+
+# ColumnConfigurationOutput
 
 ### DocumentIdColumnName
 - **Type**: <class 'str'>
@@ -615,49 +636,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### FieldMappings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMappingTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMapping]]
 
 
-# ColumnConfigurationTypeDef
-
-### DocumentIdColumnName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### DocumentDataColumnName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ChangeDetectingColumns
-- **Type**: typing.Sequence[str]
-- **Required**: Yes
-
-### DocumentTitleColumnName
-- **Type**: typing.Optional[str]
-
-### FieldMappings
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMappingTypeDef]]
-
-
-# ConfluenceAttachmentConfigurationOutputTypeDef
+# ConfluenceAttachmentConfiguration
 
 ### CrawlAttachments
 - **Type**: typing.Optional[bool]
 
 ### AttachmentFieldMappings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.ConfluenceAttachmentToIndexFieldMappingTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.ConfluenceAttachmentToIndexFieldMapping]]
 
 
-# ConfluenceAttachmentConfigurationTypeDef
+# ConfluenceAttachmentConfigurationOutput
 
 ### CrawlAttachments
 - **Type**: typing.Optional[bool]
 
 ### AttachmentFieldMappings
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.ConfluenceAttachmentToIndexFieldMappingTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.ConfluenceAttachmentToIndexFieldMapping]]
 
 
-# ConfluenceAttachmentToIndexFieldMappingTypeDef
+# ConfluenceAttachmentToIndexFieldMapping
 
 ### DataSourceFieldName
 - **Type**: typing.Optional[typing.Literal['AUTHOR', 'CONTENT_TYPE', 'CREATED_DATE', 'DISPLAY_URL', 'FILE_SIZE', 'ITEM_TYPE', 'PARENT_ID', 'SPACE_KEY', 'SPACE_NAME', 'URL', 'VERSION']]
@@ -669,19 +669,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ConfluenceBlogConfigurationOutputTypeDef
+# ConfluenceBlogConfiguration
 
 ### BlogFieldMappings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.ConfluenceBlogToIndexFieldMappingTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.ConfluenceBlogToIndexFieldMapping]]
 
 
-# ConfluenceBlogConfigurationTypeDef
+# ConfluenceBlogConfigurationOutput
 
 ### BlogFieldMappings
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.ConfluenceBlogToIndexFieldMappingTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.ConfluenceBlogToIndexFieldMapping]]
 
 
-# ConfluenceBlogToIndexFieldMappingTypeDef
+# ConfluenceBlogToIndexFieldMapping
 
 ### DataSourceFieldName
 - **Type**: typing.Optional[typing.Literal['AUTHOR', 'DISPLAY_URL', 'ITEM_TYPE', 'LABELS', 'PUBLISH_DATE', 'SPACE_KEY', 'SPACE_NAME', 'URL', 'VERSION']]
@@ -693,7 +693,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ConfluenceConfigurationOutputTypeDef
+# ConfluenceConfiguration
 
 ### ServerUrl
 - **Type**: <class 'str'>
@@ -708,34 +708,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SpaceConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.ConfluenceSpaceConfigurationOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.ConfluenceSpaceConfiguration]
 
 ### PageConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.ConfluencePageConfigurationOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.ConfluencePageConfiguration]
 
 ### BlogConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.ConfluenceBlogConfigurationOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.ConfluenceBlogConfiguration]
 
 ### AttachmentConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.ConfluenceAttachmentConfigurationOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.ConfluenceAttachmentConfiguration]
 
 ### VpcConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.DataSourceVpcConfigurationOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.DataSourceVpcConfiguration]
 
 ### InclusionPatterns
-- **Type**: typing.Optional[typing.List[str]]
+- **Type**: typing.Optional[typing.Sequence[str]]
 
 ### ExclusionPatterns
-- **Type**: typing.Optional[typing.List[str]]
+- **Type**: typing.Optional[typing.Sequence[str]]
 
 ### ProxyConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.ProxyConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### AuthenticationType
 - **Type**: typing.Optional[typing.Literal['HTTP_BASIC', 'PAT']]
 
 
-# ConfluenceConfigurationTypeDef
+# ConfluenceConfigurationOutput
 
 ### ServerUrl
 - **Type**: <class 'str'>
@@ -750,46 +750,46 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SpaceConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.ConfluenceSpaceConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.ConfluenceSpaceConfigurationOutput]
 
 ### PageConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.ConfluencePageConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.ConfluencePageConfigurationOutput]
 
 ### BlogConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.ConfluenceBlogConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.ConfluenceBlogConfigurationOutput]
 
 ### AttachmentConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.ConfluenceAttachmentConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.ConfluenceAttachmentConfigurationOutput]
 
 ### VpcConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.DataSourceVpcConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.DataSourceVpcConfigurationOutput]
 
 ### InclusionPatterns
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### ExclusionPatterns
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### ProxyConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.ProxyConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### AuthenticationType
 - **Type**: typing.Optional[typing.Literal['HTTP_BASIC', 'PAT']]
 
 
-# ConfluencePageConfigurationOutputTypeDef
+# ConfluencePageConfiguration
 
 ### PageFieldMappings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.ConfluencePageToIndexFieldMappingTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.ConfluencePageToIndexFieldMapping]]
 
 
-# ConfluencePageConfigurationTypeDef
+# ConfluencePageConfigurationOutput
 
 ### PageFieldMappings
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.ConfluencePageToIndexFieldMappingTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.ConfluencePageToIndexFieldMapping]]
 
 
-# ConfluencePageToIndexFieldMappingTypeDef
+# ConfluencePageToIndexFieldMapping
 
 ### DataSourceFieldName
 - **Type**: typing.Optional[typing.Literal['AUTHOR', 'CONTENT_STATUS', 'CREATED_DATE', 'DISPLAY_URL', 'ITEM_TYPE', 'LABELS', 'MODIFIED_DATE', 'PARENT_ID', 'SPACE_KEY', 'SPACE_NAME', 'URL', 'VERSION']]
@@ -801,25 +801,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ConfluenceSpaceConfigurationOutputTypeDef
-
-### CrawlPersonalSpaces
-- **Type**: typing.Optional[bool]
-
-### CrawlArchivedSpaces
-- **Type**: typing.Optional[bool]
-
-### IncludeSpaces
-- **Type**: typing.Optional[typing.List[str]]
-
-### ExcludeSpaces
-- **Type**: typing.Optional[typing.List[str]]
-
-### SpaceFieldMappings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.ConfluenceSpaceToIndexFieldMappingTypeDef]]
-
-
-# ConfluenceSpaceConfigurationTypeDef
+# ConfluenceSpaceConfiguration
 
 ### CrawlPersonalSpaces
 - **Type**: typing.Optional[bool]
@@ -834,10 +816,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### SpaceFieldMappings
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.ConfluenceSpaceToIndexFieldMappingTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.ConfluenceSpaceToIndexFieldMapping]]
 
 
-# ConfluenceSpaceToIndexFieldMappingTypeDef
+# ConfluenceSpaceConfigurationOutput
+
+### CrawlPersonalSpaces
+- **Type**: typing.Optional[bool]
+
+### CrawlArchivedSpaces
+- **Type**: typing.Optional[bool]
+
+### IncludeSpaces
+- **Type**: typing.Optional[typing.List[str]]
+
+### ExcludeSpaces
+- **Type**: typing.Optional[typing.List[str]]
+
+### SpaceFieldMappings
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.ConfluenceSpaceToIndexFieldMapping]]
+
+
+# ConfluenceSpaceToIndexFieldMapping
 
 ### DataSourceFieldName
 - **Type**: typing.Optional[typing.Literal['DISPLAY_URL', 'ITEM_TYPE', 'SPACE_KEY', 'URL']]
@@ -849,7 +849,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ConnectionConfigurationTypeDef
+# ConnectionConfiguration
 
 ### DatabaseHost
 - **Type**: <class 'str'>
@@ -872,19 +872,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ContentSourceConfigurationOutputTypeDef
-
-### DataSourceIds
-- **Type**: typing.Optional[typing.List[str]]
-
-### FaqIds
-- **Type**: typing.Optional[typing.List[str]]
-
-### DirectPutContent
-- **Type**: typing.Optional[bool]
-
-
-# ContentSourceConfigurationTypeDef
+# ContentSourceConfiguration
 
 ### DataSourceIds
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -896,7 +884,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# CorrectionTypeDef
+# ContentSourceConfigurationOutput
+
+### DataSourceIds
+- **Type**: typing.Optional[typing.List[str]]
+
+### FaqIds
+- **Type**: typing.Optional[typing.List[str]]
+
+### DirectPutContent
+- **Type**: typing.Optional[bool]
+
+
+# Correction
 
 ### BeginOffset
 - **Type**: typing.Optional[int]
@@ -911,7 +911,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateAccessControlConfigurationRequestTypeDef
+# CreateAccessControlConfigurationRequest
 
 ### IndexId
 - **Type**: <class 'str'>
@@ -925,38 +925,38 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### AccessControlList
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.PrincipalTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.Principal]]
 
 ### HierarchicalAccessControlList
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.HierarchicalPrincipalUnionTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.HierarchicalPrincipalUnion]]
 
 ### ClientToken
 - **Type**: typing.Optional[str]
 
 
-# CreateAccessControlConfigurationResponseTypeDef
+# CreateAccessControlConfigurationResponse
 
 ### Id
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateDataSourceResponseTypeDef
+# CreateDataSourceResponse
 
 ### Id
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateExperienceRequestTypeDef
+# CreateExperienceRequest
 
 ### Name
 - **Type**: <class 'str'>
@@ -970,7 +970,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Configuration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.ExperienceConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.ExperienceConfigurationUnion]
 
 ### Description
 - **Type**: typing.Optional[str]
@@ -979,18 +979,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateExperienceResponseTypeDef
+# CreateExperienceResponse
 
 ### Id
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateFaqRequestTypeDef
+# CreateFaqRequest
 
 ### IndexId
 - **Type**: <class 'str'>
@@ -1001,7 +1001,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### S3Path
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.S3PathTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.S3Path'>
 - **Required**: Yes
 
 ### RoleArn
@@ -1012,7 +1012,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.Tag]]
 
 ### FileFormat
 - **Type**: typing.Optional[typing.Literal['CSV', 'CSV_WITH_HEADER', 'JSON']]
@@ -1024,18 +1024,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateFaqResponseTypeDef
+# CreateFaqResponse
 
 ### Id
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateFeaturedResultsSetRequestTypeDef
+# CreateFeaturedResultsSetRequest
 
 ### IndexId
 - **Type**: <class 'str'>
@@ -1058,24 +1058,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### FeaturedDocuments
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.FeaturedDocumentTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.FeaturedDocument]]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.Tag]]
 
 
-# CreateFeaturedResultsSetResponseTypeDef
+# CreateFeaturedResultsSetResponse
 
 ### FeaturedResultsSet
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.FeaturedResultsSetTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.FeaturedResultsSet'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateIndexRequestTypeDef
+# CreateIndexRequest
 
 ### Name
 - **Type**: <class 'str'>
@@ -1089,7 +1089,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DEVELOPER_EDITION', 'ENTERPRISE_EDITION', 'GEN_AI_ENTERPRISE_EDITION']]
 
 ### ServerSideEncryptionConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.ServerSideEncryptionConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### Description
 - **Type**: typing.Optional[str]
@@ -1098,30 +1098,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.Tag]]
 
 ### UserTokenConfigurations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.UserTokenConfigurationTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.UserTokenConfiguration]]
 
 ### UserContextPolicy
 - **Type**: typing.Optional[typing.Literal['ATTRIBUTE_FILTER', 'USER_TOKEN']]
 
 ### UserGroupResolutionConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.UserGroupResolutionConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# CreateIndexResponseTypeDef
+# CreateIndexResponse
 
 ### Id
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateQuerySuggestionsBlockListRequestTypeDef
+# CreateQuerySuggestionsBlockListRequest
 
 ### IndexId
 - **Type**: <class 'str'>
@@ -1132,7 +1132,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SourceS3Path
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.S3PathTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.S3Path'>
 - **Required**: Yes
 
 ### RoleArn
@@ -1146,21 +1146,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.Tag]]
 
 
-# CreateQuerySuggestionsBlockListResponseTypeDef
+# CreateQuerySuggestionsBlockListResponse
 
 ### Id
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateThesaurusRequestTypeDef
+# CreateThesaurusRequest
 
 ### IndexId
 - **Type**: <class 'str'>
@@ -1175,187 +1175,187 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SourceS3Path
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.S3PathTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.S3Path'>
 - **Required**: Yes
 
 ### Description
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.Tag]]
 
 ### ClientToken
 - **Type**: typing.Optional[str]
 
 
-# CreateThesaurusResponseTypeDef
+# CreateThesaurusResponse
 
 ### Id
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CustomDocumentEnrichmentConfigurationOutputTypeDef
+# CustomDocumentEnrichmentConfiguration
 
 ### InlineConfigurations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.InlineCustomDocumentEnrichmentConfigurationOutputTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.InlineCustomDocumentEnrichmentConfiguration]]
 
 ### PreExtractionHookConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.HookConfigurationOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.HookConfiguration]
 
 ### PostExtractionHookConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.HookConfigurationOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.HookConfiguration]
 
 ### RoleArn
 - **Type**: typing.Optional[str]
 
 
-# CustomDocumentEnrichmentConfigurationTypeDef
+# CustomDocumentEnrichmentConfigurationOutput
 
 ### InlineConfigurations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.InlineCustomDocumentEnrichmentConfigurationTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.InlineCustomDocumentEnrichmentConfigurationOutput]]
 
 ### PreExtractionHookConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.HookConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.HookConfigurationOutput]
 
 ### PostExtractionHookConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.HookConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.HookConfigurationOutput]
 
 ### RoleArn
 - **Type**: typing.Optional[str]
 
 
-# CustomDocumentEnrichmentConfigurationUnionTypeDef
+# CustomDocumentEnrichmentConfigurationUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# DataSourceConfigurationOutputTypeDef
+# DataSourceConfiguration
 
 ### S3Configuration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.S3DataSourceConfigurationOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.S3DataSourceConfiguration]
 
 ### SharePointConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.SharePointConfigurationOutputTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### DatabaseConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.DatabaseConfigurationOutputTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### SalesforceConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.SalesforceConfigurationOutputTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### OneDriveConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.OneDriveConfigurationOutputTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### ServiceNowConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.ServiceNowConfigurationOutputTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### ConfluenceConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.ConfluenceConfigurationOutputTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### GoogleDriveConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.GoogleDriveConfigurationOutputTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### WebCrawlerConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.WebCrawlerConfigurationOutputTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### WorkDocsConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.WorkDocsConfigurationOutputTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### FsxConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.FsxConfigurationOutputTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### SlackConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.SlackConfigurationOutputTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### BoxConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.BoxConfigurationOutputTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### QuipConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.QuipConfigurationOutputTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### JiraConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.JiraConfigurationOutputTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### GitHubConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.GitHubConfigurationOutputTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### AlfrescoConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.AlfrescoConfigurationOutputTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### TemplateConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.TemplateConfigurationOutputTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# DataSourceConfigurationTypeDef
+# DataSourceConfigurationOutput
 
 ### S3Configuration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.S3DataSourceConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.S3DataSourceConfigurationOutput]
 
 ### SharePointConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.SharePointConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.SharePointConfigurationOutput]
 
 ### DatabaseConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.DatabaseConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.DatabaseConfigurationOutput]
 
 ### SalesforceConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.SalesforceConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.SalesforceConfigurationOutput]
 
 ### OneDriveConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.OneDriveConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.OneDriveConfigurationOutput]
 
 ### ServiceNowConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.ServiceNowConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.ServiceNowConfigurationOutput]
 
 ### ConfluenceConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.ConfluenceConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.ConfluenceConfigurationOutput]
 
 ### GoogleDriveConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.GoogleDriveConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.GoogleDriveConfigurationOutput]
 
 ### WebCrawlerConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.WebCrawlerConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.WebCrawlerConfigurationOutput]
 
 ### WorkDocsConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.WorkDocsConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.WorkDocsConfigurationOutput]
 
 ### FsxConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.FsxConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.FsxConfigurationOutput]
 
 ### SlackConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.SlackConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.SlackConfigurationOutput]
 
 ### BoxConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.BoxConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.BoxConfigurationOutput]
 
 ### QuipConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.QuipConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.QuipConfigurationOutput]
 
 ### JiraConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.JiraConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.JiraConfigurationOutput]
 
 ### GitHubConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.GitHubConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.GitHubConfigurationOutput]
 
 ### AlfrescoConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.AlfrescoConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.AlfrescoConfigurationOutput]
 
 ### TemplateConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.TemplateConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.TemplateConfigurationOutput]
 
 
-# DataSourceConfigurationUnionTypeDef
+# DataSourceConfigurationUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# DataSourceGroupTypeDef
+# DataSourceGroup
 
 ### GroupId
 - **Type**: <class 'str'>
@@ -1366,41 +1366,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DataSourceSummaryTypeDef
+# DataSourceSummary
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# DataSourceSyncJobMetricTargetTypeDef
-
-### DataSourceId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### DataSourceSyncJobId
-- **Type**: typing.Optional[str]
-
-
-# DataSourceSyncJobMetricsTypeDef
-
-### DocumentsAdded
-- **Type**: typing.Optional[str]
-
-### DocumentsModified
-- **Type**: typing.Optional[str]
-
-### DocumentsDeleted
-- **Type**: typing.Optional[str]
-
-### DocumentsFailed
-- **Type**: typing.Optional[str]
-
-### DocumentsScanned
-- **Type**: typing.Optional[str]
-
-
-# DataSourceSyncJobTypeDef
+# DataSourceSyncJob
 
 ### ExecutionId
 - **Type**: typing.Optional[str]
@@ -1424,10 +1396,38 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Metrics
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.DataSourceSyncJobMetricsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.DataSourceSyncJobMetrics]
 
 
-# DataSourceToIndexFieldMappingTypeDef
+# DataSourceSyncJobMetricTarget
+
+### DataSourceId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### DataSourceSyncJobId
+- **Type**: typing.Optional[str]
+
+
+# DataSourceSyncJobMetrics
+
+### DocumentsAdded
+- **Type**: typing.Optional[str]
+
+### DocumentsModified
+- **Type**: typing.Optional[str]
+
+### DocumentsDeleted
+- **Type**: typing.Optional[str]
+
+### DocumentsFailed
+- **Type**: typing.Optional[str]
+
+### DocumentsScanned
+- **Type**: typing.Optional[str]
+
+
+# DataSourceToIndexFieldMapping
 
 ### DataSourceFieldName
 - **Type**: <class 'str'>
@@ -1441,18 +1441,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DataSourceVpcConfigurationOutputTypeDef
-
-### SubnetIds
-- **Type**: typing.List[str]
-- **Required**: Yes
-
-### SecurityGroupIds
-- **Type**: typing.List[str]
-- **Required**: Yes
-
-
-# DataSourceVpcConfigurationTypeDef
+# DataSourceVpcConfiguration
 
 ### SubnetIds
 - **Type**: typing.Sequence[str]
@@ -1463,61 +1452,72 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DataSourceVpcConfigurationUnionTypeDef
+# DataSourceVpcConfigurationOutput
+
+### SubnetIds
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### SecurityGroupIds
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+
+# DataSourceVpcConfigurationUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# DatabaseConfigurationOutputTypeDef
+# DatabaseConfiguration
 
 ### DatabaseEngineType
 - **Type**: typing.Literal['RDS_AURORA_MYSQL', 'RDS_AURORA_POSTGRESQL', 'RDS_MYSQL', 'RDS_POSTGRESQL']
 - **Required**: Yes
 
 ### ConnectionConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ConnectionConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ConnectionConfiguration'>
 - **Required**: Yes
 
 ### ColumnConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ColumnConfigurationOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ColumnConfiguration'>
 - **Required**: Yes
 
 ### VpcConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.DataSourceVpcConfigurationOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.DataSourceVpcConfiguration]
 
 ### AclConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.AclConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### SqlConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.SqlConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# DatabaseConfigurationTypeDef
+# DatabaseConfigurationOutput
 
 ### DatabaseEngineType
 - **Type**: typing.Literal['RDS_AURORA_MYSQL', 'RDS_AURORA_POSTGRESQL', 'RDS_MYSQL', 'RDS_POSTGRESQL']
 - **Required**: Yes
 
 ### ConnectionConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ConnectionConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ConnectionConfiguration'>
 - **Required**: Yes
 
 ### ColumnConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ColumnConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ColumnConfigurationOutput'>
 - **Required**: Yes
 
 ### VpcConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.DataSourceVpcConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.DataSourceVpcConfigurationOutput]
 
 ### AclConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.AclConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### SqlConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.SqlConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# DeleteAccessControlConfigurationRequestTypeDef
+# DeleteAccessControlConfigurationRequest
 
 ### IndexId
 - **Type**: <class 'str'>
@@ -1528,18 +1528,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteDataSourceRequestTypeDef
-
-### Id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### IndexId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# DeleteExperienceRequestTypeDef
+# DeleteDataSourceRequest
 
 ### Id
 - **Type**: <class 'str'>
@@ -1550,7 +1539,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteFaqRequestTypeDef
+# DeleteExperienceRequest
 
 ### Id
 - **Type**: <class 'str'>
@@ -1561,14 +1550,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteIndexRequestTypeDef
+# DeleteFaqRequest
+
+### Id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### IndexId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DeleteIndexRequest
 
 ### Id
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeletePrincipalMappingRequestTypeDef
+# DeletePrincipalMappingRequest
 
 ### IndexId
 - **Type**: <class 'str'>
@@ -1585,7 +1585,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# DeleteQuerySuggestionsBlockListRequestTypeDef
+# DeleteQuerySuggestionsBlockListRequest
 
 ### IndexId
 - **Type**: <class 'str'>
@@ -1596,7 +1596,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteThesaurusRequestTypeDef
+# DeleteThesaurusRequest
 
 ### Id
 - **Type**: <class 'str'>
@@ -1607,7 +1607,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeAccessControlConfigurationRequestTypeDef
+# DescribeAccessControlConfigurationRequest
 
 ### IndexId
 - **Type**: <class 'str'>
@@ -1618,7 +1618,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeAccessControlConfigurationResponseTypeDef
+# DescribeAccessControlConfigurationResponse
 
 ### Name
 - **Type**: <class 'str'>
@@ -1633,19 +1633,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AccessControlList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_classes.PrincipalTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_classes.Principal]
 - **Required**: Yes
 
 ### HierarchicalAccessControlList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_classes.HierarchicalPrincipalOutputTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_classes.HierarchicalPrincipalOutput]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeDataSourceRequestTypeDef
+# DescribeDataSourceRequest
 
 ### Id
 - **Type**: <class 'str'>
@@ -1656,7 +1656,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeExperienceRequestTypeDef
+# DescribeExperienceRequest
 
 ### Id
 - **Type**: <class 'str'>
@@ -1667,7 +1667,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeExperienceResponseTypeDef
+# DescribeExperienceResponse
 
 ### Id
 - **Type**: <class 'str'>
@@ -1682,11 +1682,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Endpoints
-- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_classes.ExperienceEndpointTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_classes.ExperienceEndpoint]
 - **Required**: Yes
 
 ### Configuration
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ExperienceConfigurationOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ExperienceConfigurationOutput'>
 - **Required**: Yes
 
 ### CreatedAt
@@ -1714,11 +1714,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeFaqRequestTypeDef
+# DescribeFaqRequest
 
 ### Id
 - **Type**: <class 'str'>
@@ -1729,7 +1729,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeFaqResponseTypeDef
+# DescribeFaqResponse
 
 ### Id
 - **Type**: <class 'str'>
@@ -1756,7 +1756,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### S3Path
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.S3PathTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.S3Path'>
 - **Required**: Yes
 
 ### Status
@@ -1780,11 +1780,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeFeaturedResultsSetRequestTypeDef
+# DescribeFeaturedResultsSetRequest
 
 ### IndexId
 - **Type**: <class 'str'>
@@ -1795,7 +1795,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeFeaturedResultsSetResponseTypeDef
+# DescribeFeaturedResultsSetResponse
 
 ### FeaturedResultsSetId
 - **Type**: <class 'str'>
@@ -1818,11 +1818,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### FeaturedDocumentsWithMetadata
-- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_classes.FeaturedDocumentWithMetadataTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_classes.FeaturedDocumentWithMetadata]
 - **Required**: Yes
 
 ### FeaturedDocumentsMissing
-- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_classes.FeaturedDocumentMissingTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_classes.FeaturedDocumentMissing]
 - **Required**: Yes
 
 ### LastUpdatedTimestamp
@@ -1834,18 +1834,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeIndexRequestTypeDef
+# DescribeIndexRequest
 
 ### Id
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeIndexResponseTypeDef
+# DescribeIndexResponse
 
 ### Name
 - **Type**: <class 'str'>
@@ -1864,7 +1864,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ServerSideEncryptionConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ServerSideEncryptionConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ServerSideEncryptionConfiguration'>
 - **Required**: Yes
 
 ### Status
@@ -1884,11 +1884,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DocumentMetadataConfigurations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_classes.DocumentMetadataConfigurationOutputTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_classes.DocumentMetadataConfigurationOutput]
 - **Required**: Yes
 
 ### IndexStatistics
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.IndexStatisticsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.IndexStatistics'>
 - **Required**: Yes
 
 ### ErrorMessage
@@ -1896,11 +1896,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CapacityUnits
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.CapacityUnitsConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.CapacityUnitsConfiguration'>
 - **Required**: Yes
 
 ### UserTokenConfigurations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_classes.UserTokenConfigurationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_classes.UserTokenConfiguration]
 - **Required**: Yes
 
 ### UserContextPolicy
@@ -1908,15 +1908,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### UserGroupResolutionConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.UserGroupResolutionConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.UserGroupResolutionConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribePrincipalMappingRequestTypeDef
+# DescribePrincipalMappingRequest
 
 ### IndexId
 - **Type**: <class 'str'>
@@ -1930,7 +1930,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribePrincipalMappingResponseTypeDef
+# DescribePrincipalMappingResponse
 
 ### IndexId
 - **Type**: <class 'str'>
@@ -1945,15 +1945,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### GroupOrderingIdSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_classes.GroupOrderingIdSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_classes.GroupOrderingIdSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeQuerySuggestionsBlockListRequestTypeDef
+# DescribeQuerySuggestionsBlockListRequest
 
 ### IndexId
 - **Type**: <class 'str'>
@@ -1964,7 +1964,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeQuerySuggestionsBlockListResponseTypeDef
+# DescribeQuerySuggestionsBlockListResponse
 
 ### IndexId
 - **Type**: <class 'str'>
@@ -1999,7 +1999,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SourceS3Path
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.S3PathTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.S3Path'>
 - **Required**: Yes
 
 ### ItemCount
@@ -2015,18 +2015,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeQuerySuggestionsConfigRequestTypeDef
+# DescribeQuerySuggestionsConfigRequest
 
 ### IndexId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeQuerySuggestionsConfigResponseTypeDef
+# DescribeQuerySuggestionsConfigResponse
 
 ### Mode
 - **Type**: typing.Literal['ENABLED', 'LEARN_ONLY']
@@ -2065,15 +2065,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AttributeSuggestionsConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.AttributeSuggestionsDescribeConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.AttributeSuggestionsDescribeConfig'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeThesaurusRequestTypeDef
+# DescribeThesaurusRequest
 
 ### Id
 - **Type**: <class 'str'>
@@ -2084,7 +2084,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeThesaurusResponseTypeDef
+# DescribeThesaurusResponse
 
 ### Id
 - **Type**: <class 'str'>
@@ -2123,7 +2123,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SourceS3Path
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.S3PathTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.S3Path'>
 - **Required**: Yes
 
 ### FileSizeBytes
@@ -2139,11 +2139,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DisassociateEntitiesFromExperienceRequestTypeDef
+# DisassociateEntitiesFromExperienceRequest
 
 ### Id
 - **Type**: <class 'str'>
@@ -2154,22 +2154,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### EntityList
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.EntityConfigurationTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.EntityConfiguration]
 - **Required**: Yes
 
 
-# DisassociateEntitiesFromExperienceResponseTypeDef
+# DisassociateEntitiesFromExperienceResponse
 
 ### FailedEntityList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_classes.FailedEntityTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_classes.FailedEntity]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DisassociatePersonasFromEntitiesRequestTypeDef
+# DisassociatePersonasFromEntitiesRequest
 
 ### Id
 - **Type**: <class 'str'>
@@ -2184,18 +2184,60 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DisassociatePersonasFromEntitiesResponseTypeDef
+# DisassociatePersonasFromEntitiesResponse
 
 ### FailedEntityList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_classes.FailedEntityTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_classes.FailedEntity]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DocumentAttributeConditionOutputTypeDef
+# Document
+
+### Id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Title
+- **Type**: typing.Optional[str]
+
+### Blob
+- **Type**: <class 'NoneType'>
+
+### S3Path
+- **Type**: <class 'NoneType'>
+
+### Attributes
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.DocumentAttributeUnion]]
+
+### AccessControlList
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.Principal]]
+
+### HierarchicalAccessControlList
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.HierarchicalPrincipalUnion]]
+
+### ContentType
+- **Type**: typing.Optional[typing.Literal['CSV', 'HTML', 'JSON', 'MD', 'MS_EXCEL', 'MS_WORD', 'PDF', 'PLAIN_TEXT', 'PPT', 'RTF', 'XML', 'XSLT']]
+
+### AccessControlConfigurationId
+- **Type**: typing.Optional[str]
+
+
+# DocumentAttribute
+
+### Key
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Value
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.DocumentAttributeValueUnion'>
+- **Required**: Yes
+
+
+# DocumentAttributeCondition
 
 ### ConditionDocumentAttributeKey
 - **Type**: <class 'str'>
@@ -2206,10 +2248,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ConditionOnValue
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.DocumentAttributeValueOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.DocumentAttributeValue]
 
 
-# DocumentAttributeConditionTypeDef
+# DocumentAttributeConditionOutput
 
 ### ConditionDocumentAttributeKey
 - **Type**: <class 'str'>
@@ -2220,21 +2262,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ConditionOnValue
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.DocumentAttributeValueTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.DocumentAttributeValueOutput]
 
 
-# DocumentAttributeOutputTypeDef
+# DocumentAttributeOutput
 
 ### Key
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Value
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.DocumentAttributeValueOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.DocumentAttributeValueOutput'>
 - **Required**: Yes
 
 
-# DocumentAttributeTargetOutputTypeDef
+# DocumentAttributeTarget
 
 ### TargetDocumentAttributeKey
 - **Type**: typing.Optional[str]
@@ -2243,10 +2285,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### TargetDocumentAttributeValue
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.DocumentAttributeValueOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.DocumentAttributeValue]
 
 
-# DocumentAttributeTargetTypeDef
+# DocumentAttributeTargetOutput
 
 ### TargetDocumentAttributeKey
 - **Type**: typing.Optional[str]
@@ -2255,30 +2297,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### TargetDocumentAttributeValue
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.DocumentAttributeValueTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.DocumentAttributeValueOutput]
 
 
-# DocumentAttributeTypeDef
-
-### Key
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Value
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.DocumentAttributeValueUnionTypeDef'>
-- **Required**: Yes
-
-
-# DocumentAttributeUnionTypeDef
+# DocumentAttributeUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# DocumentAttributeValueCountPairTypeDef
+# DocumentAttributeValue
+
+### StringValue
+- **Type**: typing.Optional[str]
+
+### StringListValue
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### LongValue
+- **Type**: typing.Optional[int]
+
+### DateValue
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.Timestamp]
+
+
+# DocumentAttributeValueCountPair
 
 ### DocumentAttributeValue
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.DocumentAttributeValueOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.DocumentAttributeValueOutput]
 
 ### Count
 - **Type**: typing.Optional[int]
@@ -2287,7 +2333,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[typing.Dict[str, typing.Any]]]
 
 
-# DocumentAttributeValueOutputTypeDef
+# DocumentAttributeValueOutput
 
 ### StringValue
 - **Type**: typing.Optional[str]
@@ -2302,105 +2348,59 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# DocumentAttributeValueTypeDef
-
-### StringValue
-- **Type**: typing.Optional[str]
-
-### StringListValue
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### LongValue
-- **Type**: typing.Optional[int]
-
-### DateValue
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.TimestampTypeDef]
-
-
-# DocumentAttributeValueUnionTypeDef
+# DocumentAttributeValueUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# DocumentInfoTypeDef
+# DocumentInfo
 
 ### DocumentId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Attributes
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.DocumentAttributeUnionTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.DocumentAttributeUnion]]
 
 
-# DocumentMetadataConfigurationOutputTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# DocumentMetadataConfigurationUnionTypeDef
+# DocumentMetadataConfigurationOutput
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# DocumentRelevanceConfigurationTypeDef
+# DocumentMetadataConfigurationUnion
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# DocumentRelevanceConfiguration
 
 ### Name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Relevance
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.RelevanceUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.RelevanceUnion'>
 - **Required**: Yes
 
 
-# DocumentTypeDef
-
-### Id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Title
-- **Type**: typing.Optional[str]
-
-### Blob
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.BlobTypeDef]
-
-### S3Path
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.S3PathTypeDef]
-
-### Attributes
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.DocumentAttributeUnionTypeDef]]
-
-### AccessControlList
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.PrincipalTypeDef]]
-
-### HierarchicalAccessControlList
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.HierarchicalPrincipalUnionTypeDef]]
-
-### ContentType
-- **Type**: typing.Optional[typing.Literal['CSV', 'HTML', 'JSON', 'MD', 'MS_EXCEL', 'MS_WORD', 'PDF', 'PLAIN_TEXT', 'PPT', 'RTF', 'XML', 'XSLT']]
-
-### AccessControlConfigurationId
-- **Type**: typing.Optional[str]
-
-
-# DocumentsMetadataConfigurationTypeDef
+# DocumentsMetadataConfiguration
 
 ### S3Prefix
 - **Type**: typing.Optional[str]
 
 
-# EmptyResponseMetadataTypeDef
+# EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# EntityConfigurationTypeDef
+# EntityConfiguration
 
 ### EntityId
 - **Type**: <class 'str'>
@@ -2411,7 +2411,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# EntityDisplayDataTypeDef
+# EntityDisplayData
 
 ### UserName
 - **Type**: typing.Optional[str]
@@ -2429,7 +2429,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# EntityPersonaConfigurationTypeDef
+# EntityPersonaConfiguration
 
 ### EntityId
 - **Type**: <class 'str'>
@@ -2440,7 +2440,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ExpandConfigurationTypeDef
+# ExpandConfiguration
 
 ### MaxResultItemsToExpand
 - **Type**: typing.Optional[int]
@@ -2449,7 +2449,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ExpandedResultItemTypeDef
+# ExpandedResultItem
 
 ### Id
 - **Type**: typing.Optional[str]
@@ -2458,43 +2458,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### DocumentTitle
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.TextWithHighlightsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.TextWithHighlights]
 
 ### DocumentExcerpt
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.TextWithHighlightsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.TextWithHighlights]
 
 ### DocumentURI
 - **Type**: typing.Optional[str]
 
 ### DocumentAttributes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.DocumentAttributeOutputTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.DocumentAttributeOutput]]
 
 
-# ExperienceConfigurationOutputTypeDef
-
-### ContentSourceConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.ContentSourceConfigurationOutputTypeDef]
-
-### UserIdentityConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.UserIdentityConfigurationTypeDef]
-
-
-# ExperienceConfigurationTypeDef
+# ExperienceConfiguration
 
 ### ContentSourceConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.ContentSourceConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### UserIdentityConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.UserIdentityConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# ExperienceConfigurationUnionTypeDef
+# ExperienceConfigurationOutput
+
+### ContentSourceConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.ContentSourceConfigurationOutput]
+
+### UserIdentityConfiguration
+- **Type**: <class 'NoneType'>
+
+
+# ExperienceConfigurationUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ExperienceEndpointTypeDef
+# ExperienceEndpoint
 
 ### EndpointType
 - **Type**: typing.Optional[typing.Literal['HOME']]
@@ -2503,7 +2503,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ExperienceEntitiesSummaryTypeDef
+# ExperienceEntitiesSummary
 
 ### EntityId
 - **Type**: typing.Optional[str]
@@ -2512,10 +2512,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['GROUP', 'USER']]
 
 ### DisplayData
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.EntityDisplayDataTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.EntityDisplayData]
 
 
-# ExperiencesSummaryTypeDef
+# ExperiencesSummary
 
 ### Name
 - **Type**: typing.Optional[str]
@@ -2530,22 +2530,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'CREATING', 'DELETING', 'FAILED']]
 
 ### Endpoints
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.ExperienceEndpointTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.ExperienceEndpoint]]
 
 
-# FacetResultTypeDef
-
-### DocumentAttributeKey
-- **Type**: typing.Optional[str]
-
-### DocumentAttributeValueType
-- **Type**: typing.Optional[typing.Literal['DATE_VALUE', 'LONG_VALUE', 'STRING_LIST_VALUE', 'STRING_VALUE']]
-
-### DocumentAttributeValueCountPairs
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.DocumentAttributeValueCountPairTypeDef]]
-
-
-# FacetTypeDef
+# Facet
 
 ### DocumentAttributeKey
 - **Type**: typing.Optional[str]
@@ -2557,7 +2545,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# FailedEntityTypeDef
+# FacetResult
+
+### DocumentAttributeKey
+- **Type**: typing.Optional[str]
+
+### DocumentAttributeValueType
+- **Type**: typing.Optional[typing.Literal['DATE_VALUE', 'LONG_VALUE', 'STRING_LIST_VALUE', 'STRING_VALUE']]
+
+### DocumentAttributeValueCountPairs
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.DocumentAttributeValueCountPair]]
+
+
+# FailedEntity
 
 ### EntityId
 - **Type**: typing.Optional[str]
@@ -2566,14 +2566,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# FaqStatisticsTypeDef
+# FaqStatistics
 
 ### IndexedQuestionAnswersCount
 - **Type**: <class 'int'>
 - **Required**: Yes
 
 
-# FaqSummaryTypeDef
+# FaqSummary
 
 ### Id
 - **Type**: typing.Optional[str]
@@ -2597,19 +2597,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# FeaturedDocumentMissingTypeDef
+# FeaturedDocument
 
 ### Id
 - **Type**: typing.Optional[str]
 
 
-# FeaturedDocumentTypeDef
+# FeaturedDocumentMissing
 
 ### Id
 - **Type**: typing.Optional[str]
 
 
-# FeaturedDocumentWithMetadataTypeDef
+# FeaturedDocumentWithMetadata
 
 ### Id
 - **Type**: typing.Optional[str]
@@ -2621,31 +2621,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# FeaturedResultsItemTypeDef
+# FeaturedResultsItem
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# FeaturedResultsSetSummaryTypeDef
-
-### FeaturedResultsSetId
-- **Type**: typing.Optional[str]
-
-### FeaturedResultsSetName
-- **Type**: typing.Optional[str]
-
-### Status
-- **Type**: typing.Optional[typing.Literal['ACTIVE', 'INACTIVE']]
-
-### LastUpdatedTimestamp
-- **Type**: typing.Optional[int]
-
-### CreationTimestamp
-- **Type**: typing.Optional[int]
-
-
-# FeaturedResultsSetTypeDef
+# FeaturedResultsSet
 
 ### FeaturedResultsSetId
 - **Type**: typing.Optional[str]
@@ -2663,7 +2645,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 ### FeaturedDocuments
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.FeaturedDocumentTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.FeaturedDocument]]
 
 ### LastUpdatedTimestamp
 - **Type**: typing.Optional[int]
@@ -2672,34 +2654,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# FsxConfigurationOutputTypeDef
+# FeaturedResultsSetSummary
 
-### FileSystemId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### FileSystemType
-- **Type**: typing.Literal['WINDOWS']
-- **Required**: Yes
-
-### VpcConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.DataSourceVpcConfigurationOutputTypeDef'>
-- **Required**: Yes
-
-### SecretArn
+### FeaturedResultsSetId
 - **Type**: typing.Optional[str]
 
-### InclusionPatterns
-- **Type**: typing.Optional[typing.List[str]]
+### FeaturedResultsSetName
+- **Type**: typing.Optional[str]
 
-### ExclusionPatterns
-- **Type**: typing.Optional[typing.List[str]]
+### Status
+- **Type**: typing.Optional[typing.Literal['ACTIVE', 'INACTIVE']]
 
-### FieldMappings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMappingTypeDef]]
+### LastUpdatedTimestamp
+- **Type**: typing.Optional[int]
+
+### CreationTimestamp
+- **Type**: typing.Optional[int]
 
 
-# FsxConfigurationTypeDef
+# FsxConfiguration
 
 ### FileSystemId
 - **Type**: <class 'str'>
@@ -2710,7 +2683,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### VpcConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.DataSourceVpcConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.DataSourceVpcConfiguration'>
 - **Required**: Yes
 
 ### SecretArn
@@ -2723,10 +2696,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### FieldMappings
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMappingTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMapping]]
 
 
-# GetQuerySuggestionsRequestTypeDef
+# FsxConfigurationOutput
+
+### FileSystemId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### FileSystemType
+- **Type**: typing.Literal['WINDOWS']
+- **Required**: Yes
+
+### VpcConfiguration
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.DataSourceVpcConfigurationOutput'>
+- **Required**: Yes
+
+### SecretArn
+- **Type**: typing.Optional[str]
+
+### InclusionPatterns
+- **Type**: typing.Optional[typing.List[str]]
+
+### ExclusionPatterns
+- **Type**: typing.Optional[typing.List[str]]
+
+### FieldMappings
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMapping]]
+
+
+# GetQuerySuggestionsRequest
 
 ### IndexId
 - **Type**: <class 'str'>
@@ -2743,25 +2743,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['DOCUMENT_ATTRIBUTES', 'QUERY']]]
 
 ### AttributeSuggestionsConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.AttributeSuggestionsGetConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.AttributeSuggestionsGetConfig]
 
 
-# GetQuerySuggestionsResponseTypeDef
+# GetQuerySuggestionsResponse
 
 ### QuerySuggestionsId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Suggestions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_classes.SuggestionTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_classes.Suggestion]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetSnapshotsRequestTypeDef
+# GetSnapshotsRequest
 
 ### IndexId
 - **Type**: <class 'str'>
@@ -2782,10 +2782,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# GetSnapshotsResponseTypeDef
+# GetSnapshotsResponse
 
 ### SnapShotTimeFilter
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.TimeRangeOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.TimeRangeOutput'>
 - **Required**: Yes
 
 ### SnapshotsDataHeader
@@ -2797,26 +2797,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# GitHubConfigurationOutputTypeDef
+# GitHubConfiguration
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# GitHubConfigurationTypeDef
+# GitHubConfigurationOutput
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# GitHubDocumentCrawlPropertiesTypeDef
+# GitHubDocumentCrawlProperties
 
 ### CrawlRepositoryDocuments
 - **Type**: typing.Optional[bool]
@@ -2840,32 +2840,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# GoogleDriveConfigurationOutputTypeDef
-
-### SecretArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### InclusionPatterns
-- **Type**: typing.Optional[typing.List[str]]
-
-### ExclusionPatterns
-- **Type**: typing.Optional[typing.List[str]]
-
-### FieldMappings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMappingTypeDef]]
-
-### ExcludeMimeTypes
-- **Type**: typing.Optional[typing.List[str]]
-
-### ExcludeUserAccounts
-- **Type**: typing.Optional[typing.List[str]]
-
-### ExcludeSharedDrives
-- **Type**: typing.Optional[typing.List[str]]
-
-
-# GoogleDriveConfigurationTypeDef
+# GoogleDriveConfiguration
 
 ### SecretArn
 - **Type**: <class 'str'>
@@ -2878,7 +2853,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### FieldMappings
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMappingTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMapping]]
 
 ### ExcludeMimeTypes
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -2890,19 +2865,44 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# GroupMembersTypeDef
+# GoogleDriveConfigurationOutput
+
+### SecretArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### InclusionPatterns
+- **Type**: typing.Optional[typing.List[str]]
+
+### ExclusionPatterns
+- **Type**: typing.Optional[typing.List[str]]
+
+### FieldMappings
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMapping]]
+
+### ExcludeMimeTypes
+- **Type**: typing.Optional[typing.List[str]]
+
+### ExcludeUserAccounts
+- **Type**: typing.Optional[typing.List[str]]
+
+### ExcludeSharedDrives
+- **Type**: typing.Optional[typing.List[str]]
+
+
+# GroupMembers
 
 ### MemberGroups
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.MemberGroupTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.MemberGroup]]
 
 ### MemberUsers
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.MemberUserTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.MemberUser]]
 
 ### S3PathforGroupMembers
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.S3PathTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.S3Path]
 
 
-# GroupOrderingIdSummaryTypeDef
+# GroupOrderingIdSummary
 
 ### Status
 - **Type**: typing.Optional[typing.Literal['DELETED', 'DELETING', 'FAILED', 'PROCESSING', 'SUCCEEDED']]
@@ -2920,7 +2920,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GroupSummaryTypeDef
+# GroupSummary
 
 ### GroupId
 - **Type**: typing.Optional[str]
@@ -2929,27 +2929,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# HierarchicalPrincipalOutputTypeDef
+# HierarchicalPrincipal
 
 ### PrincipalList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_classes.PrincipalTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.Principal]
 - **Required**: Yes
 
 
-# HierarchicalPrincipalTypeDef
+# HierarchicalPrincipalOutput
 
 ### PrincipalList
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.PrincipalTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_classes.Principal]
 - **Required**: Yes
 
 
-# HierarchicalPrincipalUnionTypeDef
+# HierarchicalPrincipalUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# HookConfigurationOutputTypeDef
+# HookConfiguration
 
 ### LambdaArn
 - **Type**: <class 'str'>
@@ -2960,10 +2960,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### InvocationCondition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.DocumentAttributeConditionOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.DocumentAttributeCondition]
 
 
-# HookConfigurationTypeDef
+# HookConfigurationOutput
 
 ### LambdaArn
 - **Type**: <class 'str'>
@@ -2974,10 +2974,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### InvocationCondition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.DocumentAttributeConditionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.DocumentAttributeConditionOutput]
 
 
-# IndexConfigurationSummaryTypeDef
+# IndexConfigurationSummary
 
 ### CreatedAt
 - **Type**: <class 'datetime.datetime'>
@@ -3001,92 +3001,42 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DEVELOPER_EDITION', 'ENTERPRISE_EDITION', 'GEN_AI_ENTERPRISE_EDITION']]
 
 
-# IndexStatisticsTypeDef
+# IndexStatistics
 
 ### FaqStatistics
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.FaqStatisticsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.FaqStatistics'>
 - **Required**: Yes
 
 ### TextDocumentStatistics
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.TextDocumentStatisticsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.TextDocumentStatistics'>
 - **Required**: Yes
 
 
-# InlineCustomDocumentEnrichmentConfigurationOutputTypeDef
+# InlineCustomDocumentEnrichmentConfiguration
 
 ### Condition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.DocumentAttributeConditionOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.DocumentAttributeCondition]
 
 ### Target
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.DocumentAttributeTargetOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.DocumentAttributeTarget]
 
 ### DocumentContentDeletion
 - **Type**: typing.Optional[bool]
 
 
-# InlineCustomDocumentEnrichmentConfigurationTypeDef
+# InlineCustomDocumentEnrichmentConfigurationOutput
 
 ### Condition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.DocumentAttributeConditionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.DocumentAttributeConditionOutput]
 
 ### Target
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.DocumentAttributeTargetTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.DocumentAttributeTargetOutput]
 
 ### DocumentContentDeletion
 - **Type**: typing.Optional[bool]
 
 
-# JiraConfigurationOutputTypeDef
-
-### JiraAccountUrl
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### SecretArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### UseChangeLog
-- **Type**: typing.Optional[bool]
-
-### Project
-- **Type**: typing.Optional[typing.List[str]]
-
-### IssueType
-- **Type**: typing.Optional[typing.List[str]]
-
-### Status
-- **Type**: typing.Optional[typing.List[str]]
-
-### IssueSubEntityFilter
-- **Type**: typing.Optional[typing.List[typing.Literal['ATTACHMENTS', 'COMMENTS', 'WORKLOGS']]]
-
-### AttachmentFieldMappings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMappingTypeDef]]
-
-### CommentFieldMappings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMappingTypeDef]]
-
-### IssueFieldMappings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMappingTypeDef]]
-
-### ProjectFieldMappings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMappingTypeDef]]
-
-### WorkLogFieldMappings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMappingTypeDef]]
-
-### InclusionPatterns
-- **Type**: typing.Optional[typing.List[str]]
-
-### ExclusionPatterns
-- **Type**: typing.Optional[typing.List[str]]
-
-### VpcConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.DataSourceVpcConfigurationOutputTypeDef]
-
-
-# JiraConfigurationTypeDef
+# JiraConfiguration
 
 ### JiraAccountUrl
 - **Type**: <class 'str'>
@@ -3112,19 +3062,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['ATTACHMENTS', 'COMMENTS', 'WORKLOGS']]]
 
 ### AttachmentFieldMappings
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMappingTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMapping]]
 
 ### CommentFieldMappings
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMappingTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMapping]]
 
 ### IssueFieldMappings
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMappingTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMapping]]
 
 ### ProjectFieldMappings
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMappingTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMapping]]
 
 ### WorkLogFieldMappings
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMappingTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMapping]]
 
 ### InclusionPatterns
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -3133,10 +3083,60 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### VpcConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.DataSourceVpcConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.DataSourceVpcConfiguration]
 
 
-# JsonTokenTypeConfigurationTypeDef
+# JiraConfigurationOutput
+
+### JiraAccountUrl
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### SecretArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### UseChangeLog
+- **Type**: typing.Optional[bool]
+
+### Project
+- **Type**: typing.Optional[typing.List[str]]
+
+### IssueType
+- **Type**: typing.Optional[typing.List[str]]
+
+### Status
+- **Type**: typing.Optional[typing.List[str]]
+
+### IssueSubEntityFilter
+- **Type**: typing.Optional[typing.List[typing.Literal['ATTACHMENTS', 'COMMENTS', 'WORKLOGS']]]
+
+### AttachmentFieldMappings
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMapping]]
+
+### CommentFieldMappings
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMapping]]
+
+### IssueFieldMappings
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMapping]]
+
+### ProjectFieldMappings
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMapping]]
+
+### WorkLogFieldMappings
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMapping]]
+
+### InclusionPatterns
+- **Type**: typing.Optional[typing.List[str]]
+
+### ExclusionPatterns
+- **Type**: typing.Optional[typing.List[str]]
+
+### VpcConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.DataSourceVpcConfigurationOutput]
+
+
+# JsonTokenTypeConfiguration
 
 ### UserNameAttributeField
 - **Type**: <class 'str'>
@@ -3147,7 +3147,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# JwtTokenTypeConfigurationTypeDef
+# JwtTokenTypeConfiguration
 
 ### KeyLocation
 - **Type**: typing.Literal['SECRET_MANAGER', 'URL']
@@ -3172,7 +3172,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListAccessControlConfigurationsRequestTypeDef
+# ListAccessControlConfigurationsRequest
 
 ### IndexId
 - **Type**: <class 'str'>
@@ -3185,21 +3185,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListAccessControlConfigurationsResponseTypeDef
+# ListAccessControlConfigurationsResponse
 
 ### AccessControlConfigurations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_classes.AccessControlConfigurationSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_classes.AccessControlConfigurationSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListDataSourceSyncJobsRequestTypeDef
+# ListDataSourceSyncJobsRequest
 
 ### Id
 - **Type**: <class 'str'>
@@ -3216,27 +3216,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### StartTimeFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.TimeRangeUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.TimeRangeUnion]
 
 ### StatusFilter
 - **Type**: typing.Optional[typing.Literal['ABORTED', 'FAILED', 'INCOMPLETE', 'STOPPING', 'SUCCEEDED', 'SYNCING', 'SYNCING_INDEXING']]
 
 
-# ListDataSourceSyncJobsResponseTypeDef
+# ListDataSourceSyncJobsResponse
 
 ### History
-- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_classes.DataSourceSyncJobTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_classes.DataSourceSyncJob]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListDataSourcesRequestTypeDef
+# ListDataSourcesRequest
 
 ### IndexId
 - **Type**: <class 'str'>
@@ -3249,21 +3249,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListDataSourcesResponseTypeDef
+# ListDataSourcesResponse
 
 ### SummaryItems
-- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_classes.DataSourceSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_classes.DataSourceSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListEntityPersonasRequestTypeDef
+# ListEntityPersonasRequest
 
 ### Id
 - **Type**: <class 'str'>
@@ -3280,21 +3280,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListEntityPersonasResponseTypeDef
+# ListEntityPersonasResponse
 
 ### SummaryItems
-- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_classes.PersonasSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_classes.PersonasSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListExperienceEntitiesRequestTypeDef
+# ListExperienceEntitiesRequest
 
 ### Id
 - **Type**: <class 'str'>
@@ -3308,21 +3308,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListExperienceEntitiesResponseTypeDef
+# ListExperienceEntitiesResponse
 
 ### SummaryItems
-- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_classes.ExperienceEntitiesSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_classes.ExperienceEntitiesSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListExperiencesRequestTypeDef
+# ListExperiencesRequest
 
 ### IndexId
 - **Type**: <class 'str'>
@@ -3335,21 +3335,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListExperiencesResponseTypeDef
+# ListExperiencesResponse
 
 ### SummaryItems
-- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_classes.ExperiencesSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_classes.ExperiencesSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListFaqsRequestTypeDef
+# ListFaqsRequest
 
 ### IndexId
 - **Type**: <class 'str'>
@@ -3362,21 +3362,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListFaqsResponseTypeDef
+# ListFaqsResponse
 
 ### FaqSummaryItems
-- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_classes.FaqSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_classes.FaqSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListFeaturedResultsSetsRequestTypeDef
+# ListFeaturedResultsSetsRequest
 
 ### IndexId
 - **Type**: <class 'str'>
@@ -3389,21 +3389,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListFeaturedResultsSetsResponseTypeDef
+# ListFeaturedResultsSetsResponse
 
 ### FeaturedResultsSetSummaryItems
-- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_classes.FeaturedResultsSetSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_classes.FeaturedResultsSetSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListGroupsOlderThanOrderingIdRequestTypeDef
+# ListGroupsOlderThanOrderingIdRequest
 
 ### IndexId
 - **Type**: <class 'str'>
@@ -3423,21 +3423,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListGroupsOlderThanOrderingIdResponseTypeDef
+# ListGroupsOlderThanOrderingIdResponse
 
 ### GroupsSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_classes.GroupSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_classes.GroupSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListIndicesRequestTypeDef
+# ListIndicesRequest
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -3446,21 +3446,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListIndicesResponseTypeDef
+# ListIndicesResponse
 
 ### IndexConfigurationSummaryItems
-- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_classes.IndexConfigurationSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_classes.IndexConfigurationSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListQuerySuggestionsBlockListsRequestTypeDef
+# ListQuerySuggestionsBlockListsRequest
 
 ### IndexId
 - **Type**: <class 'str'>
@@ -3473,39 +3473,39 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListQuerySuggestionsBlockListsResponseTypeDef
+# ListQuerySuggestionsBlockListsResponse
 
 ### BlockListSummaryItems
-- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_classes.QuerySuggestionsBlockListSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_classes.QuerySuggestionsBlockListSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestTypeDef
+# ListTagsForResourceRequest
 
 ### ResourceARN
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ListTagsForResourceResponseTypeDef
+# ListTagsForResourceResponse
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_classes.TagTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListThesauriRequestTypeDef
+# ListThesauriRequest
 
 ### IndexId
 - **Type**: <class 'str'>
@@ -3518,21 +3518,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListThesauriResponseTypeDef
+# ListThesauriResponse
 
 ### ThesaurusSummaryItems
-- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_classes.ThesaurusSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_classes.ThesaurusSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# MemberGroupTypeDef
+# MemberGroup
 
 ### GroupId
 - **Type**: <class 'str'>
@@ -3542,14 +3542,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# MemberUserTypeDef
+# MemberUser
 
 ### UserId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# OnPremiseConfigurationTypeDef
+# OnPremiseConfiguration
 
 ### HostUrl
 - **Type**: <class 'str'>
@@ -3560,11 +3560,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SslCertificateS3Path
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.S3PathTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.S3Path'>
 - **Required**: Yes
 
 
-# OneDriveConfigurationOutputTypeDef
+# OneDriveConfiguration
 
 ### TenantDomain
 - **Type**: <class 'str'>
@@ -3575,23 +3575,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### OneDriveUsers
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.OneDriveUsersOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.OneDriveUsers'>
 - **Required**: Yes
 
 ### InclusionPatterns
-- **Type**: typing.Optional[typing.List[str]]
+- **Type**: typing.Optional[typing.Sequence[str]]
 
 ### ExclusionPatterns
-- **Type**: typing.Optional[typing.List[str]]
+- **Type**: typing.Optional[typing.Sequence[str]]
 
 ### FieldMappings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMappingTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMapping]]
 
 ### DisableLocalGroups
 - **Type**: typing.Optional[bool]
 
 
-# OneDriveConfigurationTypeDef
+# OneDriveConfigurationOutput
 
 ### TenantDomain
 - **Type**: <class 'str'>
@@ -3602,41 +3602,41 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### OneDriveUsers
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.OneDriveUsersTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.OneDriveUsersOutput'>
 - **Required**: Yes
 
 ### InclusionPatterns
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### ExclusionPatterns
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### FieldMappings
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMappingTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMapping]]
 
 ### DisableLocalGroups
 - **Type**: typing.Optional[bool]
 
 
-# OneDriveUsersOutputTypeDef
-
-### OneDriveUserList
-- **Type**: typing.Optional[typing.List[str]]
-
-### OneDriveUserS3Path
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.S3PathTypeDef]
-
-
-# OneDriveUsersTypeDef
+# OneDriveUsers
 
 ### OneDriveUserList
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### OneDriveUserS3Path
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.S3PathTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.S3Path]
 
 
-# PersonasSummaryTypeDef
+# OneDriveUsersOutput
+
+### OneDriveUserList
+- **Type**: typing.Optional[typing.List[str]]
+
+### OneDriveUserS3Path
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.S3Path]
+
+
+# PersonasSummary
 
 ### EntityId
 - **Type**: typing.Optional[str]
@@ -3651,13 +3651,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# PrincipalTypeDef
+# Principal
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ProxyConfigurationTypeDef
+# ProxyConfiguration
 
 ### Host
 - **Type**: <class 'str'>
@@ -3671,7 +3671,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PutPrincipalMappingRequestTypeDef
+# PutPrincipalMappingRequest
 
 ### IndexId
 - **Type**: <class 'str'>
@@ -3682,7 +3682,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### GroupMembers
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.GroupMembersTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.GroupMembers'>
 - **Required**: Yes
 
 ### DataSourceId
@@ -3695,7 +3695,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# QueryRequestTypeDef
+# QueryRequest
 
 ### IndexId
 - **Type**: <class 'str'>
@@ -3705,10 +3705,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### AttributeFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.AttributeFilterTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### Facets
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.FacetTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.Facet]]
 
 ### RequestedDocumentAttributes
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -3717,7 +3717,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ANSWER', 'DOCUMENT', 'QUESTION_ANSWER']]
 
 ### DocumentRelevanceOverrideConfigurations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.DocumentRelevanceConfigurationTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.DocumentRelevanceConfiguration]]
 
 ### PageNumber
 - **Type**: typing.Optional[int]
@@ -3726,42 +3726,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### SortingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.SortingConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### SortingConfigurations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.SortingConfigurationTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[NoneType]]
 
 ### UserContext
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.UserContextTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### VisitorId
 - **Type**: typing.Optional[str]
 
 ### SpellCorrectionConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.SpellCorrectionConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### CollapseConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.CollapseConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# QueryResultItemTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# QueryResultTypeDef
+# QueryResult
 
 ### QueryId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResultItems
-- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_classes.QueryResultItemTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_classes.QueryResultItem]
 - **Required**: Yes
 
 ### FacetResults
-- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_classes.FacetResultTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_classes.FacetResult]
 - **Required**: Yes
 
 ### TotalNumberOfResults
@@ -3769,23 +3763,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Warnings
-- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_classes.WarningTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_classes.Warning]
 - **Required**: Yes
 
 ### SpellCorrectedQueries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_classes.SpellCorrectedQueryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_classes.SpellCorrectedQuery]
 - **Required**: Yes
 
 ### FeaturedResultsItems
-- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_classes.FeaturedResultsItemTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_classes.FeaturedResultsItem]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# QuerySuggestionsBlockListSummaryTypeDef
+# QueryResultItem
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# QuerySuggestionsBlockListSummary
 
 ### Id
 - **Type**: typing.Optional[str]
@@ -3806,48 +3806,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# QuipConfigurationOutputTypeDef
-
-### Domain
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### SecretArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### CrawlFileComments
-- **Type**: typing.Optional[bool]
-
-### CrawlChatRooms
-- **Type**: typing.Optional[bool]
-
-### CrawlAttachments
-- **Type**: typing.Optional[bool]
-
-### FolderIds
-- **Type**: typing.Optional[typing.List[str]]
-
-### ThreadFieldMappings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMappingTypeDef]]
-
-### MessageFieldMappings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMappingTypeDef]]
-
-### AttachmentFieldMappings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMappingTypeDef]]
-
-### InclusionPatterns
-- **Type**: typing.Optional[typing.List[str]]
-
-### ExclusionPatterns
-- **Type**: typing.Optional[typing.List[str]]
-
-### VpcConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.DataSourceVpcConfigurationOutputTypeDef]
-
-
-# QuipConfigurationTypeDef
+# QuipConfiguration
 
 ### Domain
 - **Type**: <class 'str'>
@@ -3870,13 +3829,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### ThreadFieldMappings
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMappingTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMapping]]
 
 ### MessageFieldMappings
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMappingTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMapping]]
 
 ### AttachmentFieldMappings
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMappingTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMapping]]
 
 ### InclusionPatterns
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -3885,39 +3844,51 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### VpcConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.DataSourceVpcConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.DataSourceVpcConfiguration]
 
 
-# RelevanceFeedbackTypeDef
+# QuipConfigurationOutput
 
-### ResultId
+### Domain
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### RelevanceValue
-- **Type**: typing.Literal['NOT_RELEVANT', 'RELEVANT']
+### SecretArn
+- **Type**: <class 'str'>
 - **Required**: Yes
 
-
-# RelevanceOutputTypeDef
-
-### Freshness
+### CrawlFileComments
 - **Type**: typing.Optional[bool]
 
-### Importance
-- **Type**: typing.Optional[int]
+### CrawlChatRooms
+- **Type**: typing.Optional[bool]
 
-### Duration
-- **Type**: typing.Optional[str]
+### CrawlAttachments
+- **Type**: typing.Optional[bool]
 
-### RankOrder
-- **Type**: typing.Optional[typing.Literal['ASCENDING', 'DESCENDING']]
+### FolderIds
+- **Type**: typing.Optional[typing.List[str]]
 
-### ValueImportanceMap
-- **Type**: typing.Optional[typing.Dict[str, int]]
+### ThreadFieldMappings
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMapping]]
+
+### MessageFieldMappings
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMapping]]
+
+### AttachmentFieldMappings
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMapping]]
+
+### InclusionPatterns
+- **Type**: typing.Optional[typing.List[str]]
+
+### ExclusionPatterns
+- **Type**: typing.Optional[typing.List[str]]
+
+### VpcConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.DataSourceVpcConfigurationOutput]
 
 
-# RelevanceTypeDef
+# Relevance
 
 ### Freshness
 - **Type**: typing.Optional[bool]
@@ -3935,13 +3906,42 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, int]]
 
 
-# RelevanceUnionTypeDef
+# RelevanceFeedback
+
+### ResultId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### RelevanceValue
+- **Type**: typing.Literal['NOT_RELEVANT', 'RELEVANT']
+- **Required**: Yes
+
+
+# RelevanceOutput
+
+### Freshness
+- **Type**: typing.Optional[bool]
+
+### Importance
+- **Type**: typing.Optional[int]
+
+### Duration
+- **Type**: typing.Optional[str]
+
+### RankOrder
+- **Type**: typing.Optional[typing.Literal['ASCENDING', 'DESCENDING']]
+
+### ValueImportanceMap
+- **Type**: typing.Optional[typing.Dict[str, int]]
+
+
+# RelevanceUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -3963,7 +3963,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RetrieveRequestTypeDef
+# RetrieveRequest
 
 ### IndexId
 - **Type**: <class 'str'>
@@ -3974,13 +3974,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AttributeFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.AttributeFilterTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### RequestedDocumentAttributes
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### DocumentRelevanceOverrideConfigurations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.DocumentRelevanceConfigurationTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.DocumentRelevanceConfiguration]]
 
 ### PageNumber
 - **Type**: typing.Optional[int]
@@ -3989,10 +3989,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### UserContext
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.UserContextTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# RetrieveResultItemTypeDef
+# RetrieveResult
+
+### QueryId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResultItems
+- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_classes.RetrieveResultItem]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
+# RetrieveResultItem
 
 ### Id
 - **Type**: typing.Optional[str]
@@ -4010,50 +4025,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### DocumentAttributes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.DocumentAttributeOutputTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.DocumentAttributeOutput]]
 
 ### ScoreAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.ScoreAttributesTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# RetrieveResultTypeDef
-
-### QueryId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ResultItems
-- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_classes.RetrieveResultItemTypeDef]
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# S3DataSourceConfigurationOutputTypeDef
-
-### BucketName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### InclusionPrefixes
-- **Type**: typing.Optional[typing.List[str]]
-
-### InclusionPatterns
-- **Type**: typing.Optional[typing.List[str]]
-
-### ExclusionPatterns
-- **Type**: typing.Optional[typing.List[str]]
-
-### DocumentsMetadataConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.DocumentsMetadataConfigurationTypeDef]
-
-### AccessControlListConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.AccessControlListConfigurationTypeDef]
-
-
-# S3DataSourceConfigurationTypeDef
+# S3DataSourceConfiguration
 
 ### BucketName
 - **Type**: <class 'str'>
@@ -4069,13 +4047,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### DocumentsMetadataConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.DocumentsMetadataConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### AccessControlListConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.AccessControlListConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# S3PathTypeDef
+# S3DataSourceConfigurationOutput
+
+### BucketName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### InclusionPrefixes
+- **Type**: typing.Optional[typing.List[str]]
+
+### InclusionPatterns
+- **Type**: typing.Optional[typing.List[str]]
+
+### ExclusionPatterns
+- **Type**: typing.Optional[typing.List[str]]
+
+### DocumentsMetadataConfiguration
+- **Type**: <class 'NoneType'>
+
+### AccessControlListConfiguration
+- **Type**: <class 'NoneType'>
+
+
+# S3Path
 
 ### Bucket
 - **Type**: <class 'str'>
@@ -4086,7 +4086,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SaaSConfigurationTypeDef
+# SaaSConfiguration
 
 ### OrganizationName
 - **Type**: <class 'str'>
@@ -4097,7 +4097,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SalesforceChatterFeedConfigurationOutputTypeDef
+# SalesforceChatterFeedConfiguration
 
 ### DocumentDataFieldName
 - **Type**: <class 'str'>
@@ -4107,29 +4107,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### FieldMappings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMappingTypeDef]]
-
-### IncludeFilterTypes
-- **Type**: typing.Optional[typing.List[typing.Literal['ACTIVE_USER', 'STANDARD_USER']]]
-
-
-# SalesforceChatterFeedConfigurationTypeDef
-
-### DocumentDataFieldName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### DocumentTitleFieldName
-- **Type**: typing.Optional[str]
-
-### FieldMappings
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMappingTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMapping]]
 
 ### IncludeFilterTypes
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['ACTIVE_USER', 'STANDARD_USER']]]
 
 
-# SalesforceConfigurationOutputTypeDef
+# SalesforceChatterFeedConfigurationOutput
+
+### DocumentDataFieldName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### DocumentTitleFieldName
+- **Type**: typing.Optional[str]
+
+### FieldMappings
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMapping]]
+
+### IncludeFilterTypes
+- **Type**: typing.Optional[typing.List[typing.Literal['ACTIVE_USER', 'STANDARD_USER']]]
+
+
+# SalesforceConfiguration
 
 ### ServerUrl
 - **Type**: <class 'str'>
@@ -4140,28 +4140,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### StandardObjectConfigurations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.SalesforceStandardObjectConfigurationOutputTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.SalesforceStandardObjectConfiguration]]
 
 ### KnowledgeArticleConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.SalesforceKnowledgeArticleConfigurationOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.SalesforceKnowledgeArticleConfiguration]
 
 ### ChatterFeedConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.SalesforceChatterFeedConfigurationOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.SalesforceChatterFeedConfiguration]
 
 ### CrawlAttachments
 - **Type**: typing.Optional[bool]
 
 ### StandardObjectAttachmentConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.SalesforceStandardObjectAttachmentConfigurationOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.SalesforceStandardObjectAttachmentConfiguration]
 
 ### IncludeAttachmentFilePatterns
-- **Type**: typing.Optional[typing.List[str]]
+- **Type**: typing.Optional[typing.Sequence[str]]
 
 ### ExcludeAttachmentFilePatterns
-- **Type**: typing.Optional[typing.List[str]]
+- **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# SalesforceConfigurationTypeDef
+# SalesforceConfigurationOutput
 
 ### ServerUrl
 - **Type**: <class 'str'>
@@ -4172,28 +4172,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### StandardObjectConfigurations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.SalesforceStandardObjectConfigurationTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.SalesforceStandardObjectConfigurationOutput]]
 
 ### KnowledgeArticleConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.SalesforceKnowledgeArticleConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.SalesforceKnowledgeArticleConfigurationOutput]
 
 ### ChatterFeedConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.SalesforceChatterFeedConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.SalesforceChatterFeedConfigurationOutput]
 
 ### CrawlAttachments
 - **Type**: typing.Optional[bool]
 
 ### StandardObjectAttachmentConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.SalesforceStandardObjectAttachmentConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.SalesforceStandardObjectAttachmentConfigurationOutput]
 
 ### IncludeAttachmentFilePatterns
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### ExcludeAttachmentFilePatterns
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
-# SalesforceCustomKnowledgeArticleTypeConfigurationOutputTypeDef
+# SalesforceCustomKnowledgeArticleTypeConfiguration
 
 ### Name
 - **Type**: <class 'str'>
@@ -4207,10 +4207,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### FieldMappings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMappingTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMapping]]
 
 
-# SalesforceCustomKnowledgeArticleTypeConfigurationTypeDef
+# SalesforceCustomKnowledgeArticleTypeConfigurationOutput
 
 ### Name
 - **Type**: <class 'str'>
@@ -4224,36 +4224,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### FieldMappings
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMappingTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMapping]]
 
 
-# SalesforceKnowledgeArticleConfigurationOutputTypeDef
-
-### IncludedStates
-- **Type**: typing.List[typing.Literal['ARCHIVED', 'DRAFT', 'PUBLISHED']]
-- **Required**: Yes
-
-### StandardKnowledgeArticleTypeConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.SalesforceStandardKnowledgeArticleTypeConfigurationOutputTypeDef]
-
-### CustomKnowledgeArticleTypeConfigurations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.SalesforceCustomKnowledgeArticleTypeConfigurationOutputTypeDef]]
-
-
-# SalesforceKnowledgeArticleConfigurationTypeDef
+# SalesforceKnowledgeArticleConfiguration
 
 ### IncludedStates
 - **Type**: typing.Sequence[typing.Literal['ARCHIVED', 'DRAFT', 'PUBLISHED']]
 - **Required**: Yes
 
 ### StandardKnowledgeArticleTypeConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.SalesforceStandardKnowledgeArticleTypeConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.SalesforceStandardKnowledgeArticleTypeConfiguration]
 
 ### CustomKnowledgeArticleTypeConfigurations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.SalesforceCustomKnowledgeArticleTypeConfigurationTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.SalesforceCustomKnowledgeArticleTypeConfiguration]]
 
 
-# SalesforceStandardKnowledgeArticleTypeConfigurationOutputTypeDef
+# SalesforceKnowledgeArticleConfigurationOutput
+
+### IncludedStates
+- **Type**: typing.List[typing.Literal['ARCHIVED', 'DRAFT', 'PUBLISHED']]
+- **Required**: Yes
+
+### StandardKnowledgeArticleTypeConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.SalesforceStandardKnowledgeArticleTypeConfigurationOutput]
+
+### CustomKnowledgeArticleTypeConfigurations
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.SalesforceCustomKnowledgeArticleTypeConfigurationOutput]]
+
+
+# SalesforceStandardKnowledgeArticleTypeConfiguration
 
 ### DocumentDataFieldName
 - **Type**: <class 'str'>
@@ -4263,10 +4263,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### FieldMappings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMappingTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMapping]]
 
 
-# SalesforceStandardKnowledgeArticleTypeConfigurationTypeDef
+# SalesforceStandardKnowledgeArticleTypeConfigurationOutput
 
 ### DocumentDataFieldName
 - **Type**: <class 'str'>
@@ -4276,28 +4276,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### FieldMappings
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMappingTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMapping]]
 
 
-# SalesforceStandardObjectAttachmentConfigurationOutputTypeDef
-
-### DocumentTitleFieldName
-- **Type**: typing.Optional[str]
-
-### FieldMappings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMappingTypeDef]]
-
-
-# SalesforceStandardObjectAttachmentConfigurationTypeDef
+# SalesforceStandardObjectAttachmentConfiguration
 
 ### DocumentTitleFieldName
 - **Type**: typing.Optional[str]
 
 ### FieldMappings
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMappingTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMapping]]
 
 
-# SalesforceStandardObjectConfigurationOutputTypeDef
+# SalesforceStandardObjectAttachmentConfigurationOutput
+
+### DocumentTitleFieldName
+- **Type**: typing.Optional[str]
+
+### FieldMappings
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMapping]]
+
+
+# SalesforceStandardObjectConfiguration
 
 ### Name
 - **Type**: typing.Literal['ACCOUNT', 'CAMPAIGN', 'CASE', 'CONTACT', 'CONTRACT', 'DOCUMENT', 'GROUP', 'IDEA', 'LEAD', 'OPPORTUNITY', 'PARTNER', 'PRICEBOOK', 'PRODUCT', 'PROFILE', 'SOLUTION', 'TASK', 'USER']
@@ -4311,10 +4311,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### FieldMappings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMappingTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMapping]]
 
 
-# SalesforceStandardObjectConfigurationTypeDef
+# SalesforceStandardObjectConfigurationOutput
 
 ### Name
 - **Type**: typing.Literal['ACCOUNT', 'CAMPAIGN', 'CASE', 'CONTACT', 'CONTRACT', 'DOCUMENT', 'GROUP', 'IDEA', 'LEAD', 'OPPORTUNITY', 'PARTNER', 'PRICEBOOK', 'PRODUCT', 'PROFILE', 'SOLUTION', 'TASK', 'USER']
@@ -4328,16 +4328,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### FieldMappings
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMappingTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMapping]]
 
 
-# ScoreAttributesTypeDef
+# ScoreAttributes
 
 ### ScoreConfidence
 - **Type**: typing.Optional[typing.Literal['HIGH', 'LOW', 'MEDIUM', 'NOT_AVAILABLE', 'VERY_HIGH']]
 
 
-# SearchTypeDef
+# Search
 
 ### Facetable
 - **Type**: typing.Optional[bool]
@@ -4352,17 +4352,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# SeedUrlConfigurationOutputTypeDef
-
-### SeedUrls
-- **Type**: typing.List[str]
-- **Required**: Yes
-
-### WebCrawlerMode
-- **Type**: typing.Optional[typing.Literal['EVERYTHING', 'HOST_ONLY', 'SUBDOMAINS']]
-
-
-# SeedUrlConfigurationTypeDef
+# SeedUrlConfiguration
 
 ### SeedUrls
 - **Type**: typing.Sequence[str]
@@ -4372,13 +4362,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['EVERYTHING', 'HOST_ONLY', 'SUBDOMAINS']]
 
 
-# ServerSideEncryptionConfigurationTypeDef
+# SeedUrlConfigurationOutput
+
+### SeedUrls
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### WebCrawlerMode
+- **Type**: typing.Optional[typing.Literal['EVERYTHING', 'HOST_ONLY', 'SUBDOMAINS']]
+
+
+# ServerSideEncryptionConfiguration
 
 ### KmsKeyId
 - **Type**: typing.Optional[str]
 
 
-# ServiceNowConfigurationOutputTypeDef
+# ServiceNowConfiguration
 
 ### HostUrl
 - **Type**: <class 'str'>
@@ -4393,16 +4393,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### KnowledgeArticleConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.ServiceNowKnowledgeArticleConfigurationOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.ServiceNowKnowledgeArticleConfiguration]
 
 ### ServiceCatalogConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.ServiceNowServiceCatalogConfigurationOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.ServiceNowServiceCatalogConfiguration]
 
 ### AuthenticationType
 - **Type**: typing.Optional[typing.Literal['HTTP_BASIC', 'OAUTH2']]
 
 
-# ServiceNowConfigurationTypeDef
+# ServiceNowConfigurationOutput
 
 ### HostUrl
 - **Type**: <class 'str'>
@@ -4417,16 +4417,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### KnowledgeArticleConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.ServiceNowKnowledgeArticleConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.ServiceNowKnowledgeArticleConfigurationOutput]
 
 ### ServiceCatalogConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.ServiceNowServiceCatalogConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.ServiceNowServiceCatalogConfigurationOutput]
 
 ### AuthenticationType
 - **Type**: typing.Optional[typing.Literal['HTTP_BASIC', 'OAUTH2']]
 
 
-# ServiceNowKnowledgeArticleConfigurationOutputTypeDef
+# ServiceNowKnowledgeArticleConfiguration
 
 ### DocumentDataFieldName
 - **Type**: <class 'str'>
@@ -4436,22 +4436,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### IncludeAttachmentFilePatterns
-- **Type**: typing.Optional[typing.List[str]]
+- **Type**: typing.Optional[typing.Sequence[str]]
 
 ### ExcludeAttachmentFilePatterns
-- **Type**: typing.Optional[typing.List[str]]
+- **Type**: typing.Optional[typing.Sequence[str]]
 
 ### DocumentTitleFieldName
 - **Type**: typing.Optional[str]
 
 ### FieldMappings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMappingTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMapping]]
 
 ### FilterQuery
 - **Type**: typing.Optional[str]
 
 
-# ServiceNowKnowledgeArticleConfigurationTypeDef
+# ServiceNowKnowledgeArticleConfigurationOutput
 
 ### DocumentDataFieldName
 - **Type**: <class 'str'>
@@ -4461,44 +4461,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### IncludeAttachmentFilePatterns
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### ExcludeAttachmentFilePatterns
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### DocumentTitleFieldName
 - **Type**: typing.Optional[str]
 
 ### FieldMappings
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMappingTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMapping]]
 
 ### FilterQuery
 - **Type**: typing.Optional[str]
 
 
-# ServiceNowServiceCatalogConfigurationOutputTypeDef
-
-### DocumentDataFieldName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### CrawlAttachments
-- **Type**: typing.Optional[bool]
-
-### IncludeAttachmentFilePatterns
-- **Type**: typing.Optional[typing.List[str]]
-
-### ExcludeAttachmentFilePatterns
-- **Type**: typing.Optional[typing.List[str]]
-
-### DocumentTitleFieldName
-- **Type**: typing.Optional[str]
-
-### FieldMappings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMappingTypeDef]]
-
-
-# ServiceNowServiceCatalogConfigurationTypeDef
+# ServiceNowServiceCatalogConfiguration
 
 ### DocumentDataFieldName
 - **Type**: <class 'str'>
@@ -4517,58 +4495,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### FieldMappings
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMappingTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMapping]]
 
 
-# SharePointConfigurationOutputTypeDef
+# ServiceNowServiceCatalogConfigurationOutput
 
-### SharePointVersion
-- **Type**: typing.Literal['SHAREPOINT_2013', 'SHAREPOINT_2016', 'SHAREPOINT_2019', 'SHAREPOINT_ONLINE']
-- **Required**: Yes
-
-### Urls
-- **Type**: typing.List[str]
-- **Required**: Yes
-
-### SecretArn
+### DocumentDataFieldName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### CrawlAttachments
 - **Type**: typing.Optional[bool]
 
-### UseChangeLog
-- **Type**: typing.Optional[bool]
-
-### InclusionPatterns
+### IncludeAttachmentFilePatterns
 - **Type**: typing.Optional[typing.List[str]]
 
-### ExclusionPatterns
+### ExcludeAttachmentFilePatterns
 - **Type**: typing.Optional[typing.List[str]]
-
-### VpcConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.DataSourceVpcConfigurationOutputTypeDef]
-
-### FieldMappings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMappingTypeDef]]
 
 ### DocumentTitleFieldName
 - **Type**: typing.Optional[str]
 
-### DisableLocalGroups
-- **Type**: typing.Optional[bool]
-
-### SslCertificateS3Path
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.S3PathTypeDef]
-
-### AuthenticationType
-- **Type**: typing.Optional[typing.Literal['HTTP_BASIC', 'OAUTH2']]
-
-### ProxyConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.ProxyConfigurationTypeDef]
+### FieldMappings
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMapping]]
 
 
-# SharePointConfigurationTypeDef
+# SharePointConfiguration
 
 ### SharePointVersion
 - **Type**: typing.Literal['SHAREPOINT_2013', 'SHAREPOINT_2016', 'SHAREPOINT_2019', 'SHAREPOINT_ONLINE']
@@ -4595,10 +4547,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### VpcConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.DataSourceVpcConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.DataSourceVpcConfiguration]
 
 ### FieldMappings
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMappingTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMapping]]
 
 ### DocumentTitleFieldName
 - **Type**: typing.Optional[str]
@@ -4607,67 +4559,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### SslCertificateS3Path
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.S3PathTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.S3Path]
 
 ### AuthenticationType
 - **Type**: typing.Optional[typing.Literal['HTTP_BASIC', 'OAUTH2']]
 
 ### ProxyConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.ProxyConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# SiteMapsConfigurationOutputTypeDef
+# SharePointConfigurationOutput
 
-### SiteMaps
+### SharePointVersion
+- **Type**: typing.Literal['SHAREPOINT_2013', 'SHAREPOINT_2016', 'SHAREPOINT_2019', 'SHAREPOINT_ONLINE']
+- **Required**: Yes
+
+### Urls
 - **Type**: typing.List[str]
-- **Required**: Yes
-
-
-# SiteMapsConfigurationTypeDef
-
-### SiteMaps
-- **Type**: typing.Sequence[str]
-- **Required**: Yes
-
-
-# SlackConfigurationOutputTypeDef
-
-### TeamId
-- **Type**: <class 'str'>
 - **Required**: Yes
 
 ### SecretArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### SlackEntityList
-- **Type**: typing.List[typing.Literal['DIRECT_MESSAGE', 'GROUP_MESSAGE', 'PRIVATE_CHANNEL', 'PUBLIC_CHANNEL']]
-- **Required**: Yes
-
-### SinceCrawlDate
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### VpcConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.DataSourceVpcConfigurationOutputTypeDef]
+### CrawlAttachments
+- **Type**: typing.Optional[bool]
 
 ### UseChangeLog
 - **Type**: typing.Optional[bool]
-
-### CrawlBotMessage
-- **Type**: typing.Optional[bool]
-
-### ExcludeArchived
-- **Type**: typing.Optional[bool]
-
-### LookBackPeriod
-- **Type**: typing.Optional[int]
-
-### PrivateChannelFilter
-- **Type**: typing.Optional[typing.List[str]]
-
-### PublicChannelFilter
-- **Type**: typing.Optional[typing.List[str]]
 
 ### InclusionPatterns
 - **Type**: typing.Optional[typing.List[str]]
@@ -4675,11 +4594,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ExclusionPatterns
 - **Type**: typing.Optional[typing.List[str]]
 
+### VpcConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.DataSourceVpcConfigurationOutput]
+
 ### FieldMappings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMappingTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMapping]]
+
+### DocumentTitleFieldName
+- **Type**: typing.Optional[str]
+
+### DisableLocalGroups
+- **Type**: typing.Optional[bool]
+
+### SslCertificateS3Path
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.S3Path]
+
+### AuthenticationType
+- **Type**: typing.Optional[typing.Literal['HTTP_BASIC', 'OAUTH2']]
+
+### ProxyConfiguration
+- **Type**: <class 'NoneType'>
 
 
-# SlackConfigurationTypeDef
+# SiteMapsConfiguration
+
+### SiteMaps
+- **Type**: typing.Sequence[str]
+- **Required**: Yes
+
+
+# SiteMapsConfigurationOutput
+
+### SiteMaps
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+
+# SlackConfiguration
 
 ### TeamId
 - **Type**: <class 'str'>
@@ -4698,7 +4649,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### VpcConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.DataSourceVpcConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.DataSourceVpcConfiguration]
 
 ### UseChangeLog
 - **Type**: typing.Optional[bool]
@@ -4725,10 +4676,59 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### FieldMappings
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMappingTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMapping]]
 
 
-# SortingConfigurationTypeDef
+# SlackConfigurationOutput
+
+### TeamId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### SecretArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### SlackEntityList
+- **Type**: typing.List[typing.Literal['DIRECT_MESSAGE', 'GROUP_MESSAGE', 'PRIVATE_CHANNEL', 'PUBLIC_CHANNEL']]
+- **Required**: Yes
+
+### SinceCrawlDate
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### VpcConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.DataSourceVpcConfigurationOutput]
+
+### UseChangeLog
+- **Type**: typing.Optional[bool]
+
+### CrawlBotMessage
+- **Type**: typing.Optional[bool]
+
+### ExcludeArchived
+- **Type**: typing.Optional[bool]
+
+### LookBackPeriod
+- **Type**: typing.Optional[int]
+
+### PrivateChannelFilter
+- **Type**: typing.Optional[typing.List[str]]
+
+### PublicChannelFilter
+- **Type**: typing.Optional[typing.List[str]]
+
+### InclusionPatterns
+- **Type**: typing.Optional[typing.List[str]]
+
+### ExclusionPatterns
+- **Type**: typing.Optional[typing.List[str]]
+
+### FieldMappings
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMapping]]
+
+
+# SortingConfiguration
 
 ### DocumentAttributeKey
 - **Type**: <class 'str'>
@@ -4739,7 +4739,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SourceDocumentTypeDef
+# SourceDocument
 
 ### DocumentId
 - **Type**: typing.Optional[str]
@@ -4748,32 +4748,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 ### AdditionalAttributes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.DocumentAttributeOutputTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.DocumentAttributeOutput]]
 
 
-# SpellCorrectedQueryTypeDef
+# SpellCorrectedQuery
 
 ### SuggestedQueryText
 - **Type**: typing.Optional[str]
 
 ### Corrections
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.CorrectionTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.Correction]]
 
 
-# SpellCorrectionConfigurationTypeDef
+# SpellCorrectionConfiguration
 
 ### IncludeQuerySpellCheckSuggestions
 - **Type**: <class 'bool'>
 - **Required**: Yes
 
 
-# SqlConfigurationTypeDef
+# SqlConfiguration
 
 ### QueryIdentifiersEnclosingOption
 - **Type**: typing.Optional[typing.Literal['DOUBLE_QUOTES', 'NONE']]
 
 
-# StartDataSourceSyncJobRequestTypeDef
+# StartDataSourceSyncJobRequest
 
 ### Id
 - **Type**: <class 'str'>
@@ -4784,18 +4784,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StartDataSourceSyncJobResponseTypeDef
+# StartDataSourceSyncJobResponse
 
 ### ExecutionId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# StatusTypeDef
+# Status
 
 ### DocumentId
 - **Type**: typing.Optional[str]
@@ -4810,7 +4810,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# StopDataSourceSyncJobRequestTypeDef
+# StopDataSourceSyncJobRequest
 
 ### Id
 - **Type**: <class 'str'>
@@ -4821,7 +4821,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SubmitFeedbackRequestTypeDef
+# SubmitFeedbackRequest
 
 ### IndexId
 - **Type**: <class 'str'>
@@ -4832,13 +4832,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ClickFeedbackItems
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.ClickFeedbackTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.ClickFeedback]]
 
 ### RelevanceFeedbackItems
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.RelevanceFeedbackTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.RelevanceFeedback]]
 
 
-# SuggestableConfigTypeDef
+# SuggestableConfig
 
 ### AttributeName
 - **Type**: typing.Optional[str]
@@ -4847,7 +4847,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# SuggestionHighlightTypeDef
+# Suggestion
+
+### Id
+- **Type**: typing.Optional[str]
+
+### Value
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.SuggestionValue]
+
+### SourceDocuments
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.SourceDocument]]
+
+
+# SuggestionHighlight
 
 ### BeginOffset
 - **Type**: typing.Optional[int]
@@ -4856,25 +4868,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# SuggestionTypeDef
-
-### Id
-- **Type**: typing.Optional[str]
-
-### Value
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.SuggestionValueTypeDef]
-
-### SourceDocuments
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.SourceDocumentTypeDef]]
-
-
-# SuggestionValueTypeDef
+# SuggestionValue
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# TableCellTypeDef
+# TableCell
 
 ### Value
 - **Type**: typing.Optional[str]
@@ -4889,33 +4889,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# TableExcerptTypeDef
+# TableExcerpt
 
 ### Rows
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.TableRowTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.TableRow]]
 
 ### TotalNumberOfRows
 - **Type**: typing.Optional[int]
 
 
-# TableRowTypeDef
+# TableRow
 
 ### Cells
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.TableCellTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.TableCell]]
 
 
-# TagResourceRequestTypeDef
-
-### ResourceARN
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.TagTypeDef]
-- **Required**: Yes
-
-
-# TagTypeDef
+# Tag
 
 ### Key
 - **Type**: <class 'str'>
@@ -4926,19 +4915,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TemplateConfigurationOutputTypeDef
+# TagResourceRequest
 
-### Template
-- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
+### ResourceARN
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Tags
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.Tag]
+- **Required**: Yes
 
 
-# TemplateConfigurationTypeDef
+# TemplateConfiguration
 
 ### Template
 - **Type**: typing.Optional[typing.Mapping[str, typing.Any]]
 
 
-# TextDocumentStatisticsTypeDef
+# TemplateConfigurationOutput
+
+### Template
+- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
+
+
+# TextDocumentStatistics
 
 ### IndexedTextDocumentsCount
 - **Type**: <class 'int'>
@@ -4949,13 +4949,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TextWithHighlightsTypeDef
+# TextWithHighlights
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ThesaurusSummaryTypeDef
+# ThesaurusSummary
 
 ### Id
 - **Type**: typing.Optional[str]
@@ -4973,7 +4973,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# TimeRangeOutputTypeDef
+# TimeRange
+
+### StartTime
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.Timestamp]
+
+### EndTime
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.Timestamp]
+
+
+# TimeRangeOutput
 
 ### StartTime
 - **Type**: typing.Optional[datetime.datetime]
@@ -4982,28 +4991,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# TimeRangeTypeDef
-
-### StartTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.TimestampTypeDef]
-
-### EndTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.TimestampTypeDef]
-
-
-# TimeRangeUnionTypeDef
+# TimeRangeUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# TimestampTypeDef
+# Timestamp
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# UntagResourceRequestTypeDef
+# UntagResourceRequest
 
 ### ResourceARN
 - **Type**: <class 'str'>
@@ -5014,7 +5014,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateAccessControlConfigurationRequestTypeDef
+# UpdateAccessControlConfigurationRequest
 
 ### IndexId
 - **Type**: <class 'str'>
@@ -5031,13 +5031,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### AccessControlList
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.PrincipalTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.Principal]]
 
 ### HierarchicalAccessControlList
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.HierarchicalPrincipalUnionTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.HierarchicalPrincipalUnion]]
 
 
-# UpdateDataSourceRequestTypeDef
+# UpdateDataSourceRequest
 
 ### Id
 - **Type**: <class 'str'>
@@ -5051,10 +5051,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Configuration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.DataSourceConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.DataSourceConfigurationUnion]
 
 ### VpcConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.DataSourceVpcConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.DataSourceVpcConfigurationUnion]
 
 ### Description
 - **Type**: typing.Optional[str]
@@ -5069,10 +5069,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CustomDocumentEnrichmentConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.CustomDocumentEnrichmentConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.CustomDocumentEnrichmentConfigurationUnion]
 
 
-# UpdateExperienceRequestTypeDef
+# UpdateExperienceRequest
 
 ### Id
 - **Type**: <class 'str'>
@@ -5089,13 +5089,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Configuration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.ExperienceConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.ExperienceConfigurationUnion]
 
 ### Description
 - **Type**: typing.Optional[str]
 
 
-# UpdateFeaturedResultsSetRequestTypeDef
+# UpdateFeaturedResultsSetRequest
 
 ### IndexId
 - **Type**: <class 'str'>
@@ -5118,21 +5118,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### FeaturedDocuments
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.FeaturedDocumentTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.FeaturedDocument]]
 
 
-# UpdateFeaturedResultsSetResponseTypeDef
+# UpdateFeaturedResultsSetResponse
 
 ### FeaturedResultsSet
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.FeaturedResultsSetTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.FeaturedResultsSet'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateIndexRequestTypeDef
+# UpdateIndexRequest
 
 ### Id
 - **Type**: <class 'str'>
@@ -5148,22 +5148,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### DocumentMetadataConfigurationUpdates
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.DocumentMetadataConfigurationUnionTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.DocumentMetadataConfigurationUnion]]
 
 ### CapacityUnits
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.CapacityUnitsConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.CapacityUnitsConfiguration]
 
 ### UserTokenConfigurations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.UserTokenConfigurationTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.UserTokenConfiguration]]
 
 ### UserContextPolicy
 - **Type**: typing.Optional[typing.Literal['ATTRIBUTE_FILTER', 'USER_TOKEN']]
 
 ### UserGroupResolutionConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.UserGroupResolutionConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# UpdateQuerySuggestionsBlockListRequestTypeDef
+# UpdateQuerySuggestionsBlockListRequest
 
 ### IndexId
 - **Type**: <class 'str'>
@@ -5180,13 +5180,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### SourceS3Path
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.S3PathTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.S3Path]
 
 ### RoleArn
 - **Type**: typing.Optional[str]
 
 
-# UpdateQuerySuggestionsConfigRequestTypeDef
+# UpdateQuerySuggestionsConfigRequest
 
 ### IndexId
 - **Type**: <class 'str'>
@@ -5208,10 +5208,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### AttributeSuggestionsConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.AttributeSuggestionsUpdateConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.AttributeSuggestionsUpdateConfig]
 
 
-# UpdateThesaurusRequestTypeDef
+# UpdateThesaurusRequest
 
 ### Id
 - **Type**: <class 'str'>
@@ -5231,28 +5231,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### SourceS3Path
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.S3PathTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.S3Path]
 
 
-# UrlsOutputTypeDef
-
-### SeedUrlConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.SeedUrlConfigurationOutputTypeDef]
-
-### SiteMapsConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.SiteMapsConfigurationOutputTypeDef]
-
-
-# UrlsTypeDef
+# Urls
 
 ### SeedUrlConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.SeedUrlConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### SiteMapsConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.SiteMapsConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# UserContextTypeDef
+# UrlsOutput
+
+### SeedUrlConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.SeedUrlConfigurationOutput]
+
+### SiteMapsConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.SiteMapsConfigurationOutput]
+
+
+# UserContext
 
 ### Token
 - **Type**: typing.Optional[str]
@@ -5264,32 +5264,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### DataSourceGroups
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.DataSourceGroupTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.DataSourceGroup]]
 
 
-# UserGroupResolutionConfigurationTypeDef
+# UserGroupResolutionConfiguration
 
 ### UserGroupResolutionMode
 - **Type**: typing.Literal['AWS_SSO', 'NONE']
 - **Required**: Yes
 
 
-# UserIdentityConfigurationTypeDef
+# UserIdentityConfiguration
 
 ### IdentityAttributeName
 - **Type**: typing.Optional[str]
 
 
-# UserTokenConfigurationTypeDef
+# UserTokenConfiguration
 
 ### JwtTokenTypeConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.JwtTokenTypeConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### JsonTokenTypeConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.JsonTokenTypeConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# WarningTypeDef
+# Warning
 
 ### Message
 - **Type**: typing.Optional[str]
@@ -5298,41 +5298,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['QUERY_LANGUAGE_INVALID_SYNTAX']]
 
 
-# WebCrawlerConfigurationOutputTypeDef
+# WebCrawlerConfiguration
 
 ### Urls
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.UrlsOutputTypeDef'>
-- **Required**: Yes
-
-### CrawlDepth
-- **Type**: typing.Optional[int]
-
-### MaxLinksPerPage
-- **Type**: typing.Optional[int]
-
-### MaxContentSizePerPageInMegaBytes
-- **Type**: typing.Optional[float]
-
-### MaxUrlsPerMinuteCrawlRate
-- **Type**: typing.Optional[int]
-
-### UrlInclusionPatterns
-- **Type**: typing.Optional[typing.List[str]]
-
-### UrlExclusionPatterns
-- **Type**: typing.Optional[typing.List[str]]
-
-### ProxyConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.ProxyConfigurationTypeDef]
-
-### AuthenticationConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.AuthenticationConfigurationOutputTypeDef]
-
-
-# WebCrawlerConfigurationTypeDef
-
-### Urls
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.UrlsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.Urls'>
 - **Required**: Yes
 
 ### CrawlDepth
@@ -5354,35 +5323,44 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### ProxyConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.ProxyConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### AuthenticationConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.AuthenticationConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# WorkDocsConfigurationOutputTypeDef
+# WebCrawlerConfigurationOutput
 
-### OrganizationId
-- **Type**: <class 'str'>
+### Urls
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_classes.UrlsOutput'>
 - **Required**: Yes
 
-### CrawlComments
-- **Type**: typing.Optional[bool]
+### CrawlDepth
+- **Type**: typing.Optional[int]
 
-### UseChangeLog
-- **Type**: typing.Optional[bool]
+### MaxLinksPerPage
+- **Type**: typing.Optional[int]
 
-### InclusionPatterns
+### MaxContentSizePerPageInMegaBytes
+- **Type**: typing.Optional[float]
+
+### MaxUrlsPerMinuteCrawlRate
+- **Type**: typing.Optional[int]
+
+### UrlInclusionPatterns
 - **Type**: typing.Optional[typing.List[str]]
 
-### ExclusionPatterns
+### UrlExclusionPatterns
 - **Type**: typing.Optional[typing.List[str]]
 
-### FieldMappings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMappingTypeDef]]
+### ProxyConfiguration
+- **Type**: <class 'NoneType'>
+
+### AuthenticationConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_classes.AuthenticationConfigurationOutput]
 
 
-# WorkDocsConfigurationTypeDef
+# WorkDocsConfiguration
 
 ### OrganizationId
 - **Type**: <class 'str'>
@@ -5401,6 +5379,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### FieldMappings
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMappingTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMapping]]
+
+
+# WorkDocsConfigurationOutput
+
+### OrganizationId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### CrawlComments
+- **Type**: typing.Optional[bool]
+
+### UseChangeLog
+- **Type**: typing.Optional[bool]
+
+### InclusionPatterns
+- **Type**: typing.Optional[typing.List[str]]
+
+### ExclusionPatterns
+- **Type**: typing.Optional[typing.List[str]]
+
+### FieldMappings
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_classes.DataSourceToIndexFieldMapping]]
 
 

@@ -1,26 +1,12 @@
 # Location Classes
 
-# ApiKeyFilterTypeDef
+# ApiKeyFilter
 
 ### KeyStatus
 - **Type**: typing.Optional[typing.Literal['Active', 'Expired']]
 
 
-# ApiKeyRestrictionsOutputTypeDef
-
-### AllowActions
-- **Type**: typing.List[str]
-- **Required**: Yes
-
-### AllowResources
-- **Type**: typing.List[str]
-- **Required**: Yes
-
-### AllowReferers
-- **Type**: typing.Optional[typing.List[str]]
-
-
-# ApiKeyRestrictionsTypeDef
+# ApiKeyRestrictions
 
 ### AllowActions
 - **Type**: typing.Sequence[str]
@@ -34,13 +20,27 @@
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# ApiKeyRestrictionsUnionTypeDef
+# ApiKeyRestrictionsOutput
+
+### AllowActions
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### AllowResources
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### AllowReferers
+- **Type**: typing.Optional[typing.List[str]]
+
+
+# ApiKeyRestrictionsUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# AssociateTrackerConsumerRequestTypeDef
+# AssociateTrackerConsumerRequest
 
 ### TrackerName
 - **Type**: <class 'str'>
@@ -57,18 +57,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BatchDeleteDevicePositionHistoryErrorTypeDef
+# BatchDeleteDevicePositionHistoryError
 
 ### DeviceId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Error
-- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.BatchItemErrorTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.BatchItemError'>
 - **Required**: Yes
 
 
-# BatchDeleteDevicePositionHistoryRequestTypeDef
+# BatchDeleteDevicePositionHistoryRequest
 
 ### TrackerName
 - **Type**: <class 'str'>
@@ -79,29 +79,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# BatchDeleteDevicePositionHistoryResponseTypeDef
+# BatchDeleteDevicePositionHistoryResponse
 
 ### Errors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.location_classes.BatchDeleteDevicePositionHistoryErrorTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.location_classes.BatchDeleteDevicePositionHistoryError]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# BatchDeleteGeofenceErrorTypeDef
+# BatchDeleteGeofenceError
 
 ### GeofenceId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Error
-- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.BatchItemErrorTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.BatchItemError'>
 - **Required**: Yes
 
 
-# BatchDeleteGeofenceRequestTypeDef
+# BatchDeleteGeofenceRequest
 
 ### CollectionName
 - **Type**: <class 'str'>
@@ -112,18 +112,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# BatchDeleteGeofenceResponseTypeDef
+# BatchDeleteGeofenceResponse
 
 ### Errors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.location_classes.BatchDeleteGeofenceErrorTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.location_classes.BatchDeleteGeofenceError]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# BatchEvaluateGeofencesErrorTypeDef
+# BatchEvaluateGeofencesError
 
 ### DeviceId
 - **Type**: <class 'str'>
@@ -134,44 +134,44 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Error
-- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.BatchItemErrorTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.BatchItemError'>
 - **Required**: Yes
 
 
-# BatchEvaluateGeofencesRequestTypeDef
+# BatchEvaluateGeofencesRequest
 
 ### CollectionName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### DevicePositionUpdates
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.location_classes.DevicePositionUpdateTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.location_classes.DevicePositionUpdate]
 - **Required**: Yes
 
 
-# BatchEvaluateGeofencesResponseTypeDef
+# BatchEvaluateGeofencesResponse
 
 ### Errors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.location_classes.BatchEvaluateGeofencesErrorTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.location_classes.BatchEvaluateGeofencesError]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# BatchGetDevicePositionErrorTypeDef
+# BatchGetDevicePositionError
 
 ### DeviceId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Error
-- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.BatchItemErrorTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.BatchItemError'>
 - **Required**: Yes
 
 
-# BatchGetDevicePositionRequestTypeDef
+# BatchGetDevicePositionRequest
 
 ### TrackerName
 - **Type**: <class 'str'>
@@ -182,22 +182,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# BatchGetDevicePositionResponseTypeDef
+# BatchGetDevicePositionResponse
 
 ### Errors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.location_classes.BatchGetDevicePositionErrorTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.location_classes.BatchGetDevicePositionError]
 - **Required**: Yes
 
 ### DevicePositions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.location_classes.DevicePositionTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.location_classes.DevicePosition]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# BatchItemErrorTypeDef
+# BatchItemError
 
 ### Code
 - **Type**: typing.Optional[typing.Literal['AccessDeniedError', 'ConflictError', 'InternalServerError', 'ResourceNotFoundError', 'ThrottlingError', 'ValidationError']]
@@ -206,58 +206,58 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# BatchPutGeofenceErrorTypeDef
+# BatchPutGeofenceError
 
 ### GeofenceId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Error
-- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.BatchItemErrorTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.BatchItemError'>
 - **Required**: Yes
 
 
-# BatchPutGeofenceRequestEntryTypeDef
-
-### GeofenceId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Geometry
-- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.GeofenceGeometryUnionTypeDef'>
-- **Required**: Yes
-
-### GeofenceProperties
-- **Type**: typing.Optional[typing.Mapping[str, str]]
-
-
-# BatchPutGeofenceRequestTypeDef
+# BatchPutGeofenceRequest
 
 ### CollectionName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Entries
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.location_classes.BatchPutGeofenceRequestEntryTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.location_classes.BatchPutGeofenceRequestEntry]
 - **Required**: Yes
 
 
-# BatchPutGeofenceResponseTypeDef
+# BatchPutGeofenceRequestEntry
+
+### GeofenceId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Geometry
+- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.GeofenceGeometryUnion'>
+- **Required**: Yes
+
+### GeofenceProperties
+- **Type**: typing.Optional[typing.Mapping[str, str]]
+
+
+# BatchPutGeofenceResponse
 
 ### Successes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.location_classes.BatchPutGeofenceSuccessTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.location_classes.BatchPutGeofenceSuccess]
 - **Required**: Yes
 
 ### Errors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.location_classes.BatchPutGeofenceErrorTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.location_classes.BatchPutGeofenceError]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# BatchPutGeofenceSuccessTypeDef
+# BatchPutGeofenceSuccess
 
 ### GeofenceId
 - **Type**: <class 'str'>
@@ -272,7 +272,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# BatchUpdateDevicePositionErrorTypeDef
+# BatchUpdateDevicePositionError
 
 ### DeviceId
 - **Type**: <class 'str'>
@@ -283,39 +283,39 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Error
-- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.BatchItemErrorTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.BatchItemError'>
 - **Required**: Yes
 
 
-# BatchUpdateDevicePositionRequestTypeDef
+# BatchUpdateDevicePositionRequest
 
 ### TrackerName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Updates
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.location_classes.DevicePositionUpdateTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.location_classes.DevicePositionUpdate]
 - **Required**: Yes
 
 
-# BatchUpdateDevicePositionResponseTypeDef
+# BatchUpdateDevicePositionResponse
 
 ### Errors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.location_classes.BatchUpdateDevicePositionErrorTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.location_classes.BatchUpdateDevicePositionError]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# BlobTypeDef
+# Blob
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CalculateRouteCarModeOptionsTypeDef
+# CalculateRouteCarModeOptions
 
 ### AvoidFerries
 - **Type**: typing.Optional[bool]
@@ -324,7 +324,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# CalculateRouteMatrixRequestTypeDef
+# CalculateRouteMatrixRequest
 
 ### CalculatorName
 - **Type**: <class 'str'>
@@ -342,7 +342,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Bicycle', 'Car', 'Motorcycle', 'Truck', 'Walking']]
 
 ### DepartureTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.Timestamp]
 
 ### DepartNow
 - **Type**: typing.Optional[bool]
@@ -351,19 +351,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Kilometers', 'Miles']]
 
 ### CarModeOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.CalculateRouteCarModeOptionsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.CalculateRouteCarModeOptions]
 
 ### TruckModeOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.CalculateRouteTruckModeOptionsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.CalculateRouteTruckModeOptions]
 
 ### Key
 - **Type**: typing.Optional[str]
 
 
-# CalculateRouteMatrixResponseTypeDef
+# CalculateRouteMatrixResponse
 
 ### RouteMatrix
-- **Type**: typing.List[typing.List[aws_resource_validator.pydantic_models.location_classes.RouteMatrixEntryTypeDef]]
+- **Type**: typing.List[typing.List[aws_resource_validator.pydantic_models.location_classes.RouteMatrixEntry]]
 - **Required**: Yes
 
 ### SnappedDeparturePositions
@@ -375,15 +375,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Summary
-- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.CalculateRouteMatrixSummaryTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.CalculateRouteMatrixSummary'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CalculateRouteMatrixSummaryTypeDef
+# CalculateRouteMatrixSummary
 
 ### DataSource
 - **Type**: <class 'str'>
@@ -402,7 +402,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CalculateRouteRequestTypeDef
+# CalculateRouteRequest
 
 ### CalculatorName
 - **Type**: <class 'str'>
@@ -423,7 +423,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Bicycle', 'Car', 'Motorcycle', 'Truck', 'Walking']]
 
 ### DepartureTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.Timestamp]
 
 ### DepartNow
 - **Type**: typing.Optional[bool]
@@ -435,13 +435,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### CarModeOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.CalculateRouteCarModeOptionsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.CalculateRouteCarModeOptions]
 
 ### TruckModeOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.CalculateRouteTruckModeOptionsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.CalculateRouteTruckModeOptions]
 
 ### ArrivalTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.Timestamp]
 
 ### OptimizeFor
 - **Type**: typing.Optional[typing.Literal['FastestRoute', 'ShortestRoute']]
@@ -450,22 +450,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CalculateRouteResponseTypeDef
+# CalculateRouteResponse
 
 ### Legs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.location_classes.LegTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.location_classes.Leg]
 - **Required**: Yes
 
 ### Summary
-- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.CalculateRouteSummaryTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.CalculateRouteSummary'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CalculateRouteSummaryTypeDef
+# CalculateRouteSummary
 
 ### RouteBBox
 - **Type**: typing.List[float]
@@ -488,7 +488,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CalculateRouteTruckModeOptionsTypeDef
+# CalculateRouteTruckModeOptions
 
 ### AvoidFerries
 - **Type**: typing.Optional[bool]
@@ -497,31 +497,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### Dimensions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.TruckDimensionsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.TruckDimensions]
 
 ### Weight
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.TruckWeightTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.TruckWeight]
 
 
-# CellSignalsTypeDef
+# CellSignals
 
 ### LteCellDetails
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.location_classes.LteCellDetailsTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.location_classes.LteCellDetails]
 - **Required**: Yes
 
 
-# CircleOutputTypeDef
-
-### Center
-- **Type**: typing.List[float]
-- **Required**: Yes
-
-### Radius
-- **Type**: <class 'float'>
-- **Required**: Yes
-
-
-# CircleTypeDef
+# Circle
 
 ### Center
 - **Type**: typing.Sequence[float]
@@ -532,13 +521,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CircleUnionTypeDef
+# CircleOutput
+
+### Center
+- **Type**: typing.List[float]
+- **Required**: Yes
+
+### Radius
+- **Type**: <class 'float'>
+- **Required**: Yes
+
+
+# CircleUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CreateGeofenceCollectionRequestTypeDef
+# CreateGeofenceCollectionRequest
 
 ### CollectionName
 - **Type**: <class 'str'>
@@ -560,7 +560,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateGeofenceCollectionResponseTypeDef
+# CreateGeofenceCollectionResponse
 
 ### CollectionName
 - **Type**: <class 'str'>
@@ -575,25 +575,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateKeyRequestTypeDef
+# CreateKeyRequest
 
 ### KeyName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Restrictions
-- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ApiKeyRestrictionsUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ApiKeyRestrictionsUnion'>
 - **Required**: Yes
 
 ### Description
 - **Type**: typing.Optional[str]
 
 ### ExpireTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.Timestamp]
 
 ### NoExpiry
 - **Type**: typing.Optional[bool]
@@ -602,7 +602,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateKeyResponseTypeDef
+# CreateKeyResponse
 
 ### Key
 - **Type**: <class 'str'>
@@ -621,18 +621,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateMapRequestTypeDef
+# CreateMapRequest
 
 ### MapName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Configuration
-- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.MapConfigurationUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.MapConfigurationUnion'>
 - **Required**: Yes
 
 ### PricingPlan
@@ -645,7 +645,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateMapResponseTypeDef
+# CreateMapResponse
 
 ### MapName
 - **Type**: <class 'str'>
@@ -660,11 +660,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreatePlaceIndexRequestTypeDef
+# CreatePlaceIndexRequest
 
 ### IndexName
 - **Type**: <class 'str'>
@@ -681,13 +681,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### DataSourceConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.DataSourceConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### Tags
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreatePlaceIndexResponseTypeDef
+# CreatePlaceIndexResponse
 
 ### IndexName
 - **Type**: <class 'str'>
@@ -702,11 +702,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateRouteCalculatorRequestTypeDef
+# CreateRouteCalculatorRequest
 
 ### CalculatorName
 - **Type**: <class 'str'>
@@ -726,7 +726,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateRouteCalculatorResponseTypeDef
+# CreateRouteCalculatorResponse
 
 ### CalculatorName
 - **Type**: <class 'str'>
@@ -741,11 +741,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateTrackerRequestTypeDef
+# CreateTrackerRequest
 
 ### TrackerName
 - **Type**: <class 'str'>
@@ -776,7 +776,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# CreateTrackerResponseTypeDef
+# CreateTrackerResponse
 
 ### TrackerName
 - **Type**: <class 'str'>
@@ -791,24 +791,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DataSourceConfigurationTypeDef
+# DataSourceConfiguration
 
 ### IntendedUse
 - **Type**: typing.Optional[typing.Literal['SingleUse', 'Storage']]
 
 
-# DeleteGeofenceCollectionRequestTypeDef
+# DeleteGeofenceCollectionRequest
 
 ### CollectionName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteKeyRequestTypeDef
+# DeleteKeyRequest
 
 ### KeyName
 - **Type**: <class 'str'>
@@ -818,42 +818,42 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# DeleteMapRequestTypeDef
+# DeleteMapRequest
 
 ### MapName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeletePlaceIndexRequestTypeDef
+# DeletePlaceIndexRequest
 
 ### IndexName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteRouteCalculatorRequestTypeDef
+# DeleteRouteCalculatorRequest
 
 ### CalculatorName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteTrackerRequestTypeDef
+# DeleteTrackerRequest
 
 ### TrackerName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeGeofenceCollectionRequestTypeDef
+# DescribeGeofenceCollectionRequest
 
 ### CollectionName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeGeofenceCollectionResponseTypeDef
+# DescribeGeofenceCollectionResponse
 
 ### CollectionName
 - **Type**: <class 'str'>
@@ -896,18 +896,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeKeyRequestTypeDef
+# DescribeKeyRequest
 
 ### KeyName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeKeyResponseTypeDef
+# DescribeKeyResponse
 
 ### Key
 - **Type**: <class 'str'>
@@ -922,7 +922,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Restrictions
-- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ApiKeyRestrictionsOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ApiKeyRestrictionsOutput'>
 - **Required**: Yes
 
 ### CreateTime
@@ -946,18 +946,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeMapRequestTypeDef
+# DescribeMapRequest
 
 ### MapName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeMapResponseTypeDef
+# DescribeMapResponse
 
 ### MapName
 - **Type**: <class 'str'>
@@ -976,7 +976,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Configuration
-- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.MapConfigurationOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.MapConfigurationOutput'>
 - **Required**: Yes
 
 ### Description
@@ -996,18 +996,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribePlaceIndexRequestTypeDef
+# DescribePlaceIndexRequest
 
 ### IndexName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribePlaceIndexResponseTypeDef
+# DescribePlaceIndexResponse
 
 ### IndexName
 - **Type**: <class 'str'>
@@ -1038,7 +1038,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DataSourceConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.DataSourceConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.DataSourceConfiguration'>
 - **Required**: Yes
 
 ### Tags
@@ -1046,18 +1046,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeRouteCalculatorRequestTypeDef
+# DescribeRouteCalculatorRequest
 
 ### CalculatorName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeRouteCalculatorResponseTypeDef
+# DescribeRouteCalculatorResponse
 
 ### CalculatorName
 - **Type**: <class 'str'>
@@ -1092,18 +1092,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeTrackerRequestTypeDef
+# DescribeTrackerRequest
 
 ### TrackerName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeTrackerResponseTypeDef
+# DescribeTrackerResponse
 
 ### TrackerName
 - **Type**: <class 'str'>
@@ -1154,11 +1154,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DevicePositionTypeDef
+# DevicePosition
 
 ### SampleTime
 - **Type**: <class 'datetime.datetime'>
@@ -1176,20 +1176,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Accuracy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.PositionalAccuracyTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.PositionalAccuracy]
 
 ### PositionProperties
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 
-# DevicePositionUpdateTypeDef
+# DevicePositionUpdate
 
 ### DeviceId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### SampleTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.TimestampTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.Timestamp'>
 - **Required**: Yes
 
 ### Position
@@ -1197,20 +1197,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Accuracy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.PositionalAccuracyTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.PositionalAccuracy]
 
 ### PositionProperties
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# DeviceStateTypeDef
+# DeviceState
 
 ### DeviceId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### SampleTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.TimestampTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.Timestamp'>
 - **Required**: Yes
 
 ### Position
@@ -1218,19 +1218,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Accuracy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.PositionalAccuracyTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.PositionalAccuracy]
 
 ### Ipv4Address
 - **Type**: typing.Optional[str]
 
 ### WiFiAccessPoints
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.location_classes.WiFiAccessPointTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.location_classes.WiFiAccessPoint]]
 
 ### CellSignals
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.CellSignalsTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# DisassociateTrackerConsumerRequestTypeDef
+# DisassociateTrackerConsumerRequest
 
 ### TrackerName
 - **Type**: <class 'str'>
@@ -1241,7 +1241,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ForecastGeofenceEventsDeviceStateTypeDef
+# ForecastGeofenceEventsDeviceState
 
 ### Position
 - **Type**: typing.Sequence[float]
@@ -1251,37 +1251,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# ForecastGeofenceEventsRequestPaginateTypeDef
+# ForecastGeofenceEventsRequest
 
 ### CollectionName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### DeviceState
-- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ForecastGeofenceEventsDeviceStateTypeDef'>
-- **Required**: Yes
-
-### TimeHorizonMinutes
-- **Type**: typing.Optional[float]
-
-### DistanceUnit
-- **Type**: typing.Optional[typing.Literal['Kilometers', 'Miles']]
-
-### SpeedUnit
-- **Type**: typing.Optional[typing.Literal['KilometersPerHour', 'MilesPerHour']]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.PaginatorConfigTypeDef]
-
-
-# ForecastGeofenceEventsRequestTypeDef
-
-### CollectionName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### DeviceState
-- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ForecastGeofenceEventsDeviceStateTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ForecastGeofenceEventsDeviceState'>
 - **Required**: Yes
 
 ### TimeHorizonMinutes
@@ -1300,10 +1277,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ForecastGeofenceEventsResponseTypeDef
+# ForecastGeofenceEventsRequestPaginate
+
+### CollectionName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### DeviceState
+- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ForecastGeofenceEventsDeviceState'>
+- **Required**: Yes
+
+### TimeHorizonMinutes
+- **Type**: typing.Optional[float]
+
+### DistanceUnit
+- **Type**: typing.Optional[typing.Literal['Kilometers', 'Miles']]
+
+### SpeedUnit
+- **Type**: typing.Optional[typing.Literal['KilometersPerHour', 'MilesPerHour']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.PaginatorConfig]
+
+
+# ForecastGeofenceEventsResponse
 
 ### ForecastedEvents
-- **Type**: typing.List[aws_resource_validator.pydantic_models.location_classes.ForecastedEventTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.location_classes.ForecastedEvent]
 - **Required**: Yes
 
 ### DistanceUnit
@@ -1315,14 +1315,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ForecastedEventTypeDef
+# ForecastedEvent
 
 ### EventId
 - **Type**: <class 'str'>
@@ -1351,57 +1351,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 
-# GeofenceGeometryOutputTypeDef
-
-### Polygon
-- **Type**: typing.Optional[typing.List[typing.List[typing.List[float]]]]
-
-### Circle
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.CircleOutputTypeDef]
-
-### Geobuf
-- **Type**: typing.Optional[bytes]
-
-
-# GeofenceGeometryTypeDef
+# GeofenceGeometry
 
 ### Polygon
 - **Type**: typing.Optional[typing.Sequence[typing.Sequence[typing.Sequence[float]]]]
 
 ### Circle
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.CircleUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.CircleUnion]
 
 ### Geobuf
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.BlobTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.Blob]
 
 
-# GeofenceGeometryUnionTypeDef
+# GeofenceGeometryOutput
+
+### Polygon
+- **Type**: typing.Optional[typing.List[typing.List[typing.List[float]]]]
+
+### Circle
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.CircleOutput]
+
+### Geobuf
+- **Type**: typing.Optional[bytes]
+
+
+# GeofenceGeometryUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# GetDevicePositionHistoryRequestPaginateTypeDef
-
-### TrackerName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### DeviceId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### StartTimeInclusive
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.TimestampTypeDef]
-
-### EndTimeExclusive
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.TimestampTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.PaginatorConfigTypeDef]
-
-
-# GetDevicePositionHistoryRequestTypeDef
+# GetDevicePositionHistoryRequest
 
 ### TrackerName
 - **Type**: <class 'str'>
@@ -1415,30 +1395,50 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### StartTimeInclusive
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.Timestamp]
 
 ### EndTimeExclusive
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.Timestamp]
 
 ### MaxResults
 - **Type**: typing.Optional[int]
 
 
-# GetDevicePositionHistoryResponseTypeDef
+# GetDevicePositionHistoryRequestPaginate
+
+### TrackerName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### DeviceId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### StartTimeInclusive
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.Timestamp]
+
+### EndTimeExclusive
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.Timestamp]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.PaginatorConfig]
+
+
+# GetDevicePositionHistoryResponse
 
 ### DevicePositions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.location_classes.DevicePositionTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.location_classes.DevicePosition]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# GetDevicePositionRequestTypeDef
+# GetDevicePositionRequest
 
 ### TrackerName
 - **Type**: <class 'str'>
@@ -1449,7 +1449,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetDevicePositionResponseTypeDef
+# GetDevicePositionResponse
 
 ### DeviceId
 - **Type**: <class 'str'>
@@ -1468,7 +1468,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Accuracy
-- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.PositionalAccuracyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.PositionalAccuracy'>
 - **Required**: Yes
 
 ### PositionProperties
@@ -1476,11 +1476,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetGeofenceRequestTypeDef
+# GetGeofenceRequest
 
 ### CollectionName
 - **Type**: <class 'str'>
@@ -1491,14 +1491,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetGeofenceResponseTypeDef
+# GetGeofenceResponse
 
 ### GeofenceId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Geometry
-- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.GeofenceGeometryOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.GeofenceGeometryOutput'>
 - **Required**: Yes
 
 ### Status
@@ -1518,11 +1518,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetMapGlyphsRequestTypeDef
+# GetMapGlyphsRequest
 
 ### MapName
 - **Type**: <class 'str'>
@@ -1540,7 +1540,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetMapGlyphsResponseTypeDef
+# GetMapGlyphsResponse
 
 ### Blob
 - **Type**: <class 'botocore.response.StreamingBody'>
@@ -1555,11 +1555,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetMapSpritesRequestTypeDef
+# GetMapSpritesRequest
 
 ### MapName
 - **Type**: <class 'str'>
@@ -1573,7 +1573,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetMapSpritesResponseTypeDef
+# GetMapSpritesResponse
 
 ### Blob
 - **Type**: <class 'botocore.response.StreamingBody'>
@@ -1588,11 +1588,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetMapStyleDescriptorRequestTypeDef
+# GetMapStyleDescriptorRequest
 
 ### MapName
 - **Type**: <class 'str'>
@@ -1602,7 +1602,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetMapStyleDescriptorResponseTypeDef
+# GetMapStyleDescriptorResponse
 
 ### Blob
 - **Type**: <class 'botocore.response.StreamingBody'>
@@ -1617,11 +1617,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetMapTileRequestTypeDef
+# GetMapTileRequest
 
 ### MapName
 - **Type**: <class 'str'>
@@ -1643,7 +1643,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetMapTileResponseTypeDef
+# GetMapTileResponse
 
 ### Blob
 - **Type**: <class 'botocore.response.StreamingBody'>
@@ -1658,11 +1658,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetPlaceRequestTypeDef
+# GetPlaceRequest
 
 ### IndexName
 - **Type**: <class 'str'>
@@ -1679,18 +1679,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetPlaceResponseTypeDef
+# GetPlaceResponse
 
 ### Place
-- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.PlaceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.Place'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# InferredStateTypeDef
+# InferredState
 
 ### ProxyDetected
 - **Type**: <class 'bool'>
@@ -1700,19 +1700,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[float]]
 
 ### Accuracy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.PositionalAccuracyTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.PositionalAccuracy]
 
 ### DeviationDistance
 - **Type**: typing.Optional[float]
 
 
-# LegGeometryTypeDef
-
-### LineString
-- **Type**: typing.Optional[typing.List[typing.List[float]]]
-
-
-# LegTypeDef
+# Leg
 
 ### StartPosition
 - **Type**: typing.List[float]
@@ -1731,27 +1725,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Steps
-- **Type**: typing.List[aws_resource_validator.pydantic_models.location_classes.StepTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.location_classes.Step]
 - **Required**: Yes
 
 ### Geometry
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.LegGeometryTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.LegGeometry]
 
 
-# ListDevicePositionsRequestPaginateTypeDef
+# LegGeometry
 
-### TrackerName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### FilterGeometry
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.TrackingFilterGeometryTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.PaginatorConfigTypeDef]
+### LineString
+- **Type**: typing.Optional[typing.List[typing.List[float]]]
 
 
-# ListDevicePositionsRequestTypeDef
+# ListDevicePositionsRequest
 
 ### TrackerName
 - **Type**: <class 'str'>
@@ -1764,10 +1751,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### FilterGeometry
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.TrackingFilterGeometryTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.TrackingFilterGeometry]
 
 
-# ListDevicePositionsResponseEntryTypeDef
+# ListDevicePositionsRequestPaginate
+
+### TrackerName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### FilterGeometry
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.TrackingFilterGeometry]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.PaginatorConfig]
+
+
+# ListDevicePositionsResponse
+
+### Entries
+- **Type**: typing.List[aws_resource_validator.pydantic_models.location_classes.ListDevicePositionsResponseEntry]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadata'>
+- **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# ListDevicePositionsResponseEntry
 
 ### DeviceId
 - **Type**: <class 'str'>
@@ -1782,33 +1796,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Accuracy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.PositionalAccuracyTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.PositionalAccuracy]
 
 ### PositionProperties
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 
-# ListDevicePositionsResponseTypeDef
-
-### Entries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.location_classes.ListDevicePositionsResponseEntryTypeDef]
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-### NextToken
-- **Type**: typing.Optional[str]
-
-
-# ListGeofenceCollectionsRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.PaginatorConfigTypeDef]
-
-
-# ListGeofenceCollectionsRequestTypeDef
+# ListGeofenceCollectionsRequest
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1817,7 +1811,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListGeofenceCollectionsResponseEntryTypeDef
+# ListGeofenceCollectionsRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.PaginatorConfig]
+
+
+# ListGeofenceCollectionsResponse
+
+### Entries
+- **Type**: typing.List[aws_resource_validator.pydantic_models.location_classes.ListGeofenceCollectionsResponseEntry]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadata'>
+- **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# ListGeofenceCollectionsResponseEntry
 
 ### CollectionName
 - **Type**: <class 'str'>
@@ -1842,28 +1856,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListGeofenceCollectionsResponseTypeDef
-
-### Entries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.location_classes.ListGeofenceCollectionsResponseEntryTypeDef]
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-### NextToken
-- **Type**: typing.Optional[str]
-
-
-# ListGeofenceResponseEntryTypeDef
+# ListGeofenceResponseEntry
 
 ### GeofenceId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Geometry
-- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.GeofenceGeometryOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.GeofenceGeometryOutput'>
 - **Required**: Yes
 
 ### Status
@@ -1882,17 +1882,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 
-# ListGeofencesRequestPaginateTypeDef
-
-### CollectionName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.PaginatorConfigTypeDef]
-
-
-# ListGeofencesRequestTypeDef
+# ListGeofencesRequest
 
 ### CollectionName
 - **Type**: <class 'str'>
@@ -1905,30 +1895,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListGeofencesResponseTypeDef
+# ListGeofencesRequestPaginate
+
+### CollectionName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.PaginatorConfig]
+
+
+# ListGeofencesResponse
 
 ### Entries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.location_classes.ListGeofenceResponseEntryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.location_classes.ListGeofenceResponseEntry]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListKeysRequestPaginateTypeDef
-
-### Filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.ApiKeyFilterTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.PaginatorConfigTypeDef]
-
-
-# ListKeysRequestTypeDef
+# ListKeysRequest
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1937,10 +1928,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.ApiKeyFilterTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.ApiKeyFilter]
 
 
-# ListKeysResponseEntryTypeDef
+# ListKeysRequestPaginate
+
+### Filter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.ApiKeyFilter]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.PaginatorConfig]
+
+
+# ListKeysResponse
+
+### Entries
+- **Type**: typing.List[aws_resource_validator.pydantic_models.location_classes.ListKeysResponseEntry]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadata'>
+- **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# ListKeysResponseEntry
 
 ### KeyName
 - **Type**: <class 'str'>
@@ -1951,7 +1965,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Restrictions
-- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ApiKeyRestrictionsOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ApiKeyRestrictionsOutput'>
 - **Required**: Yes
 
 ### CreateTime
@@ -1966,27 +1980,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListKeysResponseTypeDef
-
-### Entries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.location_classes.ListKeysResponseEntryTypeDef]
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-### NextToken
-- **Type**: typing.Optional[str]
-
-
-# ListMapsRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.PaginatorConfigTypeDef]
-
-
-# ListMapsRequestTypeDef
+# ListMapsRequest
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1995,7 +1989,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListMapsResponseEntryTypeDef
+# ListMapsRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.PaginatorConfig]
+
+
+# ListMapsResponse
+
+### Entries
+- **Type**: typing.List[aws_resource_validator.pydantic_models.location_classes.ListMapsResponseEntry]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadata'>
+- **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# ListMapsResponseEntry
 
 ### MapName
 - **Type**: <class 'str'>
@@ -2021,27 +2035,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['MobileAssetManagement', 'MobileAssetTracking', 'RequestBasedUsage']]
 
 
-# ListMapsResponseTypeDef
-
-### Entries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.location_classes.ListMapsResponseEntryTypeDef]
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-### NextToken
-- **Type**: typing.Optional[str]
-
-
-# ListPlaceIndexesRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.PaginatorConfigTypeDef]
-
-
-# ListPlaceIndexesRequestTypeDef
+# ListPlaceIndexesRequest
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -2050,7 +2044,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListPlaceIndexesResponseEntryTypeDef
+# ListPlaceIndexesRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.PaginatorConfig]
+
+
+# ListPlaceIndexesResponse
+
+### Entries
+- **Type**: typing.List[aws_resource_validator.pydantic_models.location_classes.ListPlaceIndexesResponseEntry]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadata'>
+- **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# ListPlaceIndexesResponseEntry
 
 ### IndexName
 - **Type**: <class 'str'>
@@ -2076,27 +2090,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['MobileAssetManagement', 'MobileAssetTracking', 'RequestBasedUsage']]
 
 
-# ListPlaceIndexesResponseTypeDef
-
-### Entries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.location_classes.ListPlaceIndexesResponseEntryTypeDef]
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-### NextToken
-- **Type**: typing.Optional[str]
-
-
-# ListRouteCalculatorsRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.PaginatorConfigTypeDef]
-
-
-# ListRouteCalculatorsRequestTypeDef
+# ListRouteCalculatorsRequest
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -2105,7 +2099,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListRouteCalculatorsResponseEntryTypeDef
+# ListRouteCalculatorsRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.PaginatorConfig]
+
+
+# ListRouteCalculatorsResponse
+
+### Entries
+- **Type**: typing.List[aws_resource_validator.pydantic_models.location_classes.ListRouteCalculatorsResponseEntry]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadata'>
+- **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# ListRouteCalculatorsResponseEntry
 
 ### CalculatorName
 - **Type**: <class 'str'>
@@ -2131,49 +2145,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['MobileAssetManagement', 'MobileAssetTracking', 'RequestBasedUsage']]
 
 
-# ListRouteCalculatorsResponseTypeDef
-
-### Entries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.location_classes.ListRouteCalculatorsResponseEntryTypeDef]
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-### NextToken
-- **Type**: typing.Optional[str]
-
-
-# ListTagsForResourceRequestTypeDef
+# ListTagsForResourceRequest
 
 ### ResourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ListTagsForResourceResponseTypeDef
+# ListTagsForResourceResponse
 
 ### Tags
 - **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListTrackerConsumersRequestPaginateTypeDef
-
-### TrackerName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.PaginatorConfigTypeDef]
-
-
-# ListTrackerConsumersRequestTypeDef
+# ListTrackerConsumersRequest
 
 ### TrackerName
 - **Type**: <class 'str'>
@@ -2186,27 +2176,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListTrackerConsumersResponseTypeDef
+# ListTrackerConsumersRequestPaginate
+
+### TrackerName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.PaginatorConfig]
+
+
+# ListTrackerConsumersResponse
 
 ### ConsumerArns
 - **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTrackersRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.PaginatorConfigTypeDef]
-
-
-# ListTrackersRequestTypeDef
+# ListTrackersRequest
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -2215,7 +2209,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListTrackersResponseEntryTypeDef
+# ListTrackersRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.PaginatorConfig]
+
+
+# ListTrackersResponse
+
+### Entries
+- **Type**: typing.List[aws_resource_validator.pydantic_models.location_classes.ListTrackersResponseEntry]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadata'>
+- **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# ListTrackersResponseEntry
 
 ### TrackerName
 - **Type**: <class 'str'>
@@ -2240,21 +2254,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListTrackersResponseTypeDef
-
-### Entries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.location_classes.ListTrackersResponseEntryTypeDef]
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-### NextToken
-- **Type**: typing.Optional[str]
-
-
-# LteCellDetailsTypeDef
+# LteCellDetails
 
 ### CellId
 - **Type**: <class 'int'>
@@ -2269,10 +2269,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LocalId
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.LteLocalIdTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.LteLocalId]
 
 ### NetworkMeasurements
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.location_classes.LteNetworkMeasurementsTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.location_classes.LteNetworkMeasurements]]
 
 ### TimingAdvance
 - **Type**: typing.Optional[int]
@@ -2290,7 +2290,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# LteLocalIdTypeDef
+# LteLocalId
 
 ### Earfcn
 - **Type**: <class 'int'>
@@ -2301,7 +2301,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# LteNetworkMeasurementsTypeDef
+# LteNetworkMeasurements
 
 ### Earfcn
 - **Type**: <class 'int'>
@@ -2322,7 +2322,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# MapConfigurationOutputTypeDef
+# MapConfiguration
+
+### Style
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PoliticalView
+- **Type**: typing.Optional[str]
+
+### CustomLayers
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+
+# MapConfigurationOutput
 
 ### Style
 - **Type**: <class 'str'>
@@ -2335,26 +2348,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# MapConfigurationTypeDef
-
-### Style
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PoliticalView
-- **Type**: typing.Optional[str]
-
-### CustomLayers
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-
-# MapConfigurationUnionTypeDef
+# MapConfigurationUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# MapConfigurationUpdateTypeDef
+# MapConfigurationUpdate
 
 ### PoliticalView
 - **Type**: typing.Optional[str]
@@ -2363,7 +2363,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -2375,16 +2375,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PlaceGeometryTypeDef
-
-### Point
-- **Type**: typing.Optional[typing.List[float]]
-
-
-# PlaceTypeDef
+# Place
 
 ### Geometry
-- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.PlaceGeometryTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.PlaceGeometry'>
 - **Required**: Yes
 
 ### Label
@@ -2418,7 +2412,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### TimeZone
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.TimeZoneTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### UnitType
 - **Type**: typing.Optional[str]
@@ -2436,14 +2430,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PositionalAccuracyTypeDef
+# PlaceGeometry
+
+### Point
+- **Type**: typing.Optional[typing.List[float]]
+
+
+# PositionalAccuracy
 
 ### Horizontal
 - **Type**: <class 'float'>
 - **Required**: Yes
 
 
-# PutGeofenceRequestTypeDef
+# PutGeofenceRequest
 
 ### CollectionName
 - **Type**: <class 'str'>
@@ -2454,14 +2454,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Geometry
-- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.GeofenceGeometryUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.GeofenceGeometryUnion'>
 - **Required**: Yes
 
 ### GeofenceProperties
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# PutGeofenceResponseTypeDef
+# PutGeofenceResponse
 
 ### GeofenceId
 - **Type**: <class 'str'>
@@ -2476,11 +2476,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -2502,7 +2502,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RouteMatrixEntryErrorTypeDef
+# RouteMatrixEntry
+
+### Distance
+- **Type**: typing.Optional[float]
+
+### DurationSeconds
+- **Type**: typing.Optional[float]
+
+### Error
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.RouteMatrixEntryError]
+
+
+# RouteMatrixEntryError
 
 ### Code
 - **Type**: typing.Literal['DeparturePositionNotFound', 'DestinationPositionNotFound', 'OtherValidationError', 'PositionsNotFound', 'RouteNotFound', 'RouteTooLong']
@@ -2512,22 +2524,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RouteMatrixEntryTypeDef
-
-### Distance
-- **Type**: typing.Optional[float]
-
-### DurationSeconds
-- **Type**: typing.Optional[float]
-
-### Error
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.RouteMatrixEntryErrorTypeDef]
-
-
-# SearchForPositionResultTypeDef
+# SearchForPositionResult
 
 ### Place
-- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.PlaceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.Place'>
 - **Required**: Yes
 
 ### Distance
@@ -2538,16 +2538,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SearchForSuggestionsResultTypeDef
+# SearchForSuggestionsResult
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# SearchForTextResultTypeDef
+# SearchForTextResult
 
 ### Place
-- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.PlaceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.Place'>
 - **Required**: Yes
 
 ### Distance
@@ -2560,7 +2560,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SearchPlaceIndexForPositionRequestTypeDef
+# SearchPlaceIndexForPositionRequest
 
 ### IndexName
 - **Type**: <class 'str'>
@@ -2580,22 +2580,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SearchPlaceIndexForPositionResponseTypeDef
+# SearchPlaceIndexForPositionResponse
 
 ### Summary
-- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.SearchPlaceIndexForPositionSummaryTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.SearchPlaceIndexForPositionSummary'>
 - **Required**: Yes
 
 ### Results
-- **Type**: typing.List[aws_resource_validator.pydantic_models.location_classes.SearchForPositionResultTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.location_classes.SearchForPositionResult]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# SearchPlaceIndexForPositionSummaryTypeDef
+# SearchPlaceIndexForPositionSummary
 
 ### Position
 - **Type**: typing.List[float]
@@ -2612,49 +2612,49 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SearchPlaceIndexForSuggestionsResponseTypeDef
+# SearchPlaceIndexForSuggestionsResponse
 
 ### Summary
-- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.SearchPlaceIndexForSuggestionsSummaryTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.SearchPlaceIndexForSuggestionsSummary'>
 - **Required**: Yes
 
 ### Results
-- **Type**: typing.List[aws_resource_validator.pydantic_models.location_classes.SearchForSuggestionsResultTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.location_classes.SearchForSuggestionsResult]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# SearchPlaceIndexForSuggestionsSummaryTypeDef
+# SearchPlaceIndexForSuggestionsSummary
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# SearchPlaceIndexForTextResponseTypeDef
+# SearchPlaceIndexForTextResponse
 
 ### Summary
-- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.SearchPlaceIndexForTextSummaryTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.SearchPlaceIndexForTextSummary'>
 - **Required**: Yes
 
 ### Results
-- **Type**: typing.List[aws_resource_validator.pydantic_models.location_classes.SearchForTextResultTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.location_classes.SearchForTextResult]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# SearchPlaceIndexForTextSummaryTypeDef
+# SearchPlaceIndexForTextSummary
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# StepTypeDef
+# Step
 
 ### StartPosition
 - **Type**: typing.List[float]
@@ -2676,7 +2676,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# TagResourceRequestTypeDef
+# TagResourceRequest
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -2687,7 +2687,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TimeZoneTypeDef
+# TimeZone
 
 ### Name
 - **Type**: <class 'str'>
@@ -2697,19 +2697,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# TimestampTypeDef
+# Timestamp
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# TrackingFilterGeometryTypeDef
+# TrackingFilterGeometry
 
 ### Polygon
 - **Type**: typing.Optional[typing.Sequence[typing.Sequence[typing.Sequence[float]]]]
 
 
-# TruckDimensionsTypeDef
+# TruckDimensions
 
 ### Length
 - **Type**: typing.Optional[float]
@@ -2724,7 +2724,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Feet', 'Meters']]
 
 
-# TruckWeightTypeDef
+# TruckWeight
 
 ### Total
 - **Type**: typing.Optional[float]
@@ -2733,7 +2733,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Kilograms', 'Pounds']]
 
 
-# UntagResourceRequestTypeDef
+# UntagResourceRequest
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -2744,7 +2744,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateGeofenceCollectionRequestTypeDef
+# UpdateGeofenceCollectionRequest
 
 ### CollectionName
 - **Type**: <class 'str'>
@@ -2760,7 +2760,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateGeofenceCollectionResponseTypeDef
+# UpdateGeofenceCollectionResponse
 
 ### CollectionName
 - **Type**: <class 'str'>
@@ -2775,11 +2775,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateKeyRequestTypeDef
+# UpdateKeyRequest
 
 ### KeyName
 - **Type**: <class 'str'>
@@ -2789,7 +2789,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ExpireTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.Timestamp]
 
 ### NoExpiry
 - **Type**: typing.Optional[bool]
@@ -2798,10 +2798,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### Restrictions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.ApiKeyRestrictionsUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.ApiKeyRestrictionsUnion]
 
 
-# UpdateKeyResponseTypeDef
+# UpdateKeyResponse
 
 ### KeyArn
 - **Type**: <class 'str'>
@@ -2816,11 +2816,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateMapRequestTypeDef
+# UpdateMapRequest
 
 ### MapName
 - **Type**: <class 'str'>
@@ -2833,10 +2833,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ConfigurationUpdate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.MapConfigurationUpdateTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.MapConfigurationUpdate]
 
 
-# UpdateMapResponseTypeDef
+# UpdateMapResponse
 
 ### MapName
 - **Type**: <class 'str'>
@@ -2851,11 +2851,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdatePlaceIndexRequestTypeDef
+# UpdatePlaceIndexRequest
 
 ### IndexName
 - **Type**: <class 'str'>
@@ -2868,10 +2868,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### DataSourceConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.location_classes.DataSourceConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# UpdatePlaceIndexResponseTypeDef
+# UpdatePlaceIndexResponse
 
 ### IndexName
 - **Type**: <class 'str'>
@@ -2886,11 +2886,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateRouteCalculatorRequestTypeDef
+# UpdateRouteCalculatorRequest
 
 ### CalculatorName
 - **Type**: <class 'str'>
@@ -2903,7 +2903,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateRouteCalculatorResponseTypeDef
+# UpdateRouteCalculatorResponse
 
 ### CalculatorName
 - **Type**: <class 'str'>
@@ -2918,11 +2918,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateTrackerRequestTypeDef
+# UpdateTrackerRequest
 
 ### TrackerName
 - **Type**: <class 'str'>
@@ -2947,7 +2947,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# UpdateTrackerResponseTypeDef
+# UpdateTrackerResponse
 
 ### TrackerName
 - **Type**: <class 'str'>
@@ -2962,28 +2962,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# VerifyDevicePositionRequestTypeDef
+# VerifyDevicePositionRequest
 
 ### TrackerName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### DeviceState
-- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.DeviceStateTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.DeviceState'>
 - **Required**: Yes
 
 ### DistanceUnit
 - **Type**: typing.Optional[typing.Literal['Kilometers', 'Miles']]
 
 
-# VerifyDevicePositionResponseTypeDef
+# VerifyDevicePositionResponse
 
 ### InferredState
-- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.InferredStateTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.InferredState'>
 - **Required**: Yes
 
 ### DeviceId
@@ -3003,11 +3003,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.location_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# WiFiAccessPointTypeDef
+# WiFiAccessPoint
 
 ### MacAddress
 - **Type**: <class 'str'>

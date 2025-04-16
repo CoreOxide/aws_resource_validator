@@ -6,13 +6,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CallInstructionsMessageTypeTypeDef
+# CallInstructionsMessageType
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CloudWatchLogsDestinationTypeDef
+# CloudWatchLogsDestination
 
 ### IamRoleArn
 - **Type**: typing.Optional[str]
@@ -21,26 +21,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateConfigurationSetEventDestinationRequestTypeDef
+# CreateConfigurationSetEventDestinationRequest
 
 ### ConfigurationSetName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### EventDestination
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms_voice_classes.EventDestinationDefinitionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms_voice_classes.EventDestinationDefinition]
 
 ### EventDestinationName
 - **Type**: typing.Optional[str]
 
 
-# CreateConfigurationSetRequestTypeDef
+# CreateConfigurationSetRequest
 
 ### ConfigurationSetName
 - **Type**: typing.Optional[str]
 
 
-# DeleteConfigurationSetEventDestinationRequestTypeDef
+# DeleteConfigurationSetEventDestinationRequest
 
 ### ConfigurationSetName
 - **Type**: <class 'str'>
@@ -51,41 +51,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteConfigurationSetRequestTypeDef
+# DeleteConfigurationSetRequest
 
 ### ConfigurationSetName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# EventDestinationDefinitionTypeDef
+# EventDestination
 
 ### CloudWatchLogsDestination
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms_voice_classes.CloudWatchLogsDestinationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### Enabled
 - **Type**: typing.Optional[bool]
 
 ### KinesisFirehoseDestination
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms_voice_classes.KinesisFirehoseDestinationTypeDef]
-
-### MatchingEventTypes
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['ANSWERED', 'BUSY', 'COMPLETED_CALL', 'FAILED', 'INITIATED_CALL', 'NO_ANSWER', 'RINGING']]]
-
-### SnsDestination
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms_voice_classes.SnsDestinationTypeDef]
-
-
-# EventDestinationTypeDef
-
-### CloudWatchLogsDestination
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms_voice_classes.CloudWatchLogsDestinationTypeDef]
-
-### Enabled
-- **Type**: typing.Optional[bool]
-
-### KinesisFirehoseDestination
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms_voice_classes.KinesisFirehoseDestinationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### MatchingEventTypes
 - **Type**: typing.Optional[typing.List[typing.Literal['ANSWERED', 'BUSY', 'COMPLETED_CALL', 'FAILED', 'INITIATED_CALL', 'NO_ANSWER', 'RINGING']]]
@@ -94,28 +76,46 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### SnsDestination
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms_voice_classes.SnsDestinationTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# GetConfigurationSetEventDestinationsRequestTypeDef
+# EventDestinationDefinition
+
+### CloudWatchLogsDestination
+- **Type**: <class 'NoneType'>
+
+### Enabled
+- **Type**: typing.Optional[bool]
+
+### KinesisFirehoseDestination
+- **Type**: <class 'NoneType'>
+
+### MatchingEventTypes
+- **Type**: typing.Optional[typing.Sequence[typing.Literal['ANSWERED', 'BUSY', 'COMPLETED_CALL', 'FAILED', 'INITIATED_CALL', 'NO_ANSWER', 'RINGING']]]
+
+### SnsDestination
+- **Type**: <class 'NoneType'>
+
+
+# GetConfigurationSetEventDestinationsRequest
 
 ### ConfigurationSetName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetConfigurationSetEventDestinationsResponseTypeDef
+# GetConfigurationSetEventDestinationsResponse
 
 ### EventDestinations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sms_voice_classes.EventDestinationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sms_voice_classes.EventDestination]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sms_voice_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sms_voice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# KinesisFirehoseDestinationTypeDef
+# KinesisFirehoseDestination
 
 ### DeliveryStreamArn
 - **Type**: typing.Optional[str]
@@ -124,7 +124,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListConfigurationSetsRequestTypeDef
+# ListConfigurationSetsRequest
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -133,27 +133,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListConfigurationSetsResponseTypeDef
+# ListConfigurationSetsResponse
 
 ### ConfigurationSets
 - **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sms_voice_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sms_voice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# PlainTextMessageTypeTypeDef
+# PlainTextMessageType
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -175,13 +175,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SSMLMessageTypeTypeDef
+# SSMLMessageType
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# SendVoiceMessageRequestTypeDef
+# SendVoiceMessageRequest
 
 ### CallerId
 - **Type**: typing.Optional[str]
@@ -190,7 +190,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Content
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms_voice_classes.VoiceMessageContentTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms_voice_classes.VoiceMessageContent]
 
 ### DestinationPhoneNumber
 - **Type**: typing.Optional[str]
@@ -199,24 +199,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SendVoiceMessageResponseTypeDef
+# SendVoiceMessageResponse
 
 ### MessageId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sms_voice_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sms_voice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# SnsDestinationTypeDef
+# SnsDestination
 
 ### TopicArn
 - **Type**: typing.Optional[str]
 
 
-# UpdateConfigurationSetEventDestinationRequestTypeDef
+# UpdateConfigurationSetEventDestinationRequest
 
 ### ConfigurationSetName
 - **Type**: <class 'str'>
@@ -227,18 +227,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### EventDestination
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms_voice_classes.EventDestinationDefinitionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms_voice_classes.EventDestinationDefinition]
 
 
-# VoiceMessageContentTypeDef
+# VoiceMessageContent
 
 ### CallInstructionsMessage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms_voice_classes.CallInstructionsMessageTypeTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms_voice_classes.CallInstructionsMessageType]
 
 ### PlainTextMessage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms_voice_classes.PlainTextMessageTypeTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms_voice_classes.PlainTextMessageType]
 
 ### SSMLMessage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms_voice_classes.SSMLMessageTypeTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms_voice_classes.SSMLMessageType]
 
 

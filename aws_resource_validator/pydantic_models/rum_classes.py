@@ -12,7 +12,7 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.rum_constants import *
 
-class AppMonitorConfigurationOutputTypeDef(BaseValidatorModel):
+class AppMonitorConfigurationOutput(BaseValidatorModel):
     AllowCookies: Optional[bool] = None
     EnableXRay: Optional[bool] = None
     ExcludedPages: Optional[List[str]] = None
@@ -24,7 +24,7 @@ class AppMonitorConfigurationOutputTypeDef(BaseValidatorModel):
     Telemetries: Optional[List[TelemetryType]] = None
 
 
-class AppMonitorConfigurationTypeDef(BaseValidatorModel):
+class AppMonitorConfiguration(BaseValidatorModel):
     AllowCookies: Optional[bool] = None
     EnableXRay: Optional[bool] = None
     ExcludedPages: Optional[Sequence[str]] = None
@@ -36,7 +36,7 @@ class AppMonitorConfigurationTypeDef(BaseValidatorModel):
     Telemetries: Optional[Sequence[TelemetryType]] = None
 
 
-class AppMonitorSummaryTypeDef(BaseValidatorModel):
+class AppMonitorSummary(BaseValidatorModel):
     Created: Optional[str] = None
     Id: Optional[str] = None
     LastModified: Optional[str] = None
@@ -44,11 +44,11 @@ class AppMonitorSummaryTypeDef(BaseValidatorModel):
     State: Optional[StateEnumType] = None
 
 
-class CustomEventsTypeDef(BaseValidatorModel):
+class CustomEvents(BaseValidatorModel):
     Status: Optional[CustomEventsStatusType] = None
 
 
-class MetricDefinitionRequestOutputTypeDef(BaseValidatorModel):
+class MetricDefinitionRequestOutput(BaseValidatorModel):
     Name: str
     DimensionKeys: Optional[Dict[str, str]] = None
     EventPattern: Optional[str] = None
@@ -57,7 +57,7 @@ class MetricDefinitionRequestOutputTypeDef(BaseValidatorModel):
     ValueKey: Optional[str] = None
 
 
-class MetricDefinitionTypeDef(BaseValidatorModel):
+class MetricDefinition(BaseValidatorModel):
     MetricDefinitionId: str
     Name: str
     DimensionKeys: Optional[Dict[str, str]] = None
@@ -67,7 +67,7 @@ class MetricDefinitionTypeDef(BaseValidatorModel):
     ValueKey: Optional[str] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -75,26 +75,26 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class BatchDeleteRumMetricDefinitionsErrorTypeDef(BaseValidatorModel):
+class BatchDeleteRumMetricDefinitionsError(BaseValidatorModel):
     ErrorCode: str
     ErrorMessage: str
     MetricDefinitionId: str
 
 
-class BatchDeleteRumMetricDefinitionsRequestTypeDef(BaseValidatorModel):
+class BatchDeleteRumMetricDefinitionsRequest(BaseValidatorModel):
     AppMonitorName: str
     Destination: MetricDestinationType
     MetricDefinitionIds: Sequence[str]
     DestinationArn: Optional[str] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class BatchGetRumMetricDefinitionsRequestTypeDef(BaseValidatorModel):
+class BatchGetRumMetricDefinitionsRequest(BaseValidatorModel):
     AppMonitorName: str
     Destination: MetricDestinationType
     DestinationArn: Optional[str] = None
@@ -102,66 +102,66 @@ class BatchGetRumMetricDefinitionsRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
-class CwLogTypeDef(BaseValidatorModel):
+class CwLog(BaseValidatorModel):
     CwLogEnabled: Optional[bool] = None
     CwLogGroup: Optional[str] = None
 
 
-class DeleteAppMonitorRequestTypeDef(BaseValidatorModel):
+class DeleteAppMonitorRequest(BaseValidatorModel):
     Name: str
 
 
-class DeleteResourcePolicyRequestTypeDef(BaseValidatorModel):
+class DeleteResourcePolicyRequest(BaseValidatorModel):
     Name: str
     PolicyRevisionId: Optional[str] = None
 
 
-class DeleteRumMetricsDestinationRequestTypeDef(BaseValidatorModel):
+class DeleteRumMetricsDestinationRequest(BaseValidatorModel):
     AppMonitorName: str
     Destination: MetricDestinationType
     DestinationArn: Optional[str] = None
 
 
-class QueryFilterTypeDef(BaseValidatorModel):
+class QueryFilter(BaseValidatorModel):
     Name: Optional[str] = None
     Values: Optional[Sequence[str]] = None
 
 
-class TimeRangeTypeDef(BaseValidatorModel):
+class TimeRange(BaseValidatorModel):
     After: int
     Before: Optional[int] = None
 
 
-class GetAppMonitorRequestTypeDef(BaseValidatorModel):
+class GetAppMonitorRequest(BaseValidatorModel):
     Name: str
 
 
-class GetResourcePolicyRequestTypeDef(BaseValidatorModel):
+class GetResourcePolicyRequest(BaseValidatorModel):
     Name: str
 
 
-class ListAppMonitorsRequestTypeDef(BaseValidatorModel):
+class ListAppMonitorsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListRumMetricsDestinationsRequestTypeDef(BaseValidatorModel):
+class ListRumMetricsDestinationsRequest(BaseValidatorModel):
     AppMonitorName: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class MetricDestinationSummaryTypeDef(BaseValidatorModel):
+class MetricDestinationSummary(BaseValidatorModel):
     Destination: Optional[MetricDestinationType] = None
     DestinationArn: Optional[str] = None
     IamRoleArn: Optional[str] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
 
-class MetricDefinitionRequestTypeDef(BaseValidatorModel):
+class MetricDefinitionRequest(BaseValidatorModel):
     Name: str
     DimensionKeys: Optional[Mapping[str, str]] = None
     EventPattern: Optional[str] = None
@@ -170,165 +170,165 @@ class MetricDefinitionRequestTypeDef(BaseValidatorModel):
     ValueKey: Optional[str] = None
 
 
-class PutResourcePolicyRequestTypeDef(BaseValidatorModel):
+class PutResourcePolicyRequest(BaseValidatorModel):
     Name: str
     PolicyDocument: str
     PolicyRevisionId: Optional[str] = None
 
 
-class UserDetailsTypeDef(BaseValidatorModel):
+class UserDetails(BaseValidatorModel):
     sessionId: Optional[str] = None
     userId: Optional[str] = None
 
 
-class PutRumMetricsDestinationRequestTypeDef(BaseValidatorModel):
+class PutRumMetricsDestinationRequest(BaseValidatorModel):
     AppMonitorName: str
     Destination: MetricDestinationType
     DestinationArn: Optional[str] = None
     IamRoleArn: Optional[str] = None
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     Tags: Mapping[str, str]
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     TagKeys: Sequence[str]
 
 
-class BatchCreateRumMetricDefinitionsErrorTypeDef(BaseValidatorModel):
+class BatchCreateRumMetricDefinitionsError(BaseValidatorModel):
     ErrorCode: str
     ErrorMessage: str
-    MetricDefinition: MetricDefinitionRequestOutputTypeDef
+    MetricDefinition: MetricDefinitionRequestOutput
 
 
-class BatchGetRumMetricDefinitionsResponseTypeDef(BaseValidatorModel):
-    MetricDefinitions: List[MetricDefinitionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchGetRumMetricDefinitionsResponse(BaseValidatorModel):
+    MetricDefinitions: List[MetricDefinition]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class CreateAppMonitorResponseTypeDef(BaseValidatorModel):
+class CreateAppMonitorResponse(BaseValidatorModel):
     Id: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteResourcePolicyResponseTypeDef(BaseValidatorModel):
+class DeleteResourcePolicyResponse(BaseValidatorModel):
     PolicyRevisionId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetAppMonitorDataResponseTypeDef(BaseValidatorModel):
+class GetAppMonitorDataResponse(BaseValidatorModel):
     Events: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class GetResourcePolicyResponseTypeDef(BaseValidatorModel):
+class GetResourcePolicyResponse(BaseValidatorModel):
     PolicyDocument: str
     PolicyRevisionId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListAppMonitorsResponseTypeDef(BaseValidatorModel):
-    AppMonitorSummaries: List[AppMonitorSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAppMonitorsResponse(BaseValidatorModel):
+    AppMonitorSummaries: List[AppMonitorSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
+class ListTagsForResourceResponse(BaseValidatorModel):
     ResourceArn: str
     Tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class PutResourcePolicyResponseTypeDef(BaseValidatorModel):
+class PutResourcePolicyResponse(BaseValidatorModel):
     PolicyDocument: str
     PolicyRevisionId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class BatchDeleteRumMetricDefinitionsResponseTypeDef(BaseValidatorModel):
-    Errors: List[BatchDeleteRumMetricDefinitionsErrorTypeDef]
+class BatchDeleteRumMetricDefinitionsResponse(BaseValidatorModel):
+    Errors: List[BatchDeleteRumMetricDefinitionsError]
     MetricDefinitionIds: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class BatchGetRumMetricDefinitionsRequestPaginateTypeDef(BaseValidatorModel):
+class BatchGetRumMetricDefinitionsRequestPaginate(BaseValidatorModel):
     AppMonitorName: str
     Destination: MetricDestinationType
     DestinationArn: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListAppMonitorsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListAppMonitorsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListRumMetricsDestinationsRequestPaginateTypeDef(BaseValidatorModel):
+class ListRumMetricsDestinationsRequestPaginate(BaseValidatorModel):
     AppMonitorName: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DataStorageTypeDef(BaseValidatorModel):
-    CwLog: Optional[CwLogTypeDef] = None
+class DataStorage(BaseValidatorModel):
+    CwLog: Optional[CwLog] = None
 
 
-class GetAppMonitorDataRequestPaginateTypeDef(BaseValidatorModel):
+class GetAppMonitorDataRequestPaginate(BaseValidatorModel):
     Name: str
-    TimeRange: TimeRangeTypeDef
-    Filters: Optional[Sequence[QueryFilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    TimeRange: TimeRange
+    Filters: Optional[Sequence[QueryFilter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class GetAppMonitorDataRequestTypeDef(BaseValidatorModel):
+class GetAppMonitorDataRequest(BaseValidatorModel):
     Name: str
-    TimeRange: TimeRangeTypeDef
-    Filters: Optional[Sequence[QueryFilterTypeDef]] = None
+    TimeRange: TimeRange
+    Filters: Optional[Sequence[QueryFilter]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListRumMetricsDestinationsResponseTypeDef(BaseValidatorModel):
-    Destinations: List[MetricDestinationSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListRumMetricsDestinationsResponse(BaseValidatorModel):
+    Destinations: List[MetricDestinationSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class AppMonitorConfigurationUnionTypeDef(BaseValidatorModel):
+class AppMonitorConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class CreateAppMonitorRequestTypeDef(BaseValidatorModel):
+class CreateAppMonitorRequest(BaseValidatorModel):
     Domain: str
     Name: str
-    AppMonitorConfiguration: Optional[AppMonitorConfigurationUnionTypeDef] = None
-    CustomEvents: Optional[CustomEventsTypeDef] = None
+    AppMonitorConfiguration: Optional[AppMonitorConfigurationUnion] = None
+    CustomEvents: Optional[CustomEvents] = None
     CwLogEnabled: Optional[bool] = None
     Tags: Optional[Mapping[str, str]] = None
 
 
-class UpdateAppMonitorRequestTypeDef(BaseValidatorModel):
+class UpdateAppMonitorRequest(BaseValidatorModel):
     Name: str
-    AppMonitorConfiguration: Optional[AppMonitorConfigurationUnionTypeDef] = None
-    CustomEvents: Optional[CustomEventsTypeDef] = None
+    AppMonitorConfiguration: Optional[AppMonitorConfigurationUnion] = None
+    CustomEvents: Optional[CustomEvents] = None
     CwLogEnabled: Optional[bool] = None
     Domain: Optional[str] = None
 
 
-class BatchCreateRumMetricDefinitionsResponseTypeDef(BaseValidatorModel):
-    Errors: List[BatchCreateRumMetricDefinitionsErrorTypeDef]
-    MetricDefinitions: List[MetricDefinitionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchCreateRumMetricDefinitionsResponse(BaseValidatorModel):
+    Errors: List[BatchCreateRumMetricDefinitionsError]
+    MetricDefinitions: List[MetricDefinition]
+    ResponseMetadata: ResponseMetadata
 
 
-class AppMonitorTypeDef(BaseValidatorModel):
-    AppMonitorConfiguration: Optional[AppMonitorConfigurationOutputTypeDef] = None
+class AppMonitor(BaseValidatorModel):
+    AppMonitorConfiguration: Optional[AppMonitorConfigurationOutput] = None
     Created: Optional[str] = None
-    CustomEvents: Optional[CustomEventsTypeDef] = None
-    DataStorage: Optional[DataStorageTypeDef] = None
+    CustomEvents: Optional[CustomEvents] = None
+    DataStorage: Optional[DataStorage] = None
     Domain: Optional[str] = None
     Id: Optional[str] = None
     LastModified: Optional[str] = None
@@ -337,44 +337,44 @@ class AppMonitorTypeDef(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
-class MetricDefinitionRequestUnionTypeDef(BaseValidatorModel):
+class MetricDefinitionRequestUnion(BaseValidatorModel):
     pass
 
 
-class BatchCreateRumMetricDefinitionsRequestTypeDef(BaseValidatorModel):
+class BatchCreateRumMetricDefinitionsRequest(BaseValidatorModel):
     AppMonitorName: str
     Destination: MetricDestinationType
-    MetricDefinitions: Sequence[MetricDefinitionRequestUnionTypeDef]
+    MetricDefinitions: Sequence[MetricDefinitionRequestUnion]
     DestinationArn: Optional[str] = None
 
 
-class UpdateRumMetricDefinitionRequestTypeDef(BaseValidatorModel):
+class UpdateRumMetricDefinitionRequest(BaseValidatorModel):
     AppMonitorName: str
     Destination: MetricDestinationType
-    MetricDefinition: MetricDefinitionRequestUnionTypeDef
+    MetricDefinition: MetricDefinitionRequestUnion
     MetricDefinitionId: str
     DestinationArn: Optional[str] = None
 
 
-class RumEventTypeDef(BaseValidatorModel):
+class RumEvent(BaseValidatorModel):
     pass
 
 
-class AppMonitorDetailsTypeDef(BaseValidatorModel):
+class AppMonitorDetails(BaseValidatorModel):
     pass
 
 
-class PutRumEventsRequestTypeDef(BaseValidatorModel):
-    AppMonitorDetails: AppMonitorDetailsTypeDef
+class PutRumEventsRequest(BaseValidatorModel):
+    AppMonitorDetails: AppMonitorDetails
     BatchId: str
     Id: str
-    RumEvents: Sequence[RumEventTypeDef]
-    UserDetails: UserDetailsTypeDef
+    RumEvents: Sequence[RumEvent]
+    UserDetails: UserDetails
     Alias: Optional[str] = None
 
 
-class GetAppMonitorResponseTypeDef(BaseValidatorModel):
-    AppMonitor: AppMonitorTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetAppMonitorResponse(BaseValidatorModel):
+    AppMonitor: AppMonitor
+    ResponseMetadata: ResponseMetadata
 
 

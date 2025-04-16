@@ -12,7 +12,7 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.rds_data_constants import *
 
-class ArrayValueOutputTypeDef(BaseValidatorModel):
+class ArrayValueOutput(BaseValidatorModel):
     booleanValues: Optional[List[bool]] = None
     longValues: Optional[List[int]] = None
     doubleValues: Optional[List[float]] = None
@@ -20,7 +20,7 @@ class ArrayValueOutputTypeDef(BaseValidatorModel):
     arrayValues: Optional[List[Dict[str, Any]]] = None
 
 
-class ArrayValueTypeDef(BaseValidatorModel):
+class ArrayValue(BaseValidatorModel):
     booleanValues: Optional[Sequence[bool]] = None
     longValues: Optional[Sequence[int]] = None
     doubleValues: Optional[Sequence[float]] = None
@@ -28,7 +28,7 @@ class ArrayValueTypeDef(BaseValidatorModel):
     arrayValues: Optional[Sequence[Mapping[str, Any]]] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -36,20 +36,20 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class BeginTransactionRequestTypeDef(BaseValidatorModel):
+class BeginTransactionRequest(BaseValidatorModel):
     resourceArn: str
     secretArn: str
     database: Optional[str] = None
     schema: Optional[str] = None
 
 
-class CommitTransactionRequestTypeDef(BaseValidatorModel):
+class CommitTransactionRequest(BaseValidatorModel):
     resourceArn: str
     secretArn: str
     transactionId: str
 
 
-class ExecuteSqlRequestTypeDef(BaseValidatorModel):
+class ExecuteSqlRequest(BaseValidatorModel):
     dbClusterOrInstanceArn: str
     awsSecretStoreArn: str
     sqlStatements: str
@@ -57,56 +57,56 @@ class ExecuteSqlRequestTypeDef(BaseValidatorModel):
     schema: Optional[str] = None
 
 
-class ResultSetOptionsTypeDef(BaseValidatorModel):
+class ResultSetOptions(BaseValidatorModel):
     decimalReturnType: Optional[DecimalReturnTypeType] = None
     longReturnType: Optional[LongReturnTypeType] = None
 
 
-class RollbackTransactionRequestTypeDef(BaseValidatorModel):
+class RollbackTransactionRequest(BaseValidatorModel):
     resourceArn: str
     secretArn: str
     transactionId: str
 
 
-class StructValueTypeDef(BaseValidatorModel):
+class StructValue(BaseValidatorModel):
     attributes: Optional[List[Dict[str, Any]]] = None
 
 
-class FieldOutputTypeDef(BaseValidatorModel):
+class FieldOutput(BaseValidatorModel):
     isNull: Optional[bool] = None
     booleanValue: Optional[bool] = None
     longValue: Optional[int] = None
     doubleValue: Optional[float] = None
     stringValue: Optional[str] = None
     blobValue: Optional[bytes] = None
-    arrayValue: Optional[ArrayValueOutputTypeDef] = None
+    arrayValue: Optional[ArrayValueOutput] = None
 
 
-class BeginTransactionResponseTypeDef(BaseValidatorModel):
+class BeginTransactionResponse(BaseValidatorModel):
     transactionId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CommitTransactionResponseTypeDef(BaseValidatorModel):
+class CommitTransactionResponse(BaseValidatorModel):
     transactionStatus: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class RollbackTransactionResponseTypeDef(BaseValidatorModel):
+class RollbackTransactionResponse(BaseValidatorModel):
     transactionStatus: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ColumnMetadataTypeDef(BaseValidatorModel):
+class ColumnMetadata(BaseValidatorModel):
     pass
 
 
-class ResultSetMetadataTypeDef(BaseValidatorModel):
+class ResultSetMetadata(BaseValidatorModel):
     columnCount: Optional[int] = None
-    columnMetadata: Optional[List[ColumnMetadataTypeDef]] = None
+    columnMetadata: Optional[List[ColumnMetadata]] = None
 
 
-class ValueTypeDef(BaseValidatorModel):
+class Value(BaseValidatorModel):
     isNull: Optional[bool] = None
     bitValue: Optional[bool] = None
     bigIntValue: Optional[int] = None
@@ -116,95 +116,95 @@ class ValueTypeDef(BaseValidatorModel):
     stringValue: Optional[str] = None
     blobValue: Optional[bytes] = None
     arrayValues: Optional[List[Dict[str, Any]]] = None
-    structValue: Optional[StructValueTypeDef] = None
+    structValue: Optional[StructValue] = None
 
 
-class ExecuteStatementResponseTypeDef(BaseValidatorModel):
-    records: List[List[FieldOutputTypeDef]]
-    columnMetadata: List[ColumnMetadataTypeDef]
+class ExecuteStatementResponse(BaseValidatorModel):
+    records: List[List[FieldOutput]]
+    columnMetadata: List[ColumnMetadata]
     numberOfRecordsUpdated: int
-    generatedFields: List[FieldOutputTypeDef]
+    generatedFields: List[FieldOutput]
     formattedRecords: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateResultTypeDef(BaseValidatorModel):
-    generatedFields: Optional[List[FieldOutputTypeDef]] = None
+class UpdateResult(BaseValidatorModel):
+    generatedFields: Optional[List[FieldOutput]] = None
 
 
-class ArrayValueUnionTypeDef(BaseValidatorModel):
+class ArrayValueUnion(BaseValidatorModel):
     pass
 
 
-class BlobTypeDef(BaseValidatorModel):
+class Blob(BaseValidatorModel):
     pass
 
 
-class FieldTypeDef(BaseValidatorModel):
+class Field(BaseValidatorModel):
     isNull: Optional[bool] = None
     booleanValue: Optional[bool] = None
     longValue: Optional[int] = None
     doubleValue: Optional[float] = None
     stringValue: Optional[str] = None
-    blobValue: Optional[BlobTypeDef] = None
-    arrayValue: Optional[ArrayValueUnionTypeDef] = None
+    blobValue: Optional[Blob] = None
+    arrayValue: Optional[ArrayValueUnion] = None
 
 
-class RecordTypeDef(BaseValidatorModel):
-    values: Optional[List[ValueTypeDef]] = None
+class Record(BaseValidatorModel):
+    values: Optional[List[Value]] = None
 
 
-class BatchExecuteStatementResponseTypeDef(BaseValidatorModel):
-    updateResults: List[UpdateResultTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchExecuteStatementResponse(BaseValidatorModel):
+    updateResults: List[UpdateResult]
+    ResponseMetadata: ResponseMetadata
 
 
-class ResultFrameTypeDef(BaseValidatorModel):
-    resultSetMetadata: Optional[ResultSetMetadataTypeDef] = None
-    records: Optional[List[RecordTypeDef]] = None
+class ResultFrame(BaseValidatorModel):
+    resultSetMetadata: Optional[ResultSetMetadata] = None
+    records: Optional[List[Record]] = None
 
 
-class FieldUnionTypeDef(BaseValidatorModel):
+class FieldUnion(BaseValidatorModel):
     pass
 
 
-class SqlParameterTypeDef(BaseValidatorModel):
+class SqlParameter(BaseValidatorModel):
     name: Optional[str] = None
-    value: Optional[FieldUnionTypeDef] = None
+    value: Optional[FieldUnion] = None
     typeHint: Optional[TypeHintType] = None
 
 
-class SqlStatementResultTypeDef(BaseValidatorModel):
-    resultFrame: Optional[ResultFrameTypeDef] = None
+class SqlStatementResult(BaseValidatorModel):
+    resultFrame: Optional[ResultFrame] = None
     numberOfRecordsUpdated: Optional[int] = None
 
 
-class BatchExecuteStatementRequestTypeDef(BaseValidatorModel):
+class BatchExecuteStatementRequest(BaseValidatorModel):
     resourceArn: str
     secretArn: str
     sql: str
     database: Optional[str] = None
     schema: Optional[str] = None
-    parameterSets: Optional[Sequence[Sequence[SqlParameterTypeDef]]] = None
+    parameterSets: Optional[Sequence[Sequence[SqlParameter]]] = None
     transactionId: Optional[str] = None
 
 
-class ExecuteStatementRequestTypeDef(BaseValidatorModel):
+class ExecuteStatementRequest(BaseValidatorModel):
     resourceArn: str
     secretArn: str
     sql: str
     database: Optional[str] = None
     schema: Optional[str] = None
-    parameters: Optional[Sequence[SqlParameterTypeDef]] = None
+    parameters: Optional[Sequence[SqlParameter]] = None
     transactionId: Optional[str] = None
     includeResultMetadata: Optional[bool] = None
     continueAfterTimeout: Optional[bool] = None
-    resultSetOptions: Optional[ResultSetOptionsTypeDef] = None
+    resultSetOptions: Optional[ResultSetOptions] = None
     formatRecordsAs: Optional[RecordsFormatTypeType] = None
 
 
-class ExecuteSqlResponseTypeDef(BaseValidatorModel):
-    sqlStatementResults: List[SqlStatementResultTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ExecuteSqlResponse(BaseValidatorModel):
+    sqlStatementResults: List[SqlStatementResult]
+    ResponseMetadata: ResponseMetadata
 
 

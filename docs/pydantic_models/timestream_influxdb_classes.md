@@ -6,7 +6,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CreateDbClusterInputTypeDef
+# CreateDbClusterInput
 
 ### name
 - **Type**: <class 'str'>
@@ -64,13 +64,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['AUTOMATIC', 'NO_FAILOVER']]
 
 ### logDeliveryConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_influxdb_classes.LogDeliveryConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_influxdb_classes.LogDeliveryConfiguration]
 
 ### tags
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateDbClusterOutputTypeDef
+# CreateDbClusterOutput
 
 ### dbClusterId
 - **Type**: <class 'str'>
@@ -81,11 +81,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_influxdb_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_influxdb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateDbInstanceInputTypeDef
+# CreateDbInstanceInput
 
 ### name
 - **Type**: <class 'str'>
@@ -133,7 +133,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['SINGLE_AZ', 'WITH_MULTIAZ_STANDBY']]
 
 ### logDeliveryConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_influxdb_classes.LogDeliveryConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_influxdb_classes.LogDeliveryConfiguration]
 
 ### tags
 - **Type**: typing.Optional[typing.Mapping[str, str]]
@@ -145,7 +145,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DUAL', 'IPV4']]
 
 
-# CreateDbParameterGroupInputTypeDef
+# CreateDbParameterGroupInput
 
 ### name
 - **Type**: <class 'str'>
@@ -155,62 +155,62 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### parameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_influxdb_classes.ParametersTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_influxdb_classes.Parameters]
 
 ### tags
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# DbClusterSummaryTypeDef
+# DbClusterSummary
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# DbInstanceForClusterSummaryTypeDef
+# DbInstanceForClusterSummary
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# DbInstanceSummaryTypeDef
+# DbInstanceSummary
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# DbParameterGroupSummaryTypeDef
+# DbParameterGroupSummary
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# DeleteDbClusterInputTypeDef
+# DeleteDbClusterInput
 
 ### dbClusterId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteDbClusterOutputTypeDef
+# DeleteDbClusterOutput
 
 ### dbClusterStatus
 - **Type**: typing.Literal['AVAILABLE', 'CREATING', 'DELETED', 'DELETING', 'FAILED', 'UPDATING']
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_influxdb_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_influxdb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteDbInstanceInputTypeDef
+# DeleteDbInstanceInput
 
 ### identifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DurationTypeDef
+# Duration
 
 ### durationType
 - **Type**: typing.Literal['hours', 'milliseconds', 'minutes', 'seconds']
@@ -221,35 +221,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# EmptyResponseMetadataTypeDef
+# EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_influxdb_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_influxdb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetDbClusterInputTypeDef
+# GetDbClusterInput
 
 ### dbClusterId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetDbInstanceInputTypeDef
+# GetDbInstanceInput
 
 ### identifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetDbParameterGroupInputTypeDef
+# GetDbParameterGroupInput
 
 ### identifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# InfluxDBv2ParametersTypeDef
+# InfluxDBv2Parameters
 
 ### fluxLogEnabled
 - **Type**: typing.Optional[bool]
@@ -273,16 +273,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### httpIdleTimeout
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_influxdb_classes.DurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_influxdb_classes.Duration]
 
 ### httpReadHeaderTimeout
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_influxdb_classes.DurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_influxdb_classes.Duration]
 
 ### httpReadTimeout
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_influxdb_classes.DurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_influxdb_classes.Duration]
 
 ### httpWriteTimeout
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_influxdb_classes.DurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_influxdb_classes.Duration]
 
 ### influxqlMaxSelectBuckets
 - **Type**: typing.Optional[int]
@@ -318,10 +318,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### storageCacheSnapshotWriteColdDuration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_influxdb_classes.DurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_influxdb_classes.Duration]
 
 ### storageCompactFullWriteColdDuration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_influxdb_classes.DurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_influxdb_classes.Duration]
 
 ### storageCompactThroughputBurst
 - **Type**: typing.Optional[int]
@@ -336,7 +336,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### storageRetentionCheckInterval
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_influxdb_classes.DurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_influxdb_classes.Duration]
 
 ### storageSeriesFileMaxConcurrentSnapshotCompactions
 - **Type**: typing.Optional[int]
@@ -348,19 +348,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### storageWalMaxWriteDelay
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_influxdb_classes.DurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_influxdb_classes.Duration]
 
 ### uiDisabled
 - **Type**: typing.Optional[bool]
 
 
-# ListDbClustersInputPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_influxdb_classes.PaginatorConfigTypeDef]
-
-
-# ListDbClustersInputTypeDef
+# ListDbClustersInput
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -369,31 +363,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListDbClustersOutputTypeDef
+# ListDbClustersInputPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_influxdb_classes.PaginatorConfig]
+
+
+# ListDbClustersOutput
 
 ### items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.timestream_influxdb_classes.DbClusterSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.timestream_influxdb_classes.DbClusterSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_influxdb_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_influxdb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListDbInstancesForClusterInputPaginateTypeDef
-
-### dbClusterId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_influxdb_classes.PaginatorConfigTypeDef]
-
-
-# ListDbInstancesForClusterInputTypeDef
+# ListDbInstancesForClusterInput
 
 ### dbClusterId
 - **Type**: <class 'str'>
@@ -406,27 +396,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListDbInstancesForClusterOutputTypeDef
+# ListDbInstancesForClusterInputPaginate
+
+### dbClusterId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_influxdb_classes.PaginatorConfig]
+
+
+# ListDbInstancesForClusterOutput
 
 ### items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.timestream_influxdb_classes.DbInstanceForClusterSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.timestream_influxdb_classes.DbInstanceForClusterSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_influxdb_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_influxdb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListDbInstancesInputPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_influxdb_classes.PaginatorConfigTypeDef]
-
-
-# ListDbInstancesInputTypeDef
+# ListDbInstancesInput
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -435,27 +429,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListDbInstancesOutputTypeDef
+# ListDbInstancesInputPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_influxdb_classes.PaginatorConfig]
+
+
+# ListDbInstancesOutput
 
 ### items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.timestream_influxdb_classes.DbInstanceSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.timestream_influxdb_classes.DbInstanceSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_influxdb_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_influxdb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListDbParameterGroupsInputPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_influxdb_classes.PaginatorConfigTypeDef]
-
-
-# ListDbParameterGroupsInputTypeDef
+# ListDbParameterGroupsInput
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -464,46 +458,52 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListDbParameterGroupsOutputTypeDef
+# ListDbParameterGroupsInputPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_influxdb_classes.PaginatorConfig]
+
+
+# ListDbParameterGroupsOutput
 
 ### items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.timestream_influxdb_classes.DbParameterGroupSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.timestream_influxdb_classes.DbParameterGroupSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_influxdb_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_influxdb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestTypeDef
+# ListTagsForResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ListTagsForResourceResponseTypeDef
+# ListTagsForResourceResponse
 
 ### tags
 - **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_influxdb_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_influxdb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# LogDeliveryConfigurationTypeDef
+# LogDeliveryConfiguration
 
 ### s3Configuration
-- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_influxdb_classes.S3ConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_influxdb_classes.S3Configuration'>
 - **Required**: Yes
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -515,13 +515,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ParametersTypeDef
+# Parameters
 
 ### InfluxDBv2
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_influxdb_classes.InfluxDBv2ParametersTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_influxdb_classes.InfluxDBv2Parameters]
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -543,7 +543,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# S3ConfigurationTypeDef
+# S3Configuration
 
 ### bucketName
 - **Type**: <class 'str'>
@@ -554,7 +554,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TagResourceRequestTypeDef
+# TagResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -565,7 +565,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceRequestTypeDef
+# UntagResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -576,14 +576,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateDbClusterInputTypeDef
+# UpdateDbClusterInput
 
 ### dbClusterId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### logDeliveryConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_influxdb_classes.LogDeliveryConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_influxdb_classes.LogDeliveryConfiguration]
 
 ### dbParameterGroupIdentifier
 - **Type**: typing.Optional[str]
@@ -598,25 +598,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['AUTOMATIC', 'NO_FAILOVER']]
 
 
-# UpdateDbClusterOutputTypeDef
+# UpdateDbClusterOutput
 
 ### dbClusterStatus
 - **Type**: typing.Literal['AVAILABLE', 'CREATING', 'DELETED', 'DELETING', 'FAILED', 'UPDATING']
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_influxdb_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_influxdb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateDbInstanceInputTypeDef
+# UpdateDbInstanceInput
 
 ### identifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### logDeliveryConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_influxdb_classes.LogDeliveryConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_influxdb_classes.LogDeliveryConfiguration]
 
 ### dbParameterGroupIdentifier
 - **Type**: typing.Optional[str]

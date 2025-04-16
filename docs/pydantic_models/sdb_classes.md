@@ -1,6 +1,6 @@
 # Sdb Classes
 
-# AttributeTypeDef
+# Attribute
 
 ### Name
 - **Type**: <class 'str'>
@@ -23,46 +23,46 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BatchDeleteAttributesRequestTypeDef
+# BatchDeleteAttributesRequest
 
 ### DomainName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Items
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.sdb_classes.DeletableItemTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.sdb_classes.DeletableItem]
 - **Required**: Yes
 
 
-# BatchPutAttributesRequestTypeDef
+# BatchPutAttributesRequest
 
 ### DomainName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Items
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.sdb_classes.ReplaceableItemTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.sdb_classes.ReplaceableItem]
 - **Required**: Yes
 
 
-# CreateDomainRequestTypeDef
+# CreateDomainRequest
 
 ### DomainName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeletableItemTypeDef
+# DeletableItem
 
 ### Name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Attributes
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sdb_classes.AttributeTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sdb_classes.Attribute]]
 
 
-# DeleteAttributesRequestTypeDef
+# DeleteAttributesRequest
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -73,27 +73,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Attributes
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sdb_classes.AttributeTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sdb_classes.Attribute]]
 
 ### Expected
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sdb_classes.UpdateConditionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sdb_classes.UpdateCondition]
 
 
-# DeleteDomainRequestTypeDef
-
-### DomainName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# DomainMetadataRequestTypeDef
+# DeleteDomainRequest
 
 ### DomainName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DomainMetadataResultTypeDef
+# DomainMetadataRequest
+
+### DomainName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DomainMetadataResult
 
 ### ItemCount
 - **Type**: <class 'int'>
@@ -124,18 +124,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sdb_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sdb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# EmptyResponseMetadataTypeDef
+# EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sdb_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sdb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetAttributesRequestTypeDef
+# GetAttributesRequest
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -152,38 +152,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# GetAttributesResultTypeDef
+# GetAttributesResult
 
 ### Attributes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sdb_classes.AttributeTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sdb_classes.Attribute]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sdb_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sdb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ItemTypeDef
+# Item
 
 ### Name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Attributes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sdb_classes.AttributeTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sdb_classes.Attribute]
 - **Required**: Yes
 
 ### AlternateNameEncoding
 - **Type**: typing.Optional[str]
 
 
-# ListDomainsRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sdb_classes.PaginatorConfigTypeDef]
-
-
-# ListDomainsRequestTypeDef
+# ListDomainsRequest
 
 ### MaxNumberOfDomains
 - **Type**: typing.Optional[int]
@@ -192,21 +186,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListDomainsResultTypeDef
+# ListDomainsRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sdb_classes.PaginatorConfig]
+
+
+# ListDomainsResult
 
 ### DomainNames
 - **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sdb_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sdb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -218,7 +218,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PutAttributesRequestTypeDef
+# PutAttributesRequest
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -229,14 +229,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Attributes
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.sdb_classes.ReplaceableAttributeTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.sdb_classes.ReplaceableAttribute]
 - **Required**: Yes
 
 ### Expected
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sdb_classes.UpdateConditionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sdb_classes.UpdateCondition]
 
 
-# ReplaceableAttributeTypeDef
+# ReplaceableAttribute
 
 ### Name
 - **Type**: <class 'str'>
@@ -250,18 +250,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# ReplaceableItemTypeDef
+# ReplaceableItem
 
 ### Name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Attributes
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.sdb_classes.ReplaceableAttributeTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.sdb_classes.ReplaceableAttribute]
 - **Required**: Yes
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -283,7 +283,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SelectRequestPaginateTypeDef
+# SelectRequest
+
+### SelectExpression
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+### ConsistentRead
+- **Type**: typing.Optional[bool]
+
+
+# SelectRequestPaginate
 
 ### SelectExpression
 - **Type**: <class 'str'>
@@ -293,37 +306,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sdb_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sdb_classes.PaginatorConfig]
 
 
-# SelectRequestTypeDef
-
-### SelectExpression
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### NextToken
-- **Type**: typing.Optional[str]
-
-### ConsistentRead
-- **Type**: typing.Optional[bool]
-
-
-# SelectResultTypeDef
+# SelectResult
 
 ### Items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sdb_classes.ItemTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sdb_classes.Item]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sdb_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sdb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# UpdateConditionTypeDef
+# UpdateCondition
 
 ### Name
 - **Type**: typing.Optional[str]

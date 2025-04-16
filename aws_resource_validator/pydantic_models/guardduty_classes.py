@@ -12,72 +12,72 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.guardduty_constants import *
 
-class AcceptAdministratorInvitationRequestTypeDef(BaseValidatorModel):
+class AcceptAdministratorInvitationRequest(BaseValidatorModel):
     DetectorId: str
     AdministratorId: str
     InvitationId: str
 
 
-class AcceptInvitationRequestTypeDef(BaseValidatorModel):
+class AcceptInvitationRequest(BaseValidatorModel):
     DetectorId: str
     MasterId: str
     InvitationId: str
 
 
-class AccessControlListTypeDef(BaseValidatorModel):
+class AccessControlList(BaseValidatorModel):
     AllowsPublicReadAccess: Optional[bool] = None
     AllowsPublicWriteAccess: Optional[bool] = None
 
 
-class AccessKeyDetailsTypeDef(BaseValidatorModel):
+class AccessKeyDetails(BaseValidatorModel):
     AccessKeyId: Optional[str] = None
     PrincipalId: Optional[str] = None
     UserName: Optional[str] = None
     UserType: Optional[str] = None
 
 
-class AccessKeyTypeDef(BaseValidatorModel):
+class AccessKey(BaseValidatorModel):
     PrincipalId: Optional[str] = None
     UserName: Optional[str] = None
     UserType: Optional[str] = None
 
 
-class AccountDetailTypeDef(BaseValidatorModel):
+class AccountDetail(BaseValidatorModel):
     AccountId: str
     Email: str
 
 
-class FreeTrialFeatureConfigurationResultTypeDef(BaseValidatorModel):
+class FreeTrialFeatureConfigurationResult(BaseValidatorModel):
     Name: Optional[FreeTrialFeatureResultType] = None
     FreeTrialDaysRemaining: Optional[int] = None
 
 
-class BlockPublicAccessTypeDef(BaseValidatorModel):
+class BlockPublicAccess(BaseValidatorModel):
     IgnorePublicAcls: Optional[bool] = None
     RestrictPublicBuckets: Optional[bool] = None
     BlockPublicAcls: Optional[bool] = None
     BlockPublicPolicy: Optional[bool] = None
 
 
-class AccountStatisticsTypeDef(BaseValidatorModel):
+class AccountStatistics(BaseValidatorModel):
     AccountId: Optional[str] = None
     LastGeneratedAt: Optional[datetime] = None
     TotalFindings: Optional[int] = None
 
 
-class AccountTypeDef(BaseValidatorModel):
+class Account(BaseValidatorModel):
     Uid: str
     Name: Optional[str] = None
 
 
-class KubernetesPermissionCheckedDetailsTypeDef(BaseValidatorModel):
+class KubernetesPermissionCheckedDetails(BaseValidatorModel):
     Verb: Optional[str] = None
     Resource: Optional[str] = None
     Namespace: Optional[str] = None
     Allowed: Optional[bool] = None
 
 
-class KubernetesRoleBindingDetailsTypeDef(BaseValidatorModel):
+class KubernetesRoleBindingDetails(BaseValidatorModel):
     Kind: Optional[str] = None
     Name: Optional[str] = None
     Uid: Optional[str] = None
@@ -85,73 +85,73 @@ class KubernetesRoleBindingDetailsTypeDef(BaseValidatorModel):
     RoleRefKind: Optional[str] = None
 
 
-class KubernetesRoleDetailsTypeDef(BaseValidatorModel):
+class KubernetesRoleDetails(BaseValidatorModel):
     Kind: Optional[str] = None
     Name: Optional[str] = None
     Uid: Optional[str] = None
 
 
-class SessionTypeDef(BaseValidatorModel):
+class Session(BaseValidatorModel):
     Uid: Optional[str] = None
     MfaStatus: Optional[MfaStatusType] = None
     CreatedTime: Optional[datetime] = None
     Issuer: Optional[str] = None
 
 
-class AddonDetailsTypeDef(BaseValidatorModel):
+class AddonDetails(BaseValidatorModel):
     AddonVersion: Optional[str] = None
     AddonStatus: Optional[str] = None
 
 
-class AdminAccountTypeDef(BaseValidatorModel):
+class AdminAccount(BaseValidatorModel):
     AdminAccountId: Optional[str] = None
     AdminStatus: Optional[AdminStatusType] = None
 
 
-class AdministratorTypeDef(BaseValidatorModel):
+class Administrator(BaseValidatorModel):
     AccountId: Optional[str] = None
     InvitationId: Optional[str] = None
     RelationshipStatus: Optional[str] = None
     InvitedAt: Optional[str] = None
 
 
-class AgentDetailsTypeDef(BaseValidatorModel):
+class AgentDetails(BaseValidatorModel):
     Version: Optional[str] = None
 
 
-class ArchiveFindingsRequestTypeDef(BaseValidatorModel):
+class ArchiveFindingsRequest(BaseValidatorModel):
     DetectorId: str
     FindingIds: Sequence[str]
 
 
-class AutonomousSystemTypeDef(BaseValidatorModel):
+class AutonomousSystem(BaseValidatorModel):
     Name: str
     Number: int
 
 
-class DomainDetailsTypeDef(BaseValidatorModel):
+class DomainDetails(BaseValidatorModel):
     Domain: Optional[str] = None
 
 
-class RemoteAccountDetailsTypeDef(BaseValidatorModel):
+class RemoteAccountDetails(BaseValidatorModel):
     AccountId: Optional[str] = None
     Affiliated: Optional[bool] = None
 
 
-class BucketPolicyTypeDef(BaseValidatorModel):
+class BucketPolicy(BaseValidatorModel):
     AllowsPublicReadAccess: Optional[bool] = None
     AllowsPublicWriteAccess: Optional[bool] = None
 
 
-class CityTypeDef(BaseValidatorModel):
+class City(BaseValidatorModel):
     CityName: Optional[str] = None
 
 
-class CloudTrailConfigurationResultTypeDef(BaseValidatorModel):
+class CloudTrailConfigurationResult(BaseValidatorModel):
     Status: DataSourceStatusType
 
 
-class ConditionOutputTypeDef(BaseValidatorModel):
+class ConditionOutput(BaseValidatorModel):
     Eq: Optional[List[str]] = None
     Neq: Optional[List[str]] = None
     Gt: Optional[int] = None
@@ -166,7 +166,7 @@ class ConditionOutputTypeDef(BaseValidatorModel):
     LessThanOrEqual: Optional[int] = None
 
 
-class ConditionTypeDef(BaseValidatorModel):
+class Condition(BaseValidatorModel):
     Eq: Optional[Sequence[str]] = None
     Neq: Optional[Sequence[str]] = None
     Gt: Optional[int] = None
@@ -181,47 +181,47 @@ class ConditionTypeDef(BaseValidatorModel):
     LessThanOrEqual: Optional[int] = None
 
 
-class ContainerInstanceDetailsTypeDef(BaseValidatorModel):
+class ContainerInstanceDetails(BaseValidatorModel):
     CoveredContainerInstances: Optional[int] = None
     CompatibleContainerInstances: Optional[int] = None
 
 
-class SecurityContextTypeDef(BaseValidatorModel):
+class SecurityContext(BaseValidatorModel):
     Privileged: Optional[bool] = None
     AllowPrivilegeEscalation: Optional[bool] = None
 
 
-class VolumeMountTypeDef(BaseValidatorModel):
+class VolumeMount(BaseValidatorModel):
     Name: Optional[str] = None
     MountPath: Optional[str] = None
 
 
-class CountryTypeDef(BaseValidatorModel):
+class Country(BaseValidatorModel):
     CountryCode: Optional[str] = None
     CountryName: Optional[str] = None
 
 
-class FargateDetailsTypeDef(BaseValidatorModel):
+class FargateDetails(BaseValidatorModel):
     Issues: Optional[List[str]] = None
     ManagementType: Optional[ManagementTypeType] = None
 
 
-class CoverageFilterConditionTypeDef(BaseValidatorModel):
+class CoverageFilterCondition(BaseValidatorModel):
     Equals: Optional[Sequence[str]] = None
     NotEquals: Optional[Sequence[str]] = None
 
 
-class CoverageSortCriteriaTypeDef(BaseValidatorModel):
+class CoverageSortCriteria(BaseValidatorModel):
     AttributeName: Optional[CoverageSortKeyType] = None
     OrderBy: Optional[OrderByType] = None
 
 
-class CoverageStatisticsTypeDef(BaseValidatorModel):
+class CoverageStatistics(BaseValidatorModel):
     CountByResourceType: Optional[Dict[ResourceTypeType, int]] = None
     CountByCoverageStatus: Optional[Dict[CoverageStatusType, int]] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -229,7 +229,7 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class CreateIPSetRequestTypeDef(BaseValidatorModel):
+class CreateIPSetRequest(BaseValidatorModel):
     DetectorId: str
     Name: str
     Format: IpSetFormatType
@@ -239,32 +239,32 @@ class CreateIPSetRequestTypeDef(BaseValidatorModel):
     Tags: Optional[Mapping[str, str]] = None
 
 
-class UnprocessedAccountTypeDef(BaseValidatorModel):
+class UnprocessedAccount(BaseValidatorModel):
     AccountId: str
     Result: str
 
 
-class CreateS3BucketResourceOutputTypeDef(BaseValidatorModel):
+class CreateS3BucketResourceOutput(BaseValidatorModel):
     BucketName: Optional[str] = None
     ObjectPrefixes: Optional[List[str]] = None
 
 
-class CreateS3BucketResourceTypeDef(BaseValidatorModel):
+class CreateS3BucketResource(BaseValidatorModel):
     BucketName: Optional[str] = None
     ObjectPrefixes: Optional[Sequence[str]] = None
 
 
-class DestinationPropertiesTypeDef(BaseValidatorModel):
+class DestinationProperties(BaseValidatorModel):
     DestinationArn: Optional[str] = None
     KmsKeyArn: Optional[str] = None
 
 
-class CreateSampleFindingsRequestTypeDef(BaseValidatorModel):
+class CreateSampleFindingsRequest(BaseValidatorModel):
     DetectorId: str
     FindingTypes: Optional[Sequence[str]] = None
 
 
-class CreateThreatIntelSetRequestTypeDef(BaseValidatorModel):
+class CreateThreatIntelSetRequest(BaseValidatorModel):
     DetectorId: str
     Name: str
     Format: ThreatIntelSetFormatType
@@ -274,136 +274,136 @@ class CreateThreatIntelSetRequestTypeDef(BaseValidatorModel):
     Tags: Optional[Mapping[str, str]] = None
 
 
-class DNSLogsConfigurationResultTypeDef(BaseValidatorModel):
+class DNSLogsConfigurationResult(BaseValidatorModel):
     Status: DataSourceStatusType
 
 
-class FlowLogsConfigurationResultTypeDef(BaseValidatorModel):
+class FlowLogsConfigurationResult(BaseValidatorModel):
     Status: DataSourceStatusType
 
 
-class S3LogsConfigurationResultTypeDef(BaseValidatorModel):
+class S3LogsConfigurationResult(BaseValidatorModel):
     Status: DataSourceStatusType
 
 
-class S3LogsConfigurationTypeDef(BaseValidatorModel):
+class S3LogsConfiguration(BaseValidatorModel):
     Enable: bool
 
 
-class DataSourceFreeTrialTypeDef(BaseValidatorModel):
+class DataSourceFreeTrial(BaseValidatorModel):
     FreeTrialDaysRemaining: Optional[int] = None
 
 
-class DateStatisticsTypeDef(BaseValidatorModel):
+class DateStatistics(BaseValidatorModel):
     Date: Optional[datetime] = None
     LastGeneratedAt: Optional[datetime] = None
     Severity: Optional[float] = None
     TotalFindings: Optional[int] = None
 
 
-class DeclineInvitationsRequestTypeDef(BaseValidatorModel):
+class DeclineInvitationsRequest(BaseValidatorModel):
     AccountIds: Sequence[str]
 
 
-class DefaultServerSideEncryptionTypeDef(BaseValidatorModel):
+class DefaultServerSideEncryption(BaseValidatorModel):
     EncryptionType: Optional[str] = None
     KmsMasterKeyArn: Optional[str] = None
 
 
-class DeleteDetectorRequestTypeDef(BaseValidatorModel):
+class DeleteDetectorRequest(BaseValidatorModel):
     DetectorId: str
 
 
-class DeleteFilterRequestTypeDef(BaseValidatorModel):
+class DeleteFilterRequest(BaseValidatorModel):
     DetectorId: str
     FilterName: str
 
 
-class DeleteIPSetRequestTypeDef(BaseValidatorModel):
+class DeleteIPSetRequest(BaseValidatorModel):
     DetectorId: str
     IpSetId: str
 
 
-class DeleteInvitationsRequestTypeDef(BaseValidatorModel):
+class DeleteInvitationsRequest(BaseValidatorModel):
     AccountIds: Sequence[str]
 
 
-class DeleteMalwareProtectionPlanRequestTypeDef(BaseValidatorModel):
+class DeleteMalwareProtectionPlanRequest(BaseValidatorModel):
     MalwareProtectionPlanId: str
 
 
-class DeleteMembersRequestTypeDef(BaseValidatorModel):
+class DeleteMembersRequest(BaseValidatorModel):
     DetectorId: str
     AccountIds: Sequence[str]
 
 
-class DeletePublishingDestinationRequestTypeDef(BaseValidatorModel):
+class DeletePublishingDestinationRequest(BaseValidatorModel):
     DetectorId: str
     DestinationId: str
 
 
-class DeleteThreatIntelSetRequestTypeDef(BaseValidatorModel):
+class DeleteThreatIntelSetRequest(BaseValidatorModel):
     DetectorId: str
     ThreatIntelSetId: str
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class SortCriteriaTypeDef(BaseValidatorModel):
+class SortCriteria(BaseValidatorModel):
     AttributeName: Optional[str] = None
     OrderBy: Optional[OrderByType] = None
 
 
-class DescribeOrganizationConfigurationRequestTypeDef(BaseValidatorModel):
+class DescribeOrganizationConfigurationRequest(BaseValidatorModel):
     DetectorId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class DescribePublishingDestinationRequestTypeDef(BaseValidatorModel):
+class DescribePublishingDestinationRequest(BaseValidatorModel):
     DetectorId: str
     DestinationId: str
 
 
-class DestinationTypeDef(BaseValidatorModel):
+class Destination(BaseValidatorModel):
     DestinationId: str
     DestinationType: Literal["S3"]
     Status: PublishingStatusType
 
 
-class DetectorAdditionalConfigurationResultTypeDef(BaseValidatorModel):
+class DetectorAdditionalConfigurationResult(BaseValidatorModel):
     Name: Optional[FeatureAdditionalConfigurationType] = None
     Status: Optional[FeatureStatusType] = None
     UpdatedAt: Optional[datetime] = None
 
 
-class DetectorAdditionalConfigurationTypeDef(BaseValidatorModel):
+class DetectorAdditionalConfiguration(BaseValidatorModel):
     Name: Optional[FeatureAdditionalConfigurationType] = None
     Status: Optional[FeatureStatusType] = None
 
 
-class DisableOrganizationAdminAccountRequestTypeDef(BaseValidatorModel):
+class DisableOrganizationAdminAccountRequest(BaseValidatorModel):
     AdminAccountId: str
 
 
-class DisassociateFromAdministratorAccountRequestTypeDef(BaseValidatorModel):
+class DisassociateFromAdministratorAccountRequest(BaseValidatorModel):
     DetectorId: str
 
 
-class DisassociateFromMasterAccountRequestTypeDef(BaseValidatorModel):
+class DisassociateFromMasterAccountRequest(BaseValidatorModel):
     DetectorId: str
 
 
-class DisassociateMembersRequestTypeDef(BaseValidatorModel):
+class DisassociateMembersRequest(BaseValidatorModel):
     DetectorId: str
     AccountIds: Sequence[str]
 
 
-class VolumeDetailTypeDef(BaseValidatorModel):
+class VolumeDetail(BaseValidatorModel):
     VolumeArn: Optional[str] = None
     VolumeType: Optional[str] = None
     DeviceName: Optional[str] = None
@@ -413,59 +413,59 @@ class VolumeDetailTypeDef(BaseValidatorModel):
     KmsKeyArn: Optional[str] = None
 
 
-class EbsVolumesResultTypeDef(BaseValidatorModel):
+class EbsVolumesResult(BaseValidatorModel):
     Status: Optional[DataSourceStatusType] = None
     Reason: Optional[str] = None
 
 
-class IamInstanceProfileTypeDef(BaseValidatorModel):
+class IamInstanceProfile(BaseValidatorModel):
     Arn: Optional[str] = None
     Id: Optional[str] = None
 
 
-class ProductCodeTypeDef(BaseValidatorModel):
+class ProductCode(BaseValidatorModel):
     Code: Optional[str] = None
     ProductType: Optional[str] = None
 
 
-class PrivateIpAddressDetailsTypeDef(BaseValidatorModel):
+class PrivateIpAddressDetails(BaseValidatorModel):
     PrivateDnsName: Optional[str] = None
     PrivateIpAddress: Optional[str] = None
 
 
-class SecurityGroupTypeDef(BaseValidatorModel):
+class SecurityGroup(BaseValidatorModel):
     GroupId: Optional[str] = None
     GroupName: Optional[str] = None
 
 
-class TagTypeDef(BaseValidatorModel):
+class Tag(BaseValidatorModel):
     Key: Optional[str] = None
     Value: Optional[str] = None
 
 
-class EnableOrganizationAdminAccountRequestTypeDef(BaseValidatorModel):
+class EnableOrganizationAdminAccountRequest(BaseValidatorModel):
     AdminAccountId: str
 
 
-class ThreatIntelligenceDetailTypeDef(BaseValidatorModel):
+class ThreatIntelligenceDetail(BaseValidatorModel):
     ThreatListName: Optional[str] = None
     ThreatNames: Optional[List[str]] = None
     ThreatFileSha256: Optional[str] = None
 
 
-class FilterConditionTypeDef(BaseValidatorModel):
+class FilterCondition(BaseValidatorModel):
     EqualsValue: Optional[str] = None
     GreaterThan: Optional[int] = None
     LessThan: Optional[int] = None
 
 
-class FindingTypeStatisticsTypeDef(BaseValidatorModel):
+class FindingTypeStatistics(BaseValidatorModel):
     FindingType: Optional[str] = None
     LastGeneratedAt: Optional[datetime] = None
     TotalFindings: Optional[int] = None
 
 
-class ResourceStatisticsTypeDef(BaseValidatorModel):
+class ResourceStatistics(BaseValidatorModel):
     AccountId: Optional[str] = None
     LastGeneratedAt: Optional[datetime] = None
     ResourceId: Optional[str] = None
@@ -473,70 +473,70 @@ class ResourceStatisticsTypeDef(BaseValidatorModel):
     TotalFindings: Optional[int] = None
 
 
-class SeverityStatisticsTypeDef(BaseValidatorModel):
+class SeverityStatistics(BaseValidatorModel):
     LastGeneratedAt: Optional[datetime] = None
     Severity: Optional[float] = None
     TotalFindings: Optional[int] = None
 
 
-class GeoLocationTypeDef(BaseValidatorModel):
+class GeoLocation(BaseValidatorModel):
     Lat: Optional[float] = None
     Lon: Optional[float] = None
 
 
-class GetAdministratorAccountRequestTypeDef(BaseValidatorModel):
+class GetAdministratorAccountRequest(BaseValidatorModel):
     DetectorId: str
 
 
-class GetDetectorRequestTypeDef(BaseValidatorModel):
+class GetDetectorRequest(BaseValidatorModel):
     DetectorId: str
 
 
-class GetFilterRequestTypeDef(BaseValidatorModel):
+class GetFilterRequest(BaseValidatorModel):
     DetectorId: str
     FilterName: str
 
 
-class GetIPSetRequestTypeDef(BaseValidatorModel):
+class GetIPSetRequest(BaseValidatorModel):
     DetectorId: str
     IpSetId: str
 
 
-class GetMalwareProtectionPlanRequestTypeDef(BaseValidatorModel):
+class GetMalwareProtectionPlanRequest(BaseValidatorModel):
     MalwareProtectionPlanId: str
 
 
-class MalwareProtectionPlanStatusReasonTypeDef(BaseValidatorModel):
+class MalwareProtectionPlanStatusReason(BaseValidatorModel):
     Code: Optional[str] = None
     Message: Optional[str] = None
 
 
-class GetMalwareScanSettingsRequestTypeDef(BaseValidatorModel):
+class GetMalwareScanSettingsRequest(BaseValidatorModel):
     DetectorId: str
 
 
-class GetMasterAccountRequestTypeDef(BaseValidatorModel):
+class GetMasterAccountRequest(BaseValidatorModel):
     DetectorId: str
 
 
-class MasterTypeDef(BaseValidatorModel):
+class Master(BaseValidatorModel):
     AccountId: Optional[str] = None
     InvitationId: Optional[str] = None
     RelationshipStatus: Optional[str] = None
     InvitedAt: Optional[str] = None
 
 
-class GetMemberDetectorsRequestTypeDef(BaseValidatorModel):
+class GetMemberDetectorsRequest(BaseValidatorModel):
     DetectorId: str
     AccountIds: Sequence[str]
 
 
-class GetMembersRequestTypeDef(BaseValidatorModel):
+class GetMembersRequest(BaseValidatorModel):
     DetectorId: str
     AccountIds: Sequence[str]
 
 
-class MemberTypeDef(BaseValidatorModel):
+class Member(BaseValidatorModel):
     AccountId: str
     MasterId: str
     Email: str
@@ -547,72 +547,72 @@ class MemberTypeDef(BaseValidatorModel):
     AdministratorId: Optional[str] = None
 
 
-class GetRemainingFreeTrialDaysRequestTypeDef(BaseValidatorModel):
+class GetRemainingFreeTrialDaysRequest(BaseValidatorModel):
     DetectorId: str
     AccountIds: Optional[Sequence[str]] = None
 
 
-class GetThreatIntelSetRequestTypeDef(BaseValidatorModel):
+class GetThreatIntelSetRequest(BaseValidatorModel):
     DetectorId: str
     ThreatIntelSetId: str
 
 
-class UsageCriteriaTypeDef(BaseValidatorModel):
+class UsageCriteria(BaseValidatorModel):
     AccountIds: Optional[Sequence[str]] = None
     DataSources: Optional[Sequence[DataSourceType]] = None
     Resources: Optional[Sequence[str]] = None
     Features: Optional[Sequence[UsageFeatureType]] = None
 
 
-class HighestSeverityThreatDetailsTypeDef(BaseValidatorModel):
+class HighestSeverityThreatDetails(BaseValidatorModel):
     Severity: Optional[str] = None
     ThreatName: Optional[str] = None
     Count: Optional[int] = None
 
 
-class HostPathTypeDef(BaseValidatorModel):
+class HostPath(BaseValidatorModel):
     Path: Optional[str] = None
 
 
-class ImpersonatedUserTypeDef(BaseValidatorModel):
+class ImpersonatedUser(BaseValidatorModel):
     Username: Optional[str] = None
     Groups: Optional[List[str]] = None
 
 
-class IndicatorTypeDef(BaseValidatorModel):
+class Indicator(BaseValidatorModel):
     Key: IndicatorTypeType
     Values: Optional[List[str]] = None
     Title: Optional[str] = None
 
 
-class InvitationTypeDef(BaseValidatorModel):
+class Invitation(BaseValidatorModel):
     AccountId: Optional[str] = None
     InvitationId: Optional[str] = None
     RelationshipStatus: Optional[str] = None
     InvitedAt: Optional[str] = None
 
 
-class InviteMembersRequestTypeDef(BaseValidatorModel):
+class InviteMembersRequest(BaseValidatorModel):
     DetectorId: str
     AccountIds: Sequence[str]
     DisableEmailNotification: Optional[bool] = None
     Message: Optional[str] = None
 
 
-class ItemPathTypeDef(BaseValidatorModel):
+class ItemPath(BaseValidatorModel):
     NestedItemPath: Optional[str] = None
     Hash: Optional[str] = None
 
 
-class KubernetesAuditLogsConfigurationResultTypeDef(BaseValidatorModel):
+class KubernetesAuditLogsConfigurationResult(BaseValidatorModel):
     Status: DataSourceStatusType
 
 
-class KubernetesAuditLogsConfigurationTypeDef(BaseValidatorModel):
+class KubernetesAuditLogsConfiguration(BaseValidatorModel):
     Enable: bool
 
 
-class LineageObjectTypeDef(BaseValidatorModel):
+class LineageObject(BaseValidatorModel):
     StartTime: Optional[datetime] = None
     NamespacePid: Optional[int] = None
     UserId: Optional[int] = None
@@ -624,174 +624,174 @@ class LineageObjectTypeDef(BaseValidatorModel):
     ParentUuid: Optional[str] = None
 
 
-class ListDetectorsRequestTypeDef(BaseValidatorModel):
+class ListDetectorsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListFiltersRequestTypeDef(BaseValidatorModel):
+class ListFiltersRequest(BaseValidatorModel):
     DetectorId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListIPSetsRequestTypeDef(BaseValidatorModel):
+class ListIPSetsRequest(BaseValidatorModel):
     DetectorId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListInvitationsRequestTypeDef(BaseValidatorModel):
+class ListInvitationsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListMalwareProtectionPlansRequestTypeDef(BaseValidatorModel):
+class ListMalwareProtectionPlansRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
-class MalwareProtectionPlanSummaryTypeDef(BaseValidatorModel):
+class MalwareProtectionPlanSummary(BaseValidatorModel):
     MalwareProtectionPlanId: Optional[str] = None
 
 
-class ListMembersRequestTypeDef(BaseValidatorModel):
+class ListMembersRequest(BaseValidatorModel):
     DetectorId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     OnlyAssociated: Optional[str] = None
 
 
-class ListOrganizationAdminAccountsRequestTypeDef(BaseValidatorModel):
+class ListOrganizationAdminAccountsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListPublishingDestinationsRequestTypeDef(BaseValidatorModel):
+class ListPublishingDestinationsRequest(BaseValidatorModel):
     DetectorId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
 
-class ListThreatIntelSetsRequestTypeDef(BaseValidatorModel):
+class ListThreatIntelSetsRequest(BaseValidatorModel):
     DetectorId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class LocalIpDetailsTypeDef(BaseValidatorModel):
+class LocalIpDetails(BaseValidatorModel):
     IpAddressV4: Optional[str] = None
     IpAddressV6: Optional[str] = None
 
 
-class LocalPortDetailsTypeDef(BaseValidatorModel):
+class LocalPortDetails(BaseValidatorModel):
     Port: Optional[int] = None
     PortName: Optional[str] = None
 
 
-class LoginAttributeTypeDef(BaseValidatorModel):
+class LoginAttribute(BaseValidatorModel):
     User: Optional[str] = None
     Application: Optional[str] = None
     FailedLoginAttempts: Optional[int] = None
     SuccessfulLoginAttempts: Optional[int] = None
 
 
-class ScanEc2InstanceWithFindingsTypeDef(BaseValidatorModel):
+class ScanEc2InstanceWithFindings(BaseValidatorModel):
     EbsVolumes: Optional[bool] = None
 
 
-class MalwareProtectionPlanTaggingActionTypeDef(BaseValidatorModel):
+class MalwareProtectionPlanTaggingAction(BaseValidatorModel):
     Status: Optional[MalwareProtectionPlanTaggingActionStatusType] = None
 
 
-class MemberAdditionalConfigurationResultTypeDef(BaseValidatorModel):
+class MemberAdditionalConfigurationResult(BaseValidatorModel):
     Name: Optional[OrgFeatureAdditionalConfigurationType] = None
     Status: Optional[FeatureStatusType] = None
     UpdatedAt: Optional[datetime] = None
 
 
-class MemberAdditionalConfigurationTypeDef(BaseValidatorModel):
+class MemberAdditionalConfiguration(BaseValidatorModel):
     Name: Optional[OrgFeatureAdditionalConfigurationType] = None
     Status: Optional[FeatureStatusType] = None
 
 
-class RemotePortDetailsTypeDef(BaseValidatorModel):
+class RemotePortDetails(BaseValidatorModel):
     Port: Optional[int] = None
     PortName: Optional[str] = None
 
 
-class NetworkConnectionTypeDef(BaseValidatorModel):
+class NetworkConnection(BaseValidatorModel):
     Direction: NetworkDirectionType
 
 
-class NetworkGeoLocationTypeDef(BaseValidatorModel):
+class NetworkGeoLocation(BaseValidatorModel):
     City: str
     Country: str
     Latitude: float
     Longitude: float
 
 
-class OrganizationAdditionalConfigurationResultTypeDef(BaseValidatorModel):
+class OrganizationAdditionalConfigurationResult(BaseValidatorModel):
     Name: Optional[OrgFeatureAdditionalConfigurationType] = None
     AutoEnable: Optional[OrgFeatureStatusType] = None
 
 
-class OrganizationAdditionalConfigurationTypeDef(BaseValidatorModel):
+class OrganizationAdditionalConfiguration(BaseValidatorModel):
     Name: Optional[OrgFeatureAdditionalConfigurationType] = None
     AutoEnable: Optional[OrgFeatureStatusType] = None
 
 
-class OrganizationS3LogsConfigurationResultTypeDef(BaseValidatorModel):
+class OrganizationS3LogsConfigurationResult(BaseValidatorModel):
     AutoEnable: bool
 
 
-class OrganizationS3LogsConfigurationTypeDef(BaseValidatorModel):
+class OrganizationS3LogsConfiguration(BaseValidatorModel):
     AutoEnable: bool
 
 
-class OrganizationEbsVolumesResultTypeDef(BaseValidatorModel):
+class OrganizationEbsVolumesResult(BaseValidatorModel):
     AutoEnable: Optional[bool] = None
 
 
-class OrganizationEbsVolumesTypeDef(BaseValidatorModel):
+class OrganizationEbsVolumes(BaseValidatorModel):
     AutoEnable: Optional[bool] = None
 
 
-class OrganizationFeatureStatisticsAdditionalConfigurationTypeDef(BaseValidatorModel):
+class OrganizationFeatureStatisticsAdditionalConfiguration(BaseValidatorModel):
     Name: Optional[OrgFeatureAdditionalConfigurationType] = None
     EnabledAccountsCount: Optional[int] = None
 
 
-class OrganizationKubernetesAuditLogsConfigurationResultTypeDef(BaseValidatorModel):
+class OrganizationKubernetesAuditLogsConfigurationResult(BaseValidatorModel):
     AutoEnable: bool
 
 
-class OrganizationKubernetesAuditLogsConfigurationTypeDef(BaseValidatorModel):
+class OrganizationKubernetesAuditLogsConfiguration(BaseValidatorModel):
     AutoEnable: bool
 
 
-class OrganizationTypeDef(BaseValidatorModel):
+class Organization(BaseValidatorModel):
     Asn: Optional[str] = None
     AsnOrg: Optional[str] = None
     Isp: Optional[str] = None
     Org: Optional[str] = None
 
 
-class OwnerTypeDef(BaseValidatorModel):
+class Owner(BaseValidatorModel):
     Id: Optional[str] = None
 
 
-class PublicAccessConfigurationTypeDef(BaseValidatorModel):
+class PublicAccessConfiguration(BaseValidatorModel):
     PublicAclAccess: Optional[PublicAccessStatusType] = None
     PublicPolicyAccess: Optional[PublicAccessStatusType] = None
     PublicAclIgnoreBehavior: Optional[PublicAclIgnoreBehaviorType] = None
     PublicBucketRestrictBehavior: Optional[PublicBucketRestrictBehaviorType] = None
 
 
-class RdsDbUserDetailsTypeDef(BaseValidatorModel):
+class RdsDbUserDetails(BaseValidatorModel):
     User: Optional[str] = None
     Application: Optional[str] = None
     Database: Optional[str] = None
@@ -799,17 +799,17 @@ class RdsDbUserDetailsTypeDef(BaseValidatorModel):
     AuthMethod: Optional[str] = None
 
 
-class S3ObjectTypeDef(BaseValidatorModel):
+class S3Object(BaseValidatorModel):
     ETag: Optional[str] = None
     Key: Optional[str] = None
     VersionId: Optional[str] = None
 
 
-class ResourceDetailsTypeDef(BaseValidatorModel):
+class ResourceDetails(BaseValidatorModel):
     InstanceArn: Optional[str] = None
 
 
-class S3ObjectDetailTypeDef(BaseValidatorModel):
+class S3ObjectDetail(BaseValidatorModel):
     ObjectArn: Optional[str] = None
     Key: Optional[str] = None
     ETag: Optional[str] = None
@@ -817,79 +817,79 @@ class S3ObjectDetailTypeDef(BaseValidatorModel):
     VersionId: Optional[str] = None
 
 
-class ScanConditionPairTypeDef(BaseValidatorModel):
+class ScanConditionPair(BaseValidatorModel):
     Key: str
     Value: Optional[str] = None
 
 
-class ScannedItemCountTypeDef(BaseValidatorModel):
+class ScannedItemCount(BaseValidatorModel):
     TotalGb: Optional[int] = None
     Files: Optional[int] = None
     Volumes: Optional[int] = None
 
 
-class ThreatsDetectedItemCountTypeDef(BaseValidatorModel):
+class ThreatsDetectedItemCount(BaseValidatorModel):
     Files: Optional[int] = None
 
 
-class ScanFilePathTypeDef(BaseValidatorModel):
+class ScanFilePath(BaseValidatorModel):
     FilePath: Optional[str] = None
     VolumeArn: Optional[str] = None
     Hash: Optional[str] = None
     FileName: Optional[str] = None
 
 
-class ScanResultDetailsTypeDef(BaseValidatorModel):
+class ScanResultDetails(BaseValidatorModel):
     ScanResult: Optional[ScanResultType] = None
 
 
-class TriggerDetailsTypeDef(BaseValidatorModel):
+class TriggerDetails(BaseValidatorModel):
     GuardDutyFindingId: Optional[str] = None
     Description: Optional[str] = None
 
 
-class StartMalwareScanRequestTypeDef(BaseValidatorModel):
+class StartMalwareScanRequest(BaseValidatorModel):
     ResourceArn: str
 
 
-class StartMonitoringMembersRequestTypeDef(BaseValidatorModel):
+class StartMonitoringMembersRequest(BaseValidatorModel):
     DetectorId: str
     AccountIds: Sequence[str]
 
 
-class StopMonitoringMembersRequestTypeDef(BaseValidatorModel):
+class StopMonitoringMembersRequest(BaseValidatorModel):
     DetectorId: str
     AccountIds: Sequence[str]
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     Tags: Mapping[str, str]
 
 
-class TotalTypeDef(BaseValidatorModel):
+class Total(BaseValidatorModel):
     Amount: Optional[str] = None
     Unit: Optional[str] = None
 
 
-class UnarchiveFindingsRequestTypeDef(BaseValidatorModel):
+class UnarchiveFindingsRequest(BaseValidatorModel):
     DetectorId: str
     FindingIds: Sequence[str]
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     TagKeys: Sequence[str]
 
 
-class UpdateFindingsFeedbackRequestTypeDef(BaseValidatorModel):
+class UpdateFindingsFeedbackRequest(BaseValidatorModel):
     DetectorId: str
     FindingIds: Sequence[str]
     Feedback: FeedbackType
     Comments: Optional[str] = None
 
 
-class UpdateIPSetRequestTypeDef(BaseValidatorModel):
+class UpdateIPSetRequest(BaseValidatorModel):
     DetectorId: str
     IpSetId: str
     Name: Optional[str] = None
@@ -897,11 +897,11 @@ class UpdateIPSetRequestTypeDef(BaseValidatorModel):
     Activate: Optional[bool] = None
 
 
-class UpdateS3BucketResourceTypeDef(BaseValidatorModel):
+class UpdateS3BucketResource(BaseValidatorModel):
     ObjectPrefixes: Optional[Sequence[str]] = None
 
 
-class UpdateThreatIntelSetRequestTypeDef(BaseValidatorModel):
+class UpdateThreatIntelSetRequest(BaseValidatorModel):
     DetectorId: str
     ThreatIntelSetId: str
     Name: Optional[str] = None
@@ -909,485 +909,485 @@ class UpdateThreatIntelSetRequestTypeDef(BaseValidatorModel):
     Activate: Optional[bool] = None
 
 
-class CreateMembersRequestTypeDef(BaseValidatorModel):
+class CreateMembersRequest(BaseValidatorModel):
     DetectorId: str
-    AccountDetails: Sequence[AccountDetailTypeDef]
+    AccountDetails: Sequence[AccountDetail]
 
 
-class AccountLevelPermissionsTypeDef(BaseValidatorModel):
-    BlockPublicAccess: Optional[BlockPublicAccessTypeDef] = None
+class AccountLevelPermissions(BaseValidatorModel):
+    BlockPublicAccess: Optional[BlockPublicAccess] = None
 
 
-class CoverageEksClusterDetailsTypeDef(BaseValidatorModel):
+class CoverageEksClusterDetails(BaseValidatorModel):
     ClusterName: Optional[str] = None
     CoveredNodes: Optional[int] = None
     CompatibleNodes: Optional[int] = None
-    AddonDetails: Optional[AddonDetailsTypeDef] = None
+    AddonDetails: Optional[AddonDetails] = None
     ManagementType: Optional[ManagementTypeType] = None
 
 
-class CoverageEc2InstanceDetailsTypeDef(BaseValidatorModel):
+class CoverageEc2InstanceDetails(BaseValidatorModel):
     InstanceId: Optional[str] = None
     InstanceType: Optional[str] = None
     ClusterArn: Optional[str] = None
-    AgentDetails: Optional[AgentDetailsTypeDef] = None
+    AgentDetails: Optional[AgentDetails] = None
     ManagementType: Optional[ManagementTypeType] = None
 
 
-class ObservationsTypeDef(BaseValidatorModel):
+class Observations(BaseValidatorModel):
     pass
 
 
-class AnomalyObjectTypeDef(BaseValidatorModel):
+class AnomalyObject(BaseValidatorModel):
     ProfileType: Optional[Literal["FREQUENCY"]] = None
     ProfileSubtype: Optional[ProfileSubtypeType] = None
-    Observations: Optional[ObservationsTypeDef] = None
+    Observations: Optional[Observations] = None
 
 
-class BucketLevelPermissionsTypeDef(BaseValidatorModel):
-    AccessControlList: Optional[AccessControlListTypeDef] = None
-    BucketPolicy: Optional[BucketPolicyTypeDef] = None
-    BlockPublicAccess: Optional[BlockPublicAccessTypeDef] = None
+class BucketLevelPermissions(BaseValidatorModel):
+    AccessControlList: Optional[AccessControlList] = None
+    BucketPolicy: Optional[BucketPolicy] = None
+    BlockPublicAccess: Optional[BlockPublicAccess] = None
 
 
-class FindingCriteriaOutputTypeDef(BaseValidatorModel):
-    Criterion: Optional[Dict[str, ConditionOutputTypeDef]] = None
+class FindingCriteriaOutput(BaseValidatorModel):
+    Criterion: Optional[Dict[str, ConditionOutput]] = None
 
 
-class FindingCriteriaTypeDef(BaseValidatorModel):
-    Criterion: Optional[Mapping[str, ConditionTypeDef]] = None
+class FindingCriteria(BaseValidatorModel):
+    Criterion: Optional[Mapping[str, Condition]] = None
 
 
-class ContainerTypeDef(BaseValidatorModel):
+class Container(BaseValidatorModel):
     ContainerRuntime: Optional[str] = None
     Id: Optional[str] = None
     Name: Optional[str] = None
     Image: Optional[str] = None
     ImagePrefix: Optional[str] = None
-    VolumeMounts: Optional[List[VolumeMountTypeDef]] = None
-    SecurityContext: Optional[SecurityContextTypeDef] = None
+    VolumeMounts: Optional[List[VolumeMount]] = None
+    SecurityContext: Optional[SecurityContext] = None
 
 
-class CoverageEcsClusterDetailsTypeDef(BaseValidatorModel):
+class CoverageEcsClusterDetails(BaseValidatorModel):
     ClusterName: Optional[str] = None
-    FargateDetails: Optional[FargateDetailsTypeDef] = None
-    ContainerInstanceDetails: Optional[ContainerInstanceDetailsTypeDef] = None
+    FargateDetails: Optional[FargateDetails] = None
+    ContainerInstanceDetails: Optional[ContainerInstanceDetails] = None
 
 
-class CoverageFilterCriterionTypeDef(BaseValidatorModel):
+class CoverageFilterCriterion(BaseValidatorModel):
     CriterionKey: Optional[CoverageFilterCriterionKeyType] = None
-    FilterCondition: Optional[CoverageFilterConditionTypeDef] = None
+    FilterCondition: Optional[CoverageFilterCondition] = None
 
 
-class CreateFilterResponseTypeDef(BaseValidatorModel):
+class CreateFilterResponse(BaseValidatorModel):
     Name: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateIPSetResponseTypeDef(BaseValidatorModel):
+class CreateIPSetResponse(BaseValidatorModel):
     IpSetId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateMalwareProtectionPlanResponseTypeDef(BaseValidatorModel):
+class CreateMalwareProtectionPlanResponse(BaseValidatorModel):
     MalwareProtectionPlanId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreatePublishingDestinationResponseTypeDef(BaseValidatorModel):
+class CreatePublishingDestinationResponse(BaseValidatorModel):
     DestinationId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateThreatIntelSetResponseTypeDef(BaseValidatorModel):
+class CreateThreatIntelSetResponse(BaseValidatorModel):
     ThreatIntelSetId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class EmptyResponseMetadataTypeDef(BaseValidatorModel):
-    ResponseMetadata: ResponseMetadataTypeDef
+class EmptyResponseMetadata(BaseValidatorModel):
+    ResponseMetadata: ResponseMetadata
 
 
-class GetAdministratorAccountResponseTypeDef(BaseValidatorModel):
-    Administrator: AdministratorTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetAdministratorAccountResponse(BaseValidatorModel):
+    Administrator: Administrator
+    ResponseMetadata: ResponseMetadata
 
 
-class GetCoverageStatisticsResponseTypeDef(BaseValidatorModel):
-    CoverageStatistics: CoverageStatisticsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetCoverageStatisticsResponse(BaseValidatorModel):
+    CoverageStatistics: CoverageStatistics
+    ResponseMetadata: ResponseMetadata
 
 
-class GetIPSetResponseTypeDef(BaseValidatorModel):
+class GetIPSetResponse(BaseValidatorModel):
     Name: str
     Format: IpSetFormatType
     Location: str
     Status: IpSetStatusType
     Tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetInvitationsCountResponseTypeDef(BaseValidatorModel):
+class GetInvitationsCountResponse(BaseValidatorModel):
     InvitationsCount: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetThreatIntelSetResponseTypeDef(BaseValidatorModel):
+class GetThreatIntelSetResponse(BaseValidatorModel):
     Name: str
     Format: ThreatIntelSetFormatType
     Location: str
     Status: ThreatIntelSetStatusType
     Tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListDetectorsResponseTypeDef(BaseValidatorModel):
+class ListDetectorsResponse(BaseValidatorModel):
     DetectorIds: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListFiltersResponseTypeDef(BaseValidatorModel):
+class ListFiltersResponse(BaseValidatorModel):
     FilterNames: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListFindingsResponseTypeDef(BaseValidatorModel):
+class ListFindingsResponse(BaseValidatorModel):
     FindingIds: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListIPSetsResponseTypeDef(BaseValidatorModel):
+class ListIPSetsResponse(BaseValidatorModel):
     IpSetIds: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListOrganizationAdminAccountsResponseTypeDef(BaseValidatorModel):
-    AdminAccounts: List[AdminAccountTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListOrganizationAdminAccountsResponse(BaseValidatorModel):
+    AdminAccounts: List[AdminAccount]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
+class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListThreatIntelSetsResponseTypeDef(BaseValidatorModel):
+class ListThreatIntelSetsResponse(BaseValidatorModel):
     ThreatIntelSetIds: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class StartMalwareScanResponseTypeDef(BaseValidatorModel):
+class StartMalwareScanResponse(BaseValidatorModel):
     ScanId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateFilterResponseTypeDef(BaseValidatorModel):
+class UpdateFilterResponse(BaseValidatorModel):
     Name: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateMembersResponseTypeDef(BaseValidatorModel):
-    UnprocessedAccounts: List[UnprocessedAccountTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateMembersResponse(BaseValidatorModel):
+    UnprocessedAccounts: List[UnprocessedAccount]
+    ResponseMetadata: ResponseMetadata
 
 
-class DeclineInvitationsResponseTypeDef(BaseValidatorModel):
-    UnprocessedAccounts: List[UnprocessedAccountTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeclineInvitationsResponse(BaseValidatorModel):
+    UnprocessedAccounts: List[UnprocessedAccount]
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteInvitationsResponseTypeDef(BaseValidatorModel):
-    UnprocessedAccounts: List[UnprocessedAccountTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeleteInvitationsResponse(BaseValidatorModel):
+    UnprocessedAccounts: List[UnprocessedAccount]
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteMembersResponseTypeDef(BaseValidatorModel):
-    UnprocessedAccounts: List[UnprocessedAccountTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeleteMembersResponse(BaseValidatorModel):
+    UnprocessedAccounts: List[UnprocessedAccount]
+    ResponseMetadata: ResponseMetadata
 
 
-class DisassociateMembersResponseTypeDef(BaseValidatorModel):
-    UnprocessedAccounts: List[UnprocessedAccountTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DisassociateMembersResponse(BaseValidatorModel):
+    UnprocessedAccounts: List[UnprocessedAccount]
+    ResponseMetadata: ResponseMetadata
 
 
-class InviteMembersResponseTypeDef(BaseValidatorModel):
-    UnprocessedAccounts: List[UnprocessedAccountTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class InviteMembersResponse(BaseValidatorModel):
+    UnprocessedAccounts: List[UnprocessedAccount]
+    ResponseMetadata: ResponseMetadata
 
 
-class StartMonitoringMembersResponseTypeDef(BaseValidatorModel):
-    UnprocessedAccounts: List[UnprocessedAccountTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class StartMonitoringMembersResponse(BaseValidatorModel):
+    UnprocessedAccounts: List[UnprocessedAccount]
+    ResponseMetadata: ResponseMetadata
 
 
-class StopMonitoringMembersResponseTypeDef(BaseValidatorModel):
-    UnprocessedAccounts: List[UnprocessedAccountTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class StopMonitoringMembersResponse(BaseValidatorModel):
+    UnprocessedAccounts: List[UnprocessedAccount]
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateMemberDetectorsResponseTypeDef(BaseValidatorModel):
-    UnprocessedAccounts: List[UnprocessedAccountTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateMemberDetectorsResponse(BaseValidatorModel):
+    UnprocessedAccounts: List[UnprocessedAccount]
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateProtectedResourceOutputTypeDef(BaseValidatorModel):
-    S3Bucket: Optional[CreateS3BucketResourceOutputTypeDef] = None
+class CreateProtectedResourceOutput(BaseValidatorModel):
+    S3Bucket: Optional[CreateS3BucketResourceOutput] = None
 
 
-class CreateProtectedResourceTypeDef(BaseValidatorModel):
-    S3Bucket: Optional[CreateS3BucketResourceTypeDef] = None
+class CreateProtectedResource(BaseValidatorModel):
+    S3Bucket: Optional[CreateS3BucketResource] = None
 
 
-class CreatePublishingDestinationRequestTypeDef(BaseValidatorModel):
+class CreatePublishingDestinationRequest(BaseValidatorModel):
     DetectorId: str
     DestinationType: Literal["S3"]
-    DestinationProperties: DestinationPropertiesTypeDef
+    DestinationProperties: DestinationProperties
     ClientToken: Optional[str] = None
 
 
-class DescribePublishingDestinationResponseTypeDef(BaseValidatorModel):
+class DescribePublishingDestinationResponse(BaseValidatorModel):
     DestinationId: str
     DestinationType: Literal["S3"]
     Status: PublishingStatusType
     PublishingFailureStartTimestamp: int
-    DestinationProperties: DestinationPropertiesTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    DestinationProperties: DestinationProperties
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdatePublishingDestinationRequestTypeDef(BaseValidatorModel):
+class UpdatePublishingDestinationRequest(BaseValidatorModel):
     DetectorId: str
     DestinationId: str
-    DestinationProperties: Optional[DestinationPropertiesTypeDef] = None
+    DestinationProperties: Optional[DestinationProperties] = None
 
 
-class KubernetesDataSourceFreeTrialTypeDef(BaseValidatorModel):
-    AuditLogs: Optional[DataSourceFreeTrialTypeDef] = None
+class KubernetesDataSourceFreeTrial(BaseValidatorModel):
+    AuditLogs: Optional[DataSourceFreeTrial] = None
 
 
-class MalwareProtectionDataSourceFreeTrialTypeDef(BaseValidatorModel):
-    ScanEc2InstanceWithFindings: Optional[DataSourceFreeTrialTypeDef] = None
+class MalwareProtectionDataSourceFreeTrial(BaseValidatorModel):
+    ScanEc2InstanceWithFindings: Optional[DataSourceFreeTrial] = None
 
 
-class ListDetectorsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListDetectorsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListFiltersRequestPaginateTypeDef(BaseValidatorModel):
+class ListFiltersRequestPaginate(BaseValidatorModel):
     DetectorId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListIPSetsRequestPaginateTypeDef(BaseValidatorModel):
+class ListIPSetsRequestPaginate(BaseValidatorModel):
     DetectorId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListInvitationsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListInvitationsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListMembersRequestPaginateTypeDef(BaseValidatorModel):
+class ListMembersRequestPaginate(BaseValidatorModel):
     DetectorId: str
     OnlyAssociated: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListOrganizationAdminAccountsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListOrganizationAdminAccountsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListThreatIntelSetsRequestPaginateTypeDef(BaseValidatorModel):
+class ListThreatIntelSetsRequestPaginate(BaseValidatorModel):
     DetectorId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class GetFindingsRequestTypeDef(BaseValidatorModel):
+class GetFindingsRequest(BaseValidatorModel):
     DetectorId: str
     FindingIds: Sequence[str]
-    SortCriteria: Optional[SortCriteriaTypeDef] = None
+    SortCriteria: Optional[SortCriteria] = None
 
 
-class ListPublishingDestinationsResponseTypeDef(BaseValidatorModel):
-    Destinations: List[DestinationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListPublishingDestinationsResponse(BaseValidatorModel):
+    Destinations: List[Destination]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DetectorFeatureConfigurationResultTypeDef(BaseValidatorModel):
+class DetectorFeatureConfigurationResult(BaseValidatorModel):
     Name: Optional[DetectorFeatureResultType] = None
     Status: Optional[FeatureStatusType] = None
     UpdatedAt: Optional[datetime] = None
-    AdditionalConfiguration: Optional[List[DetectorAdditionalConfigurationResultTypeDef]] = None
+    AdditionalConfiguration: Optional[List[DetectorAdditionalConfigurationResult]] = None
 
 
-class DetectorFeatureConfigurationTypeDef(BaseValidatorModel):
+class DetectorFeatureConfiguration(BaseValidatorModel):
     Name: Optional[DetectorFeatureType] = None
     Status: Optional[FeatureStatusType] = None
-    AdditionalConfiguration: Optional[Sequence[DetectorAdditionalConfigurationTypeDef]] = None
+    AdditionalConfiguration: Optional[Sequence[DetectorAdditionalConfiguration]] = None
 
 
-class EbsVolumeDetailsTypeDef(BaseValidatorModel):
-    ScannedVolumeDetails: Optional[List[VolumeDetailTypeDef]] = None
-    SkippedVolumeDetails: Optional[List[VolumeDetailTypeDef]] = None
+class EbsVolumeDetails(BaseValidatorModel):
+    ScannedVolumeDetails: Optional[List[VolumeDetail]] = None
+    SkippedVolumeDetails: Optional[List[VolumeDetail]] = None
 
 
-class ScanEc2InstanceWithFindingsResultTypeDef(BaseValidatorModel):
-    EbsVolumes: Optional[EbsVolumesResultTypeDef] = None
+class ScanEc2InstanceWithFindingsResult(BaseValidatorModel):
+    EbsVolumes: Optional[EbsVolumesResult] = None
 
 
-class Ec2InstanceTypeDef(BaseValidatorModel):
+class Ec2Instance(BaseValidatorModel):
     AvailabilityZone: Optional[str] = None
     ImageDescription: Optional[str] = None
     InstanceState: Optional[str] = None
-    IamInstanceProfile: Optional[IamInstanceProfileTypeDef] = None
+    IamInstanceProfile: Optional[IamInstanceProfile] = None
     InstanceType: Optional[str] = None
     OutpostArn: Optional[str] = None
     Platform: Optional[str] = None
-    ProductCodes: Optional[List[ProductCodeTypeDef]] = None
+    ProductCodes: Optional[List[ProductCode]] = None
     Ec2NetworkInterfaceUids: Optional[List[str]] = None
 
 
-class Ec2NetworkInterfaceTypeDef(BaseValidatorModel):
+class Ec2NetworkInterface(BaseValidatorModel):
     Ipv6Addresses: Optional[List[str]] = None
-    PrivateIpAddresses: Optional[List[PrivateIpAddressDetailsTypeDef]] = None
+    PrivateIpAddresses: Optional[List[PrivateIpAddressDetails]] = None
     PublicIp: Optional[str] = None
-    SecurityGroups: Optional[List[SecurityGroupTypeDef]] = None
+    SecurityGroups: Optional[List[SecurityGroup]] = None
     SubNetId: Optional[str] = None
     VpcId: Optional[str] = None
 
 
-class NetworkInterfaceTypeDef(BaseValidatorModel):
+class NetworkInterface(BaseValidatorModel):
     Ipv6Addresses: Optional[List[str]] = None
     NetworkInterfaceId: Optional[str] = None
     PrivateDnsName: Optional[str] = None
     PrivateIpAddress: Optional[str] = None
-    PrivateIpAddresses: Optional[List[PrivateIpAddressDetailsTypeDef]] = None
+    PrivateIpAddresses: Optional[List[PrivateIpAddressDetails]] = None
     PublicDnsName: Optional[str] = None
     PublicIp: Optional[str] = None
-    SecurityGroups: Optional[List[SecurityGroupTypeDef]] = None
+    SecurityGroups: Optional[List[SecurityGroup]] = None
     SubnetId: Optional[str] = None
     VpcId: Optional[str] = None
 
 
-class VpcConfigTypeDef(BaseValidatorModel):
+class VpcConfig(BaseValidatorModel):
     SubnetIds: Optional[List[str]] = None
     VpcId: Optional[str] = None
-    SecurityGroups: Optional[List[SecurityGroupTypeDef]] = None
+    SecurityGroups: Optional[List[SecurityGroup]] = None
 
 
-class EksClusterDetailsTypeDef(BaseValidatorModel):
+class EksClusterDetails(BaseValidatorModel):
     Name: Optional[str] = None
     Arn: Optional[str] = None
     VpcId: Optional[str] = None
     Status: Optional[str] = None
-    Tags: Optional[List[TagTypeDef]] = None
+    Tags: Optional[List[Tag]] = None
     CreatedAt: Optional[datetime] = None
 
 
-class RdsDbInstanceDetailsTypeDef(BaseValidatorModel):
+class RdsDbInstanceDetails(BaseValidatorModel):
     DbInstanceIdentifier: Optional[str] = None
     Engine: Optional[str] = None
     EngineVersion: Optional[str] = None
     DbClusterIdentifier: Optional[str] = None
     DbInstanceArn: Optional[str] = None
-    Tags: Optional[List[TagTypeDef]] = None
+    Tags: Optional[List[Tag]] = None
 
 
-class RdsLimitlessDbDetailsTypeDef(BaseValidatorModel):
+class RdsLimitlessDbDetails(BaseValidatorModel):
     DbShardGroupIdentifier: Optional[str] = None
     DbShardGroupResourceId: Optional[str] = None
     DbShardGroupArn: Optional[str] = None
     Engine: Optional[str] = None
     EngineVersion: Optional[str] = None
     DbClusterIdentifier: Optional[str] = None
-    Tags: Optional[List[TagTypeDef]] = None
+    Tags: Optional[List[Tag]] = None
 
 
-class EvidenceTypeDef(BaseValidatorModel):
-    ThreatIntelligenceDetails: Optional[List[ThreatIntelligenceDetailTypeDef]] = None
+class Evidence(BaseValidatorModel):
+    ThreatIntelligenceDetails: Optional[List[ThreatIntelligenceDetail]] = None
 
 
-class FilterCriterionTypeDef(BaseValidatorModel):
+class FilterCriterion(BaseValidatorModel):
     CriterionKey: Optional[CriterionKeyType] = None
-    FilterCondition: Optional[FilterConditionTypeDef] = None
+    FilterCondition: Optional[FilterCondition] = None
 
 
-class FindingStatisticsTypeDef(BaseValidatorModel):
+class FindingStatistics(BaseValidatorModel):
     CountBySeverity: Optional[Dict[str, int]] = None
-    GroupedByAccount: Optional[List[AccountStatisticsTypeDef]] = None
-    GroupedByDate: Optional[List[DateStatisticsTypeDef]] = None
-    GroupedByFindingType: Optional[List[FindingTypeStatisticsTypeDef]] = None
-    GroupedByResource: Optional[List[ResourceStatisticsTypeDef]] = None
-    GroupedBySeverity: Optional[List[SeverityStatisticsTypeDef]] = None
+    GroupedByAccount: Optional[List[AccountStatistics]] = None
+    GroupedByDate: Optional[List[DateStatistics]] = None
+    GroupedByFindingType: Optional[List[FindingTypeStatistics]] = None
+    GroupedByResource: Optional[List[ResourceStatistics]] = None
+    GroupedBySeverity: Optional[List[SeverityStatistics]] = None
 
 
-class GetMasterAccountResponseTypeDef(BaseValidatorModel):
-    Master: MasterTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetMasterAccountResponse(BaseValidatorModel):
+    Master: Master
+    ResponseMetadata: ResponseMetadata
 
 
-class GetMembersResponseTypeDef(BaseValidatorModel):
-    Members: List[MemberTypeDef]
-    UnprocessedAccounts: List[UnprocessedAccountTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetMembersResponse(BaseValidatorModel):
+    Members: List[Member]
+    UnprocessedAccounts: List[UnprocessedAccount]
+    ResponseMetadata: ResponseMetadata
 
 
-class ListMembersResponseTypeDef(BaseValidatorModel):
-    Members: List[MemberTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListMembersResponse(BaseValidatorModel):
+    Members: List[Member]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class GetUsageStatisticsRequestTypeDef(BaseValidatorModel):
+class GetUsageStatisticsRequest(BaseValidatorModel):
     DetectorId: str
     UsageStatisticType: UsageStatisticTypeType
-    UsageCriteria: UsageCriteriaTypeDef
+    UsageCriteria: UsageCriteria
     Unit: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class VolumeTypeDef(BaseValidatorModel):
+class Volume(BaseValidatorModel):
     Name: Optional[str] = None
-    HostPath: Optional[HostPathTypeDef] = None
+    HostPath: Optional[HostPath] = None
 
 
-class KubernetesUserDetailsTypeDef(BaseValidatorModel):
+class KubernetesUserDetails(BaseValidatorModel):
     Username: Optional[str] = None
     Uid: Optional[str] = None
     Groups: Optional[List[str]] = None
     SessionName: Optional[List[str]] = None
-    ImpersonatedUser: Optional[ImpersonatedUserTypeDef] = None
+    ImpersonatedUser: Optional[ImpersonatedUser] = None
 
 
-class ListInvitationsResponseTypeDef(BaseValidatorModel):
-    Invitations: List[InvitationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListInvitationsResponse(BaseValidatorModel):
+    Invitations: List[Invitation]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ThreatTypeDef(BaseValidatorModel):
+class Threat(BaseValidatorModel):
     Name: Optional[str] = None
     Source: Optional[str] = None
-    ItemPaths: Optional[List[ItemPathTypeDef]] = None
+    ItemPaths: Optional[List[ItemPath]] = None
 
 
-class KubernetesConfigurationResultTypeDef(BaseValidatorModel):
-    AuditLogs: KubernetesAuditLogsConfigurationResultTypeDef
+class KubernetesConfigurationResult(BaseValidatorModel):
+    AuditLogs: KubernetesAuditLogsConfigurationResult
 
 
-class KubernetesConfigurationTypeDef(BaseValidatorModel):
-    AuditLogs: KubernetesAuditLogsConfigurationTypeDef
+class KubernetesConfiguration(BaseValidatorModel):
+    AuditLogs: KubernetesAuditLogsConfiguration
 
 
-class ProcessDetailsTypeDef(BaseValidatorModel):
+class ProcessDetails(BaseValidatorModel):
     Name: Optional[str] = None
     ExecutablePath: Optional[str] = None
     ExecutableSha256: Optional[str] = None
@@ -1400,90 +1400,90 @@ class ProcessDetailsTypeDef(BaseValidatorModel):
     User: Optional[str] = None
     UserId: Optional[int] = None
     Euid: Optional[int] = None
-    Lineage: Optional[List[LineageObjectTypeDef]] = None
+    Lineage: Optional[List[LineageObject]] = None
 
 
-class ListMalwareProtectionPlansResponseTypeDef(BaseValidatorModel):
-    MalwareProtectionPlans: List[MalwareProtectionPlanSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListMalwareProtectionPlansResponse(BaseValidatorModel):
+    MalwareProtectionPlans: List[MalwareProtectionPlanSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class MalwareProtectionConfigurationTypeDef(BaseValidatorModel):
-    ScanEc2InstanceWithFindings: Optional[ScanEc2InstanceWithFindingsTypeDef] = None
+class MalwareProtectionConfiguration(BaseValidatorModel):
+    ScanEc2InstanceWithFindings: Optional[ScanEc2InstanceWithFindings] = None
 
 
-class MalwareProtectionPlanActionsTypeDef(BaseValidatorModel):
-    Tagging: Optional[MalwareProtectionPlanTaggingActionTypeDef] = None
+class MalwareProtectionPlanActions(BaseValidatorModel):
+    Tagging: Optional[MalwareProtectionPlanTaggingAction] = None
 
 
-class MemberFeaturesConfigurationResultTypeDef(BaseValidatorModel):
+class MemberFeaturesConfigurationResult(BaseValidatorModel):
     Name: Optional[OrgFeatureType] = None
     Status: Optional[FeatureStatusType] = None
     UpdatedAt: Optional[datetime] = None
-    AdditionalConfiguration: Optional[List[MemberAdditionalConfigurationResultTypeDef]] = None
+    AdditionalConfiguration: Optional[List[MemberAdditionalConfigurationResult]] = None
 
 
-class MemberFeaturesConfigurationTypeDef(BaseValidatorModel):
+class MemberFeaturesConfiguration(BaseValidatorModel):
     Name: Optional[OrgFeatureType] = None
     Status: Optional[FeatureStatusType] = None
-    AdditionalConfiguration: Optional[Sequence[MemberAdditionalConfigurationTypeDef]] = None
+    AdditionalConfiguration: Optional[Sequence[MemberAdditionalConfiguration]] = None
 
 
-class NetworkEndpointTypeDef(BaseValidatorModel):
+class NetworkEndpoint(BaseValidatorModel):
     Id: str
     Ip: Optional[str] = None
     Domain: Optional[str] = None
     Port: Optional[int] = None
-    Location: Optional[NetworkGeoLocationTypeDef] = None
-    AutonomousSystem: Optional[AutonomousSystemTypeDef] = None
-    Connection: Optional[NetworkConnectionTypeDef] = None
+    Location: Optional[NetworkGeoLocation] = None
+    AutonomousSystem: Optional[AutonomousSystem] = None
+    Connection: Optional[NetworkConnection] = None
 
 
-class OrganizationFeatureConfigurationResultTypeDef(BaseValidatorModel):
+class OrganizationFeatureConfigurationResult(BaseValidatorModel):
     Name: Optional[OrgFeatureType] = None
     AutoEnable: Optional[OrgFeatureStatusType] = None
-    AdditionalConfiguration: Optional[List[OrganizationAdditionalConfigurationResultTypeDef]] = None
+    AdditionalConfiguration: Optional[List[OrganizationAdditionalConfigurationResult]] = None
 
 
-class OrganizationFeatureConfigurationTypeDef(BaseValidatorModel):
+class OrganizationFeatureConfiguration(BaseValidatorModel):
     Name: Optional[OrgFeatureType] = None
     AutoEnable: Optional[OrgFeatureStatusType] = None
-    AdditionalConfiguration: Optional[Sequence[OrganizationAdditionalConfigurationTypeDef]] = None
+    AdditionalConfiguration: Optional[Sequence[OrganizationAdditionalConfiguration]] = None
 
 
-class OrganizationScanEc2InstanceWithFindingsResultTypeDef(BaseValidatorModel):
-    EbsVolumes: Optional[OrganizationEbsVolumesResultTypeDef] = None
+class OrganizationScanEc2InstanceWithFindingsResult(BaseValidatorModel):
+    EbsVolumes: Optional[OrganizationEbsVolumesResult] = None
 
 
-class OrganizationScanEc2InstanceWithFindingsTypeDef(BaseValidatorModel):
-    EbsVolumes: Optional[OrganizationEbsVolumesTypeDef] = None
+class OrganizationScanEc2InstanceWithFindings(BaseValidatorModel):
+    EbsVolumes: Optional[OrganizationEbsVolumes] = None
 
 
-class OrganizationFeatureStatisticsTypeDef(BaseValidatorModel):
+class OrganizationFeatureStatistics(BaseValidatorModel):
     Name: Optional[OrgFeatureType] = None
     EnabledAccountsCount: Optional[int] = None
-    AdditionalConfiguration: Optional[ List[OrganizationFeatureStatisticsAdditionalConfigurationTypeDef] ] = None
+    AdditionalConfiguration: Optional[ List[OrganizationFeatureStatisticsAdditionalConfiguration] ] = None
 
 
-class OrganizationKubernetesConfigurationResultTypeDef(BaseValidatorModel):
-    AuditLogs: OrganizationKubernetesAuditLogsConfigurationResultTypeDef
+class OrganizationKubernetesConfigurationResult(BaseValidatorModel):
+    AuditLogs: OrganizationKubernetesAuditLogsConfigurationResult
 
 
-class OrganizationKubernetesConfigurationTypeDef(BaseValidatorModel):
-    AuditLogs: OrganizationKubernetesAuditLogsConfigurationTypeDef
+class OrganizationKubernetesConfiguration(BaseValidatorModel):
+    AuditLogs: OrganizationKubernetesAuditLogsConfiguration
 
 
-class RemoteIpDetailsTypeDef(BaseValidatorModel):
-    City: Optional[CityTypeDef] = None
-    Country: Optional[CountryTypeDef] = None
-    GeoLocation: Optional[GeoLocationTypeDef] = None
+class RemoteIpDetails(BaseValidatorModel):
+    City: Optional[City] = None
+    Country: Optional[Country] = None
+    GeoLocation: Optional[GeoLocation] = None
     IpAddressV4: Optional[str] = None
     IpAddressV6: Optional[str] = None
-    Organization: Optional[OrganizationTypeDef] = None
+    Organization: Optional[Organization] = None
 
 
-class S3BucketTypeDef(BaseValidatorModel):
+class S3Bucket(BaseValidatorModel):
     OwnerId: Optional[str] = None
     CreatedAt: Optional[datetime] = None
     EncryptionType: Optional[str] = None
@@ -1491,27 +1491,27 @@ class S3BucketTypeDef(BaseValidatorModel):
     EffectivePermission: Optional[str] = None
     PublicReadAccess: Optional[PublicAccessStatusType] = None
     PublicWriteAccess: Optional[PublicAccessStatusType] = None
-    AccountPublicAccess: Optional[PublicAccessConfigurationTypeDef] = None
-    BucketPublicAccess: Optional[PublicAccessConfigurationTypeDef] = None
+    AccountPublicAccess: Optional[PublicAccessConfiguration] = None
+    BucketPublicAccess: Optional[PublicAccessConfiguration] = None
     S3ObjectUids: Optional[List[str]] = None
 
 
-class ScanConditionOutputTypeDef(BaseValidatorModel):
-    MapEquals: List[ScanConditionPairTypeDef]
+class ScanConditionOutput(BaseValidatorModel):
+    MapEquals: List[ScanConditionPair]
 
 
-class ScanConditionTypeDef(BaseValidatorModel):
-    MapEquals: Sequence[ScanConditionPairTypeDef]
+class ScanCondition(BaseValidatorModel):
+    MapEquals: Sequence[ScanConditionPair]
 
 
-class ScanThreatNameTypeDef(BaseValidatorModel):
+class ScanThreatName(BaseValidatorModel):
     Name: Optional[str] = None
     Severity: Optional[str] = None
     ItemCount: Optional[int] = None
-    FilePaths: Optional[List[ScanFilePathTypeDef]] = None
+    FilePaths: Optional[List[ScanFilePath]] = None
 
 
-class ScanTypeDef(BaseValidatorModel):
+class Scan(BaseValidatorModel):
     DetectorId: Optional[str] = None
     AdminDetectorId: Optional[str] = None
     ScanId: Optional[str] = None
@@ -1519,102 +1519,102 @@ class ScanTypeDef(BaseValidatorModel):
     FailureReason: Optional[str] = None
     ScanStartTime: Optional[datetime] = None
     ScanEndTime: Optional[datetime] = None
-    TriggerDetails: Optional[TriggerDetailsTypeDef] = None
-    ResourceDetails: Optional[ResourceDetailsTypeDef] = None
-    ScanResultDetails: Optional[ScanResultDetailsTypeDef] = None
+    TriggerDetails: Optional[TriggerDetails] = None
+    ResourceDetails: Optional[ResourceDetails] = None
+    ScanResultDetails: Optional[ScanResultDetails] = None
     AccountId: Optional[str] = None
     TotalBytes: Optional[int] = None
     FileCount: Optional[int] = None
-    AttachedVolumes: Optional[List[VolumeDetailTypeDef]] = None
+    AttachedVolumes: Optional[List[VolumeDetail]] = None
     ScanType: Optional[ScanTypeType] = None
 
 
-class UsageAccountResultTypeDef(BaseValidatorModel):
+class UsageAccountResult(BaseValidatorModel):
     AccountId: Optional[str] = None
-    Total: Optional[TotalTypeDef] = None
+    Total: Optional[Total] = None
 
 
-class UsageDataSourceResultTypeDef(BaseValidatorModel):
+class UsageDataSourceResult(BaseValidatorModel):
     DataSource: Optional[DataSourceType] = None
-    Total: Optional[TotalTypeDef] = None
+    Total: Optional[Total] = None
 
 
-class UsageFeatureResultTypeDef(BaseValidatorModel):
+class UsageFeatureResult(BaseValidatorModel):
     Feature: Optional[UsageFeatureType] = None
-    Total: Optional[TotalTypeDef] = None
+    Total: Optional[Total] = None
 
 
-class UsageResourceResultTypeDef(BaseValidatorModel):
+class UsageResourceResult(BaseValidatorModel):
     Resource: Optional[str] = None
-    Total: Optional[TotalTypeDef] = None
+    Total: Optional[Total] = None
 
 
-class UsageTopAccountResultTypeDef(BaseValidatorModel):
+class UsageTopAccountResult(BaseValidatorModel):
     AccountId: Optional[str] = None
-    Total: Optional[TotalTypeDef] = None
+    Total: Optional[Total] = None
 
 
-class UpdateProtectedResourceTypeDef(BaseValidatorModel):
-    S3Bucket: Optional[UpdateS3BucketResourceTypeDef] = None
+class UpdateProtectedResource(BaseValidatorModel):
+    S3Bucket: Optional[UpdateS3BucketResource] = None
 
 
-class UserTypeDef(BaseValidatorModel):
+class User(BaseValidatorModel):
     pass
 
 
-class ActorTypeDef(BaseValidatorModel):
+class Actor(BaseValidatorModel):
     Id: str
-    User: Optional[UserTypeDef] = None
-    Session: Optional[SessionTypeDef] = None
+    User: Optional[User] = None
+    Session: Optional[Session] = None
 
 
-class AnomalyUnusualTypeDef(BaseValidatorModel):
-    Behavior: Optional[Dict[str, Dict[str, AnomalyObjectTypeDef]]] = None
+class AnomalyUnusual(BaseValidatorModel):
+    Behavior: Optional[Dict[str, Dict[str, AnomalyObject]]] = None
 
 
-class PermissionConfigurationTypeDef(BaseValidatorModel):
-    BucketLevelPermissions: Optional[BucketLevelPermissionsTypeDef] = None
-    AccountLevelPermissions: Optional[AccountLevelPermissionsTypeDef] = None
+class PermissionConfiguration(BaseValidatorModel):
+    BucketLevelPermissions: Optional[BucketLevelPermissions] = None
+    AccountLevelPermissions: Optional[AccountLevelPermissions] = None
 
 
-class GetFilterResponseTypeDef(BaseValidatorModel):
+class GetFilterResponse(BaseValidatorModel):
     Name: str
     Description: str
     Action: FilterActionType
     Rank: int
-    FindingCriteria: FindingCriteriaOutputTypeDef
+    FindingCriteria: FindingCriteriaOutput
     Tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CoverageResourceDetailsTypeDef(BaseValidatorModel):
-    EksClusterDetails: Optional[CoverageEksClusterDetailsTypeDef] = None
+class CoverageResourceDetails(BaseValidatorModel):
+    EksClusterDetails: Optional[CoverageEksClusterDetails] = None
     ResourceType: Optional[ResourceTypeType] = None
-    EcsClusterDetails: Optional[CoverageEcsClusterDetailsTypeDef] = None
-    Ec2InstanceDetails: Optional[CoverageEc2InstanceDetailsTypeDef] = None
+    EcsClusterDetails: Optional[CoverageEcsClusterDetails] = None
+    Ec2InstanceDetails: Optional[CoverageEc2InstanceDetails] = None
 
 
-class CoverageFilterCriteriaTypeDef(BaseValidatorModel):
-    FilterCriterion: Optional[Sequence[CoverageFilterCriterionTypeDef]] = None
+class CoverageFilterCriteria(BaseValidatorModel):
+    FilterCriterion: Optional[Sequence[CoverageFilterCriterion]] = None
 
 
-class DataSourcesFreeTrialTypeDef(BaseValidatorModel):
-    CloudTrail: Optional[DataSourceFreeTrialTypeDef] = None
-    DnsLogs: Optional[DataSourceFreeTrialTypeDef] = None
-    FlowLogs: Optional[DataSourceFreeTrialTypeDef] = None
-    S3Logs: Optional[DataSourceFreeTrialTypeDef] = None
-    Kubernetes: Optional[KubernetesDataSourceFreeTrialTypeDef] = None
-    MalwareProtection: Optional[MalwareProtectionDataSourceFreeTrialTypeDef] = None
+class DataSourcesFreeTrial(BaseValidatorModel):
+    CloudTrail: Optional[DataSourceFreeTrial] = None
+    DnsLogs: Optional[DataSourceFreeTrial] = None
+    FlowLogs: Optional[DataSourceFreeTrial] = None
+    S3Logs: Optional[DataSourceFreeTrial] = None
+    Kubernetes: Optional[KubernetesDataSourceFreeTrial] = None
+    MalwareProtection: Optional[MalwareProtectionDataSourceFreeTrial] = None
 
 
-class MalwareProtectionConfigurationResultTypeDef(BaseValidatorModel):
-    ScanEc2InstanceWithFindings: Optional[ScanEc2InstanceWithFindingsResultTypeDef] = None
+class MalwareProtectionConfigurationResult(BaseValidatorModel):
+    ScanEc2InstanceWithFindings: Optional[ScanEc2InstanceWithFindingsResult] = None
     ServiceRole: Optional[str] = None
 
 
-class InstanceDetailsTypeDef(BaseValidatorModel):
+class InstanceDetails(BaseValidatorModel):
     AvailabilityZone: Optional[str] = None
-    IamInstanceProfile: Optional[IamInstanceProfileTypeDef] = None
+    IamInstanceProfile: Optional[IamInstanceProfile] = None
     ImageDescription: Optional[str] = None
     ImageId: Optional[str] = None
     InstanceId: Optional[str] = None
@@ -1622,13 +1622,13 @@ class InstanceDetailsTypeDef(BaseValidatorModel):
     InstanceType: Optional[str] = None
     OutpostArn: Optional[str] = None
     LaunchTime: Optional[str] = None
-    NetworkInterfaces: Optional[List[NetworkInterfaceTypeDef]] = None
+    NetworkInterfaces: Optional[List[NetworkInterface]] = None
     Platform: Optional[str] = None
-    ProductCodes: Optional[List[ProductCodeTypeDef]] = None
-    Tags: Optional[List[TagTypeDef]] = None
+    ProductCodes: Optional[List[ProductCode]] = None
+    Tags: Optional[List[Tag]] = None
 
 
-class LambdaDetailsTypeDef(BaseValidatorModel):
+class LambdaDetails(BaseValidatorModel):
     FunctionArn: Optional[str] = None
     FunctionName: Optional[str] = None
     Description: Optional[str] = None
@@ -1636,78 +1636,78 @@ class LambdaDetailsTypeDef(BaseValidatorModel):
     RevisionId: Optional[str] = None
     FunctionVersion: Optional[str] = None
     Role: Optional[str] = None
-    VpcConfig: Optional[VpcConfigTypeDef] = None
-    Tags: Optional[List[TagTypeDef]] = None
+    VpcConfig: Optional[VpcConfig] = None
+    Tags: Optional[List[Tag]] = None
 
 
-class FilterCriteriaTypeDef(BaseValidatorModel):
-    FilterCriterion: Optional[Sequence[FilterCriterionTypeDef]] = None
+class FilterCriteria(BaseValidatorModel):
+    FilterCriterion: Optional[Sequence[FilterCriterion]] = None
 
 
-class GetFindingsStatisticsResponseTypeDef(BaseValidatorModel):
-    FindingStatistics: FindingStatisticsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetFindingsStatisticsResponse(BaseValidatorModel):
+    FindingStatistics: FindingStatistics
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class EcsTaskDetailsTypeDef(BaseValidatorModel):
+class EcsTaskDetails(BaseValidatorModel):
     Arn: Optional[str] = None
     DefinitionArn: Optional[str] = None
     Version: Optional[str] = None
     TaskCreatedAt: Optional[datetime] = None
     StartedAt: Optional[datetime] = None
     StartedBy: Optional[str] = None
-    Tags: Optional[List[TagTypeDef]] = None
-    Volumes: Optional[List[VolumeTypeDef]] = None
-    Containers: Optional[List[ContainerTypeDef]] = None
+    Tags: Optional[List[Tag]] = None
+    Volumes: Optional[List[Volume]] = None
+    Containers: Optional[List[Container]] = None
     Group: Optional[str] = None
     LaunchType: Optional[str] = None
 
 
-class MalwareScanDetailsTypeDef(BaseValidatorModel):
-    Threats: Optional[List[ThreatTypeDef]] = None
+class MalwareScanDetails(BaseValidatorModel):
+    Threats: Optional[List[Threat]] = None
 
 
-class DataSourceConfigurationsTypeDef(BaseValidatorModel):
-    S3Logs: Optional[S3LogsConfigurationTypeDef] = None
-    Kubernetes: Optional[KubernetesConfigurationTypeDef] = None
-    MalwareProtection: Optional[MalwareProtectionConfigurationTypeDef] = None
+class DataSourceConfigurations(BaseValidatorModel):
+    S3Logs: Optional[S3LogsConfiguration] = None
+    Kubernetes: Optional[KubernetesConfiguration] = None
+    MalwareProtection: Optional[MalwareProtectionConfiguration] = None
 
 
-class GetMalwareProtectionPlanResponseTypeDef(BaseValidatorModel):
+class GetMalwareProtectionPlanResponse(BaseValidatorModel):
     Arn: str
     Role: str
-    ProtectedResource: CreateProtectedResourceOutputTypeDef
-    Actions: MalwareProtectionPlanActionsTypeDef
+    ProtectedResource: CreateProtectedResourceOutput
+    Actions: MalwareProtectionPlanActions
     CreatedAt: datetime
     Status: MalwareProtectionPlanStatusType
-    StatusReasons: List[MalwareProtectionPlanStatusReasonTypeDef]
+    StatusReasons: List[MalwareProtectionPlanStatusReason]
     Tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class OrganizationMalwareProtectionConfigurationResultTypeDef(BaseValidatorModel):
-    ScanEc2InstanceWithFindings: Optional[OrganizationScanEc2InstanceWithFindingsResultTypeDef] = None
+class OrganizationMalwareProtectionConfigurationResult(BaseValidatorModel):
+    ScanEc2InstanceWithFindings: Optional[OrganizationScanEc2InstanceWithFindingsResult] = None
 
 
-class OrganizationMalwareProtectionConfigurationTypeDef(BaseValidatorModel):
-    ScanEc2InstanceWithFindings: Optional[OrganizationScanEc2InstanceWithFindingsTypeDef] = None
+class OrganizationMalwareProtectionConfiguration(BaseValidatorModel):
+    ScanEc2InstanceWithFindings: Optional[OrganizationScanEc2InstanceWithFindings] = None
 
 
-class OrganizationStatisticsTypeDef(BaseValidatorModel):
+class OrganizationStatistics(BaseValidatorModel):
     TotalAccountsCount: Optional[int] = None
     MemberAccountsCount: Optional[int] = None
     ActiveAccountsCount: Optional[int] = None
     EnabledAccountsCount: Optional[int] = None
-    CountByFeature: Optional[List[OrganizationFeatureStatisticsTypeDef]] = None
+    CountByFeature: Optional[List[OrganizationFeatureStatistics]] = None
 
 
-class KubernetesApiCallActionTypeDef(BaseValidatorModel):
+class KubernetesApiCallAction(BaseValidatorModel):
     RequestUri: Optional[str] = None
     Verb: Optional[str] = None
     SourceIps: Optional[List[str]] = None
     UserAgent: Optional[str] = None
-    RemoteIpDetails: Optional[RemoteIpDetailsTypeDef] = None
+    RemoteIpDetails: Optional[RemoteIpDetails] = None
     StatusCode: Optional[int] = None
     Parameters: Optional[str] = None
     Resource: Optional[str] = None
@@ -1716,78 +1716,78 @@ class KubernetesApiCallActionTypeDef(BaseValidatorModel):
     ResourceName: Optional[str] = None
 
 
-class PortProbeDetailTypeDef(BaseValidatorModel):
-    LocalPortDetails: Optional[LocalPortDetailsTypeDef] = None
-    LocalIpDetails: Optional[LocalIpDetailsTypeDef] = None
-    RemoteIpDetails: Optional[RemoteIpDetailsTypeDef] = None
+class PortProbeDetail(BaseValidatorModel):
+    LocalPortDetails: Optional[LocalPortDetails] = None
+    LocalIpDetails: Optional[LocalIpDetails] = None
+    RemoteIpDetails: Optional[RemoteIpDetails] = None
 
 
-class RdsLoginAttemptActionTypeDef(BaseValidatorModel):
-    RemoteIpDetails: Optional[RemoteIpDetailsTypeDef] = None
-    LoginAttributes: Optional[List[LoginAttributeTypeDef]] = None
+class RdsLoginAttemptAction(BaseValidatorModel):
+    RemoteIpDetails: Optional[RemoteIpDetails] = None
+    LoginAttributes: Optional[List[LoginAttribute]] = None
 
 
-class ResourceDataTypeDef(BaseValidatorModel):
-    S3Bucket: Optional[S3BucketTypeDef] = None
-    Ec2Instance: Optional[Ec2InstanceTypeDef] = None
-    AccessKey: Optional[AccessKeyTypeDef] = None
-    Ec2NetworkInterface: Optional[Ec2NetworkInterfaceTypeDef] = None
-    S3Object: Optional[S3ObjectTypeDef] = None
+class ResourceData(BaseValidatorModel):
+    S3Bucket: Optional[S3Bucket] = None
+    Ec2Instance: Optional[Ec2Instance] = None
+    AccessKey: Optional[AccessKey] = None
+    Ec2NetworkInterface: Optional[Ec2NetworkInterface] = None
+    S3Object: Optional[S3Object] = None
 
 
-class ScanResourceCriteriaOutputTypeDef(BaseValidatorModel):
-    Include: Optional[Dict[Literal["EC2_INSTANCE_TAG"], ScanConditionOutputTypeDef]] = None
-    Exclude: Optional[Dict[Literal["EC2_INSTANCE_TAG"], ScanConditionOutputTypeDef]] = None
+class ScanResourceCriteriaOutput(BaseValidatorModel):
+    Include: Optional[Dict[Literal["EC2_INSTANCE_TAG"], ScanConditionOutput]] = None
+    Exclude: Optional[Dict[Literal["EC2_INSTANCE_TAG"], ScanConditionOutput]] = None
 
 
-class ScanResourceCriteriaTypeDef(BaseValidatorModel):
-    Include: Optional[Mapping[Literal["EC2_INSTANCE_TAG"], ScanConditionTypeDef]] = None
-    Exclude: Optional[Mapping[Literal["EC2_INSTANCE_TAG"], ScanConditionTypeDef]] = None
+class ScanResourceCriteria(BaseValidatorModel):
+    Include: Optional[Mapping[Literal["EC2_INSTANCE_TAG"], ScanCondition]] = None
+    Exclude: Optional[Mapping[Literal["EC2_INSTANCE_TAG"], ScanCondition]] = None
 
 
-class ThreatDetectedByNameTypeDef(BaseValidatorModel):
+class ThreatDetectedByName(BaseValidatorModel):
     ItemCount: Optional[int] = None
     UniqueThreatNameCount: Optional[int] = None
     Shortened: Optional[bool] = None
-    ThreatNames: Optional[List[ScanThreatNameTypeDef]] = None
+    ThreatNames: Optional[List[ScanThreatName]] = None
 
 
-class DescribeMalwareScansResponseTypeDef(BaseValidatorModel):
-    Scans: List[ScanTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeMalwareScansResponse(BaseValidatorModel):
+    Scans: List[Scan]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class UsageTopAccountsResultTypeDef(BaseValidatorModel):
+class UsageTopAccountsResult(BaseValidatorModel):
     Feature: Optional[UsageFeatureType] = None
-    Accounts: Optional[List[UsageTopAccountResultTypeDef]] = None
+    Accounts: Optional[List[UsageTopAccountResult]] = None
 
 
-class UpdateMalwareProtectionPlanRequestTypeDef(BaseValidatorModel):
+class UpdateMalwareProtectionPlanRequest(BaseValidatorModel):
     MalwareProtectionPlanId: str
     Role: Optional[str] = None
-    Actions: Optional[MalwareProtectionPlanActionsTypeDef] = None
-    ProtectedResource: Optional[UpdateProtectedResourceTypeDef] = None
+    Actions: Optional[MalwareProtectionPlanActions] = None
+    ProtectedResource: Optional[UpdateProtectedResource] = None
 
 
-class AnomalyTypeDef(BaseValidatorModel):
-    Profiles: Optional[Dict[str, Dict[str, List[AnomalyObjectTypeDef]]]] = None
-    Unusual: Optional[AnomalyUnusualTypeDef] = None
+class Anomaly(BaseValidatorModel):
+    Profiles: Optional[Dict[str, Dict[str, List[AnomalyObject]]]] = None
+    Unusual: Optional[AnomalyUnusual] = None
 
 
-class PublicAccessTypeDef(BaseValidatorModel):
-    PermissionConfiguration: Optional[PermissionConfigurationTypeDef] = None
+class PublicAccess(BaseValidatorModel):
+    PermissionConfiguration: Optional[PermissionConfiguration] = None
     EffectivePermission: Optional[str] = None
 
 
-class FindingCriteriaUnionTypeDef(BaseValidatorModel):
+class FindingCriteriaUnion(BaseValidatorModel):
     pass
 
 
-class CreateFilterRequestTypeDef(BaseValidatorModel):
+class CreateFilterRequest(BaseValidatorModel):
     DetectorId: str
     Name: str
-    FindingCriteria: FindingCriteriaUnionTypeDef
+    FindingCriteria: FindingCriteriaUnion
     Description: Optional[str] = None
     Action: Optional[FilterActionType] = None
     Rank: Optional[int] = None
@@ -1795,192 +1795,192 @@ class CreateFilterRequestTypeDef(BaseValidatorModel):
     Tags: Optional[Mapping[str, str]] = None
 
 
-class GetFindingsStatisticsRequestTypeDef(BaseValidatorModel):
+class GetFindingsStatisticsRequest(BaseValidatorModel):
     DetectorId: str
     FindingStatisticTypes: Optional[Sequence[Literal["COUNT_BY_SEVERITY"]]] = None
-    FindingCriteria: Optional[FindingCriteriaUnionTypeDef] = None
+    FindingCriteria: Optional[FindingCriteriaUnion] = None
     GroupBy: Optional[GroupByTypeType] = None
     OrderBy: Optional[OrderByType] = None
     MaxResults: Optional[int] = None
 
 
-class ListFindingsRequestPaginateTypeDef(BaseValidatorModel):
+class ListFindingsRequestPaginate(BaseValidatorModel):
     DetectorId: str
-    FindingCriteria: Optional[FindingCriteriaUnionTypeDef] = None
-    SortCriteria: Optional[SortCriteriaTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    FindingCriteria: Optional[FindingCriteriaUnion] = None
+    SortCriteria: Optional[SortCriteria] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListFindingsRequestTypeDef(BaseValidatorModel):
+class ListFindingsRequest(BaseValidatorModel):
     DetectorId: str
-    FindingCriteria: Optional[FindingCriteriaUnionTypeDef] = None
-    SortCriteria: Optional[SortCriteriaTypeDef] = None
+    FindingCriteria: Optional[FindingCriteriaUnion] = None
+    SortCriteria: Optional[SortCriteria] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class UpdateFilterRequestTypeDef(BaseValidatorModel):
+class UpdateFilterRequest(BaseValidatorModel):
     DetectorId: str
     FilterName: str
     Description: Optional[str] = None
     Action: Optional[FilterActionType] = None
     Rank: Optional[int] = None
-    FindingCriteria: Optional[FindingCriteriaUnionTypeDef] = None
+    FindingCriteria: Optional[FindingCriteriaUnion] = None
 
 
-class CoverageResourceTypeDef(BaseValidatorModel):
+class CoverageResource(BaseValidatorModel):
     ResourceId: Optional[str] = None
     DetectorId: Optional[str] = None
     AccountId: Optional[str] = None
-    ResourceDetails: Optional[CoverageResourceDetailsTypeDef] = None
+    ResourceDetails: Optional[CoverageResourceDetails] = None
     CoverageStatus: Optional[CoverageStatusType] = None
     Issue: Optional[str] = None
     UpdatedAt: Optional[datetime] = None
 
 
-class GetCoverageStatisticsRequestTypeDef(BaseValidatorModel):
+class GetCoverageStatisticsRequest(BaseValidatorModel):
     DetectorId: str
     StatisticsType: Sequence[CoverageStatisticsTypeType]
-    FilterCriteria: Optional[CoverageFilterCriteriaTypeDef] = None
+    FilterCriteria: Optional[CoverageFilterCriteria] = None
 
 
-class ListCoverageRequestPaginateTypeDef(BaseValidatorModel):
+class ListCoverageRequestPaginate(BaseValidatorModel):
     DetectorId: str
-    FilterCriteria: Optional[CoverageFilterCriteriaTypeDef] = None
-    SortCriteria: Optional[CoverageSortCriteriaTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    FilterCriteria: Optional[CoverageFilterCriteria] = None
+    SortCriteria: Optional[CoverageSortCriteria] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListCoverageRequestTypeDef(BaseValidatorModel):
+class ListCoverageRequest(BaseValidatorModel):
     DetectorId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
-    FilterCriteria: Optional[CoverageFilterCriteriaTypeDef] = None
-    SortCriteria: Optional[CoverageSortCriteriaTypeDef] = None
+    FilterCriteria: Optional[CoverageFilterCriteria] = None
+    SortCriteria: Optional[CoverageSortCriteria] = None
 
 
-class CreateProtectedResourceUnionTypeDef(BaseValidatorModel):
+class CreateProtectedResourceUnion(BaseValidatorModel):
     pass
 
 
-class CreateMalwareProtectionPlanRequestTypeDef(BaseValidatorModel):
+class CreateMalwareProtectionPlanRequest(BaseValidatorModel):
     Role: str
-    ProtectedResource: CreateProtectedResourceUnionTypeDef
+    ProtectedResource: CreateProtectedResourceUnion
     ClientToken: Optional[str] = None
-    Actions: Optional[MalwareProtectionPlanActionsTypeDef] = None
+    Actions: Optional[MalwareProtectionPlanActions] = None
     Tags: Optional[Mapping[str, str]] = None
 
 
-class AccountFreeTrialInfoTypeDef(BaseValidatorModel):
+class AccountFreeTrialInfo(BaseValidatorModel):
     AccountId: Optional[str] = None
-    DataSources: Optional[DataSourcesFreeTrialTypeDef] = None
-    Features: Optional[List[FreeTrialFeatureConfigurationResultTypeDef]] = None
+    DataSources: Optional[DataSourcesFreeTrial] = None
+    Features: Optional[List[FreeTrialFeatureConfigurationResult]] = None
 
 
-class DataSourceConfigurationsResultTypeDef(BaseValidatorModel):
-    CloudTrail: CloudTrailConfigurationResultTypeDef
-    DNSLogs: DNSLogsConfigurationResultTypeDef
-    FlowLogs: FlowLogsConfigurationResultTypeDef
-    S3Logs: S3LogsConfigurationResultTypeDef
-    Kubernetes: Optional[KubernetesConfigurationResultTypeDef] = None
-    MalwareProtection: Optional[MalwareProtectionConfigurationResultTypeDef] = None
+class DataSourceConfigurationsResult(BaseValidatorModel):
+    CloudTrail: CloudTrailConfigurationResult
+    DNSLogs: DNSLogsConfigurationResult
+    FlowLogs: FlowLogsConfigurationResult
+    S3Logs: S3LogsConfigurationResult
+    Kubernetes: Optional[KubernetesConfigurationResult] = None
+    MalwareProtection: Optional[MalwareProtectionConfigurationResult] = None
 
 
-class UnprocessedDataSourcesResultTypeDef(BaseValidatorModel):
-    MalwareProtection: Optional[MalwareProtectionConfigurationResultTypeDef] = None
+class UnprocessedDataSourcesResult(BaseValidatorModel):
+    MalwareProtection: Optional[MalwareProtectionConfigurationResult] = None
 
 
-class DescribeMalwareScansRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeMalwareScansRequestPaginate(BaseValidatorModel):
     DetectorId: str
-    FilterCriteria: Optional[FilterCriteriaTypeDef] = None
-    SortCriteria: Optional[SortCriteriaTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    FilterCriteria: Optional[FilterCriteria] = None
+    SortCriteria: Optional[SortCriteria] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeMalwareScansRequestTypeDef(BaseValidatorModel):
+class DescribeMalwareScansRequest(BaseValidatorModel):
     DetectorId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
-    FilterCriteria: Optional[FilterCriteriaTypeDef] = None
-    SortCriteria: Optional[SortCriteriaTypeDef] = None
+    FilterCriteria: Optional[FilterCriteria] = None
+    SortCriteria: Optional[SortCriteria] = None
 
 
-class EcsClusterDetailsTypeDef(BaseValidatorModel):
+class EcsClusterDetails(BaseValidatorModel):
     Name: Optional[str] = None
     Arn: Optional[str] = None
     Status: Optional[str] = None
     ActiveServicesCount: Optional[int] = None
     RegisteredContainerInstancesCount: Optional[int] = None
     RunningTasksCount: Optional[int] = None
-    Tags: Optional[List[TagTypeDef]] = None
-    TaskDetails: Optional[EcsTaskDetailsTypeDef] = None
+    Tags: Optional[List[Tag]] = None
+    TaskDetails: Optional[EcsTaskDetails] = None
 
 
-class KubernetesWorkloadDetailsTypeDef(BaseValidatorModel):
+class KubernetesWorkloadDetails(BaseValidatorModel):
     pass
 
 
-class KubernetesDetailsTypeDef(BaseValidatorModel):
-    KubernetesUserDetails: Optional[KubernetesUserDetailsTypeDef] = None
-    KubernetesWorkloadDetails: Optional[KubernetesWorkloadDetailsTypeDef] = None
+class KubernetesDetails(BaseValidatorModel):
+    KubernetesUserDetails: Optional[KubernetesUserDetails] = None
+    KubernetesWorkloadDetails: Optional[KubernetesWorkloadDetails] = None
 
 
-class RuntimeContextTypeDef(BaseValidatorModel):
+class RuntimeContext(BaseValidatorModel):
     pass
 
 
-class RuntimeDetailsTypeDef(BaseValidatorModel):
-    Process: Optional[ProcessDetailsTypeDef] = None
-    Context: Optional[RuntimeContextTypeDef] = None
+class RuntimeDetails(BaseValidatorModel):
+    Process: Optional[ProcessDetails] = None
+    Context: Optional[RuntimeContext] = None
 
 
-class CreateDetectorRequestTypeDef(BaseValidatorModel):
+class CreateDetectorRequest(BaseValidatorModel):
     Enable: bool
     ClientToken: Optional[str] = None
     FindingPublishingFrequency: Optional[FindingPublishingFrequencyType] = None
-    DataSources: Optional[DataSourceConfigurationsTypeDef] = None
+    DataSources: Optional[DataSourceConfigurations] = None
     Tags: Optional[Mapping[str, str]] = None
-    Features: Optional[Sequence[DetectorFeatureConfigurationTypeDef]] = None
+    Features: Optional[Sequence[DetectorFeatureConfiguration]] = None
 
 
-class UpdateDetectorRequestTypeDef(BaseValidatorModel):
+class UpdateDetectorRequest(BaseValidatorModel):
     DetectorId: str
     Enable: Optional[bool] = None
     FindingPublishingFrequency: Optional[FindingPublishingFrequencyType] = None
-    DataSources: Optional[DataSourceConfigurationsTypeDef] = None
-    Features: Optional[Sequence[DetectorFeatureConfigurationTypeDef]] = None
+    DataSources: Optional[DataSourceConfigurations] = None
+    Features: Optional[Sequence[DetectorFeatureConfiguration]] = None
 
 
-class UpdateMemberDetectorsRequestTypeDef(BaseValidatorModel):
+class UpdateMemberDetectorsRequest(BaseValidatorModel):
     DetectorId: str
     AccountIds: Sequence[str]
-    DataSources: Optional[DataSourceConfigurationsTypeDef] = None
-    Features: Optional[Sequence[MemberFeaturesConfigurationTypeDef]] = None
+    DataSources: Optional[DataSourceConfigurations] = None
+    Features: Optional[Sequence[MemberFeaturesConfiguration]] = None
 
 
-class OrganizationDataSourceConfigurationsResultTypeDef(BaseValidatorModel):
-    S3Logs: OrganizationS3LogsConfigurationResultTypeDef
-    Kubernetes: Optional[OrganizationKubernetesConfigurationResultTypeDef] = None
-    MalwareProtection: Optional[OrganizationMalwareProtectionConfigurationResultTypeDef] = None
+class OrganizationDataSourceConfigurationsResult(BaseValidatorModel):
+    S3Logs: OrganizationS3LogsConfigurationResult
+    Kubernetes: Optional[OrganizationKubernetesConfigurationResult] = None
+    MalwareProtection: Optional[OrganizationMalwareProtectionConfigurationResult] = None
 
 
-class OrganizationDataSourceConfigurationsTypeDef(BaseValidatorModel):
-    S3Logs: Optional[OrganizationS3LogsConfigurationTypeDef] = None
-    Kubernetes: Optional[OrganizationKubernetesConfigurationTypeDef] = None
-    MalwareProtection: Optional[OrganizationMalwareProtectionConfigurationTypeDef] = None
+class OrganizationDataSourceConfigurations(BaseValidatorModel):
+    S3Logs: Optional[OrganizationS3LogsConfiguration] = None
+    Kubernetes: Optional[OrganizationKubernetesConfiguration] = None
+    MalwareProtection: Optional[OrganizationMalwareProtectionConfiguration] = None
 
 
-class OrganizationDetailsTypeDef(BaseValidatorModel):
+class OrganizationDetails(BaseValidatorModel):
     UpdatedAt: Optional[datetime] = None
-    OrganizationStatistics: Optional[OrganizationStatisticsTypeDef] = None
+    OrganizationStatistics: Optional[OrganizationStatistics] = None
 
 
-class PortProbeActionTypeDef(BaseValidatorModel):
+class PortProbeAction(BaseValidatorModel):
     Blocked: Optional[bool] = None
-    PortProbeDetails: Optional[List[PortProbeDetailTypeDef]] = None
+    PortProbeDetails: Optional[List[PortProbeDetail]] = None
 
 
-class ResourceV2TypeDef(BaseValidatorModel):
+class ResourceV2(BaseValidatorModel):
     Uid: str
     ResourceType: FindingResourceTypeType
     Name: Optional[str] = None
@@ -1988,188 +1988,188 @@ class ResourceV2TypeDef(BaseValidatorModel):
     Region: Optional[str] = None
     Service: Optional[str] = None
     CloudPartition: Optional[str] = None
-    Tags: Optional[List[TagTypeDef]] = None
-    Data: Optional[ResourceDataTypeDef] = None
+    Tags: Optional[List[Tag]] = None
+    Data: Optional[ResourceData] = None
 
 
-class GetMalwareScanSettingsResponseTypeDef(BaseValidatorModel):
-    ScanResourceCriteria: ScanResourceCriteriaOutputTypeDef
+class GetMalwareScanSettingsResponse(BaseValidatorModel):
+    ScanResourceCriteria: ScanResourceCriteriaOutput
     EbsSnapshotPreservation: EbsSnapshotPreservationType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ScanDetectionsTypeDef(BaseValidatorModel):
-    ScannedItemCount: Optional[ScannedItemCountTypeDef] = None
-    ThreatsDetectedItemCount: Optional[ThreatsDetectedItemCountTypeDef] = None
-    HighestSeverityThreatDetails: Optional[HighestSeverityThreatDetailsTypeDef] = None
-    ThreatDetectedByName: Optional[ThreatDetectedByNameTypeDef] = None
+class ScanDetections(BaseValidatorModel):
+    ScannedItemCount: Optional[ScannedItemCount] = None
+    ThreatsDetectedItemCount: Optional[ThreatsDetectedItemCount] = None
+    HighestSeverityThreatDetails: Optional[HighestSeverityThreatDetails] = None
+    ThreatDetectedByName: Optional[ThreatDetectedByName] = None
 
 
-class UsageStatisticsTypeDef(BaseValidatorModel):
-    SumByAccount: Optional[List[UsageAccountResultTypeDef]] = None
-    TopAccountsByFeature: Optional[List[UsageTopAccountsResultTypeDef]] = None
-    SumByDataSource: Optional[List[UsageDataSourceResultTypeDef]] = None
-    SumByResource: Optional[List[UsageResourceResultTypeDef]] = None
-    TopResources: Optional[List[UsageResourceResultTypeDef]] = None
-    SumByFeature: Optional[List[UsageFeatureResultTypeDef]] = None
+class UsageStatistics(BaseValidatorModel):
+    SumByAccount: Optional[List[UsageAccountResult]] = None
+    TopAccountsByFeature: Optional[List[UsageTopAccountsResult]] = None
+    SumByDataSource: Optional[List[UsageDataSourceResult]] = None
+    SumByResource: Optional[List[UsageResourceResult]] = None
+    TopResources: Optional[List[UsageResourceResult]] = None
+    SumByFeature: Optional[List[UsageFeatureResult]] = None
 
 
-class ListCoverageResponseTypeDef(BaseValidatorModel):
-    Resources: List[CoverageResourceTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListCoverageResponse(BaseValidatorModel):
+    Resources: List[CoverageResource]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class GetRemainingFreeTrialDaysResponseTypeDef(BaseValidatorModel):
-    Accounts: List[AccountFreeTrialInfoTypeDef]
-    UnprocessedAccounts: List[UnprocessedAccountTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetRemainingFreeTrialDaysResponse(BaseValidatorModel):
+    Accounts: List[AccountFreeTrialInfo]
+    UnprocessedAccounts: List[UnprocessedAccount]
+    ResponseMetadata: ResponseMetadata
 
 
-class GetDetectorResponseTypeDef(BaseValidatorModel):
+class GetDetectorResponse(BaseValidatorModel):
     CreatedAt: str
     FindingPublishingFrequency: FindingPublishingFrequencyType
     ServiceRole: str
     Status: DetectorStatusType
     UpdatedAt: str
-    DataSources: DataSourceConfigurationsResultTypeDef
+    DataSources: DataSourceConfigurationsResult
     Tags: Dict[str, str]
-    Features: List[DetectorFeatureConfigurationResultTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    Features: List[DetectorFeatureConfigurationResult]
+    ResponseMetadata: ResponseMetadata
 
 
-class MemberDataSourceConfigurationTypeDef(BaseValidatorModel):
+class MemberDataSourceConfiguration(BaseValidatorModel):
     AccountId: str
-    DataSources: Optional[DataSourceConfigurationsResultTypeDef] = None
-    Features: Optional[List[MemberFeaturesConfigurationResultTypeDef]] = None
+    DataSources: Optional[DataSourceConfigurationsResult] = None
+    Features: Optional[List[MemberFeaturesConfigurationResult]] = None
 
 
-class CreateDetectorResponseTypeDef(BaseValidatorModel):
+class CreateDetectorResponse(BaseValidatorModel):
     DetectorId: str
-    UnprocessedDataSources: UnprocessedDataSourcesResultTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    UnprocessedDataSources: UnprocessedDataSourcesResult
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeOrganizationConfigurationResponseTypeDef(BaseValidatorModel):
+class DescribeOrganizationConfigurationResponse(BaseValidatorModel):
     AutoEnable: bool
     MemberAccountLimitReached: bool
-    DataSources: OrganizationDataSourceConfigurationsResultTypeDef
-    Features: List[OrganizationFeatureConfigurationResultTypeDef]
+    DataSources: OrganizationDataSourceConfigurationsResult
+    Features: List[OrganizationFeatureConfigurationResult]
     AutoEnableOrganizationMembers: AutoEnableMembersType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class UpdateOrganizationConfigurationRequestTypeDef(BaseValidatorModel):
+class UpdateOrganizationConfigurationRequest(BaseValidatorModel):
     DetectorId: str
     AutoEnable: Optional[bool] = None
-    DataSources: Optional[OrganizationDataSourceConfigurationsTypeDef] = None
-    Features: Optional[Sequence[OrganizationFeatureConfigurationTypeDef]] = None
+    DataSources: Optional[OrganizationDataSourceConfigurations] = None
+    Features: Optional[Sequence[OrganizationFeatureConfiguration]] = None
     AutoEnableOrganizationMembers: Optional[AutoEnableMembersType] = None
 
 
-class GetOrganizationStatisticsResponseTypeDef(BaseValidatorModel):
-    OrganizationDetails: OrganizationDetailsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetOrganizationStatisticsResponse(BaseValidatorModel):
+    OrganizationDetails: OrganizationDetails
+    ResponseMetadata: ResponseMetadata
 
 
-class DnsRequestActionTypeDef(BaseValidatorModel):
+class DnsRequestAction(BaseValidatorModel):
     pass
 
 
-class AwsApiCallActionTypeDef(BaseValidatorModel):
+class AwsApiCallAction(BaseValidatorModel):
     pass
 
 
-class NetworkConnectionActionTypeDef(BaseValidatorModel):
+class NetworkConnectionAction(BaseValidatorModel):
     pass
 
 
-class ActionTypeDef(BaseValidatorModel):
+class Action(BaseValidatorModel):
     ActionType: Optional[str] = None
-    AwsApiCallAction: Optional[AwsApiCallActionTypeDef] = None
-    DnsRequestAction: Optional[DnsRequestActionTypeDef] = None
-    NetworkConnectionAction: Optional[NetworkConnectionActionTypeDef] = None
-    PortProbeAction: Optional[PortProbeActionTypeDef] = None
-    KubernetesApiCallAction: Optional[KubernetesApiCallActionTypeDef] = None
-    RdsLoginAttemptAction: Optional[RdsLoginAttemptActionTypeDef] = None
-    KubernetesPermissionCheckedDetails: Optional[KubernetesPermissionCheckedDetailsTypeDef] = None
-    KubernetesRoleBindingDetails: Optional[KubernetesRoleBindingDetailsTypeDef] = None
-    KubernetesRoleDetails: Optional[KubernetesRoleDetailsTypeDef] = None
+    AwsApiCallAction: Optional[AwsApiCallAction] = None
+    DnsRequestAction: Optional[DnsRequestAction] = None
+    NetworkConnectionAction: Optional[NetworkConnectionAction] = None
+    PortProbeAction: Optional[PortProbeAction] = None
+    KubernetesApiCallAction: Optional[KubernetesApiCallAction] = None
+    RdsLoginAttemptAction: Optional[RdsLoginAttemptAction] = None
+    KubernetesPermissionCheckedDetails: Optional[KubernetesPermissionCheckedDetails] = None
+    KubernetesRoleBindingDetails: Optional[KubernetesRoleBindingDetails] = None
+    KubernetesRoleDetails: Optional[KubernetesRoleDetails] = None
 
 
-class SignalTypeDef(BaseValidatorModel):
+class Signal(BaseValidatorModel):
     pass
 
 
 class SequenceType(BaseValidatorModel):
     Uid: str
     Description: str
-    Signals: List[SignalTypeDef]
-    Actors: Optional[List[ActorTypeDef]] = None
-    Resources: Optional[List[ResourceV2TypeDef]] = None
-    Endpoints: Optional[List[NetworkEndpointTypeDef]] = None
-    SequenceIndicators: Optional[List[IndicatorTypeDef]] = None
+    Signals: List[Signal]
+    Actors: Optional[List[Actor]] = None
+    Resources: Optional[List[ResourceV2]] = None
+    Endpoints: Optional[List[NetworkEndpoint]] = None
+    SequenceIndicators: Optional[List[Indicator]] = None
 
 
-class ScanResourceCriteriaUnionTypeDef(BaseValidatorModel):
+class ScanResourceCriteriaUnion(BaseValidatorModel):
     pass
 
 
-class UpdateMalwareScanSettingsRequestTypeDef(BaseValidatorModel):
+class UpdateMalwareScanSettingsRequest(BaseValidatorModel):
     DetectorId: str
-    ScanResourceCriteria: Optional[ScanResourceCriteriaUnionTypeDef] = None
+    ScanResourceCriteria: Optional[ScanResourceCriteriaUnion] = None
     EbsSnapshotPreservation: Optional[EbsSnapshotPreservationType] = None
 
 
-class EbsVolumeScanDetailsTypeDef(BaseValidatorModel):
+class EbsVolumeScanDetails(BaseValidatorModel):
     ScanId: Optional[str] = None
     ScanStartedAt: Optional[datetime] = None
     ScanCompletedAt: Optional[datetime] = None
     TriggerFindingId: Optional[str] = None
     Sources: Optional[List[str]] = None
-    ScanDetections: Optional[ScanDetectionsTypeDef] = None
+    ScanDetections: Optional[ScanDetections] = None
     ScanType: Optional[ScanTypeType] = None
 
 
-class GetUsageStatisticsResponseTypeDef(BaseValidatorModel):
-    UsageStatistics: UsageStatisticsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetUsageStatisticsResponse(BaseValidatorModel):
+    UsageStatistics: UsageStatistics
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class S3BucketDetailTypeDef(BaseValidatorModel):
+class S3BucketDetail(BaseValidatorModel):
     pass
 
 
-class ResourceTypeDef(BaseValidatorModel):
-    AccessKeyDetails: Optional[AccessKeyDetailsTypeDef] = None
-    S3BucketDetails: Optional[List[S3BucketDetailTypeDef]] = None
-    InstanceDetails: Optional[InstanceDetailsTypeDef] = None
-    EksClusterDetails: Optional[EksClusterDetailsTypeDef] = None
-    KubernetesDetails: Optional[KubernetesDetailsTypeDef] = None
+class Resource(BaseValidatorModel):
+    AccessKeyDetails: Optional[AccessKeyDetails] = None
+    S3BucketDetails: Optional[List[S3BucketDetail]] = None
+    InstanceDetails: Optional[InstanceDetails] = None
+    EksClusterDetails: Optional[EksClusterDetails] = None
+    KubernetesDetails: Optional[KubernetesDetails] = None
     ResourceType: Optional[str] = None
-    EbsVolumeDetails: Optional[EbsVolumeDetailsTypeDef] = None
-    EcsClusterDetails: Optional[EcsClusterDetailsTypeDef] = None
-    ContainerDetails: Optional[ContainerTypeDef] = None
-    RdsDbInstanceDetails: Optional[RdsDbInstanceDetailsTypeDef] = None
-    RdsLimitlessDbDetails: Optional[RdsLimitlessDbDetailsTypeDef] = None
-    RdsDbUserDetails: Optional[RdsDbUserDetailsTypeDef] = None
-    LambdaDetails: Optional[LambdaDetailsTypeDef] = None
+    EbsVolumeDetails: Optional[EbsVolumeDetails] = None
+    EcsClusterDetails: Optional[EcsClusterDetails] = None
+    ContainerDetails: Optional[Container] = None
+    RdsDbInstanceDetails: Optional[RdsDbInstanceDetails] = None
+    RdsLimitlessDbDetails: Optional[RdsLimitlessDbDetails] = None
+    RdsDbUserDetails: Optional[RdsDbUserDetails] = None
+    LambdaDetails: Optional[LambdaDetails] = None
 
 
-class GetMemberDetectorsResponseTypeDef(BaseValidatorModel):
-    MemberDataSourceConfigurations: List[MemberDataSourceConfigurationTypeDef]
-    UnprocessedAccounts: List[UnprocessedAccountTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetMemberDetectorsResponse(BaseValidatorModel):
+    MemberDataSourceConfigurations: List[MemberDataSourceConfiguration]
+    UnprocessedAccounts: List[UnprocessedAccount]
+    ResponseMetadata: ResponseMetadata
 
 
-class FindingTypeDef(BaseValidatorModel):
+class Finding(BaseValidatorModel):
     pass
 
 
-class GetFindingsResponseTypeDef(BaseValidatorModel):
-    Findings: List[FindingTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetFindingsResponse(BaseValidatorModel):
+    Findings: List[Finding]
+    ResponseMetadata: ResponseMetadata
 
 

@@ -12,7 +12,7 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.grafana_constants import *
 
-class AssertionAttributesTypeDef(BaseValidatorModel):
+class AssertionAttributes(BaseValidatorModel):
     email: Optional[str] = None
     groups: Optional[str] = None
     login: Optional[str] = None
@@ -21,13 +21,13 @@ class AssertionAttributesTypeDef(BaseValidatorModel):
     role: Optional[str] = None
 
 
-class AssociateLicenseRequestTypeDef(BaseValidatorModel):
+class AssociateLicenseRequest(BaseValidatorModel):
     licenseType: LicenseTypeType
     workspaceId: str
     grafanaToken: Optional[str] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -35,84 +35,84 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class AwsSsoAuthenticationTypeDef(BaseValidatorModel):
+class AwsSsoAuthentication(BaseValidatorModel):
     ssoClientId: Optional[str] = None
 
 
-class AuthenticationSummaryTypeDef(BaseValidatorModel):
+class AuthenticationSummary(BaseValidatorModel):
     providers: List[AuthenticationProviderTypesType]
     samlConfigurationStatus: Optional[SamlConfigurationStatusType] = None
 
 
-class CreateWorkspaceApiKeyRequestTypeDef(BaseValidatorModel):
+class CreateWorkspaceApiKeyRequest(BaseValidatorModel):
     keyName: str
     keyRole: str
     secondsToLive: int
     workspaceId: str
 
 
-class CreateWorkspaceServiceAccountRequestTypeDef(BaseValidatorModel):
+class CreateWorkspaceServiceAccountRequest(BaseValidatorModel):
     grafanaRole: RoleType
     name: str
     workspaceId: str
 
 
-class CreateWorkspaceServiceAccountTokenRequestTypeDef(BaseValidatorModel):
+class CreateWorkspaceServiceAccountTokenRequest(BaseValidatorModel):
     name: str
     secondsToLive: int
     serviceAccountId: str
     workspaceId: str
 
 
-class DeleteWorkspaceApiKeyRequestTypeDef(BaseValidatorModel):
+class DeleteWorkspaceApiKeyRequest(BaseValidatorModel):
     keyName: str
     workspaceId: str
 
 
-class DeleteWorkspaceRequestTypeDef(BaseValidatorModel):
+class DeleteWorkspaceRequest(BaseValidatorModel):
     workspaceId: str
 
 
-class DeleteWorkspaceServiceAccountRequestTypeDef(BaseValidatorModel):
+class DeleteWorkspaceServiceAccountRequest(BaseValidatorModel):
     serviceAccountId: str
     workspaceId: str
 
 
-class DeleteWorkspaceServiceAccountTokenRequestTypeDef(BaseValidatorModel):
+class DeleteWorkspaceServiceAccountTokenRequest(BaseValidatorModel):
     serviceAccountId: str
     tokenId: str
     workspaceId: str
 
 
-class DescribeWorkspaceAuthenticationRequestTypeDef(BaseValidatorModel):
+class DescribeWorkspaceAuthenticationRequest(BaseValidatorModel):
     workspaceId: str
 
 
-class DescribeWorkspaceConfigurationRequestTypeDef(BaseValidatorModel):
+class DescribeWorkspaceConfigurationRequest(BaseValidatorModel):
     workspaceId: str
 
 
-class DescribeWorkspaceRequestTypeDef(BaseValidatorModel):
+class DescribeWorkspaceRequest(BaseValidatorModel):
     workspaceId: str
 
 
-class DisassociateLicenseRequestTypeDef(BaseValidatorModel):
+class DisassociateLicenseRequest(BaseValidatorModel):
     licenseType: LicenseTypeType
     workspaceId: str
 
 
-class IdpMetadataTypeDef(BaseValidatorModel):
+class IdpMetadata(BaseValidatorModel):
     url: Optional[str] = None
     xml: Optional[str] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListPermissionsRequestTypeDef(BaseValidatorModel):
+class ListPermissionsRequest(BaseValidatorModel):
     workspaceId: str
     groupId: Optional[str] = None
     maxResults: Optional[int] = None
@@ -121,303 +121,303 @@ class ListPermissionsRequestTypeDef(BaseValidatorModel):
     userType: Optional[UserTypeType] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
 
-class ListVersionsRequestTypeDef(BaseValidatorModel):
+class ListVersionsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     workspaceId: Optional[str] = None
 
 
-class ListWorkspaceServiceAccountTokensRequestTypeDef(BaseValidatorModel):
+class ListWorkspaceServiceAccountTokensRequest(BaseValidatorModel):
     serviceAccountId: str
     workspaceId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListWorkspaceServiceAccountsRequestTypeDef(BaseValidatorModel):
+class ListWorkspaceServiceAccountsRequest(BaseValidatorModel):
     workspaceId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListWorkspacesRequestTypeDef(BaseValidatorModel):
+class ListWorkspacesRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class NetworkAccessConfigurationOutputTypeDef(BaseValidatorModel):
+class NetworkAccessConfigurationOutput(BaseValidatorModel):
     prefixListIds: List[str]
     vpceIds: List[str]
 
 
-class NetworkAccessConfigurationTypeDef(BaseValidatorModel):
+class NetworkAccessConfiguration(BaseValidatorModel):
     prefixListIds: Sequence[str]
     vpceIds: Sequence[str]
 
 
-class RoleValuesOutputTypeDef(BaseValidatorModel):
+class RoleValuesOutput(BaseValidatorModel):
     admin: Optional[List[str]] = None
     editor: Optional[List[str]] = None
 
 
-class RoleValuesTypeDef(BaseValidatorModel):
+class RoleValues(BaseValidatorModel):
     admin: Optional[Sequence[str]] = None
     editor: Optional[Sequence[str]] = None
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
 
-class UpdateWorkspaceConfigurationRequestTypeDef(BaseValidatorModel):
+class UpdateWorkspaceConfigurationRequest(BaseValidatorModel):
     configuration: str
     workspaceId: str
     grafanaVersion: Optional[str] = None
 
 
-class VpcConfigurationOutputTypeDef(BaseValidatorModel):
+class VpcConfigurationOutput(BaseValidatorModel):
     securityGroupIds: List[str]
     subnetIds: List[str]
 
 
-class VpcConfigurationTypeDef(BaseValidatorModel):
+class VpcConfiguration(BaseValidatorModel):
     securityGroupIds: Sequence[str]
     subnetIds: Sequence[str]
 
 
-class CreateWorkspaceApiKeyResponseTypeDef(BaseValidatorModel):
+class CreateWorkspaceApiKeyResponse(BaseValidatorModel):
     key: str
     keyName: str
     workspaceId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteWorkspaceApiKeyResponseTypeDef(BaseValidatorModel):
+class DeleteWorkspaceApiKeyResponse(BaseValidatorModel):
     keyName: str
     workspaceId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteWorkspaceServiceAccountResponseTypeDef(BaseValidatorModel):
+class DeleteWorkspaceServiceAccountResponse(BaseValidatorModel):
     serviceAccountId: str
     workspaceId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteWorkspaceServiceAccountTokenResponseTypeDef(BaseValidatorModel):
+class DeleteWorkspaceServiceAccountTokenResponse(BaseValidatorModel):
     serviceAccountId: str
     tokenId: str
     workspaceId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeWorkspaceConfigurationResponseTypeDef(BaseValidatorModel):
+class DescribeWorkspaceConfigurationResponse(BaseValidatorModel):
     configuration: str
     grafanaVersion: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
+class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListVersionsResponseTypeDef(BaseValidatorModel):
+class ListVersionsResponse(BaseValidatorModel):
     grafanaVersions: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ServiceAccountTokenSummaryWithKeyTypeDef(BaseValidatorModel):
+class ServiceAccountTokenSummaryWithKey(BaseValidatorModel):
     pass
 
 
-class CreateWorkspaceServiceAccountTokenResponseTypeDef(BaseValidatorModel):
+class CreateWorkspaceServiceAccountTokenResponse(BaseValidatorModel):
     serviceAccountId: str
-    serviceAccountToken: ServiceAccountTokenSummaryWithKeyTypeDef
+    serviceAccountToken: ServiceAccountTokenSummaryWithKey
     workspaceId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListPermissionsRequestPaginateTypeDef(BaseValidatorModel):
+class ListPermissionsRequestPaginate(BaseValidatorModel):
     workspaceId: str
     groupId: Optional[str] = None
     userId: Optional[str] = None
     userType: Optional[UserTypeType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListVersionsRequestPaginateTypeDef(BaseValidatorModel):
+class ListVersionsRequestPaginate(BaseValidatorModel):
     workspaceId: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListWorkspaceServiceAccountTokensRequestPaginateTypeDef(BaseValidatorModel):
+class ListWorkspaceServiceAccountTokensRequestPaginate(BaseValidatorModel):
     serviceAccountId: str
     workspaceId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListWorkspaceServiceAccountsRequestPaginateTypeDef(BaseValidatorModel):
+class ListWorkspaceServiceAccountsRequestPaginate(BaseValidatorModel):
     workspaceId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListWorkspacesRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListWorkspacesRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ServiceAccountTokenSummaryTypeDef(BaseValidatorModel):
+class ServiceAccountTokenSummary(BaseValidatorModel):
     pass
 
 
-class ListWorkspaceServiceAccountTokensResponseTypeDef(BaseValidatorModel):
+class ListWorkspaceServiceAccountTokensResponse(BaseValidatorModel):
     serviceAccountId: str
-    serviceAccountTokens: List[ServiceAccountTokenSummaryTypeDef]
+    serviceAccountTokens: List[ServiceAccountTokenSummary]
     workspaceId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ServiceAccountSummaryTypeDef(BaseValidatorModel):
+class ServiceAccountSummary(BaseValidatorModel):
     pass
 
 
-class ListWorkspaceServiceAccountsResponseTypeDef(BaseValidatorModel):
-    serviceAccounts: List[ServiceAccountSummaryTypeDef]
+class ListWorkspaceServiceAccountsResponse(BaseValidatorModel):
+    serviceAccounts: List[ServiceAccountSummary]
     workspaceId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class UserTypeDef(BaseValidatorModel):
+class User(BaseValidatorModel):
     pass
 
 
-class PermissionEntryTypeDef(BaseValidatorModel):
+class PermissionEntry(BaseValidatorModel):
     role: RoleType
-    user: UserTypeDef
+    user: User
 
 
-class UpdateInstructionOutputTypeDef(BaseValidatorModel):
+class UpdateInstructionOutput(BaseValidatorModel):
     action: UpdateActionType
     role: RoleType
-    users: List[UserTypeDef]
+    users: List[User]
 
 
-class UpdateInstructionTypeDef(BaseValidatorModel):
+class UpdateInstruction(BaseValidatorModel):
     action: UpdateActionType
     role: RoleType
-    users: Sequence[UserTypeDef]
+    users: Sequence[User]
 
 
-class SamlConfigurationOutputTypeDef(BaseValidatorModel):
-    idpMetadata: IdpMetadataTypeDef
+class SamlConfigurationOutput(BaseValidatorModel):
+    idpMetadata: IdpMetadata
     allowedOrganizations: Optional[List[str]] = None
-    assertionAttributes: Optional[AssertionAttributesTypeDef] = None
+    assertionAttributes: Optional[AssertionAttributes] = None
     loginValidityDuration: Optional[int] = None
-    roleValues: Optional[RoleValuesOutputTypeDef] = None
+    roleValues: Optional[RoleValuesOutput] = None
 
 
-class SamlConfigurationTypeDef(BaseValidatorModel):
-    idpMetadata: IdpMetadataTypeDef
+class SamlConfiguration(BaseValidatorModel):
+    idpMetadata: IdpMetadata
     allowedOrganizations: Optional[Sequence[str]] = None
-    assertionAttributes: Optional[AssertionAttributesTypeDef] = None
+    assertionAttributes: Optional[AssertionAttributes] = None
     loginValidityDuration: Optional[int] = None
-    roleValues: Optional[RoleValuesTypeDef] = None
+    roleValues: Optional[RoleValues] = None
 
 
-class WorkspaceSummaryTypeDef(BaseValidatorModel):
+class WorkspaceSummary(BaseValidatorModel):
     pass
 
 
-class ListWorkspacesResponseTypeDef(BaseValidatorModel):
-    workspaces: List[WorkspaceSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListWorkspacesResponse(BaseValidatorModel):
+    workspaces: List[WorkspaceSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListPermissionsResponseTypeDef(BaseValidatorModel):
-    permissions: List[PermissionEntryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListPermissionsResponse(BaseValidatorModel):
+    permissions: List[PermissionEntry]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class UpdateErrorTypeDef(BaseValidatorModel):
-    causedBy: UpdateInstructionOutputTypeDef
+class UpdateError(BaseValidatorModel):
+    causedBy: UpdateInstructionOutput
     code: int
     message: str
 
 
-class SamlAuthenticationTypeDef(BaseValidatorModel):
+class SamlAuthentication(BaseValidatorModel):
     status: SamlConfigurationStatusType
-    configuration: Optional[SamlConfigurationOutputTypeDef] = None
+    configuration: Optional[SamlConfigurationOutput] = None
 
 
-class WorkspaceDescriptionTypeDef(BaseValidatorModel):
+class WorkspaceDescription(BaseValidatorModel):
     pass
 
 
-class AssociateLicenseResponseTypeDef(BaseValidatorModel):
-    workspace: WorkspaceDescriptionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class AssociateLicenseResponse(BaseValidatorModel):
+    workspace: WorkspaceDescription
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateWorkspaceResponseTypeDef(BaseValidatorModel):
-    workspace: WorkspaceDescriptionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateWorkspaceResponse(BaseValidatorModel):
+    workspace: WorkspaceDescription
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteWorkspaceResponseTypeDef(BaseValidatorModel):
-    workspace: WorkspaceDescriptionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeleteWorkspaceResponse(BaseValidatorModel):
+    workspace: WorkspaceDescription
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeWorkspaceResponseTypeDef(BaseValidatorModel):
-    workspace: WorkspaceDescriptionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeWorkspaceResponse(BaseValidatorModel):
+    workspace: WorkspaceDescription
+    ResponseMetadata: ResponseMetadata
 
 
-class DisassociateLicenseResponseTypeDef(BaseValidatorModel):
-    workspace: WorkspaceDescriptionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DisassociateLicenseResponse(BaseValidatorModel):
+    workspace: WorkspaceDescription
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateWorkspaceResponseTypeDef(BaseValidatorModel):
-    workspace: WorkspaceDescriptionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateWorkspaceResponse(BaseValidatorModel):
+    workspace: WorkspaceDescription
+    ResponseMetadata: ResponseMetadata
 
 
-class NetworkAccessConfigurationUnionTypeDef(BaseValidatorModel):
+class NetworkAccessConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class VpcConfigurationUnionTypeDef(BaseValidatorModel):
+class VpcConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class CreateWorkspaceRequestTypeDef(BaseValidatorModel):
+class CreateWorkspaceRequest(BaseValidatorModel):
     accountAccessType: AccountAccessTypeType
     authenticationProviders: Sequence[AuthenticationProviderTypesType]
     permissionType: PermissionTypeType
     clientToken: Optional[str] = None
     configuration: Optional[str] = None
     grafanaVersion: Optional[str] = None
-    networkAccessControl: Optional[NetworkAccessConfigurationUnionTypeDef] = None
+    networkAccessControl: Optional[NetworkAccessConfigurationUnion] = None
     organizationRoleName: Optional[str] = None
     stackSetName: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
-    vpcConfiguration: Optional[VpcConfigurationUnionTypeDef] = None
+    vpcConfiguration: Optional[VpcConfigurationUnion] = None
     workspaceDataSources: Optional[Sequence[DataSourceTypeType]] = None
     workspaceDescription: Optional[str] = None
     workspaceName: Optional[str] = None
@@ -426,16 +426,16 @@ class CreateWorkspaceRequestTypeDef(BaseValidatorModel):
     workspaceRoleArn: Optional[str] = None
 
 
-class UpdateWorkspaceRequestTypeDef(BaseValidatorModel):
+class UpdateWorkspaceRequest(BaseValidatorModel):
     workspaceId: str
     accountAccessType: Optional[AccountAccessTypeType] = None
-    networkAccessControl: Optional[NetworkAccessConfigurationUnionTypeDef] = None
+    networkAccessControl: Optional[NetworkAccessConfigurationUnion] = None
     organizationRoleName: Optional[str] = None
     permissionType: Optional[PermissionTypeType] = None
     removeNetworkAccessConfiguration: Optional[bool] = None
     removeVpcConfiguration: Optional[bool] = None
     stackSetName: Optional[str] = None
-    vpcConfiguration: Optional[VpcConfigurationUnionTypeDef] = None
+    vpcConfiguration: Optional[VpcConfigurationUnion] = None
     workspaceDataSources: Optional[Sequence[DataSourceTypeType]] = None
     workspaceDescription: Optional[str] = None
     workspaceName: Optional[str] = None
@@ -444,43 +444,43 @@ class UpdateWorkspaceRequestTypeDef(BaseValidatorModel):
     workspaceRoleArn: Optional[str] = None
 
 
-class UpdatePermissionsResponseTypeDef(BaseValidatorModel):
-    errors: List[UpdateErrorTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdatePermissionsResponse(BaseValidatorModel):
+    errors: List[UpdateError]
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateInstructionUnionTypeDef(BaseValidatorModel):
+class UpdateInstructionUnion(BaseValidatorModel):
     pass
 
 
-class UpdatePermissionsRequestTypeDef(BaseValidatorModel):
-    updateInstructionBatch: Sequence[UpdateInstructionUnionTypeDef]
+class UpdatePermissionsRequest(BaseValidatorModel):
+    updateInstructionBatch: Sequence[UpdateInstructionUnion]
     workspaceId: str
 
 
-class AuthenticationDescriptionTypeDef(BaseValidatorModel):
+class AuthenticationDescription(BaseValidatorModel):
     providers: List[AuthenticationProviderTypesType]
-    awsSso: Optional[AwsSsoAuthenticationTypeDef] = None
-    saml: Optional[SamlAuthenticationTypeDef] = None
+    awsSso: Optional[AwsSsoAuthentication] = None
+    saml: Optional[SamlAuthentication] = None
 
 
-class SamlConfigurationUnionTypeDef(BaseValidatorModel):
+class SamlConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class UpdateWorkspaceAuthenticationRequestTypeDef(BaseValidatorModel):
+class UpdateWorkspaceAuthenticationRequest(BaseValidatorModel):
     authenticationProviders: Sequence[AuthenticationProviderTypesType]
     workspaceId: str
-    samlConfiguration: Optional[SamlConfigurationUnionTypeDef] = None
+    samlConfiguration: Optional[SamlConfigurationUnion] = None
 
 
-class DescribeWorkspaceAuthenticationResponseTypeDef(BaseValidatorModel):
-    authentication: AuthenticationDescriptionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeWorkspaceAuthenticationResponse(BaseValidatorModel):
+    authentication: AuthenticationDescription
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateWorkspaceAuthenticationResponseTypeDef(BaseValidatorModel):
-    authentication: AuthenticationDescriptionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateWorkspaceAuthenticationResponse(BaseValidatorModel):
+    authentication: AuthenticationDescription
+    ResponseMetadata: ResponseMetadata
 
 

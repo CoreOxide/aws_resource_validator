@@ -6,7 +6,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CellOutputTypeDef
+# CellOutput
 
 ### CellArn
 - **Type**: <class 'str'>
@@ -28,7 +28,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 
-# CreateCellRequestTypeDef
+# CreateCellRequest
 
 ### CellName
 - **Type**: <class 'str'>
@@ -41,7 +41,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateCellResponseTypeDef
+# CreateCellResponse
 
 ### CellArn
 - **Type**: <class 'str'>
@@ -64,29 +64,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateCrossAccountAuthorizationRequestTypeDef
+# CreateCrossAccountAuthorizationRequest
 
 ### CrossAccountAuthorization
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# CreateCrossAccountAuthorizationResponseTypeDef
+# CreateCrossAccountAuthorizationResponse
 
 ### CrossAccountAuthorization
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateReadinessCheckRequestTypeDef
+# CreateReadinessCheckRequest
 
 ### ReadinessCheckName
 - **Type**: <class 'str'>
@@ -100,7 +100,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateReadinessCheckResponseTypeDef
+# CreateReadinessCheckResponse
 
 ### ReadinessCheckArn
 - **Type**: <class 'str'>
@@ -119,11 +119,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateRecoveryGroupRequestTypeDef
+# CreateRecoveryGroupRequest
 
 ### RecoveryGroupName
 - **Type**: <class 'str'>
@@ -136,7 +136,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateRecoveryGroupResponseTypeDef
+# CreateRecoveryGroupResponse
 
 ### Cells
 - **Type**: typing.List[str]
@@ -155,11 +155,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateResourceSetRequestTypeDef
+# CreateResourceSetRequest
 
 ### ResourceSetName
 - **Type**: <class 'str'>
@@ -170,14 +170,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Resources
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.ResourceUnionTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.ResourceUnion]
 - **Required**: Yes
 
 ### Tags
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateResourceSetResponseTypeDef
+# CreateResourceSetResponse
 
 ### ResourceSetArn
 - **Type**: <class 'str'>
@@ -192,7 +192,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Resources
-- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.ResourceOutputTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.ResourceOutput]
 - **Required**: Yes
 
 ### Tags
@@ -200,11 +200,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DNSTargetResourceTypeDef
+# DNSTargetResource
 
 ### DomainName
 - **Type**: typing.Optional[str]
@@ -219,52 +219,52 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### TargetResource
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.TargetResourceTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# DeleteCellRequestTypeDef
+# DeleteCellRequest
 
 ### CellName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteCrossAccountAuthorizationRequestTypeDef
+# DeleteCrossAccountAuthorizationRequest
 
 ### CrossAccountAuthorization
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteReadinessCheckRequestTypeDef
+# DeleteReadinessCheckRequest
 
 ### ReadinessCheckName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteRecoveryGroupRequestTypeDef
+# DeleteRecoveryGroupRequest
 
 ### RecoveryGroupName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteResourceSetRequestTypeDef
+# DeleteResourceSetRequest
 
 ### ResourceSetName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# EmptyResponseMetadataTypeDef
+# EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetArchitectureRecommendationsRequestTypeDef
+# GetArchitectureRecommendationsRequest
 
 ### RecoveryGroupName
 - **Type**: <class 'str'>
@@ -277,35 +277,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetArchitectureRecommendationsResponseTypeDef
+# GetArchitectureRecommendationsResponse
 
 ### LastAuditTimestamp
 - **Type**: <class 'datetime.datetime'>
 - **Required**: Yes
 
 ### Recommendations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.RecommendationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.Recommendation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# GetCellReadinessSummaryRequestPaginateTypeDef
-
-### CellName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.PaginatorConfigTypeDef]
-
-
-# GetCellReadinessSummaryRequestTypeDef
+# GetCellReadinessSummaryRequest
 
 ### CellName
 - **Type**: <class 'str'>
@@ -318,32 +308,42 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetCellReadinessSummaryResponseTypeDef
+# GetCellReadinessSummaryRequestPaginate
+
+### CellName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.PaginatorConfig]
+
+
+# GetCellReadinessSummaryResponse
 
 ### Readiness
 - **Type**: typing.Literal['NOT_AUTHORIZED', 'NOT_READY', 'READY', 'UNKNOWN']
 - **Required**: Yes
 
 ### ReadinessChecks
-- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.ReadinessCheckSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.ReadinessCheckSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# GetCellRequestTypeDef
+# GetCellRequest
 
 ### CellName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetCellResponseTypeDef
+# GetCellResponse
 
 ### CellArn
 - **Type**: <class 'str'>
@@ -366,32 +366,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetReadinessCheckRequestTypeDef
+# GetReadinessCheckRequest
 
 ### ReadinessCheckName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetReadinessCheckResourceStatusRequestPaginateTypeDef
-
-### ReadinessCheckName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ResourceIdentifier
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.PaginatorConfigTypeDef]
-
-
-# GetReadinessCheckResourceStatusRequestTypeDef
+# GetReadinessCheckResourceStatusRequest
 
 ### ReadinessCheckName
 - **Type**: <class 'str'>
@@ -408,25 +394,39 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetReadinessCheckResourceStatusResponseTypeDef
+# GetReadinessCheckResourceStatusRequestPaginate
+
+### ReadinessCheckName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResourceIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.PaginatorConfig]
+
+
+# GetReadinessCheckResourceStatusResponse
 
 ### Readiness
 - **Type**: typing.Literal['NOT_AUTHORIZED', 'NOT_READY', 'READY', 'UNKNOWN']
 - **Required**: Yes
 
 ### Rules
-- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.RuleResultTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.RuleResult]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# GetReadinessCheckResponseTypeDef
+# GetReadinessCheckResponse
 
 ### ReadinessCheckArn
 - **Type**: <class 'str'>
@@ -445,21 +445,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetReadinessCheckStatusRequestPaginateTypeDef
-
-### ReadinessCheckName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.PaginatorConfigTypeDef]
-
-
-# GetReadinessCheckStatusRequestTypeDef
+# GetReadinessCheckStatusRequest
 
 ### ReadinessCheckName
 - **Type**: <class 'str'>
@@ -472,10 +462,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetReadinessCheckStatusResponseTypeDef
+# GetReadinessCheckStatusRequestPaginate
+
+### ReadinessCheckName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.PaginatorConfig]
+
+
+# GetReadinessCheckStatusResponse
 
 ### Messages
-- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.MessageTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.Message]
 - **Required**: Yes
 
 ### Readiness
@@ -483,28 +483,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Resources
-- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.ResourceResultTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.ResourceResult]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# GetRecoveryGroupReadinessSummaryRequestPaginateTypeDef
-
-### RecoveryGroupName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.PaginatorConfigTypeDef]
-
-
-# GetRecoveryGroupReadinessSummaryRequestTypeDef
+# GetRecoveryGroupReadinessSummaryRequest
 
 ### RecoveryGroupName
 - **Type**: <class 'str'>
@@ -517,32 +507,42 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetRecoveryGroupReadinessSummaryResponseTypeDef
+# GetRecoveryGroupReadinessSummaryRequestPaginate
+
+### RecoveryGroupName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.PaginatorConfig]
+
+
+# GetRecoveryGroupReadinessSummaryResponse
 
 ### Readiness
 - **Type**: typing.Literal['NOT_AUTHORIZED', 'NOT_READY', 'READY', 'UNKNOWN']
 - **Required**: Yes
 
 ### ReadinessChecks
-- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.ReadinessCheckSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.ReadinessCheckSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# GetRecoveryGroupRequestTypeDef
+# GetRecoveryGroupRequest
 
 ### RecoveryGroupName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetRecoveryGroupResponseTypeDef
+# GetRecoveryGroupResponse
 
 ### Cells
 - **Type**: typing.List[str]
@@ -561,18 +561,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetResourceSetRequestTypeDef
+# GetResourceSetRequest
 
 ### ResourceSetName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetResourceSetResponseTypeDef
+# GetResourceSetResponse
 
 ### ResourceSetArn
 - **Type**: <class 'str'>
@@ -587,7 +587,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Resources
-- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.ResourceOutputTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.ResourceOutput]
 - **Required**: Yes
 
 ### Tags
@@ -595,17 +595,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListCellsRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.PaginatorConfigTypeDef]
-
-
-# ListCellsRequestTypeDef
+# ListCellsRequest
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -614,27 +608,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListCellsResponseTypeDef
+# ListCellsRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.PaginatorConfig]
+
+
+# ListCellsResponse
 
 ### Cells
-- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.CellOutputTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.CellOutput]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListCrossAccountAuthorizationsRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.PaginatorConfigTypeDef]
-
-
-# ListCrossAccountAuthorizationsRequestTypeDef
+# ListCrossAccountAuthorizationsRequest
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -643,27 +637,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListCrossAccountAuthorizationsResponseTypeDef
+# ListCrossAccountAuthorizationsRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.PaginatorConfig]
+
+
+# ListCrossAccountAuthorizationsResponse
 
 ### CrossAccountAuthorizations
 - **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListReadinessChecksRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.PaginatorConfigTypeDef]
-
-
-# ListReadinessChecksRequestTypeDef
+# ListReadinessChecksRequest
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -672,27 +666,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListReadinessChecksResponseTypeDef
+# ListReadinessChecksRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.PaginatorConfig]
+
+
+# ListReadinessChecksResponse
 
 ### ReadinessChecks
-- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.ReadinessCheckOutputTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.ReadinessCheckOutput]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListRecoveryGroupsRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.PaginatorConfigTypeDef]
-
-
-# ListRecoveryGroupsRequestTypeDef
+# ListRecoveryGroupsRequest
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -701,27 +695,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListRecoveryGroupsResponseTypeDef
+# ListRecoveryGroupsRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.PaginatorConfig]
+
+
+# ListRecoveryGroupsResponse
 
 ### RecoveryGroups
-- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.RecoveryGroupOutputTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.RecoveryGroupOutput]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListResourceSetsRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.PaginatorConfigTypeDef]
-
-
-# ListResourceSetsRequestTypeDef
+# ListResourceSetsRequest
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -730,21 +724,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListResourceSetsResponseTypeDef
+# ListResourceSetsRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.PaginatorConfig]
+
+
+# ListResourceSetsResponse
 
 ### ResourceSets
-- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.ResourceSetOutputTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.ResourceSetOutput]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListRulesOutputTypeDef
+# ListRulesOutput
 
 ### ResourceType
 - **Type**: <class 'str'>
@@ -759,16 +759,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListRulesRequestPaginateTypeDef
-
-### ResourceType
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.PaginatorConfigTypeDef]
-
-
-# ListRulesRequestTypeDef
+# ListRulesRequest
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -780,51 +771,60 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListRulesResponseTypeDef
+# ListRulesRequestPaginate
+
+### ResourceType
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.PaginatorConfig]
+
+
+# ListRulesResponse
 
 ### Rules
-- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.ListRulesOutputTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.ListRulesOutput]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourcesRequestTypeDef
+# ListTagsForResourcesRequest
 
 ### ResourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ListTagsForResourcesResponseTypeDef
+# ListTagsForResourcesResponse
 
 ### Tags
 - **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# MessageTypeDef
+# Message
 
 ### MessageText
 - **Type**: typing.Optional[str]
 
 
-# NLBResourceTypeDef
+# NLBResource
 
 ### Arn
 - **Type**: typing.Optional[str]
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -836,7 +836,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# R53ResourceRecordTypeDef
+# R53ResourceRecord
 
 ### DomainName
 - **Type**: typing.Optional[str]
@@ -845,7 +845,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ReadinessCheckOutputTypeDef
+# ReadinessCheckOutput
 
 ### ReadinessCheckArn
 - **Type**: <class 'str'>
@@ -862,7 +862,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 
-# ReadinessCheckSummaryTypeDef
+# ReadinessCheckSummary
 
 ### Readiness
 - **Type**: typing.Optional[typing.Literal['NOT_AUTHORIZED', 'NOT_READY', 'READY', 'UNKNOWN']]
@@ -871,14 +871,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RecommendationTypeDef
+# Recommendation
 
 ### RecommendationText
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# RecoveryGroupOutputTypeDef
+# RecoveryGroupOutput
 
 ### Cells
 - **Type**: typing.List[str]
@@ -896,13 +896,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 
-# ResourceOutputTypeDef
+# Resource
 
 ### ComponentId
 - **Type**: typing.Optional[str]
 
 ### DnsTargetResource
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.DNSTargetResourceTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.DNSTargetResource]
+
+### ReadinessScopes
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### ResourceArn
+- **Type**: typing.Optional[str]
+
+
+# ResourceOutput
+
+### ComponentId
+- **Type**: typing.Optional[str]
+
+### DnsTargetResource
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.DNSTargetResource]
 
 ### ReadinessScopes
 - **Type**: typing.Optional[typing.List[str]]
@@ -911,7 +926,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ResourceResultTypeDef
+# ResourceResult
 
 ### LastCheckedTimestamp
 - **Type**: <class 'datetime.datetime'>
@@ -928,7 +943,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ResourceSetOutputTypeDef
+# ResourceSetOutput
 
 ### ResourceSetArn
 - **Type**: <class 'str'>
@@ -943,35 +958,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Resources
-- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.ResourceOutputTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.ResourceOutput]
 - **Required**: Yes
 
 ### Tags
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 
-# ResourceTypeDef
-
-### ComponentId
-- **Type**: typing.Optional[str]
-
-### DnsTargetResource
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.DNSTargetResourceTypeDef]
-
-### ReadinessScopes
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### ResourceArn
-- **Type**: typing.Optional[str]
-
-
-# ResourceUnionTypeDef
+# ResourceUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -993,14 +993,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RuleResultTypeDef
+# RuleResult
 
 ### LastCheckedTimestamp
 - **Type**: <class 'datetime.datetime'>
 - **Required**: Yes
 
 ### Messages
-- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.MessageTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.Message]
 - **Required**: Yes
 
 ### Readiness
@@ -1012,7 +1012,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TagResourceRequestTypeDef
+# TagResourceRequest
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -1023,16 +1023,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TargetResourceTypeDef
+# TargetResource
 
 ### NLBResource
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.NLBResourceTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### R53Resource
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.R53ResourceRecordTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.R53ResourceRecord]
 
 
-# UntagResourceRequestTypeDef
+# UntagResourceRequest
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -1043,7 +1043,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateCellRequestTypeDef
+# UpdateCellRequest
 
 ### CellName
 - **Type**: <class 'str'>
@@ -1054,7 +1054,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateCellResponseTypeDef
+# UpdateCellResponse
 
 ### CellArn
 - **Type**: <class 'str'>
@@ -1077,11 +1077,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateReadinessCheckRequestTypeDef
+# UpdateReadinessCheckRequest
 
 ### ReadinessCheckName
 - **Type**: <class 'str'>
@@ -1092,7 +1092,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateReadinessCheckResponseTypeDef
+# UpdateReadinessCheckResponse
 
 ### ReadinessCheckArn
 - **Type**: <class 'str'>
@@ -1111,11 +1111,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateRecoveryGroupRequestTypeDef
+# UpdateRecoveryGroupRequest
 
 ### Cells
 - **Type**: typing.Sequence[str]
@@ -1126,7 +1126,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateRecoveryGroupResponseTypeDef
+# UpdateRecoveryGroupResponse
 
 ### Cells
 - **Type**: typing.List[str]
@@ -1145,11 +1145,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateResourceSetRequestTypeDef
+# UpdateResourceSetRequest
 
 ### ResourceSetName
 - **Type**: <class 'str'>
@@ -1160,11 +1160,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Resources
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.ResourceUnionTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.ResourceUnion]
 - **Required**: Yes
 
 
-# UpdateResourceSetResponseTypeDef
+# UpdateResourceSetResponse
 
 ### ResourceSetArn
 - **Type**: <class 'str'>
@@ -1179,7 +1179,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Resources
-- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.ResourceOutputTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.ResourceOutput]
 - **Required**: Yes
 
 ### Tags
@@ -1187,7 +1187,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_readiness_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

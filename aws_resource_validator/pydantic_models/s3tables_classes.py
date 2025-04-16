@@ -12,12 +12,12 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.s3tables_constants import *
 
-class CreateNamespaceRequestTypeDef(BaseValidatorModel):
+class CreateNamespaceRequest(BaseValidatorModel):
     tableBucketARN: str
     namespace: Sequence[str]
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -25,137 +25,137 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class CreateTableBucketRequestTypeDef(BaseValidatorModel):
+class CreateTableBucketRequest(BaseValidatorModel):
     name: str
 
 
-class DeleteNamespaceRequestTypeDef(BaseValidatorModel):
+class DeleteNamespaceRequest(BaseValidatorModel):
     tableBucketARN: str
     namespace: str
 
 
-class DeleteTableBucketPolicyRequestTypeDef(BaseValidatorModel):
+class DeleteTableBucketPolicyRequest(BaseValidatorModel):
     tableBucketARN: str
 
 
-class DeleteTableBucketRequestTypeDef(BaseValidatorModel):
+class DeleteTableBucketRequest(BaseValidatorModel):
     tableBucketARN: str
 
 
-class DeleteTablePolicyRequestTypeDef(BaseValidatorModel):
+class DeleteTablePolicyRequest(BaseValidatorModel):
     tableBucketARN: str
     namespace: str
     name: str
 
 
-class DeleteTableRequestTypeDef(BaseValidatorModel):
+class DeleteTableRequest(BaseValidatorModel):
     tableBucketARN: str
     namespace: str
     name: str
     versionToken: Optional[str] = None
 
 
-class GetNamespaceRequestTypeDef(BaseValidatorModel):
+class GetNamespaceRequest(BaseValidatorModel):
     tableBucketARN: str
     namespace: str
 
 
-class GetTableBucketMaintenanceConfigurationRequestTypeDef(BaseValidatorModel):
+class GetTableBucketMaintenanceConfigurationRequest(BaseValidatorModel):
     tableBucketARN: str
 
 
-class GetTableBucketPolicyRequestTypeDef(BaseValidatorModel):
+class GetTableBucketPolicyRequest(BaseValidatorModel):
     tableBucketARN: str
 
 
-class GetTableBucketRequestTypeDef(BaseValidatorModel):
+class GetTableBucketRequest(BaseValidatorModel):
     tableBucketARN: str
 
 
-class GetTableMaintenanceConfigurationRequestTypeDef(BaseValidatorModel):
-    tableBucketARN: str
-    namespace: str
-    name: str
-
-
-class GetTableMaintenanceJobStatusRequestTypeDef(BaseValidatorModel):
+class GetTableMaintenanceConfigurationRequest(BaseValidatorModel):
     tableBucketARN: str
     namespace: str
     name: str
 
 
-class TableMaintenanceJobStatusValueTypeDef(BaseValidatorModel):
+class GetTableMaintenanceJobStatusRequest(BaseValidatorModel):
+    tableBucketARN: str
+    namespace: str
+    name: str
+
+
+class TableMaintenanceJobStatusValue(BaseValidatorModel):
     status: JobStatusType
     lastRunTimestamp: Optional[datetime] = None
     failureMessage: Optional[str] = None
 
 
-class GetTableMetadataLocationRequestTypeDef(BaseValidatorModel):
+class GetTableMetadataLocationRequest(BaseValidatorModel):
     tableBucketARN: str
     namespace: str
     name: str
 
 
-class GetTablePolicyRequestTypeDef(BaseValidatorModel):
+class GetTablePolicyRequest(BaseValidatorModel):
     tableBucketARN: str
     namespace: str
     name: str
 
 
-class GetTableRequestTypeDef(BaseValidatorModel):
+class GetTableRequest(BaseValidatorModel):
     tableBucketARN: str
     namespace: str
     name: str
 
 
-class IcebergCompactionSettingsTypeDef(BaseValidatorModel):
+class IcebergCompactionSettings(BaseValidatorModel):
     targetFileSizeMB: Optional[int] = None
 
 
-class IcebergSnapshotManagementSettingsTypeDef(BaseValidatorModel):
+class IcebergSnapshotManagementSettings(BaseValidatorModel):
     minSnapshotsToKeep: Optional[int] = None
     maxSnapshotAgeHours: Optional[int] = None
 
 
-class IcebergUnreferencedFileRemovalSettingsTypeDef(BaseValidatorModel):
+class IcebergUnreferencedFileRemovalSettings(BaseValidatorModel):
     unreferencedDays: Optional[int] = None
     nonCurrentDays: Optional[int] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListNamespacesRequestTypeDef(BaseValidatorModel):
+class ListNamespacesRequest(BaseValidatorModel):
     tableBucketARN: str
     prefix: Optional[str] = None
     continuationToken: Optional[str] = None
     maxNamespaces: Optional[int] = None
 
 
-class NamespaceSummaryTypeDef(BaseValidatorModel):
+class NamespaceSummary(BaseValidatorModel):
     namespace: List[str]
     createdAt: datetime
     createdBy: str
     ownerAccountId: str
 
 
-class ListTableBucketsRequestTypeDef(BaseValidatorModel):
+class ListTableBucketsRequest(BaseValidatorModel):
     prefix: Optional[str] = None
     continuationToken: Optional[str] = None
     maxBuckets: Optional[int] = None
 
 
-class TableBucketSummaryTypeDef(BaseValidatorModel):
+class TableBucketSummary(BaseValidatorModel):
     arn: str
     name: str
     ownerAccountId: str
     createdAt: datetime
 
 
-class ListTablesRequestTypeDef(BaseValidatorModel):
+class ListTablesRequest(BaseValidatorModel):
     tableBucketARN: str
     namespace: Optional[str] = None
     prefix: Optional[str] = None
@@ -163,19 +163,19 @@ class ListTablesRequestTypeDef(BaseValidatorModel):
     maxTables: Optional[int] = None
 
 
-class PutTableBucketPolicyRequestTypeDef(BaseValidatorModel):
+class PutTableBucketPolicyRequest(BaseValidatorModel):
     tableBucketARN: str
     resourcePolicy: str
 
 
-class PutTablePolicyRequestTypeDef(BaseValidatorModel):
+class PutTablePolicyRequest(BaseValidatorModel):
     tableBucketARN: str
     namespace: str
     name: str
     resourcePolicy: str
 
 
-class RenameTableRequestTypeDef(BaseValidatorModel):
+class RenameTableRequest(BaseValidatorModel):
     tableBucketARN: str
     namespace: str
     name: str
@@ -184,7 +184,7 @@ class RenameTableRequestTypeDef(BaseValidatorModel):
     versionToken: Optional[str] = None
 
 
-class UpdateTableMetadataLocationRequestTypeDef(BaseValidatorModel):
+class UpdateTableMetadataLocationRequest(BaseValidatorModel):
     tableBucketARN: str
     namespace: str
     name: str
@@ -192,159 +192,159 @@ class UpdateTableMetadataLocationRequestTypeDef(BaseValidatorModel):
     metadataLocation: str
 
 
-class CreateNamespaceResponseTypeDef(BaseValidatorModel):
+class CreateNamespaceResponse(BaseValidatorModel):
     tableBucketARN: str
     namespace: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateTableBucketResponseTypeDef(BaseValidatorModel):
+class CreateTableBucketResponse(BaseValidatorModel):
     arn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateTableResponseTypeDef(BaseValidatorModel):
+class CreateTableResponse(BaseValidatorModel):
     tableARN: str
     versionToken: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class EmptyResponseMetadataTypeDef(BaseValidatorModel):
-    ResponseMetadata: ResponseMetadataTypeDef
+class EmptyResponseMetadata(BaseValidatorModel):
+    ResponseMetadata: ResponseMetadata
 
 
-class GetNamespaceResponseTypeDef(BaseValidatorModel):
+class GetNamespaceResponse(BaseValidatorModel):
     namespace: List[str]
     createdAt: datetime
     createdBy: str
     ownerAccountId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetTableBucketPolicyResponseTypeDef(BaseValidatorModel):
+class GetTableBucketPolicyResponse(BaseValidatorModel):
     resourcePolicy: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetTableBucketResponseTypeDef(BaseValidatorModel):
+class GetTableBucketResponse(BaseValidatorModel):
     arn: str
     name: str
     ownerAccountId: str
     createdAt: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetTableMetadataLocationResponseTypeDef(BaseValidatorModel):
+class GetTableMetadataLocationResponse(BaseValidatorModel):
     versionToken: str
     metadataLocation: str
     warehouseLocation: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetTablePolicyResponseTypeDef(BaseValidatorModel):
+class GetTablePolicyResponse(BaseValidatorModel):
     resourcePolicy: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateTableMetadataLocationResponseTypeDef(BaseValidatorModel):
+class UpdateTableMetadataLocationResponse(BaseValidatorModel):
     name: str
     tableARN: str
     namespace: List[str]
     versionToken: str
     metadataLocation: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetTableMaintenanceJobStatusResponseTypeDef(BaseValidatorModel):
+class GetTableMaintenanceJobStatusResponse(BaseValidatorModel):
     tableARN: str
-    status: Dict[TableMaintenanceJobTypeType, TableMaintenanceJobStatusValueTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    status: Dict[TableMaintenanceJobTypeType, TableMaintenanceJobStatusValue]
+    ResponseMetadata: ResponseMetadata
 
 
-class SchemaFieldTypeDef(BaseValidatorModel):
+class SchemaField(BaseValidatorModel):
     pass
 
 
-class IcebergSchemaTypeDef(BaseValidatorModel):
-    fields: Sequence[SchemaFieldTypeDef]
+class IcebergSchema(BaseValidatorModel):
+    fields: Sequence[SchemaField]
 
 
-class TableMaintenanceSettingsTypeDef(BaseValidatorModel):
-    icebergCompaction: Optional[IcebergCompactionSettingsTypeDef] = None
-    icebergSnapshotManagement: Optional[IcebergSnapshotManagementSettingsTypeDef] = None
+class TableMaintenanceSettings(BaseValidatorModel):
+    icebergCompaction: Optional[IcebergCompactionSettings] = None
+    icebergSnapshotManagement: Optional[IcebergSnapshotManagementSettings] = None
 
 
-class TableBucketMaintenanceSettingsTypeDef(BaseValidatorModel):
-    icebergUnreferencedFileRemoval: Optional[IcebergUnreferencedFileRemovalSettingsTypeDef] = None
+class TableBucketMaintenanceSettings(BaseValidatorModel):
+    icebergUnreferencedFileRemoval: Optional[IcebergUnreferencedFileRemovalSettings] = None
 
 
-class ListNamespacesRequestPaginateTypeDef(BaseValidatorModel):
+class ListNamespacesRequestPaginate(BaseValidatorModel):
     tableBucketARN: str
     prefix: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListTableBucketsRequestPaginateTypeDef(BaseValidatorModel):
+class ListTableBucketsRequestPaginate(BaseValidatorModel):
     prefix: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListTablesRequestPaginateTypeDef(BaseValidatorModel):
+class ListTablesRequestPaginate(BaseValidatorModel):
     tableBucketARN: str
     namespace: Optional[str] = None
     prefix: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListNamespacesResponseTypeDef(BaseValidatorModel):
-    namespaces: List[NamespaceSummaryTypeDef]
+class ListNamespacesResponse(BaseValidatorModel):
+    namespaces: List[NamespaceSummary]
     continuationToken: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListTableBucketsResponseTypeDef(BaseValidatorModel):
-    tableBuckets: List[TableBucketSummaryTypeDef]
+class ListTableBucketsResponse(BaseValidatorModel):
+    tableBuckets: List[TableBucketSummary]
     continuationToken: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class TableSummaryTypeDef(BaseValidatorModel):
+class TableSummary(BaseValidatorModel):
     pass
 
 
-class ListTablesResponseTypeDef(BaseValidatorModel):
-    tables: List[TableSummaryTypeDef]
+class ListTablesResponse(BaseValidatorModel):
+    tables: List[TableSummary]
     continuationToken: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class IcebergMetadataTypeDef(BaseValidatorModel):
-    schema: IcebergSchemaTypeDef
+class IcebergMetadata(BaseValidatorModel):
+    schema: IcebergSchema
 
 
-class TableMaintenanceConfigurationValueTypeDef(BaseValidatorModel):
+class TableMaintenanceConfigurationValue(BaseValidatorModel):
     status: Optional[MaintenanceStatusType] = None
-    settings: Optional[TableMaintenanceSettingsTypeDef] = None
+    settings: Optional[TableMaintenanceSettings] = None
 
 
-class TableBucketMaintenanceConfigurationValueTypeDef(BaseValidatorModel):
+class TableBucketMaintenanceConfigurationValue(BaseValidatorModel):
     status: Optional[MaintenanceStatusType] = None
-    settings: Optional[TableBucketMaintenanceSettingsTypeDef] = None
+    settings: Optional[TableBucketMaintenanceSettings] = None
 
 
-class TableMetadataTypeDef(BaseValidatorModel):
-    iceberg: Optional[IcebergMetadataTypeDef] = None
+class TableMetadata(BaseValidatorModel):
+    iceberg: Optional[IcebergMetadata] = None
 
 
-class GetTableMaintenanceConfigurationResponseTypeDef(BaseValidatorModel):
+class GetTableMaintenanceConfigurationResponse(BaseValidatorModel):
     tableARN: str
-    configuration: Dict[TableMaintenanceTypeType, TableMaintenanceConfigurationValueTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    configuration: Dict[TableMaintenanceTypeType, TableMaintenanceConfigurationValue]
+    ResponseMetadata: ResponseMetadata
 
 
-class GetTableBucketMaintenanceConfigurationResponseTypeDef(BaseValidatorModel):
+class GetTableBucketMaintenanceConfigurationResponse(BaseValidatorModel):
     tableBucketARN: str
-    configuration: Dict[ Literal["icebergUnreferencedFileRemoval"], TableBucketMaintenanceConfigurationValueTypeDef ]
-    ResponseMetadata: ResponseMetadataTypeDef
+    configuration: Dict[ Literal["icebergUnreferencedFileRemoval"], TableBucketMaintenanceConfigurationValue ]
+    ResponseMetadata: ResponseMetadata
 
 

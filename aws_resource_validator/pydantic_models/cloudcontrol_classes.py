@@ -12,11 +12,11 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.cloudcontrol_constants import *
 
-class CancelResourceRequestInputTypeDef(BaseValidatorModel):
+class CancelResourceRequestInput(BaseValidatorModel):
     RequestToken: str
 
 
-class ProgressEventTypeDef(BaseValidatorModel):
+class ProgressEvent(BaseValidatorModel):
     TypeName: Optional[str] = None
     Identifier: Optional[str] = None
     RequestToken: Optional[str] = None
@@ -30,7 +30,7 @@ class ProgressEventTypeDef(BaseValidatorModel):
     RetryAfter: Optional[datetime] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -38,7 +38,7 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class CreateResourceInputTypeDef(BaseValidatorModel):
+class CreateResourceInput(BaseValidatorModel):
     TypeName: str
     DesiredState: str
     TypeVersionId: Optional[str] = None
@@ -46,7 +46,7 @@ class CreateResourceInputTypeDef(BaseValidatorModel):
     ClientToken: Optional[str] = None
 
 
-class DeleteResourceInputTypeDef(BaseValidatorModel):
+class DeleteResourceInput(BaseValidatorModel):
     TypeName: str
     Identifier: str
     TypeVersionId: Optional[str] = None
@@ -54,28 +54,28 @@ class DeleteResourceInputTypeDef(BaseValidatorModel):
     ClientToken: Optional[str] = None
 
 
-class GetResourceInputTypeDef(BaseValidatorModel):
+class GetResourceInput(BaseValidatorModel):
     TypeName: str
     Identifier: str
     TypeVersionId: Optional[str] = None
     RoleArn: Optional[str] = None
 
 
-class ResourceDescriptionTypeDef(BaseValidatorModel):
+class ResourceDescription(BaseValidatorModel):
     Identifier: Optional[str] = None
     Properties: Optional[str] = None
 
 
-class GetResourceRequestStatusInputTypeDef(BaseValidatorModel):
+class GetResourceRequestStatusInput(BaseValidatorModel):
     RequestToken: str
 
 
-class WaiterConfigTypeDef(BaseValidatorModel):
+class WaiterConfig(BaseValidatorModel):
     Delay: Optional[int] = None
     MaxAttempts: Optional[int] = None
 
 
-class HookProgressEventTypeDef(BaseValidatorModel):
+class HookProgressEvent(BaseValidatorModel):
     HookTypeName: Optional[str] = None
     HookTypeVersionId: Optional[str] = None
     HookTypeArn: Optional[str] = None
@@ -86,18 +86,18 @@ class HookProgressEventTypeDef(BaseValidatorModel):
     FailureMode: Optional[str] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ResourceRequestStatusFilterTypeDef(BaseValidatorModel):
+class ResourceRequestStatusFilter(BaseValidatorModel):
     Operations: Optional[Sequence[OperationType]] = None
     OperationStatuses: Optional[Sequence[OperationStatusType]] = None
 
 
-class ListResourcesInputTypeDef(BaseValidatorModel):
+class ListResourcesInput(BaseValidatorModel):
     TypeName: str
     TypeVersionId: Optional[str] = None
     RoleArn: Optional[str] = None
@@ -106,7 +106,7 @@ class ListResourcesInputTypeDef(BaseValidatorModel):
     ResourceModel: Optional[str] = None
 
 
-class UpdateResourceInputTypeDef(BaseValidatorModel):
+class UpdateResourceInput(BaseValidatorModel):
     TypeName: str
     Identifier: str
     PatchDocument: str
@@ -115,72 +115,72 @@ class UpdateResourceInputTypeDef(BaseValidatorModel):
     ClientToken: Optional[str] = None
 
 
-class CancelResourceRequestOutputTypeDef(BaseValidatorModel):
-    ProgressEvent: ProgressEventTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CancelResourceRequestOutput(BaseValidatorModel):
+    ProgressEvent: ProgressEvent
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateResourceOutputTypeDef(BaseValidatorModel):
-    ProgressEvent: ProgressEventTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateResourceOutput(BaseValidatorModel):
+    ProgressEvent: ProgressEvent
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteResourceOutputTypeDef(BaseValidatorModel):
-    ProgressEvent: ProgressEventTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeleteResourceOutput(BaseValidatorModel):
+    ProgressEvent: ProgressEvent
+    ResponseMetadata: ResponseMetadata
 
 
-class ListResourceRequestsOutputTypeDef(BaseValidatorModel):
-    ResourceRequestStatusSummaries: List[ProgressEventTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListResourceRequestsOutput(BaseValidatorModel):
+    ResourceRequestStatusSummaries: List[ProgressEvent]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class UpdateResourceOutputTypeDef(BaseValidatorModel):
-    ProgressEvent: ProgressEventTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateResourceOutput(BaseValidatorModel):
+    ProgressEvent: ProgressEvent
+    ResponseMetadata: ResponseMetadata
 
 
-class GetResourceOutputTypeDef(BaseValidatorModel):
+class GetResourceOutput(BaseValidatorModel):
     TypeName: str
-    ResourceDescription: ResourceDescriptionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResourceDescription: ResourceDescription
+    ResponseMetadata: ResponseMetadata
 
 
-class ListResourcesOutputTypeDef(BaseValidatorModel):
+class ListResourcesOutput(BaseValidatorModel):
     TypeName: str
-    ResourceDescriptions: List[ResourceDescriptionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResourceDescriptions: List[ResourceDescription]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class GetResourceRequestStatusInputWaitTypeDef(BaseValidatorModel):
+class GetResourceRequestStatusInputWait(BaseValidatorModel):
     RequestToken: str
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class GetResourceRequestStatusOutputTypeDef(BaseValidatorModel):
-    ProgressEvent: ProgressEventTypeDef
-    HooksProgressEvent: List[HookProgressEventTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetResourceRequestStatusOutput(BaseValidatorModel):
+    ProgressEvent: ProgressEvent
+    HooksProgressEvent: List[HookProgressEvent]
+    ResponseMetadata: ResponseMetadata
 
 
-class ListResourcesInputPaginateTypeDef(BaseValidatorModel):
+class ListResourcesInputPaginate(BaseValidatorModel):
     TypeName: str
     TypeVersionId: Optional[str] = None
     RoleArn: Optional[str] = None
     ResourceModel: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListResourceRequestsInputPaginateTypeDef(BaseValidatorModel):
-    ResourceRequestStatusFilter: Optional[ResourceRequestStatusFilterTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListResourceRequestsInputPaginate(BaseValidatorModel):
+    ResourceRequestStatusFilter: Optional[ResourceRequestStatusFilter] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListResourceRequestsInputTypeDef(BaseValidatorModel):
+class ListResourceRequestsInput(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
-    ResourceRequestStatusFilter: Optional[ResourceRequestStatusFilterTypeDef] = None
+    ResourceRequestStatusFilter: Optional[ResourceRequestStatusFilter] = None
 
 

@@ -12,12 +12,12 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.datapipeline_constants import *
 
-class TagTypeDef(BaseValidatorModel):
+class Tag(BaseValidatorModel):
     key: str
     value: str
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -25,81 +25,81 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class DeactivatePipelineInputTypeDef(BaseValidatorModel):
+class DeactivatePipelineInput(BaseValidatorModel):
     pipelineId: str
     cancelActive: Optional[bool] = None
 
 
-class DeletePipelineInputTypeDef(BaseValidatorModel):
+class DeletePipelineInput(BaseValidatorModel):
     pipelineId: str
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class DescribeObjectsInputTypeDef(BaseValidatorModel):
+class DescribeObjectsInput(BaseValidatorModel):
     pipelineId: str
     objectIds: Sequence[str]
     evaluateExpressions: Optional[bool] = None
     marker: Optional[str] = None
 
 
-class DescribePipelinesInputTypeDef(BaseValidatorModel):
+class DescribePipelinesInput(BaseValidatorModel):
     pipelineIds: Sequence[str]
 
 
-class EvaluateExpressionInputTypeDef(BaseValidatorModel):
+class EvaluateExpressionInput(BaseValidatorModel):
     pipelineId: str
     objectId: str
     expression: str
 
 
-class FieldTypeDef(BaseValidatorModel):
+class Field(BaseValidatorModel):
     key: str
     stringValue: Optional[str] = None
     refValue: Optional[str] = None
 
 
-class GetPipelineDefinitionInputTypeDef(BaseValidatorModel):
+class GetPipelineDefinitionInput(BaseValidatorModel):
     pipelineId: str
     version: Optional[str] = None
 
 
-class InstanceIdentityTypeDef(BaseValidatorModel):
+class InstanceIdentity(BaseValidatorModel):
     document: Optional[str] = None
     signature: Optional[str] = None
 
 
-class ListPipelinesInputTypeDef(BaseValidatorModel):
+class ListPipelinesInput(BaseValidatorModel):
     marker: Optional[str] = None
 
 
-class ParameterAttributeTypeDef(BaseValidatorModel):
+class ParameterAttribute(BaseValidatorModel):
     key: str
     stringValue: str
 
 
-class RemoveTagsInputTypeDef(BaseValidatorModel):
+class RemoveTagsInput(BaseValidatorModel):
     pipelineId: str
     tagKeys: Sequence[str]
 
 
-class ReportTaskRunnerHeartbeatInputTypeDef(BaseValidatorModel):
+class ReportTaskRunnerHeartbeatInput(BaseValidatorModel):
     taskrunnerId: str
     workerGroup: Optional[str] = None
     hostname: Optional[str] = None
 
 
-class SetStatusInputTypeDef(BaseValidatorModel):
+class SetStatusInput(BaseValidatorModel):
     pipelineId: str
     objectIds: Sequence[str]
     status: str
 
 
-class SetTaskStatusInputTypeDef(BaseValidatorModel):
+class SetTaskStatusInput(BaseValidatorModel):
     taskId: str
     taskStatus: TaskStatusType
     errorId: Optional[str] = None
@@ -107,207 +107,207 @@ class SetTaskStatusInputTypeDef(BaseValidatorModel):
     errorStackTrace: Optional[str] = None
 
 
-class TimestampTypeDef(BaseValidatorModel):
+class Timestamp(BaseValidatorModel):
     pass
 
 
-class ParameterValueTypeDef(BaseValidatorModel):
+class ParameterValue(BaseValidatorModel):
     pass
 
 
-class ActivatePipelineInputTypeDef(BaseValidatorModel):
+class ActivatePipelineInput(BaseValidatorModel):
     pipelineId: str
-    parameterValues: Optional[Sequence[ParameterValueTypeDef]] = None
-    startTimestamp: Optional[TimestampTypeDef] = None
+    parameterValues: Optional[Sequence[ParameterValue]] = None
+    startTimestamp: Optional[Timestamp] = None
 
 
-class AddTagsInputTypeDef(BaseValidatorModel):
+class AddTagsInput(BaseValidatorModel):
     pipelineId: str
-    tags: Sequence[TagTypeDef]
+    tags: Sequence[Tag]
 
 
-class CreatePipelineInputTypeDef(BaseValidatorModel):
+class CreatePipelineInput(BaseValidatorModel):
     name: str
     uniqueId: str
     description: Optional[str] = None
-    tags: Optional[Sequence[TagTypeDef]] = None
+    tags: Optional[Sequence[Tag]] = None
 
 
-class CreatePipelineOutputTypeDef(BaseValidatorModel):
+class CreatePipelineOutput(BaseValidatorModel):
     pipelineId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class EmptyResponseMetadataTypeDef(BaseValidatorModel):
-    ResponseMetadata: ResponseMetadataTypeDef
+class EmptyResponseMetadata(BaseValidatorModel):
+    ResponseMetadata: ResponseMetadata
 
 
-class EvaluateExpressionOutputTypeDef(BaseValidatorModel):
+class EvaluateExpressionOutput(BaseValidatorModel):
     evaluatedExpression: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class QueryObjectsOutputTypeDef(BaseValidatorModel):
+class QueryObjectsOutput(BaseValidatorModel):
     ids: List[str]
     marker: str
     hasMoreResults: bool
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ReportTaskProgressOutputTypeDef(BaseValidatorModel):
+class ReportTaskProgressOutput(BaseValidatorModel):
     canceled: bool
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ReportTaskRunnerHeartbeatOutputTypeDef(BaseValidatorModel):
+class ReportTaskRunnerHeartbeatOutput(BaseValidatorModel):
     terminate: bool
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeObjectsInputPaginateTypeDef(BaseValidatorModel):
+class DescribeObjectsInputPaginate(BaseValidatorModel):
     pipelineId: str
     objectIds: Sequence[str]
     evaluateExpressions: Optional[bool] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListPipelinesInputPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListPipelinesInputPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class PipelineDescriptionTypeDef(BaseValidatorModel):
+class PipelineDescription(BaseValidatorModel):
     pipelineId: str
     name: str
-    fields: List[FieldTypeDef]
+    fields: List[Field]
     description: Optional[str] = None
-    tags: Optional[List[TagTypeDef]] = None
+    tags: Optional[List[Tag]] = None
 
 
-class ReportTaskProgressInputTypeDef(BaseValidatorModel):
+class ReportTaskProgressInput(BaseValidatorModel):
     taskId: str
-    fields: Optional[Sequence[FieldTypeDef]] = None
+    fields: Optional[Sequence[Field]] = None
 
 
-class PollForTaskInputTypeDef(BaseValidatorModel):
+class PollForTaskInput(BaseValidatorModel):
     workerGroup: str
     hostname: Optional[str] = None
-    instanceIdentity: Optional[InstanceIdentityTypeDef] = None
+    instanceIdentity: Optional[InstanceIdentity] = None
 
 
-class PipelineIdNameTypeDef(BaseValidatorModel):
+class PipelineIdName(BaseValidatorModel):
     pass
 
 
-class ListPipelinesOutputTypeDef(BaseValidatorModel):
-    pipelineIdList: List[PipelineIdNameTypeDef]
+class ListPipelinesOutput(BaseValidatorModel):
+    pipelineIdList: List[PipelineIdName]
     marker: str
     hasMoreResults: bool
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ValidationWarningTypeDef(BaseValidatorModel):
+class ValidationWarning(BaseValidatorModel):
     pass
 
 
-class ValidationErrorTypeDef(BaseValidatorModel):
+class ValidationError(BaseValidatorModel):
     pass
 
 
-class PutPipelineDefinitionOutputTypeDef(BaseValidatorModel):
-    validationErrors: List[ValidationErrorTypeDef]
-    validationWarnings: List[ValidationWarningTypeDef]
+class PutPipelineDefinitionOutput(BaseValidatorModel):
+    validationErrors: List[ValidationError]
+    validationWarnings: List[ValidationWarning]
     errored: bool
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ValidatePipelineDefinitionOutputTypeDef(BaseValidatorModel):
-    validationErrors: List[ValidationErrorTypeDef]
-    validationWarnings: List[ValidationWarningTypeDef]
+class ValidatePipelineDefinitionOutput(BaseValidatorModel):
+    validationErrors: List[ValidationError]
+    validationWarnings: List[ValidationWarning]
     errored: bool
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribePipelinesOutputTypeDef(BaseValidatorModel):
-    pipelineDescriptionList: List[PipelineDescriptionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribePipelinesOutput(BaseValidatorModel):
+    pipelineDescriptionList: List[PipelineDescription]
+    ResponseMetadata: ResponseMetadata
 
 
-class PipelineObjectOutputTypeDef(BaseValidatorModel):
+class PipelineObjectOutput(BaseValidatorModel):
     pass
 
 
-class DescribeObjectsOutputTypeDef(BaseValidatorModel):
-    pipelineObjects: List[PipelineObjectOutputTypeDef]
+class DescribeObjectsOutput(BaseValidatorModel):
+    pipelineObjects: List[PipelineObjectOutput]
     marker: str
     hasMoreResults: bool
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class TaskObjectTypeDef(BaseValidatorModel):
+class TaskObject(BaseValidatorModel):
     taskId: Optional[str] = None
     pipelineId: Optional[str] = None
     attemptId: Optional[str] = None
-    objects: Optional[Dict[str, PipelineObjectOutputTypeDef]] = None
+    objects: Optional[Dict[str, PipelineObjectOutput]] = None
 
 
-class SelectorTypeDef(BaseValidatorModel):
+class Selector(BaseValidatorModel):
     pass
 
 
-class QueryTypeDef(BaseValidatorModel):
-    selectors: Optional[Sequence[SelectorTypeDef]] = None
+class Query(BaseValidatorModel):
+    selectors: Optional[Sequence[Selector]] = None
 
 
-class ParameterObjectOutputTypeDef(BaseValidatorModel):
+class ParameterObjectOutput(BaseValidatorModel):
     pass
 
 
-class GetPipelineDefinitionOutputTypeDef(BaseValidatorModel):
-    pipelineObjects: List[PipelineObjectOutputTypeDef]
-    parameterObjects: List[ParameterObjectOutputTypeDef]
-    parameterValues: List[ParameterValueTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetPipelineDefinitionOutput(BaseValidatorModel):
+    pipelineObjects: List[PipelineObjectOutput]
+    parameterObjects: List[ParameterObjectOutput]
+    parameterValues: List[ParameterValue]
+    ResponseMetadata: ResponseMetadata
 
 
-class PollForTaskOutputTypeDef(BaseValidatorModel):
-    taskObject: TaskObjectTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class PollForTaskOutput(BaseValidatorModel):
+    taskObject: TaskObject
+    ResponseMetadata: ResponseMetadata
 
 
-class QueryObjectsInputPaginateTypeDef(BaseValidatorModel):
+class QueryObjectsInputPaginate(BaseValidatorModel):
     pipelineId: str
     sphere: str
-    query: Optional[QueryTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    query: Optional[Query] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class QueryObjectsInputTypeDef(BaseValidatorModel):
+class QueryObjectsInput(BaseValidatorModel):
     pipelineId: str
     sphere: str
-    query: Optional[QueryTypeDef] = None
+    query: Optional[Query] = None
     marker: Optional[str] = None
     limit: Optional[int] = None
 
 
-class PipelineObjectUnionTypeDef(BaseValidatorModel):
+class PipelineObjectUnion(BaseValidatorModel):
     pass
 
 
-class ParameterObjectUnionTypeDef(BaseValidatorModel):
+class ParameterObjectUnion(BaseValidatorModel):
     pass
 
 
-class PutPipelineDefinitionInputTypeDef(BaseValidatorModel):
+class PutPipelineDefinitionInput(BaseValidatorModel):
     pipelineId: str
-    pipelineObjects: Sequence[PipelineObjectUnionTypeDef]
-    parameterObjects: Optional[Sequence[ParameterObjectUnionTypeDef]] = None
-    parameterValues: Optional[Sequence[ParameterValueTypeDef]] = None
+    pipelineObjects: Sequence[PipelineObjectUnion]
+    parameterObjects: Optional[Sequence[ParameterObjectUnion]] = None
+    parameterValues: Optional[Sequence[ParameterValue]] = None
 
 
-class ValidatePipelineDefinitionInputTypeDef(BaseValidatorModel):
+class ValidatePipelineDefinitionInput(BaseValidatorModel):
     pipelineId: str
-    pipelineObjects: Sequence[PipelineObjectUnionTypeDef]
-    parameterObjects: Optional[Sequence[ParameterObjectUnionTypeDef]] = None
-    parameterValues: Optional[Sequence[ParameterValueTypeDef]] = None
+    pipelineObjects: Sequence[PipelineObjectUnion]
+    parameterObjects: Optional[Sequence[ParameterObjectUnion]] = None
+    parameterValues: Optional[Sequence[ParameterValue]] = None
 
 

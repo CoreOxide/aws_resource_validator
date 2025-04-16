@@ -12,14 +12,14 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.customer_profiles_constants import *
 
-class AddProfileKeyRequestTypeDef(BaseValidatorModel):
+class AddProfileKeyRequest(BaseValidatorModel):
     ProfileId: str
     KeyName: str
     Values: Sequence[str]
     DomainName: str
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -27,17 +27,17 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class AdditionalSearchKeyTypeDef(BaseValidatorModel):
+class AdditionalSearchKey(BaseValidatorModel):
     KeyName: str
     Values: Sequence[str]
 
 
-class ProfileDimensionOutputTypeDef(BaseValidatorModel):
+class ProfileDimensionOutput(BaseValidatorModel):
     DimensionType: StringDimensionTypeType
     Values: List[str]
 
 
-class AddressTypeDef(BaseValidatorModel):
+class Address(BaseValidatorModel):
     Address1: Optional[str] = None
     Address2: Optional[str] = None
     Address3: Optional[str] = None
@@ -50,19 +50,19 @@ class AddressTypeDef(BaseValidatorModel):
     PostalCode: Optional[str] = None
 
 
-class AppflowIntegrationWorkflowAttributesTypeDef(BaseValidatorModel):
+class AppflowIntegrationWorkflowAttributes(BaseValidatorModel):
     SourceConnectorType: SourceConnectorTypeType
     ConnectorProfileName: str
     RoleArn: Optional[str] = None
 
 
-class AppflowIntegrationWorkflowMetricsTypeDef(BaseValidatorModel):
+class AppflowIntegrationWorkflowMetrics(BaseValidatorModel):
     RecordsProcessed: int
     StepsCompleted: int
     TotalSteps: int
 
 
-class AppflowIntegrationWorkflowStepTypeDef(BaseValidatorModel):
+class AppflowIntegrationWorkflowStep(BaseValidatorModel):
     FlowName: str
     Status: StatusType
     ExecutionMessage: str
@@ -73,54 +73,54 @@ class AppflowIntegrationWorkflowStepTypeDef(BaseValidatorModel):
     LastUpdatedAt: datetime
 
 
-class AttributeItemTypeDef(BaseValidatorModel):
+class AttributeItem(BaseValidatorModel):
     Name: str
 
 
-class AttributeDimensionOutputTypeDef(BaseValidatorModel):
+class AttributeDimensionOutput(BaseValidatorModel):
     DimensionType: AttributeDimensionTypeType
     Values: List[str]
 
 
-class AttributeDimensionTypeDef(BaseValidatorModel):
+class AttributeDimension(BaseValidatorModel):
     DimensionType: AttributeDimensionTypeType
     Values: Sequence[str]
 
 
-class AttributeTypesSelectorOutputTypeDef(BaseValidatorModel):
+class AttributeTypesSelectorOutput(BaseValidatorModel):
     AttributeMatchingModel: AttributeMatchingModelType
     Address: Optional[List[str]] = None
     PhoneNumber: Optional[List[str]] = None
     EmailAddress: Optional[List[str]] = None
 
 
-class AttributeTypesSelectorTypeDef(BaseValidatorModel):
+class AttributeTypesSelector(BaseValidatorModel):
     AttributeMatchingModel: AttributeMatchingModelType
     Address: Optional[Sequence[str]] = None
     PhoneNumber: Optional[Sequence[str]] = None
     EmailAddress: Optional[Sequence[str]] = None
 
 
-class AttributeValueItemTypeDef(BaseValidatorModel):
+class AttributeValueItem(BaseValidatorModel):
     Value: Optional[str] = None
 
 
-class ConflictResolutionTypeDef(BaseValidatorModel):
+class ConflictResolution(BaseValidatorModel):
     ConflictResolvingModel: ConflictResolvingModelType
     SourceName: Optional[str] = None
 
 
-class ConsolidationOutputTypeDef(BaseValidatorModel):
+class ConsolidationOutput(BaseValidatorModel):
     MatchingAttributesList: List[List[str]]
 
 
-class BatchGetCalculatedAttributeForProfileErrorTypeDef(BaseValidatorModel):
+class BatchGetCalculatedAttributeForProfileError(BaseValidatorModel):
     Code: str
     Message: str
     ProfileId: str
 
 
-class CalculatedAttributeValueTypeDef(BaseValidatorModel):
+class CalculatedAttributeValue(BaseValidatorModel):
     CalculatedAttributeName: Optional[str] = None
     DisplayName: Optional[str] = None
     IsDataPartial: Optional[str] = None
@@ -128,34 +128,34 @@ class CalculatedAttributeValueTypeDef(BaseValidatorModel):
     Value: Optional[str] = None
 
 
-class BatchGetProfileErrorTypeDef(BaseValidatorModel):
+class BatchGetProfileError(BaseValidatorModel):
     Code: str
     Message: str
     ProfileId: str
 
 
-class BatchGetProfileRequestTypeDef(BaseValidatorModel):
+class BatchGetProfileRequest(BaseValidatorModel):
     DomainName: str
     ProfileIds: Sequence[str]
 
 
-class RangeOverrideTypeDef(BaseValidatorModel):
+class RangeOverride(BaseValidatorModel):
     Start: int
     Unit: Literal["DAYS"]
     End: Optional[int] = None
 
 
-class RangeTypeDef(BaseValidatorModel):
+class Range(BaseValidatorModel):
     Value: int
     Unit: Literal["DAYS"]
 
 
-class ThresholdTypeDef(BaseValidatorModel):
+class Threshold(BaseValidatorModel):
     Value: str
     Operator: OperatorType
 
 
-class ConnectorOperatorTypeDef(BaseValidatorModel):
+class ConnectorOperator(BaseValidatorModel):
     Marketo: Optional[MarketoConnectorOperatorType] = None
     S3: Optional[S3ConnectorOperatorType] = None
     Salesforce: Optional[SalesforceConnectorOperatorType] = None
@@ -163,18 +163,18 @@ class ConnectorOperatorTypeDef(BaseValidatorModel):
     Zendesk: Optional[ZendeskConnectorOperatorType] = None
 
 
-class ConsolidationTypeDef(BaseValidatorModel):
+class Consolidation(BaseValidatorModel):
     MatchingAttributesList: Sequence[Sequence[str]]
 
 
-class CreateEventStreamRequestTypeDef(BaseValidatorModel):
+class CreateEventStreamRequest(BaseValidatorModel):
     DomainName: str
     Uri: str
     EventStreamName: str
     Tags: Optional[Mapping[str, str]] = None
 
 
-class CreateSegmentSnapshotRequestTypeDef(BaseValidatorModel):
+class CreateSegmentSnapshotRequest(BaseValidatorModel):
     DomainName: str
     SegmentDefinitionName: str
     DataFormat: DataFormatType
@@ -183,125 +183,125 @@ class CreateSegmentSnapshotRequestTypeDef(BaseValidatorModel):
     DestinationUri: Optional[str] = None
 
 
-class DateDimensionOutputTypeDef(BaseValidatorModel):
+class DateDimensionOutput(BaseValidatorModel):
     DimensionType: DateDimensionTypeType
     Values: List[str]
 
 
-class DateDimensionTypeDef(BaseValidatorModel):
+class DateDimension(BaseValidatorModel):
     DimensionType: DateDimensionTypeType
     Values: Sequence[str]
 
 
-class DeleteCalculatedAttributeDefinitionRequestTypeDef(BaseValidatorModel):
+class DeleteCalculatedAttributeDefinitionRequest(BaseValidatorModel):
     DomainName: str
     CalculatedAttributeName: str
 
 
-class DeleteDomainRequestTypeDef(BaseValidatorModel):
+class DeleteDomainRequest(BaseValidatorModel):
     DomainName: str
 
 
-class DeleteEventStreamRequestTypeDef(BaseValidatorModel):
+class DeleteEventStreamRequest(BaseValidatorModel):
     DomainName: str
     EventStreamName: str
 
 
-class DeleteEventTriggerRequestTypeDef(BaseValidatorModel):
+class DeleteEventTriggerRequest(BaseValidatorModel):
     DomainName: str
     EventTriggerName: str
 
 
-class DeleteIntegrationRequestTypeDef(BaseValidatorModel):
+class DeleteIntegrationRequest(BaseValidatorModel):
     DomainName: str
     Uri: str
 
 
-class DeleteProfileKeyRequestTypeDef(BaseValidatorModel):
+class DeleteProfileKeyRequest(BaseValidatorModel):
     ProfileId: str
     KeyName: str
     Values: Sequence[str]
     DomainName: str
 
 
-class DeleteProfileObjectRequestTypeDef(BaseValidatorModel):
+class DeleteProfileObjectRequest(BaseValidatorModel):
     ProfileId: str
     ProfileObjectUniqueKey: str
     ObjectTypeName: str
     DomainName: str
 
 
-class DeleteProfileObjectTypeRequestTypeDef(BaseValidatorModel):
+class DeleteProfileObjectTypeRequest(BaseValidatorModel):
     DomainName: str
     ObjectTypeName: str
 
 
-class DeleteProfileRequestTypeDef(BaseValidatorModel):
+class DeleteProfileRequest(BaseValidatorModel):
     ProfileId: str
     DomainName: str
 
 
-class DeleteSegmentDefinitionRequestTypeDef(BaseValidatorModel):
+class DeleteSegmentDefinitionRequest(BaseValidatorModel):
     DomainName: str
     SegmentDefinitionName: str
 
 
-class DeleteWorkflowRequestTypeDef(BaseValidatorModel):
+class DeleteWorkflowRequest(BaseValidatorModel):
     DomainName: str
     WorkflowId: str
 
 
-class DestinationSummaryTypeDef(BaseValidatorModel):
+class DestinationSummary(BaseValidatorModel):
     Uri: str
     Status: EventStreamDestinationStatusType
     UnhealthySince: Optional[datetime] = None
 
 
-class DetectProfileObjectTypeRequestTypeDef(BaseValidatorModel):
+class DetectProfileObjectTypeRequest(BaseValidatorModel):
     Objects: Sequence[str]
     DomainName: str
 
 
-class ObjectTypeFieldTypeDef(BaseValidatorModel):
+class ObjectTypeField(BaseValidatorModel):
     Source: Optional[str] = None
     Target: Optional[str] = None
     ContentType: Optional[FieldContentTypeType] = None
 
 
-class ObjectTypeKeyOutputTypeDef(BaseValidatorModel):
+class ObjectTypeKeyOutput(BaseValidatorModel):
     StandardIdentifiers: Optional[List[StandardIdentifierType]] = None
     FieldNames: Optional[List[str]] = None
 
 
-class DomainStatsTypeDef(BaseValidatorModel):
+class DomainStats(BaseValidatorModel):
     ProfileCount: Optional[int] = None
     MeteringProfileCount: Optional[int] = None
     ObjectCount: Optional[int] = None
     TotalSize: Optional[int] = None
 
 
-class EventStreamDestinationDetailsTypeDef(BaseValidatorModel):
+class EventStreamDestinationDetails(BaseValidatorModel):
     Uri: str
     Status: EventStreamDestinationStatusType
     UnhealthySince: Optional[datetime] = None
     Message: Optional[str] = None
 
 
-class ObjectAttributeOutputTypeDef(BaseValidatorModel):
+class ObjectAttributeOutput(BaseValidatorModel):
     ComparisonOperator: ComparisonOperatorType
     Values: List[str]
     Source: Optional[str] = None
     FieldName: Optional[str] = None
 
 
-class PeriodTypeDef(BaseValidatorModel):
+class Period(BaseValidatorModel):
     Unit: PeriodUnitType
     Value: int
     MaxInvocationsPerProfile: Optional[int] = None
     Unlimited: Optional[bool] = None
 
 
-class EventTriggerSummaryItemTypeDef(BaseValidatorModel):
+class EventTriggerSummaryItem(BaseValidatorModel):
     ObjectTypeName: Optional[str] = None
     EventTriggerName: Optional[str] = None
     Description: Optional[str] = None
@@ -310,27 +310,27 @@ class EventTriggerSummaryItemTypeDef(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
-class S3ExportingConfigTypeDef(BaseValidatorModel):
+class S3ExportingConfig(BaseValidatorModel):
     S3BucketName: str
     S3KeyName: Optional[str] = None
 
 
-class S3ExportingLocationTypeDef(BaseValidatorModel):
+class S3ExportingLocation(BaseValidatorModel):
     S3BucketName: Optional[str] = None
     S3KeyName: Optional[str] = None
 
 
-class ExtraLengthValueProfileDimensionOutputTypeDef(BaseValidatorModel):
+class ExtraLengthValueProfileDimensionOutput(BaseValidatorModel):
     DimensionType: StringDimensionTypeType
     Values: List[str]
 
 
-class ExtraLengthValueProfileDimensionTypeDef(BaseValidatorModel):
+class ExtraLengthValueProfileDimension(BaseValidatorModel):
     DimensionType: StringDimensionTypeType
     Values: Sequence[str]
 
 
-class FieldSourceProfileIdsTypeDef(BaseValidatorModel):
+class FieldSourceProfileIds(BaseValidatorModel):
     AccountNumber: Optional[str] = None
     AdditionalInformation: Optional[str] = None
     PartyType: Optional[str] = None
@@ -354,118 +354,118 @@ class FieldSourceProfileIdsTypeDef(BaseValidatorModel):
     Attributes: Optional[Mapping[str, str]] = None
 
 
-class FilterAttributeDimensionOutputTypeDef(BaseValidatorModel):
+class FilterAttributeDimensionOutput(BaseValidatorModel):
     DimensionType: FilterDimensionTypeType
     Values: List[str]
 
 
-class FilterAttributeDimensionTypeDef(BaseValidatorModel):
+class FilterAttributeDimension(BaseValidatorModel):
     DimensionType: FilterDimensionTypeType
     Values: Sequence[str]
 
 
-class FoundByKeyValueTypeDef(BaseValidatorModel):
+class FoundByKeyValue(BaseValidatorModel):
     KeyName: Optional[str] = None
     Values: Optional[List[str]] = None
 
 
-class GetCalculatedAttributeDefinitionRequestTypeDef(BaseValidatorModel):
+class GetCalculatedAttributeDefinitionRequest(BaseValidatorModel):
     DomainName: str
     CalculatedAttributeName: str
 
 
-class GetCalculatedAttributeForProfileRequestTypeDef(BaseValidatorModel):
+class GetCalculatedAttributeForProfileRequest(BaseValidatorModel):
     DomainName: str
     ProfileId: str
     CalculatedAttributeName: str
 
 
-class GetDomainRequestTypeDef(BaseValidatorModel):
+class GetDomainRequest(BaseValidatorModel):
     DomainName: str
 
 
-class GetEventStreamRequestTypeDef(BaseValidatorModel):
+class GetEventStreamRequest(BaseValidatorModel):
     DomainName: str
     EventStreamName: str
 
 
-class GetEventTriggerRequestTypeDef(BaseValidatorModel):
+class GetEventTriggerRequest(BaseValidatorModel):
     DomainName: str
     EventTriggerName: str
 
 
-class GetIdentityResolutionJobRequestTypeDef(BaseValidatorModel):
+class GetIdentityResolutionJobRequest(BaseValidatorModel):
     DomainName: str
     JobId: str
 
 
-class JobStatsTypeDef(BaseValidatorModel):
+class JobStats(BaseValidatorModel):
     NumberOfProfilesReviewed: Optional[int] = None
     NumberOfMatchesFound: Optional[int] = None
     NumberOfMergesDone: Optional[int] = None
 
 
-class GetIntegrationRequestTypeDef(BaseValidatorModel):
+class GetIntegrationRequest(BaseValidatorModel):
     DomainName: str
     Uri: str
 
 
-class GetMatchesRequestTypeDef(BaseValidatorModel):
+class GetMatchesRequest(BaseValidatorModel):
     DomainName: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class MatchItemTypeDef(BaseValidatorModel):
+class MatchItem(BaseValidatorModel):
     MatchId: Optional[str] = None
     ProfileIds: Optional[List[str]] = None
     ConfidenceScore: Optional[float] = None
 
 
-class GetProfileObjectTypeRequestTypeDef(BaseValidatorModel):
+class GetProfileObjectTypeRequest(BaseValidatorModel):
     DomainName: str
     ObjectTypeName: str
 
 
-class GetProfileObjectTypeTemplateRequestTypeDef(BaseValidatorModel):
+class GetProfileObjectTypeTemplateRequest(BaseValidatorModel):
     TemplateId: str
 
 
-class GetSegmentDefinitionRequestTypeDef(BaseValidatorModel):
+class GetSegmentDefinitionRequest(BaseValidatorModel):
     DomainName: str
     SegmentDefinitionName: str
 
 
-class GetSegmentEstimateRequestTypeDef(BaseValidatorModel):
+class GetSegmentEstimateRequest(BaseValidatorModel):
     DomainName: str
     EstimateId: str
 
 
-class GetSegmentMembershipRequestTypeDef(BaseValidatorModel):
+class GetSegmentMembershipRequest(BaseValidatorModel):
     DomainName: str
     SegmentDefinitionName: str
     ProfileIds: Sequence[str]
 
 
-class ProfileQueryFailuresTypeDef(BaseValidatorModel):
+class ProfileQueryFailures(BaseValidatorModel):
     ProfileId: str
     Message: str
     Status: Optional[int] = None
 
 
-class GetSegmentSnapshotRequestTypeDef(BaseValidatorModel):
+class GetSegmentSnapshotRequest(BaseValidatorModel):
     DomainName: str
     SegmentDefinitionName: str
     SnapshotId: str
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class GetSimilarProfilesRequestTypeDef(BaseValidatorModel):
+class GetSimilarProfilesRequest(BaseValidatorModel):
     DomainName: str
     MatchType: MatchTypeType
     SearchKey: str
@@ -474,39 +474,39 @@ class GetSimilarProfilesRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
-class GetWorkflowRequestTypeDef(BaseValidatorModel):
+class GetWorkflowRequest(BaseValidatorModel):
     DomainName: str
     WorkflowId: str
 
 
-class GetWorkflowStepsRequestTypeDef(BaseValidatorModel):
+class GetWorkflowStepsRequest(BaseValidatorModel):
     DomainName: str
     WorkflowId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class SourceSegmentTypeDef(BaseValidatorModel):
+class SourceSegment(BaseValidatorModel):
     SegmentDefinitionName: Optional[str] = None
 
 
-class IncrementalPullConfigTypeDef(BaseValidatorModel):
+class IncrementalPullConfig(BaseValidatorModel):
     DatetimeTypeFieldName: Optional[str] = None
 
 
-class JobScheduleTypeDef(BaseValidatorModel):
+class JobSchedule(BaseValidatorModel):
     DayOfTheWeek: JobScheduleDayOfTheWeekType
     Time: str
 
 
-class ListAccountIntegrationsRequestTypeDef(BaseValidatorModel):
+class ListAccountIntegrationsRequest(BaseValidatorModel):
     Uri: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     IncludeHidden: Optional[bool] = None
 
 
-class ListIntegrationItemTypeDef(BaseValidatorModel):
+class ListIntegrationItem(BaseValidatorModel):
     DomainName: str
     Uri: str
     CreatedAt: datetime
@@ -520,7 +520,7 @@ class ListIntegrationItemTypeDef(BaseValidatorModel):
     EventTriggerNames: Optional[List[str]] = None
 
 
-class ListCalculatedAttributeDefinitionItemTypeDef(BaseValidatorModel):
+class ListCalculatedAttributeDefinitionItem(BaseValidatorModel):
     CalculatedAttributeName: Optional[str] = None
     DisplayName: Optional[str] = None
     Description: Optional[str] = None
@@ -529,76 +529,76 @@ class ListCalculatedAttributeDefinitionItemTypeDef(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
-class ListCalculatedAttributeDefinitionsRequestTypeDef(BaseValidatorModel):
+class ListCalculatedAttributeDefinitionsRequest(BaseValidatorModel):
     DomainName: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListCalculatedAttributeForProfileItemTypeDef(BaseValidatorModel):
+class ListCalculatedAttributeForProfileItem(BaseValidatorModel):
     CalculatedAttributeName: Optional[str] = None
     DisplayName: Optional[str] = None
     IsDataPartial: Optional[str] = None
     Value: Optional[str] = None
 
 
-class ListCalculatedAttributesForProfileRequestTypeDef(BaseValidatorModel):
+class ListCalculatedAttributesForProfileRequest(BaseValidatorModel):
     DomainName: str
     ProfileId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListDomainItemTypeDef(BaseValidatorModel):
+class ListDomainItem(BaseValidatorModel):
     DomainName: str
     CreatedAt: datetime
     LastUpdatedAt: datetime
     Tags: Optional[Dict[str, str]] = None
 
 
-class ListDomainsRequestTypeDef(BaseValidatorModel):
+class ListDomainsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListEventStreamsRequestTypeDef(BaseValidatorModel):
+class ListEventStreamsRequest(BaseValidatorModel):
     DomainName: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListEventTriggersRequestTypeDef(BaseValidatorModel):
+class ListEventTriggersRequest(BaseValidatorModel):
     DomainName: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListIdentityResolutionJobsRequestTypeDef(BaseValidatorModel):
+class ListIdentityResolutionJobsRequest(BaseValidatorModel):
     DomainName: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListIntegrationsRequestTypeDef(BaseValidatorModel):
+class ListIntegrationsRequest(BaseValidatorModel):
     DomainName: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     IncludeHidden: Optional[bool] = None
 
 
-class ListObjectTypeAttributeItemTypeDef(BaseValidatorModel):
+class ListObjectTypeAttributeItem(BaseValidatorModel):
     AttributeName: str
     LastUpdatedAt: datetime
 
 
-class ListObjectTypeAttributesRequestTypeDef(BaseValidatorModel):
+class ListObjectTypeAttributesRequest(BaseValidatorModel):
     DomainName: str
     ObjectTypeName: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListProfileObjectTypeItemTypeDef(BaseValidatorModel):
+class ListProfileObjectTypeItem(BaseValidatorModel):
     ObjectTypeName: str
     Description: str
     CreatedAt: Optional[datetime] = None
@@ -608,47 +608,47 @@ class ListProfileObjectTypeItemTypeDef(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
-class ListProfileObjectTypeTemplateItemTypeDef(BaseValidatorModel):
+class ListProfileObjectTypeTemplateItem(BaseValidatorModel):
     TemplateId: Optional[str] = None
     SourceName: Optional[str] = None
     SourceObject: Optional[str] = None
 
 
-class ListProfileObjectTypeTemplatesRequestTypeDef(BaseValidatorModel):
+class ListProfileObjectTypeTemplatesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListProfileObjectTypesRequestTypeDef(BaseValidatorModel):
+class ListProfileObjectTypesRequest(BaseValidatorModel):
     DomainName: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListProfileObjectsItemTypeDef(BaseValidatorModel):
+class ListProfileObjectsItem(BaseValidatorModel):
     ObjectTypeName: Optional[str] = None
     ProfileObjectUniqueKey: Optional[str] = None
     Object: Optional[str] = None
 
 
-class ObjectFilterTypeDef(BaseValidatorModel):
+class ObjectFilter(BaseValidatorModel):
     KeyName: str
     Values: Sequence[str]
 
 
-class ListRuleBasedMatchesRequestTypeDef(BaseValidatorModel):
+class ListRuleBasedMatchesRequest(BaseValidatorModel):
     DomainName: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListSegmentDefinitionsRequestTypeDef(BaseValidatorModel):
+class ListSegmentDefinitionsRequest(BaseValidatorModel):
     DomainName: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class SegmentDefinitionItemTypeDef(BaseValidatorModel):
+class SegmentDefinitionItem(BaseValidatorModel):
     SegmentDefinitionName: Optional[str] = None
     DisplayName: Optional[str] = None
     Description: Optional[str] = None
@@ -657,11 +657,11 @@ class SegmentDefinitionItemTypeDef(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
 
-class ListWorkflowsItemTypeDef(BaseValidatorModel):
+class ListWorkflowsItem(BaseValidatorModel):
     WorkflowType: Literal["APPFLOW_INTEGRATION"]
     WorkflowId: str
     Status: StatusType
@@ -670,76 +670,76 @@ class ListWorkflowsItemTypeDef(BaseValidatorModel):
     LastUpdatedAt: datetime
 
 
-class MarketoSourcePropertiesTypeDef(BaseValidatorModel):
+class MarketoSourceProperties(BaseValidatorModel):
     Object: str
 
 
-class MatchingRuleOutputTypeDef(BaseValidatorModel):
+class MatchingRuleOutput(BaseValidatorModel):
     Rule: List[str]
 
 
-class MatchingRuleTypeDef(BaseValidatorModel):
+class MatchingRule(BaseValidatorModel):
     Rule: Sequence[str]
 
 
-class ObjectAttributeTypeDef(BaseValidatorModel):
+class ObjectAttribute(BaseValidatorModel):
     ComparisonOperator: ComparisonOperatorType
     Values: Sequence[str]
     Source: Optional[str] = None
     FieldName: Optional[str] = None
 
 
-class ObjectTypeKeyTypeDef(BaseValidatorModel):
+class ObjectTypeKey(BaseValidatorModel):
     StandardIdentifiers: Optional[Sequence[StandardIdentifierType]] = None
     FieldNames: Optional[Sequence[str]] = None
 
 
-class ProfileAttributeValuesRequestTypeDef(BaseValidatorModel):
+class ProfileAttributeValuesRequest(BaseValidatorModel):
     DomainName: str
     AttributeName: str
 
 
-class ProfileDimensionTypeDef(BaseValidatorModel):
+class ProfileDimension(BaseValidatorModel):
     DimensionType: StringDimensionTypeType
     Values: Sequence[str]
 
 
-class PutProfileObjectRequestTypeDef(BaseValidatorModel):
+class PutProfileObjectRequest(BaseValidatorModel):
     ObjectTypeName: str
     Object: str
     DomainName: str
 
 
-class S3SourcePropertiesTypeDef(BaseValidatorModel):
+class S3SourceProperties(BaseValidatorModel):
     BucketName: str
     BucketPrefix: Optional[str] = None
 
 
-class SalesforceSourcePropertiesTypeDef(BaseValidatorModel):
+class SalesforceSourceProperties(BaseValidatorModel):
     Object: str
     EnableDynamicFieldUpdate: Optional[bool] = None
     IncludeDeletedRecords: Optional[bool] = None
 
 
-class ServiceNowSourcePropertiesTypeDef(BaseValidatorModel):
+class ServiceNowSourceProperties(BaseValidatorModel):
     Object: str
 
 
-class ZendeskSourcePropertiesTypeDef(BaseValidatorModel):
+class ZendeskSourceProperties(BaseValidatorModel):
     Object: str
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
 
-class UpdateAddressTypeDef(BaseValidatorModel):
+class UpdateAddress(BaseValidatorModel):
     Address1: Optional[str] = None
     Address2: Optional[str] = None
     Address3: Optional[str] = None
@@ -752,108 +752,108 @@ class UpdateAddressTypeDef(BaseValidatorModel):
     PostalCode: Optional[str] = None
 
 
-class AddProfileKeyResponseTypeDef(BaseValidatorModel):
+class AddProfileKeyResponse(BaseValidatorModel):
     KeyName: str
     Values: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateEventStreamResponseTypeDef(BaseValidatorModel):
+class CreateEventStreamResponse(BaseValidatorModel):
     EventStreamArn: str
     Tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateIntegrationWorkflowResponseTypeDef(BaseValidatorModel):
+class CreateIntegrationWorkflowResponse(BaseValidatorModel):
     WorkflowId: str
     Message: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateProfileResponseTypeDef(BaseValidatorModel):
+class CreateProfileResponse(BaseValidatorModel):
     ProfileId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateSegmentDefinitionResponseTypeDef(BaseValidatorModel):
+class CreateSegmentDefinitionResponse(BaseValidatorModel):
     SegmentDefinitionName: str
     DisplayName: str
     Description: str
     CreatedAt: datetime
     SegmentDefinitionArn: str
     Tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateSegmentEstimateResponseTypeDef(BaseValidatorModel):
+class CreateSegmentEstimateResponse(BaseValidatorModel):
     DomainName: str
     EstimateId: str
     StatusCode: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateSegmentSnapshotResponseTypeDef(BaseValidatorModel):
+class CreateSegmentSnapshotResponse(BaseValidatorModel):
     SnapshotId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteDomainResponseTypeDef(BaseValidatorModel):
+class DeleteDomainResponse(BaseValidatorModel):
     Message: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteEventTriggerResponseTypeDef(BaseValidatorModel):
+class DeleteEventTriggerResponse(BaseValidatorModel):
     Message: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteIntegrationResponseTypeDef(BaseValidatorModel):
+class DeleteIntegrationResponse(BaseValidatorModel):
     Message: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteProfileKeyResponseTypeDef(BaseValidatorModel):
+class DeleteProfileKeyResponse(BaseValidatorModel):
     Message: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteProfileObjectResponseTypeDef(BaseValidatorModel):
+class DeleteProfileObjectResponse(BaseValidatorModel):
     Message: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteProfileObjectTypeResponseTypeDef(BaseValidatorModel):
+class DeleteProfileObjectTypeResponse(BaseValidatorModel):
     Message: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteProfileResponseTypeDef(BaseValidatorModel):
+class DeleteProfileResponse(BaseValidatorModel):
     Message: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteSegmentDefinitionResponseTypeDef(BaseValidatorModel):
+class DeleteSegmentDefinitionResponse(BaseValidatorModel):
     Message: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetAutoMergingPreviewResponseTypeDef(BaseValidatorModel):
+class GetAutoMergingPreviewResponse(BaseValidatorModel):
     DomainName: str
     NumberOfMatchesInSample: int
     NumberOfProfilesInSample: int
     NumberOfProfilesWillBeMerged: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetCalculatedAttributeForProfileResponseTypeDef(BaseValidatorModel):
+class GetCalculatedAttributeForProfileResponse(BaseValidatorModel):
     CalculatedAttributeName: str
     DisplayName: str
     IsDataPartial: str
     Value: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetIntegrationResponseTypeDef(BaseValidatorModel):
+class GetIntegrationResponse(BaseValidatorModel):
     DomainName: str
     Uri: str
     ObjectTypeName: str
@@ -865,20 +865,20 @@ class GetIntegrationResponseTypeDef(BaseValidatorModel):
     IsUnstructured: bool
     RoleArn: str
     EventTriggerNames: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetSegmentEstimateResponseTypeDef(BaseValidatorModel):
+class GetSegmentEstimateResponse(BaseValidatorModel):
     DomainName: str
     EstimateId: str
     Status: EstimateStatusType
     Estimate: str
     Message: str
     StatusCode: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetSegmentSnapshotResponseTypeDef(BaseValidatorModel):
+class GetSegmentSnapshotResponse(BaseValidatorModel):
     SnapshotId: str
     Status: SegmentSnapshotStatusType
     StatusMessage: str
@@ -886,36 +886,36 @@ class GetSegmentSnapshotResponseTypeDef(BaseValidatorModel):
     EncryptionKey: str
     RoleArn: str
     DestinationUri: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetSimilarProfilesResponseTypeDef(BaseValidatorModel):
+class GetSimilarProfilesResponse(BaseValidatorModel):
     ProfileIds: List[str]
     MatchId: str
     MatchType: MatchTypeType
     RuleLevel: int
     ConfidenceScore: float
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListRuleBasedMatchesResponseTypeDef(BaseValidatorModel):
+class ListRuleBasedMatchesResponse(BaseValidatorModel):
     MatchIds: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
+class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class MergeProfilesResponseTypeDef(BaseValidatorModel):
+class MergeProfilesResponse(BaseValidatorModel):
     Message: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class PutIntegrationResponseTypeDef(BaseValidatorModel):
+class PutIntegrationResponse(BaseValidatorModel):
     DomainName: str
     Uri: str
     ObjectTypeName: str
@@ -927,39 +927,39 @@ class PutIntegrationResponseTypeDef(BaseValidatorModel):
     IsUnstructured: bool
     RoleArn: str
     EventTriggerNames: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class PutProfileObjectResponseTypeDef(BaseValidatorModel):
+class PutProfileObjectResponse(BaseValidatorModel):
     ProfileObjectUniqueKey: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateProfileResponseTypeDef(BaseValidatorModel):
+class UpdateProfileResponse(BaseValidatorModel):
     ProfileId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class SearchProfilesRequestTypeDef(BaseValidatorModel):
+class SearchProfilesRequest(BaseValidatorModel):
     DomainName: str
     KeyName: str
     Values: Sequence[str]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
-    AdditionalSearchKeys: Optional[Sequence[AdditionalSearchKeyTypeDef]] = None
+    AdditionalSearchKeys: Optional[Sequence[AdditionalSearchKey]] = None
     LogicalOperator: Optional[LogicalOperatorType] = None
 
 
-class AddressDimensionOutputTypeDef(BaseValidatorModel):
-    City: Optional[ProfileDimensionOutputTypeDef] = None
-    Country: Optional[ProfileDimensionOutputTypeDef] = None
-    County: Optional[ProfileDimensionOutputTypeDef] = None
-    PostalCode: Optional[ProfileDimensionOutputTypeDef] = None
-    Province: Optional[ProfileDimensionOutputTypeDef] = None
-    State: Optional[ProfileDimensionOutputTypeDef] = None
+class AddressDimensionOutput(BaseValidatorModel):
+    City: Optional[ProfileDimensionOutput] = None
+    Country: Optional[ProfileDimensionOutput] = None
+    County: Optional[ProfileDimensionOutput] = None
+    PostalCode: Optional[ProfileDimensionOutput] = None
+    Province: Optional[ProfileDimensionOutput] = None
+    State: Optional[ProfileDimensionOutput] = None
 
 
-class CreateProfileRequestTypeDef(BaseValidatorModel):
+class CreateProfileRequest(BaseValidatorModel):
     DomainName: str
     AccountNumber: Optional[str] = None
     AdditionalInformation: Optional[str] = None
@@ -977,116 +977,116 @@ class CreateProfileRequestTypeDef(BaseValidatorModel):
     EmailAddress: Optional[str] = None
     PersonalEmailAddress: Optional[str] = None
     BusinessEmailAddress: Optional[str] = None
-    Address: Optional[AddressTypeDef] = None
-    ShippingAddress: Optional[AddressTypeDef] = None
-    MailingAddress: Optional[AddressTypeDef] = None
-    BillingAddress: Optional[AddressTypeDef] = None
+    Address: Optional[Address] = None
+    ShippingAddress: Optional[Address] = None
+    MailingAddress: Optional[Address] = None
+    BillingAddress: Optional[Address] = None
     Attributes: Optional[Mapping[str, str]] = None
     PartyTypeString: Optional[str] = None
     GenderString: Optional[str] = None
 
 
-class WorkflowAttributesTypeDef(BaseValidatorModel):
-    AppflowIntegration: Optional[AppflowIntegrationWorkflowAttributesTypeDef] = None
+class WorkflowAttributes(BaseValidatorModel):
+    AppflowIntegration: Optional[AppflowIntegrationWorkflowAttributes] = None
 
 
-class WorkflowMetricsTypeDef(BaseValidatorModel):
-    AppflowIntegration: Optional[AppflowIntegrationWorkflowMetricsTypeDef] = None
+class WorkflowMetrics(BaseValidatorModel):
+    AppflowIntegration: Optional[AppflowIntegrationWorkflowMetrics] = None
 
 
-class WorkflowStepItemTypeDef(BaseValidatorModel):
-    AppflowIntegration: Optional[AppflowIntegrationWorkflowStepTypeDef] = None
+class WorkflowStepItem(BaseValidatorModel):
+    AppflowIntegration: Optional[AppflowIntegrationWorkflowStep] = None
 
 
-class AttributeDetailsOutputTypeDef(BaseValidatorModel):
-    Attributes: List[AttributeItemTypeDef]
+class AttributeDetailsOutput(BaseValidatorModel):
+    Attributes: List[AttributeItem]
     Expression: str
 
 
-class AttributeDetailsTypeDef(BaseValidatorModel):
-    Attributes: Sequence[AttributeItemTypeDef]
+class AttributeDetails(BaseValidatorModel):
+    Attributes: Sequence[AttributeItem]
     Expression: str
 
 
-class ProfileAttributeValuesResponseTypeDef(BaseValidatorModel):
+class ProfileAttributeValuesResponse(BaseValidatorModel):
     DomainName: str
     AttributeName: str
-    Items: List[AttributeValueItemTypeDef]
+    Items: List[AttributeValueItem]
     StatusCode: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class AutoMergingOutputTypeDef(BaseValidatorModel):
+class AutoMergingOutput(BaseValidatorModel):
     Enabled: bool
-    Consolidation: Optional[ConsolidationOutputTypeDef] = None
-    ConflictResolution: Optional[ConflictResolutionTypeDef] = None
+    Consolidation: Optional[ConsolidationOutput] = None
+    ConflictResolution: Optional[ConflictResolution] = None
     MinAllowedConfidenceScoreForMerging: Optional[float] = None
 
 
-class TimestampTypeDef(BaseValidatorModel):
+class Timestamp(BaseValidatorModel):
     pass
 
 
-class BatchTypeDef(BaseValidatorModel):
-    StartTime: TimestampTypeDef
-    EndTime: TimestampTypeDef
+class Batch(BaseValidatorModel):
+    StartTime: Timestamp
+    EndTime: Timestamp
 
 
-class ListWorkflowsRequestTypeDef(BaseValidatorModel):
+class ListWorkflowsRequest(BaseValidatorModel):
     DomainName: str
     WorkflowType: Optional[Literal["APPFLOW_INTEGRATION"]] = None
     Status: Optional[StatusType] = None
-    QueryStartDate: Optional[TimestampTypeDef] = None
-    QueryEndDate: Optional[TimestampTypeDef] = None
+    QueryStartDate: Optional[Timestamp] = None
+    QueryEndDate: Optional[Timestamp] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ScheduledTriggerPropertiesTypeDef(BaseValidatorModel):
+class ScheduledTriggerProperties(BaseValidatorModel):
     ScheduleExpression: str
     DataPullMode: Optional[DataPullModeType] = None
-    ScheduleStartTime: Optional[TimestampTypeDef] = None
-    ScheduleEndTime: Optional[TimestampTypeDef] = None
+    ScheduleStartTime: Optional[Timestamp] = None
+    ScheduleEndTime: Optional[Timestamp] = None
     Timezone: Optional[str] = None
     ScheduleOffset: Optional[int] = None
-    FirstExecutionFrom: Optional[TimestampTypeDef] = None
+    FirstExecutionFrom: Optional[Timestamp] = None
 
 
-class ConditionOverridesTypeDef(BaseValidatorModel):
-    Range: Optional[RangeOverrideTypeDef] = None
+class ConditionOverrides(BaseValidatorModel):
+    Range: Optional[RangeOverride] = None
 
 
-class ConditionsTypeDef(BaseValidatorModel):
-    Range: Optional[RangeTypeDef] = None
+class Conditions(BaseValidatorModel):
+    Range: Optional[Range] = None
     ObjectCount: Optional[int] = None
-    Threshold: Optional[ThresholdTypeDef] = None
+    Threshold: Optional[Threshold] = None
 
 
-class TaskTypeDef(BaseValidatorModel):
+class Task(BaseValidatorModel):
     SourceFields: Sequence[str]
     TaskType: TaskTypeType
-    ConnectorOperator: Optional[ConnectorOperatorTypeDef] = None
+    ConnectorOperator: Optional[ConnectorOperator] = None
     DestinationField: Optional[str] = None
     TaskProperties: Optional[Mapping[OperatorPropertiesKeysType, str]] = None
 
 
-class EventStreamSummaryTypeDef(BaseValidatorModel):
+class EventStreamSummary(BaseValidatorModel):
     DomainName: str
     EventStreamName: str
     EventStreamArn: str
     State: EventStreamStateType
     StoppedSince: Optional[datetime] = None
-    DestinationSummary: Optional[DestinationSummaryTypeDef] = None
+    DestinationSummary: Optional[DestinationSummary] = None
     Tags: Optional[Dict[str, str]] = None
 
 
-class DetectedProfileObjectTypeTypeDef(BaseValidatorModel):
+class DetectedProfileObjectType(BaseValidatorModel):
     SourceLastUpdatedTimestampFormat: Optional[str] = None
-    Fields: Optional[Dict[str, ObjectTypeFieldTypeDef]] = None
-    Keys: Optional[Dict[str, List[ObjectTypeKeyOutputTypeDef]]] = None
+    Fields: Optional[Dict[str, ObjectTypeField]] = None
+    Keys: Optional[Dict[str, List[ObjectTypeKeyOutput]]] = None
 
 
-class GetProfileObjectTypeResponseTypeDef(BaseValidatorModel):
+class GetProfileObjectTypeResponse(BaseValidatorModel):
     ObjectTypeName: str
     Description: str
     TemplateId: str
@@ -1096,26 +1096,26 @@ class GetProfileObjectTypeResponseTypeDef(BaseValidatorModel):
     SourceLastUpdatedTimestampFormat: str
     MaxAvailableProfileObjectCount: int
     MaxProfileObjectCount: int
-    Fields: Dict[str, ObjectTypeFieldTypeDef]
-    Keys: Dict[str, List[ObjectTypeKeyOutputTypeDef]]
+    Fields: Dict[str, ObjectTypeField]
+    Keys: Dict[str, List[ObjectTypeKeyOutput]]
     CreatedAt: datetime
     LastUpdatedAt: datetime
     Tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetProfileObjectTypeTemplateResponseTypeDef(BaseValidatorModel):
+class GetProfileObjectTypeTemplateResponse(BaseValidatorModel):
     TemplateId: str
     SourceName: str
     SourceObject: str
     AllowProfileCreation: bool
     SourceLastUpdatedTimestampFormat: str
-    Fields: Dict[str, ObjectTypeFieldTypeDef]
-    Keys: Dict[str, List[ObjectTypeKeyOutputTypeDef]]
-    ResponseMetadata: ResponseMetadataTypeDef
+    Fields: Dict[str, ObjectTypeField]
+    Keys: Dict[str, List[ObjectTypeKeyOutput]]
+    ResponseMetadata: ResponseMetadata
 
 
-class PutProfileObjectTypeResponseTypeDef(BaseValidatorModel):
+class PutProfileObjectTypeResponse(BaseValidatorModel):
     ObjectTypeName: str
     Description: str
     TemplateId: str
@@ -1125,69 +1125,69 @@ class PutProfileObjectTypeResponseTypeDef(BaseValidatorModel):
     SourceLastUpdatedTimestampFormat: str
     MaxProfileObjectCount: int
     MaxAvailableProfileObjectCount: int
-    Fields: Dict[str, ObjectTypeFieldTypeDef]
-    Keys: Dict[str, List[ObjectTypeKeyOutputTypeDef]]
+    Fields: Dict[str, ObjectTypeField]
+    Keys: Dict[str, List[ObjectTypeKeyOutput]]
     CreatedAt: datetime
     LastUpdatedAt: datetime
     Tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetEventStreamResponseTypeDef(BaseValidatorModel):
+class GetEventStreamResponse(BaseValidatorModel):
     DomainName: str
     EventStreamArn: str
     CreatedAt: datetime
     State: EventStreamStateType
     StoppedSince: datetime
-    DestinationDetails: EventStreamDestinationDetailsTypeDef
+    DestinationDetails: EventStreamDestinationDetails
     Tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class EventTriggerDimensionOutputTypeDef(BaseValidatorModel):
-    ObjectAttributes: List[ObjectAttributeOutputTypeDef]
+class EventTriggerDimensionOutput(BaseValidatorModel):
+    ObjectAttributes: List[ObjectAttributeOutput]
 
 
-class EventTriggerLimitsOutputTypeDef(BaseValidatorModel):
+class EventTriggerLimitsOutput(BaseValidatorModel):
     EventExpiration: Optional[int] = None
-    Periods: Optional[List[PeriodTypeDef]] = None
+    Periods: Optional[List[Period]] = None
 
 
-class EventTriggerLimitsTypeDef(BaseValidatorModel):
+class EventTriggerLimits(BaseValidatorModel):
     EventExpiration: Optional[int] = None
-    Periods: Optional[Sequence[PeriodTypeDef]] = None
+    Periods: Optional[Sequence[Period]] = None
 
 
-class ListEventTriggersResponseTypeDef(BaseValidatorModel):
-    Items: List[EventTriggerSummaryItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListEventTriggersResponse(BaseValidatorModel):
+    Items: List[EventTriggerSummaryItem]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ExportingConfigTypeDef(BaseValidatorModel):
-    S3Exporting: Optional[S3ExportingConfigTypeDef] = None
+class ExportingConfig(BaseValidatorModel):
+    S3Exporting: Optional[S3ExportingConfig] = None
 
 
-class ExportingLocationTypeDef(BaseValidatorModel):
-    S3Exporting: Optional[S3ExportingLocationTypeDef] = None
+class ExportingLocation(BaseValidatorModel):
+    S3Exporting: Optional[S3ExportingLocation] = None
 
 
-class MergeProfilesRequestTypeDef(BaseValidatorModel):
+class MergeProfilesRequest(BaseValidatorModel):
     DomainName: str
     MainProfileId: str
     ProfileIdsToBeMerged: Sequence[str]
-    FieldSourceProfileIds: Optional[FieldSourceProfileIdsTypeDef] = None
+    FieldSourceProfileIds: Optional[FieldSourceProfileIds] = None
 
 
-class FilterDimensionOutputTypeDef(BaseValidatorModel):
-    Attributes: Dict[str, FilterAttributeDimensionOutputTypeDef]
+class FilterDimensionOutput(BaseValidatorModel):
+    Attributes: Dict[str, FilterAttributeDimensionOutput]
 
 
-class FilterDimensionTypeDef(BaseValidatorModel):
-    Attributes: Mapping[str, FilterAttributeDimensionTypeDef]
+class FilterDimension(BaseValidatorModel):
+    Attributes: Mapping[str, FilterAttributeDimension]
 
 
-class ProfileTypeDef(BaseValidatorModel):
+class Profile(BaseValidatorModel):
     ProfileId: Optional[str] = None
     AccountNumber: Optional[str] = None
     AdditionalInformation: Optional[str] = None
@@ -1205,142 +1205,142 @@ class ProfileTypeDef(BaseValidatorModel):
     EmailAddress: Optional[str] = None
     PersonalEmailAddress: Optional[str] = None
     BusinessEmailAddress: Optional[str] = None
-    Address: Optional[AddressTypeDef] = None
-    ShippingAddress: Optional[AddressTypeDef] = None
-    MailingAddress: Optional[AddressTypeDef] = None
-    BillingAddress: Optional[AddressTypeDef] = None
+    Address: Optional[Address] = None
+    ShippingAddress: Optional[Address] = None
+    MailingAddress: Optional[Address] = None
+    BillingAddress: Optional[Address] = None
     Attributes: Optional[Dict[str, str]] = None
-    FoundByItems: Optional[List[FoundByKeyValueTypeDef]] = None
+    FoundByItems: Optional[List[FoundByKeyValue]] = None
     PartyTypeString: Optional[str] = None
     GenderString: Optional[str] = None
 
 
-class GetMatchesResponseTypeDef(BaseValidatorModel):
+class GetMatchesResponse(BaseValidatorModel):
     MatchGenerationDate: datetime
     PotentialMatches: int
-    Matches: List[MatchItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    Matches: List[MatchItem]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class GetSimilarProfilesRequestPaginateTypeDef(BaseValidatorModel):
+class GetSimilarProfilesRequestPaginate(BaseValidatorModel):
     DomainName: str
     MatchType: MatchTypeType
     SearchKey: str
     SearchValue: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListEventStreamsRequestPaginateTypeDef(BaseValidatorModel):
+class ListEventStreamsRequestPaginate(BaseValidatorModel):
     DomainName: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListEventTriggersRequestPaginateTypeDef(BaseValidatorModel):
+class ListEventTriggersRequestPaginate(BaseValidatorModel):
     DomainName: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListObjectTypeAttributesRequestPaginateTypeDef(BaseValidatorModel):
+class ListObjectTypeAttributesRequestPaginate(BaseValidatorModel):
     DomainName: str
     ObjectTypeName: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListRuleBasedMatchesRequestPaginateTypeDef(BaseValidatorModel):
+class ListRuleBasedMatchesRequestPaginate(BaseValidatorModel):
     DomainName: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListSegmentDefinitionsRequestPaginateTypeDef(BaseValidatorModel):
+class ListSegmentDefinitionsRequestPaginate(BaseValidatorModel):
     DomainName: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListAccountIntegrationsResponseTypeDef(BaseValidatorModel):
-    Items: List[ListIntegrationItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAccountIntegrationsResponse(BaseValidatorModel):
+    Items: List[ListIntegrationItem]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListIntegrationsResponseTypeDef(BaseValidatorModel):
-    Items: List[ListIntegrationItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListIntegrationsResponse(BaseValidatorModel):
+    Items: List[ListIntegrationItem]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListCalculatedAttributeDefinitionsResponseTypeDef(BaseValidatorModel):
-    Items: List[ListCalculatedAttributeDefinitionItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListCalculatedAttributeDefinitionsResponse(BaseValidatorModel):
+    Items: List[ListCalculatedAttributeDefinitionItem]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListCalculatedAttributesForProfileResponseTypeDef(BaseValidatorModel):
-    Items: List[ListCalculatedAttributeForProfileItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListCalculatedAttributesForProfileResponse(BaseValidatorModel):
+    Items: List[ListCalculatedAttributeForProfileItem]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListDomainsResponseTypeDef(BaseValidatorModel):
-    Items: List[ListDomainItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListDomainsResponse(BaseValidatorModel):
+    Items: List[ListDomainItem]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListObjectTypeAttributesResponseTypeDef(BaseValidatorModel):
-    Items: List[ListObjectTypeAttributeItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListObjectTypeAttributesResponse(BaseValidatorModel):
+    Items: List[ListObjectTypeAttributeItem]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListProfileObjectTypesResponseTypeDef(BaseValidatorModel):
-    Items: List[ListProfileObjectTypeItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListProfileObjectTypesResponse(BaseValidatorModel):
+    Items: List[ListProfileObjectTypeItem]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListProfileObjectTypeTemplatesResponseTypeDef(BaseValidatorModel):
-    Items: List[ListProfileObjectTypeTemplateItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListProfileObjectTypeTemplatesResponse(BaseValidatorModel):
+    Items: List[ListProfileObjectTypeTemplateItem]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListProfileObjectsResponseTypeDef(BaseValidatorModel):
-    Items: List[ListProfileObjectsItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListProfileObjectsResponse(BaseValidatorModel):
+    Items: List[ListProfileObjectsItem]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListProfileObjectsRequestTypeDef(BaseValidatorModel):
+class ListProfileObjectsRequest(BaseValidatorModel):
     DomainName: str
     ObjectTypeName: str
     ProfileId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
-    ObjectFilter: Optional[ObjectFilterTypeDef] = None
+    ObjectFilter: Optional[ObjectFilter] = None
 
 
-class ListSegmentDefinitionsResponseTypeDef(BaseValidatorModel):
-    Items: List[SegmentDefinitionItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListSegmentDefinitionsResponse(BaseValidatorModel):
+    Items: List[SegmentDefinitionItem]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListWorkflowsResponseTypeDef(BaseValidatorModel):
-    Items: List[ListWorkflowsItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListWorkflowsResponse(BaseValidatorModel):
+    Items: List[ListWorkflowsItem]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class SourceConnectorPropertiesTypeDef(BaseValidatorModel):
-    Marketo: Optional[MarketoSourcePropertiesTypeDef] = None
-    S3: Optional[S3SourcePropertiesTypeDef] = None
-    Salesforce: Optional[SalesforceSourcePropertiesTypeDef] = None
-    ServiceNow: Optional[ServiceNowSourcePropertiesTypeDef] = None
-    Zendesk: Optional[ZendeskSourcePropertiesTypeDef] = None
+class SourceConnectorProperties(BaseValidatorModel):
+    Marketo: Optional[MarketoSourceProperties] = None
+    S3: Optional[S3SourceProperties] = None
+    Salesforce: Optional[SalesforceSourceProperties] = None
+    ServiceNow: Optional[ServiceNowSourceProperties] = None
+    Zendesk: Optional[ZendeskSourceProperties] = None
 
 
-class UpdateProfileRequestTypeDef(BaseValidatorModel):
+class UpdateProfileRequest(BaseValidatorModel):
     DomainName: str
     ProfileId: str
     AdditionalInformation: Optional[str] = None
@@ -1359,163 +1359,163 @@ class UpdateProfileRequestTypeDef(BaseValidatorModel):
     EmailAddress: Optional[str] = None
     PersonalEmailAddress: Optional[str] = None
     BusinessEmailAddress: Optional[str] = None
-    Address: Optional[UpdateAddressTypeDef] = None
-    ShippingAddress: Optional[UpdateAddressTypeDef] = None
-    MailingAddress: Optional[UpdateAddressTypeDef] = None
-    BillingAddress: Optional[UpdateAddressTypeDef] = None
+    Address: Optional[UpdateAddress] = None
+    ShippingAddress: Optional[UpdateAddress] = None
+    MailingAddress: Optional[UpdateAddress] = None
+    BillingAddress: Optional[UpdateAddress] = None
     Attributes: Optional[Mapping[str, str]] = None
     PartyTypeString: Optional[str] = None
     GenderString: Optional[str] = None
 
 
-class ProfileAttributesOutputTypeDef(BaseValidatorModel):
-    AccountNumber: Optional[ProfileDimensionOutputTypeDef] = None
-    AdditionalInformation: Optional[ExtraLengthValueProfileDimensionOutputTypeDef] = None
-    FirstName: Optional[ProfileDimensionOutputTypeDef] = None
-    LastName: Optional[ProfileDimensionOutputTypeDef] = None
-    MiddleName: Optional[ProfileDimensionOutputTypeDef] = None
-    GenderString: Optional[ProfileDimensionOutputTypeDef] = None
-    PartyTypeString: Optional[ProfileDimensionOutputTypeDef] = None
-    BirthDate: Optional[DateDimensionOutputTypeDef] = None
-    PhoneNumber: Optional[ProfileDimensionOutputTypeDef] = None
-    BusinessName: Optional[ProfileDimensionOutputTypeDef] = None
-    BusinessPhoneNumber: Optional[ProfileDimensionOutputTypeDef] = None
-    HomePhoneNumber: Optional[ProfileDimensionOutputTypeDef] = None
-    MobilePhoneNumber: Optional[ProfileDimensionOutputTypeDef] = None
-    EmailAddress: Optional[ProfileDimensionOutputTypeDef] = None
-    PersonalEmailAddress: Optional[ProfileDimensionOutputTypeDef] = None
-    BusinessEmailAddress: Optional[ProfileDimensionOutputTypeDef] = None
-    Address: Optional[AddressDimensionOutputTypeDef] = None
-    ShippingAddress: Optional[AddressDimensionOutputTypeDef] = None
-    MailingAddress: Optional[AddressDimensionOutputTypeDef] = None
-    BillingAddress: Optional[AddressDimensionOutputTypeDef] = None
-    Attributes: Optional[Dict[str, AttributeDimensionOutputTypeDef]] = None
+class ProfileAttributesOutput(BaseValidatorModel):
+    AccountNumber: Optional[ProfileDimensionOutput] = None
+    AdditionalInformation: Optional[ExtraLengthValueProfileDimensionOutput] = None
+    FirstName: Optional[ProfileDimensionOutput] = None
+    LastName: Optional[ProfileDimensionOutput] = None
+    MiddleName: Optional[ProfileDimensionOutput] = None
+    GenderString: Optional[ProfileDimensionOutput] = None
+    PartyTypeString: Optional[ProfileDimensionOutput] = None
+    BirthDate: Optional[DateDimensionOutput] = None
+    PhoneNumber: Optional[ProfileDimensionOutput] = None
+    BusinessName: Optional[ProfileDimensionOutput] = None
+    BusinessPhoneNumber: Optional[ProfileDimensionOutput] = None
+    HomePhoneNumber: Optional[ProfileDimensionOutput] = None
+    MobilePhoneNumber: Optional[ProfileDimensionOutput] = None
+    EmailAddress: Optional[ProfileDimensionOutput] = None
+    PersonalEmailAddress: Optional[ProfileDimensionOutput] = None
+    BusinessEmailAddress: Optional[ProfileDimensionOutput] = None
+    Address: Optional[AddressDimensionOutput] = None
+    ShippingAddress: Optional[AddressDimensionOutput] = None
+    MailingAddress: Optional[AddressDimensionOutput] = None
+    BillingAddress: Optional[AddressDimensionOutput] = None
+    Attributes: Optional[Dict[str, AttributeDimensionOutput]] = None
 
 
-class GetWorkflowResponseTypeDef(BaseValidatorModel):
+class GetWorkflowResponse(BaseValidatorModel):
     WorkflowId: str
     WorkflowType: Literal["APPFLOW_INTEGRATION"]
     Status: StatusType
     ErrorDescription: str
     StartDate: datetime
     LastUpdatedAt: datetime
-    Attributes: WorkflowAttributesTypeDef
-    Metrics: WorkflowMetricsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    Attributes: WorkflowAttributes
+    Metrics: WorkflowMetrics
+    ResponseMetadata: ResponseMetadata
 
 
-class GetWorkflowStepsResponseTypeDef(BaseValidatorModel):
+class GetWorkflowStepsResponse(BaseValidatorModel):
     WorkflowId: str
     WorkflowType: Literal["APPFLOW_INTEGRATION"]
-    Items: List[WorkflowStepItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    Items: List[WorkflowStepItem]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class TriggerPropertiesTypeDef(BaseValidatorModel):
-    Scheduled: Optional[ScheduledTriggerPropertiesTypeDef] = None
+class TriggerProperties(BaseValidatorModel):
+    Scheduled: Optional[ScheduledTriggerProperties] = None
 
 
-class BatchGetCalculatedAttributeForProfileRequestTypeDef(BaseValidatorModel):
+class BatchGetCalculatedAttributeForProfileRequest(BaseValidatorModel):
     CalculatedAttributeName: str
     DomainName: str
     ProfileIds: Sequence[str]
-    ConditionOverrides: Optional[ConditionOverridesTypeDef] = None
+    ConditionOverrides: Optional[ConditionOverrides] = None
 
 
-class BatchGetCalculatedAttributeForProfileResponseTypeDef(BaseValidatorModel):
-    Errors: List[BatchGetCalculatedAttributeForProfileErrorTypeDef]
-    CalculatedAttributeValues: List[CalculatedAttributeValueTypeDef]
-    ConditionOverrides: ConditionOverridesTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchGetCalculatedAttributeForProfileResponse(BaseValidatorModel):
+    Errors: List[BatchGetCalculatedAttributeForProfileError]
+    CalculatedAttributeValues: List[CalculatedAttributeValue]
+    ConditionOverrides: ConditionOverrides
+    ResponseMetadata: ResponseMetadata
 
 
-class CalculatedAttributeDimensionOutputTypeDef(BaseValidatorModel):
+class CalculatedAttributeDimensionOutput(BaseValidatorModel):
     DimensionType: AttributeDimensionTypeType
     Values: List[str]
-    ConditionOverrides: Optional[ConditionOverridesTypeDef] = None
+    ConditionOverrides: Optional[ConditionOverrides] = None
 
 
-class CalculatedAttributeDimensionTypeDef(BaseValidatorModel):
+class CalculatedAttributeDimension(BaseValidatorModel):
     DimensionType: AttributeDimensionTypeType
     Values: Sequence[str]
-    ConditionOverrides: Optional[ConditionOverridesTypeDef] = None
+    ConditionOverrides: Optional[ConditionOverrides] = None
 
 
-class UpdateCalculatedAttributeDefinitionRequestTypeDef(BaseValidatorModel):
+class UpdateCalculatedAttributeDefinitionRequest(BaseValidatorModel):
     DomainName: str
     CalculatedAttributeName: str
     DisplayName: Optional[str] = None
     Description: Optional[str] = None
-    Conditions: Optional[ConditionsTypeDef] = None
+    Conditions: Optional[Conditions] = None
 
 
-class UpdateCalculatedAttributeDefinitionResponseTypeDef(BaseValidatorModel):
+class UpdateCalculatedAttributeDefinitionResponse(BaseValidatorModel):
     CalculatedAttributeName: str
     DisplayName: str
     Description: str
     CreatedAt: datetime
     LastUpdatedAt: datetime
     Statistic: StatisticType
-    Conditions: ConditionsTypeDef
-    AttributeDetails: AttributeDetailsOutputTypeDef
+    Conditions: Conditions
+    AttributeDetails: AttributeDetailsOutput
     Tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ConsolidationUnionTypeDef(BaseValidatorModel):
+class ConsolidationUnion(BaseValidatorModel):
     pass
 
 
-class AutoMergingTypeDef(BaseValidatorModel):
+class AutoMerging(BaseValidatorModel):
     Enabled: bool
-    Consolidation: Optional[ConsolidationUnionTypeDef] = None
-    ConflictResolution: Optional[ConflictResolutionTypeDef] = None
+    Consolidation: Optional[ConsolidationUnion] = None
+    ConflictResolution: Optional[ConflictResolution] = None
     MinAllowedConfidenceScoreForMerging: Optional[float] = None
 
 
-class GetAutoMergingPreviewRequestTypeDef(BaseValidatorModel):
+class GetAutoMergingPreviewRequest(BaseValidatorModel):
     DomainName: str
-    Consolidation: ConsolidationUnionTypeDef
-    ConflictResolution: ConflictResolutionTypeDef
+    Consolidation: ConsolidationUnion
+    ConflictResolution: ConflictResolution
     MinAllowedConfidenceScoreForMerging: Optional[float] = None
 
 
-class ListEventStreamsResponseTypeDef(BaseValidatorModel):
-    Items: List[EventStreamSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListEventStreamsResponse(BaseValidatorModel):
+    Items: List[EventStreamSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DetectProfileObjectTypeResponseTypeDef(BaseValidatorModel):
-    DetectedProfileObjectTypes: List[DetectedProfileObjectTypeTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DetectProfileObjectTypeResponse(BaseValidatorModel):
+    DetectedProfileObjectTypes: List[DetectedProfileObjectType]
+    ResponseMetadata: ResponseMetadata
 
 
-class EventTriggerConditionOutputTypeDef(BaseValidatorModel):
-    EventTriggerDimensions: List[EventTriggerDimensionOutputTypeDef]
+class EventTriggerConditionOutput(BaseValidatorModel):
+    EventTriggerDimensions: List[EventTriggerDimensionOutput]
     LogicalOperator: EventTriggerLogicalOperatorType
 
 
-class MatchingResponseTypeDef(BaseValidatorModel):
+class MatchingResponse(BaseValidatorModel):
     Enabled: Optional[bool] = None
-    JobSchedule: Optional[JobScheduleTypeDef] = None
-    AutoMerging: Optional[AutoMergingOutputTypeDef] = None
-    ExportingConfig: Optional[ExportingConfigTypeDef] = None
+    JobSchedule: Optional[JobSchedule] = None
+    AutoMerging: Optional[AutoMergingOutput] = None
+    ExportingConfig: Optional[ExportingConfig] = None
 
 
-class RuleBasedMatchingResponseTypeDef(BaseValidatorModel):
+class RuleBasedMatchingResponse(BaseValidatorModel):
     Enabled: Optional[bool] = None
-    MatchingRules: Optional[List[MatchingRuleOutputTypeDef]] = None
+    MatchingRules: Optional[List[MatchingRuleOutput]] = None
     Status: Optional[RuleBasedMatchingStatusType] = None
     MaxAllowedRuleLevelForMerging: Optional[int] = None
     MaxAllowedRuleLevelForMatching: Optional[int] = None
-    AttributeTypesSelector: Optional[AttributeTypesSelectorOutputTypeDef] = None
-    ConflictResolution: Optional[ConflictResolutionTypeDef] = None
-    ExportingConfig: Optional[ExportingConfigTypeDef] = None
+    AttributeTypesSelector: Optional[AttributeTypesSelectorOutput] = None
+    ConflictResolution: Optional[ConflictResolution] = None
+    ExportingConfig: Optional[ExportingConfig] = None
 
 
-class GetIdentityResolutionJobResponseTypeDef(BaseValidatorModel):
+class GetIdentityResolutionJobResponse(BaseValidatorModel):
     DomainName: str
     JobId: str
     Status: IdentityResolutionJobStatusType
@@ -1524,72 +1524,72 @@ class GetIdentityResolutionJobResponseTypeDef(BaseValidatorModel):
     JobEndTime: datetime
     LastUpdatedAt: datetime
     JobExpirationTime: datetime
-    AutoMerging: AutoMergingOutputTypeDef
-    ExportingLocation: ExportingLocationTypeDef
-    JobStats: JobStatsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    AutoMerging: AutoMergingOutput
+    ExportingLocation: ExportingLocation
+    JobStats: JobStats
+    ResponseMetadata: ResponseMetadata
 
 
-class IdentityResolutionJobTypeDef(BaseValidatorModel):
+class IdentityResolutionJob(BaseValidatorModel):
     DomainName: Optional[str] = None
     JobId: Optional[str] = None
     Status: Optional[IdentityResolutionJobStatusType] = None
     JobStartTime: Optional[datetime] = None
     JobEndTime: Optional[datetime] = None
-    JobStats: Optional[JobStatsTypeDef] = None
-    ExportingLocation: Optional[ExportingLocationTypeDef] = None
+    JobStats: Optional[JobStats] = None
+    ExportingLocation: Optional[ExportingLocation] = None
     Message: Optional[str] = None
 
 
-class BatchGetProfileResponseTypeDef(BaseValidatorModel):
-    Errors: List[BatchGetProfileErrorTypeDef]
-    Profiles: List[ProfileTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchGetProfileResponse(BaseValidatorModel):
+    Errors: List[BatchGetProfileError]
+    Profiles: List[Profile]
+    ResponseMetadata: ResponseMetadata
 
 
-class ProfileQueryResultTypeDef(BaseValidatorModel):
+class ProfileQueryResult(BaseValidatorModel):
     ProfileId: str
     QueryResult: QueryResultType
-    Profile: Optional[ProfileTypeDef] = None
+    Profile: Optional[Profile] = None
 
 
-class SearchProfilesResponseTypeDef(BaseValidatorModel):
-    Items: List[ProfileTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class SearchProfilesResponse(BaseValidatorModel):
+    Items: List[Profile]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class AttributeTypesSelectorUnionTypeDef(BaseValidatorModel):
+class AttributeTypesSelectorUnion(BaseValidatorModel):
     pass
 
 
-class MatchingRuleUnionTypeDef(BaseValidatorModel):
+class MatchingRuleUnion(BaseValidatorModel):
     pass
 
 
-class RuleBasedMatchingRequestTypeDef(BaseValidatorModel):
+class RuleBasedMatchingRequest(BaseValidatorModel):
     Enabled: bool
-    MatchingRules: Optional[Sequence[MatchingRuleUnionTypeDef]] = None
+    MatchingRules: Optional[Sequence[MatchingRuleUnion]] = None
     MaxAllowedRuleLevelForMerging: Optional[int] = None
     MaxAllowedRuleLevelForMatching: Optional[int] = None
-    AttributeTypesSelector: Optional[AttributeTypesSelectorUnionTypeDef] = None
-    ConflictResolution: Optional[ConflictResolutionTypeDef] = None
-    ExportingConfig: Optional[ExportingConfigTypeDef] = None
+    AttributeTypesSelector: Optional[AttributeTypesSelectorUnion] = None
+    ConflictResolution: Optional[ConflictResolution] = None
+    ExportingConfig: Optional[ExportingConfig] = None
 
 
-class ObjectAttributeUnionTypeDef(BaseValidatorModel):
+class ObjectAttributeUnion(BaseValidatorModel):
     pass
 
 
-class EventTriggerDimensionTypeDef(BaseValidatorModel):
-    ObjectAttributes: Sequence[ObjectAttributeUnionTypeDef]
+class EventTriggerDimension(BaseValidatorModel):
+    ObjectAttributes: Sequence[ObjectAttributeUnion]
 
 
-class ObjectTypeKeyUnionTypeDef(BaseValidatorModel):
+class ObjectTypeKeyUnion(BaseValidatorModel):
     pass
 
 
-class PutProfileObjectTypeRequestTypeDef(BaseValidatorModel):
+class PutProfileObjectTypeRequest(BaseValidatorModel):
     DomainName: str
     ObjectTypeName: str
     Description: str
@@ -1599,411 +1599,411 @@ class PutProfileObjectTypeRequestTypeDef(BaseValidatorModel):
     AllowProfileCreation: Optional[bool] = None
     SourceLastUpdatedTimestampFormat: Optional[str] = None
     MaxProfileObjectCount: Optional[int] = None
-    Fields: Optional[Mapping[str, ObjectTypeFieldTypeDef]] = None
-    Keys: Optional[Mapping[str, Sequence[ObjectTypeKeyUnionTypeDef]]] = None
+    Fields: Optional[Mapping[str, ObjectTypeField]] = None
+    Keys: Optional[Mapping[str, Sequence[ObjectTypeKeyUnion]]] = None
     Tags: Optional[Mapping[str, str]] = None
 
 
-class ProfileDimensionUnionTypeDef(BaseValidatorModel):
+class ProfileDimensionUnion(BaseValidatorModel):
     pass
 
 
-class AddressDimensionTypeDef(BaseValidatorModel):
-    City: Optional[ProfileDimensionUnionTypeDef] = None
-    Country: Optional[ProfileDimensionUnionTypeDef] = None
-    County: Optional[ProfileDimensionUnionTypeDef] = None
-    PostalCode: Optional[ProfileDimensionUnionTypeDef] = None
-    Province: Optional[ProfileDimensionUnionTypeDef] = None
-    State: Optional[ProfileDimensionUnionTypeDef] = None
+class AddressDimension(BaseValidatorModel):
+    City: Optional[ProfileDimensionUnion] = None
+    Country: Optional[ProfileDimensionUnion] = None
+    County: Optional[ProfileDimensionUnion] = None
+    PostalCode: Optional[ProfileDimensionUnion] = None
+    Province: Optional[ProfileDimensionUnion] = None
+    State: Optional[ProfileDimensionUnion] = None
 
 
-class SourceFlowConfigTypeDef(BaseValidatorModel):
+class SourceFlowConfig(BaseValidatorModel):
     ConnectorType: SourceConnectorTypeType
-    SourceConnectorProperties: SourceConnectorPropertiesTypeDef
+    SourceConnectorProperties: SourceConnectorProperties
     ConnectorProfileName: Optional[str] = None
-    IncrementalPullConfig: Optional[IncrementalPullConfigTypeDef] = None
+    IncrementalPullConfig: Optional[IncrementalPullConfig] = None
 
 
-class TriggerConfigTypeDef(BaseValidatorModel):
+class TriggerConfig(BaseValidatorModel):
     TriggerType: TriggerTypeType
-    TriggerProperties: Optional[TriggerPropertiesTypeDef] = None
+    TriggerProperties: Optional[TriggerProperties] = None
 
 
-class DimensionOutputTypeDef(BaseValidatorModel):
-    ProfileAttributes: Optional[ProfileAttributesOutputTypeDef] = None
-    CalculatedAttributes: Optional[Dict[str, CalculatedAttributeDimensionOutputTypeDef]] = None
+class DimensionOutput(BaseValidatorModel):
+    ProfileAttributes: Optional[ProfileAttributesOutput] = None
+    CalculatedAttributes: Optional[Dict[str, CalculatedAttributeDimensionOutput]] = None
 
 
-class CreateEventTriggerResponseTypeDef(BaseValidatorModel):
+class CreateEventTriggerResponse(BaseValidatorModel):
     EventTriggerName: str
     ObjectTypeName: str
     Description: str
-    EventTriggerConditions: List[EventTriggerConditionOutputTypeDef]
+    EventTriggerConditions: List[EventTriggerConditionOutput]
     SegmentFilter: str
-    EventTriggerLimits: EventTriggerLimitsOutputTypeDef
+    EventTriggerLimits: EventTriggerLimitsOutput
     CreatedAt: datetime
     LastUpdatedAt: datetime
     Tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetEventTriggerResponseTypeDef(BaseValidatorModel):
+class GetEventTriggerResponse(BaseValidatorModel):
     EventTriggerName: str
     ObjectTypeName: str
     Description: str
-    EventTriggerConditions: List[EventTriggerConditionOutputTypeDef]
+    EventTriggerConditions: List[EventTriggerConditionOutput]
     SegmentFilter: str
-    EventTriggerLimits: EventTriggerLimitsOutputTypeDef
+    EventTriggerLimits: EventTriggerLimitsOutput
     CreatedAt: datetime
     LastUpdatedAt: datetime
     Tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateEventTriggerResponseTypeDef(BaseValidatorModel):
+class UpdateEventTriggerResponse(BaseValidatorModel):
     EventTriggerName: str
     ObjectTypeName: str
     Description: str
-    EventTriggerConditions: List[EventTriggerConditionOutputTypeDef]
+    EventTriggerConditions: List[EventTriggerConditionOutput]
     SegmentFilter: str
-    EventTriggerLimits: EventTriggerLimitsOutputTypeDef
+    EventTriggerLimits: EventTriggerLimitsOutput
     CreatedAt: datetime
     LastUpdatedAt: datetime
     Tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateDomainResponseTypeDef(BaseValidatorModel):
+class CreateDomainResponse(BaseValidatorModel):
     DomainName: str
     DefaultExpirationDays: int
     DefaultEncryptionKey: str
     DeadLetterQueueUrl: str
-    Matching: MatchingResponseTypeDef
-    RuleBasedMatching: RuleBasedMatchingResponseTypeDef
+    Matching: MatchingResponse
+    RuleBasedMatching: RuleBasedMatchingResponse
     CreatedAt: datetime
     LastUpdatedAt: datetime
     Tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetDomainResponseTypeDef(BaseValidatorModel):
+class GetDomainResponse(BaseValidatorModel):
     DomainName: str
     DefaultExpirationDays: int
     DefaultEncryptionKey: str
     DeadLetterQueueUrl: str
-    Stats: DomainStatsTypeDef
-    Matching: MatchingResponseTypeDef
-    RuleBasedMatching: RuleBasedMatchingResponseTypeDef
+    Stats: DomainStats
+    Matching: MatchingResponse
+    RuleBasedMatching: RuleBasedMatchingResponse
     CreatedAt: datetime
     LastUpdatedAt: datetime
     Tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateDomainResponseTypeDef(BaseValidatorModel):
+class UpdateDomainResponse(BaseValidatorModel):
     DomainName: str
     DefaultExpirationDays: int
     DefaultEncryptionKey: str
     DeadLetterQueueUrl: str
-    Matching: MatchingResponseTypeDef
-    RuleBasedMatching: RuleBasedMatchingResponseTypeDef
+    Matching: MatchingResponse
+    RuleBasedMatching: RuleBasedMatchingResponse
     CreatedAt: datetime
     LastUpdatedAt: datetime
     Tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListIdentityResolutionJobsResponseTypeDef(BaseValidatorModel):
-    IdentityResolutionJobsList: List[IdentityResolutionJobTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListIdentityResolutionJobsResponse(BaseValidatorModel):
+    IdentityResolutionJobsList: List[IdentityResolutionJob]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class FilterGroupOutputTypeDef(BaseValidatorModel):
+class FilterGroupOutput(BaseValidatorModel):
     pass
 
 
-class FilterOutputTypeDef(BaseValidatorModel):
+class FilterOutput(BaseValidatorModel):
     Include: IncludeType
-    Groups: List[FilterGroupOutputTypeDef]
+    Groups: List[FilterGroupOutput]
 
 
-class FilterGroupTypeDef(BaseValidatorModel):
+class FilterGroup(BaseValidatorModel):
     pass
 
 
-class FilterTypeDef(BaseValidatorModel):
+class Filter(BaseValidatorModel):
     Include: IncludeType
-    Groups: Sequence[FilterGroupTypeDef]
+    Groups: Sequence[FilterGroup]
 
 
-class GetSegmentMembershipResponseTypeDef(BaseValidatorModel):
+class GetSegmentMembershipResponse(BaseValidatorModel):
     SegmentDefinitionName: str
-    Profiles: List[ProfileQueryResultTypeDef]
-    Failures: List[ProfileQueryFailuresTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    Profiles: List[ProfileQueryResult]
+    Failures: List[ProfileQueryFailures]
+    ResponseMetadata: ResponseMetadata
 
 
-class FlowDefinitionTypeDef(BaseValidatorModel):
+class FlowDefinition(BaseValidatorModel):
     FlowName: str
     KmsArn: str
-    SourceFlowConfig: SourceFlowConfigTypeDef
-    Tasks: Sequence[TaskTypeDef]
-    TriggerConfig: TriggerConfigTypeDef
+    SourceFlowConfig: SourceFlowConfig
+    Tasks: Sequence[Task]
+    TriggerConfig: TriggerConfig
     Description: Optional[str] = None
 
 
-class AutoMergingUnionTypeDef(BaseValidatorModel):
+class AutoMergingUnion(BaseValidatorModel):
     pass
 
 
-class MatchingRequestTypeDef(BaseValidatorModel):
+class MatchingRequest(BaseValidatorModel):
     Enabled: bool
-    JobSchedule: Optional[JobScheduleTypeDef] = None
-    AutoMerging: Optional[AutoMergingUnionTypeDef] = None
-    ExportingConfig: Optional[ExportingConfigTypeDef] = None
+    JobSchedule: Optional[JobSchedule] = None
+    AutoMerging: Optional[AutoMergingUnion] = None
+    ExportingConfig: Optional[ExportingConfig] = None
 
 
-class CreateCalculatedAttributeDefinitionResponseTypeDef(BaseValidatorModel):
+class CreateCalculatedAttributeDefinitionResponse(BaseValidatorModel):
     CalculatedAttributeName: str
     DisplayName: str
     Description: str
-    AttributeDetails: AttributeDetailsOutputTypeDef
-    Conditions: ConditionsTypeDef
-    Filter: FilterOutputTypeDef
+    AttributeDetails: AttributeDetailsOutput
+    Conditions: Conditions
+    Filter: FilterOutput
     Statistic: StatisticType
     CreatedAt: datetime
     LastUpdatedAt: datetime
     Tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetCalculatedAttributeDefinitionResponseTypeDef(BaseValidatorModel):
+class GetCalculatedAttributeDefinitionResponse(BaseValidatorModel):
     CalculatedAttributeName: str
     DisplayName: str
     Description: str
     CreatedAt: datetime
     LastUpdatedAt: datetime
     Statistic: StatisticType
-    Filter: FilterOutputTypeDef
-    Conditions: ConditionsTypeDef
-    AttributeDetails: AttributeDetailsOutputTypeDef
+    Filter: FilterOutput
+    Conditions: Conditions
+    AttributeDetails: AttributeDetailsOutput
     Tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class EventTriggerDimensionUnionTypeDef(BaseValidatorModel):
+class EventTriggerDimensionUnion(BaseValidatorModel):
     pass
 
 
-class EventTriggerConditionTypeDef(BaseValidatorModel):
-    EventTriggerDimensions: Sequence[EventTriggerDimensionUnionTypeDef]
+class EventTriggerCondition(BaseValidatorModel):
+    EventTriggerDimensions: Sequence[EventTriggerDimensionUnion]
     LogicalOperator: EventTriggerLogicalOperatorType
 
 
-class AddressDimensionUnionTypeDef(BaseValidatorModel):
+class AddressDimensionUnion(BaseValidatorModel):
     pass
 
 
-class DateDimensionUnionTypeDef(BaseValidatorModel):
+class DateDimensionUnion(BaseValidatorModel):
     pass
 
 
-class AttributeDimensionUnionTypeDef(BaseValidatorModel):
+class AttributeDimensionUnion(BaseValidatorModel):
     pass
 
 
-class ExtraLengthValueProfileDimensionUnionTypeDef(BaseValidatorModel):
+class ExtraLengthValueProfileDimensionUnion(BaseValidatorModel):
     pass
 
 
-class ProfileAttributesTypeDef(BaseValidatorModel):
-    AccountNumber: Optional[ProfileDimensionUnionTypeDef] = None
-    AdditionalInformation: Optional[ExtraLengthValueProfileDimensionUnionTypeDef] = None
-    FirstName: Optional[ProfileDimensionUnionTypeDef] = None
-    LastName: Optional[ProfileDimensionUnionTypeDef] = None
-    MiddleName: Optional[ProfileDimensionUnionTypeDef] = None
-    GenderString: Optional[ProfileDimensionUnionTypeDef] = None
-    PartyTypeString: Optional[ProfileDimensionUnionTypeDef] = None
-    BirthDate: Optional[DateDimensionUnionTypeDef] = None
-    PhoneNumber: Optional[ProfileDimensionUnionTypeDef] = None
-    BusinessName: Optional[ProfileDimensionUnionTypeDef] = None
-    BusinessPhoneNumber: Optional[ProfileDimensionUnionTypeDef] = None
-    HomePhoneNumber: Optional[ProfileDimensionUnionTypeDef] = None
-    MobilePhoneNumber: Optional[ProfileDimensionUnionTypeDef] = None
-    EmailAddress: Optional[ProfileDimensionUnionTypeDef] = None
-    PersonalEmailAddress: Optional[ProfileDimensionUnionTypeDef] = None
-    BusinessEmailAddress: Optional[ProfileDimensionUnionTypeDef] = None
-    Address: Optional[AddressDimensionUnionTypeDef] = None
-    ShippingAddress: Optional[AddressDimensionUnionTypeDef] = None
-    MailingAddress: Optional[AddressDimensionUnionTypeDef] = None
-    BillingAddress: Optional[AddressDimensionUnionTypeDef] = None
-    Attributes: Optional[Mapping[str, AttributeDimensionUnionTypeDef]] = None
+class ProfileAttributes(BaseValidatorModel):
+    AccountNumber: Optional[ProfileDimensionUnion] = None
+    AdditionalInformation: Optional[ExtraLengthValueProfileDimensionUnion] = None
+    FirstName: Optional[ProfileDimensionUnion] = None
+    LastName: Optional[ProfileDimensionUnion] = None
+    MiddleName: Optional[ProfileDimensionUnion] = None
+    GenderString: Optional[ProfileDimensionUnion] = None
+    PartyTypeString: Optional[ProfileDimensionUnion] = None
+    BirthDate: Optional[DateDimensionUnion] = None
+    PhoneNumber: Optional[ProfileDimensionUnion] = None
+    BusinessName: Optional[ProfileDimensionUnion] = None
+    BusinessPhoneNumber: Optional[ProfileDimensionUnion] = None
+    HomePhoneNumber: Optional[ProfileDimensionUnion] = None
+    MobilePhoneNumber: Optional[ProfileDimensionUnion] = None
+    EmailAddress: Optional[ProfileDimensionUnion] = None
+    PersonalEmailAddress: Optional[ProfileDimensionUnion] = None
+    BusinessEmailAddress: Optional[ProfileDimensionUnion] = None
+    Address: Optional[AddressDimensionUnion] = None
+    ShippingAddress: Optional[AddressDimensionUnion] = None
+    MailingAddress: Optional[AddressDimensionUnion] = None
+    BillingAddress: Optional[AddressDimensionUnion] = None
+    Attributes: Optional[Mapping[str, AttributeDimensionUnion]] = None
 
 
-class AppflowIntegrationTypeDef(BaseValidatorModel):
-    FlowDefinition: FlowDefinitionTypeDef
-    Batches: Optional[Sequence[BatchTypeDef]] = None
+class AppflowIntegration(BaseValidatorModel):
+    FlowDefinition: FlowDefinition
+    Batches: Optional[Sequence[Batch]] = None
 
 
-class PutIntegrationRequestTypeDef(BaseValidatorModel):
+class PutIntegrationRequest(BaseValidatorModel):
     DomainName: str
     Uri: Optional[str] = None
     ObjectTypeName: Optional[str] = None
     Tags: Optional[Mapping[str, str]] = None
-    FlowDefinition: Optional[FlowDefinitionTypeDef] = None
+    FlowDefinition: Optional[FlowDefinition] = None
     ObjectTypeNames: Optional[Mapping[str, str]] = None
     RoleArn: Optional[str] = None
     EventTriggerNames: Optional[Sequence[str]] = None
 
 
-class GroupOutputTypeDef(BaseValidatorModel):
+class GroupOutput(BaseValidatorModel):
     pass
 
 
-class SegmentGroupOutputTypeDef(BaseValidatorModel):
-    Groups: Optional[List[GroupOutputTypeDef]] = None
+class SegmentGroupOutput(BaseValidatorModel):
+    Groups: Optional[List[GroupOutput]] = None
     Include: Optional[IncludeOptionsType] = None
 
 
-class CreateDomainRequestTypeDef(BaseValidatorModel):
+class CreateDomainRequest(BaseValidatorModel):
     DomainName: str
     DefaultExpirationDays: int
     DefaultEncryptionKey: Optional[str] = None
     DeadLetterQueueUrl: Optional[str] = None
-    Matching: Optional[MatchingRequestTypeDef] = None
-    RuleBasedMatching: Optional[RuleBasedMatchingRequestTypeDef] = None
+    Matching: Optional[MatchingRequest] = None
+    RuleBasedMatching: Optional[RuleBasedMatchingRequest] = None
     Tags: Optional[Mapping[str, str]] = None
 
 
-class UpdateDomainRequestTypeDef(BaseValidatorModel):
+class UpdateDomainRequest(BaseValidatorModel):
     DomainName: str
     DefaultExpirationDays: Optional[int] = None
     DefaultEncryptionKey: Optional[str] = None
     DeadLetterQueueUrl: Optional[str] = None
-    Matching: Optional[MatchingRequestTypeDef] = None
-    RuleBasedMatching: Optional[RuleBasedMatchingRequestTypeDef] = None
+    Matching: Optional[MatchingRequest] = None
+    RuleBasedMatching: Optional[RuleBasedMatchingRequest] = None
     Tags: Optional[Mapping[str, str]] = None
 
 
-class FilterUnionTypeDef(BaseValidatorModel):
+class FilterUnion(BaseValidatorModel):
     pass
 
 
-class AttributeDetailsUnionTypeDef(BaseValidatorModel):
+class AttributeDetailsUnion(BaseValidatorModel):
     pass
 
 
-class CreateCalculatedAttributeDefinitionRequestTypeDef(BaseValidatorModel):
+class CreateCalculatedAttributeDefinitionRequest(BaseValidatorModel):
     DomainName: str
     CalculatedAttributeName: str
-    AttributeDetails: AttributeDetailsUnionTypeDef
+    AttributeDetails: AttributeDetailsUnion
     Statistic: StatisticType
     DisplayName: Optional[str] = None
     Description: Optional[str] = None
-    Conditions: Optional[ConditionsTypeDef] = None
-    Filter: Optional[FilterUnionTypeDef] = None
+    Conditions: Optional[Conditions] = None
+    Filter: Optional[FilterUnion] = None
     Tags: Optional[Mapping[str, str]] = None
 
 
-class IntegrationConfigTypeDef(BaseValidatorModel):
-    AppflowIntegration: Optional[AppflowIntegrationTypeDef] = None
+class IntegrationConfig(BaseValidatorModel):
+    AppflowIntegration: Optional[AppflowIntegration] = None
 
 
-class GetSegmentDefinitionResponseTypeDef(BaseValidatorModel):
+class GetSegmentDefinitionResponse(BaseValidatorModel):
     SegmentDefinitionName: str
     DisplayName: str
     Description: str
-    SegmentGroups: SegmentGroupOutputTypeDef
+    SegmentGroups: SegmentGroupOutput
     SegmentDefinitionArn: str
     CreatedAt: datetime
     Tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class EventTriggerLimitsUnionTypeDef(BaseValidatorModel):
+class EventTriggerLimitsUnion(BaseValidatorModel):
     pass
 
 
-class EventTriggerConditionUnionTypeDef(BaseValidatorModel):
+class EventTriggerConditionUnion(BaseValidatorModel):
     pass
 
 
-class CreateEventTriggerRequestTypeDef(BaseValidatorModel):
+class CreateEventTriggerRequest(BaseValidatorModel):
     DomainName: str
     EventTriggerName: str
     ObjectTypeName: str
-    EventTriggerConditions: Sequence[EventTriggerConditionUnionTypeDef]
+    EventTriggerConditions: Sequence[EventTriggerConditionUnion]
     Description: Optional[str] = None
     SegmentFilter: Optional[str] = None
-    EventTriggerLimits: Optional[EventTriggerLimitsUnionTypeDef] = None
+    EventTriggerLimits: Optional[EventTriggerLimitsUnion] = None
     Tags: Optional[Mapping[str, str]] = None
 
 
-class UpdateEventTriggerRequestTypeDef(BaseValidatorModel):
+class UpdateEventTriggerRequest(BaseValidatorModel):
     DomainName: str
     EventTriggerName: str
     ObjectTypeName: Optional[str] = None
     Description: Optional[str] = None
-    EventTriggerConditions: Optional[Sequence[EventTriggerConditionUnionTypeDef]] = None
+    EventTriggerConditions: Optional[Sequence[EventTriggerConditionUnion]] = None
     SegmentFilter: Optional[str] = None
-    EventTriggerLimits: Optional[EventTriggerLimitsUnionTypeDef] = None
+    EventTriggerLimits: Optional[EventTriggerLimitsUnion] = None
 
 
-class CalculatedAttributeDimensionUnionTypeDef(BaseValidatorModel):
+class CalculatedAttributeDimensionUnion(BaseValidatorModel):
     pass
 
 
-class ProfileAttributesUnionTypeDef(BaseValidatorModel):
+class ProfileAttributesUnion(BaseValidatorModel):
     pass
 
 
-class DimensionTypeDef(BaseValidatorModel):
-    ProfileAttributes: Optional[ProfileAttributesUnionTypeDef] = None
-    CalculatedAttributes: Optional[Mapping[str, CalculatedAttributeDimensionUnionTypeDef]] = None
+class Dimension(BaseValidatorModel):
+    ProfileAttributes: Optional[ProfileAttributesUnion] = None
+    CalculatedAttributes: Optional[Mapping[str, CalculatedAttributeDimensionUnion]] = None
 
 
-class CreateIntegrationWorkflowRequestTypeDef(BaseValidatorModel):
+class CreateIntegrationWorkflowRequest(BaseValidatorModel):
     DomainName: str
     WorkflowType: Literal["APPFLOW_INTEGRATION"]
-    IntegrationConfig: IntegrationConfigTypeDef
+    IntegrationConfig: IntegrationConfig
     ObjectTypeName: str
     RoleArn: str
     Tags: Optional[Mapping[str, str]] = None
 
 
-class GroupTypeDef(BaseValidatorModel):
+class Group(BaseValidatorModel):
     pass
 
 
-class SegmentGroupTypeDef(BaseValidatorModel):
-    Groups: Optional[Sequence[GroupTypeDef]] = None
+class SegmentGroup(BaseValidatorModel):
+    Groups: Optional[Sequence[Group]] = None
     Include: Optional[IncludeOptionsType] = None
 
 
-class GroupUnionTypeDef(BaseValidatorModel):
+class GroupUnion(BaseValidatorModel):
     pass
 
 
-class SegmentGroupStructureTypeDef(BaseValidatorModel):
-    Groups: Optional[Sequence[GroupUnionTypeDef]] = None
+class SegmentGroupStructure(BaseValidatorModel):
+    Groups: Optional[Sequence[GroupUnion]] = None
     Include: Optional[IncludeOptionsType] = None
 
 
-class CreateSegmentEstimateRequestTypeDef(BaseValidatorModel):
+class CreateSegmentEstimateRequest(BaseValidatorModel):
     DomainName: str
-    SegmentQuery: SegmentGroupStructureTypeDef
+    SegmentQuery: SegmentGroupStructure
 
 
-class SegmentGroupUnionTypeDef(BaseValidatorModel):
+class SegmentGroupUnion(BaseValidatorModel):
     pass
 
 
-class CreateSegmentDefinitionRequestTypeDef(BaseValidatorModel):
+class CreateSegmentDefinitionRequest(BaseValidatorModel):
     DomainName: str
     SegmentDefinitionName: str
     DisplayName: str
-    SegmentGroups: SegmentGroupUnionTypeDef
+    SegmentGroups: SegmentGroupUnion
     Description: Optional[str] = None
     Tags: Optional[Mapping[str, str]] = None
 

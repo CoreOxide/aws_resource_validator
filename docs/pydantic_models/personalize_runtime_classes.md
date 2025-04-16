@@ -6,7 +6,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# GetActionRecommendationsRequestTypeDef
+# GetActionRecommendationsRequest
 
 ### campaignArn
 - **Type**: typing.Optional[str]
@@ -24,10 +24,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# GetActionRecommendationsResponseTypeDef
+# GetActionRecommendationsResponse
 
 ### actionList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.personalize_runtime_classes.PredictedActionTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.personalize_runtime_classes.PredictedAction]
 - **Required**: Yes
 
 ### recommendationId
@@ -35,11 +35,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_runtime_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_runtime_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetPersonalizedRankingRequestTypeDef
+# GetPersonalizedRankingRequest
 
 ### campaignArn
 - **Type**: <class 'str'>
@@ -66,10 +66,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, typing.Sequence[str]]]
 
 
-# GetPersonalizedRankingResponseTypeDef
+# GetPersonalizedRankingResponse
 
 ### personalizedRanking
-- **Type**: typing.List[aws_resource_validator.pydantic_models.personalize_runtime_classes.PredictedItemTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.personalize_runtime_classes.PredictedItem]
 - **Required**: Yes
 
 ### recommendationId
@@ -77,11 +77,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_runtime_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_runtime_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetRecommendationsRequestTypeDef
+# GetRecommendationsRequest
 
 ### campaignArn
 - **Type**: typing.Optional[str]
@@ -108,16 +108,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### promotions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.personalize_runtime_classes.PromotionTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.personalize_runtime_classes.Promotion]]
 
 ### metadataColumns
 - **Type**: typing.Optional[typing.Mapping[str, typing.Sequence[str]]]
 
 
-# GetRecommendationsResponseTypeDef
+# GetRecommendationsResponse
 
 ### itemList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.personalize_runtime_classes.PredictedItemTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.personalize_runtime_classes.PredictedItem]
 - **Required**: Yes
 
 ### recommendationId
@@ -125,11 +125,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_runtime_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_runtime_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# PredictedActionTypeDef
+# PredictedAction
 
 ### actionId
 - **Type**: typing.Optional[str]
@@ -138,7 +138,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# PredictedItemTypeDef
+# PredictedItem
 
 ### itemId
 - **Type**: typing.Optional[str]
@@ -156,7 +156,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# PromotionTypeDef
+# Promotion
 
 ### name
 - **Type**: typing.Optional[str]
@@ -171,7 +171,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>

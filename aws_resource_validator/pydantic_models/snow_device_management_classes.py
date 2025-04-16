@@ -12,11 +12,11 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.snow_device_management_constants import *
 
-class CancelTaskInputTypeDef(BaseValidatorModel):
+class CancelTaskInput(BaseValidatorModel):
     taskId: str
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -24,7 +24,7 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class CapacityTypeDef(BaseValidatorModel):
+class Capacity(BaseValidatorModel):
     available: Optional[int] = None
     name: Optional[str] = None
     total: Optional[int] = None
@@ -32,26 +32,26 @@ class CapacityTypeDef(BaseValidatorModel):
     used: Optional[int] = None
 
 
-class CommandTypeDef(BaseValidatorModel):
+class Command(BaseValidatorModel):
     reboot: Optional[Mapping[str, Any]] = None
     unlock: Optional[Mapping[str, Any]] = None
 
 
-class CpuOptionsTypeDef(BaseValidatorModel):
+class CpuOptions(BaseValidatorModel):
     coreCount: Optional[int] = None
     threadsPerCore: Optional[int] = None
 
 
-class DescribeDeviceEc2InputTypeDef(BaseValidatorModel):
+class DescribeDeviceEc2Input(BaseValidatorModel):
     instanceIds: Sequence[str]
     managedDeviceId: str
 
 
-class DescribeDeviceInputTypeDef(BaseValidatorModel):
+class DescribeDeviceInput(BaseValidatorModel):
     managedDeviceId: str
 
 
-class PhysicalNetworkInterfaceTypeDef(BaseValidatorModel):
+class PhysicalNetworkInterface(BaseValidatorModel):
     defaultGateway: Optional[str] = None
     ipAddress: Optional[str] = None
     ipAddressAssignment: Optional[IpAddressAssignmentType] = None
@@ -61,120 +61,120 @@ class PhysicalNetworkInterfaceTypeDef(BaseValidatorModel):
     physicalNetworkInterfaceId: Optional[str] = None
 
 
-class SoftwareInformationTypeDef(BaseValidatorModel):
+class SoftwareInformation(BaseValidatorModel):
     installState: Optional[str] = None
     installedVersion: Optional[str] = None
     installingVersion: Optional[str] = None
 
 
-class DescribeExecutionInputTypeDef(BaseValidatorModel):
+class DescribeExecutionInput(BaseValidatorModel):
     managedDeviceId: str
     taskId: str
 
 
-class DescribeTaskInputTypeDef(BaseValidatorModel):
+class DescribeTaskInput(BaseValidatorModel):
     taskId: str
 
 
-class DeviceSummaryTypeDef(BaseValidatorModel):
+class DeviceSummary(BaseValidatorModel):
     associatedWithJob: Optional[str] = None
     managedDeviceArn: Optional[str] = None
     managedDeviceId: Optional[str] = None
     tags: Optional[Dict[str, str]] = None
 
 
-class EbsInstanceBlockDeviceTypeDef(BaseValidatorModel):
+class EbsInstanceBlockDevice(BaseValidatorModel):
     attachTime: Optional[datetime] = None
     deleteOnTermination: Optional[bool] = None
     status: Optional[AttachmentStatusType] = None
     volumeId: Optional[str] = None
 
 
-class ExecutionSummaryTypeDef(BaseValidatorModel):
+class ExecutionSummary(BaseValidatorModel):
     executionId: Optional[str] = None
     managedDeviceId: Optional[str] = None
     state: Optional[ExecutionStateType] = None
     taskId: Optional[str] = None
 
 
-class InstanceStateTypeDef(BaseValidatorModel):
+class InstanceState(BaseValidatorModel):
     code: Optional[int] = None
     name: Optional[InstanceStateNameType] = None
 
 
-class SecurityGroupIdentifierTypeDef(BaseValidatorModel):
+class SecurityGroupIdentifier(BaseValidatorModel):
     groupId: Optional[str] = None
     groupName: Optional[str] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListDevicesInputTypeDef(BaseValidatorModel):
+class ListDevicesInput(BaseValidatorModel):
     jobId: Optional[str] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListExecutionsInputTypeDef(BaseValidatorModel):
+class ListExecutionsInput(BaseValidatorModel):
     taskId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     state: Optional[ExecutionStateType] = None
 
 
-class ListTagsForResourceInputTypeDef(BaseValidatorModel):
+class ListTagsForResourceInput(BaseValidatorModel):
     resourceArn: str
 
 
-class ListTasksInputTypeDef(BaseValidatorModel):
+class ListTasksInput(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     state: Optional[TaskStateType] = None
 
 
-class TaskSummaryTypeDef(BaseValidatorModel):
+class TaskSummary(BaseValidatorModel):
     taskId: str
     state: Optional[TaskStateType] = None
     tags: Optional[Dict[str, str]] = None
     taskArn: Optional[str] = None
 
 
-class TagResourceInputTypeDef(BaseValidatorModel):
+class TagResourceInput(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
 
-class UntagResourceInputTypeDef(BaseValidatorModel):
+class UntagResourceInput(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
 
-class CancelTaskOutputTypeDef(BaseValidatorModel):
+class CancelTaskOutput(BaseValidatorModel):
     taskId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateTaskOutputTypeDef(BaseValidatorModel):
+class CreateTaskOutput(BaseValidatorModel):
     taskArn: str
     taskId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeExecutionOutputTypeDef(BaseValidatorModel):
+class DescribeExecutionOutput(BaseValidatorModel):
     executionId: str
     lastUpdatedAt: datetime
     managedDeviceId: str
     startedAt: datetime
     state: ExecutionStateType
     taskId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeTaskOutputTypeDef(BaseValidatorModel):
+class DescribeTaskOutput(BaseValidatorModel):
     completedAt: datetime
     createdAt: datetime
     description: str
@@ -184,94 +184,94 @@ class DescribeTaskOutputTypeDef(BaseValidatorModel):
     targets: List[str]
     taskArn: str
     taskId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class EmptyResponseMetadataTypeDef(BaseValidatorModel):
-    ResponseMetadata: ResponseMetadataTypeDef
+class EmptyResponseMetadata(BaseValidatorModel):
+    ResponseMetadata: ResponseMetadata
 
 
-class ListTagsForResourceOutputTypeDef(BaseValidatorModel):
+class ListTagsForResourceOutput(BaseValidatorModel):
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateTaskInputTypeDef(BaseValidatorModel):
-    command: CommandTypeDef
+class CreateTaskInput(BaseValidatorModel):
+    command: Command
     targets: Sequence[str]
     clientToken: Optional[str] = None
     description: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
 
-class DescribeDeviceOutputTypeDef(BaseValidatorModel):
+class DescribeDeviceOutput(BaseValidatorModel):
     associatedWithJob: str
-    deviceCapacities: List[CapacityTypeDef]
+    deviceCapacities: List[Capacity]
     deviceState: UnlockStateType
     deviceType: str
     lastReachedOutAt: datetime
     lastUpdatedAt: datetime
     managedDeviceArn: str
     managedDeviceId: str
-    physicalNetworkInterfaces: List[PhysicalNetworkInterfaceTypeDef]
-    software: SoftwareInformationTypeDef
+    physicalNetworkInterfaces: List[PhysicalNetworkInterface]
+    software: SoftwareInformation
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListDevicesOutputTypeDef(BaseValidatorModel):
-    devices: List[DeviceSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListDevicesOutput(BaseValidatorModel):
+    devices: List[DeviceSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class InstanceBlockDeviceMappingTypeDef(BaseValidatorModel):
+class InstanceBlockDeviceMapping(BaseValidatorModel):
     deviceName: Optional[str] = None
-    ebs: Optional[EbsInstanceBlockDeviceTypeDef] = None
+    ebs: Optional[EbsInstanceBlockDevice] = None
 
 
-class ListExecutionsOutputTypeDef(BaseValidatorModel):
-    executions: List[ExecutionSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListExecutionsOutput(BaseValidatorModel):
+    executions: List[ExecutionSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListDevicesInputPaginateTypeDef(BaseValidatorModel):
+class ListDevicesInputPaginate(BaseValidatorModel):
     jobId: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListExecutionsInputPaginateTypeDef(BaseValidatorModel):
+class ListExecutionsInputPaginate(BaseValidatorModel):
     taskId: str
     state: Optional[ExecutionStateType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListTasksInputPaginateTypeDef(BaseValidatorModel):
+class ListTasksInputPaginate(BaseValidatorModel):
     state: Optional[TaskStateType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ResourceSummaryTypeDef(BaseValidatorModel):
+class ResourceSummary(BaseValidatorModel):
     pass
 
 
-class ListDeviceResourcesOutputTypeDef(BaseValidatorModel):
-    resources: List[ResourceSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListDeviceResourcesOutput(BaseValidatorModel):
+    resources: List[ResourceSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListTasksOutputTypeDef(BaseValidatorModel):
-    tasks: List[TaskSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListTasksOutput(BaseValidatorModel):
+    tasks: List[TaskSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class InstanceTypeDef(BaseValidatorModel):
+class Instance(BaseValidatorModel):
     amiLaunchIndex: Optional[int] = None
-    blockDeviceMappings: Optional[List[InstanceBlockDeviceMappingTypeDef]] = None
-    cpuOptions: Optional[CpuOptionsTypeDef] = None
+    blockDeviceMappings: Optional[List[InstanceBlockDeviceMapping]] = None
+    cpuOptions: Optional[CpuOptions] = None
     createdAt: Optional[datetime] = None
     imageId: Optional[str] = None
     instanceId: Optional[str] = None
@@ -279,18 +279,18 @@ class InstanceTypeDef(BaseValidatorModel):
     privateIpAddress: Optional[str] = None
     publicIpAddress: Optional[str] = None
     rootDeviceName: Optional[str] = None
-    securityGroups: Optional[List[SecurityGroupIdentifierTypeDef]] = None
-    state: Optional[InstanceStateTypeDef] = None
+    securityGroups: Optional[List[SecurityGroupIdentifier]] = None
+    state: Optional[InstanceState] = None
     updatedAt: Optional[datetime] = None
 
 
-class InstanceSummaryTypeDef(BaseValidatorModel):
-    instance: Optional[InstanceTypeDef] = None
+class InstanceSummary(BaseValidatorModel):
+    instance: Optional[Instance] = None
     lastUpdatedAt: Optional[datetime] = None
 
 
-class DescribeDeviceEc2OutputTypeDef(BaseValidatorModel):
-    instances: List[InstanceSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeDeviceEc2Output(BaseValidatorModel):
+    instances: List[InstanceSummary]
+    ResponseMetadata: ResponseMetadata
 
 

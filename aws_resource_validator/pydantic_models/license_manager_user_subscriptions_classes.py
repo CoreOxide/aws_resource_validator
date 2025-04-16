@@ -12,15 +12,15 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.license_manager_user_subscriptions_constants import *
 
-class DomainNetworkSettingsOutputTypeDef(BaseValidatorModel):
+class DomainNetworkSettingsOutput(BaseValidatorModel):
     Subnets: List[str]
 
 
-class DomainNetworkSettingsTypeDef(BaseValidatorModel):
+class DomainNetworkSettings(BaseValidatorModel):
     Subnets: Sequence[str]
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -28,27 +28,27 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class SecretsManagerCredentialsProviderTypeDef(BaseValidatorModel):
+class SecretsManagerCredentialsProvider(BaseValidatorModel):
     SecretId: Optional[str] = None
 
 
-class DeleteLicenseServerEndpointRequestTypeDef(BaseValidatorModel):
+class DeleteLicenseServerEndpointRequest(BaseValidatorModel):
     LicenseServerEndpointArn: str
     ServerType: Literal["RDS_SAL"]
 
 
-class FilterTypeDef(BaseValidatorModel):
+class Filter(BaseValidatorModel):
     Attribute: Optional[str] = None
     Operation: Optional[str] = None
     Value: Optional[str] = None
 
 
-class SettingsOutputTypeDef(BaseValidatorModel):
+class SettingsOutput(BaseValidatorModel):
     SecurityGroupId: str
     Subnets: List[str]
 
 
-class InstanceSummaryTypeDef(BaseValidatorModel):
+class InstanceSummary(BaseValidatorModel):
     InstanceId: str
     Products: List[str]
     Status: str
@@ -56,182 +56,182 @@ class InstanceSummaryTypeDef(BaseValidatorModel):
     StatusMessage: Optional[str] = None
 
 
-class LicenseServerTypeDef(BaseValidatorModel):
+class LicenseServer(BaseValidatorModel):
     HealthStatus: Optional[LicenseServerHealthStatusType] = None
     Ipv4Address: Optional[str] = None
     ProvisioningStatus: Optional[LicenseServerEndpointProvisioningStatusType] = None
 
 
-class ServerEndpointTypeDef(BaseValidatorModel):
+class ServerEndpoint(BaseValidatorModel):
     Endpoint: Optional[str] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
 
-class SettingsTypeDef(BaseValidatorModel):
+class Settings(BaseValidatorModel):
     SecurityGroupId: str
     Subnets: Sequence[str]
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     Tags: Mapping[str, str]
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     TagKeys: Sequence[str]
 
 
-class UpdateSettingsTypeDef(BaseValidatorModel):
+class UpdateSettings(BaseValidatorModel):
     AddSubnets: Sequence[str]
     RemoveSubnets: Sequence[str]
     SecurityGroupId: Optional[str] = None
 
 
-class CreateLicenseServerEndpointResponseTypeDef(BaseValidatorModel):
+class CreateLicenseServerEndpointResponse(BaseValidatorModel):
     IdentityProviderArn: str
     LicenseServerEndpointArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
+class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CredentialsProviderTypeDef(BaseValidatorModel):
-    SecretsManagerCredentialsProvider: Optional[SecretsManagerCredentialsProviderTypeDef] = None
+class CredentialsProvider(BaseValidatorModel):
+    SecretsManagerCredentialsProvider: Optional[SecretsManagerCredentialsProvider] = None
 
 
-class ListIdentityProvidersRequestTypeDef(BaseValidatorModel):
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+class ListIdentityProvidersRequest(BaseValidatorModel):
+    Filters: Optional[Sequence[Filter]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListInstancesRequestTypeDef(BaseValidatorModel):
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+class ListInstancesRequest(BaseValidatorModel):
+    Filters: Optional[Sequence[Filter]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListLicenseServerEndpointsRequestTypeDef(BaseValidatorModel):
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+class ListLicenseServerEndpointsRequest(BaseValidatorModel):
+    Filters: Optional[Sequence[Filter]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListInstancesResponseTypeDef(BaseValidatorModel):
-    InstanceSummaries: List[InstanceSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListInstancesResponse(BaseValidatorModel):
+    InstanceSummaries: List[InstanceSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class LicenseServerEndpointTypeDef(BaseValidatorModel):
+class LicenseServerEndpoint(BaseValidatorModel):
     CreationTime: Optional[datetime] = None
     IdentityProviderArn: Optional[str] = None
     LicenseServerEndpointArn: Optional[str] = None
     LicenseServerEndpointId: Optional[str] = None
     LicenseServerEndpointProvisioningStatus: Optional[ LicenseServerEndpointProvisioningStatusType ] = None
-    LicenseServers: Optional[List[LicenseServerTypeDef]] = None
-    ServerEndpoint: Optional[ServerEndpointTypeDef] = None
+    LicenseServers: Optional[List[LicenseServer]] = None
+    ServerEndpoint: Optional[ServerEndpoint] = None
     ServerType: Optional[Literal["RDS_SAL"]] = None
     StatusMessage: Optional[str] = None
 
 
-class ListIdentityProvidersRequestPaginateTypeDef(BaseValidatorModel):
-    Filters: Optional[Sequence[FilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListIdentityProvidersRequestPaginate(BaseValidatorModel):
+    Filters: Optional[Sequence[Filter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListInstancesRequestPaginateTypeDef(BaseValidatorModel):
-    Filters: Optional[Sequence[FilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListInstancesRequestPaginate(BaseValidatorModel):
+    Filters: Optional[Sequence[Filter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListLicenseServerEndpointsRequestPaginateTypeDef(BaseValidatorModel):
-    Filters: Optional[Sequence[FilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListLicenseServerEndpointsRequestPaginate(BaseValidatorModel):
+    Filters: Optional[Sequence[Filter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ActiveDirectorySettingsOutputTypeDef(BaseValidatorModel):
-    DomainCredentialsProvider: Optional[CredentialsProviderTypeDef] = None
+class ActiveDirectorySettingsOutput(BaseValidatorModel):
+    DomainCredentialsProvider: Optional[CredentialsProvider] = None
     DomainIpv4List: Optional[List[str]] = None
     DomainName: Optional[str] = None
-    DomainNetworkSettings: Optional[DomainNetworkSettingsOutputTypeDef] = None
+    DomainNetworkSettings: Optional[DomainNetworkSettingsOutput] = None
 
 
-class ActiveDirectorySettingsTypeDef(BaseValidatorModel):
-    DomainCredentialsProvider: Optional[CredentialsProviderTypeDef] = None
+class ActiveDirectorySettings(BaseValidatorModel):
+    DomainCredentialsProvider: Optional[CredentialsProvider] = None
     DomainIpv4List: Optional[Sequence[str]] = None
     DomainName: Optional[str] = None
-    DomainNetworkSettings: Optional[DomainNetworkSettingsTypeDef] = None
+    DomainNetworkSettings: Optional[DomainNetworkSettings] = None
 
 
-class RdsSalSettingsTypeDef(BaseValidatorModel):
-    RdsSalCredentialsProvider: CredentialsProviderTypeDef
+class RdsSalSettings(BaseValidatorModel):
+    RdsSalCredentialsProvider: CredentialsProvider
 
 
-class DeleteLicenseServerEndpointResponseTypeDef(BaseValidatorModel):
-    LicenseServerEndpoint: LicenseServerEndpointTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeleteLicenseServerEndpointResponse(BaseValidatorModel):
+    LicenseServerEndpoint: LicenseServerEndpoint
+    ResponseMetadata: ResponseMetadata
 
 
-class ListLicenseServerEndpointsResponseTypeDef(BaseValidatorModel):
-    LicenseServerEndpoints: List[LicenseServerEndpointTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListLicenseServerEndpointsResponse(BaseValidatorModel):
+    LicenseServerEndpoints: List[LicenseServerEndpoint]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ActiveDirectoryIdentityProviderOutputTypeDef(BaseValidatorModel):
-    ActiveDirectorySettings: Optional[ActiveDirectorySettingsOutputTypeDef] = None
+class ActiveDirectoryIdentityProviderOutput(BaseValidatorModel):
+    ActiveDirectorySettings: Optional[ActiveDirectorySettingsOutput] = None
     ActiveDirectoryType: Optional[ActiveDirectoryTypeType] = None
     DirectoryId: Optional[str] = None
 
 
-class ActiveDirectoryIdentityProviderTypeDef(BaseValidatorModel):
-    ActiveDirectorySettings: Optional[ActiveDirectorySettingsTypeDef] = None
+class ActiveDirectoryIdentityProvider(BaseValidatorModel):
+    ActiveDirectorySettings: Optional[ActiveDirectorySettings] = None
     ActiveDirectoryType: Optional[ActiveDirectoryTypeType] = None
     DirectoryId: Optional[str] = None
 
 
-class ServerSettingsTypeDef(BaseValidatorModel):
-    RdsSalSettings: Optional[RdsSalSettingsTypeDef] = None
+class ServerSettings(BaseValidatorModel):
+    RdsSalSettings: Optional[RdsSalSettings] = None
 
 
-class IdentityProviderOutputTypeDef(BaseValidatorModel):
-    ActiveDirectoryIdentityProvider: Optional[ActiveDirectoryIdentityProviderOutputTypeDef] = None
+class IdentityProviderOutput(BaseValidatorModel):
+    ActiveDirectoryIdentityProvider: Optional[ActiveDirectoryIdentityProviderOutput] = None
 
 
-class IdentityProviderTypeDef(BaseValidatorModel):
-    ActiveDirectoryIdentityProvider: Optional[ActiveDirectoryIdentityProviderTypeDef] = None
+class IdentityProvider(BaseValidatorModel):
+    ActiveDirectoryIdentityProvider: Optional[ActiveDirectoryIdentityProvider] = None
 
 
-class LicenseServerSettingsTypeDef(BaseValidatorModel):
-    ServerSettings: ServerSettingsTypeDef
+class LicenseServerSettings(BaseValidatorModel):
+    ServerSettings: ServerSettings
     ServerType: Literal["RDS_SAL"]
 
 
-class IdentityProviderSummaryTypeDef(BaseValidatorModel):
-    IdentityProvider: IdentityProviderOutputTypeDef
+class IdentityProviderSummary(BaseValidatorModel):
+    IdentityProvider: IdentityProviderOutput
     Product: str
-    Settings: SettingsOutputTypeDef
+    Settings: SettingsOutput
     Status: str
     FailureMessage: Optional[str] = None
     IdentityProviderArn: Optional[str] = None
 
 
-class InstanceUserSummaryTypeDef(BaseValidatorModel):
-    IdentityProvider: IdentityProviderOutputTypeDef
+class InstanceUserSummary(BaseValidatorModel):
+    IdentityProvider: IdentityProviderOutput
     InstanceId: str
     Status: str
     Username: str
@@ -242,8 +242,8 @@ class InstanceUserSummaryTypeDef(BaseValidatorModel):
     StatusMessage: Optional[str] = None
 
 
-class ProductUserSummaryTypeDef(BaseValidatorModel):
-    IdentityProvider: IdentityProviderOutputTypeDef
+class ProductUserSummary(BaseValidatorModel):
+    IdentityProvider: IdentityProviderOutput
     Product: str
     Status: str
     Username: str
@@ -254,151 +254,151 @@ class ProductUserSummaryTypeDef(BaseValidatorModel):
     SubscriptionStartDate: Optional[str] = None
 
 
-class CreateLicenseServerEndpointRequestTypeDef(BaseValidatorModel):
+class CreateLicenseServerEndpointRequest(BaseValidatorModel):
     IdentityProviderArn: str
-    LicenseServerSettings: LicenseServerSettingsTypeDef
+    LicenseServerSettings: LicenseServerSettings
     Tags: Optional[Mapping[str, str]] = None
 
 
-class DeregisterIdentityProviderResponseTypeDef(BaseValidatorModel):
-    IdentityProviderSummary: IdentityProviderSummaryTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeregisterIdentityProviderResponse(BaseValidatorModel):
+    IdentityProviderSummary: IdentityProviderSummary
+    ResponseMetadata: ResponseMetadata
 
 
-class ListIdentityProvidersResponseTypeDef(BaseValidatorModel):
-    IdentityProviderSummaries: List[IdentityProviderSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListIdentityProvidersResponse(BaseValidatorModel):
+    IdentityProviderSummaries: List[IdentityProviderSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class RegisterIdentityProviderResponseTypeDef(BaseValidatorModel):
-    IdentityProviderSummary: IdentityProviderSummaryTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class RegisterIdentityProviderResponse(BaseValidatorModel):
+    IdentityProviderSummary: IdentityProviderSummary
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateIdentityProviderSettingsResponseTypeDef(BaseValidatorModel):
-    IdentityProviderSummary: IdentityProviderSummaryTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateIdentityProviderSettingsResponse(BaseValidatorModel):
+    IdentityProviderSummary: IdentityProviderSummary
+    ResponseMetadata: ResponseMetadata
 
 
-class AssociateUserResponseTypeDef(BaseValidatorModel):
-    InstanceUserSummary: InstanceUserSummaryTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class AssociateUserResponse(BaseValidatorModel):
+    InstanceUserSummary: InstanceUserSummary
+    ResponseMetadata: ResponseMetadata
 
 
-class DisassociateUserResponseTypeDef(BaseValidatorModel):
-    InstanceUserSummary: InstanceUserSummaryTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DisassociateUserResponse(BaseValidatorModel):
+    InstanceUserSummary: InstanceUserSummary
+    ResponseMetadata: ResponseMetadata
 
 
-class ListUserAssociationsResponseTypeDef(BaseValidatorModel):
-    InstanceUserSummaries: List[InstanceUserSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListUserAssociationsResponse(BaseValidatorModel):
+    InstanceUserSummaries: List[InstanceUserSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListProductSubscriptionsResponseTypeDef(BaseValidatorModel):
-    ProductUserSummaries: List[ProductUserSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListProductSubscriptionsResponse(BaseValidatorModel):
+    ProductUserSummaries: List[ProductUserSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class StartProductSubscriptionResponseTypeDef(BaseValidatorModel):
-    ProductUserSummary: ProductUserSummaryTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class StartProductSubscriptionResponse(BaseValidatorModel):
+    ProductUserSummary: ProductUserSummary
+    ResponseMetadata: ResponseMetadata
 
 
-class StopProductSubscriptionResponseTypeDef(BaseValidatorModel):
-    ProductUserSummary: ProductUserSummaryTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class StopProductSubscriptionResponse(BaseValidatorModel):
+    ProductUserSummary: ProductUserSummary
+    ResponseMetadata: ResponseMetadata
 
 
-class IdentityProviderUnionTypeDef(BaseValidatorModel):
+class IdentityProviderUnion(BaseValidatorModel):
     pass
 
 
-class AssociateUserRequestTypeDef(BaseValidatorModel):
-    IdentityProvider: IdentityProviderUnionTypeDef
+class AssociateUserRequest(BaseValidatorModel):
+    IdentityProvider: IdentityProviderUnion
     InstanceId: str
     Username: str
     Domain: Optional[str] = None
     Tags: Optional[Mapping[str, str]] = None
 
 
-class DeregisterIdentityProviderRequestTypeDef(BaseValidatorModel):
-    IdentityProvider: Optional[IdentityProviderUnionTypeDef] = None
+class DeregisterIdentityProviderRequest(BaseValidatorModel):
+    IdentityProvider: Optional[IdentityProviderUnion] = None
     IdentityProviderArn: Optional[str] = None
     Product: Optional[str] = None
 
 
-class DisassociateUserRequestTypeDef(BaseValidatorModel):
+class DisassociateUserRequest(BaseValidatorModel):
     Domain: Optional[str] = None
-    IdentityProvider: Optional[IdentityProviderUnionTypeDef] = None
+    IdentityProvider: Optional[IdentityProviderUnion] = None
     InstanceId: Optional[str] = None
     InstanceUserArn: Optional[str] = None
     Username: Optional[str] = None
 
 
-class ListProductSubscriptionsRequestPaginateTypeDef(BaseValidatorModel):
-    IdentityProvider: IdentityProviderUnionTypeDef
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+class ListProductSubscriptionsRequestPaginate(BaseValidatorModel):
+    IdentityProvider: IdentityProviderUnion
+    Filters: Optional[Sequence[Filter]] = None
     Product: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListProductSubscriptionsRequestTypeDef(BaseValidatorModel):
-    IdentityProvider: IdentityProviderUnionTypeDef
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+class ListProductSubscriptionsRequest(BaseValidatorModel):
+    IdentityProvider: IdentityProviderUnion
+    Filters: Optional[Sequence[Filter]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     Product: Optional[str] = None
 
 
-class ListUserAssociationsRequestPaginateTypeDef(BaseValidatorModel):
-    IdentityProvider: IdentityProviderUnionTypeDef
+class ListUserAssociationsRequestPaginate(BaseValidatorModel):
+    IdentityProvider: IdentityProviderUnion
     InstanceId: str
-    Filters: Optional[Sequence[FilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Optional[Sequence[Filter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListUserAssociationsRequestTypeDef(BaseValidatorModel):
-    IdentityProvider: IdentityProviderUnionTypeDef
+class ListUserAssociationsRequest(BaseValidatorModel):
+    IdentityProvider: IdentityProviderUnion
     InstanceId: str
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+    Filters: Optional[Sequence[Filter]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class SettingsUnionTypeDef(BaseValidatorModel):
+class SettingsUnion(BaseValidatorModel):
     pass
 
 
-class RegisterIdentityProviderRequestTypeDef(BaseValidatorModel):
-    IdentityProvider: IdentityProviderUnionTypeDef
+class RegisterIdentityProviderRequest(BaseValidatorModel):
+    IdentityProvider: IdentityProviderUnion
     Product: str
-    Settings: Optional[SettingsUnionTypeDef] = None
+    Settings: Optional[SettingsUnion] = None
     Tags: Optional[Mapping[str, str]] = None
 
 
-class StartProductSubscriptionRequestTypeDef(BaseValidatorModel):
-    IdentityProvider: IdentityProviderUnionTypeDef
+class StartProductSubscriptionRequest(BaseValidatorModel):
+    IdentityProvider: IdentityProviderUnion
     Product: str
     Username: str
     Domain: Optional[str] = None
     Tags: Optional[Mapping[str, str]] = None
 
 
-class StopProductSubscriptionRequestTypeDef(BaseValidatorModel):
+class StopProductSubscriptionRequest(BaseValidatorModel):
     Domain: Optional[str] = None
-    IdentityProvider: Optional[IdentityProviderUnionTypeDef] = None
+    IdentityProvider: Optional[IdentityProviderUnion] = None
     Product: Optional[str] = None
     ProductUserArn: Optional[str] = None
     Username: Optional[str] = None
 
 
-class UpdateIdentityProviderSettingsRequestTypeDef(BaseValidatorModel):
-    UpdateSettings: UpdateSettingsTypeDef
-    IdentityProvider: Optional[IdentityProviderUnionTypeDef] = None
+class UpdateIdentityProviderSettingsRequest(BaseValidatorModel):
+    UpdateSettings: UpdateSettings
+    IdentityProvider: Optional[IdentityProviderUnion] = None
     IdentityProviderArn: Optional[str] = None
     Product: Optional[str] = None
 

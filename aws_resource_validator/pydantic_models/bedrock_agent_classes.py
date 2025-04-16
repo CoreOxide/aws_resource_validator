@@ -12,12 +12,12 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.bedrock_agent_constants import *
 
-class S3IdentifierTypeDef(BaseValidatorModel):
+class S3Identifier(BaseValidatorModel):
     s3BucketName: Optional[str] = None
     s3ObjectKey: Optional[str] = None
 
 
-class ActionGroupSummaryTypeDef(BaseValidatorModel):
+class ActionGroupSummary(BaseValidatorModel):
     actionGroupId: str
     actionGroupName: str
     actionGroupState: ActionGroupStateType
@@ -25,27 +25,27 @@ class ActionGroupSummaryTypeDef(BaseValidatorModel):
     description: Optional[str] = None
 
 
-class AgentAliasRoutingConfigurationListItemTypeDef(BaseValidatorModel):
+class AgentAliasRoutingConfigurationListItem(BaseValidatorModel):
     agentVersion: Optional[str] = None
     provisionedThroughput: Optional[str] = None
 
 
-class AgentDescriptorTypeDef(BaseValidatorModel):
+class AgentDescriptor(BaseValidatorModel):
     aliasArn: Optional[str] = None
 
 
-class AgentFlowNodeConfigurationTypeDef(BaseValidatorModel):
+class AgentFlowNodeConfiguration(BaseValidatorModel):
     agentAliasArn: str
 
 
-class AgentKnowledgeBaseSummaryTypeDef(BaseValidatorModel):
+class AgentKnowledgeBaseSummary(BaseValidatorModel):
     knowledgeBaseId: str
     knowledgeBaseState: KnowledgeBaseStateType
     updatedAt: datetime
     description: Optional[str] = None
 
 
-class AgentKnowledgeBaseTypeDef(BaseValidatorModel):
+class AgentKnowledgeBase(BaseValidatorModel):
     agentId: str
     agentVersion: str
     createdAt: datetime
@@ -55,12 +55,12 @@ class AgentKnowledgeBaseTypeDef(BaseValidatorModel):
     updatedAt: datetime
 
 
-class GuardrailConfigurationTypeDef(BaseValidatorModel):
+class GuardrailConfiguration(BaseValidatorModel):
     guardrailIdentifier: Optional[str] = None
     guardrailVersion: Optional[str] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -68,7 +68,7 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class AssociateAgentKnowledgeBaseRequestTypeDef(BaseValidatorModel):
+class AssociateAgentKnowledgeBaseRequest(BaseValidatorModel):
     agentId: str
     agentVersion: str
     description: str
@@ -76,98 +76,98 @@ class AssociateAgentKnowledgeBaseRequestTypeDef(BaseValidatorModel):
     knowledgeBaseState: Optional[KnowledgeBaseStateType] = None
 
 
-class BedrockDataAutomationConfigurationTypeDef(BaseValidatorModel):
+class BedrockDataAutomationConfiguration(BaseValidatorModel):
     parsingModality: Optional[Literal["MULTIMODAL"]] = None
 
 
-class BedrockEmbeddingModelConfigurationTypeDef(BaseValidatorModel):
+class BedrockEmbeddingModelConfiguration(BaseValidatorModel):
     dimensions: Optional[int] = None
     embeddingDataType: Optional[EmbeddingDataTypeType] = None
 
 
-class ParsingPromptTypeDef(BaseValidatorModel):
+class ParsingPrompt(BaseValidatorModel):
     parsingPromptText: str
 
 
-class EnrichmentStrategyConfigurationTypeDef(BaseValidatorModel):
+class EnrichmentStrategyConfiguration(BaseValidatorModel):
     method: Literal["CHUNK_ENTITY_EXTRACTION"]
 
 
-class PromptInputVariableTypeDef(BaseValidatorModel):
+class PromptInputVariable(BaseValidatorModel):
     name: Optional[str] = None
 
 
-class FixedSizeChunkingConfigurationTypeDef(BaseValidatorModel):
+class FixedSizeChunkingConfiguration(BaseValidatorModel):
     maxTokens: int
     overlapPercentage: int
 
 
-class SemanticChunkingConfigurationTypeDef(BaseValidatorModel):
+class SemanticChunkingConfiguration(BaseValidatorModel):
     breakpointPercentileThreshold: int
     bufferSize: int
     maxTokens: int
 
 
-class FlowConditionTypeDef(BaseValidatorModel):
+class FlowCondition(BaseValidatorModel):
     name: str
     expression: Optional[str] = None
 
 
-class ConfluenceSourceConfigurationTypeDef(BaseValidatorModel):
+class ConfluenceSourceConfiguration(BaseValidatorModel):
     authType: ConfluenceAuthTypeType
     credentialsSecretArn: str
     hostType: Literal["SAAS"]
     hostUrl: str
 
 
-class ServerSideEncryptionConfigurationTypeDef(BaseValidatorModel):
+class ServerSideEncryptionConfiguration(BaseValidatorModel):
     kmsKeyArn: Optional[str] = None
 
 
-class FlowAliasRoutingConfigurationListItemTypeDef(BaseValidatorModel):
+class FlowAliasRoutingConfigurationListItem(BaseValidatorModel):
     flowVersion: Optional[str] = None
 
 
-class CreateFlowVersionRequestTypeDef(BaseValidatorModel):
+class CreateFlowVersionRequest(BaseValidatorModel):
     flowIdentifier: str
     clientToken: Optional[str] = None
     description: Optional[str] = None
 
 
-class CreatePromptVersionRequestTypeDef(BaseValidatorModel):
+class CreatePromptVersionRequest(BaseValidatorModel):
     promptIdentifier: str
     clientToken: Optional[str] = None
     description: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
 
-class CuratedQueryTypeDef(BaseValidatorModel):
+class CuratedQuery(BaseValidatorModel):
     naturalLanguage: str
     sql: str
 
 
-class CustomS3LocationTypeDef(BaseValidatorModel):
+class CustomS3Location(BaseValidatorModel):
     uri: str
     bucketOwnerAccountId: Optional[str] = None
 
 
-class CyclicConnectionFlowValidationDetailsTypeDef(BaseValidatorModel):
+class CyclicConnectionFlowValidationDetails(BaseValidatorModel):
     connection: str
 
 
-class S3DataSourceConfigurationOutputTypeDef(BaseValidatorModel):
+class S3DataSourceConfigurationOutput(BaseValidatorModel):
     bucketArn: str
     bucketOwnerAccountId: Optional[str] = None
     inclusionPrefixes: Optional[List[str]] = None
 
 
-class S3DataSourceConfigurationTypeDef(BaseValidatorModel):
+class S3DataSourceConfiguration(BaseValidatorModel):
     bucketArn: str
     bucketOwnerAccountId: Optional[str] = None
     inclusionPrefixes: Optional[Sequence[str]] = None
 
 
-class DataSourceSummaryTypeDef(BaseValidatorModel):
+class DataSourceSummary(BaseValidatorModel):
     dataSourceId: str
     knowledgeBaseId: str
     name: str
@@ -176,240 +176,240 @@ class DataSourceSummaryTypeDef(BaseValidatorModel):
     description: Optional[str] = None
 
 
-class DeleteAgentActionGroupRequestTypeDef(BaseValidatorModel):
+class DeleteAgentActionGroupRequest(BaseValidatorModel):
     actionGroupId: str
     agentId: str
     agentVersion: str
     skipResourceInUseCheck: Optional[bool] = None
 
 
-class DeleteAgentAliasRequestTypeDef(BaseValidatorModel):
+class DeleteAgentAliasRequest(BaseValidatorModel):
     agentAliasId: str
     agentId: str
 
 
-class DeleteAgentRequestTypeDef(BaseValidatorModel):
+class DeleteAgentRequest(BaseValidatorModel):
     agentId: str
     skipResourceInUseCheck: Optional[bool] = None
 
 
-class DeleteAgentVersionRequestTypeDef(BaseValidatorModel):
+class DeleteAgentVersionRequest(BaseValidatorModel):
     agentId: str
     agentVersion: str
     skipResourceInUseCheck: Optional[bool] = None
 
 
-class DeleteDataSourceRequestTypeDef(BaseValidatorModel):
+class DeleteDataSourceRequest(BaseValidatorModel):
     dataSourceId: str
     knowledgeBaseId: str
 
 
-class DeleteFlowAliasRequestTypeDef(BaseValidatorModel):
+class DeleteFlowAliasRequest(BaseValidatorModel):
     aliasIdentifier: str
     flowIdentifier: str
 
 
-class DeleteFlowRequestTypeDef(BaseValidatorModel):
+class DeleteFlowRequest(BaseValidatorModel):
     flowIdentifier: str
     skipResourceInUseCheck: Optional[bool] = None
 
 
-class DeleteFlowVersionRequestTypeDef(BaseValidatorModel):
+class DeleteFlowVersionRequest(BaseValidatorModel):
     flowIdentifier: str
     flowVersion: str
     skipResourceInUseCheck: Optional[bool] = None
 
 
-class DeleteKnowledgeBaseRequestTypeDef(BaseValidatorModel):
+class DeleteKnowledgeBaseRequest(BaseValidatorModel):
     knowledgeBaseId: str
 
 
-class DeletePromptRequestTypeDef(BaseValidatorModel):
+class DeletePromptRequest(BaseValidatorModel):
     promptIdentifier: str
     promptVersion: Optional[str] = None
 
 
-class DisassociateAgentCollaboratorRequestTypeDef(BaseValidatorModel):
+class DisassociateAgentCollaboratorRequest(BaseValidatorModel):
     agentId: str
     agentVersion: str
     collaboratorId: str
 
 
-class DisassociateAgentKnowledgeBaseRequestTypeDef(BaseValidatorModel):
+class DisassociateAgentKnowledgeBaseRequest(BaseValidatorModel):
     agentId: str
     agentVersion: str
     knowledgeBaseId: str
 
 
-class S3LocationTypeDef(BaseValidatorModel):
+class S3Location(BaseValidatorModel):
     uri: str
 
 
-class DuplicateConditionExpressionFlowValidationDetailsTypeDef(BaseValidatorModel):
+class DuplicateConditionExpressionFlowValidationDetails(BaseValidatorModel):
     expression: str
     node: str
 
 
-class DuplicateConnectionsFlowValidationDetailsTypeDef(BaseValidatorModel):
+class DuplicateConnectionsFlowValidationDetails(BaseValidatorModel):
     source: str
     target: str
 
 
-class FlowConditionalConnectionConfigurationTypeDef(BaseValidatorModel):
+class FlowConditionalConnectionConfiguration(BaseValidatorModel):
     condition: str
 
 
-class FlowDataConnectionConfigurationTypeDef(BaseValidatorModel):
+class FlowDataConnectionConfiguration(BaseValidatorModel):
     sourceOutput: str
     targetInput: str
 
 
-class LambdaFunctionFlowNodeConfigurationTypeDef(BaseValidatorModel):
+class LambdaFunctionFlowNodeConfiguration(BaseValidatorModel):
     lambdaArn: str
 
 
-class LexFlowNodeConfigurationTypeDef(BaseValidatorModel):
+class LexFlowNodeConfiguration(BaseValidatorModel):
     botAliasArn: str
     localeId: str
 
 
-class IncompatibleConnectionDataTypeFlowValidationDetailsTypeDef(BaseValidatorModel):
+class IncompatibleConnectionDataTypeFlowValidationDetails(BaseValidatorModel):
     connection: str
 
 
-class MalformedConditionExpressionFlowValidationDetailsTypeDef(BaseValidatorModel):
+class MalformedConditionExpressionFlowValidationDetails(BaseValidatorModel):
     cause: str
     condition: str
     node: str
 
 
-class MismatchedNodeOutputTypeFlowValidationDetailsTypeDef(BaseValidatorModel):
+class MismatchedNodeOutputTypeFlowValidationDetails(BaseValidatorModel):
     expectedType: FlowNodeIODataTypeType
     node: str
     output: str
 
 
-class MissingConnectionConfigurationFlowValidationDetailsTypeDef(BaseValidatorModel):
+class MissingConnectionConfigurationFlowValidationDetails(BaseValidatorModel):
     connection: str
 
 
-class MissingDefaultConditionFlowValidationDetailsTypeDef(BaseValidatorModel):
+class MissingDefaultConditionFlowValidationDetails(BaseValidatorModel):
     node: str
 
 
-class MissingNodeConfigurationFlowValidationDetailsTypeDef(BaseValidatorModel):
+class MissingNodeConfigurationFlowValidationDetails(BaseValidatorModel):
     node: str
 
 
-class MissingNodeOutputFlowValidationDetailsTypeDef(BaseValidatorModel):
-    node: str
-    output: str
-
-
-class UnknownConnectionConditionFlowValidationDetailsTypeDef(BaseValidatorModel):
-    connection: str
-
-
-class UnknownConnectionSourceFlowValidationDetailsTypeDef(BaseValidatorModel):
-    connection: str
-
-
-class UnknownConnectionSourceOutputFlowValidationDetailsTypeDef(BaseValidatorModel):
-    connection: str
-
-
-class UnknownConnectionTargetFlowValidationDetailsTypeDef(BaseValidatorModel):
-    connection: str
-
-
-class UnknownConnectionTargetInputFlowValidationDetailsTypeDef(BaseValidatorModel):
-    connection: str
-
-
-class UnknownNodeOutputFlowValidationDetailsTypeDef(BaseValidatorModel):
+class MissingNodeOutputFlowValidationDetails(BaseValidatorModel):
     node: str
     output: str
 
 
-class UnreachableNodeFlowValidationDetailsTypeDef(BaseValidatorModel):
-    node: str
-
-
-class UnsatisfiedConnectionConditionsFlowValidationDetailsTypeDef(BaseValidatorModel):
+class UnknownConnectionConditionFlowValidationDetails(BaseValidatorModel):
     connection: str
 
 
-class GetAgentActionGroupRequestTypeDef(BaseValidatorModel):
+class UnknownConnectionSourceFlowValidationDetails(BaseValidatorModel):
+    connection: str
+
+
+class UnknownConnectionSourceOutputFlowValidationDetails(BaseValidatorModel):
+    connection: str
+
+
+class UnknownConnectionTargetFlowValidationDetails(BaseValidatorModel):
+    connection: str
+
+
+class UnknownConnectionTargetInputFlowValidationDetails(BaseValidatorModel):
+    connection: str
+
+
+class UnknownNodeOutputFlowValidationDetails(BaseValidatorModel):
+    node: str
+    output: str
+
+
+class UnreachableNodeFlowValidationDetails(BaseValidatorModel):
+    node: str
+
+
+class UnsatisfiedConnectionConditionsFlowValidationDetails(BaseValidatorModel):
+    connection: str
+
+
+class GetAgentActionGroupRequest(BaseValidatorModel):
     actionGroupId: str
     agentId: str
     agentVersion: str
 
 
-class GetAgentAliasRequestTypeDef(BaseValidatorModel):
+class GetAgentAliasRequest(BaseValidatorModel):
     agentAliasId: str
     agentId: str
 
 
-class GetAgentCollaboratorRequestTypeDef(BaseValidatorModel):
+class GetAgentCollaboratorRequest(BaseValidatorModel):
     agentId: str
     agentVersion: str
     collaboratorId: str
 
 
-class GetAgentKnowledgeBaseRequestTypeDef(BaseValidatorModel):
+class GetAgentKnowledgeBaseRequest(BaseValidatorModel):
     agentId: str
     agentVersion: str
     knowledgeBaseId: str
 
 
-class GetAgentRequestTypeDef(BaseValidatorModel):
+class GetAgentRequest(BaseValidatorModel):
     agentId: str
 
 
-class GetAgentVersionRequestTypeDef(BaseValidatorModel):
+class GetAgentVersionRequest(BaseValidatorModel):
     agentId: str
     agentVersion: str
 
 
-class GetDataSourceRequestTypeDef(BaseValidatorModel):
+class GetDataSourceRequest(BaseValidatorModel):
     dataSourceId: str
     knowledgeBaseId: str
 
 
-class GetFlowAliasRequestTypeDef(BaseValidatorModel):
+class GetFlowAliasRequest(BaseValidatorModel):
     aliasIdentifier: str
     flowIdentifier: str
 
 
-class GetFlowRequestTypeDef(BaseValidatorModel):
+class GetFlowRequest(BaseValidatorModel):
     flowIdentifier: str
 
 
-class GetFlowVersionRequestTypeDef(BaseValidatorModel):
+class GetFlowVersionRequest(BaseValidatorModel):
     flowIdentifier: str
     flowVersion: str
 
 
-class GetIngestionJobRequestTypeDef(BaseValidatorModel):
+class GetIngestionJobRequest(BaseValidatorModel):
     dataSourceId: str
     ingestionJobId: str
     knowledgeBaseId: str
 
 
-class GetKnowledgeBaseRequestTypeDef(BaseValidatorModel):
+class GetKnowledgeBaseRequest(BaseValidatorModel):
     knowledgeBaseId: str
 
 
-class GetPromptRequestTypeDef(BaseValidatorModel):
+class GetPromptRequest(BaseValidatorModel):
     promptIdentifier: str
     promptVersion: Optional[str] = None
 
 
-class HierarchicalChunkingLevelConfigurationTypeDef(BaseValidatorModel):
+class HierarchicalChunkingLevelConfiguration(BaseValidatorModel):
     maxTokens: int
 
 
-class InferenceConfigurationOutputTypeDef(BaseValidatorModel):
+class InferenceConfigurationOutput(BaseValidatorModel):
     maximumLength: Optional[int] = None
     stopSequences: Optional[List[str]] = None
     temperature: Optional[float] = None
@@ -417,7 +417,7 @@ class InferenceConfigurationOutputTypeDef(BaseValidatorModel):
     topP: Optional[float] = None
 
 
-class InferenceConfigurationTypeDef(BaseValidatorModel):
+class InferenceConfiguration(BaseValidatorModel):
     maximumLength: Optional[int] = None
     stopSequences: Optional[Sequence[str]] = None
     temperature: Optional[float] = None
@@ -425,12 +425,12 @@ class InferenceConfigurationTypeDef(BaseValidatorModel):
     topP: Optional[float] = None
 
 
-class IngestionJobSortByTypeDef(BaseValidatorModel):
+class IngestionJobSortBy(BaseValidatorModel):
     attribute: IngestionJobSortByAttributeType
     order: SortOrderType
 
 
-class IngestionJobStatisticsTypeDef(BaseValidatorModel):
+class IngestionJobStatistics(BaseValidatorModel):
     numberOfDocumentsDeleted: Optional[int] = None
     numberOfDocumentsFailed: Optional[int] = None
     numberOfDocumentsScanned: Optional[int] = None
@@ -440,15 +440,15 @@ class IngestionJobStatisticsTypeDef(BaseValidatorModel):
     numberOfNewDocumentsIndexed: Optional[int] = None
 
 
-class TextContentDocTypeDef(BaseValidatorModel):
+class TextContentDoc(BaseValidatorModel):
     data: str
 
 
-class KendraKnowledgeBaseConfigurationTypeDef(BaseValidatorModel):
+class KendraKnowledgeBaseConfiguration(BaseValidatorModel):
     kendraIndexArn: str
 
 
-class KnowledgeBaseSummaryTypeDef(BaseValidatorModel):
+class KnowledgeBaseSummary(BaseValidatorModel):
     knowledgeBaseId: str
     name: str
     status: KnowledgeBaseStatusType
@@ -456,214 +456,214 @@ class KnowledgeBaseSummaryTypeDef(BaseValidatorModel):
     description: Optional[str] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListAgentActionGroupsRequestTypeDef(BaseValidatorModel):
+class ListAgentActionGroupsRequest(BaseValidatorModel):
     agentId: str
     agentVersion: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListAgentAliasesRequestTypeDef(BaseValidatorModel):
+class ListAgentAliasesRequest(BaseValidatorModel):
     agentId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListAgentCollaboratorsRequestTypeDef(BaseValidatorModel):
-    agentId: str
-    agentVersion: str
-    maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
-
-
-class ListAgentKnowledgeBasesRequestTypeDef(BaseValidatorModel):
+class ListAgentCollaboratorsRequest(BaseValidatorModel):
     agentId: str
     agentVersion: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListAgentVersionsRequestTypeDef(BaseValidatorModel):
+class ListAgentKnowledgeBasesRequest(BaseValidatorModel):
+    agentId: str
+    agentVersion: str
+    maxResults: Optional[int] = None
+    nextToken: Optional[str] = None
+
+
+class ListAgentVersionsRequest(BaseValidatorModel):
     agentId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListAgentsRequestTypeDef(BaseValidatorModel):
+class ListAgentsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListDataSourcesRequestTypeDef(BaseValidatorModel):
+class ListDataSourcesRequest(BaseValidatorModel):
     knowledgeBaseId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListFlowAliasesRequestTypeDef(BaseValidatorModel):
+class ListFlowAliasesRequest(BaseValidatorModel):
     flowIdentifier: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListFlowVersionsRequestTypeDef(BaseValidatorModel):
+class ListFlowVersionsRequest(BaseValidatorModel):
     flowIdentifier: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListFlowsRequestTypeDef(BaseValidatorModel):
+class ListFlowsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListKnowledgeBaseDocumentsRequestTypeDef(BaseValidatorModel):
+class ListKnowledgeBaseDocumentsRequest(BaseValidatorModel):
     dataSourceId: str
     knowledgeBaseId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListKnowledgeBasesRequestTypeDef(BaseValidatorModel):
+class ListKnowledgeBasesRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListPromptsRequestTypeDef(BaseValidatorModel):
+class ListPromptsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     promptIdentifier: Optional[str] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
 
-class SessionSummaryConfigurationTypeDef(BaseValidatorModel):
+class SessionSummaryConfiguration(BaseValidatorModel):
     maxRecentSessions: Optional[int] = None
 
 
-class MongoDbAtlasFieldMappingTypeDef(BaseValidatorModel):
+class MongoDbAtlasFieldMapping(BaseValidatorModel):
     metadataField: str
     textField: str
     vectorField: str
 
 
-class NeptuneAnalyticsFieldMappingTypeDef(BaseValidatorModel):
+class NeptuneAnalyticsFieldMapping(BaseValidatorModel):
     metadataField: str
     textField: str
 
 
-class OpenSearchServerlessFieldMappingTypeDef(BaseValidatorModel):
+class OpenSearchServerlessFieldMapping(BaseValidatorModel):
     metadataField: str
     textField: str
     vectorField: str
 
 
-class PatternObjectFilterOutputTypeDef(BaseValidatorModel):
+class PatternObjectFilterOutput(BaseValidatorModel):
     objectType: str
     exclusionFilters: Optional[List[str]] = None
     inclusionFilters: Optional[List[str]] = None
 
 
-class PatternObjectFilterTypeDef(BaseValidatorModel):
+class PatternObjectFilter(BaseValidatorModel):
     objectType: str
     exclusionFilters: Optional[Sequence[str]] = None
     inclusionFilters: Optional[Sequence[str]] = None
 
 
-class PineconeFieldMappingTypeDef(BaseValidatorModel):
+class PineconeFieldMapping(BaseValidatorModel):
     metadataField: str
     textField: str
 
 
-class PrepareAgentRequestTypeDef(BaseValidatorModel):
+class PrepareAgentRequest(BaseValidatorModel):
     agentId: str
 
 
-class PrepareFlowRequestTypeDef(BaseValidatorModel):
+class PrepareFlowRequest(BaseValidatorModel):
     flowIdentifier: str
 
 
-class PromptAgentResourceTypeDef(BaseValidatorModel):
+class PromptAgentResource(BaseValidatorModel):
     agentIdentifier: str
 
 
-class PromptFlowNodeResourceConfigurationTypeDef(BaseValidatorModel):
+class PromptFlowNodeResourceConfiguration(BaseValidatorModel):
     promptArn: str
 
 
-class PromptModelInferenceConfigurationOutputTypeDef(BaseValidatorModel):
+class PromptModelInferenceConfigurationOutput(BaseValidatorModel):
     maxTokens: Optional[int] = None
     stopSequences: Optional[List[str]] = None
     temperature: Optional[float] = None
     topP: Optional[float] = None
 
 
-class PromptMetadataEntryTypeDef(BaseValidatorModel):
+class PromptMetadataEntry(BaseValidatorModel):
     key: str
     value: str
 
 
-class PromptModelInferenceConfigurationTypeDef(BaseValidatorModel):
+class PromptModelInferenceConfiguration(BaseValidatorModel):
     maxTokens: Optional[int] = None
     stopSequences: Optional[Sequence[str]] = None
     temperature: Optional[float] = None
     topP: Optional[float] = None
 
 
-class QueryGenerationColumnTypeDef(BaseValidatorModel):
+class QueryGenerationColumn(BaseValidatorModel):
     description: Optional[str] = None
     inclusion: Optional[IncludeExcludeType] = None
     name: Optional[str] = None
 
 
-class RdsFieldMappingTypeDef(BaseValidatorModel):
+class RdsFieldMapping(BaseValidatorModel):
     metadataField: str
     primaryKeyField: str
     textField: str
     vectorField: str
 
 
-class RedisEnterpriseCloudFieldMappingTypeDef(BaseValidatorModel):
+class RedisEnterpriseCloudFieldMapping(BaseValidatorModel):
     metadataField: str
     textField: str
     vectorField: str
 
 
-class RedshiftQueryEngineAwsDataCatalogStorageConfigurationOutputTypeDef(BaseValidatorModel):
+class RedshiftQueryEngineAwsDataCatalogStorageConfigurationOutput(BaseValidatorModel):
     tableNames: List[str]
 
 
-class RedshiftQueryEngineAwsDataCatalogStorageConfigurationTypeDef(BaseValidatorModel):
+class RedshiftQueryEngineAwsDataCatalogStorageConfiguration(BaseValidatorModel):
     tableNames: Sequence[str]
 
 
-class RedshiftQueryEngineRedshiftStorageConfigurationTypeDef(BaseValidatorModel):
+class RedshiftQueryEngineRedshiftStorageConfiguration(BaseValidatorModel):
     databaseName: str
 
 
-class RetrievalFlowNodeS3ConfigurationTypeDef(BaseValidatorModel):
+class RetrievalFlowNodeS3Configuration(BaseValidatorModel):
     bucketName: str
 
 
-class SalesforceSourceConfigurationTypeDef(BaseValidatorModel):
+class SalesforceSourceConfiguration(BaseValidatorModel):
     authType: Literal["OAUTH2_CLIENT_CREDENTIALS"]
     credentialsSecretArn: str
     hostUrl: str
 
 
-class SeedUrlTypeDef(BaseValidatorModel):
+class SeedUrl(BaseValidatorModel):
     url: Optional[str] = None
 
 
-class SharePointSourceConfigurationOutputTypeDef(BaseValidatorModel):
+class SharePointSourceConfigurationOutput(BaseValidatorModel):
     authType: SharePointAuthTypeType
     credentialsSecretArn: str
     domain: str
@@ -672,7 +672,7 @@ class SharePointSourceConfigurationOutputTypeDef(BaseValidatorModel):
     tenantId: Optional[str] = None
 
 
-class SharePointSourceConfigurationTypeDef(BaseValidatorModel):
+class SharePointSourceConfiguration(BaseValidatorModel):
     authType: SharePointAuthTypeType
     credentialsSecretArn: str
     domain: str
@@ -681,50 +681,50 @@ class SharePointSourceConfigurationTypeDef(BaseValidatorModel):
     tenantId: Optional[str] = None
 
 
-class SpecificToolChoiceTypeDef(BaseValidatorModel):
+class SpecificToolChoice(BaseValidatorModel):
     name: str
 
 
-class StartIngestionJobRequestTypeDef(BaseValidatorModel):
+class StartIngestionJobRequest(BaseValidatorModel):
     dataSourceId: str
     knowledgeBaseId: str
     clientToken: Optional[str] = None
     description: Optional[str] = None
 
 
-class StopIngestionJobRequestTypeDef(BaseValidatorModel):
+class StopIngestionJobRequest(BaseValidatorModel):
     dataSourceId: str
     ingestionJobId: str
     knowledgeBaseId: str
 
 
-class StorageFlowNodeS3ConfigurationTypeDef(BaseValidatorModel):
+class StorageFlowNodeS3Configuration(BaseValidatorModel):
     bucketName: str
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
 
-class ToolInputSchemaOutputTypeDef(BaseValidatorModel):
+class ToolInputSchemaOutput(BaseValidatorModel):
     json: Optional[Dict[str, Any]] = None
 
 
-class ToolInputSchemaTypeDef(BaseValidatorModel):
+class ToolInputSchema(BaseValidatorModel):
     json: Optional[Mapping[str, Any]] = None
 
 
-class TransformationLambdaConfigurationTypeDef(BaseValidatorModel):
+class TransformationLambdaConfiguration(BaseValidatorModel):
     lambdaArn: str
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
 
-class UpdateAgentKnowledgeBaseRequestTypeDef(BaseValidatorModel):
+class UpdateAgentKnowledgeBaseRequest(BaseValidatorModel):
     agentId: str
     agentVersion: str
     knowledgeBaseId: str
@@ -732,51 +732,51 @@ class UpdateAgentKnowledgeBaseRequestTypeDef(BaseValidatorModel):
     knowledgeBaseState: Optional[KnowledgeBaseStateType] = None
 
 
-class WebCrawlerLimitsTypeDef(BaseValidatorModel):
+class WebCrawlerLimits(BaseValidatorModel):
     maxPages: Optional[int] = None
     rateLimit: Optional[int] = None
 
 
-class APISchemaTypeDef(BaseValidatorModel):
+class APISchema(BaseValidatorModel):
     payload: Optional[str] = None
-    s3: Optional[S3IdentifierTypeDef] = None
+    s3: Optional[S3Identifier] = None
 
 
-class AgentAliasHistoryEventTypeDef(BaseValidatorModel):
+class AgentAliasHistoryEvent(BaseValidatorModel):
     endDate: Optional[datetime] = None
-    routingConfiguration: Optional[List[AgentAliasRoutingConfigurationListItemTypeDef]] = None
+    routingConfiguration: Optional[List[AgentAliasRoutingConfigurationListItem]] = None
     startDate: Optional[datetime] = None
 
 
-class AgentAliasSummaryTypeDef(BaseValidatorModel):
+class AgentAliasSummary(BaseValidatorModel):
     agentAliasId: str
     agentAliasName: str
     agentAliasStatus: AgentAliasStatusType
     createdAt: datetime
     updatedAt: datetime
     description: Optional[str] = None
-    routingConfiguration: Optional[List[AgentAliasRoutingConfigurationListItemTypeDef]] = None
+    routingConfiguration: Optional[List[AgentAliasRoutingConfigurationListItem]] = None
 
 
-class CreateAgentAliasRequestTypeDef(BaseValidatorModel):
+class CreateAgentAliasRequest(BaseValidatorModel):
     agentAliasName: str
     agentId: str
     clientToken: Optional[str] = None
     description: Optional[str] = None
-    routingConfiguration: Optional[Sequence[AgentAliasRoutingConfigurationListItemTypeDef]] = None
+    routingConfiguration: Optional[Sequence[AgentAliasRoutingConfigurationListItem]] = None
     tags: Optional[Mapping[str, str]] = None
 
 
-class UpdateAgentAliasRequestTypeDef(BaseValidatorModel):
+class UpdateAgentAliasRequest(BaseValidatorModel):
     agentAliasId: str
     agentAliasName: str
     agentId: str
     description: Optional[str] = None
-    routingConfiguration: Optional[Sequence[AgentAliasRoutingConfigurationListItemTypeDef]] = None
+    routingConfiguration: Optional[Sequence[AgentAliasRoutingConfigurationListItem]] = None
 
 
-class AgentCollaboratorSummaryTypeDef(BaseValidatorModel):
-    agentDescriptor: AgentDescriptorTypeDef
+class AgentCollaboratorSummary(BaseValidatorModel):
+    agentDescriptor: AgentDescriptor
     agentId: str
     agentVersion: str
     collaborationInstruction: str
@@ -787,8 +787,8 @@ class AgentCollaboratorSummaryTypeDef(BaseValidatorModel):
     relayConversationHistory: RelayConversationHistoryType
 
 
-class AgentCollaboratorTypeDef(BaseValidatorModel):
-    agentDescriptor: AgentDescriptorTypeDef
+class AgentCollaborator(BaseValidatorModel):
+    agentDescriptor: AgentDescriptor
     agentId: str
     agentVersion: str
     collaborationInstruction: str
@@ -800,8 +800,8 @@ class AgentCollaboratorTypeDef(BaseValidatorModel):
     relayConversationHistory: Optional[RelayConversationHistoryType] = None
 
 
-class AssociateAgentCollaboratorRequestTypeDef(BaseValidatorModel):
-    agentDescriptor: AgentDescriptorTypeDef
+class AssociateAgentCollaboratorRequest(BaseValidatorModel):
+    agentDescriptor: AgentDescriptor
     agentId: str
     agentVersion: str
     collaborationInstruction: str
@@ -810,8 +810,8 @@ class AssociateAgentCollaboratorRequestTypeDef(BaseValidatorModel):
     relayConversationHistory: Optional[RelayConversationHistoryType] = None
 
 
-class UpdateAgentCollaboratorRequestTypeDef(BaseValidatorModel):
-    agentDescriptor: AgentDescriptorTypeDef
+class UpdateAgentCollaboratorRequest(BaseValidatorModel):
+    agentDescriptor: AgentDescriptor
     agentId: str
     agentVersion: str
     collaborationInstruction: str
@@ -820,355 +820,355 @@ class UpdateAgentCollaboratorRequestTypeDef(BaseValidatorModel):
     relayConversationHistory: Optional[RelayConversationHistoryType] = None
 
 
-class AgentSummaryTypeDef(BaseValidatorModel):
+class AgentSummary(BaseValidatorModel):
     agentId: str
     agentName: str
     agentStatus: AgentStatusType
     updatedAt: datetime
     description: Optional[str] = None
-    guardrailConfiguration: Optional[GuardrailConfigurationTypeDef] = None
+    guardrailConfiguration: Optional[GuardrailConfiguration] = None
     latestAgentVersion: Optional[str] = None
 
 
-class AgentVersionSummaryTypeDef(BaseValidatorModel):
+class AgentVersionSummary(BaseValidatorModel):
     agentName: str
     agentStatus: AgentStatusType
     agentVersion: str
     createdAt: datetime
     updatedAt: datetime
     description: Optional[str] = None
-    guardrailConfiguration: Optional[GuardrailConfigurationTypeDef] = None
+    guardrailConfiguration: Optional[GuardrailConfiguration] = None
 
 
-class KnowledgeBaseFlowNodeConfigurationTypeDef(BaseValidatorModel):
+class KnowledgeBaseFlowNodeConfiguration(BaseValidatorModel):
     knowledgeBaseId: str
-    guardrailConfiguration: Optional[GuardrailConfigurationTypeDef] = None
+    guardrailConfiguration: Optional[GuardrailConfiguration] = None
     modelId: Optional[str] = None
 
 
-class AssociateAgentKnowledgeBaseResponseTypeDef(BaseValidatorModel):
-    agentKnowledgeBase: AgentKnowledgeBaseTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class AssociateAgentKnowledgeBaseResponse(BaseValidatorModel):
+    agentKnowledgeBase: AgentKnowledgeBase
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteAgentAliasResponseTypeDef(BaseValidatorModel):
+class DeleteAgentAliasResponse(BaseValidatorModel):
     agentAliasId: str
     agentAliasStatus: AgentAliasStatusType
     agentId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteAgentResponseTypeDef(BaseValidatorModel):
+class DeleteAgentResponse(BaseValidatorModel):
     agentId: str
     agentStatus: AgentStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteAgentVersionResponseTypeDef(BaseValidatorModel):
+class DeleteAgentVersionResponse(BaseValidatorModel):
     agentId: str
     agentStatus: AgentStatusType
     agentVersion: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteDataSourceResponseTypeDef(BaseValidatorModel):
+class DeleteDataSourceResponse(BaseValidatorModel):
     dataSourceId: str
     knowledgeBaseId: str
     status: DataSourceStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteKnowledgeBaseResponseTypeDef(BaseValidatorModel):
+class DeleteKnowledgeBaseResponse(BaseValidatorModel):
     knowledgeBaseId: str
     status: KnowledgeBaseStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetAgentKnowledgeBaseResponseTypeDef(BaseValidatorModel):
-    agentKnowledgeBase: AgentKnowledgeBaseTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetAgentKnowledgeBaseResponse(BaseValidatorModel):
+    agentKnowledgeBase: AgentKnowledgeBase
+    ResponseMetadata: ResponseMetadata
 
 
-class ListAgentActionGroupsResponseTypeDef(BaseValidatorModel):
-    actionGroupSummaries: List[ActionGroupSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAgentActionGroupsResponse(BaseValidatorModel):
+    actionGroupSummaries: List[ActionGroupSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListAgentKnowledgeBasesResponseTypeDef(BaseValidatorModel):
-    agentKnowledgeBaseSummaries: List[AgentKnowledgeBaseSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAgentKnowledgeBasesResponse(BaseValidatorModel):
+    agentKnowledgeBaseSummaries: List[AgentKnowledgeBaseSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
+class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class PrepareAgentResponseTypeDef(BaseValidatorModel):
+class PrepareAgentResponse(BaseValidatorModel):
     agentId: str
     agentStatus: AgentStatusType
     agentVersion: str
     preparedAt: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateAgentKnowledgeBaseResponseTypeDef(BaseValidatorModel):
-    agentKnowledgeBase: AgentKnowledgeBaseTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateAgentKnowledgeBaseResponse(BaseValidatorModel):
+    agentKnowledgeBase: AgentKnowledgeBase
+    ResponseMetadata: ResponseMetadata
 
 
-class EmbeddingModelConfigurationTypeDef(BaseValidatorModel):
-    bedrockEmbeddingModelConfiguration: Optional[BedrockEmbeddingModelConfigurationTypeDef] = None
+class EmbeddingModelConfiguration(BaseValidatorModel):
+    bedrockEmbeddingModelConfiguration: Optional[BedrockEmbeddingModelConfiguration] = None
 
 
-class BedrockFoundationModelConfigurationTypeDef(BaseValidatorModel):
+class BedrockFoundationModelConfiguration(BaseValidatorModel):
     modelArn: str
     parsingModality: Optional[Literal["MULTIMODAL"]] = None
-    parsingPrompt: Optional[ParsingPromptTypeDef] = None
+    parsingPrompt: Optional[ParsingPrompt] = None
 
 
-class BedrockFoundationModelContextEnrichmentConfigurationTypeDef(BaseValidatorModel):
-    enrichmentStrategyConfiguration: EnrichmentStrategyConfigurationTypeDef
+class BedrockFoundationModelContextEnrichmentConfiguration(BaseValidatorModel):
+    enrichmentStrategyConfiguration: EnrichmentStrategyConfiguration
     modelArn: str
 
 
-class BlobTypeDef(BaseValidatorModel):
+class Blob(BaseValidatorModel):
     pass
 
 
-class ByteContentDocTypeDef(BaseValidatorModel):
-    data: BlobTypeDef
+class ByteContentDoc(BaseValidatorModel):
+    data: Blob
     mimeType: str
 
 
-class CachePointBlockTypeDef(BaseValidatorModel):
+class CachePointBlock(BaseValidatorModel):
     pass
 
 
-class ContentBlockTypeDef(BaseValidatorModel):
-    cachePoint: Optional[CachePointBlockTypeDef] = None
+class ContentBlock(BaseValidatorModel):
+    cachePoint: Optional[CachePointBlock] = None
     text: Optional[str] = None
 
 
-class SystemContentBlockTypeDef(BaseValidatorModel):
-    cachePoint: Optional[CachePointBlockTypeDef] = None
+class SystemContentBlock(BaseValidatorModel):
+    cachePoint: Optional[CachePointBlock] = None
     text: Optional[str] = None
 
 
-class TextPromptTemplateConfigurationOutputTypeDef(BaseValidatorModel):
+class TextPromptTemplateConfigurationOutput(BaseValidatorModel):
     text: str
-    cachePoint: Optional[CachePointBlockTypeDef] = None
-    inputVariables: Optional[List[PromptInputVariableTypeDef]] = None
+    cachePoint: Optional[CachePointBlock] = None
+    inputVariables: Optional[List[PromptInputVariable]] = None
 
 
-class TextPromptTemplateConfigurationTypeDef(BaseValidatorModel):
+class TextPromptTemplateConfiguration(BaseValidatorModel):
     text: str
-    cachePoint: Optional[CachePointBlockTypeDef] = None
-    inputVariables: Optional[Sequence[PromptInputVariableTypeDef]] = None
+    cachePoint: Optional[CachePointBlock] = None
+    inputVariables: Optional[Sequence[PromptInputVariable]] = None
 
 
-class ConditionFlowNodeConfigurationOutputTypeDef(BaseValidatorModel):
-    conditions: List[FlowConditionTypeDef]
+class ConditionFlowNodeConfigurationOutput(BaseValidatorModel):
+    conditions: List[FlowCondition]
 
 
-class ConditionFlowNodeConfigurationTypeDef(BaseValidatorModel):
-    conditions: Sequence[FlowConditionTypeDef]
+class ConditionFlowNodeConfiguration(BaseValidatorModel):
+    conditions: Sequence[FlowCondition]
 
 
-class CreateFlowAliasRequestTypeDef(BaseValidatorModel):
+class CreateFlowAliasRequest(BaseValidatorModel):
     flowIdentifier: str
     name: str
-    routingConfiguration: Sequence[FlowAliasRoutingConfigurationListItemTypeDef]
+    routingConfiguration: Sequence[FlowAliasRoutingConfigurationListItem]
     clientToken: Optional[str] = None
     description: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
 
-class UpdateFlowAliasRequestTypeDef(BaseValidatorModel):
+class UpdateFlowAliasRequest(BaseValidatorModel):
     aliasIdentifier: str
     flowIdentifier: str
     name: str
-    routingConfiguration: Sequence[FlowAliasRoutingConfigurationListItemTypeDef]
+    routingConfiguration: Sequence[FlowAliasRoutingConfigurationListItem]
     description: Optional[str] = None
 
 
-class OrchestrationExecutorTypeDef(BaseValidatorModel):
+class OrchestrationExecutor(BaseValidatorModel):
     pass
 
 
-class CustomOrchestrationTypeDef(BaseValidatorModel):
-    executor: Optional[OrchestrationExecutorTypeDef] = None
+class CustomOrchestration(BaseValidatorModel):
+    executor: Optional[OrchestrationExecutor] = None
 
 
-class ListDataSourcesResponseTypeDef(BaseValidatorModel):
-    dataSourceSummaries: List[DataSourceSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListDataSourcesResponse(BaseValidatorModel):
+    dataSourceSummaries: List[DataSourceSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class CustomDocumentIdentifierTypeDef(BaseValidatorModel):
+class CustomDocumentIdentifier(BaseValidatorModel):
     pass
 
 
-class DocumentIdentifierTypeDef(BaseValidatorModel):
+class DocumentIdentifier(BaseValidatorModel):
     dataSourceType: ContentDataSourceTypeType
-    custom: Optional[CustomDocumentIdentifierTypeDef] = None
-    s3: Optional[S3LocationTypeDef] = None
+    custom: Optional[CustomDocumentIdentifier] = None
+    s3: Optional[S3Location] = None
 
 
-class IntermediateStorageTypeDef(BaseValidatorModel):
-    s3Location: S3LocationTypeDef
+class IntermediateStorage(BaseValidatorModel):
+    s3Location: S3Location
 
 
-class S3ContentTypeDef(BaseValidatorModel):
-    s3Location: S3LocationTypeDef
+class S3Content(BaseValidatorModel):
+    s3Location: S3Location
 
 
-class FlowConnectionConfigurationTypeDef(BaseValidatorModel):
-    conditional: Optional[FlowConditionalConnectionConfigurationTypeDef] = None
-    data: Optional[FlowDataConnectionConfigurationTypeDef] = None
+class FlowConnectionConfiguration(BaseValidatorModel):
+    conditional: Optional[FlowConditionalConnectionConfiguration] = None
+    data: Optional[FlowDataConnectionConfiguration] = None
 
 
-class FlowSummaryTypeDef(BaseValidatorModel):
+class FlowSummary(BaseValidatorModel):
     pass
 
 
-class ListFlowsResponseTypeDef(BaseValidatorModel):
-    flowSummaries: List[FlowSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListFlowsResponse(BaseValidatorModel):
+    flowSummaries: List[FlowSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class MismatchedNodeInputTypeFlowValidationDetailsTypeDef(BaseValidatorModel):
+class MismatchedNodeInputTypeFlowValidationDetails(BaseValidatorModel):
     pass
 
 
-class UnknownNodeInputFlowValidationDetailsTypeDef(BaseValidatorModel):
+class UnknownNodeInputFlowValidationDetails(BaseValidatorModel):
     pass
 
 
-class UnfulfilledNodeInputFlowValidationDetailsTypeDef(BaseValidatorModel):
+class UnfulfilledNodeInputFlowValidationDetails(BaseValidatorModel):
     pass
 
 
-class MultipleNodeInputConnectionsFlowValidationDetailsTypeDef(BaseValidatorModel):
+class MultipleNodeInputConnectionsFlowValidationDetails(BaseValidatorModel):
     pass
 
 
-class MissingNodeInputFlowValidationDetailsTypeDef(BaseValidatorModel):
+class MissingNodeInputFlowValidationDetails(BaseValidatorModel):
     pass
 
 
-class MalformedNodeInputExpressionFlowValidationDetailsTypeDef(BaseValidatorModel):
+class MalformedNodeInputExpressionFlowValidationDetails(BaseValidatorModel):
     pass
 
 
-class FlowValidationDetailsTypeDef(BaseValidatorModel):
-    cyclicConnection: Optional[CyclicConnectionFlowValidationDetailsTypeDef] = None
-    duplicateConditionExpression: Optional[ DuplicateConditionExpressionFlowValidationDetailsTypeDef ] = None
-    duplicateConnections: Optional[DuplicateConnectionsFlowValidationDetailsTypeDef] = None
-    incompatibleConnectionDataType: Optional[ IncompatibleConnectionDataTypeFlowValidationDetailsTypeDef ] = None
-    malformedConditionExpression: Optional[ MalformedConditionExpressionFlowValidationDetailsTypeDef ] = None
-    malformedNodeInputExpression: Optional[ MalformedNodeInputExpressionFlowValidationDetailsTypeDef ] = None
-    mismatchedNodeInputType: Optional[MismatchedNodeInputTypeFlowValidationDetailsTypeDef] = None
-    mismatchedNodeOutputType: Optional[MismatchedNodeOutputTypeFlowValidationDetailsTypeDef] = None
-    missingConnectionConfiguration: Optional[ MissingConnectionConfigurationFlowValidationDetailsTypeDef ] = None
-    missingDefaultCondition: Optional[MissingDefaultConditionFlowValidationDetailsTypeDef] = None
+class FlowValidationDetails(BaseValidatorModel):
+    cyclicConnection: Optional[CyclicConnectionFlowValidationDetails] = None
+    duplicateConditionExpression: Optional[ DuplicateConditionExpressionFlowValidationDetails ] = None
+    duplicateConnections: Optional[DuplicateConnectionsFlowValidationDetails] = None
+    incompatibleConnectionDataType: Optional[ IncompatibleConnectionDataTypeFlowValidationDetails ] = None
+    malformedConditionExpression: Optional[ MalformedConditionExpressionFlowValidationDetails ] = None
+    malformedNodeInputExpression: Optional[ MalformedNodeInputExpressionFlowValidationDetails ] = None
+    mismatchedNodeInputType: Optional[MismatchedNodeInputTypeFlowValidationDetails] = None
+    mismatchedNodeOutputType: Optional[MismatchedNodeOutputTypeFlowValidationDetails] = None
+    missingConnectionConfiguration: Optional[ MissingConnectionConfigurationFlowValidationDetails ] = None
+    missingDefaultCondition: Optional[MissingDefaultConditionFlowValidationDetails] = None
     missingEndingNodes: Optional[Dict[str, Any]] = None
-    missingNodeConfiguration: Optional[MissingNodeConfigurationFlowValidationDetailsTypeDef] = None
-    missingNodeInput: Optional[MissingNodeInputFlowValidationDetailsTypeDef] = None
-    missingNodeOutput: Optional[MissingNodeOutputFlowValidationDetailsTypeDef] = None
+    missingNodeConfiguration: Optional[MissingNodeConfigurationFlowValidationDetails] = None
+    missingNodeInput: Optional[MissingNodeInputFlowValidationDetails] = None
+    missingNodeOutput: Optional[MissingNodeOutputFlowValidationDetails] = None
     missingStartingNodes: Optional[Dict[str, Any]] = None
-    multipleNodeInputConnections: Optional[ MultipleNodeInputConnectionsFlowValidationDetailsTypeDef ] = None
-    unfulfilledNodeInput: Optional[UnfulfilledNodeInputFlowValidationDetailsTypeDef] = None
-    unknownConnectionCondition: Optional[UnknownConnectionConditionFlowValidationDetailsTypeDef] = None
-    unknownConnectionSource: Optional[UnknownConnectionSourceFlowValidationDetailsTypeDef] = None
-    unknownConnectionSourceOutput: Optional[ UnknownConnectionSourceOutputFlowValidationDetailsTypeDef ] = None
-    unknownConnectionTarget: Optional[UnknownConnectionTargetFlowValidationDetailsTypeDef] = None
-    unknownConnectionTargetInput: Optional[ UnknownConnectionTargetInputFlowValidationDetailsTypeDef ] = None
-    unknownNodeInput: Optional[UnknownNodeInputFlowValidationDetailsTypeDef] = None
-    unknownNodeOutput: Optional[UnknownNodeOutputFlowValidationDetailsTypeDef] = None
-    unreachableNode: Optional[UnreachableNodeFlowValidationDetailsTypeDef] = None
-    unsatisfiedConnectionConditions: Optional[ UnsatisfiedConnectionConditionsFlowValidationDetailsTypeDef ] = None
+    multipleNodeInputConnections: Optional[ MultipleNodeInputConnectionsFlowValidationDetails ] = None
+    unfulfilledNodeInput: Optional[UnfulfilledNodeInputFlowValidationDetails] = None
+    unknownConnectionCondition: Optional[UnknownConnectionConditionFlowValidationDetails] = None
+    unknownConnectionSource: Optional[UnknownConnectionSourceFlowValidationDetails] = None
+    unknownConnectionSourceOutput: Optional[ UnknownConnectionSourceOutputFlowValidationDetails ] = None
+    unknownConnectionTarget: Optional[UnknownConnectionTargetFlowValidationDetails] = None
+    unknownConnectionTargetInput: Optional[ UnknownConnectionTargetInputFlowValidationDetails ] = None
+    unknownNodeInput: Optional[UnknownNodeInputFlowValidationDetails] = None
+    unknownNodeOutput: Optional[UnknownNodeOutputFlowValidationDetails] = None
+    unreachableNode: Optional[UnreachableNodeFlowValidationDetails] = None
+    unsatisfiedConnectionConditions: Optional[ UnsatisfiedConnectionConditionsFlowValidationDetails ] = None
     unspecified: Optional[Dict[str, Any]] = None
 
 
-class FlowVersionSummaryTypeDef(BaseValidatorModel):
+class FlowVersionSummary(BaseValidatorModel):
     pass
 
 
-class ListFlowVersionsResponseTypeDef(BaseValidatorModel):
-    flowVersionSummaries: List[FlowVersionSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListFlowVersionsResponse(BaseValidatorModel):
+    flowVersionSummaries: List[FlowVersionSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ParameterDetailTypeDef(BaseValidatorModel):
+class ParameterDetail(BaseValidatorModel):
     pass
 
 
-class FunctionOutputTypeDef(BaseValidatorModel):
+class FunctionOutput(BaseValidatorModel):
     name: str
     description: Optional[str] = None
-    parameters: Optional[Dict[str, ParameterDetailTypeDef]] = None
+    parameters: Optional[Dict[str, ParameterDetail]] = None
     requireConfirmation: Optional[RequireConfirmationType] = None
 
 
-class FunctionTypeDef(BaseValidatorModel):
+class Function(BaseValidatorModel):
     name: str
     description: Optional[str] = None
-    parameters: Optional[Mapping[str, ParameterDetailTypeDef]] = None
+    parameters: Optional[Mapping[str, ParameterDetail]] = None
     requireConfirmation: Optional[RequireConfirmationType] = None
 
 
-class HierarchicalChunkingConfigurationOutputTypeDef(BaseValidatorModel):
-    levelConfigurations: List[HierarchicalChunkingLevelConfigurationTypeDef]
+class HierarchicalChunkingConfigurationOutput(BaseValidatorModel):
+    levelConfigurations: List[HierarchicalChunkingLevelConfiguration]
     overlapTokens: int
 
 
-class HierarchicalChunkingConfigurationTypeDef(BaseValidatorModel):
-    levelConfigurations: Sequence[HierarchicalChunkingLevelConfigurationTypeDef]
+class HierarchicalChunkingConfiguration(BaseValidatorModel):
+    levelConfigurations: Sequence[HierarchicalChunkingLevelConfiguration]
     overlapTokens: int
 
 
-class PromptConfigurationOutputTypeDef(BaseValidatorModel):
+class PromptConfigurationOutput(BaseValidatorModel):
     additionalModelRequestFields: Optional[Dict[str, Any]] = None
     basePromptTemplate: Optional[str] = None
     foundationModel: Optional[str] = None
-    inferenceConfiguration: Optional[InferenceConfigurationOutputTypeDef] = None
+    inferenceConfiguration: Optional[InferenceConfigurationOutput] = None
     parserMode: Optional[CreationModeType] = None
     promptCreationMode: Optional[CreationModeType] = None
     promptState: Optional[PromptStateType] = None
     promptType: Optional[PromptTypeType] = None
 
 
-class PromptConfigurationTypeDef(BaseValidatorModel):
+class PromptConfiguration(BaseValidatorModel):
     additionalModelRequestFields: Optional[Mapping[str, Any]] = None
     basePromptTemplate: Optional[str] = None
     foundationModel: Optional[str] = None
-    inferenceConfiguration: Optional[InferenceConfigurationTypeDef] = None
+    inferenceConfiguration: Optional[InferenceConfiguration] = None
     parserMode: Optional[CreationModeType] = None
     promptCreationMode: Optional[CreationModeType] = None
     promptState: Optional[PromptStateType] = None
     promptType: Optional[PromptTypeType] = None
 
 
-class IngestionJobFilterTypeDef(BaseValidatorModel):
+class IngestionJobFilter(BaseValidatorModel):
     pass
 
 
-class ListIngestionJobsRequestTypeDef(BaseValidatorModel):
+class ListIngestionJobsRequest(BaseValidatorModel):
     dataSourceId: str
     knowledgeBaseId: str
-    filters: Optional[Sequence[IngestionJobFilterTypeDef]] = None
+    filters: Optional[Sequence[IngestionJobFilter]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
-    sortBy: Optional[IngestionJobSortByTypeDef] = None
+    sortBy: Optional[IngestionJobSortBy] = None
 
 
-class IngestionJobSummaryTypeDef(BaseValidatorModel):
+class IngestionJobSummary(BaseValidatorModel):
     dataSourceId: str
     ingestionJobId: str
     knowledgeBaseId: str
@@ -1176,10 +1176,10 @@ class IngestionJobSummaryTypeDef(BaseValidatorModel):
     status: IngestionJobStatusType
     updatedAt: datetime
     description: Optional[str] = None
-    statistics: Optional[IngestionJobStatisticsTypeDef] = None
+    statistics: Optional[IngestionJobStatistics] = None
 
 
-class IngestionJobTypeDef(BaseValidatorModel):
+class IngestionJob(BaseValidatorModel):
     dataSourceId: str
     ingestionJobId: str
     knowledgeBaseId: str
@@ -1188,239 +1188,239 @@ class IngestionJobTypeDef(BaseValidatorModel):
     updatedAt: datetime
     description: Optional[str] = None
     failureReasons: Optional[List[str]] = None
-    statistics: Optional[IngestionJobStatisticsTypeDef] = None
+    statistics: Optional[IngestionJobStatistics] = None
 
 
-class ListKnowledgeBasesResponseTypeDef(BaseValidatorModel):
-    knowledgeBaseSummaries: List[KnowledgeBaseSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListKnowledgeBasesResponse(BaseValidatorModel):
+    knowledgeBaseSummaries: List[KnowledgeBaseSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListAgentActionGroupsRequestPaginateTypeDef(BaseValidatorModel):
+class ListAgentActionGroupsRequestPaginate(BaseValidatorModel):
     agentId: str
     agentVersion: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListAgentAliasesRequestPaginateTypeDef(BaseValidatorModel):
+class ListAgentAliasesRequestPaginate(BaseValidatorModel):
     agentId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListAgentCollaboratorsRequestPaginateTypeDef(BaseValidatorModel):
-    agentId: str
-    agentVersion: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
-
-
-class ListAgentKnowledgeBasesRequestPaginateTypeDef(BaseValidatorModel):
+class ListAgentCollaboratorsRequestPaginate(BaseValidatorModel):
     agentId: str
     agentVersion: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListAgentVersionsRequestPaginateTypeDef(BaseValidatorModel):
+class ListAgentKnowledgeBasesRequestPaginate(BaseValidatorModel):
     agentId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    agentVersion: str
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListAgentsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListAgentVersionsRequestPaginate(BaseValidatorModel):
+    agentId: str
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListDataSourcesRequestPaginateTypeDef(BaseValidatorModel):
+class ListAgentsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
+
+
+class ListDataSourcesRequestPaginate(BaseValidatorModel):
     knowledgeBaseId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListFlowAliasesRequestPaginateTypeDef(BaseValidatorModel):
+class ListFlowAliasesRequestPaginate(BaseValidatorModel):
     flowIdentifier: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListFlowVersionsRequestPaginateTypeDef(BaseValidatorModel):
+class ListFlowVersionsRequestPaginate(BaseValidatorModel):
     flowIdentifier: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListFlowsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListFlowsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListIngestionJobsRequestPaginateTypeDef(BaseValidatorModel):
+class ListIngestionJobsRequestPaginate(BaseValidatorModel):
     dataSourceId: str
     knowledgeBaseId: str
-    filters: Optional[Sequence[IngestionJobFilterTypeDef]] = None
-    sortBy: Optional[IngestionJobSortByTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    filters: Optional[Sequence[IngestionJobFilter]] = None
+    sortBy: Optional[IngestionJobSortBy] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListKnowledgeBaseDocumentsRequestPaginateTypeDef(BaseValidatorModel):
+class ListKnowledgeBaseDocumentsRequestPaginate(BaseValidatorModel):
     dataSourceId: str
     knowledgeBaseId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListKnowledgeBasesRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListKnowledgeBasesRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListPromptsRequestPaginateTypeDef(BaseValidatorModel):
+class ListPromptsRequestPaginate(BaseValidatorModel):
     promptIdentifier: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class PromptSummaryTypeDef(BaseValidatorModel):
+class PromptSummary(BaseValidatorModel):
     pass
 
 
-class ListPromptsResponseTypeDef(BaseValidatorModel):
-    promptSummaries: List[PromptSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListPromptsResponse(BaseValidatorModel):
+    promptSummaries: List[PromptSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class MemoryConfigurationOutputTypeDef(BaseValidatorModel):
+class MemoryConfigurationOutput(BaseValidatorModel):
     enabledMemoryTypes: List[Literal["SESSION_SUMMARY"]]
-    sessionSummaryConfiguration: Optional[SessionSummaryConfigurationTypeDef] = None
+    sessionSummaryConfiguration: Optional[SessionSummaryConfiguration] = None
     storageDays: Optional[int] = None
 
 
-class MemoryConfigurationTypeDef(BaseValidatorModel):
+class MemoryConfiguration(BaseValidatorModel):
     enabledMemoryTypes: Sequence[Literal["SESSION_SUMMARY"]]
-    sessionSummaryConfiguration: Optional[SessionSummaryConfigurationTypeDef] = None
+    sessionSummaryConfiguration: Optional[SessionSummaryConfiguration] = None
     storageDays: Optional[int] = None
 
 
-class MetadataAttributeValueTypeDef(BaseValidatorModel):
+class MetadataAttributeValue(BaseValidatorModel):
     pass
 
 
-class MetadataAttributeTypeDef(BaseValidatorModel):
+class MetadataAttribute(BaseValidatorModel):
     key: str
-    value: MetadataAttributeValueTypeDef
+    value: MetadataAttributeValue
 
 
-class MongoDbAtlasConfigurationTypeDef(BaseValidatorModel):
+class MongoDbAtlasConfiguration(BaseValidatorModel):
     collectionName: str
     credentialsSecretArn: str
     databaseName: str
     endpoint: str
-    fieldMapping: MongoDbAtlasFieldMappingTypeDef
+    fieldMapping: MongoDbAtlasFieldMapping
     vectorIndexName: str
     endpointServiceName: Optional[str] = None
 
 
-class NeptuneAnalyticsConfigurationTypeDef(BaseValidatorModel):
-    fieldMapping: NeptuneAnalyticsFieldMappingTypeDef
+class NeptuneAnalyticsConfiguration(BaseValidatorModel):
+    fieldMapping: NeptuneAnalyticsFieldMapping
     graphArn: str
 
 
-class OpenSearchServerlessConfigurationTypeDef(BaseValidatorModel):
+class OpenSearchServerlessConfiguration(BaseValidatorModel):
     collectionArn: str
-    fieldMapping: OpenSearchServerlessFieldMappingTypeDef
+    fieldMapping: OpenSearchServerlessFieldMapping
     vectorIndexName: str
 
 
-class PatternObjectFilterConfigurationOutputTypeDef(BaseValidatorModel):
-    filters: List[PatternObjectFilterOutputTypeDef]
+class PatternObjectFilterConfigurationOutput(BaseValidatorModel):
+    filters: List[PatternObjectFilterOutput]
 
 
-class PatternObjectFilterConfigurationTypeDef(BaseValidatorModel):
-    filters: Sequence[PatternObjectFilterTypeDef]
+class PatternObjectFilterConfiguration(BaseValidatorModel):
+    filters: Sequence[PatternObjectFilter]
 
 
-class PineconeConfigurationTypeDef(BaseValidatorModel):
+class PineconeConfiguration(BaseValidatorModel):
     connectionString: str
     credentialsSecretArn: str
-    fieldMapping: PineconeFieldMappingTypeDef
+    fieldMapping: PineconeFieldMapping
     namespace: Optional[str] = None
 
 
-class PromptGenAiResourceTypeDef(BaseValidatorModel):
-    agent: Optional[PromptAgentResourceTypeDef] = None
+class PromptGenAiResource(BaseValidatorModel):
+    agent: Optional[PromptAgentResource] = None
 
 
-class PromptInferenceConfigurationOutputTypeDef(BaseValidatorModel):
-    text: Optional[PromptModelInferenceConfigurationOutputTypeDef] = None
+class PromptInferenceConfigurationOutput(BaseValidatorModel):
+    text: Optional[PromptModelInferenceConfigurationOutput] = None
 
 
-class QueryGenerationTableOutputTypeDef(BaseValidatorModel):
+class QueryGenerationTableOutput(BaseValidatorModel):
     name: str
-    columns: Optional[List[QueryGenerationColumnTypeDef]] = None
+    columns: Optional[List[QueryGenerationColumn]] = None
     description: Optional[str] = None
     inclusion: Optional[IncludeExcludeType] = None
 
 
-class QueryGenerationTableTypeDef(BaseValidatorModel):
+class QueryGenerationTable(BaseValidatorModel):
     name: str
-    columns: Optional[Sequence[QueryGenerationColumnTypeDef]] = None
+    columns: Optional[Sequence[QueryGenerationColumn]] = None
     description: Optional[str] = None
     inclusion: Optional[IncludeExcludeType] = None
 
 
-class RdsConfigurationTypeDef(BaseValidatorModel):
+class RdsConfiguration(BaseValidatorModel):
     credentialsSecretArn: str
     databaseName: str
-    fieldMapping: RdsFieldMappingTypeDef
+    fieldMapping: RdsFieldMapping
     resourceArn: str
     tableName: str
 
 
-class RedisEnterpriseCloudConfigurationTypeDef(BaseValidatorModel):
+class RedisEnterpriseCloudConfiguration(BaseValidatorModel):
     credentialsSecretArn: str
     endpoint: str
-    fieldMapping: RedisEnterpriseCloudFieldMappingTypeDef
+    fieldMapping: RedisEnterpriseCloudFieldMapping
     vectorIndexName: str
 
 
-class RedshiftProvisionedAuthConfigurationTypeDef(BaseValidatorModel):
+class RedshiftProvisionedAuthConfiguration(BaseValidatorModel):
     pass
 
 
-class RedshiftProvisionedConfigurationTypeDef(BaseValidatorModel):
-    authConfiguration: RedshiftProvisionedAuthConfigurationTypeDef
+class RedshiftProvisionedConfiguration(BaseValidatorModel):
+    authConfiguration: RedshiftProvisionedAuthConfiguration
     clusterIdentifier: str
 
 
-class RedshiftServerlessAuthConfigurationTypeDef(BaseValidatorModel):
+class RedshiftServerlessAuthConfiguration(BaseValidatorModel):
     pass
 
 
-class RedshiftServerlessConfigurationTypeDef(BaseValidatorModel):
-    authConfiguration: RedshiftServerlessAuthConfigurationTypeDef
+class RedshiftServerlessConfiguration(BaseValidatorModel):
+    authConfiguration: RedshiftServerlessAuthConfiguration
     workgroupArn: str
 
 
-class RetrievalFlowNodeServiceConfigurationTypeDef(BaseValidatorModel):
-    s3: Optional[RetrievalFlowNodeS3ConfigurationTypeDef] = None
+class RetrievalFlowNodeServiceConfiguration(BaseValidatorModel):
+    s3: Optional[RetrievalFlowNodeS3Configuration] = None
 
 
-class UrlConfigurationOutputTypeDef(BaseValidatorModel):
-    seedUrls: Optional[List[SeedUrlTypeDef]] = None
+class UrlConfigurationOutput(BaseValidatorModel):
+    seedUrls: Optional[List[SeedUrl]] = None
 
 
-class UrlConfigurationTypeDef(BaseValidatorModel):
-    seedUrls: Optional[Sequence[SeedUrlTypeDef]] = None
+class UrlConfiguration(BaseValidatorModel):
+    seedUrls: Optional[Sequence[SeedUrl]] = None
 
 
-class StorageFlowNodeServiceConfigurationTypeDef(BaseValidatorModel):
-    s3: Optional[StorageFlowNodeS3ConfigurationTypeDef] = None
+class StorageFlowNodeServiceConfiguration(BaseValidatorModel):
+    s3: Optional[StorageFlowNodeS3Configuration] = None
 
 
-class ToolSpecificationOutputTypeDef(BaseValidatorModel):
-    inputSchema: ToolInputSchemaOutputTypeDef
+class ToolSpecificationOutput(BaseValidatorModel):
+    inputSchema: ToolInputSchemaOutput
     name: str
     description: Optional[str] = None
 
 
-class TransformationFunctionTypeDef(BaseValidatorModel):
-    transformationLambdaConfiguration: TransformationLambdaConfigurationTypeDef
+class TransformationFunction(BaseValidatorModel):
+    transformationLambdaConfiguration: TransformationLambdaConfiguration
 
 
-class WebCrawlerConfigurationOutputTypeDef(BaseValidatorModel):
-    crawlerLimits: Optional[WebCrawlerLimitsTypeDef] = None
+class WebCrawlerConfigurationOutput(BaseValidatorModel):
+    crawlerLimits: Optional[WebCrawlerLimits] = None
     exclusionFilters: Optional[List[str]] = None
     inclusionFilters: Optional[List[str]] = None
     scope: Optional[WebScopeTypeType] = None
@@ -1428,8 +1428,8 @@ class WebCrawlerConfigurationOutputTypeDef(BaseValidatorModel):
     userAgentHeader: Optional[str] = None
 
 
-class WebCrawlerConfigurationTypeDef(BaseValidatorModel):
-    crawlerLimits: Optional[WebCrawlerLimitsTypeDef] = None
+class WebCrawlerConfiguration(BaseValidatorModel):
+    crawlerLimits: Optional[WebCrawlerLimits] = None
     exclusionFilters: Optional[Sequence[str]] = None
     inclusionFilters: Optional[Sequence[str]] = None
     scope: Optional[WebScopeTypeType] = None
@@ -1437,300 +1437,300 @@ class WebCrawlerConfigurationTypeDef(BaseValidatorModel):
     userAgentHeader: Optional[str] = None
 
 
-class AgentAliasTypeDef(BaseValidatorModel):
+class AgentAlias(BaseValidatorModel):
     agentAliasArn: str
     agentAliasId: str
     agentAliasName: str
     agentAliasStatus: AgentAliasStatusType
     agentId: str
     createdAt: datetime
-    routingConfiguration: List[AgentAliasRoutingConfigurationListItemTypeDef]
+    routingConfiguration: List[AgentAliasRoutingConfigurationListItem]
     updatedAt: datetime
-    agentAliasHistoryEvents: Optional[List[AgentAliasHistoryEventTypeDef]] = None
+    agentAliasHistoryEvents: Optional[List[AgentAliasHistoryEvent]] = None
     clientToken: Optional[str] = None
     description: Optional[str] = None
     failureReasons: Optional[List[str]] = None
 
 
-class ListAgentAliasesResponseTypeDef(BaseValidatorModel):
-    agentAliasSummaries: List[AgentAliasSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAgentAliasesResponse(BaseValidatorModel):
+    agentAliasSummaries: List[AgentAliasSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListAgentCollaboratorsResponseTypeDef(BaseValidatorModel):
-    agentCollaboratorSummaries: List[AgentCollaboratorSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAgentCollaboratorsResponse(BaseValidatorModel):
+    agentCollaboratorSummaries: List[AgentCollaboratorSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class AssociateAgentCollaboratorResponseTypeDef(BaseValidatorModel):
-    agentCollaborator: AgentCollaboratorTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class AssociateAgentCollaboratorResponse(BaseValidatorModel):
+    agentCollaborator: AgentCollaborator
+    ResponseMetadata: ResponseMetadata
 
 
-class GetAgentCollaboratorResponseTypeDef(BaseValidatorModel):
-    agentCollaborator: AgentCollaboratorTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetAgentCollaboratorResponse(BaseValidatorModel):
+    agentCollaborator: AgentCollaborator
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateAgentCollaboratorResponseTypeDef(BaseValidatorModel):
-    agentCollaborator: AgentCollaboratorTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateAgentCollaboratorResponse(BaseValidatorModel):
+    agentCollaborator: AgentCollaborator
+    ResponseMetadata: ResponseMetadata
 
 
-class ListAgentsResponseTypeDef(BaseValidatorModel):
-    agentSummaries: List[AgentSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAgentsResponse(BaseValidatorModel):
+    agentSummaries: List[AgentSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListAgentVersionsResponseTypeDef(BaseValidatorModel):
-    agentVersionSummaries: List[AgentVersionSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAgentVersionsResponse(BaseValidatorModel):
+    agentVersionSummaries: List[AgentVersionSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ParsingConfigurationTypeDef(BaseValidatorModel):
+class ParsingConfiguration(BaseValidatorModel):
     parsingStrategy: ParsingStrategyType
-    bedrockDataAutomationConfiguration: Optional[BedrockDataAutomationConfigurationTypeDef] = None
-    bedrockFoundationModelConfiguration: Optional[BedrockFoundationModelConfigurationTypeDef] = None
+    bedrockDataAutomationConfiguration: Optional[BedrockDataAutomationConfiguration] = None
+    bedrockFoundationModelConfiguration: Optional[BedrockFoundationModelConfiguration] = None
 
 
-class MessageOutputTypeDef(BaseValidatorModel):
-    content: List[ContentBlockTypeDef]
+class MessageOutput(BaseValidatorModel):
+    content: List[ContentBlock]
     role: ConversationRoleType
 
 
-class MessageTypeDef(BaseValidatorModel):
-    content: Sequence[ContentBlockTypeDef]
+class Message(BaseValidatorModel):
+    content: Sequence[ContentBlock]
     role: ConversationRoleType
 
 
-class FlowAliasSummaryTypeDef(BaseValidatorModel):
+class FlowAliasSummary(BaseValidatorModel):
     pass
 
 
-class ListFlowAliasesResponseTypeDef(BaseValidatorModel):
-    flowAliasSummaries: List[FlowAliasSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListFlowAliasesResponse(BaseValidatorModel):
+    flowAliasSummaries: List[FlowAliasSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class DeleteKnowledgeBaseDocumentsRequestTypeDef(BaseValidatorModel):
+class DeleteKnowledgeBaseDocumentsRequest(BaseValidatorModel):
     dataSourceId: str
-    documentIdentifiers: Sequence[DocumentIdentifierTypeDef]
+    documentIdentifiers: Sequence[DocumentIdentifier]
     knowledgeBaseId: str
     clientToken: Optional[str] = None
 
 
-class GetKnowledgeBaseDocumentsRequestTypeDef(BaseValidatorModel):
+class GetKnowledgeBaseDocumentsRequest(BaseValidatorModel):
     dataSourceId: str
-    documentIdentifiers: Sequence[DocumentIdentifierTypeDef]
+    documentIdentifiers: Sequence[DocumentIdentifier]
     knowledgeBaseId: str
 
 
-class KnowledgeBaseDocumentDetailTypeDef(BaseValidatorModel):
+class KnowledgeBaseDocumentDetail(BaseValidatorModel):
     dataSourceId: str
-    identifier: DocumentIdentifierTypeDef
+    identifier: DocumentIdentifier
     knowledgeBaseId: str
     status: DocumentStatusType
     statusReason: Optional[str] = None
     updatedAt: Optional[datetime] = None
 
 
-class SupplementalDataStorageLocationTypeDef(BaseValidatorModel):
+class SupplementalDataStorageLocation(BaseValidatorModel):
     pass
 
 
-class SupplementalDataStorageConfigurationOutputTypeDef(BaseValidatorModel):
-    storageLocations: List[SupplementalDataStorageLocationTypeDef]
+class SupplementalDataStorageConfigurationOutput(BaseValidatorModel):
+    storageLocations: List[SupplementalDataStorageLocation]
 
 
-class SupplementalDataStorageConfigurationTypeDef(BaseValidatorModel):
-    storageLocations: Sequence[SupplementalDataStorageLocationTypeDef]
+class SupplementalDataStorageConfiguration(BaseValidatorModel):
+    storageLocations: Sequence[SupplementalDataStorageLocation]
 
 
-class FunctionSchemaOutputTypeDef(BaseValidatorModel):
-    functions: Optional[List[FunctionOutputTypeDef]] = None
+class FunctionSchemaOutput(BaseValidatorModel):
+    functions: Optional[List[FunctionOutput]] = None
 
 
-class FunctionSchemaTypeDef(BaseValidatorModel):
-    functions: Optional[Sequence[FunctionTypeDef]] = None
+class FunctionSchema(BaseValidatorModel):
+    functions: Optional[Sequence[Function]] = None
 
 
-class ChunkingConfigurationOutputTypeDef(BaseValidatorModel):
+class ChunkingConfigurationOutput(BaseValidatorModel):
     chunkingStrategy: ChunkingStrategyType
-    fixedSizeChunkingConfiguration: Optional[FixedSizeChunkingConfigurationTypeDef] = None
-    hierarchicalChunkingConfiguration: Optional[HierarchicalChunkingConfigurationOutputTypeDef] = None
-    semanticChunkingConfiguration: Optional[SemanticChunkingConfigurationTypeDef] = None
+    fixedSizeChunkingConfiguration: Optional[FixedSizeChunkingConfiguration] = None
+    hierarchicalChunkingConfiguration: Optional[HierarchicalChunkingConfigurationOutput] = None
+    semanticChunkingConfiguration: Optional[SemanticChunkingConfiguration] = None
 
 
-class ChunkingConfigurationTypeDef(BaseValidatorModel):
+class ChunkingConfiguration(BaseValidatorModel):
     chunkingStrategy: ChunkingStrategyType
-    fixedSizeChunkingConfiguration: Optional[FixedSizeChunkingConfigurationTypeDef] = None
-    hierarchicalChunkingConfiguration: Optional[HierarchicalChunkingConfigurationTypeDef] = None
-    semanticChunkingConfiguration: Optional[SemanticChunkingConfigurationTypeDef] = None
+    fixedSizeChunkingConfiguration: Optional[FixedSizeChunkingConfiguration] = None
+    hierarchicalChunkingConfiguration: Optional[HierarchicalChunkingConfiguration] = None
+    semanticChunkingConfiguration: Optional[SemanticChunkingConfiguration] = None
 
 
-class PromptOverrideConfigurationOutputTypeDef(BaseValidatorModel):
-    promptConfigurations: List[PromptConfigurationOutputTypeDef]
+class PromptOverrideConfigurationOutput(BaseValidatorModel):
+    promptConfigurations: List[PromptConfigurationOutput]
     overrideLambda: Optional[str] = None
 
 
-class PromptOverrideConfigurationTypeDef(BaseValidatorModel):
-    promptConfigurations: Sequence[PromptConfigurationTypeDef]
+class PromptOverrideConfiguration(BaseValidatorModel):
+    promptConfigurations: Sequence[PromptConfiguration]
     overrideLambda: Optional[str] = None
 
 
-class ListIngestionJobsResponseTypeDef(BaseValidatorModel):
-    ingestionJobSummaries: List[IngestionJobSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListIngestionJobsResponse(BaseValidatorModel):
+    ingestionJobSummaries: List[IngestionJobSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class GetIngestionJobResponseTypeDef(BaseValidatorModel):
-    ingestionJob: IngestionJobTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetIngestionJobResponse(BaseValidatorModel):
+    ingestionJob: IngestionJob
+    ResponseMetadata: ResponseMetadata
 
 
-class StartIngestionJobResponseTypeDef(BaseValidatorModel):
-    ingestionJob: IngestionJobTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class StartIngestionJobResponse(BaseValidatorModel):
+    ingestionJob: IngestionJob
+    ResponseMetadata: ResponseMetadata
 
 
-class StopIngestionJobResponseTypeDef(BaseValidatorModel):
-    ingestionJob: IngestionJobTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class StopIngestionJobResponse(BaseValidatorModel):
+    ingestionJob: IngestionJob
+    ResponseMetadata: ResponseMetadata
 
 
-class PromptModelInferenceConfigurationUnionTypeDef(BaseValidatorModel):
+class PromptModelInferenceConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class PromptInferenceConfigurationTypeDef(BaseValidatorModel):
-    text: Optional[PromptModelInferenceConfigurationUnionTypeDef] = None
+class PromptInferenceConfiguration(BaseValidatorModel):
+    text: Optional[PromptModelInferenceConfigurationUnion] = None
 
 
-class QueryGenerationContextOutputTypeDef(BaseValidatorModel):
-    curatedQueries: Optional[List[CuratedQueryTypeDef]] = None
-    tables: Optional[List[QueryGenerationTableOutputTypeDef]] = None
+class QueryGenerationContextOutput(BaseValidatorModel):
+    curatedQueries: Optional[List[CuratedQuery]] = None
+    tables: Optional[List[QueryGenerationTableOutput]] = None
 
 
-class QueryGenerationContextTypeDef(BaseValidatorModel):
-    curatedQueries: Optional[Sequence[CuratedQueryTypeDef]] = None
-    tables: Optional[Sequence[QueryGenerationTableTypeDef]] = None
+class QueryGenerationContext(BaseValidatorModel):
+    curatedQueries: Optional[Sequence[CuratedQuery]] = None
+    tables: Optional[Sequence[QueryGenerationTable]] = None
 
 
-class RetrievalFlowNodeConfigurationTypeDef(BaseValidatorModel):
-    serviceConfiguration: RetrievalFlowNodeServiceConfigurationTypeDef
+class RetrievalFlowNodeConfiguration(BaseValidatorModel):
+    serviceConfiguration: RetrievalFlowNodeServiceConfiguration
 
 
-class WebSourceConfigurationOutputTypeDef(BaseValidatorModel):
-    urlConfiguration: UrlConfigurationOutputTypeDef
+class WebSourceConfigurationOutput(BaseValidatorModel):
+    urlConfiguration: UrlConfigurationOutput
 
 
-class WebSourceConfigurationTypeDef(BaseValidatorModel):
-    urlConfiguration: UrlConfigurationTypeDef
+class WebSourceConfiguration(BaseValidatorModel):
+    urlConfiguration: UrlConfiguration
 
 
-class StorageFlowNodeConfigurationTypeDef(BaseValidatorModel):
-    serviceConfiguration: StorageFlowNodeServiceConfigurationTypeDef
+class StorageFlowNodeConfiguration(BaseValidatorModel):
+    serviceConfiguration: StorageFlowNodeServiceConfiguration
 
 
-class ToolOutputTypeDef(BaseValidatorModel):
-    cachePoint: Optional[CachePointBlockTypeDef] = None
-    toolSpec: Optional[ToolSpecificationOutputTypeDef] = None
+class ToolOutput(BaseValidatorModel):
+    cachePoint: Optional[CachePointBlock] = None
+    toolSpec: Optional[ToolSpecificationOutput] = None
 
 
-class ToolInputSchemaUnionTypeDef(BaseValidatorModel):
+class ToolInputSchemaUnion(BaseValidatorModel):
     pass
 
 
-class ToolSpecificationTypeDef(BaseValidatorModel):
-    inputSchema: ToolInputSchemaUnionTypeDef
+class ToolSpecification(BaseValidatorModel):
+    inputSchema: ToolInputSchemaUnion
     name: str
     description: Optional[str] = None
 
 
-class TransformationTypeDef(BaseValidatorModel):
+class Transformation(BaseValidatorModel):
     stepToApply: Literal["POST_CHUNKING"]
-    transformationFunction: TransformationFunctionTypeDef
+    transformationFunction: TransformationFunction
 
 
-class CreateAgentAliasResponseTypeDef(BaseValidatorModel):
-    agentAlias: AgentAliasTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateAgentAliasResponse(BaseValidatorModel):
+    agentAlias: AgentAlias
+    ResponseMetadata: ResponseMetadata
 
 
-class GetAgentAliasResponseTypeDef(BaseValidatorModel):
-    agentAlias: AgentAliasTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetAgentAliasResponse(BaseValidatorModel):
+    agentAlias: AgentAlias
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateAgentAliasResponseTypeDef(BaseValidatorModel):
-    agentAlias: AgentAliasTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateAgentAliasResponse(BaseValidatorModel):
+    agentAlias: AgentAlias
+    ResponseMetadata: ResponseMetadata
 
 
-class InlineContentTypeDef(BaseValidatorModel):
+class InlineContent(BaseValidatorModel):
     pass
 
 
-class CustomContentTypeDef(BaseValidatorModel):
-    customDocumentIdentifier: CustomDocumentIdentifierTypeDef
+class CustomContent(BaseValidatorModel):
+    customDocumentIdentifier: CustomDocumentIdentifier
     sourceType: CustomSourceTypeType
-    inlineContent: Optional[InlineContentTypeDef] = None
-    s3Location: Optional[CustomS3LocationTypeDef] = None
+    inlineContent: Optional[InlineContent] = None
+    s3Location: Optional[CustomS3Location] = None
 
 
-class DeleteKnowledgeBaseDocumentsResponseTypeDef(BaseValidatorModel):
-    documentDetails: List[KnowledgeBaseDocumentDetailTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeleteKnowledgeBaseDocumentsResponse(BaseValidatorModel):
+    documentDetails: List[KnowledgeBaseDocumentDetail]
+    ResponseMetadata: ResponseMetadata
 
 
-class GetKnowledgeBaseDocumentsResponseTypeDef(BaseValidatorModel):
-    documentDetails: List[KnowledgeBaseDocumentDetailTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetKnowledgeBaseDocumentsResponse(BaseValidatorModel):
+    documentDetails: List[KnowledgeBaseDocumentDetail]
+    ResponseMetadata: ResponseMetadata
 
 
-class IngestKnowledgeBaseDocumentsResponseTypeDef(BaseValidatorModel):
-    documentDetails: List[KnowledgeBaseDocumentDetailTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class IngestKnowledgeBaseDocumentsResponse(BaseValidatorModel):
+    documentDetails: List[KnowledgeBaseDocumentDetail]
+    ResponseMetadata: ResponseMetadata
 
 
-class ListKnowledgeBaseDocumentsResponseTypeDef(BaseValidatorModel):
-    documentDetails: List[KnowledgeBaseDocumentDetailTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListKnowledgeBaseDocumentsResponse(BaseValidatorModel):
+    documentDetails: List[KnowledgeBaseDocumentDetail]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class VectorKnowledgeBaseConfigurationOutputTypeDef(BaseValidatorModel):
+class VectorKnowledgeBaseConfigurationOutput(BaseValidatorModel):
     embeddingModelArn: str
-    embeddingModelConfiguration: Optional[EmbeddingModelConfigurationTypeDef] = None
-    supplementalDataStorageConfiguration: Optional[ SupplementalDataStorageConfigurationOutputTypeDef ] = None
+    embeddingModelConfiguration: Optional[EmbeddingModelConfiguration] = None
+    supplementalDataStorageConfiguration: Optional[ SupplementalDataStorageConfigurationOutput ] = None
 
 
-class VectorKnowledgeBaseConfigurationTypeDef(BaseValidatorModel):
+class VectorKnowledgeBaseConfiguration(BaseValidatorModel):
     embeddingModelArn: str
-    embeddingModelConfiguration: Optional[EmbeddingModelConfigurationTypeDef] = None
-    supplementalDataStorageConfiguration: Optional[SupplementalDataStorageConfigurationTypeDef] = None
+    embeddingModelConfiguration: Optional[EmbeddingModelConfiguration] = None
+    supplementalDataStorageConfiguration: Optional[SupplementalDataStorageConfiguration] = None
 
 
-class FlowValidationTypeDef(BaseValidatorModel):
+class FlowValidation(BaseValidatorModel):
     pass
 
 
-class ValidateFlowDefinitionResponseTypeDef(BaseValidatorModel):
-    validations: List[FlowValidationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ValidateFlowDefinitionResponse(BaseValidatorModel):
+    validations: List[FlowValidation]
+    ResponseMetadata: ResponseMetadata
 
 
-class ActionGroupExecutorTypeDef(BaseValidatorModel):
+class ActionGroupExecutor(BaseValidatorModel):
     pass
 
 
-class AgentActionGroupTypeDef(BaseValidatorModel):
+class AgentActionGroup(BaseValidatorModel):
     actionGroupId: str
     actionGroupName: str
     actionGroupState: ActionGroupStateType
@@ -1738,16 +1738,16 @@ class AgentActionGroupTypeDef(BaseValidatorModel):
     agentVersion: str
     createdAt: datetime
     updatedAt: datetime
-    actionGroupExecutor: Optional[ActionGroupExecutorTypeDef] = None
-    apiSchema: Optional[APISchemaTypeDef] = None
+    actionGroupExecutor: Optional[ActionGroupExecutor] = None
+    apiSchema: Optional[APISchema] = None
     clientToken: Optional[str] = None
     description: Optional[str] = None
-    functionSchema: Optional[FunctionSchemaOutputTypeDef] = None
+    functionSchema: Optional[FunctionSchemaOutput] = None
     parentActionGroupSignatureParams: Optional[Dict[str, str]] = None
     parentActionSignature: Optional[ActionGroupSignatureType] = None
 
 
-class AgentTypeDef(BaseValidatorModel):
+class Agent(BaseValidatorModel):
     agentArn: str
     agentId: str
     agentName: str
@@ -1759,21 +1759,21 @@ class AgentTypeDef(BaseValidatorModel):
     updatedAt: datetime
     agentCollaboration: Optional[AgentCollaborationType] = None
     clientToken: Optional[str] = None
-    customOrchestration: Optional[CustomOrchestrationTypeDef] = None
+    customOrchestration: Optional[CustomOrchestration] = None
     customerEncryptionKeyArn: Optional[str] = None
     description: Optional[str] = None
     failureReasons: Optional[List[str]] = None
     foundationModel: Optional[str] = None
-    guardrailConfiguration: Optional[GuardrailConfigurationTypeDef] = None
+    guardrailConfiguration: Optional[GuardrailConfiguration] = None
     instruction: Optional[str] = None
-    memoryConfiguration: Optional[MemoryConfigurationOutputTypeDef] = None
+    memoryConfiguration: Optional[MemoryConfigurationOutput] = None
     orchestrationType: Optional[OrchestrationTypeType] = None
     preparedAt: Optional[datetime] = None
-    promptOverrideConfiguration: Optional[PromptOverrideConfigurationOutputTypeDef] = None
+    promptOverrideConfiguration: Optional[PromptOverrideConfigurationOutput] = None
     recommendedActions: Optional[List[str]] = None
 
 
-class AgentVersionTypeDef(BaseValidatorModel):
+class AgentVersion(BaseValidatorModel):
     agentArn: str
     agentId: str
     agentName: str
@@ -1788,316 +1788,316 @@ class AgentVersionTypeDef(BaseValidatorModel):
     description: Optional[str] = None
     failureReasons: Optional[List[str]] = None
     foundationModel: Optional[str] = None
-    guardrailConfiguration: Optional[GuardrailConfigurationTypeDef] = None
+    guardrailConfiguration: Optional[GuardrailConfiguration] = None
     instruction: Optional[str] = None
-    memoryConfiguration: Optional[MemoryConfigurationOutputTypeDef] = None
-    promptOverrideConfiguration: Optional[PromptOverrideConfigurationOutputTypeDef] = None
+    memoryConfiguration: Optional[MemoryConfigurationOutput] = None
+    promptOverrideConfiguration: Optional[PromptOverrideConfigurationOutput] = None
     recommendedActions: Optional[List[str]] = None
 
 
-class CrawlFilterConfigurationOutputTypeDef(BaseValidatorModel):
+class CrawlFilterConfigurationOutput(BaseValidatorModel):
     pass
 
 
-class ConfluenceCrawlerConfigurationOutputTypeDef(BaseValidatorModel):
-    filterConfiguration: Optional[CrawlFilterConfigurationOutputTypeDef] = None
+class ConfluenceCrawlerConfigurationOutput(BaseValidatorModel):
+    filterConfiguration: Optional[CrawlFilterConfigurationOutput] = None
 
 
-class SalesforceCrawlerConfigurationOutputTypeDef(BaseValidatorModel):
-    filterConfiguration: Optional[CrawlFilterConfigurationOutputTypeDef] = None
+class SalesforceCrawlerConfigurationOutput(BaseValidatorModel):
+    filterConfiguration: Optional[CrawlFilterConfigurationOutput] = None
 
 
-class SharePointCrawlerConfigurationOutputTypeDef(BaseValidatorModel):
-    filterConfiguration: Optional[CrawlFilterConfigurationOutputTypeDef] = None
+class SharePointCrawlerConfigurationOutput(BaseValidatorModel):
+    filterConfiguration: Optional[CrawlFilterConfigurationOutput] = None
 
 
-class CrawlFilterConfigurationTypeDef(BaseValidatorModel):
+class CrawlFilterConfiguration(BaseValidatorModel):
     pass
 
 
-class ConfluenceCrawlerConfigurationTypeDef(BaseValidatorModel):
-    filterConfiguration: Optional[CrawlFilterConfigurationTypeDef] = None
+class ConfluenceCrawlerConfiguration(BaseValidatorModel):
+    filterConfiguration: Optional[CrawlFilterConfiguration] = None
 
 
-class SalesforceCrawlerConfigurationTypeDef(BaseValidatorModel):
-    filterConfiguration: Optional[CrawlFilterConfigurationTypeDef] = None
+class SalesforceCrawlerConfiguration(BaseValidatorModel):
+    filterConfiguration: Optional[CrawlFilterConfiguration] = None
 
 
-class SharePointCrawlerConfigurationTypeDef(BaseValidatorModel):
-    filterConfiguration: Optional[CrawlFilterConfigurationTypeDef] = None
+class SharePointCrawlerConfiguration(BaseValidatorModel):
+    filterConfiguration: Optional[CrawlFilterConfiguration] = None
 
 
-class QueryGenerationConfigurationOutputTypeDef(BaseValidatorModel):
+class QueryGenerationConfigurationOutput(BaseValidatorModel):
     executionTimeoutSeconds: Optional[int] = None
-    generationContext: Optional[QueryGenerationContextOutputTypeDef] = None
+    generationContext: Optional[QueryGenerationContextOutput] = None
 
 
-class QueryGenerationConfigurationTypeDef(BaseValidatorModel):
+class QueryGenerationConfiguration(BaseValidatorModel):
     executionTimeoutSeconds: Optional[int] = None
-    generationContext: Optional[QueryGenerationContextTypeDef] = None
+    generationContext: Optional[QueryGenerationContext] = None
 
 
-class WebDataSourceConfigurationOutputTypeDef(BaseValidatorModel):
-    sourceConfiguration: WebSourceConfigurationOutputTypeDef
-    crawlerConfiguration: Optional[WebCrawlerConfigurationOutputTypeDef] = None
+class WebDataSourceConfigurationOutput(BaseValidatorModel):
+    sourceConfiguration: WebSourceConfigurationOutput
+    crawlerConfiguration: Optional[WebCrawlerConfigurationOutput] = None
 
 
-class WebDataSourceConfigurationTypeDef(BaseValidatorModel):
-    sourceConfiguration: WebSourceConfigurationTypeDef
-    crawlerConfiguration: Optional[WebCrawlerConfigurationTypeDef] = None
+class WebDataSourceConfiguration(BaseValidatorModel):
+    sourceConfiguration: WebSourceConfiguration
+    crawlerConfiguration: Optional[WebCrawlerConfiguration] = None
 
 
-class ToolChoiceOutputTypeDef(BaseValidatorModel):
+class ToolChoiceOutput(BaseValidatorModel):
     pass
 
 
-class ToolConfigurationOutputTypeDef(BaseValidatorModel):
-    tools: List[ToolOutputTypeDef]
-    toolChoice: Optional[ToolChoiceOutputTypeDef] = None
+class ToolConfigurationOutput(BaseValidatorModel):
+    tools: List[ToolOutput]
+    toolChoice: Optional[ToolChoiceOutput] = None
 
 
-class CustomTransformationConfigurationOutputTypeDef(BaseValidatorModel):
-    intermediateStorage: IntermediateStorageTypeDef
-    transformations: List[TransformationTypeDef]
+class CustomTransformationConfigurationOutput(BaseValidatorModel):
+    intermediateStorage: IntermediateStorage
+    transformations: List[Transformation]
 
 
-class CustomTransformationConfigurationTypeDef(BaseValidatorModel):
-    intermediateStorage: IntermediateStorageTypeDef
-    transformations: Sequence[TransformationTypeDef]
+class CustomTransformationConfiguration(BaseValidatorModel):
+    intermediateStorage: IntermediateStorage
+    transformations: Sequence[Transformation]
 
 
-class DocumentContentTypeDef(BaseValidatorModel):
+class DocumentContent(BaseValidatorModel):
     dataSourceType: ContentDataSourceTypeType
-    custom: Optional[CustomContentTypeDef] = None
-    s3: Optional[S3ContentTypeDef] = None
+    custom: Optional[CustomContent] = None
+    s3: Optional[S3Content] = None
 
 
-class CreateAgentActionGroupResponseTypeDef(BaseValidatorModel):
-    agentActionGroup: AgentActionGroupTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateAgentActionGroupResponse(BaseValidatorModel):
+    agentActionGroup: AgentActionGroup
+    ResponseMetadata: ResponseMetadata
 
 
-class GetAgentActionGroupResponseTypeDef(BaseValidatorModel):
-    agentActionGroup: AgentActionGroupTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetAgentActionGroupResponse(BaseValidatorModel):
+    agentActionGroup: AgentActionGroup
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateAgentActionGroupResponseTypeDef(BaseValidatorModel):
-    agentActionGroup: AgentActionGroupTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateAgentActionGroupResponse(BaseValidatorModel):
+    agentActionGroup: AgentActionGroup
+    ResponseMetadata: ResponseMetadata
 
 
-class FunctionSchemaUnionTypeDef(BaseValidatorModel):
+class FunctionSchemaUnion(BaseValidatorModel):
     pass
 
 
-class CreateAgentActionGroupRequestTypeDef(BaseValidatorModel):
+class CreateAgentActionGroupRequest(BaseValidatorModel):
     actionGroupName: str
     agentId: str
     agentVersion: str
-    actionGroupExecutor: Optional[ActionGroupExecutorTypeDef] = None
+    actionGroupExecutor: Optional[ActionGroupExecutor] = None
     actionGroupState: Optional[ActionGroupStateType] = None
-    apiSchema: Optional[APISchemaTypeDef] = None
+    apiSchema: Optional[APISchema] = None
     clientToken: Optional[str] = None
     description: Optional[str] = None
-    functionSchema: Optional[FunctionSchemaUnionTypeDef] = None
+    functionSchema: Optional[FunctionSchemaUnion] = None
     parentActionGroupSignature: Optional[ActionGroupSignatureType] = None
     parentActionGroupSignatureParams: Optional[Mapping[str, str]] = None
 
 
-class UpdateAgentActionGroupRequestTypeDef(BaseValidatorModel):
+class UpdateAgentActionGroupRequest(BaseValidatorModel):
     actionGroupId: str
     actionGroupName: str
     agentId: str
     agentVersion: str
-    actionGroupExecutor: Optional[ActionGroupExecutorTypeDef] = None
+    actionGroupExecutor: Optional[ActionGroupExecutor] = None
     actionGroupState: Optional[ActionGroupStateType] = None
-    apiSchema: Optional[APISchemaTypeDef] = None
+    apiSchema: Optional[APISchema] = None
     description: Optional[str] = None
-    functionSchema: Optional[FunctionSchemaUnionTypeDef] = None
+    functionSchema: Optional[FunctionSchemaUnion] = None
     parentActionGroupSignature: Optional[ActionGroupSignatureType] = None
     parentActionGroupSignatureParams: Optional[Mapping[str, str]] = None
 
 
-class CreateAgentResponseTypeDef(BaseValidatorModel):
-    agent: AgentTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateAgentResponse(BaseValidatorModel):
+    agent: Agent
+    ResponseMetadata: ResponseMetadata
 
 
-class GetAgentResponseTypeDef(BaseValidatorModel):
-    agent: AgentTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetAgentResponse(BaseValidatorModel):
+    agent: Agent
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateAgentResponseTypeDef(BaseValidatorModel):
-    agent: AgentTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateAgentResponse(BaseValidatorModel):
+    agent: Agent
+    ResponseMetadata: ResponseMetadata
 
 
-class GetAgentVersionResponseTypeDef(BaseValidatorModel):
-    agentVersion: AgentVersionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetAgentVersionResponse(BaseValidatorModel):
+    agentVersion: AgentVersion
+    ResponseMetadata: ResponseMetadata
 
 
-class PromptOverrideConfigurationUnionTypeDef(BaseValidatorModel):
+class PromptOverrideConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class MemoryConfigurationUnionTypeDef(BaseValidatorModel):
+class MemoryConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class CreateAgentRequestTypeDef(BaseValidatorModel):
+class CreateAgentRequest(BaseValidatorModel):
     agentName: str
     agentCollaboration: Optional[AgentCollaborationType] = None
     agentResourceRoleArn: Optional[str] = None
     clientToken: Optional[str] = None
-    customOrchestration: Optional[CustomOrchestrationTypeDef] = None
+    customOrchestration: Optional[CustomOrchestration] = None
     customerEncryptionKeyArn: Optional[str] = None
     description: Optional[str] = None
     foundationModel: Optional[str] = None
-    guardrailConfiguration: Optional[GuardrailConfigurationTypeDef] = None
+    guardrailConfiguration: Optional[GuardrailConfiguration] = None
     idleSessionTTLInSeconds: Optional[int] = None
     instruction: Optional[str] = None
-    memoryConfiguration: Optional[MemoryConfigurationUnionTypeDef] = None
+    memoryConfiguration: Optional[MemoryConfigurationUnion] = None
     orchestrationType: Optional[OrchestrationTypeType] = None
-    promptOverrideConfiguration: Optional[PromptOverrideConfigurationUnionTypeDef] = None
+    promptOverrideConfiguration: Optional[PromptOverrideConfigurationUnion] = None
     tags: Optional[Mapping[str, str]] = None
 
 
-class UpdateAgentRequestTypeDef(BaseValidatorModel):
+class UpdateAgentRequest(BaseValidatorModel):
     agentId: str
     agentName: str
     agentResourceRoleArn: str
     foundationModel: str
     agentCollaboration: Optional[AgentCollaborationType] = None
-    customOrchestration: Optional[CustomOrchestrationTypeDef] = None
+    customOrchestration: Optional[CustomOrchestration] = None
     customerEncryptionKeyArn: Optional[str] = None
     description: Optional[str] = None
-    guardrailConfiguration: Optional[GuardrailConfigurationTypeDef] = None
+    guardrailConfiguration: Optional[GuardrailConfiguration] = None
     idleSessionTTLInSeconds: Optional[int] = None
     instruction: Optional[str] = None
-    memoryConfiguration: Optional[MemoryConfigurationUnionTypeDef] = None
+    memoryConfiguration: Optional[MemoryConfigurationUnion] = None
     orchestrationType: Optional[OrchestrationTypeType] = None
-    promptOverrideConfiguration: Optional[PromptOverrideConfigurationUnionTypeDef] = None
+    promptOverrideConfiguration: Optional[PromptOverrideConfigurationUnion] = None
 
 
-class ConfluenceDataSourceConfigurationOutputTypeDef(BaseValidatorModel):
-    sourceConfiguration: ConfluenceSourceConfigurationTypeDef
-    crawlerConfiguration: Optional[ConfluenceCrawlerConfigurationOutputTypeDef] = None
+class ConfluenceDataSourceConfigurationOutput(BaseValidatorModel):
+    sourceConfiguration: ConfluenceSourceConfiguration
+    crawlerConfiguration: Optional[ConfluenceCrawlerConfigurationOutput] = None
 
 
-class SalesforceDataSourceConfigurationOutputTypeDef(BaseValidatorModel):
-    sourceConfiguration: SalesforceSourceConfigurationTypeDef
-    crawlerConfiguration: Optional[SalesforceCrawlerConfigurationOutputTypeDef] = None
+class SalesforceDataSourceConfigurationOutput(BaseValidatorModel):
+    sourceConfiguration: SalesforceSourceConfiguration
+    crawlerConfiguration: Optional[SalesforceCrawlerConfigurationOutput] = None
 
 
-class SharePointDataSourceConfigurationOutputTypeDef(BaseValidatorModel):
-    sourceConfiguration: SharePointSourceConfigurationOutputTypeDef
-    crawlerConfiguration: Optional[SharePointCrawlerConfigurationOutputTypeDef] = None
+class SharePointDataSourceConfigurationOutput(BaseValidatorModel):
+    sourceConfiguration: SharePointSourceConfigurationOutput
+    crawlerConfiguration: Optional[SharePointCrawlerConfigurationOutput] = None
 
 
-class ConfluenceDataSourceConfigurationTypeDef(BaseValidatorModel):
-    sourceConfiguration: ConfluenceSourceConfigurationTypeDef
-    crawlerConfiguration: Optional[ConfluenceCrawlerConfigurationTypeDef] = None
+class ConfluenceDataSourceConfiguration(BaseValidatorModel):
+    sourceConfiguration: ConfluenceSourceConfiguration
+    crawlerConfiguration: Optional[ConfluenceCrawlerConfiguration] = None
 
 
-class SalesforceDataSourceConfigurationTypeDef(BaseValidatorModel):
-    sourceConfiguration: SalesforceSourceConfigurationTypeDef
-    crawlerConfiguration: Optional[SalesforceCrawlerConfigurationTypeDef] = None
+class SalesforceDataSourceConfiguration(BaseValidatorModel):
+    sourceConfiguration: SalesforceSourceConfiguration
+    crawlerConfiguration: Optional[SalesforceCrawlerConfiguration] = None
 
 
-class SharePointDataSourceConfigurationTypeDef(BaseValidatorModel):
-    sourceConfiguration: SharePointSourceConfigurationTypeDef
-    crawlerConfiguration: Optional[SharePointCrawlerConfigurationTypeDef] = None
+class SharePointDataSourceConfiguration(BaseValidatorModel):
+    sourceConfiguration: SharePointSourceConfiguration
+    crawlerConfiguration: Optional[SharePointCrawlerConfiguration] = None
 
 
-class RedshiftQueryEngineConfigurationTypeDef(BaseValidatorModel):
+class RedshiftQueryEngineConfiguration(BaseValidatorModel):
     pass
 
 
-class RedshiftQueryEngineStorageConfigurationOutputTypeDef(BaseValidatorModel):
+class RedshiftQueryEngineStorageConfigurationOutput(BaseValidatorModel):
     pass
 
 
-class RedshiftConfigurationOutputTypeDef(BaseValidatorModel):
-    queryEngineConfiguration: RedshiftQueryEngineConfigurationTypeDef
-    storageConfigurations: List[RedshiftQueryEngineStorageConfigurationOutputTypeDef]
-    queryGenerationConfiguration: Optional[QueryGenerationConfigurationOutputTypeDef] = None
+class RedshiftConfigurationOutput(BaseValidatorModel):
+    queryEngineConfiguration: RedshiftQueryEngineConfiguration
+    storageConfigurations: List[RedshiftQueryEngineStorageConfigurationOutput]
+    queryGenerationConfiguration: Optional[QueryGenerationConfigurationOutput] = None
 
 
-class RedshiftQueryEngineStorageConfigurationTypeDef(BaseValidatorModel):
+class RedshiftQueryEngineStorageConfiguration(BaseValidatorModel):
     pass
 
 
-class RedshiftConfigurationTypeDef(BaseValidatorModel):
-    queryEngineConfiguration: RedshiftQueryEngineConfigurationTypeDef
-    storageConfigurations: Sequence[RedshiftQueryEngineStorageConfigurationTypeDef]
-    queryGenerationConfiguration: Optional[QueryGenerationConfigurationTypeDef] = None
+class RedshiftConfiguration(BaseValidatorModel):
+    queryEngineConfiguration: RedshiftQueryEngineConfiguration
+    storageConfigurations: Sequence[RedshiftQueryEngineStorageConfiguration]
+    queryGenerationConfiguration: Optional[QueryGenerationConfiguration] = None
 
 
-class ChatPromptTemplateConfigurationOutputTypeDef(BaseValidatorModel):
-    messages: List[MessageOutputTypeDef]
-    inputVariables: Optional[List[PromptInputVariableTypeDef]] = None
-    system: Optional[List[SystemContentBlockTypeDef]] = None
-    toolConfiguration: Optional[ToolConfigurationOutputTypeDef] = None
+class ChatPromptTemplateConfigurationOutput(BaseValidatorModel):
+    messages: List[MessageOutput]
+    inputVariables: Optional[List[PromptInputVariable]] = None
+    system: Optional[List[SystemContentBlock]] = None
+    toolConfiguration: Optional[ToolConfigurationOutput] = None
 
 
-class ToolSpecificationUnionTypeDef(BaseValidatorModel):
+class ToolSpecificationUnion(BaseValidatorModel):
     pass
 
 
-class ToolTypeDef(BaseValidatorModel):
-    cachePoint: Optional[CachePointBlockTypeDef] = None
-    toolSpec: Optional[ToolSpecificationUnionTypeDef] = None
+class Tool(BaseValidatorModel):
+    cachePoint: Optional[CachePointBlock] = None
+    toolSpec: Optional[ToolSpecificationUnion] = None
 
 
-class ContextEnrichmentConfigurationTypeDef(BaseValidatorModel):
+class ContextEnrichmentConfiguration(BaseValidatorModel):
     pass
 
 
-class VectorIngestionConfigurationOutputTypeDef(BaseValidatorModel):
-    chunkingConfiguration: Optional[ChunkingConfigurationOutputTypeDef] = None
-    contextEnrichmentConfiguration: Optional[ContextEnrichmentConfigurationTypeDef] = None
-    customTransformationConfiguration: Optional[CustomTransformationConfigurationOutputTypeDef] = None
-    parsingConfiguration: Optional[ParsingConfigurationTypeDef] = None
+class VectorIngestionConfigurationOutput(BaseValidatorModel):
+    chunkingConfiguration: Optional[ChunkingConfigurationOutput] = None
+    contextEnrichmentConfiguration: Optional[ContextEnrichmentConfiguration] = None
+    customTransformationConfiguration: Optional[CustomTransformationConfigurationOutput] = None
+    parsingConfiguration: Optional[ParsingConfiguration] = None
 
 
-class VectorIngestionConfigurationTypeDef(BaseValidatorModel):
-    chunkingConfiguration: Optional[ChunkingConfigurationTypeDef] = None
-    contextEnrichmentConfiguration: Optional[ContextEnrichmentConfigurationTypeDef] = None
-    customTransformationConfiguration: Optional[CustomTransformationConfigurationTypeDef] = None
-    parsingConfiguration: Optional[ParsingConfigurationTypeDef] = None
+class VectorIngestionConfiguration(BaseValidatorModel):
+    chunkingConfiguration: Optional[ChunkingConfiguration] = None
+    contextEnrichmentConfiguration: Optional[ContextEnrichmentConfiguration] = None
+    customTransformationConfiguration: Optional[CustomTransformationConfiguration] = None
+    parsingConfiguration: Optional[ParsingConfiguration] = None
 
 
-class DocumentMetadataTypeDef(BaseValidatorModel):
+class DocumentMetadata(BaseValidatorModel):
     pass
 
 
-class KnowledgeBaseDocumentTypeDef(BaseValidatorModel):
-    content: DocumentContentTypeDef
-    metadata: Optional[DocumentMetadataTypeDef] = None
+class KnowledgeBaseDocument(BaseValidatorModel):
+    content: DocumentContent
+    metadata: Optional[DocumentMetadata] = None
 
 
-class PromptTemplateConfigurationOutputTypeDef(BaseValidatorModel):
-    chat: Optional[ChatPromptTemplateConfigurationOutputTypeDef] = None
-    text: Optional[TextPromptTemplateConfigurationOutputTypeDef] = None
+class PromptTemplateConfigurationOutput(BaseValidatorModel):
+    chat: Optional[ChatPromptTemplateConfigurationOutput] = None
+    text: Optional[TextPromptTemplateConfigurationOutput] = None
 
 
-class IngestKnowledgeBaseDocumentsRequestTypeDef(BaseValidatorModel):
+class IngestKnowledgeBaseDocumentsRequest(BaseValidatorModel):
     dataSourceId: str
-    documents: Sequence[KnowledgeBaseDocumentTypeDef]
+    documents: Sequence[KnowledgeBaseDocument]
     knowledgeBaseId: str
     clientToken: Optional[str] = None
 
 
-class DataSourceConfigurationOutputTypeDef(BaseValidatorModel):
+class DataSourceConfigurationOutput(BaseValidatorModel):
     pass
 
 
-class DataSourceTypeDef(BaseValidatorModel):
+class DataSource(BaseValidatorModel):
     createdAt: datetime
-    dataSourceConfiguration: DataSourceConfigurationOutputTypeDef
+    dataSourceConfiguration: DataSourceConfigurationOutput
     dataSourceId: str
     knowledgeBaseId: str
     name: str
@@ -2106,99 +2106,99 @@ class DataSourceTypeDef(BaseValidatorModel):
     dataDeletionPolicy: Optional[DataDeletionPolicyType] = None
     description: Optional[str] = None
     failureReasons: Optional[List[str]] = None
-    serverSideEncryptionConfiguration: Optional[ServerSideEncryptionConfigurationTypeDef] = None
-    vectorIngestionConfiguration: Optional[VectorIngestionConfigurationOutputTypeDef] = None
+    serverSideEncryptionConfiguration: Optional[ServerSideEncryptionConfiguration] = None
+    vectorIngestionConfiguration: Optional[VectorIngestionConfigurationOutput] = None
 
 
-class PromptFlowNodeInlineConfigurationOutputTypeDef(BaseValidatorModel):
+class PromptFlowNodeInlineConfigurationOutput(BaseValidatorModel):
     modelId: str
-    templateConfiguration: PromptTemplateConfigurationOutputTypeDef
+    templateConfiguration: PromptTemplateConfigurationOutput
     templateType: PromptTemplateTypeType
     additionalModelRequestFields: Optional[Dict[str, Any]] = None
-    inferenceConfiguration: Optional[PromptInferenceConfigurationOutputTypeDef] = None
+    inferenceConfiguration: Optional[PromptInferenceConfigurationOutput] = None
 
 
-class PromptVariantOutputTypeDef(BaseValidatorModel):
+class PromptVariantOutput(BaseValidatorModel):
     name: str
-    templateConfiguration: PromptTemplateConfigurationOutputTypeDef
+    templateConfiguration: PromptTemplateConfigurationOutput
     templateType: PromptTemplateTypeType
     additionalModelRequestFields: Optional[Dict[str, Any]] = None
-    genAiResource: Optional[PromptGenAiResourceTypeDef] = None
-    inferenceConfiguration: Optional[PromptInferenceConfigurationOutputTypeDef] = None
-    metadata: Optional[List[PromptMetadataEntryTypeDef]] = None
+    genAiResource: Optional[PromptGenAiResource] = None
+    inferenceConfiguration: Optional[PromptInferenceConfigurationOutput] = None
+    metadata: Optional[List[PromptMetadataEntry]] = None
     modelId: Optional[str] = None
 
 
-class ToolUnionTypeDef(BaseValidatorModel):
+class ToolUnion(BaseValidatorModel):
     pass
 
 
-class ToolChoiceUnionTypeDef(BaseValidatorModel):
+class ToolChoiceUnion(BaseValidatorModel):
     pass
 
 
-class ToolConfigurationTypeDef(BaseValidatorModel):
-    tools: Sequence[ToolUnionTypeDef]
-    toolChoice: Optional[ToolChoiceUnionTypeDef] = None
+class ToolConfiguration(BaseValidatorModel):
+    tools: Sequence[ToolUnion]
+    toolChoice: Optional[ToolChoiceUnion] = None
 
 
-class CreateDataSourceResponseTypeDef(BaseValidatorModel):
-    dataSource: DataSourceTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateDataSourceResponse(BaseValidatorModel):
+    dataSource: DataSource
+    ResponseMetadata: ResponseMetadata
 
 
-class GetDataSourceResponseTypeDef(BaseValidatorModel):
-    dataSource: DataSourceTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetDataSourceResponse(BaseValidatorModel):
+    dataSource: DataSource
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateDataSourceResponseTypeDef(BaseValidatorModel):
-    dataSource: DataSourceTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateDataSourceResponse(BaseValidatorModel):
+    dataSource: DataSource
+    ResponseMetadata: ResponseMetadata
 
 
-class DataSourceConfigurationUnionTypeDef(BaseValidatorModel):
+class DataSourceConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class VectorIngestionConfigurationUnionTypeDef(BaseValidatorModel):
+class VectorIngestionConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class CreateDataSourceRequestTypeDef(BaseValidatorModel):
-    dataSourceConfiguration: DataSourceConfigurationUnionTypeDef
+class CreateDataSourceRequest(BaseValidatorModel):
+    dataSourceConfiguration: DataSourceConfigurationUnion
     knowledgeBaseId: str
     name: str
     clientToken: Optional[str] = None
     dataDeletionPolicy: Optional[DataDeletionPolicyType] = None
     description: Optional[str] = None
-    serverSideEncryptionConfiguration: Optional[ServerSideEncryptionConfigurationTypeDef] = None
-    vectorIngestionConfiguration: Optional[VectorIngestionConfigurationUnionTypeDef] = None
+    serverSideEncryptionConfiguration: Optional[ServerSideEncryptionConfiguration] = None
+    vectorIngestionConfiguration: Optional[VectorIngestionConfigurationUnion] = None
 
 
-class UpdateDataSourceRequestTypeDef(BaseValidatorModel):
-    dataSourceConfiguration: DataSourceConfigurationUnionTypeDef
+class UpdateDataSourceRequest(BaseValidatorModel):
+    dataSourceConfiguration: DataSourceConfigurationUnion
     dataSourceId: str
     knowledgeBaseId: str
     name: str
     dataDeletionPolicy: Optional[DataDeletionPolicyType] = None
     description: Optional[str] = None
-    serverSideEncryptionConfiguration: Optional[ServerSideEncryptionConfigurationTypeDef] = None
-    vectorIngestionConfiguration: Optional[VectorIngestionConfigurationUnionTypeDef] = None
+    serverSideEncryptionConfiguration: Optional[ServerSideEncryptionConfiguration] = None
+    vectorIngestionConfiguration: Optional[VectorIngestionConfigurationUnion] = None
 
 
-class KnowledgeBaseConfigurationOutputTypeDef(BaseValidatorModel):
+class KnowledgeBaseConfigurationOutput(BaseValidatorModel):
     pass
 
 
-class StorageConfigurationTypeDef(BaseValidatorModel):
+class StorageConfiguration(BaseValidatorModel):
     pass
 
 
-class KnowledgeBaseTypeDef(BaseValidatorModel):
+class KnowledgeBase(BaseValidatorModel):
     createdAt: datetime
     knowledgeBaseArn: str
-    knowledgeBaseConfiguration: KnowledgeBaseConfigurationOutputTypeDef
+    knowledgeBaseConfiguration: KnowledgeBaseConfigurationOutput
     knowledgeBaseId: str
     name: str
     roleArn: str
@@ -2206,191 +2206,191 @@ class KnowledgeBaseTypeDef(BaseValidatorModel):
     updatedAt: datetime
     description: Optional[str] = None
     failureReasons: Optional[List[str]] = None
-    storageConfiguration: Optional[StorageConfigurationTypeDef] = None
+    storageConfiguration: Optional[StorageConfiguration] = None
 
 
-class PromptFlowNodeSourceConfigurationOutputTypeDef(BaseValidatorModel):
-    inline: Optional[PromptFlowNodeInlineConfigurationOutputTypeDef] = None
-    resource: Optional[PromptFlowNodeResourceConfigurationTypeDef] = None
+class PromptFlowNodeSourceConfigurationOutput(BaseValidatorModel):
+    inline: Optional[PromptFlowNodeInlineConfigurationOutput] = None
+    resource: Optional[PromptFlowNodeResourceConfiguration] = None
 
 
-class CreateKnowledgeBaseResponseTypeDef(BaseValidatorModel):
-    knowledgeBase: KnowledgeBaseTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateKnowledgeBaseResponse(BaseValidatorModel):
+    knowledgeBase: KnowledgeBase
+    ResponseMetadata: ResponseMetadata
 
 
-class GetKnowledgeBaseResponseTypeDef(BaseValidatorModel):
-    knowledgeBase: KnowledgeBaseTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetKnowledgeBaseResponse(BaseValidatorModel):
+    knowledgeBase: KnowledgeBase
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateKnowledgeBaseResponseTypeDef(BaseValidatorModel):
-    knowledgeBase: KnowledgeBaseTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateKnowledgeBaseResponse(BaseValidatorModel):
+    knowledgeBase: KnowledgeBase
+    ResponseMetadata: ResponseMetadata
 
 
-class KnowledgeBaseConfigurationUnionTypeDef(BaseValidatorModel):
+class KnowledgeBaseConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class CreateKnowledgeBaseRequestTypeDef(BaseValidatorModel):
-    knowledgeBaseConfiguration: KnowledgeBaseConfigurationUnionTypeDef
+class CreateKnowledgeBaseRequest(BaseValidatorModel):
+    knowledgeBaseConfiguration: KnowledgeBaseConfigurationUnion
     name: str
     roleArn: str
     clientToken: Optional[str] = None
     description: Optional[str] = None
-    storageConfiguration: Optional[StorageConfigurationTypeDef] = None
+    storageConfiguration: Optional[StorageConfiguration] = None
     tags: Optional[Mapping[str, str]] = None
 
 
-class UpdateKnowledgeBaseRequestTypeDef(BaseValidatorModel):
-    knowledgeBaseConfiguration: KnowledgeBaseConfigurationUnionTypeDef
+class UpdateKnowledgeBaseRequest(BaseValidatorModel):
+    knowledgeBaseConfiguration: KnowledgeBaseConfigurationUnion
     knowledgeBaseId: str
     name: str
     roleArn: str
     description: Optional[str] = None
-    storageConfiguration: Optional[StorageConfigurationTypeDef] = None
+    storageConfiguration: Optional[StorageConfiguration] = None
 
 
-class PromptFlowNodeConfigurationOutputTypeDef(BaseValidatorModel):
-    sourceConfiguration: PromptFlowNodeSourceConfigurationOutputTypeDef
-    guardrailConfiguration: Optional[GuardrailConfigurationTypeDef] = None
+class PromptFlowNodeConfigurationOutput(BaseValidatorModel):
+    sourceConfiguration: PromptFlowNodeSourceConfigurationOutput
+    guardrailConfiguration: Optional[GuardrailConfiguration] = None
 
 
-class ToolConfigurationUnionTypeDef(BaseValidatorModel):
+class ToolConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class MessageUnionTypeDef(BaseValidatorModel):
+class MessageUnion(BaseValidatorModel):
     pass
 
 
-class ChatPromptTemplateConfigurationTypeDef(BaseValidatorModel):
-    messages: Sequence[MessageUnionTypeDef]
-    inputVariables: Optional[Sequence[PromptInputVariableTypeDef]] = None
-    system: Optional[Sequence[SystemContentBlockTypeDef]] = None
-    toolConfiguration: Optional[ToolConfigurationUnionTypeDef] = None
+class ChatPromptTemplateConfiguration(BaseValidatorModel):
+    messages: Sequence[MessageUnion]
+    inputVariables: Optional[Sequence[PromptInputVariable]] = None
+    system: Optional[Sequence[SystemContentBlock]] = None
+    toolConfiguration: Optional[ToolConfigurationUnion] = None
 
 
-class TextPromptTemplateConfigurationUnionTypeDef(BaseValidatorModel):
+class TextPromptTemplateConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class ChatPromptTemplateConfigurationUnionTypeDef(BaseValidatorModel):
+class ChatPromptTemplateConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class PromptTemplateConfigurationTypeDef(BaseValidatorModel):
-    chat: Optional[ChatPromptTemplateConfigurationUnionTypeDef] = None
-    text: Optional[TextPromptTemplateConfigurationUnionTypeDef] = None
+class PromptTemplateConfiguration(BaseValidatorModel):
+    chat: Optional[ChatPromptTemplateConfigurationUnion] = None
+    text: Optional[TextPromptTemplateConfigurationUnion] = None
 
 
-class FlowConnectionTypeDef(BaseValidatorModel):
+class FlowConnection(BaseValidatorModel):
     pass
 
 
-class FlowNodeExtraTypeDef(BaseValidatorModel):
+class FlowNodeExtra(BaseValidatorModel):
     pass
 
 
-class FlowDefinitionOutputTypeDef(BaseValidatorModel):
-    connections: Optional[List[FlowConnectionTypeDef]] = None
-    nodes: Optional[List[FlowNodeExtraTypeDef]] = None
+class FlowDefinitionOutput(BaseValidatorModel):
+    connections: Optional[List[FlowConnection]] = None
+    nodes: Optional[List[FlowNodeExtra]] = None
 
 
-class PromptFlowNodeInlineConfigurationTypeDef(BaseValidatorModel):
+class PromptFlowNodeInlineConfiguration(BaseValidatorModel):
     modelId: str
-    templateConfiguration: PromptTemplateConfigurationTypeDef
+    templateConfiguration: PromptTemplateConfiguration
     templateType: PromptTemplateTypeType
     additionalModelRequestFields: Optional[Mapping[str, Any]] = None
-    inferenceConfiguration: Optional[PromptInferenceConfigurationTypeDef] = None
+    inferenceConfiguration: Optional[PromptInferenceConfiguration] = None
 
 
-class PromptFlowNodeSourceConfigurationTypeDef(BaseValidatorModel):
-    inline: Optional[PromptFlowNodeInlineConfigurationTypeDef] = None
-    resource: Optional[PromptFlowNodeResourceConfigurationTypeDef] = None
+class PromptFlowNodeSourceConfiguration(BaseValidatorModel):
+    inline: Optional[PromptFlowNodeInlineConfiguration] = None
+    resource: Optional[PromptFlowNodeResourceConfiguration] = None
 
 
-class PromptInferenceConfigurationUnionTypeDef(BaseValidatorModel):
+class PromptInferenceConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class PromptTemplateConfigurationUnionTypeDef(BaseValidatorModel):
+class PromptTemplateConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class PromptVariantTypeDef(BaseValidatorModel):
+class PromptVariant(BaseValidatorModel):
     name: str
-    templateConfiguration: PromptTemplateConfigurationUnionTypeDef
+    templateConfiguration: PromptTemplateConfigurationUnion
     templateType: PromptTemplateTypeType
     additionalModelRequestFields: Optional[Mapping[str, Any]] = None
-    genAiResource: Optional[PromptGenAiResourceTypeDef] = None
-    inferenceConfiguration: Optional[PromptInferenceConfigurationUnionTypeDef] = None
-    metadata: Optional[Sequence[PromptMetadataEntryTypeDef]] = None
+    genAiResource: Optional[PromptGenAiResource] = None
+    inferenceConfiguration: Optional[PromptInferenceConfigurationUnion] = None
+    metadata: Optional[Sequence[PromptMetadataEntry]] = None
     modelId: Optional[str] = None
 
 
-class PromptFlowNodeConfigurationTypeDef(BaseValidatorModel):
-    sourceConfiguration: PromptFlowNodeSourceConfigurationTypeDef
-    guardrailConfiguration: Optional[GuardrailConfigurationTypeDef] = None
+class PromptFlowNodeConfiguration(BaseValidatorModel):
+    sourceConfiguration: PromptFlowNodeSourceConfiguration
+    guardrailConfiguration: Optional[GuardrailConfiguration] = None
 
 
-class PromptVariantUnionTypeDef(BaseValidatorModel):
+class PromptVariantUnion(BaseValidatorModel):
     pass
 
 
-class CreatePromptRequestTypeDef(BaseValidatorModel):
+class CreatePromptRequest(BaseValidatorModel):
     name: str
     clientToken: Optional[str] = None
     customerEncryptionKeyArn: Optional[str] = None
     defaultVariant: Optional[str] = None
     description: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
-    variants: Optional[Sequence[PromptVariantUnionTypeDef]] = None
+    variants: Optional[Sequence[PromptVariantUnion]] = None
 
 
-class UpdatePromptRequestTypeDef(BaseValidatorModel):
+class UpdatePromptRequest(BaseValidatorModel):
     name: str
     promptIdentifier: str
     customerEncryptionKeyArn: Optional[str] = None
     defaultVariant: Optional[str] = None
     description: Optional[str] = None
-    variants: Optional[Sequence[PromptVariantUnionTypeDef]] = None
+    variants: Optional[Sequence[PromptVariantUnion]] = None
 
 
-class FlowNodeTypeDef(BaseValidatorModel):
+class FlowNode(BaseValidatorModel):
     pass
 
 
-class FlowDefinitionTypeDef(BaseValidatorModel):
-    connections: Optional[Sequence[FlowConnectionTypeDef]] = None
-    nodes: Optional[Sequence[FlowNodeTypeDef]] = None
+class FlowDefinition(BaseValidatorModel):
+    connections: Optional[Sequence[FlowConnection]] = None
+    nodes: Optional[Sequence[FlowNode]] = None
 
 
-class FlowDefinitionUnionTypeDef(BaseValidatorModel):
+class FlowDefinitionUnion(BaseValidatorModel):
     pass
 
 
-class CreateFlowRequestTypeDef(BaseValidatorModel):
+class CreateFlowRequest(BaseValidatorModel):
     executionRoleArn: str
     name: str
     clientToken: Optional[str] = None
     customerEncryptionKeyArn: Optional[str] = None
-    definition: Optional[FlowDefinitionUnionTypeDef] = None
+    definition: Optional[FlowDefinitionUnion] = None
     description: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
 
-class UpdateFlowRequestTypeDef(BaseValidatorModel):
+class UpdateFlowRequest(BaseValidatorModel):
     executionRoleArn: str
     flowIdentifier: str
     name: str
     customerEncryptionKeyArn: Optional[str] = None
-    definition: Optional[FlowDefinitionUnionTypeDef] = None
+    definition: Optional[FlowDefinitionUnion] = None
     description: Optional[str] = None
 
 
-class ValidateFlowDefinitionRequestTypeDef(BaseValidatorModel):
-    definition: FlowDefinitionUnionTypeDef
+class ValidateFlowDefinitionRequest(BaseValidatorModel):
+    definition: FlowDefinitionUnion
 
 

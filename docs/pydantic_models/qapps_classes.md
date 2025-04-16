@@ -1,46 +1,46 @@
 # Qapps Classes
 
-# AppDefinitionInputOutputTypeDef
-
-### cards
-- **Type**: typing.List[aws_resource_validator.pydantic_models.qapps_classes.CardInputOutputTypeDef]
-- **Required**: Yes
-
-### initialPrompt
-- **Type**: typing.Optional[str]
-
-
-# AppDefinitionInputTypeDef
-
-### cards
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.qapps_classes.CardInputTypeDef]
-- **Required**: Yes
-
-### initialPrompt
-- **Type**: typing.Optional[str]
-
-
-# AppDefinitionInputUnionTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# AppDefinitionTypeDef
+# AppDefinition
 
 ### appDefinitionVersion
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### cards
-- **Type**: typing.List[aws_resource_validator.pydantic_models.qapps_classes.CardTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.qapps_classes.Card]
 - **Required**: Yes
 
 ### canEdit
 - **Type**: typing.Optional[bool]
 
 
-# AssociateLibraryItemReviewInputTypeDef
+# AppDefinitionInput
+
+### cards
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.qapps_classes.CardInput]
+- **Required**: Yes
+
+### initialPrompt
+- **Type**: typing.Optional[str]
+
+
+# AppDefinitionInputOutput
+
+### cards
+- **Type**: typing.List[aws_resource_validator.pydantic_models.qapps_classes.CardInputOutput]
+- **Required**: Yes
+
+### initialPrompt
+- **Type**: typing.Optional[str]
+
+
+# AppDefinitionInputUnion
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# AssociateLibraryItemReviewInput
 
 ### instanceId
 - **Type**: <class 'str'>
@@ -51,7 +51,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# AssociateQAppWithUserInputTypeDef
+# AssociateQAppWithUserInput
 
 ### instanceId
 - **Type**: <class 'str'>
@@ -62,40 +62,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# AttributeFilterOutputTypeDef
-
-### andAllFilters
-- **Type**: typing.Optional[typing.List[typing.Dict[str, typing.Any]]]
-
-### orAllFilters
-- **Type**: typing.Optional[typing.List[typing.Dict[str, typing.Any]]]
-
-### notFilter
-- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
-
-### equalsTo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qapps_classes.DocumentAttributeOutputTypeDef]
-
-### containsAll
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qapps_classes.DocumentAttributeOutputTypeDef]
-
-### containsAny
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qapps_classes.DocumentAttributeOutputTypeDef]
-
-### greaterThan
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qapps_classes.DocumentAttributeOutputTypeDef]
-
-### greaterThanOrEquals
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qapps_classes.DocumentAttributeOutputTypeDef]
-
-### lessThan
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qapps_classes.DocumentAttributeOutputTypeDef]
-
-### lessThanOrEquals
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qapps_classes.DocumentAttributeOutputTypeDef]
-
-
-# AttributeFilterTypeDef
+# AttributeFilter
 
 ### andAllFilters
 - **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
@@ -107,25 +74,58 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, typing.Any]]
 
 ### equalsTo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qapps_classes.DocumentAttributeTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qapps_classes.DocumentAttribute]
 
 ### containsAll
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qapps_classes.DocumentAttributeTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qapps_classes.DocumentAttribute]
 
 ### containsAny
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qapps_classes.DocumentAttributeTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qapps_classes.DocumentAttribute]
 
 ### greaterThan
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qapps_classes.DocumentAttributeTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qapps_classes.DocumentAttribute]
 
 ### greaterThanOrEquals
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qapps_classes.DocumentAttributeTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qapps_classes.DocumentAttribute]
 
 ### lessThan
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qapps_classes.DocumentAttributeTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qapps_classes.DocumentAttribute]
 
 ### lessThanOrEquals
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qapps_classes.DocumentAttributeTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qapps_classes.DocumentAttribute]
+
+
+# AttributeFilterOutput
+
+### andAllFilters
+- **Type**: typing.Optional[typing.List[typing.Dict[str, typing.Any]]]
+
+### orAllFilters
+- **Type**: typing.Optional[typing.List[typing.Dict[str, typing.Any]]]
+
+### notFilter
+- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
+
+### equalsTo
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qapps_classes.DocumentAttributeOutput]
+
+### containsAll
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qapps_classes.DocumentAttributeOutput]
+
+### containsAny
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qapps_classes.DocumentAttributeOutput]
+
+### greaterThan
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qapps_classes.DocumentAttributeOutput]
+
+### greaterThanOrEquals
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qapps_classes.DocumentAttributeOutput]
+
+### lessThan
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qapps_classes.DocumentAttributeOutput]
+
+### lessThanOrEquals
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qapps_classes.DocumentAttributeOutput]
 
 
 # BaseValidatorModel
@@ -134,24 +134,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BatchCreateCategoryInputCategoryTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# BatchCreateCategoryInputTypeDef
+# BatchCreateCategoryInput
 
 ### instanceId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### categories
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.qapps_classes.BatchCreateCategoryInputCategoryTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.qapps_classes.BatchCreateCategoryInputCategory]
 - **Required**: Yes
 
 
-# BatchDeleteCategoryInputTypeDef
+# BatchCreateCategoryInputCategory
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# BatchDeleteCategoryInput
 
 ### instanceId
 - **Type**: <class 'str'>
@@ -162,54 +162,72 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# BatchUpdateCategoryInputTypeDef
+# BatchUpdateCategoryInput
 
 ### instanceId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### categories
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.qapps_classes.CategoryInputTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.qapps_classes.CategoryInput]
 - **Required**: Yes
 
 
-# CardInputOutputTypeDef
+# Card
 
 ### textInput
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qapps_classes.TextInputCardInputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qapps_classes.TextInputCard]
 
 ### qQuery
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qapps_classes.QQueryCardInputOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qapps_classes.QQueryCard]
 
 ### qPlugin
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qapps_classes.QPluginCardInputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qapps_classes.QPluginCard]
 
 ### fileUpload
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qapps_classes.FileUploadCardInputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qapps_classes.FileUploadCard]
 
 ### formInput
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qapps_classes.FormInputCardInputOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qapps_classes.FormInputCard]
 
 
-# CardInputTypeDef
+# CardInput
 
 ### textInput
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qapps_classes.TextInputCardInputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qapps_classes.TextInputCardInput]
 
 ### qQuery
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qapps_classes.QQueryCardInputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qapps_classes.QQueryCardInput]
 
 ### qPlugin
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qapps_classes.QPluginCardInputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qapps_classes.QPluginCardInput]
 
 ### fileUpload
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qapps_classes.FileUploadCardInputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qapps_classes.FileUploadCardInput]
 
 ### formInput
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qapps_classes.FormInputCardInputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qapps_classes.FormInputCardInput]
 
 
-# CardStatusTypeDef
+# CardInputOutput
+
+### textInput
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qapps_classes.TextInputCardInput]
+
+### qQuery
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qapps_classes.QQueryCardInputOutput]
+
+### qPlugin
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qapps_classes.QPluginCardInput]
+
+### fileUpload
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qapps_classes.FileUploadCardInput]
+
+### formInput
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qapps_classes.FormInputCardInputOutput]
+
+
+# CardStatus
 
 ### currentState
 - **Type**: typing.Literal['COMPLETED', 'ERROR', 'IN_PROGRESS', 'WAITING']
@@ -220,28 +238,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### submissions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.qapps_classes.SubmissionTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.qapps_classes.Submission]]
 
 
-# CardTypeDef
-
-### textInput
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qapps_classes.TextInputCardTypeDef]
-
-### qQuery
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qapps_classes.QQueryCardTypeDef]
-
-### qPlugin
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qapps_classes.QPluginCardTypeDef]
-
-### fileUpload
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qapps_classes.FileUploadCardTypeDef]
-
-### formInput
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qapps_classes.FormInputCardTypeDef]
-
-
-# CardValueTypeDef
+# CardValue
 
 ### cardId
 - **Type**: <class 'str'>
@@ -252,28 +252,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### submissionMutation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qapps_classes.SubmissionMutationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qapps_classes.SubmissionMutation]
 
 
-# CategoryInputTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# CategoryTypeDef
+# Category
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ConversationMessageTypeDef
+# CategoryInput
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CreateLibraryItemInputTypeDef
+# ConversationMessage
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# CreateLibraryItemInput
 
 ### instanceId
 - **Type**: <class 'str'>
@@ -292,7 +292,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateLibraryItemOutputTypeDef
+# CreateLibraryItemOutput
 
 ### libraryItemId
 - **Type**: <class 'str'>
@@ -327,11 +327,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qapps_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qapps_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreatePresignedUrlInputTypeDef
+# CreatePresignedUrlInput
 
 ### instanceId
 - **Type**: <class 'str'>
@@ -361,7 +361,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreatePresignedUrlOutputTypeDef
+# CreatePresignedUrlOutput
 
 ### fileId
 - **Type**: <class 'str'>
@@ -380,11 +380,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qapps_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qapps_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateQAppInputTypeDef
+# CreateQAppInput
 
 ### instanceId
 - **Type**: <class 'str'>
@@ -395,7 +395,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### appDefinition
-- **Type**: <class 'aws_resource_validator.pydantic_models.qapps_classes.AppDefinitionInputUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qapps_classes.AppDefinitionInputUnion'>
 - **Required**: Yes
 
 ### description
@@ -405,7 +405,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateQAppOutputTypeDef
+# CreateQAppOutput
 
 ### appId
 - **Type**: <class 'str'>
@@ -456,11 +456,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qapps_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qapps_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteLibraryItemInputTypeDef
+# DeleteLibraryItemInput
 
 ### instanceId
 - **Type**: <class 'str'>
@@ -471,7 +471,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteQAppInputTypeDef
+# DeleteQAppInput
 
 ### instanceId
 - **Type**: <class 'str'>
@@ -482,7 +482,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeQAppPermissionsInputTypeDef
+# DescribeQAppPermissionsInput
 
 ### instanceId
 - **Type**: <class 'str'>
@@ -493,7 +493,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeQAppPermissionsOutputTypeDef
+# DescribeQAppPermissionsOutput
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -504,15 +504,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### permissions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.qapps_classes.PermissionOutputTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.qapps_classes.PermissionOutput]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qapps_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qapps_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DisassociateLibraryItemReviewInputTypeDef
+# DisassociateLibraryItemReviewInput
 
 ### instanceId
 - **Type**: <class 'str'>
@@ -523,7 +523,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DisassociateQAppFromUserInputTypeDef
+# DisassociateQAppFromUserInput
 
 ### instanceId
 - **Type**: <class 'str'>
@@ -534,29 +534,44 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DocumentAttributeOutputTypeDef
+# DocumentAttribute
 
 ### name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### value
-- **Type**: <class 'aws_resource_validator.pydantic_models.qapps_classes.DocumentAttributeValueOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qapps_classes.DocumentAttributeValue'>
 - **Required**: Yes
 
 
-# DocumentAttributeTypeDef
+# DocumentAttributeOutput
 
 ### name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### value
-- **Type**: <class 'aws_resource_validator.pydantic_models.qapps_classes.DocumentAttributeValueTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qapps_classes.DocumentAttributeValueOutput'>
 - **Required**: Yes
 
 
-# DocumentAttributeValueOutputTypeDef
+# DocumentAttributeValue
+
+### stringValue
+- **Type**: typing.Optional[str]
+
+### stringListValue
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### longValue
+- **Type**: typing.Optional[int]
+
+### dateValue
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qapps_classes.Timestamp]
+
+
+# DocumentAttributeValueOutput
 
 ### stringValue
 - **Type**: typing.Optional[str]
@@ -571,29 +586,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# DocumentAttributeValueTypeDef
-
-### stringValue
-- **Type**: typing.Optional[str]
-
-### stringListValue
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### longValue
-- **Type**: typing.Optional[int]
-
-### dateValue
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qapps_classes.TimestampTypeDef]
-
-
-# EmptyResponseMetadataTypeDef
+# EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qapps_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qapps_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ExportQAppSessionDataInputTypeDef
+# ExportQAppSessionDataInput
 
 ### instanceId
 - **Type**: <class 'str'>
@@ -604,7 +604,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ExportQAppSessionDataOutputTypeDef
+# ExportQAppSessionDataOutput
 
 ### csvFileLink
 - **Type**: <class 'str'>
@@ -619,55 +619,55 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qapps_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qapps_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# FileUploadCardInputTypeDef
+# FileUploadCard
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# FileUploadCardTypeDef
+# FileUploadCardInput
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# FormInputCardInputOutputTypeDef
+# FormInputCard
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# FormInputCardInputTypeDef
+# FormInputCardInput
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# FormInputCardMetadataOutputTypeDef
+# FormInputCardInputOutput
 
-### schema
-- **Type**: typing.Dict[str, typing.Any]
-- **Default**: <bound method BaseModel.schema of <class 'aws_resource_validator.pydantic_models.qapps_classes.FormInputCardMetadataOutputTypeDef'>>
+Oops! This Pydantic model is currently empty. Stay tuned!
 
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# FormInputCardMetadataTypeDef
+# FormInputCardMetadata
 
 ### schema
 - **Type**: typing.Mapping[str, typing.Any]
-- **Default**: <bound method BaseModel.schema of <class 'aws_resource_validator.pydantic_models.qapps_classes.FormInputCardMetadataTypeDef'>>
+- **Default**: <bound method BaseModel.schema of <class 'aws_resource_validator.pydantic_models.qapps_classes.FormInputCardMetadata'>>
 
 
-# FormInputCardTypeDef
+# FormInputCardMetadataOutput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### schema
+- **Type**: typing.Dict[str, typing.Any]
+- **Default**: <bound method BaseModel.schema of <class 'aws_resource_validator.pydantic_models.qapps_classes.FormInputCardMetadataOutput'>>
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# GetLibraryItemInputTypeDef
+# GetLibraryItemInput
 
 ### instanceId
 - **Type**: <class 'str'>
@@ -681,7 +681,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetLibraryItemOutputTypeDef
+# GetLibraryItemOutput
 
 ### libraryItemId
 - **Type**: <class 'str'>
@@ -696,7 +696,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### categories
-- **Type**: typing.List[aws_resource_validator.pydantic_models.qapps_classes.CategoryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.qapps_classes.Category]
 - **Required**: Yes
 
 ### status
@@ -736,11 +736,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qapps_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qapps_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetQAppInputTypeDef
+# GetQAppInput
 
 ### instanceId
 - **Type**: <class 'str'>
@@ -754,7 +754,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# GetQAppOutputTypeDef
+# GetQAppOutput
 
 ### appId
 - **Type**: <class 'str'>
@@ -805,15 +805,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### appDefinition
-- **Type**: <class 'aws_resource_validator.pydantic_models.qapps_classes.AppDefinitionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qapps_classes.AppDefinition'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qapps_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qapps_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetQAppSessionInputTypeDef
+# GetQAppSessionInput
 
 ### instanceId
 - **Type**: <class 'str'>
@@ -824,7 +824,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetQAppSessionMetadataInputTypeDef
+# GetQAppSessionMetadataInput
 
 ### instanceId
 - **Type**: <class 'str'>
@@ -835,7 +835,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetQAppSessionMetadataOutputTypeDef
+# GetQAppSessionMetadataOutput
 
 ### sessionId
 - **Type**: <class 'str'>
@@ -850,7 +850,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### sharingConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.qapps_classes.SessionSharingConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qapps_classes.SessionSharingConfiguration'>
 - **Required**: Yes
 
 ### sessionOwner
@@ -858,11 +858,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qapps_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qapps_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetQAppSessionOutputTypeDef
+# GetQAppSessionOutput
 
 ### sessionId
 - **Type**: <class 'str'>
@@ -889,7 +889,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### cardStatus
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.qapps_classes.CardStatusTypeDef]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.qapps_classes.CardStatus]
 - **Required**: Yes
 
 ### userIsHost
@@ -897,11 +897,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qapps_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qapps_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ImportDocumentInputTypeDef
+# ImportDocumentInput
 
 ### instanceId
 - **Type**: <class 'str'>
@@ -931,18 +931,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ImportDocumentOutputTypeDef
+# ImportDocumentOutput
 
 ### fileId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qapps_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qapps_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# LibraryItemMemberTypeDef
+# LibraryItemMember
 
 ### libraryItemId
 - **Type**: <class 'str'>
@@ -957,7 +957,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### categories
-- **Type**: typing.List[aws_resource_validator.pydantic_models.qapps_classes.CategoryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.qapps_classes.Category]
 - **Required**: Yes
 
 ### status
@@ -992,38 +992,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# ListCategoriesInputTypeDef
+# ListCategoriesInput
 
 ### instanceId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ListCategoriesOutputTypeDef
+# ListCategoriesOutput
 
 ### categories
-- **Type**: typing.List[aws_resource_validator.pydantic_models.qapps_classes.CategoryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.qapps_classes.Category]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qapps_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qapps_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListLibraryItemsInputPaginateTypeDef
-
-### instanceId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### categoryId
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qapps_classes.PaginatorConfigTypeDef]
-
-
-# ListLibraryItemsInputTypeDef
+# ListLibraryItemsInput
 
 ### instanceId
 - **Type**: <class 'str'>
@@ -1039,21 +1026,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListLibraryItemsOutputTypeDef
+# ListLibraryItemsInputPaginate
+
+### instanceId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### categoryId
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qapps_classes.PaginatorConfig]
+
+
+# ListLibraryItemsOutput
 
 ### libraryItems
-- **Type**: typing.List[aws_resource_validator.pydantic_models.qapps_classes.LibraryItemMemberTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.qapps_classes.LibraryItemMember]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qapps_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qapps_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListQAppSessionDataInputTypeDef
+# ListQAppSessionDataInput
 
 ### instanceId
 - **Type**: <class 'str'>
@@ -1064,7 +1064,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListQAppSessionDataOutputTypeDef
+# ListQAppSessionDataOutput
 
 ### sessionId
 - **Type**: <class 'str'>
@@ -1075,28 +1075,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### sessionData
-- **Type**: typing.List[aws_resource_validator.pydantic_models.qapps_classes.QAppSessionDataTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.qapps_classes.QAppSessionData]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qapps_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qapps_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListQAppsInputPaginateTypeDef
-
-### instanceId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qapps_classes.PaginatorConfigTypeDef]
-
-
-# ListQAppsInputTypeDef
+# ListQAppsInput
 
 ### instanceId
 - **Type**: <class 'str'>
@@ -1109,39 +1099,49 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListQAppsOutputTypeDef
+# ListQAppsInputPaginate
+
+### instanceId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qapps_classes.PaginatorConfig]
+
+
+# ListQAppsOutput
 
 ### apps
-- **Type**: typing.List[aws_resource_validator.pydantic_models.qapps_classes.UserAppItemTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.qapps_classes.UserAppItem]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qapps_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qapps_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestTypeDef
+# ListTagsForResourceRequest
 
 ### resourceARN
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ListTagsForResourceResponseTypeDef
+# ListTagsForResourceResponse
 
 ### tags
 - **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qapps_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qapps_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -1153,7 +1153,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PermissionInputTypeDef
+# PermissionInput
 
 ### action
 - **Type**: typing.Literal['read', 'write']
@@ -1164,54 +1164,54 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PermissionOutputTypeDef
+# PermissionOutput
 
 ### action
 - **Type**: typing.Literal['read', 'write']
 - **Required**: Yes
 
 ### principal
-- **Type**: <class 'aws_resource_validator.pydantic_models.qapps_classes.PrincipalOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qapps_classes.PrincipalOutput'>
 - **Required**: Yes
 
 
-# PredictAppDefinitionTypeDef
+# PredictAppDefinition
 
 ### title
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### appDefinition
-- **Type**: <class 'aws_resource_validator.pydantic_models.qapps_classes.AppDefinitionInputOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qapps_classes.AppDefinitionInputOutput'>
 - **Required**: Yes
 
 ### description
 - **Type**: typing.Optional[str]
 
 
-# PredictQAppInputOptionsTypeDef
-
-### conversation
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.qapps_classes.ConversationMessageTypeDef]]
-
-### problemStatement
-- **Type**: typing.Optional[str]
-
-
-# PredictQAppInputTypeDef
+# PredictQAppInput
 
 ### instanceId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### options
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qapps_classes.PredictQAppInputOptionsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qapps_classes.PredictQAppInputOptions]
 
 
-# PredictQAppOutputTypeDef
+# PredictQAppInputOptions
+
+### conversation
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.qapps_classes.ConversationMessage]]
+
+### problemStatement
+- **Type**: typing.Optional[str]
+
+
+# PredictQAppOutput
 
 ### app
-- **Type**: <class 'aws_resource_validator.pydantic_models.qapps_classes.PredictAppDefinitionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qapps_classes.PredictAppDefinition'>
 - **Required**: Yes
 
 ### problemStatement
@@ -1219,11 +1219,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qapps_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qapps_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# PrincipalOutputTypeDef
+# PrincipalOutput
 
 ### userId
 - **Type**: typing.Optional[str]
@@ -1235,14 +1235,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# QAppSessionDataTypeDef
+# QAppSessionData
 
 ### cardId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### user
-- **Type**: <class 'aws_resource_validator.pydantic_models.qapps_classes.UserTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qapps_classes.User'>
 - **Required**: Yes
 
 ### value
@@ -1255,37 +1255,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# QPluginCardInputTypeDef
+# QPluginCard
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# QPluginCardTypeDef
+# QPluginCardInput
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# QQueryCardInputOutputTypeDef
+# QQueryCard
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# QQueryCardInputTypeDef
+# QQueryCardInput
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# QQueryCardTypeDef
+# QQueryCardInputOutput
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -1307,7 +1307,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SessionSharingConfigurationTypeDef
+# SessionSharingConfiguration
 
 ### enabled
 - **Type**: <class 'bool'>
@@ -1320,7 +1320,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# StartQAppSessionInputTypeDef
+# StartQAppSessionInput
 
 ### instanceId
 - **Type**: <class 'str'>
@@ -1335,7 +1335,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### initialValues
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.qapps_classes.CardValueTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.qapps_classes.CardValue]]
 
 ### sessionId
 - **Type**: typing.Optional[str]
@@ -1344,7 +1344,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# StartQAppSessionOutputTypeDef
+# StartQAppSessionOutput
 
 ### sessionId
 - **Type**: <class 'str'>
@@ -1355,11 +1355,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qapps_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qapps_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# StopQAppSessionInputTypeDef
+# StopQAppSessionInput
 
 ### instanceId
 - **Type**: <class 'str'>
@@ -1370,18 +1370,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SubmissionMutationTypeDef
-
-### submissionId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### mutationType
-- **Type**: typing.Literal['add', 'delete', 'edit']
-- **Required**: Yes
-
-
-# SubmissionTypeDef
+# Submission
 
 ### value
 - **Type**: typing.Optional[typing.Dict[str, typing.Any]]
@@ -1393,7 +1382,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# TagResourceRequestTypeDef
+# SubmissionMutation
+
+### submissionId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### mutationType
+- **Type**: typing.Literal['add', 'delete', 'edit']
+- **Required**: Yes
+
+
+# TagResourceRequest
 
 ### resourceARN
 - **Type**: <class 'str'>
@@ -1404,25 +1404,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TextInputCardInputTypeDef
+# TextInputCard
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# TextInputCardTypeDef
+# TextInputCardInput
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# TimestampTypeDef
+# Timestamp
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# UntagResourceRequestTypeDef
+# UntagResourceRequest
 
 ### resourceARN
 - **Type**: <class 'str'>
@@ -1433,7 +1433,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateLibraryItemInputTypeDef
+# UpdateLibraryItemInput
 
 ### instanceId
 - **Type**: <class 'str'>
@@ -1450,7 +1450,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# UpdateLibraryItemMetadataInputTypeDef
+# UpdateLibraryItemMetadataInput
 
 ### instanceId
 - **Type**: <class 'str'>
@@ -1464,7 +1464,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# UpdateLibraryItemOutputTypeDef
+# UpdateLibraryItemOutput
 
 ### libraryItemId
 - **Type**: <class 'str'>
@@ -1479,7 +1479,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### categories
-- **Type**: typing.List[aws_resource_validator.pydantic_models.qapps_classes.CategoryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.qapps_classes.Category]
 - **Required**: Yes
 
 ### status
@@ -1519,11 +1519,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qapps_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qapps_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateQAppInputTypeDef
+# UpdateQAppInput
 
 ### instanceId
 - **Type**: <class 'str'>
@@ -1540,10 +1540,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### appDefinition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qapps_classes.AppDefinitionInputUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qapps_classes.AppDefinitionInputUnion]
 
 
-# UpdateQAppOutputTypeDef
+# UpdateQAppOutput
 
 ### appId
 - **Type**: <class 'str'>
@@ -1594,11 +1594,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qapps_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qapps_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateQAppPermissionsInputTypeDef
+# UpdateQAppPermissionsInput
 
 ### instanceId
 - **Type**: <class 'str'>
@@ -1609,13 +1609,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### grantPermissions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.qapps_classes.PermissionInputTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.qapps_classes.PermissionInput]]
 
 ### revokePermissions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.qapps_classes.PermissionInputTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.qapps_classes.PermissionInput]]
 
 
-# UpdateQAppPermissionsOutputTypeDef
+# UpdateQAppPermissionsOutput
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -1626,15 +1626,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### permissions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.qapps_classes.PermissionOutputTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.qapps_classes.PermissionOutput]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qapps_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qapps_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateQAppSessionInputTypeDef
+# UpdateQAppSessionInput
 
 ### instanceId
 - **Type**: <class 'str'>
@@ -1645,10 +1645,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### values
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.qapps_classes.CardValueTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.qapps_classes.CardValue]]
 
 
-# UpdateQAppSessionMetadataInputTypeDef
+# UpdateQAppSessionMetadataInput
 
 ### instanceId
 - **Type**: <class 'str'>
@@ -1659,14 +1659,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### sharingConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.qapps_classes.SessionSharingConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qapps_classes.SessionSharingConfiguration'>
 - **Required**: Yes
 
 ### sessionName
 - **Type**: typing.Optional[str]
 
 
-# UpdateQAppSessionMetadataOutputTypeDef
+# UpdateQAppSessionMetadataOutput
 
 ### sessionId
 - **Type**: <class 'str'>
@@ -1681,15 +1681,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### sharingConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.qapps_classes.SessionSharingConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qapps_classes.SessionSharingConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qapps_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qapps_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateQAppSessionOutputTypeDef
+# UpdateQAppSessionOutput
 
 ### sessionId
 - **Type**: <class 'str'>
@@ -1700,11 +1700,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qapps_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qapps_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UserAppItemTypeDef
+# User
+
+### userId
+- **Type**: typing.Optional[str]
+
+
+# UserAppItem
 
 ### appId
 - **Type**: <class 'str'>
@@ -1733,11 +1739,5 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### isVerified
 - **Type**: typing.Optional[bool]
-
-
-# UserTypeDef
-
-### userId
-- **Type**: typing.Optional[str]
 
 

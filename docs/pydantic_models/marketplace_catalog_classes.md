@@ -1,27 +1,33 @@
 # Marketplace Catalog Classes
 
-# AmiProductEntityIdFilterTypeDef
+# AmiProductEntityIdFilter
 
 ### ValueList
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# AmiProductFiltersTypeDef
+# AmiProductFilters
 
 ### EntityId
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.AmiProductEntityIdFilterTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.AmiProductEntityIdFilter]
 
 ### LastModifiedDate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.AmiProductLastModifiedDateFilterTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.AmiProductLastModifiedDateFilter]
 
 ### ProductTitle
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.AmiProductTitleFilterTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.AmiProductTitleFilter]
 
 ### Visibility
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.AmiProductVisibilityFilterTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.AmiProductVisibilityFilter]
 
 
-# AmiProductLastModifiedDateFilterDateRangeTypeDef
+# AmiProductLastModifiedDateFilter
+
+### DateRange
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.AmiProductLastModifiedDateFilterDateRange]
+
+
+# AmiProductLastModifiedDateFilterDateRange
 
 ### AfterValue
 - **Type**: typing.Optional[str]
@@ -30,13 +36,7 @@
 - **Type**: typing.Optional[str]
 
 
-# AmiProductLastModifiedDateFilterTypeDef
-
-### DateRange
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.AmiProductLastModifiedDateFilterDateRangeTypeDef]
-
-
-# AmiProductSortTypeDef
+# AmiProductSort
 
 ### SortBy
 - **Type**: typing.Optional[typing.Literal['EntityId', 'LastModifiedDate', 'ProductTitle', 'Visibility']]
@@ -45,7 +45,7 @@
 - **Type**: typing.Optional[typing.Literal['ASCENDING', 'DESCENDING']]
 
 
-# AmiProductSummaryTypeDef
+# AmiProductSummary
 
 ### ProductTitle
 - **Type**: typing.Optional[str]
@@ -54,7 +54,7 @@
 - **Type**: typing.Optional[typing.Literal['Draft', 'Limited', 'Public', 'Restricted']]
 
 
-# AmiProductTitleFilterTypeDef
+# AmiProductTitleFilter
 
 ### ValueList
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -63,7 +63,7 @@
 - **Type**: typing.Optional[str]
 
 
-# AmiProductVisibilityFilterTypeDef
+# AmiProductVisibilityFilter
 
 ### ValueList
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['Draft', 'Limited', 'Public', 'Restricted']]]
@@ -75,29 +75,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BatchDescribeEntitiesRequestTypeDef
+# BatchDescribeEntitiesRequest
 
 ### EntityRequestList
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.marketplace_catalog_classes.EntityRequestTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.marketplace_catalog_classes.EntityRequest]
 - **Required**: Yes
 
 
-# BatchDescribeEntitiesResponseTypeDef
+# BatchDescribeEntitiesResponse
 
 ### EntityDetails
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.marketplace_catalog_classes.EntityDetailTypeDef]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.marketplace_catalog_classes.EntityDetail]
 - **Required**: Yes
 
 ### Errors
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.marketplace_catalog_classes.BatchDescribeErrorDetailTypeDef]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.marketplace_catalog_classes.BatchDescribeErrorDetail]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.marketplace_catalog_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.marketplace_catalog_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# BatchDescribeErrorDetailTypeDef
+# BatchDescribeErrorDetail
 
 ### ErrorCode
 - **Type**: typing.Optional[str]
@@ -106,7 +106,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CancelChangeSetRequestTypeDef
+# CancelChangeSetRequest
 
 ### Catalog
 - **Type**: <class 'str'>
@@ -117,7 +117,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CancelChangeSetResponseTypeDef
+# CancelChangeSetResponse
 
 ### ChangeSetId
 - **Type**: <class 'str'>
@@ -128,11 +128,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.marketplace_catalog_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.marketplace_catalog_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ChangeSetSummaryListItemTypeDef
+# Change
+
+### ChangeType
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Entity
+- **Type**: <class 'aws_resource_validator.pydantic_models.marketplace_catalog_classes.Entity'>
+- **Required**: Yes
+
+### EntityTags
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.marketplace_catalog_classes.Tag]]
+
+### Details
+- **Type**: typing.Optional[str]
+
+### DetailsDocument
+- **Type**: typing.Optional[typing.Mapping[str, typing.Any]]
+
+### ChangeName
+- **Type**: typing.Optional[str]
+
+
+# ChangeSetSummaryListItem
 
 ### ChangeSetId
 - **Type**: typing.Optional[str]
@@ -159,13 +182,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CLIENT_ERROR', 'SERVER_FAULT']]
 
 
-# ChangeSummaryTypeDef
+# ChangeSummary
 
 ### ChangeType
 - **Type**: typing.Optional[str]
 
 ### Entity
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.EntityTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### Details
 - **Type**: typing.Optional[str]
@@ -174,57 +197,40 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, typing.Any]]
 
 ### ErrorDetailList
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.marketplace_catalog_classes.ErrorDetailTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.marketplace_catalog_classes.ErrorDetail]]
 
 ### ChangeName
 - **Type**: typing.Optional[str]
 
 
-# ChangeTypeDef
-
-### ChangeType
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Entity
-- **Type**: <class 'aws_resource_validator.pydantic_models.marketplace_catalog_classes.EntityTypeDef'>
-- **Required**: Yes
-
-### EntityTags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.marketplace_catalog_classes.TagTypeDef]]
-
-### Details
-- **Type**: typing.Optional[str]
-
-### DetailsDocument
-- **Type**: typing.Optional[typing.Mapping[str, typing.Any]]
-
-### ChangeName
-- **Type**: typing.Optional[str]
-
-
-# ContainerProductEntityIdFilterTypeDef
+# ContainerProductEntityIdFilter
 
 ### ValueList
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# ContainerProductFiltersTypeDef
+# ContainerProductFilters
 
 ### EntityId
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.ContainerProductEntityIdFilterTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.ContainerProductEntityIdFilter]
 
 ### LastModifiedDate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.ContainerProductLastModifiedDateFilterTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.ContainerProductLastModifiedDateFilter]
 
 ### ProductTitle
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.ContainerProductTitleFilterTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.ContainerProductTitleFilter]
 
 ### Visibility
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.ContainerProductVisibilityFilterTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.ContainerProductVisibilityFilter]
 
 
-# ContainerProductLastModifiedDateFilterDateRangeTypeDef
+# ContainerProductLastModifiedDateFilter
+
+### DateRange
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.ContainerProductLastModifiedDateFilterDateRange]
+
+
+# ContainerProductLastModifiedDateFilterDateRange
 
 ### AfterValue
 - **Type**: typing.Optional[str]
@@ -233,13 +239,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ContainerProductLastModifiedDateFilterTypeDef
-
-### DateRange
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.ContainerProductLastModifiedDateFilterDateRangeTypeDef]
-
-
-# ContainerProductSortTypeDef
+# ContainerProductSort
 
 ### SortBy
 - **Type**: typing.Optional[typing.Literal['EntityId', 'LastModifiedDate', 'ProductTitle', 'Visibility']]
@@ -248,7 +248,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ASCENDING', 'DESCENDING']]
 
 
-# ContainerProductSummaryTypeDef
+# ContainerProductSummary
 
 ### ProductTitle
 - **Type**: typing.Optional[str]
@@ -257,7 +257,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Draft', 'Limited', 'Public', 'Restricted']]
 
 
-# ContainerProductTitleFilterTypeDef
+# ContainerProductTitleFilter
 
 ### ValueList
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -266,34 +266,40 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ContainerProductVisibilityFilterTypeDef
+# ContainerProductVisibilityFilter
 
 ### ValueList
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['Draft', 'Limited', 'Public', 'Restricted']]]
 
 
-# DataProductEntityIdFilterTypeDef
+# DataProductEntityIdFilter
 
 ### ValueList
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# DataProductFiltersTypeDef
+# DataProductFilters
 
 ### EntityId
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.DataProductEntityIdFilterTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.DataProductEntityIdFilter]
 
 ### ProductTitle
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.DataProductTitleFilterTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.DataProductTitleFilter]
 
 ### Visibility
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.DataProductVisibilityFilterTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.DataProductVisibilityFilter]
 
 ### LastModifiedDate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.DataProductLastModifiedDateFilterTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.DataProductLastModifiedDateFilter]
 
 
-# DataProductLastModifiedDateFilterDateRangeTypeDef
+# DataProductLastModifiedDateFilter
+
+### DateRange
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.DataProductLastModifiedDateFilterDateRange]
+
+
+# DataProductLastModifiedDateFilterDateRange
 
 ### AfterValue
 - **Type**: typing.Optional[str]
@@ -302,13 +308,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DataProductLastModifiedDateFilterTypeDef
-
-### DateRange
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.DataProductLastModifiedDateFilterDateRangeTypeDef]
-
-
-# DataProductSortTypeDef
+# DataProductSort
 
 ### SortBy
 - **Type**: typing.Optional[typing.Literal['EntityId', 'LastModifiedDate', 'ProductTitle', 'Visibility']]
@@ -317,7 +317,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ASCENDING', 'DESCENDING']]
 
 
-# DataProductSummaryTypeDef
+# DataProductSummary
 
 ### ProductTitle
 - **Type**: typing.Optional[str]
@@ -326,7 +326,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Draft', 'Limited', 'Public', 'Restricted', 'Unavailable']]
 
 
-# DataProductTitleFilterTypeDef
+# DataProductTitleFilter
 
 ### ValueList
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -335,20 +335,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DataProductVisibilityFilterTypeDef
+# DataProductVisibilityFilter
 
 ### ValueList
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['Draft', 'Limited', 'Public', 'Restricted', 'Unavailable']]]
 
 
-# DeleteResourcePolicyRequestTypeDef
+# DeleteResourcePolicyRequest
 
 ### ResourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeChangeSetRequestTypeDef
+# DescribeChangeSetRequest
 
 ### Catalog
 - **Type**: <class 'str'>
@@ -359,7 +359,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeChangeSetResponseTypeDef
+# DescribeChangeSetResponse
 
 ### ChangeSetId
 - **Type**: <class 'str'>
@@ -398,15 +398,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ChangeSet
-- **Type**: typing.List[aws_resource_validator.pydantic_models.marketplace_catalog_classes.ChangeSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.marketplace_catalog_classes.ChangeSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.marketplace_catalog_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.marketplace_catalog_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeEntityRequestTypeDef
+# DescribeEntityRequest
 
 ### Catalog
 - **Type**: <class 'str'>
@@ -417,7 +417,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeEntityResponseTypeDef
+# DescribeEntityResponse
 
 ### EntityType
 - **Type**: <class 'str'>
@@ -444,11 +444,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.marketplace_catalog_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.marketplace_catalog_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# EntityDetailTypeDef
+# Entity
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# EntityDetail
 
 ### EntityType
 - **Type**: typing.Optional[str]
@@ -466,7 +472,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, typing.Any]]
 
 
-# EntityRequestTypeDef
+# EntityRequest
 
 ### Catalog
 - **Type**: <class 'str'>
@@ -477,7 +483,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# EntitySummaryTypeDef
+# EntitySummary
 
 ### Name
 - **Type**: typing.Optional[str]
@@ -498,73 +504,67 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### AmiProductSummary
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.AmiProductSummaryTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### ContainerProductSummary
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.ContainerProductSummaryTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### DataProductSummary
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.DataProductSummaryTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### SaaSProductSummary
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.SaaSProductSummaryTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### OfferSummary
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.OfferSummaryTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### ResaleAuthorizationSummary
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.ResaleAuthorizationSummaryTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# EntityTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# EntityTypeFiltersTypeDef
+# EntityTypeFilters
 
 ### DataProductFilters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.DataProductFiltersTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### SaaSProductFilters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.SaaSProductFiltersTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### AmiProductFilters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.AmiProductFiltersTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### OfferFilters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.OfferFiltersTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### ContainerProductFilters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.ContainerProductFiltersTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### ResaleAuthorizationFilters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.ResaleAuthorizationFiltersTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# EntityTypeSortTypeDef
+# EntityTypeSort
 
 ### DataProductSort
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.DataProductSortTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### SaaSProductSort
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.SaaSProductSortTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### AmiProductSort
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.AmiProductSortTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### OfferSort
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.OfferSortTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### ContainerProductSort
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.ContainerProductSortTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### ResaleAuthorizationSort
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.ResaleAuthorizationSortTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# ErrorDetailTypeDef
+# ErrorDetail
 
 ### ErrorCode
 - **Type**: typing.Optional[str]
@@ -573,7 +573,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# FilterTypeDef
+# Filter
 
 ### Name
 - **Type**: typing.Optional[str]
@@ -582,51 +582,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# GetResourcePolicyRequestTypeDef
+# GetResourcePolicyRequest
 
 ### ResourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetResourcePolicyResponseTypeDef
+# GetResourcePolicyResponse
 
 ### Policy
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.marketplace_catalog_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.marketplace_catalog_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListChangeSetsRequestPaginateTypeDef
+# ListChangeSetsRequest
 
 ### Catalog
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### FilterList
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.marketplace_catalog_classes.FilterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.marketplace_catalog_classes.Filter]]
 
 ### Sort
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.SortTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.PaginatorConfigTypeDef]
-
-
-# ListChangeSetsRequestTypeDef
-
-### Catalog
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### FilterList
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.marketplace_catalog_classes.FilterTypeDef]]
-
-### Sort
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.SortTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -635,21 +619,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListChangeSetsResponseTypeDef
+# ListChangeSetsRequestPaginate
+
+### Catalog
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### FilterList
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.marketplace_catalog_classes.Filter]]
+
+### Sort
+- **Type**: <class 'NoneType'>
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.PaginatorConfig]
+
+
+# ListChangeSetsResponse
 
 ### ChangeSetSummaryList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.marketplace_catalog_classes.ChangeSetSummaryListItemTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.marketplace_catalog_classes.ChangeSetSummaryListItem]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.marketplace_catalog_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.marketplace_catalog_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListEntitiesRequestPaginateTypeDef
+# ListEntitiesRequest
 
 ### Catalog
 - **Type**: <class 'str'>
@@ -660,39 +660,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### FilterList
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.marketplace_catalog_classes.FilterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.marketplace_catalog_classes.Filter]]
 
 ### Sort
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.SortTypeDef]
-
-### OwnershipType
-- **Type**: typing.Optional[typing.Literal['SELF', 'SHARED']]
-
-### EntityTypeFilters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.EntityTypeFiltersTypeDef]
-
-### EntityTypeSort
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.EntityTypeSortTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.PaginatorConfigTypeDef]
-
-
-# ListEntitiesRequestTypeDef
-
-### Catalog
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### EntityType
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### FilterList
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.marketplace_catalog_classes.FilterTypeDef]]
-
-### Sort
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.SortTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -704,49 +675,84 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['SELF', 'SHARED']]
 
 ### EntityTypeFilters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.EntityTypeFiltersTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### EntityTypeSort
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.EntityTypeSortTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# ListEntitiesResponseTypeDef
+# ListEntitiesRequestPaginate
+
+### Catalog
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### EntityType
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### FilterList
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.marketplace_catalog_classes.Filter]]
+
+### Sort
+- **Type**: <class 'NoneType'>
+
+### OwnershipType
+- **Type**: typing.Optional[typing.Literal['SELF', 'SHARED']]
+
+### EntityTypeFilters
+- **Type**: <class 'NoneType'>
+
+### EntityTypeSort
+- **Type**: <class 'NoneType'>
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.PaginatorConfig]
+
+
+# ListEntitiesResponse
 
 ### EntitySummaryList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.marketplace_catalog_classes.EntitySummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.marketplace_catalog_classes.EntitySummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.marketplace_catalog_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.marketplace_catalog_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestTypeDef
+# ListTagsForResourceRequest
 
 ### ResourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ListTagsForResourceResponseTypeDef
+# ListTagsForResourceResponse
 
 ### ResourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.marketplace_catalog_classes.TagTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.marketplace_catalog_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.marketplace_catalog_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.marketplace_catalog_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# OfferAvailabilityEndDateFilterDateRangeTypeDef
+# OfferAvailabilityEndDateFilter
+
+### DateRange
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.OfferAvailabilityEndDateFilterDateRange]
+
+
+# OfferAvailabilityEndDateFilterDateRange
 
 ### AfterValue
 - **Type**: typing.Optional[str]
@@ -755,58 +761,58 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# OfferAvailabilityEndDateFilterTypeDef
-
-### DateRange
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.OfferAvailabilityEndDateFilterDateRangeTypeDef]
-
-
-# OfferBuyerAccountsFilterTypeDef
+# OfferBuyerAccountsFilter
 
 ### WildCardValue
 - **Type**: typing.Optional[str]
 
 
-# OfferEntityIdFilterTypeDef
+# OfferEntityIdFilter
 
 ### ValueList
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# OfferFiltersTypeDef
+# OfferFilters
 
 ### EntityId
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.OfferEntityIdFilterTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.OfferEntityIdFilter]
 
 ### Name
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.OfferNameFilterTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.OfferNameFilter]
 
 ### ProductId
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.OfferProductIdFilterTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.OfferProductIdFilter]
 
 ### ResaleAuthorizationId
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.OfferResaleAuthorizationIdFilterTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.OfferResaleAuthorizationIdFilter]
 
 ### ReleaseDate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.OfferReleaseDateFilterTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.OfferReleaseDateFilter]
 
 ### AvailabilityEndDate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.OfferAvailabilityEndDateFilterTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.OfferAvailabilityEndDateFilter]
 
 ### BuyerAccounts
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.OfferBuyerAccountsFilterTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.OfferBuyerAccountsFilter]
 
 ### State
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.OfferStateFilterTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.OfferStateFilter]
 
 ### Targeting
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.OfferTargetingFilterTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.OfferTargetingFilter]
 
 ### LastModifiedDate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.OfferLastModifiedDateFilterTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.OfferLastModifiedDateFilter]
 
 
-# OfferLastModifiedDateFilterDateRangeTypeDef
+# OfferLastModifiedDateFilter
+
+### DateRange
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.OfferLastModifiedDateFilterDateRange]
+
+
+# OfferLastModifiedDateFilterDateRange
 
 ### AfterValue
 - **Type**: typing.Optional[str]
@@ -815,13 +821,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# OfferLastModifiedDateFilterTypeDef
-
-### DateRange
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.OfferLastModifiedDateFilterDateRangeTypeDef]
-
-
-# OfferNameFilterTypeDef
+# OfferNameFilter
 
 ### ValueList
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -830,13 +830,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# OfferProductIdFilterTypeDef
+# OfferProductIdFilter
 
 ### ValueList
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# OfferReleaseDateFilterDateRangeTypeDef
+# OfferReleaseDateFilter
+
+### DateRange
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.OfferReleaseDateFilterDateRange]
+
+
+# OfferReleaseDateFilterDateRange
 
 ### AfterValue
 - **Type**: typing.Optional[str]
@@ -845,19 +851,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# OfferReleaseDateFilterTypeDef
-
-### DateRange
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.OfferReleaseDateFilterDateRangeTypeDef]
-
-
-# OfferResaleAuthorizationIdFilterTypeDef
+# OfferResaleAuthorizationIdFilter
 
 ### ValueList
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# OfferSortTypeDef
+# OfferSort
 
 ### SortBy
 - **Type**: typing.Optional[typing.Literal['AvailabilityEndDate', 'BuyerAccounts', 'EntityId', 'LastModifiedDate', 'Name', 'ProductId', 'ReleaseDate', 'ResaleAuthorizationId', 'State', 'Targeting']]
@@ -866,13 +866,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ASCENDING', 'DESCENDING']]
 
 
-# OfferStateFilterTypeDef
+# OfferStateFilter
 
 ### ValueList
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['Draft', 'Released']]]
 
 
-# OfferSummaryTypeDef
+# OfferSummary
 
 ### Name
 - **Type**: typing.Optional[str]
@@ -899,13 +899,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[typing.Literal['BuyerAccounts', 'CountryCodes', 'None', 'ParticipatingPrograms']]]
 
 
-# OfferTargetingFilterTypeDef
+# OfferTargetingFilter
 
 ### ValueList
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['BuyerAccounts', 'CountryCodes', 'None', 'ParticipatingPrograms']]]
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -917,7 +917,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PutResourcePolicyRequestTypeDef
+# PutResourcePolicyRequest
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -928,7 +928,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ResaleAuthorizationAvailabilityEndDateFilterDateRangeTypeDef
+# ResaleAuthorizationAvailabilityEndDateFilter
+
+### DateRange
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.ResaleAuthorizationAvailabilityEndDateFilterDateRange]
+
+### ValueList
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+
+# ResaleAuthorizationAvailabilityEndDateFilterDateRange
 
 ### AfterValue
 - **Type**: typing.Optional[str]
@@ -937,16 +946,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ResaleAuthorizationAvailabilityEndDateFilterTypeDef
+# ResaleAuthorizationCreatedDateFilter
 
 ### DateRange
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.ResaleAuthorizationAvailabilityEndDateFilterDateRangeTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.ResaleAuthorizationCreatedDateFilterDateRange]
 
 ### ValueList
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# ResaleAuthorizationCreatedDateFilterDateRangeTypeDef
+# ResaleAuthorizationCreatedDateFilterDateRange
 
 ### AfterValue
 - **Type**: typing.Optional[str]
@@ -955,64 +964,61 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ResaleAuthorizationCreatedDateFilterTypeDef
-
-### DateRange
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.ResaleAuthorizationCreatedDateFilterDateRangeTypeDef]
+# ResaleAuthorizationEntityIdFilter
 
 ### ValueList
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# ResaleAuthorizationEntityIdFilterTypeDef
-
-### ValueList
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-
-# ResaleAuthorizationFiltersTypeDef
+# ResaleAuthorizationFilters
 
 ### EntityId
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.ResaleAuthorizationEntityIdFilterTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.ResaleAuthorizationEntityIdFilter]
 
 ### Name
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.ResaleAuthorizationNameFilterTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.ResaleAuthorizationNameFilter]
 
 ### ProductId
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.ResaleAuthorizationProductIdFilterTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.ResaleAuthorizationProductIdFilter]
 
 ### CreatedDate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.ResaleAuthorizationCreatedDateFilterTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.ResaleAuthorizationCreatedDateFilter]
 
 ### AvailabilityEndDate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.ResaleAuthorizationAvailabilityEndDateFilterTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.ResaleAuthorizationAvailabilityEndDateFilter]
 
 ### ManufacturerAccountId
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.ResaleAuthorizationManufacturerAccountIdFilterTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.ResaleAuthorizationManufacturerAccountIdFilter]
 
 ### ProductName
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.ResaleAuthorizationProductNameFilterTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.ResaleAuthorizationProductNameFilter]
 
 ### ManufacturerLegalName
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.ResaleAuthorizationManufacturerLegalNameFilterTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.ResaleAuthorizationManufacturerLegalNameFilter]
 
 ### ResellerAccountID
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.ResaleAuthorizationResellerAccountIDFilterTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.ResaleAuthorizationResellerAccountIDFilter]
 
 ### ResellerLegalName
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.ResaleAuthorizationResellerLegalNameFilterTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.ResaleAuthorizationResellerLegalNameFilter]
 
 ### Status
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.ResaleAuthorizationStatusFilterTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.ResaleAuthorizationStatusFilter]
 
 ### OfferExtendedStatus
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.ResaleAuthorizationOfferExtendedStatusFilterTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.ResaleAuthorizationOfferExtendedStatusFilter]
 
 ### LastModifiedDate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.ResaleAuthorizationLastModifiedDateFilterTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.ResaleAuthorizationLastModifiedDateFilter]
 
 
-# ResaleAuthorizationLastModifiedDateFilterDateRangeTypeDef
+# ResaleAuthorizationLastModifiedDateFilter
+
+### DateRange
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.ResaleAuthorizationLastModifiedDateFilterDateRange]
+
+
+# ResaleAuthorizationLastModifiedDateFilterDateRange
 
 ### AfterValue
 - **Type**: typing.Optional[str]
@@ -1021,13 +1027,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ResaleAuthorizationLastModifiedDateFilterTypeDef
-
-### DateRange
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.ResaleAuthorizationLastModifiedDateFilterDateRangeTypeDef]
-
-
-# ResaleAuthorizationManufacturerAccountIdFilterTypeDef
+# ResaleAuthorizationManufacturerAccountIdFilter
 
 ### ValueList
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -1036,7 +1036,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ResaleAuthorizationManufacturerLegalNameFilterTypeDef
+# ResaleAuthorizationManufacturerLegalNameFilter
 
 ### ValueList
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -1045,7 +1045,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ResaleAuthorizationNameFilterTypeDef
+# ResaleAuthorizationNameFilter
 
 ### ValueList
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -1054,22 +1054,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ResaleAuthorizationOfferExtendedStatusFilterTypeDef
+# ResaleAuthorizationOfferExtendedStatusFilter
 
 ### ValueList
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# ResaleAuthorizationProductIdFilterTypeDef
-
-### ValueList
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### WildCardValue
-- **Type**: typing.Optional[str]
-
-
-# ResaleAuthorizationProductNameFilterTypeDef
+# ResaleAuthorizationProductIdFilter
 
 ### ValueList
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -1078,7 +1069,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ResaleAuthorizationResellerAccountIDFilterTypeDef
+# ResaleAuthorizationProductNameFilter
 
 ### ValueList
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -1087,7 +1078,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ResaleAuthorizationResellerLegalNameFilterTypeDef
+# ResaleAuthorizationResellerAccountIDFilter
 
 ### ValueList
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -1096,7 +1087,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ResaleAuthorizationSortTypeDef
+# ResaleAuthorizationResellerLegalNameFilter
+
+### ValueList
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### WildCardValue
+- **Type**: typing.Optional[str]
+
+
+# ResaleAuthorizationSort
 
 ### SortBy
 - **Type**: typing.Optional[typing.Literal['AvailabilityEndDate', 'CreatedDate', 'EntityId', 'LastModifiedDate', 'ManufacturerAccountId', 'ManufacturerLegalName', 'Name', 'OfferExtendedStatus', 'ProductId', 'ProductName', 'ResellerAccountID', 'ResellerLegalName', 'Status']]
@@ -1105,13 +1105,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ASCENDING', 'DESCENDING']]
 
 
-# ResaleAuthorizationStatusFilterTypeDef
+# ResaleAuthorizationStatusFilter
 
 ### ValueList
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['Active', 'Draft', 'Restricted']]]
 
 
-# ResaleAuthorizationSummaryTypeDef
+# ResaleAuthorizationSummary
 
 ### Name
 - **Type**: typing.Optional[str]
@@ -1147,7 +1147,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -1169,28 +1169,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SaaSProductEntityIdFilterTypeDef
+# SaaSProductEntityIdFilter
 
 ### ValueList
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# SaaSProductFiltersTypeDef
+# SaaSProductFilters
 
 ### EntityId
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.SaaSProductEntityIdFilterTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.SaaSProductEntityIdFilter]
 
 ### ProductTitle
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.SaaSProductTitleFilterTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.SaaSProductTitleFilter]
 
 ### Visibility
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.SaaSProductVisibilityFilterTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.SaaSProductVisibilityFilter]
 
 ### LastModifiedDate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.SaaSProductLastModifiedDateFilterTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.SaaSProductLastModifiedDateFilter]
 
 
-# SaaSProductLastModifiedDateFilterDateRangeTypeDef
+# SaaSProductLastModifiedDateFilter
+
+### DateRange
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.SaaSProductLastModifiedDateFilterDateRange]
+
+
+# SaaSProductLastModifiedDateFilterDateRange
 
 ### AfterValue
 - **Type**: typing.Optional[str]
@@ -1199,13 +1205,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SaaSProductLastModifiedDateFilterTypeDef
-
-### DateRange
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_catalog_classes.SaaSProductLastModifiedDateFilterDateRangeTypeDef]
-
-
-# SaaSProductSortTypeDef
+# SaaSProductSort
 
 ### SortBy
 - **Type**: typing.Optional[typing.Literal['EntityId', 'LastModifiedDate', 'ProductTitle', 'Visibility']]
@@ -1214,7 +1214,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ASCENDING', 'DESCENDING']]
 
 
-# SaaSProductSummaryTypeDef
+# SaaSProductSummary
 
 ### ProductTitle
 - **Type**: typing.Optional[str]
@@ -1223,7 +1223,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Draft', 'Limited', 'Public', 'Restricted']]
 
 
-# SaaSProductTitleFilterTypeDef
+# SaaSProductTitleFilter
 
 ### ValueList
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -1232,13 +1232,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SaaSProductVisibilityFilterTypeDef
+# SaaSProductVisibilityFilter
 
 ### ValueList
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['Draft', 'Limited', 'Public', 'Restricted']]]
 
 
-# SortTypeDef
+# Sort
 
 ### SortBy
 - **Type**: typing.Optional[str]
@@ -1247,14 +1247,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ASCENDING', 'DESCENDING']]
 
 
-# StartChangeSetRequestTypeDef
+# StartChangeSetRequest
 
 ### Catalog
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ChangeSet
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.marketplace_catalog_classes.ChangeTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.marketplace_catalog_classes.Change]
 - **Required**: Yes
 
 ### ChangeSetName
@@ -1264,13 +1264,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ChangeSetTags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.marketplace_catalog_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.marketplace_catalog_classes.Tag]]
 
 ### Intent
 - **Type**: typing.Optional[typing.Literal['APPLY', 'VALIDATE']]
 
 
-# StartChangeSetResponseTypeDef
+# StartChangeSetResponse
 
 ### ChangeSetId
 - **Type**: <class 'str'>
@@ -1281,22 +1281,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.marketplace_catalog_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.marketplace_catalog_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# TagResourceRequestTypeDef
-
-### ResourceArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.marketplace_catalog_classes.TagTypeDef]
-- **Required**: Yes
-
-
-# TagTypeDef
+# Tag
 
 ### Key
 - **Type**: <class 'str'>
@@ -1307,7 +1296,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceRequestTypeDef
+# TagResourceRequest
+
+### ResourceArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Tags
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.marketplace_catalog_classes.Tag]
+- **Required**: Yes
+
+
+# UntagResourceRequest
 
 ### ResourceArn
 - **Type**: <class 'str'>

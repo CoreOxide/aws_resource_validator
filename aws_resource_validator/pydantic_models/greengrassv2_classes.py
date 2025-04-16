@@ -12,21 +12,21 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.greengrassv2_constants import *
 
-class AssociateClientDeviceWithCoreDeviceEntryTypeDef(BaseValidatorModel):
+class AssociateClientDeviceWithCoreDeviceEntry(BaseValidatorModel):
     thingName: str
 
 
-class AssociateClientDeviceWithCoreDeviceErrorEntryTypeDef(BaseValidatorModel):
+class AssociateClientDeviceWithCoreDeviceErrorEntry(BaseValidatorModel):
     thingName: Optional[str] = None
     code: Optional[str] = None
     message: Optional[str] = None
 
 
-class AssociateServiceRoleToAccountRequestTypeDef(BaseValidatorModel):
+class AssociateServiceRoleToAccountRequest(BaseValidatorModel):
     roleArn: str
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -34,26 +34,26 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class AssociatedClientDeviceTypeDef(BaseValidatorModel):
+class AssociatedClientDevice(BaseValidatorModel):
     thingName: Optional[str] = None
     associationTimestamp: Optional[datetime] = None
 
 
-class DisassociateClientDeviceFromCoreDeviceEntryTypeDef(BaseValidatorModel):
+class DisassociateClientDeviceFromCoreDeviceEntry(BaseValidatorModel):
     thingName: str
 
 
-class DisassociateClientDeviceFromCoreDeviceErrorEntryTypeDef(BaseValidatorModel):
+class DisassociateClientDeviceFromCoreDeviceErrorEntry(BaseValidatorModel):
     thingName: Optional[str] = None
     code: Optional[str] = None
     message: Optional[str] = None
 
 
-class CancelDeploymentRequestTypeDef(BaseValidatorModel):
+class CancelDeploymentRequest(BaseValidatorModel):
     deploymentId: str
 
 
-class CloudComponentStatusTypeDef(BaseValidatorModel):
+class CloudComponentStatus(BaseValidatorModel):
     componentState: Optional[CloudComponentStateType] = None
     message: Optional[str] = None
     errors: Optional[Dict[str, str]] = None
@@ -61,49 +61,49 @@ class CloudComponentStatusTypeDef(BaseValidatorModel):
     vendorGuidanceMessage: Optional[str] = None
 
 
-class ComponentCandidateTypeDef(BaseValidatorModel):
+class ComponentCandidate(BaseValidatorModel):
     componentName: Optional[str] = None
     componentVersion: Optional[str] = None
     versionRequirements: Optional[Mapping[str, str]] = None
 
 
-class ComponentConfigurationUpdateOutputTypeDef(BaseValidatorModel):
+class ComponentConfigurationUpdateOutput(BaseValidatorModel):
     merge: Optional[str] = None
     reset: Optional[List[str]] = None
 
 
-class ComponentConfigurationUpdateTypeDef(BaseValidatorModel):
+class ComponentConfigurationUpdate(BaseValidatorModel):
     merge: Optional[str] = None
     reset: Optional[Sequence[str]] = None
 
 
-class ComponentDependencyRequirementTypeDef(BaseValidatorModel):
+class ComponentDependencyRequirement(BaseValidatorModel):
     versionRequirement: Optional[str] = None
     dependencyType: Optional[ComponentDependencyTypeType] = None
 
 
-class ComponentPlatformOutputTypeDef(BaseValidatorModel):
+class ComponentPlatformOutput(BaseValidatorModel):
     name: Optional[str] = None
     attributes: Optional[Dict[str, str]] = None
 
 
-class ComponentPlatformTypeDef(BaseValidatorModel):
+class ComponentPlatform(BaseValidatorModel):
     name: Optional[str] = None
     attributes: Optional[Mapping[str, str]] = None
 
 
-class SystemResourceLimitsTypeDef(BaseValidatorModel):
+class SystemResourceLimits(BaseValidatorModel):
     memory: Optional[int] = None
     cpus: Optional[float] = None
 
 
-class ComponentVersionListItemTypeDef(BaseValidatorModel):
+class ComponentVersionListItem(BaseValidatorModel):
     componentName: Optional[str] = None
     componentVersion: Optional[str] = None
     arn: Optional[str] = None
 
 
-class CoreDeviceTypeDef(BaseValidatorModel):
+class CoreDevice(BaseValidatorModel):
     coreDeviceThingName: Optional[str] = None
     status: Optional[CoreDeviceStatusType] = None
     lastStatusUpdateTimestamp: Optional[datetime] = None
@@ -112,32 +112,32 @@ class CoreDeviceTypeDef(BaseValidatorModel):
     runtime: Optional[str] = None
 
 
-class DeleteComponentRequestTypeDef(BaseValidatorModel):
+class DeleteComponentRequest(BaseValidatorModel):
     arn: str
 
 
-class DeleteCoreDeviceRequestTypeDef(BaseValidatorModel):
+class DeleteCoreDeviceRequest(BaseValidatorModel):
     coreDeviceThingName: str
 
 
-class DeleteDeploymentRequestTypeDef(BaseValidatorModel):
+class DeleteDeploymentRequest(BaseValidatorModel):
     deploymentId: str
 
 
-class DeploymentComponentUpdatePolicyTypeDef(BaseValidatorModel):
+class DeploymentComponentUpdatePolicy(BaseValidatorModel):
     timeoutInSeconds: Optional[int] = None
     action: Optional[DeploymentComponentUpdatePolicyActionType] = None
 
 
-class DeploymentConfigurationValidationPolicyTypeDef(BaseValidatorModel):
+class DeploymentConfigurationValidationPolicy(BaseValidatorModel):
     timeoutInSeconds: Optional[int] = None
 
 
-class IoTJobTimeoutConfigTypeDef(BaseValidatorModel):
+class IoTJobTimeoutConfig(BaseValidatorModel):
     inProgressTimeoutInMinutes: Optional[int] = None
 
 
-class DeploymentTypeDef(BaseValidatorModel):
+class Deployment(BaseValidatorModel):
     targetArn: Optional[str] = None
     revisionId: Optional[str] = None
     deploymentId: Optional[str] = None
@@ -148,40 +148,40 @@ class DeploymentTypeDef(BaseValidatorModel):
     parentTargetArn: Optional[str] = None
 
 
-class DescribeComponentRequestTypeDef(BaseValidatorModel):
+class DescribeComponentRequest(BaseValidatorModel):
     arn: str
 
 
-class EffectiveDeploymentStatusDetailsTypeDef(BaseValidatorModel):
+class EffectiveDeploymentStatusDetails(BaseValidatorModel):
     errorStack: Optional[List[str]] = None
     errorTypes: Optional[List[str]] = None
 
 
-class GetComponentRequestTypeDef(BaseValidatorModel):
+class GetComponentRequest(BaseValidatorModel):
     arn: str
     recipeOutputFormat: Optional[RecipeOutputFormatType] = None
 
 
-class GetComponentVersionArtifactRequestTypeDef(BaseValidatorModel):
+class GetComponentVersionArtifactRequest(BaseValidatorModel):
     arn: str
     artifactName: str
     s3EndpointType: Optional[S3EndpointTypeType] = None
     iotEndpointType: Optional[IotEndpointTypeType] = None
 
 
-class GetConnectivityInfoRequestTypeDef(BaseValidatorModel):
+class GetConnectivityInfoRequest(BaseValidatorModel):
     thingName: str
 
 
-class GetCoreDeviceRequestTypeDef(BaseValidatorModel):
+class GetCoreDeviceRequest(BaseValidatorModel):
     coreDeviceThingName: str
 
 
-class GetDeploymentRequestTypeDef(BaseValidatorModel):
+class GetDeploymentRequest(BaseValidatorModel):
     deploymentId: str
 
 
-class InstalledComponentTypeDef(BaseValidatorModel):
+class InstalledComponent(BaseValidatorModel):
     componentName: Optional[str] = None
     componentVersion: Optional[str] = None
     lifecycleState: Optional[InstalledComponentLifecycleStateType] = None
@@ -193,56 +193,56 @@ class InstalledComponentTypeDef(BaseValidatorModel):
     lifecycleStatusCodes: Optional[List[str]] = None
 
 
-class IoTJobAbortCriteriaTypeDef(BaseValidatorModel):
+class IoTJobAbortCriteria(BaseValidatorModel):
     failureType: IoTJobExecutionFailureTypeType
     action: Literal["CANCEL"]
     thresholdPercentage: float
     minNumberOfExecutedThings: int
 
 
-class IoTJobRateIncreaseCriteriaTypeDef(BaseValidatorModel):
+class IoTJobRateIncreaseCriteria(BaseValidatorModel):
     numberOfNotifiedThings: Optional[int] = None
     numberOfSucceededThings: Optional[int] = None
 
 
-class LambdaDeviceMountTypeDef(BaseValidatorModel):
+class LambdaDeviceMount(BaseValidatorModel):
     path: str
     permission: Optional[LambdaFilesystemPermissionType] = None
     addGroupOwner: Optional[bool] = None
 
 
-class LambdaVolumeMountTypeDef(BaseValidatorModel):
+class LambdaVolumeMount(BaseValidatorModel):
     sourcePath: str
     destinationPath: str
     permission: Optional[LambdaFilesystemPermissionType] = None
     addGroupOwner: Optional[bool] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListClientDevicesAssociatedWithCoreDeviceRequestTypeDef(BaseValidatorModel):
+class ListClientDevicesAssociatedWithCoreDeviceRequest(BaseValidatorModel):
     coreDeviceThingName: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListComponentVersionsRequestTypeDef(BaseValidatorModel):
+class ListComponentVersionsRequest(BaseValidatorModel):
     arn: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListComponentsRequestTypeDef(BaseValidatorModel):
+class ListComponentsRequest(BaseValidatorModel):
     scope: Optional[ComponentVisibilityScopeType] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListCoreDevicesRequestTypeDef(BaseValidatorModel):
+class ListCoreDevicesRequest(BaseValidatorModel):
     thingGroupArn: Optional[str] = None
     status: Optional[CoreDeviceStatusType] = None
     maxResults: Optional[int] = None
@@ -250,7 +250,7 @@ class ListCoreDevicesRequestTypeDef(BaseValidatorModel):
     runtime: Optional[str] = None
 
 
-class ListDeploymentsRequestTypeDef(BaseValidatorModel):
+class ListDeploymentsRequest(BaseValidatorModel):
     targetArn: Optional[str] = None
     historyFilter: Optional[DeploymentHistoryFilterType] = None
     parentTargetArn: Optional[str] = None
@@ -258,24 +258,24 @@ class ListDeploymentsRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
-class ListEffectiveDeploymentsRequestTypeDef(BaseValidatorModel):
+class ListEffectiveDeploymentsRequest(BaseValidatorModel):
     coreDeviceThingName: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListInstalledComponentsRequestTypeDef(BaseValidatorModel):
+class ListInstalledComponentsRequest(BaseValidatorModel):
     coreDeviceThingName: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     topologyFilter: Optional[InstalledComponentTopologyFilterType] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
 
-class ResolvedComponentVersionTypeDef(BaseValidatorModel):
+class ResolvedComponentVersion(BaseValidatorModel):
     arn: Optional[str] = None
     componentName: Optional[str] = None
     componentVersion: Optional[str] = None
@@ -284,65 +284,65 @@ class ResolvedComponentVersionTypeDef(BaseValidatorModel):
     message: Optional[str] = None
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
 
-class BatchAssociateClientDeviceWithCoreDeviceRequestTypeDef(BaseValidatorModel):
+class BatchAssociateClientDeviceWithCoreDeviceRequest(BaseValidatorModel):
     coreDeviceThingName: str
-    entries: Optional[Sequence[AssociateClientDeviceWithCoreDeviceEntryTypeDef]] = None
+    entries: Optional[Sequence[AssociateClientDeviceWithCoreDeviceEntry]] = None
 
 
-class AssociateServiceRoleToAccountResponseTypeDef(BaseValidatorModel):
+class AssociateServiceRoleToAccountResponse(BaseValidatorModel):
     associatedAt: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class BatchAssociateClientDeviceWithCoreDeviceResponseTypeDef(BaseValidatorModel):
-    errorEntries: List[AssociateClientDeviceWithCoreDeviceErrorEntryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchAssociateClientDeviceWithCoreDeviceResponse(BaseValidatorModel):
+    errorEntries: List[AssociateClientDeviceWithCoreDeviceErrorEntry]
+    ResponseMetadata: ResponseMetadata
 
 
-class CancelDeploymentResponseTypeDef(BaseValidatorModel):
+class CancelDeploymentResponse(BaseValidatorModel):
     message: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateDeploymentResponseTypeDef(BaseValidatorModel):
+class CreateDeploymentResponse(BaseValidatorModel):
     deploymentId: str
     iotJobId: str
     iotJobArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DisassociateServiceRoleFromAccountResponseTypeDef(BaseValidatorModel):
+class DisassociateServiceRoleFromAccountResponse(BaseValidatorModel):
     disassociatedAt: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class EmptyResponseMetadataTypeDef(BaseValidatorModel):
-    ResponseMetadata: ResponseMetadataTypeDef
+class EmptyResponseMetadata(BaseValidatorModel):
+    ResponseMetadata: ResponseMetadata
 
 
-class GetComponentResponseTypeDef(BaseValidatorModel):
+class GetComponentResponse(BaseValidatorModel):
     recipeOutputFormat: RecipeOutputFormatType
     recipe: bytes
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetComponentVersionArtifactResponseTypeDef(BaseValidatorModel):
+class GetComponentVersionArtifactResponse(BaseValidatorModel):
     preSignedUrl: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetCoreDeviceResponseTypeDef(BaseValidatorModel):
+class GetCoreDeviceResponse(BaseValidatorModel):
     coreDeviceThingName: str
     coreVersion: str
     platform: str
@@ -351,119 +351,119 @@ class GetCoreDeviceResponseTypeDef(BaseValidatorModel):
     status: CoreDeviceStatusType
     lastStatusUpdateTimestamp: datetime
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetServiceRoleForAccountResponseTypeDef(BaseValidatorModel):
+class GetServiceRoleForAccountResponse(BaseValidatorModel):
     associatedAt: str
     roleArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
+class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateConnectivityInfoResponseTypeDef(BaseValidatorModel):
+class UpdateConnectivityInfoResponse(BaseValidatorModel):
     version: str
     message: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListClientDevicesAssociatedWithCoreDeviceResponseTypeDef(BaseValidatorModel):
-    associatedClientDevices: List[AssociatedClientDeviceTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListClientDevicesAssociatedWithCoreDeviceResponse(BaseValidatorModel):
+    associatedClientDevices: List[AssociatedClientDevice]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class BatchDisassociateClientDeviceFromCoreDeviceRequestTypeDef(BaseValidatorModel):
+class BatchDisassociateClientDeviceFromCoreDeviceRequest(BaseValidatorModel):
     coreDeviceThingName: str
-    entries: Optional[Sequence[DisassociateClientDeviceFromCoreDeviceEntryTypeDef]] = None
+    entries: Optional[Sequence[DisassociateClientDeviceFromCoreDeviceEntry]] = None
 
 
-class BatchDisassociateClientDeviceFromCoreDeviceResponseTypeDef(BaseValidatorModel):
-    errorEntries: List[DisassociateClientDeviceFromCoreDeviceErrorEntryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchDisassociateClientDeviceFromCoreDeviceResponse(BaseValidatorModel):
+    errorEntries: List[DisassociateClientDeviceFromCoreDeviceErrorEntry]
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateComponentVersionResponseTypeDef(BaseValidatorModel):
+class CreateComponentVersionResponse(BaseValidatorModel):
     arn: str
     componentName: str
     componentVersion: str
     creationTimestamp: datetime
-    status: CloudComponentStatusTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    status: CloudComponentStatus
+    ResponseMetadata: ResponseMetadata
 
 
-class ComponentLatestVersionTypeDef(BaseValidatorModel):
+class ComponentLatestVersion(BaseValidatorModel):
     arn: Optional[str] = None
     componentVersion: Optional[str] = None
     creationTimestamp: Optional[datetime] = None
     description: Optional[str] = None
     publisher: Optional[str] = None
-    platforms: Optional[List[ComponentPlatformOutputTypeDef]] = None
+    platforms: Optional[List[ComponentPlatformOutput]] = None
 
 
-class DescribeComponentResponseTypeDef(BaseValidatorModel):
+class DescribeComponentResponse(BaseValidatorModel):
     arn: str
     componentName: str
     componentVersion: str
     creationTimestamp: datetime
     publisher: str
     description: str
-    status: CloudComponentStatusTypeDef
-    platforms: List[ComponentPlatformOutputTypeDef]
+    status: CloudComponentStatus
+    platforms: List[ComponentPlatformOutput]
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ComponentRunWithTypeDef(BaseValidatorModel):
+class ComponentRunWith(BaseValidatorModel):
     posixUser: Optional[str] = None
-    systemResourceLimits: Optional[SystemResourceLimitsTypeDef] = None
+    systemResourceLimits: Optional[SystemResourceLimits] = None
     windowsUser: Optional[str] = None
 
 
-class ListComponentVersionsResponseTypeDef(BaseValidatorModel):
-    componentVersions: List[ComponentVersionListItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListComponentVersionsResponse(BaseValidatorModel):
+    componentVersions: List[ComponentVersionListItem]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ConnectivityInfoTypeDef(BaseValidatorModel):
+class ConnectivityInfo(BaseValidatorModel):
     pass
 
 
-class GetConnectivityInfoResponseTypeDef(BaseValidatorModel):
-    connectivityInfo: List[ConnectivityInfoTypeDef]
+class GetConnectivityInfoResponse(BaseValidatorModel):
+    connectivityInfo: List[ConnectivityInfo]
     message: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateConnectivityInfoRequestTypeDef(BaseValidatorModel):
+class UpdateConnectivityInfoRequest(BaseValidatorModel):
     thingName: str
-    connectivityInfo: Sequence[ConnectivityInfoTypeDef]
+    connectivityInfo: Sequence[ConnectivityInfo]
 
 
-class ListCoreDevicesResponseTypeDef(BaseValidatorModel):
-    coreDevices: List[CoreDeviceTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListCoreDevicesResponse(BaseValidatorModel):
+    coreDevices: List[CoreDevice]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class DeploymentPoliciesTypeDef(BaseValidatorModel):
+class DeploymentPolicies(BaseValidatorModel):
     failureHandlingPolicy: Optional[DeploymentFailureHandlingPolicyType] = None
-    componentUpdatePolicy: Optional[DeploymentComponentUpdatePolicyTypeDef] = None
-    configurationValidationPolicy: Optional[DeploymentConfigurationValidationPolicyTypeDef] = None
+    componentUpdatePolicy: Optional[DeploymentComponentUpdatePolicy] = None
+    configurationValidationPolicy: Optional[DeploymentConfigurationValidationPolicy] = None
 
 
-class ListDeploymentsResponseTypeDef(BaseValidatorModel):
-    deployments: List[DeploymentTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListDeploymentsResponse(BaseValidatorModel):
+    deployments: List[Deployment]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class EffectiveDeploymentTypeDef(BaseValidatorModel):
+class EffectiveDeployment(BaseValidatorModel):
     deploymentId: str
     deploymentName: str
     targetArn: str
@@ -474,152 +474,152 @@ class EffectiveDeploymentTypeDef(BaseValidatorModel):
     iotJobArn: Optional[str] = None
     description: Optional[str] = None
     reason: Optional[str] = None
-    statusDetails: Optional[EffectiveDeploymentStatusDetailsTypeDef] = None
+    statusDetails: Optional[EffectiveDeploymentStatusDetails] = None
 
 
-class ListInstalledComponentsResponseTypeDef(BaseValidatorModel):
-    installedComponents: List[InstalledComponentTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListInstalledComponentsResponse(BaseValidatorModel):
+    installedComponents: List[InstalledComponent]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class IoTJobAbortConfigOutputTypeDef(BaseValidatorModel):
-    criteriaList: List[IoTJobAbortCriteriaTypeDef]
+class IoTJobAbortConfigOutput(BaseValidatorModel):
+    criteriaList: List[IoTJobAbortCriteria]
 
 
-class IoTJobAbortConfigTypeDef(BaseValidatorModel):
-    criteriaList: Sequence[IoTJobAbortCriteriaTypeDef]
+class IoTJobAbortConfig(BaseValidatorModel):
+    criteriaList: Sequence[IoTJobAbortCriteria]
 
 
-class IoTJobExponentialRolloutRateTypeDef(BaseValidatorModel):
+class IoTJobExponentialRolloutRate(BaseValidatorModel):
     baseRatePerMinute: int
     incrementFactor: float
-    rateIncreaseCriteria: IoTJobRateIncreaseCriteriaTypeDef
+    rateIncreaseCriteria: IoTJobRateIncreaseCriteria
 
 
-class LambdaContainerParamsTypeDef(BaseValidatorModel):
+class LambdaContainerParams(BaseValidatorModel):
     memorySizeInKB: Optional[int] = None
     mountROSysfs: Optional[bool] = None
-    volumes: Optional[Sequence[LambdaVolumeMountTypeDef]] = None
-    devices: Optional[Sequence[LambdaDeviceMountTypeDef]] = None
+    volumes: Optional[Sequence[LambdaVolumeMount]] = None
+    devices: Optional[Sequence[LambdaDeviceMount]] = None
 
 
-class ListClientDevicesAssociatedWithCoreDeviceRequestPaginateTypeDef(BaseValidatorModel):
+class ListClientDevicesAssociatedWithCoreDeviceRequestPaginate(BaseValidatorModel):
     coreDeviceThingName: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListComponentVersionsRequestPaginateTypeDef(BaseValidatorModel):
+class ListComponentVersionsRequestPaginate(BaseValidatorModel):
     arn: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListComponentsRequestPaginateTypeDef(BaseValidatorModel):
+class ListComponentsRequestPaginate(BaseValidatorModel):
     scope: Optional[ComponentVisibilityScopeType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListCoreDevicesRequestPaginateTypeDef(BaseValidatorModel):
+class ListCoreDevicesRequestPaginate(BaseValidatorModel):
     thingGroupArn: Optional[str] = None
     status: Optional[CoreDeviceStatusType] = None
     runtime: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListDeploymentsRequestPaginateTypeDef(BaseValidatorModel):
+class ListDeploymentsRequestPaginate(BaseValidatorModel):
     targetArn: Optional[str] = None
     historyFilter: Optional[DeploymentHistoryFilterType] = None
     parentTargetArn: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListEffectiveDeploymentsRequestPaginateTypeDef(BaseValidatorModel):
+class ListEffectiveDeploymentsRequestPaginate(BaseValidatorModel):
     coreDeviceThingName: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListInstalledComponentsRequestPaginateTypeDef(BaseValidatorModel):
+class ListInstalledComponentsRequestPaginate(BaseValidatorModel):
     coreDeviceThingName: str
     topologyFilter: Optional[InstalledComponentTopologyFilterType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ResolveComponentCandidatesResponseTypeDef(BaseValidatorModel):
-    resolvedComponentVersions: List[ResolvedComponentVersionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ResolveComponentCandidatesResponse(BaseValidatorModel):
+    resolvedComponentVersions: List[ResolvedComponentVersion]
+    ResponseMetadata: ResponseMetadata
 
 
-class ComponentTypeDef(BaseValidatorModel):
+class Component(BaseValidatorModel):
     arn: Optional[str] = None
     componentName: Optional[str] = None
-    latestVersion: Optional[ComponentLatestVersionTypeDef] = None
+    latestVersion: Optional[ComponentLatestVersion] = None
 
 
-class ComponentPlatformUnionTypeDef(BaseValidatorModel):
+class ComponentPlatformUnion(BaseValidatorModel):
     pass
 
 
-class ResolveComponentCandidatesRequestTypeDef(BaseValidatorModel):
-    platform: Optional[ComponentPlatformUnionTypeDef] = None
-    componentCandidates: Optional[Sequence[ComponentCandidateTypeDef]] = None
+class ResolveComponentCandidatesRequest(BaseValidatorModel):
+    platform: Optional[ComponentPlatformUnion] = None
+    componentCandidates: Optional[Sequence[ComponentCandidate]] = None
 
 
-class ComponentDeploymentSpecificationOutputTypeDef(BaseValidatorModel):
+class ComponentDeploymentSpecificationOutput(BaseValidatorModel):
     componentVersion: str
-    configurationUpdate: Optional[ComponentConfigurationUpdateOutputTypeDef] = None
-    runWith: Optional[ComponentRunWithTypeDef] = None
+    configurationUpdate: Optional[ComponentConfigurationUpdateOutput] = None
+    runWith: Optional[ComponentRunWith] = None
 
 
-class ComponentConfigurationUpdateUnionTypeDef(BaseValidatorModel):
+class ComponentConfigurationUpdateUnion(BaseValidatorModel):
     pass
 
 
-class ComponentDeploymentSpecificationTypeDef(BaseValidatorModel):
+class ComponentDeploymentSpecification(BaseValidatorModel):
     componentVersion: str
-    configurationUpdate: Optional[ComponentConfigurationUpdateUnionTypeDef] = None
-    runWith: Optional[ComponentRunWithTypeDef] = None
+    configurationUpdate: Optional[ComponentConfigurationUpdateUnion] = None
+    runWith: Optional[ComponentRunWith] = None
 
 
-class ListEffectiveDeploymentsResponseTypeDef(BaseValidatorModel):
-    effectiveDeployments: List[EffectiveDeploymentTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListEffectiveDeploymentsResponse(BaseValidatorModel):
+    effectiveDeployments: List[EffectiveDeployment]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class IoTJobExecutionsRolloutConfigTypeDef(BaseValidatorModel):
-    exponentialRate: Optional[IoTJobExponentialRolloutRateTypeDef] = None
+class IoTJobExecutionsRolloutConfig(BaseValidatorModel):
+    exponentialRate: Optional[IoTJobExponentialRolloutRate] = None
     maximumPerMinute: Optional[int] = None
 
 
-class LambdaLinuxProcessParamsTypeDef(BaseValidatorModel):
+class LambdaLinuxProcessParams(BaseValidatorModel):
     isolationMode: Optional[LambdaIsolationModeType] = None
-    containerParams: Optional[LambdaContainerParamsTypeDef] = None
+    containerParams: Optional[LambdaContainerParams] = None
 
 
-class ListComponentsResponseTypeDef(BaseValidatorModel):
-    components: List[ComponentTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListComponentsResponse(BaseValidatorModel):
+    components: List[Component]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class DeploymentIoTJobConfigurationOutputTypeDef(BaseValidatorModel):
-    jobExecutionsRolloutConfig: Optional[IoTJobExecutionsRolloutConfigTypeDef] = None
-    abortConfig: Optional[IoTJobAbortConfigOutputTypeDef] = None
-    timeoutConfig: Optional[IoTJobTimeoutConfigTypeDef] = None
+class DeploymentIoTJobConfigurationOutput(BaseValidatorModel):
+    jobExecutionsRolloutConfig: Optional[IoTJobExecutionsRolloutConfig] = None
+    abortConfig: Optional[IoTJobAbortConfigOutput] = None
+    timeoutConfig: Optional[IoTJobTimeoutConfig] = None
 
 
-class DeploymentIoTJobConfigurationTypeDef(BaseValidatorModel):
-    jobExecutionsRolloutConfig: Optional[IoTJobExecutionsRolloutConfigTypeDef] = None
-    abortConfig: Optional[IoTJobAbortConfigTypeDef] = None
-    timeoutConfig: Optional[IoTJobTimeoutConfigTypeDef] = None
+class DeploymentIoTJobConfiguration(BaseValidatorModel):
+    jobExecutionsRolloutConfig: Optional[IoTJobExecutionsRolloutConfig] = None
+    abortConfig: Optional[IoTJobAbortConfig] = None
+    timeoutConfig: Optional[IoTJobTimeoutConfig] = None
 
 
-class LambdaEventSourceTypeDef(BaseValidatorModel):
+class LambdaEventSource(BaseValidatorModel):
     pass
 
 
-class LambdaExecutionParametersTypeDef(BaseValidatorModel):
-    eventSources: Optional[Sequence[LambdaEventSourceTypeDef]] = None
+class LambdaExecutionParameters(BaseValidatorModel):
+    eventSources: Optional[Sequence[LambdaEventSource]] = None
     maxQueueSize: Optional[int] = None
     maxInstancesCount: Optional[int] = None
     maxIdleTimeInSeconds: Optional[int] = None
@@ -629,10 +629,10 @@ class LambdaExecutionParametersTypeDef(BaseValidatorModel):
     inputPayloadEncodingType: Optional[LambdaInputPayloadEncodingTypeType] = None
     execArgs: Optional[Sequence[str]] = None
     environmentVariables: Optional[Mapping[str, str]] = None
-    linuxProcessParams: Optional[LambdaLinuxProcessParamsTypeDef] = None
+    linuxProcessParams: Optional[LambdaLinuxProcessParams] = None
 
 
-class GetDeploymentResponseTypeDef(BaseValidatorModel):
+class GetDeploymentResponse(BaseValidatorModel):
     targetArn: str
     revisionId: str
     deploymentId: str
@@ -640,51 +640,51 @@ class GetDeploymentResponseTypeDef(BaseValidatorModel):
     deploymentStatus: DeploymentStatusType
     iotJobId: str
     iotJobArn: str
-    components: Dict[str, ComponentDeploymentSpecificationOutputTypeDef]
-    deploymentPolicies: DeploymentPoliciesTypeDef
-    iotJobConfiguration: DeploymentIoTJobConfigurationOutputTypeDef
+    components: Dict[str, ComponentDeploymentSpecificationOutput]
+    deploymentPolicies: DeploymentPolicies
+    iotJobConfiguration: DeploymentIoTJobConfigurationOutput
     creationTimestamp: datetime
     isLatestForTarget: bool
     parentTargetArn: str
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class LambdaFunctionRecipeSourceTypeDef(BaseValidatorModel):
+class LambdaFunctionRecipeSource(BaseValidatorModel):
     lambdaArn: str
     componentName: Optional[str] = None
     componentVersion: Optional[str] = None
-    componentPlatforms: Optional[Sequence[ComponentPlatformUnionTypeDef]] = None
-    componentDependencies: Optional[Mapping[str, ComponentDependencyRequirementTypeDef]] = None
-    componentLambdaParameters: Optional[LambdaExecutionParametersTypeDef] = None
+    componentPlatforms: Optional[Sequence[ComponentPlatformUnion]] = None
+    componentDependencies: Optional[Mapping[str, ComponentDependencyRequirement]] = None
+    componentLambdaParameters: Optional[LambdaExecutionParameters] = None
 
 
-class DeploymentIoTJobConfigurationUnionTypeDef(BaseValidatorModel):
+class DeploymentIoTJobConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class ComponentDeploymentSpecificationUnionTypeDef(BaseValidatorModel):
+class ComponentDeploymentSpecificationUnion(BaseValidatorModel):
     pass
 
 
-class CreateDeploymentRequestTypeDef(BaseValidatorModel):
+class CreateDeploymentRequest(BaseValidatorModel):
     targetArn: str
     deploymentName: Optional[str] = None
-    components: Optional[Mapping[str, ComponentDeploymentSpecificationUnionTypeDef]] = None
-    iotJobConfiguration: Optional[DeploymentIoTJobConfigurationUnionTypeDef] = None
-    deploymentPolicies: Optional[DeploymentPoliciesTypeDef] = None
+    components: Optional[Mapping[str, ComponentDeploymentSpecificationUnion]] = None
+    iotJobConfiguration: Optional[DeploymentIoTJobConfigurationUnion] = None
+    deploymentPolicies: Optional[DeploymentPolicies] = None
     parentTargetArn: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
     clientToken: Optional[str] = None
 
 
-class BlobTypeDef(BaseValidatorModel):
+class Blob(BaseValidatorModel):
     pass
 
 
-class CreateComponentVersionRequestTypeDef(BaseValidatorModel):
-    inlineRecipe: Optional[BlobTypeDef] = None
-    lambdaFunction: Optional[LambdaFunctionRecipeSourceTypeDef] = None
+class CreateComponentVersionRequest(BaseValidatorModel):
+    inlineRecipe: Optional[Blob] = None
+    lambdaFunction: Optional[LambdaFunctionRecipeSource] = None
     tags: Optional[Mapping[str, str]] = None
     clientToken: Optional[str] = None
 

@@ -6,44 +6,44 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BatchEvaluateFeatureRequestTypeDef
+# BatchEvaluateFeatureRequest
 
 ### project
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### requests
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.evidently_classes.EvaluationRequestTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.evidently_classes.EvaluationRequest]
 - **Required**: Yes
 
 
-# BatchEvaluateFeatureResponseTypeDef
+# BatchEvaluateFeatureResponse
 
 ### results
-- **Type**: typing.List[aws_resource_validator.pydantic_models.evidently_classes.EvaluationResultTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.evidently_classes.EvaluationResult]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CloudWatchLogsDestinationConfigTypeDef
+# CloudWatchLogsDestination
 
 ### logGroup
 - **Type**: typing.Optional[str]
 
 
-# CloudWatchLogsDestinationTypeDef
+# CloudWatchLogsDestinationConfig
 
 ### logGroup
 - **Type**: typing.Optional[str]
 
 
-# CreateExperimentRequestTypeDef
+# CreateExperimentRequest
 
 ### metricGoals
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.evidently_classes.MetricGoalConfigTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.evidently_classes.MetricGoalConfig]
 - **Required**: Yes
 
 ### name
@@ -55,14 +55,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### treatments
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.evidently_classes.TreatmentConfigTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.evidently_classes.TreatmentConfig]
 - **Required**: Yes
 
 ### description
 - **Type**: typing.Optional[str]
 
 ### onlineAbConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.evidently_classes.OnlineAbConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.evidently_classes.OnlineAbConfig]
 
 ### randomizationSalt
 - **Type**: typing.Optional[str]
@@ -77,18 +77,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateExperimentResponseTypeDef
+# CreateExperimentResponse
 
 ### experiment
-- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.ExperimentTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.Experiment'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateFeatureRequestTypeDef
+# CreateFeatureRequest
 
 ### name
 - **Type**: <class 'str'>
@@ -99,7 +99,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### variations
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.evidently_classes.VariationConfigTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.evidently_classes.VariationConfig]
 - **Required**: Yes
 
 ### defaultVariation
@@ -118,21 +118,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateFeatureResponseTypeDef
+# CreateFeatureResponse
 
 ### feature
-- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.FeatureTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.Feature'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateLaunchRequestTypeDef
+# CreateLaunchRequest
 
 ### groups
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.evidently_classes.LaunchGroupConfigTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.evidently_classes.LaunchGroupConfig]
 - **Required**: Yes
 
 ### name
@@ -147,40 +147,40 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### metricMonitors
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.evidently_classes.MetricMonitorConfigTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.evidently_classes.MetricMonitorConfig]]
 
 ### randomizationSalt
 - **Type**: typing.Optional[str]
 
 ### scheduledSplitsConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.evidently_classes.ScheduledSplitsLaunchConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.evidently_classes.ScheduledSplitsLaunchConfig]
 
 ### tags
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateLaunchResponseTypeDef
+# CreateLaunchResponse
 
 ### launch
-- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.LaunchTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.Launch'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateProjectRequestTypeDef
+# CreateProjectRequest
 
 ### name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### appConfigResource
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.evidently_classes.ProjectAppConfigResourceConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.evidently_classes.ProjectAppConfigResourceConfig]
 
 ### dataDelivery
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.evidently_classes.ProjectDataDeliveryConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.evidently_classes.ProjectDataDeliveryConfig]
 
 ### description
 - **Type**: typing.Optional[str]
@@ -189,18 +189,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateProjectResponseTypeDef
+# CreateProjectResponse
 
 ### project
-- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.ProjectTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.Project'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateSegmentRequestTypeDef
+# CreateSegmentRequest
 
 ### name
 - **Type**: <class 'str'>
@@ -217,18 +217,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateSegmentResponseTypeDef
+# CreateSegmentResponse
 
 ### segment
-- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.SegmentTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.Segment'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteExperimentRequestTypeDef
+# DeleteExperimentRequest
 
 ### experiment
 - **Type**: <class 'str'>
@@ -239,7 +239,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteFeatureRequestTypeDef
+# DeleteFeatureRequest
 
 ### feature
 - **Type**: <class 'str'>
@@ -250,7 +250,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteLaunchRequestTypeDef
+# DeleteLaunchRequest
 
 ### launch
 - **Type**: <class 'str'>
@@ -261,21 +261,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteProjectRequestTypeDef
+# DeleteProjectRequest
 
 ### project
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteSegmentRequestTypeDef
+# DeleteSegmentRequest
 
 ### segment
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# EvaluateFeatureRequestTypeDef
+# EvaluateFeatureRequest
 
 ### entityId
 - **Type**: <class 'str'>
@@ -293,7 +293,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# EvaluateFeatureResponseTypeDef
+# EvaluateFeatureResponse
 
 ### details
 - **Type**: <class 'str'>
@@ -304,7 +304,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### value
-- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.VariableValueTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.VariableValue'>
 - **Required**: Yes
 
 ### variation
@@ -312,11 +312,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# EvaluationRequestTypeDef
+# EvaluationRequest
 
 ### entityId
 - **Type**: <class 'str'>
@@ -330,7 +330,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# EvaluationResultTypeDef
+# EvaluationResult
 
 ### entityId
 - **Type**: <class 'str'>
@@ -350,25 +350,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### value
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.evidently_classes.VariableValueTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.evidently_classes.VariableValue]
 
 ### variation
 - **Type**: typing.Optional[str]
 
 
-# EvaluationRuleTypeDef
+# EvaluationRule
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# EventTypeDef
+# Event
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ExperimentExecutionTypeDef
+# Experiment
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# ExperimentExecution
 
 ### endedTime
 - **Type**: typing.Optional[datetime.datetime]
@@ -377,7 +383,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# ExperimentReportTypeDef
+# ExperimentReport
 
 ### content
 - **Type**: typing.Optional[str]
@@ -392,7 +398,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ExperimentResultsDataTypeDef
+# ExperimentResultsData
 
 ### metricName
 - **Type**: typing.Optional[str]
@@ -407,58 +413,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[float]]
 
 
-# ExperimentScheduleTypeDef
+# ExperimentSchedule
 
 ### analysisCompleteTime
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# ExperimentTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# FeatureSummaryTypeDef
-
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### createdTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### evaluationStrategy
-- **Type**: typing.Literal['ALL_RULES', 'DEFAULT_VARIATION']
-- **Required**: Yes
-
-### lastUpdatedTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### status
-- **Type**: typing.Literal['AVAILABLE', 'UPDATING']
-- **Required**: Yes
-
-### defaultVariation
-- **Type**: typing.Optional[str]
-
-### evaluationRules
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.evidently_classes.EvaluationRuleTypeDef]]
-
-### project
-- **Type**: typing.Optional[str]
-
-### tags
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-
-# FeatureTypeDef
+# Feature
 
 ### arn
 - **Type**: <class 'str'>
@@ -489,7 +450,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### variations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.evidently_classes.VariationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.evidently_classes.Variation]
 - **Required**: Yes
 
 ### defaultVariation
@@ -502,7 +463,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### evaluationRules
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.evidently_classes.EvaluationRuleTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.evidently_classes.EvaluationRule]]
 
 ### project
 - **Type**: typing.Optional[str]
@@ -511,7 +472,46 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 
-# GetExperimentRequestTypeDef
+# FeatureSummary
+
+### arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### createdTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### evaluationStrategy
+- **Type**: typing.Literal['ALL_RULES', 'DEFAULT_VARIATION']
+- **Required**: Yes
+
+### lastUpdatedTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['AVAILABLE', 'UPDATING']
+- **Required**: Yes
+
+### defaultVariation
+- **Type**: typing.Optional[str]
+
+### evaluationRules
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.evidently_classes.EvaluationRule]]
+
+### project
+- **Type**: typing.Optional[str]
+
+### tags
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+
+# GetExperimentRequest
 
 ### experiment
 - **Type**: <class 'str'>
@@ -522,18 +522,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetExperimentResponseTypeDef
+# GetExperimentResponse
 
 ### experiment
-- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.ExperimentTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.Experiment'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetExperimentResultsRequestTypeDef
+# GetExperimentResultsRequest
 
 ### experiment
 - **Type**: <class 'str'>
@@ -555,7 +555,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Mean']]
 
 ### endTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.evidently_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.evidently_classes.Timestamp]
 
 ### period
 - **Type**: typing.Optional[int]
@@ -567,21 +567,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['BaseStat', 'ConfidenceInterval', 'PValue', 'TreatmentEffect']]]
 
 ### startTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.evidently_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.evidently_classes.Timestamp]
 
 
-# GetExperimentResultsResponseTypeDef
+# GetExperimentResultsResponse
 
 ### details
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### reports
-- **Type**: typing.List[aws_resource_validator.pydantic_models.evidently_classes.ExperimentReportTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.evidently_classes.ExperimentReport]
 - **Required**: Yes
 
 ### resultsData
-- **Type**: typing.List[aws_resource_validator.pydantic_models.evidently_classes.ExperimentResultsDataTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.evidently_classes.ExperimentResultsData]
 - **Required**: Yes
 
 ### timestamps
@@ -589,11 +589,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetFeatureRequestTypeDef
+# GetFeatureRequest
 
 ### feature
 - **Type**: <class 'str'>
@@ -604,18 +604,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetFeatureResponseTypeDef
+# GetFeatureResponse
 
 ### feature
-- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.FeatureTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.Feature'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetLaunchRequestTypeDef
+# GetLaunchRequest
 
 ### launch
 - **Type**: <class 'str'>
@@ -626,54 +626,60 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetLaunchResponseTypeDef
+# GetLaunchResponse
 
 ### launch
-- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.LaunchTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.Launch'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetProjectRequestTypeDef
+# GetProjectRequest
 
 ### project
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetProjectResponseTypeDef
+# GetProjectResponse
 
 ### project
-- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.ProjectTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.Project'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetSegmentRequestTypeDef
+# GetSegmentRequest
 
 ### segment
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetSegmentResponseTypeDef
+# GetSegmentResponse
 
 ### segment
-- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.SegmentTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.Segment'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# LaunchExecutionTypeDef
+# Launch
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# LaunchExecution
 
 ### endedTime
 - **Type**: typing.Optional[datetime.datetime]
@@ -682,7 +688,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# LaunchGroupConfigTypeDef
+# LaunchGroup
+
+### featureVariations
+- **Type**: typing.Dict[str, str]
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### description
+- **Type**: typing.Optional[str]
+
+
+# LaunchGroupConfig
 
 ### feature
 - **Type**: <class 'str'>
@@ -700,40 +720,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# LaunchGroupTypeDef
-
-### featureVariations
-- **Type**: typing.Dict[str, str]
-- **Required**: Yes
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### description
-- **Type**: typing.Optional[str]
-
-
-# LaunchTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# ListExperimentsRequestPaginateTypeDef
-
-### project
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### status
-- **Type**: typing.Optional[typing.Literal['CANCELLED', 'COMPLETED', 'CREATED', 'RUNNING', 'UPDATING']]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.evidently_classes.PaginatorConfigTypeDef]
-
-
-# ListExperimentsRequestTypeDef
+# ListExperimentsRequest
 
 ### project
 - **Type**: <class 'str'>
@@ -749,31 +736,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CANCELLED', 'COMPLETED', 'CREATED', 'RUNNING', 'UPDATING']]
 
 
-# ListExperimentsResponseTypeDef
+# ListExperimentsRequestPaginate
+
+### project
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Optional[typing.Literal['CANCELLED', 'COMPLETED', 'CREATED', 'RUNNING', 'UPDATING']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.evidently_classes.PaginatorConfig]
+
+
+# ListExperimentsResponse
 
 ### experiments
-- **Type**: typing.List[aws_resource_validator.pydantic_models.evidently_classes.ExperimentTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.evidently_classes.Experiment]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListFeaturesRequestPaginateTypeDef
-
-### project
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.evidently_classes.PaginatorConfigTypeDef]
-
-
-# ListFeaturesRequestTypeDef
+# ListFeaturesRequest
 
 ### project
 - **Type**: <class 'str'>
@@ -786,34 +776,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListFeaturesResponseTypeDef
+# ListFeaturesRequestPaginate
+
+### project
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.evidently_classes.PaginatorConfig]
+
+
+# ListFeaturesResponse
 
 ### features
-- **Type**: typing.List[aws_resource_validator.pydantic_models.evidently_classes.FeatureSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.evidently_classes.FeatureSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListLaunchesRequestPaginateTypeDef
-
-### project
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### status
-- **Type**: typing.Optional[typing.Literal['CANCELLED', 'COMPLETED', 'CREATED', 'RUNNING', 'UPDATING']]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.evidently_classes.PaginatorConfigTypeDef]
-
-
-# ListLaunchesRequestTypeDef
+# ListLaunchesRequest
 
 ### project
 - **Type**: <class 'str'>
@@ -829,27 +816,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CANCELLED', 'COMPLETED', 'CREATED', 'RUNNING', 'UPDATING']]
 
 
-# ListLaunchesResponseTypeDef
+# ListLaunchesRequestPaginate
+
+### project
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Optional[typing.Literal['CANCELLED', 'COMPLETED', 'CREATED', 'RUNNING', 'UPDATING']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.evidently_classes.PaginatorConfig]
+
+
+# ListLaunchesResponse
 
 ### launches
-- **Type**: typing.List[aws_resource_validator.pydantic_models.evidently_classes.LaunchTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.evidently_classes.Launch]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListProjectsRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.evidently_classes.PaginatorConfigTypeDef]
-
-
-# ListProjectsRequestTypeDef
+# ListProjectsRequest
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -858,41 +852,41 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListProjectsResponseTypeDef
+# ListProjectsRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.evidently_classes.PaginatorConfig]
+
+
+# ListProjectsResponse
 
 ### projects
-- **Type**: typing.List[aws_resource_validator.pydantic_models.evidently_classes.ProjectSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.evidently_classes.ProjectSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListSegmentReferencesResponseTypeDef
+# ListSegmentReferencesResponse
 
 ### referencedBy
-- **Type**: typing.List[aws_resource_validator.pydantic_models.evidently_classes.RefResourceTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.evidently_classes.RefResource]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListSegmentsRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.evidently_classes.PaginatorConfigTypeDef]
-
-
-# ListSegmentsRequestTypeDef
+# ListSegmentsRequest
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -901,39 +895,63 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListSegmentsResponseTypeDef
+# ListSegmentsRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.evidently_classes.PaginatorConfig]
+
+
+# ListSegmentsResponse
 
 ### segments
-- **Type**: typing.List[aws_resource_validator.pydantic_models.evidently_classes.SegmentTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.evidently_classes.Segment]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestTypeDef
+# ListTagsForResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ListTagsForResourceResponseTypeDef
+# ListTagsForResourceResponse
 
 ### tags
 - **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# MetricDefinitionConfigTypeDef
+# MetricDefinition
+
+### entityIdKey
+- **Type**: typing.Optional[str]
+
+### eventPattern
+- **Type**: typing.Optional[str]
+
+### name
+- **Type**: typing.Optional[str]
+
+### unitLabel
+- **Type**: typing.Optional[str]
+
+### valueKey
+- **Type**: typing.Optional[str]
+
+
+# MetricDefinitionConfig
 
 ### entityIdKey
 - **Type**: <class 'str'>
@@ -954,59 +972,41 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# MetricDefinitionTypeDef
-
-### entityIdKey
-- **Type**: typing.Optional[str]
-
-### eventPattern
-- **Type**: typing.Optional[str]
-
-### name
-- **Type**: typing.Optional[str]
-
-### unitLabel
-- **Type**: typing.Optional[str]
-
-### valueKey
-- **Type**: typing.Optional[str]
-
-
-# MetricGoalConfigTypeDef
+# MetricGoal
 
 ### metricDefinition
-- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.MetricDefinitionConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.MetricDefinition'>
 - **Required**: Yes
 
 ### desiredChange
 - **Type**: typing.Optional[typing.Literal['DECREASE', 'INCREASE']]
 
 
-# MetricGoalTypeDef
+# MetricGoalConfig
 
 ### metricDefinition
-- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.MetricDefinitionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.MetricDefinitionConfig'>
 - **Required**: Yes
 
 ### desiredChange
 - **Type**: typing.Optional[typing.Literal['DECREASE', 'INCREASE']]
 
 
-# MetricMonitorConfigTypeDef
+# MetricMonitor
 
 ### metricDefinition
-- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.MetricDefinitionConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.MetricDefinition'>
 - **Required**: Yes
 
 
-# MetricMonitorTypeDef
+# MetricMonitorConfig
 
 ### metricDefinition
-- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.MetricDefinitionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.MetricDefinitionConfig'>
 - **Required**: Yes
 
 
-# OnlineAbConfigTypeDef
+# OnlineAbConfig
 
 ### controlTreatmentName
 - **Type**: typing.Optional[str]
@@ -1015,7 +1015,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, int]]
 
 
-# OnlineAbDefinitionTypeDef
+# OnlineAbDefinition
 
 ### controlTreatmentName
 - **Type**: typing.Optional[str]
@@ -1024,7 +1024,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, int]]
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -1036,93 +1036,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ProjectAppConfigResourceConfigTypeDef
-
-### applicationId
-- **Type**: typing.Optional[str]
-
-### environmentId
-- **Type**: typing.Optional[str]
-
-
-# ProjectAppConfigResourceTypeDef
-
-### applicationId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### configurationProfileId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### environmentId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# ProjectDataDeliveryConfigTypeDef
-
-### cloudWatchLogs
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.evidently_classes.CloudWatchLogsDestinationConfigTypeDef]
-
-### s3Destination
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.evidently_classes.S3DestinationConfigTypeDef]
-
-
-# ProjectDataDeliveryTypeDef
-
-### cloudWatchLogs
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.evidently_classes.CloudWatchLogsDestinationTypeDef]
-
-### s3Destination
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.evidently_classes.S3DestinationTypeDef]
-
-
-# ProjectSummaryTypeDef
-
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### createdTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### lastUpdatedTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### status
-- **Type**: typing.Literal['AVAILABLE', 'UPDATING']
-- **Required**: Yes
-
-### activeExperimentCount
-- **Type**: typing.Optional[int]
-
-### activeLaunchCount
-- **Type**: typing.Optional[int]
-
-### description
-- **Type**: typing.Optional[str]
-
-### experimentCount
-- **Type**: typing.Optional[int]
-
-### featureCount
-- **Type**: typing.Optional[int]
-
-### launchCount
-- **Type**: typing.Optional[int]
-
-### tags
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-
-# ProjectTypeDef
+# Project
 
 ### arn
 - **Type**: <class 'str'>
@@ -1151,10 +1065,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### appConfigResource
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.evidently_classes.ProjectAppConfigResourceTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.evidently_classes.ProjectAppConfigResource]
 
 ### dataDelivery
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.evidently_classes.ProjectDataDeliveryTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.evidently_classes.ProjectDataDelivery]
 
 ### description
 - **Type**: typing.Optional[str]
@@ -1172,10 +1086,96 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 
-# PutProjectEventsRequestTypeDef
+# ProjectAppConfigResource
+
+### applicationId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### configurationProfileId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### environmentId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# ProjectAppConfigResourceConfig
+
+### applicationId
+- **Type**: typing.Optional[str]
+
+### environmentId
+- **Type**: typing.Optional[str]
+
+
+# ProjectDataDelivery
+
+### cloudWatchLogs
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.evidently_classes.CloudWatchLogsDestination]
+
+### s3Destination
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.evidently_classes.S3Destination]
+
+
+# ProjectDataDeliveryConfig
+
+### cloudWatchLogs
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.evidently_classes.CloudWatchLogsDestinationConfig]
+
+### s3Destination
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.evidently_classes.S3DestinationConfig]
+
+
+# ProjectSummary
+
+### arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### createdTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### lastUpdatedTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['AVAILABLE', 'UPDATING']
+- **Required**: Yes
+
+### activeExperimentCount
+- **Type**: typing.Optional[int]
+
+### activeLaunchCount
+- **Type**: typing.Optional[int]
+
+### description
+- **Type**: typing.Optional[str]
+
+### experimentCount
+- **Type**: typing.Optional[int]
+
+### featureCount
+- **Type**: typing.Optional[int]
+
+### launchCount
+- **Type**: typing.Optional[int]
+
+### tags
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+
+# PutProjectEventsRequest
 
 ### events
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.evidently_classes.EventTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.evidently_classes.Event]
 - **Required**: Yes
 
 ### project
@@ -1183,10 +1183,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutProjectEventsResponseTypeDef
+# PutProjectEventsResponse
 
 ### eventResults
-- **Type**: typing.List[aws_resource_validator.pydantic_models.evidently_classes.PutProjectEventsResultEntryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.evidently_classes.PutProjectEventsResultEntry]
 - **Required**: Yes
 
 ### failedEventCount
@@ -1194,11 +1194,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# PutProjectEventsResultEntryTypeDef
+# PutProjectEventsResultEntry
 
 ### errorCode
 - **Type**: typing.Optional[str]
@@ -1210,13 +1210,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RefResourceTypeDef
+# RefResource
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -1238,7 +1238,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# S3DestinationConfigTypeDef
+# S3Destination
 
 ### bucket
 - **Type**: typing.Optional[str]
@@ -1247,7 +1247,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# S3DestinationTypeDef
+# S3DestinationConfig
 
 ### bucket
 - **Type**: typing.Optional[str]
@@ -1256,21 +1256,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ScheduledSplitConfigTypeDef
-
-### groupWeights
-- **Type**: typing.Mapping[str, int]
-- **Required**: Yes
-
-### startTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.TimestampTypeDef'>
-- **Required**: Yes
-
-### segmentOverrides
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.evidently_classes.SegmentOverrideUnionTypeDef]]
-
-
-# ScheduledSplitTypeDef
+# ScheduledSplit
 
 ### startTime
 - **Type**: <class 'datetime.datetime'>
@@ -1280,59 +1266,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, int]]
 
 ### segmentOverrides
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.evidently_classes.SegmentOverrideOutputTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.evidently_classes.SegmentOverrideOutput]]
 
 
-# ScheduledSplitsLaunchConfigTypeDef
+# ScheduledSplitConfig
 
-### steps
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.evidently_classes.ScheduledSplitConfigTypeDef]
-- **Required**: Yes
-
-
-# ScheduledSplitsLaunchDefinitionTypeDef
-
-### steps
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.evidently_classes.ScheduledSplitTypeDef]]
-
-
-# SegmentOverrideOutputTypeDef
-
-### evaluationOrder
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### segment
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### weights
-- **Type**: typing.Dict[str, int]
-- **Required**: Yes
-
-
-# SegmentOverrideTypeDef
-
-### evaluationOrder
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### segment
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### weights
+### groupWeights
 - **Type**: typing.Mapping[str, int]
 - **Required**: Yes
 
+### startTime
+- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.Timestamp'>
+- **Required**: Yes
 
-# SegmentOverrideUnionTypeDef
+### segmentOverrides
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.evidently_classes.SegmentOverrideUnion]]
 
-Oops! This Pydantic model is currently empty. Stay tuned!
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+# ScheduledSplitsLaunchConfig
 
-# SegmentTypeDef
+### steps
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.evidently_classes.ScheduledSplitConfig]
+- **Required**: Yes
+
+
+# ScheduledSplitsLaunchDefinition
+
+### steps
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.evidently_classes.ScheduledSplit]]
+
+
+# Segment
 
 ### arn
 - **Type**: <class 'str'>
@@ -1367,10 +1331,46 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 
-# StartExperimentRequestTypeDef
+# SegmentOverride
+
+### evaluationOrder
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### segment
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### weights
+- **Type**: typing.Mapping[str, int]
+- **Required**: Yes
+
+
+# SegmentOverrideOutput
+
+### evaluationOrder
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### segment
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### weights
+- **Type**: typing.Dict[str, int]
+- **Required**: Yes
+
+
+# SegmentOverrideUnion
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# StartExperimentRequest
 
 ### analysisCompleteTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.TimestampTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.Timestamp'>
 - **Required**: Yes
 
 ### experiment
@@ -1382,18 +1382,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StartExperimentResponseTypeDef
+# StartExperimentResponse
 
 ### startedTime
 - **Type**: <class 'datetime.datetime'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# StartLaunchRequestTypeDef
+# StartLaunchRequest
 
 ### launch
 - **Type**: <class 'str'>
@@ -1404,18 +1404,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StartLaunchResponseTypeDef
+# StartLaunchResponse
 
 ### launch
-- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.LaunchTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.Launch'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# StopExperimentRequestTypeDef
+# StopExperimentRequest
 
 ### experiment
 - **Type**: <class 'str'>
@@ -1432,18 +1432,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# StopExperimentResponseTypeDef
+# StopExperimentResponse
 
 ### endedTime
 - **Type**: <class 'datetime.datetime'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# StopLaunchRequestTypeDef
+# StopLaunchRequest
 
 ### launch
 - **Type**: <class 'str'>
@@ -1460,18 +1460,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# StopLaunchResponseTypeDef
+# StopLaunchResponse
 
 ### endedTime
 - **Type**: <class 'datetime.datetime'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# TagResourceRequestTypeDef
+# TagResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -1482,7 +1482,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TestSegmentPatternRequestTypeDef
+# TestSegmentPatternRequest
 
 ### pattern
 - **Type**: <class 'str'>
@@ -1493,24 +1493,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TestSegmentPatternResponseTypeDef
+# TestSegmentPatternResponse
 
 ### match
 - **Type**: <class 'bool'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# TimestampTypeDef
+# Timestamp
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# TreatmentConfigTypeDef
+# Treatment
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### description
+- **Type**: typing.Optional[str]
+
+### featureVariations
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+
+# TreatmentConfig
 
 ### feature
 - **Type**: <class 'str'>
@@ -1528,20 +1541,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TreatmentTypeDef
-
-### name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### description
-- **Type**: typing.Optional[str]
-
-### featureVariations
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-
-# UntagResourceRequestTypeDef
+# UntagResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -1552,7 +1552,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateExperimentRequestTypeDef
+# UpdateExperimentRequest
 
 ### experiment
 - **Type**: <class 'str'>
@@ -1566,10 +1566,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### metricGoals
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.evidently_classes.MetricGoalConfigTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.evidently_classes.MetricGoalConfig]]
 
 ### onlineAbConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.evidently_classes.OnlineAbConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.evidently_classes.OnlineAbConfig]
 
 ### randomizationSalt
 - **Type**: typing.Optional[str]
@@ -1584,21 +1584,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### treatments
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.evidently_classes.TreatmentConfigTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.evidently_classes.TreatmentConfig]]
 
 
-# UpdateExperimentResponseTypeDef
+# UpdateExperimentResponse
 
 ### experiment
-- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.ExperimentTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.Experiment'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateFeatureRequestTypeDef
+# UpdateFeatureRequest
 
 ### feature
 - **Type**: <class 'str'>
@@ -1609,7 +1609,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### addOrUpdateVariations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.evidently_classes.VariationConfigTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.evidently_classes.VariationConfig]]
 
 ### defaultVariation
 - **Type**: typing.Optional[str]
@@ -1627,18 +1627,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# UpdateFeatureResponseTypeDef
+# UpdateFeatureResponse
 
 ### feature
-- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.FeatureTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.Feature'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateLaunchRequestTypeDef
+# UpdateLaunchRequest
 
 ### launch
 - **Type**: <class 'str'>
@@ -1652,78 +1652,78 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### groups
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.evidently_classes.LaunchGroupConfigTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.evidently_classes.LaunchGroupConfig]]
 
 ### metricMonitors
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.evidently_classes.MetricMonitorConfigTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.evidently_classes.MetricMonitorConfig]]
 
 ### randomizationSalt
 - **Type**: typing.Optional[str]
 
 ### scheduledSplitsConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.evidently_classes.ScheduledSplitsLaunchConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.evidently_classes.ScheduledSplitsLaunchConfig]
 
 
-# UpdateLaunchResponseTypeDef
+# UpdateLaunchResponse
 
 ### launch
-- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.LaunchTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.Launch'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateProjectDataDeliveryRequestTypeDef
+# UpdateProjectDataDeliveryRequest
 
 ### project
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### cloudWatchLogs
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.evidently_classes.CloudWatchLogsDestinationConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.evidently_classes.CloudWatchLogsDestinationConfig]
 
 ### s3Destination
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.evidently_classes.S3DestinationConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.evidently_classes.S3DestinationConfig]
 
 
-# UpdateProjectDataDeliveryResponseTypeDef
+# UpdateProjectDataDeliveryResponse
 
 ### project
-- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.ProjectTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.Project'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateProjectRequestTypeDef
+# UpdateProjectRequest
 
 ### project
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### appConfigResource
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.evidently_classes.ProjectAppConfigResourceConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.evidently_classes.ProjectAppConfigResourceConfig]
 
 ### description
 - **Type**: typing.Optional[str]
 
 
-# UpdateProjectResponseTypeDef
+# UpdateProjectResponse
 
 ### project
-- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.ProjectTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.Project'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# VariableValueTypeDef
+# VariableValue
 
 ### boolValue
 - **Type**: typing.Optional[bool]
@@ -1738,23 +1738,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# VariationConfigTypeDef
+# Variation
+
+### name
+- **Type**: typing.Optional[str]
+
+### value
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.evidently_classes.VariableValue]
+
+
+# VariationConfig
 
 ### name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### value
-- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.VariableValueTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.evidently_classes.VariableValue'>
 - **Required**: Yes
-
-
-# VariationTypeDef
-
-### name
-- **Type**: typing.Optional[str]
-
-### value
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.evidently_classes.VariableValueTypeDef]
 
 

@@ -1,6 +1,29 @@
 # Comprehend Classes
 
-# AugmentedManifestsListItemOutputTypeDef
+# AugmentedManifestsListItem
+
+### S3Uri
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### AttributeNames
+- **Type**: typing.Sequence[str]
+- **Required**: Yes
+
+### Split
+- **Type**: typing.Optional[typing.Literal['TEST', 'TRAIN']]
+
+### AnnotationDataS3Uri
+- **Type**: typing.Optional[str]
+
+### SourceDocumentsS3Uri
+- **Type**: typing.Optional[str]
+
+### DocumentType
+- **Type**: typing.Optional[typing.Literal['PLAIN_TEXT_DOCUMENT', 'SEMI_STRUCTURED_DOCUMENT']]
+
+
+# AugmentedManifestsListItemOutput
 
 ### S3Uri
 - **Type**: <class 'str'>
@@ -23,76 +46,53 @@
 - **Type**: typing.Optional[typing.Literal['PLAIN_TEXT_DOCUMENT', 'SEMI_STRUCTURED_DOCUMENT']]
 
 
-# AugmentedManifestsListItemTypeDef
-
-### S3Uri
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### AttributeNames
-- **Type**: typing.Sequence[str]
-- **Required**: Yes
-
-### Split
-- **Type**: typing.Optional[typing.Literal['TEST', 'TRAIN']]
-
-### AnnotationDataS3Uri
-- **Type**: typing.Optional[str]
-
-### SourceDocumentsS3Uri
-- **Type**: typing.Optional[str]
-
-### DocumentType
-- **Type**: typing.Optional[typing.Literal['PLAIN_TEXT_DOCUMENT', 'SEMI_STRUCTURED_DOCUMENT']]
-
-
 # BaseValidatorModel
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BatchDetectDominantLanguageItemResultTypeDef
+# BatchDetectDominantLanguageItemResult
 
 ### Index
 - **Type**: typing.Optional[int]
 
 ### Languages
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.comprehend_classes.DominantLanguageTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.comprehend_classes.DominantLanguage]]
 
 
-# BatchDetectDominantLanguageRequestTypeDef
+# BatchDetectDominantLanguageRequest
 
 ### TextList
 - **Type**: typing.Sequence[str]
 - **Required**: Yes
 
 
-# BatchDetectDominantLanguageResponseTypeDef
+# BatchDetectDominantLanguageResponse
 
 ### ResultList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.BatchDetectDominantLanguageItemResultTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.BatchDetectDominantLanguageItemResult]
 - **Required**: Yes
 
 ### ErrorList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.BatchItemErrorTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.BatchItemError]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# BatchDetectEntitiesItemResultTypeDef
+# BatchDetectEntitiesItemResult
 
 ### Index
 - **Type**: typing.Optional[int]
 
 ### Entities
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.comprehend_classes.EntityTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.comprehend_classes.Entity]]
 
 
-# BatchDetectEntitiesRequestTypeDef
+# BatchDetectEntitiesRequest
 
 ### TextList
 - **Type**: typing.Sequence[str]
@@ -103,31 +103,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# BatchDetectEntitiesResponseTypeDef
+# BatchDetectEntitiesResponse
 
 ### ResultList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.BatchDetectEntitiesItemResultTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.BatchDetectEntitiesItemResult]
 - **Required**: Yes
 
 ### ErrorList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.BatchItemErrorTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.BatchItemError]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# BatchDetectKeyPhrasesItemResultTypeDef
+# BatchDetectKeyPhrasesItemResult
 
 ### Index
 - **Type**: typing.Optional[int]
 
 ### KeyPhrases
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.comprehend_classes.KeyPhraseTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.comprehend_classes.KeyPhrase]]
 
 
-# BatchDetectKeyPhrasesRequestTypeDef
+# BatchDetectKeyPhrasesRequest
 
 ### TextList
 - **Type**: typing.Sequence[str]
@@ -138,22 +138,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# BatchDetectKeyPhrasesResponseTypeDef
+# BatchDetectKeyPhrasesResponse
 
 ### ResultList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.BatchDetectKeyPhrasesItemResultTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.BatchDetectKeyPhrasesItemResult]
 - **Required**: Yes
 
 ### ErrorList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.BatchItemErrorTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.BatchItemError]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# BatchDetectSentimentItemResultTypeDef
+# BatchDetectSentimentItemResult
 
 ### Index
 - **Type**: typing.Optional[int]
@@ -162,10 +162,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['MIXED', 'NEGATIVE', 'NEUTRAL', 'POSITIVE']]
 
 ### SentimentScore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.SentimentScoreTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# BatchDetectSentimentRequestTypeDef
+# BatchDetectSentimentRequest
 
 ### TextList
 - **Type**: typing.Sequence[str]
@@ -176,31 +176,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# BatchDetectSentimentResponseTypeDef
+# BatchDetectSentimentResponse
 
 ### ResultList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.BatchDetectSentimentItemResultTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.BatchDetectSentimentItemResult]
 - **Required**: Yes
 
 ### ErrorList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.BatchItemErrorTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.BatchItemError]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# BatchDetectSyntaxItemResultTypeDef
+# BatchDetectSyntaxItemResult
 
 ### Index
 - **Type**: typing.Optional[int]
 
 ### SyntaxTokens
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.comprehend_classes.SyntaxTokenTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.comprehend_classes.SyntaxToken]]
 
 
-# BatchDetectSyntaxRequestTypeDef
+# BatchDetectSyntaxRequest
 
 ### TextList
 - **Type**: typing.Sequence[str]
@@ -211,31 +211,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# BatchDetectSyntaxResponseTypeDef
+# BatchDetectSyntaxResponse
 
 ### ResultList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.BatchDetectSyntaxItemResultTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.BatchDetectSyntaxItemResult]
 - **Required**: Yes
 
 ### ErrorList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.BatchItemErrorTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.BatchItemError]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# BatchDetectTargetedSentimentItemResultTypeDef
+# BatchDetectTargetedSentimentItemResult
 
 ### Index
 - **Type**: typing.Optional[int]
 
 ### Entities
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.comprehend_classes.TargetedSentimentEntityTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.comprehend_classes.TargetedSentimentEntity]]
 
 
-# BatchDetectTargetedSentimentRequestTypeDef
+# BatchDetectTargetedSentimentRequest
 
 ### TextList
 - **Type**: typing.Sequence[str]
@@ -246,22 +246,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# BatchDetectTargetedSentimentResponseTypeDef
+# BatchDetectTargetedSentimentResponse
 
 ### ResultList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.BatchDetectTargetedSentimentItemResultTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.BatchDetectTargetedSentimentItemResult]
 - **Required**: Yes
 
 ### ErrorList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.BatchItemErrorTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.BatchItemError]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# BatchItemErrorTypeDef
+# BatchItemError
 
 ### Index
 - **Type**: typing.Optional[int]
@@ -273,7 +273,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# BlockReferenceTypeDef
+# Block
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# BlockReference
 
 ### BlockId
 - **Type**: typing.Optional[str]
@@ -285,16 +291,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### ChildBlocks
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.comprehend_classes.ChildBlockTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.comprehend_classes.ChildBlock]]
 
 
-# BlockTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# BoundingBoxTypeDef
+# BoundingBox
 
 ### Height
 - **Type**: typing.Optional[float]
@@ -309,7 +309,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# ChildBlockTypeDef
+# ChildBlock
 
 ### ChildBlockId
 - **Type**: typing.Optional[str]
@@ -321,7 +321,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ClassifierEvaluationMetricsTypeDef
+# ClassifierEvaluationMetrics
 
 ### Accuracy
 - **Type**: typing.Optional[float]
@@ -348,7 +348,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# ClassifierMetadataTypeDef
+# ClassifierMetadata
 
 ### NumberOfLabels
 - **Type**: typing.Optional[int]
@@ -360,52 +360,52 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### EvaluationMetrics
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.ClassifierEvaluationMetricsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.ClassifierEvaluationMetrics]
 
 
-# ClassifyDocumentResponseTypeDef
+# ClassifyDocumentResponse
 
 ### Classes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.DocumentClassTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.DocumentClass]
 - **Required**: Yes
 
 ### Labels
-- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.DocumentLabelTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.DocumentLabel]
 - **Required**: Yes
 
 ### DocumentMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.DocumentMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.DocumentMetadata'>
 - **Required**: Yes
 
 ### DocumentType
-- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.DocumentTypeListItemTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.DocumentTypeListItem]
 - **Required**: Yes
 
 ### Errors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.ErrorsListItemTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.ErrorsListItem]
 - **Required**: Yes
 
 ### Warnings
-- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.WarningsListItemTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.WarningsListItem]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ContainsPiiEntitiesResponseTypeDef
+# ContainsPiiEntitiesResponse
 
 ### Labels
-- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.EntityLabelTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.EntityLabel]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateDatasetRequestTypeDef
+# CreateDatasetRequest
 
 ### FlywheelArn
 - **Type**: <class 'str'>
@@ -416,7 +416,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### InputDataConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.DatasetInputDataConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.DatasetInputDataConfig'>
 - **Required**: Yes
 
 ### DatasetType
@@ -429,21 +429,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.comprehend_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.comprehend_classes.Tag]]
 
 
-# CreateDatasetResponseTypeDef
+# CreateDatasetResponse
 
 ### DatasetArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateDocumentClassifierRequestTypeDef
+# CreateDocumentClassifierRequest
 
 ### DocumentClassifierName
 - **Type**: <class 'str'>
@@ -454,7 +454,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### InputDataConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.DocumentClassifierInputDataConfigUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.DocumentClassifierInputDataConfigUnion'>
 - **Required**: Yes
 
 ### LanguageCode
@@ -465,10 +465,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.comprehend_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.comprehend_classes.Tag]]
 
 ### OutputDataConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.DocumentClassifierOutputDataConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.DocumentClassifierOutputDataConfig]
 
 ### ClientRequestToken
 - **Type**: typing.Optional[str]
@@ -477,7 +477,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### VpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.VpcConfigUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.VpcConfigUnion]
 
 ### Mode
 - **Type**: typing.Optional[typing.Literal['MULTI_CLASS', 'MULTI_LABEL']]
@@ -489,18 +489,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateDocumentClassifierResponseTypeDef
+# CreateDocumentClassifierResponse
 
 ### DocumentClassifierArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateEndpointRequestTypeDef
+# CreateEndpointRequest
 
 ### EndpointName
 - **Type**: <class 'str'>
@@ -517,7 +517,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.comprehend_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.comprehend_classes.Tag]]
 
 ### DataAccessRoleArn
 - **Type**: typing.Optional[str]
@@ -526,7 +526,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateEndpointResponseTypeDef
+# CreateEndpointResponse
 
 ### EndpointArn
 - **Type**: <class 'str'>
@@ -537,11 +537,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateEntityRecognizerRequestTypeDef
+# CreateEntityRecognizerRequest
 
 ### RecognizerName
 - **Type**: <class 'str'>
@@ -552,7 +552,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### InputDataConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.EntityRecognizerInputDataConfigUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.EntityRecognizerInputDataConfigUnion'>
 - **Required**: Yes
 
 ### LanguageCode
@@ -563,7 +563,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.comprehend_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.comprehend_classes.Tag]]
 
 ### ClientRequestToken
 - **Type**: typing.Optional[str]
@@ -572,7 +572,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### VpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.VpcConfigUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.VpcConfigUnion]
 
 ### ModelKmsKeyId
 - **Type**: typing.Optional[str]
@@ -581,18 +581,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateEntityRecognizerResponseTypeDef
+# CreateEntityRecognizerResponse
 
 ### EntityRecognizerArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateFlywheelRequestTypeDef
+# CreateFlywheelRequest
 
 ### FlywheelName
 - **Type**: <class 'str'>
@@ -610,22 +610,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### TaskConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.TaskConfigUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.TaskConfigUnion]
 
 ### ModelType
 - **Type**: typing.Optional[typing.Literal['DOCUMENT_CLASSIFIER', 'ENTITY_RECOGNIZER']]
 
 ### DataSecurityConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.DataSecurityConfigUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.DataSecurityConfigUnion]
 
 ### ClientRequestToken
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.comprehend_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.comprehend_classes.Tag]]
 
 
-# CreateFlywheelResponseTypeDef
+# CreateFlywheelResponse
 
 ### FlywheelArn
 - **Type**: <class 'str'>
@@ -636,11 +636,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DataSecurityConfigOutputTypeDef
+# DataSecurityConfig
 
 ### ModelKmsKeyId
 - **Type**: typing.Optional[str]
@@ -652,10 +652,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### VpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.VpcConfigOutputTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# DataSecurityConfigTypeDef
+# DataSecurityConfigOutput
 
 ### ModelKmsKeyId
 - **Type**: typing.Optional[str]
@@ -667,16 +667,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### VpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.VpcConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.VpcConfigOutput]
 
 
-# DataSecurityConfigUnionTypeDef
+# DataSecurityConfigUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# DatasetAugmentedManifestsListItemTypeDef
+# DatasetAugmentedManifestsListItem
 
 ### AttributeNames
 - **Type**: typing.Sequence[str]
@@ -696,7 +696,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['PLAIN_TEXT_DOCUMENT', 'SEMI_STRUCTURED_DOCUMENT']]
 
 
-# DatasetDocumentClassifierInputDataConfigTypeDef
+# DatasetDocumentClassifierInputDataConfig
 
 ### S3Uri
 - **Type**: <class 'str'>
@@ -706,14 +706,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DatasetEntityRecognizerAnnotationsTypeDef
+# DatasetEntityRecognizerAnnotations
 
 ### S3Uri
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DatasetEntityRecognizerDocumentsTypeDef
+# DatasetEntityRecognizerDocuments
 
 ### S3Uri
 - **Type**: <class 'str'>
@@ -723,27 +723,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ONE_DOC_PER_FILE', 'ONE_DOC_PER_LINE']]
 
 
-# DatasetEntityRecognizerEntityListTypeDef
+# DatasetEntityRecognizerEntityList
 
 ### S3Uri
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DatasetEntityRecognizerInputDataConfigTypeDef
+# DatasetEntityRecognizerInputDataConfig
 
 ### Documents
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.DatasetEntityRecognizerDocumentsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.DatasetEntityRecognizerDocuments'>
 - **Required**: Yes
 
 ### Annotations
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.DatasetEntityRecognizerAnnotationsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.DatasetEntityRecognizerAnnotations]
 
 ### EntityList
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.DatasetEntityRecognizerEntityListTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.DatasetEntityRecognizerEntityList]
 
 
-# DatasetFilterTypeDef
+# DatasetFilter
 
 ### Status
 - **Type**: typing.Optional[typing.Literal['COMPLETED', 'CREATING', 'FAILED']]
@@ -752,28 +752,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['TEST', 'TRAIN']]
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.Timestamp]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.Timestamp]
 
 
-# DatasetInputDataConfigTypeDef
+# DatasetInputDataConfig
 
 ### AugmentedManifests
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.comprehend_classes.DatasetAugmentedManifestsListItemTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.comprehend_classes.DatasetAugmentedManifestsListItem]]
 
 ### DataFormat
 - **Type**: typing.Optional[typing.Literal['AUGMENTED_MANIFEST', 'COMPREHEND_CSV']]
 
 ### DocumentClassifierInputDataConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.DatasetDocumentClassifierInputDataConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.DatasetDocumentClassifierInputDataConfig]
 
 ### EntityRecognizerInputDataConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.DatasetEntityRecognizerInputDataConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.DatasetEntityRecognizerInputDataConfig]
 
 
-# DatasetPropertiesTypeDef
+# DatasetProperties
 
 ### DatasetArn
 - **Type**: typing.Optional[str]
@@ -806,35 +806,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# DeleteDocumentClassifierRequestTypeDef
+# DeleteDocumentClassifierRequest
 
 ### DocumentClassifierArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteEndpointRequestTypeDef
+# DeleteEndpointRequest
 
 ### EndpointArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteEntityRecognizerRequestTypeDef
+# DeleteEntityRecognizerRequest
 
 ### EntityRecognizerArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteFlywheelRequestTypeDef
+# DeleteFlywheelRequest
 
 ### FlywheelArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteResourcePolicyRequestTypeDef
+# DeleteResourcePolicyRequest
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -844,151 +844,151 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeDatasetRequestTypeDef
+# DescribeDatasetRequest
 
 ### DatasetArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeDatasetResponseTypeDef
+# DescribeDatasetResponse
 
 ### DatasetProperties
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.DatasetPropertiesTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.DatasetProperties'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeDocumentClassificationJobRequestTypeDef
+# DescribeDocumentClassificationJobRequest
 
 ### JobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeDocumentClassificationJobResponseTypeDef
+# DescribeDocumentClassificationJobResponse
 
 ### DocumentClassificationJobProperties
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.DocumentClassificationJobPropertiesTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.DocumentClassificationJobProperties'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeDocumentClassifierRequestTypeDef
+# DescribeDocumentClassifierRequest
 
 ### DocumentClassifierArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeDocumentClassifierResponseTypeDef
+# DescribeDocumentClassifierResponse
 
 ### DocumentClassifierProperties
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.DocumentClassifierPropertiesTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.DocumentClassifierProperties'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeDominantLanguageDetectionJobRequestTypeDef
+# DescribeDominantLanguageDetectionJobRequest
 
 ### JobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeDominantLanguageDetectionJobResponseTypeDef
+# DescribeDominantLanguageDetectionJobResponse
 
 ### DominantLanguageDetectionJobProperties
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.DominantLanguageDetectionJobPropertiesTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.DominantLanguageDetectionJobProperties'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeEndpointRequestTypeDef
+# DescribeEndpointRequest
 
 ### EndpointArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeEndpointResponseTypeDef
+# DescribeEndpointResponse
 
 ### EndpointProperties
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.EndpointPropertiesTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.EndpointProperties'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeEntitiesDetectionJobRequestTypeDef
+# DescribeEntitiesDetectionJobRequest
 
 ### JobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeEntitiesDetectionJobResponseTypeDef
+# DescribeEntitiesDetectionJobResponse
 
 ### EntitiesDetectionJobProperties
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.EntitiesDetectionJobPropertiesTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.EntitiesDetectionJobProperties'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeEntityRecognizerRequestTypeDef
+# DescribeEntityRecognizerRequest
 
 ### EntityRecognizerArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeEntityRecognizerResponseTypeDef
+# DescribeEntityRecognizerResponse
 
 ### EntityRecognizerProperties
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.EntityRecognizerPropertiesTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.EntityRecognizerProperties'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeEventsDetectionJobRequestTypeDef
+# DescribeEventsDetectionJobRequest
 
 ### JobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeEventsDetectionJobResponseTypeDef
+# DescribeEventsDetectionJobResponse
 
 ### EventsDetectionJobProperties
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.EventsDetectionJobPropertiesTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.EventsDetectionJobProperties'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeFlywheelIterationRequestTypeDef
+# DescribeFlywheelIterationRequest
 
 ### FlywheelArn
 - **Type**: <class 'str'>
@@ -999,79 +999,79 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeFlywheelIterationResponseTypeDef
+# DescribeFlywheelIterationResponse
 
 ### FlywheelIterationProperties
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.FlywheelIterationPropertiesTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.FlywheelIterationProperties'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeFlywheelRequestTypeDef
+# DescribeFlywheelRequest
 
 ### FlywheelArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeFlywheelResponseTypeDef
+# DescribeFlywheelResponse
 
 ### FlywheelProperties
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.FlywheelPropertiesTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.FlywheelProperties'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeKeyPhrasesDetectionJobRequestTypeDef
+# DescribeKeyPhrasesDetectionJobRequest
 
 ### JobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeKeyPhrasesDetectionJobResponseTypeDef
+# DescribeKeyPhrasesDetectionJobResponse
 
 ### KeyPhrasesDetectionJobProperties
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.KeyPhrasesDetectionJobPropertiesTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.KeyPhrasesDetectionJobProperties'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribePiiEntitiesDetectionJobRequestTypeDef
+# DescribePiiEntitiesDetectionJobRequest
 
 ### JobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribePiiEntitiesDetectionJobResponseTypeDef
+# DescribePiiEntitiesDetectionJobResponse
 
 ### PiiEntitiesDetectionJobProperties
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.PiiEntitiesDetectionJobPropertiesTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.PiiEntitiesDetectionJobProperties'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeResourcePolicyRequestTypeDef
+# DescribeResourcePolicyRequest
 
 ### ResourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeResourcePolicyResponseTypeDef
+# DescribeResourcePolicyResponse
 
 ### ResourcePolicy
 - **Type**: <class 'str'>
@@ -1090,165 +1090,165 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeSentimentDetectionJobRequestTypeDef
+# DescribeSentimentDetectionJobRequest
 
 ### JobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeSentimentDetectionJobResponseTypeDef
+# DescribeSentimentDetectionJobResponse
 
 ### SentimentDetectionJobProperties
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.SentimentDetectionJobPropertiesTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.SentimentDetectionJobProperties'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeTargetedSentimentDetectionJobRequestTypeDef
+# DescribeTargetedSentimentDetectionJobRequest
 
 ### JobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeTargetedSentimentDetectionJobResponseTypeDef
+# DescribeTargetedSentimentDetectionJobResponse
 
 ### TargetedSentimentDetectionJobProperties
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.TargetedSentimentDetectionJobPropertiesTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.TargetedSentimentDetectionJobProperties'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeTopicsDetectionJobRequestTypeDef
+# DescribeTopicsDetectionJobRequest
 
 ### JobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeTopicsDetectionJobResponseTypeDef
+# DescribeTopicsDetectionJobResponse
 
 ### TopicsDetectionJobProperties
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.TopicsDetectionJobPropertiesTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.TopicsDetectionJobProperties'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DetectDominantLanguageResponseTypeDef
+# DetectDominantLanguageResponse
 
 ### Languages
-- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.DominantLanguageTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.DominantLanguage]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DetectEntitiesResponseTypeDef
+# DetectEntitiesResponse
 
 ### Entities
-- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.EntityTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.Entity]
 - **Required**: Yes
 
 ### DocumentMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.DocumentMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.DocumentMetadata'>
 - **Required**: Yes
 
 ### DocumentType
-- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.DocumentTypeListItemTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.DocumentTypeListItem]
 - **Required**: Yes
 
 ### Blocks
-- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.BlockTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.Block]
 - **Required**: Yes
 
 ### Errors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.ErrorsListItemTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.ErrorsListItem]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DetectKeyPhrasesResponseTypeDef
+# DetectKeyPhrasesResponse
 
 ### KeyPhrases
-- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.KeyPhraseTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.KeyPhrase]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DetectPiiEntitiesResponseTypeDef
+# DetectPiiEntitiesResponse
 
 ### Entities
-- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.PiiEntityTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.PiiEntity]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DetectSentimentResponseTypeDef
+# DetectSentimentResponse
 
 ### Sentiment
 - **Type**: typing.Literal['MIXED', 'NEGATIVE', 'NEUTRAL', 'POSITIVE']
 - **Required**: Yes
 
 ### SentimentScore
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.SentimentScoreTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.SentimentScore'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DetectSyntaxResponseTypeDef
+# DetectSyntaxResponse
 
 ### SyntaxTokens
-- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.SyntaxTokenTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.SyntaxToken]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DetectTargetedSentimentResponseTypeDef
+# DetectTargetedSentimentResponse
 
 ### Entities
-- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.TargetedSentimentEntityTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.TargetedSentimentEntity]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DetectToxicContentRequestTypeDef
+# DetectToxicContentRequest
 
 ### TextSegments
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.comprehend_classes.TextSegmentTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.comprehend_classes.TextSegment]
 - **Required**: Yes
 
 ### LanguageCode
@@ -1256,18 +1256,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DetectToxicContentResponseTypeDef
+# DetectToxicContentResponse
 
 ### ResultList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.ToxicLabelsTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.ToxicLabels]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DocumentClassTypeDef
+# DocumentClass
 
 ### Name
 - **Type**: typing.Optional[str]
@@ -1279,17 +1279,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# DocumentClassificationConfigOutputTypeDef
-
-### Mode
-- **Type**: typing.Literal['MULTI_CLASS', 'MULTI_LABEL']
-- **Required**: Yes
-
-### Labels
-- **Type**: typing.Optional[typing.List[str]]
-
-
-# DocumentClassificationConfigTypeDef
+# DocumentClassificationConfig
 
 ### Mode
 - **Type**: typing.Literal['MULTI_CLASS', 'MULTI_LABEL']
@@ -1299,7 +1289,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# DocumentClassificationJobFilterTypeDef
+# DocumentClassificationConfigOutput
+
+### Mode
+- **Type**: typing.Literal['MULTI_CLASS', 'MULTI_LABEL']
+- **Required**: Yes
+
+### Labels
+- **Type**: typing.Optional[typing.List[str]]
+
+
+# DocumentClassificationJobFilter
 
 ### JobName
 - **Type**: typing.Optional[str]
@@ -1308,13 +1308,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['COMPLETED', 'FAILED', 'IN_PROGRESS', 'STOPPED', 'STOP_REQUESTED', 'SUBMITTED']]
 
 ### SubmitTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.Timestamp]
 
 ### SubmitTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.Timestamp]
 
 
-# DocumentClassificationJobPropertiesTypeDef
+# DocumentClassificationJobProperties
 
 ### JobId
 - **Type**: typing.Optional[str]
@@ -1341,10 +1341,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### InputDataConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.InputDataConfigOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.InputDataConfigOutput]
 
 ### OutputDataConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.OutputDataConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### DataAccessRoleArn
 - **Type**: typing.Optional[str]
@@ -1353,13 +1353,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### VpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.VpcConfigOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.VpcConfigOutput]
 
 ### FlywheelArn
 - **Type**: typing.Optional[str]
 
 
-# DocumentClassifierDocumentsTypeDef
+# DocumentClassifierDocuments
 
 ### S3Uri
 - **Type**: <class 'str'>
@@ -1369,7 +1369,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DocumentClassifierFilterTypeDef
+# DocumentClassifierFilter
 
 ### Status
 - **Type**: typing.Optional[typing.Literal['DELETING', 'IN_ERROR', 'STOPPED', 'STOP_REQUESTED', 'SUBMITTED', 'TRAINED', 'TRAINED_WITH_WARNING', 'TRAINING']]
@@ -1378,40 +1378,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### SubmitTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.Timestamp]
 
 ### SubmitTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.Timestamp]
 
 
-# DocumentClassifierInputDataConfigOutputTypeDef
-
-### DataFormat
-- **Type**: typing.Optional[typing.Literal['AUGMENTED_MANIFEST', 'COMPREHEND_CSV']]
-
-### S3Uri
-- **Type**: typing.Optional[str]
-
-### TestS3Uri
-- **Type**: typing.Optional[str]
-
-### LabelDelimiter
-- **Type**: typing.Optional[str]
-
-### AugmentedManifests
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.comprehend_classes.AugmentedManifestsListItemOutputTypeDef]]
-
-### DocumentType
-- **Type**: typing.Optional[typing.Literal['PLAIN_TEXT_DOCUMENT', 'SEMI_STRUCTURED_DOCUMENT']]
-
-### Documents
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.DocumentClassifierDocumentsTypeDef]
-
-### DocumentReaderConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.DocumentReaderConfigOutputTypeDef]
-
-
-# DocumentClassifierInputDataConfigTypeDef
+# DocumentClassifierInputDataConfig
 
 ### DataFormat
 - **Type**: typing.Optional[typing.Literal['AUGMENTED_MANIFEST', 'COMPREHEND_CSV']]
@@ -1426,25 +1399,52 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### AugmentedManifests
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.comprehend_classes.AugmentedManifestsListItemTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.comprehend_classes.AugmentedManifestsListItem]]
 
 ### DocumentType
 - **Type**: typing.Optional[typing.Literal['PLAIN_TEXT_DOCUMENT', 'SEMI_STRUCTURED_DOCUMENT']]
 
 ### Documents
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.DocumentClassifierDocumentsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.DocumentClassifierDocuments]
 
 ### DocumentReaderConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.DocumentReaderConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# DocumentClassifierInputDataConfigUnionTypeDef
+# DocumentClassifierInputDataConfigOutput
+
+### DataFormat
+- **Type**: typing.Optional[typing.Literal['AUGMENTED_MANIFEST', 'COMPREHEND_CSV']]
+
+### S3Uri
+- **Type**: typing.Optional[str]
+
+### TestS3Uri
+- **Type**: typing.Optional[str]
+
+### LabelDelimiter
+- **Type**: typing.Optional[str]
+
+### AugmentedManifests
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.comprehend_classes.AugmentedManifestsListItemOutput]]
+
+### DocumentType
+- **Type**: typing.Optional[typing.Literal['PLAIN_TEXT_DOCUMENT', 'SEMI_STRUCTURED_DOCUMENT']]
+
+### Documents
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.DocumentClassifierDocuments]
+
+### DocumentReaderConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.DocumentReaderConfigOutput]
+
+
+# DocumentClassifierInputDataConfigUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# DocumentClassifierOutputDataConfigTypeDef
+# DocumentClassifierOutputDataConfig
 
 ### S3Uri
 - **Type**: typing.Optional[str]
@@ -1456,7 +1456,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DocumentClassifierPropertiesTypeDef
+# DocumentClassifierProperties
 
 ### DocumentClassifierArn
 - **Type**: typing.Optional[str]
@@ -1483,13 +1483,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### InputDataConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.DocumentClassifierInputDataConfigOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.DocumentClassifierInputDataConfigOutput]
 
 ### OutputDataConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.DocumentClassifierOutputDataConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.DocumentClassifierOutputDataConfig]
 
 ### ClassifierMetadata
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.ClassifierMetadataTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### DataAccessRoleArn
 - **Type**: typing.Optional[str]
@@ -1498,7 +1498,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### VpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.VpcConfigOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.VpcConfigOutput]
 
 ### Mode
 - **Type**: typing.Optional[typing.Literal['MULTI_CLASS', 'MULTI_LABEL']]
@@ -1516,7 +1516,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DocumentClassifierSummaryTypeDef
+# DocumentClassifierSummary
 
 ### DocumentClassifierName
 - **Type**: typing.Optional[str]
@@ -1534,7 +1534,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DELETING', 'IN_ERROR', 'STOPPED', 'STOP_REQUESTED', 'SUBMITTED', 'TRAINED', 'TRAINED_WITH_WARNING', 'TRAINING']]
 
 
-# DocumentLabelTypeDef
+# DocumentLabel
 
 ### Name
 - **Type**: typing.Optional[str]
@@ -1546,29 +1546,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# DocumentMetadataTypeDef
+# DocumentMetadata
 
 ### Pages
 - **Type**: typing.Optional[int]
 
 ### ExtractedCharacters
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.comprehend_classes.ExtractedCharactersListItemTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.comprehend_classes.ExtractedCharactersListItem]]
 
 
-# DocumentReaderConfigOutputTypeDef
-
-### DocumentReadAction
-- **Type**: typing.Literal['TEXTRACT_ANALYZE_DOCUMENT', 'TEXTRACT_DETECT_DOCUMENT_TEXT']
-- **Required**: Yes
-
-### DocumentReadMode
-- **Type**: typing.Optional[typing.Literal['FORCE_DOCUMENT_READ_ACTION', 'SERVICE_DEFAULT']]
-
-### FeatureTypes
-- **Type**: typing.Optional[typing.List[typing.Literal['FORMS', 'TABLES']]]
-
-
-# DocumentReaderConfigTypeDef
+# DocumentReaderConfig
 
 ### DocumentReadAction
 - **Type**: typing.Literal['TEXTRACT_ANALYZE_DOCUMENT', 'TEXTRACT_DETECT_DOCUMENT_TEXT']
@@ -1581,13 +1568,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['FORMS', 'TABLES']]]
 
 
-# DocumentTypeListItemTypeDef
+# DocumentReaderConfigOutput
+
+### DocumentReadAction
+- **Type**: typing.Literal['TEXTRACT_ANALYZE_DOCUMENT', 'TEXTRACT_DETECT_DOCUMENT_TEXT']
+- **Required**: Yes
+
+### DocumentReadMode
+- **Type**: typing.Optional[typing.Literal['FORCE_DOCUMENT_READ_ACTION', 'SERVICE_DEFAULT']]
+
+### FeatureTypes
+- **Type**: typing.Optional[typing.List[typing.Literal['FORMS', 'TABLES']]]
+
+
+# DocumentTypeListItem
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# DominantLanguageDetectionJobFilterTypeDef
+# DominantLanguage
+
+### LanguageCode
+- **Type**: typing.Optional[str]
+
+### Score
+- **Type**: typing.Optional[float]
+
+
+# DominantLanguageDetectionJobFilter
 
 ### JobName
 - **Type**: typing.Optional[str]
@@ -1596,13 +1605,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['COMPLETED', 'FAILED', 'IN_PROGRESS', 'STOPPED', 'STOP_REQUESTED', 'SUBMITTED']]
 
 ### SubmitTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.Timestamp]
 
 ### SubmitTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.Timestamp]
 
 
-# DominantLanguageDetectionJobPropertiesTypeDef
+# DominantLanguageDetectionJobProperties
 
 ### JobId
 - **Type**: typing.Optional[str]
@@ -1626,10 +1635,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### InputDataConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.InputDataConfigOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.InputDataConfigOutput]
 
 ### OutputDataConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.OutputDataConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### DataAccessRoleArn
 - **Type**: typing.Optional[str]
@@ -1638,19 +1647,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### VpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.VpcConfigOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.VpcConfigOutput]
 
 
-# DominantLanguageTypeDef
-
-### LanguageCode
-- **Type**: typing.Optional[str]
-
-### Score
-- **Type**: typing.Optional[float]
-
-
-# EndpointFilterTypeDef
+# EndpointFilter
 
 ### ModelArn
 - **Type**: typing.Optional[str]
@@ -1659,13 +1659,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CREATING', 'DELETING', 'FAILED', 'IN_SERVICE', 'UPDATING']]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.Timestamp]
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.Timestamp]
 
 
-# EndpointPropertiesTypeDef
+# EndpointProperties
 
 ### EndpointArn
 - **Type**: typing.Optional[str]
@@ -1704,7 +1704,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# EntitiesDetectionJobFilterTypeDef
+# EntitiesDetectionJobFilter
 
 ### JobName
 - **Type**: typing.Optional[str]
@@ -1713,13 +1713,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['COMPLETED', 'FAILED', 'IN_PROGRESS', 'STOPPED', 'STOP_REQUESTED', 'SUBMITTED']]
 
 ### SubmitTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.Timestamp]
 
 ### SubmitTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.Timestamp]
 
 
-# EntitiesDetectionJobPropertiesTypeDef
+# EntitiesDetectionJobProperties
 
 ### JobId
 - **Type**: typing.Optional[str]
@@ -1746,10 +1746,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### InputDataConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.InputDataConfigOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.InputDataConfigOutput]
 
 ### OutputDataConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.OutputDataConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### LanguageCode
 - **Type**: typing.Optional[typing.Literal['ar', 'de', 'en', 'es', 'fr', 'hi', 'it', 'ja', 'ko', 'pt', 'zh', 'zh-TW']]
@@ -1761,13 +1761,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### VpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.VpcConfigOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.VpcConfigOutput]
 
 ### FlywheelArn
 - **Type**: typing.Optional[str]
 
 
-# EntityLabelTypeDef
+# Entity
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# EntityLabel
 
 ### Name
 - **Type**: typing.Optional[typing.Literal['ADDRESS', 'AGE', 'ALL', 'AWS_ACCESS_KEY', 'AWS_SECRET_KEY', 'BANK_ACCOUNT_NUMBER', 'BANK_ROUTING', 'CA_HEALTH_NUMBER', 'CA_SOCIAL_INSURANCE_NUMBER', 'CREDIT_DEBIT_CVV', 'CREDIT_DEBIT_EXPIRY', 'CREDIT_DEBIT_NUMBER', 'DATE_TIME', 'DRIVER_ID', 'EMAIL', 'INTERNATIONAL_BANK_ACCOUNT_NUMBER', 'IN_AADHAAR', 'IN_NREGA', 'IN_PERMANENT_ACCOUNT_NUMBER', 'IN_VOTER_NUMBER', 'IP_ADDRESS', 'LICENSE_PLATE', 'MAC_ADDRESS', 'NAME', 'PASSPORT_NUMBER', 'PASSWORD', 'PHONE', 'PIN', 'SSN', 'SWIFT_CODE', 'UK_NATIONAL_HEALTH_SERVICE_NUMBER', 'UK_NATIONAL_INSURANCE_NUMBER', 'UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER', 'URL', 'USERNAME', 'US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER', 'VEHICLE_IDENTIFICATION_NUMBER']]
@@ -1776,21 +1782,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# EntityRecognitionConfigOutputTypeDef
+# EntityRecognitionConfig
 
 ### EntityTypes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.EntityTypesListItemTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.comprehend_classes.EntityTypesListItem]
 - **Required**: Yes
 
 
-# EntityRecognitionConfigTypeDef
+# EntityRecognitionConfigOutput
 
 ### EntityTypes
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.comprehend_classes.EntityTypesListItemTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.EntityTypesListItem]
 - **Required**: Yes
 
 
-# EntityRecognizerAnnotationsTypeDef
+# EntityRecognizerAnnotations
 
 ### S3Uri
 - **Type**: <class 'str'>
@@ -1800,7 +1806,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# EntityRecognizerDocumentsTypeDef
+# EntityRecognizerDocuments
 
 ### S3Uri
 - **Type**: <class 'str'>
@@ -1813,14 +1819,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ONE_DOC_PER_FILE', 'ONE_DOC_PER_LINE']]
 
 
-# EntityRecognizerEntityListTypeDef
+# EntityRecognizerEntityList
 
 ### S3Uri
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# EntityRecognizerEvaluationMetricsTypeDef
+# EntityRecognizerEvaluationMetrics
 
 ### Precision
 - **Type**: typing.Optional[float]
@@ -1832,7 +1838,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# EntityRecognizerFilterTypeDef
+# EntityRecognizerFilter
 
 ### Status
 - **Type**: typing.Optional[typing.Literal['DELETING', 'IN_ERROR', 'STOPPED', 'STOP_REQUESTED', 'SUBMITTED', 'TRAINED', 'TRAINED_WITH_WARNING', 'TRAINING']]
@@ -1841,69 +1847,63 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### SubmitTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.Timestamp]
 
 ### SubmitTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.Timestamp]
 
 
-# EntityRecognizerInputDataConfigOutputTypeDef
+# EntityRecognizerInputDataConfig
 
 ### EntityTypes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.EntityTypesListItemTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.comprehend_classes.EntityTypesListItem]
 - **Required**: Yes
 
 ### DataFormat
 - **Type**: typing.Optional[typing.Literal['AUGMENTED_MANIFEST', 'COMPREHEND_CSV']]
 
 ### Documents
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.EntityRecognizerDocumentsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.EntityRecognizerDocuments]
 
 ### Annotations
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.EntityRecognizerAnnotationsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.EntityRecognizerAnnotations]
 
 ### EntityList
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.EntityRecognizerEntityListTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.EntityRecognizerEntityList]
 
 ### AugmentedManifests
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.comprehend_classes.AugmentedManifestsListItemOutputTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.comprehend_classes.AugmentedManifestsListItem]]
 
 
-# EntityRecognizerInputDataConfigTypeDef
+# EntityRecognizerInputDataConfigOutput
 
 ### EntityTypes
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.comprehend_classes.EntityTypesListItemTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.EntityTypesListItem]
 - **Required**: Yes
 
 ### DataFormat
 - **Type**: typing.Optional[typing.Literal['AUGMENTED_MANIFEST', 'COMPREHEND_CSV']]
 
 ### Documents
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.EntityRecognizerDocumentsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.EntityRecognizerDocuments]
 
 ### Annotations
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.EntityRecognizerAnnotationsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.EntityRecognizerAnnotations]
 
 ### EntityList
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.EntityRecognizerEntityListTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.EntityRecognizerEntityList]
 
 ### AugmentedManifests
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.comprehend_classes.AugmentedManifestsListItemTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.comprehend_classes.AugmentedManifestsListItemOutput]]
 
 
-# EntityRecognizerInputDataConfigUnionTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# EntityRecognizerMetadataEntityTypesListItemTypeDef
+# EntityRecognizerInputDataConfigUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# EntityRecognizerMetadataTypeDef
+# EntityRecognizerMetadata
 
 ### NumberOfTrainedDocuments
 - **Type**: typing.Optional[int]
@@ -1912,19 +1912,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### EvaluationMetrics
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.EntityRecognizerEvaluationMetricsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.EntityRecognizerEvaluationMetrics]
 
 ### EntityTypes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.comprehend_classes.EntityRecognizerMetadataEntityTypesListItemTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.comprehend_classes.EntityRecognizerMetadataEntityTypesListItem]]
 
 
-# EntityRecognizerOutputDataConfigTypeDef
+# EntityRecognizerMetadataEntityTypesListItem
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# EntityRecognizerOutputDataConfig
 
 ### FlywheelStatsS3Prefix
 - **Type**: typing.Optional[str]
 
 
-# EntityRecognizerPropertiesTypeDef
+# EntityRecognizerProperties
 
 ### EntityRecognizerArn
 - **Type**: typing.Optional[str]
@@ -1951,10 +1957,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### InputDataConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.EntityRecognizerInputDataConfigOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.EntityRecognizerInputDataConfigOutput]
 
 ### RecognizerMetadata
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.EntityRecognizerMetadataTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.EntityRecognizerMetadata]
 
 ### DataAccessRoleArn
 - **Type**: typing.Optional[str]
@@ -1963,7 +1969,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### VpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.VpcConfigOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.VpcConfigOutput]
 
 ### ModelKmsKeyId
 - **Type**: typing.Optional[str]
@@ -1978,10 +1984,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### OutputDataConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.EntityRecognizerOutputDataConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.EntityRecognizerOutputDataConfig]
 
 
-# EntityRecognizerSummaryTypeDef
+# EntityRecognizerSummary
 
 ### RecognizerName
 - **Type**: typing.Optional[str]
@@ -1999,13 +2005,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DELETING', 'IN_ERROR', 'STOPPED', 'STOP_REQUESTED', 'SUBMITTED', 'TRAINED', 'TRAINED_WITH_WARNING', 'TRAINING']]
 
 
-# EntityTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# EntityTypesEvaluationMetricsTypeDef
+# EntityTypesEvaluationMetrics
 
 ### Precision
 - **Type**: typing.Optional[float]
@@ -2017,13 +2017,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# EntityTypesListItemTypeDef
+# EntityTypesListItem
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ErrorsListItemTypeDef
+# ErrorsListItem
 
 ### Page
 - **Type**: typing.Optional[int]
@@ -2035,7 +2035,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# EventsDetectionJobFilterTypeDef
+# EventsDetectionJobFilter
 
 ### JobName
 - **Type**: typing.Optional[str]
@@ -2044,13 +2044,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['COMPLETED', 'FAILED', 'IN_PROGRESS', 'STOPPED', 'STOP_REQUESTED', 'SUBMITTED']]
 
 ### SubmitTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.Timestamp]
 
 ### SubmitTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.Timestamp]
 
 
-# EventsDetectionJobPropertiesTypeDef
+# EventsDetectionJobProperties
 
 ### JobId
 - **Type**: typing.Optional[str]
@@ -2074,10 +2074,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### InputDataConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.InputDataConfigOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.InputDataConfigOutput]
 
 ### OutputDataConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.OutputDataConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### LanguageCode
 - **Type**: typing.Optional[typing.Literal['ar', 'de', 'en', 'es', 'fr', 'hi', 'it', 'ja', 'ko', 'pt', 'zh', 'zh-TW']]
@@ -2089,7 +2089,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# ExtractedCharactersListItemTypeDef
+# ExtractedCharactersListItem
 
 ### Page
 - **Type**: typing.Optional[int]
@@ -2098,28 +2098,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# FlywheelFilterTypeDef
+# FlywheelFilter
 
 ### Status
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'CREATING', 'DELETING', 'FAILED', 'UPDATING']]
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.Timestamp]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.Timestamp]
 
 
-# FlywheelIterationFilterTypeDef
+# FlywheelIterationFilter
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.Timestamp]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.Timestamp]
 
 
-# FlywheelIterationPropertiesTypeDef
+# FlywheelIterationProperties
 
 ### FlywheelArn
 - **Type**: typing.Optional[str]
@@ -2143,19 +2143,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### EvaluatedModelMetrics
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.FlywheelModelEvaluationMetricsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.FlywheelModelEvaluationMetrics]
 
 ### TrainedModelArn
 - **Type**: typing.Optional[str]
 
 ### TrainedModelMetrics
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.FlywheelModelEvaluationMetricsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.FlywheelModelEvaluationMetrics]
 
 ### EvaluationManifestS3Prefix
 - **Type**: typing.Optional[str]
 
 
-# FlywheelModelEvaluationMetricsTypeDef
+# FlywheelModelEvaluationMetrics
 
 ### AverageF1Score
 - **Type**: typing.Optional[float]
@@ -2170,7 +2170,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# FlywheelPropertiesTypeDef
+# FlywheelProperties
 
 ### FlywheelArn
 - **Type**: typing.Optional[str]
@@ -2182,13 +2182,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### TaskConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.TaskConfigOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.TaskConfigOutput]
 
 ### DataLakeS3Uri
 - **Type**: typing.Optional[str]
 
 ### DataSecurityConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.DataSecurityConfigOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.DataSecurityConfigOutput]
 
 ### Status
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'CREATING', 'DELETING', 'FAILED', 'UPDATING']]
@@ -2209,7 +2209,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# FlywheelSummaryTypeDef
+# FlywheelSummary
 
 ### FlywheelArn
 - **Type**: typing.Optional[str]
@@ -2239,16 +2239,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GeometryTypeDef
+# Geometry
 
 ### BoundingBox
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.BoundingBoxTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### Polygon
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.comprehend_classes.PointTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.comprehend_classes.Point]]
 
 
-# ImportModelRequestTypeDef
+# ImportModelRequest
 
 ### SourceModelArn
 - **Type**: <class 'str'>
@@ -2267,21 +2267,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.comprehend_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.comprehend_classes.Tag]]
 
 
-# ImportModelResponseTypeDef
+# ImportModelResponse
 
 ### ModelArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# InputDataConfigOutputTypeDef
+# InputDataConfig
 
 ### S3Uri
 - **Type**: <class 'str'>
@@ -2291,10 +2291,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ONE_DOC_PER_FILE', 'ONE_DOC_PER_LINE']]
 
 ### DocumentReaderConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.DocumentReaderConfigOutputTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# InputDataConfigTypeDef
+# InputDataConfigOutput
 
 ### S3Uri
 - **Type**: <class 'str'>
@@ -2304,22 +2304,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ONE_DOC_PER_FILE', 'ONE_DOC_PER_LINE']]
 
 ### DocumentReaderConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.DocumentReaderConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.DocumentReaderConfigOutput]
 
 
-# InputDataConfigUnionTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# KeyPhraseTypeDef
+# InputDataConfigUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# KeyPhrasesDetectionJobFilterTypeDef
+# KeyPhrase
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# KeyPhrasesDetectionJobFilter
 
 ### JobName
 - **Type**: typing.Optional[str]
@@ -2328,13 +2328,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['COMPLETED', 'FAILED', 'IN_PROGRESS', 'STOPPED', 'STOP_REQUESTED', 'SUBMITTED']]
 
 ### SubmitTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.Timestamp]
 
 ### SubmitTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.Timestamp]
 
 
-# KeyPhrasesDetectionJobPropertiesTypeDef
+# KeyPhrasesDetectionJobProperties
 
 ### JobId
 - **Type**: typing.Optional[str]
@@ -2358,10 +2358,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### InputDataConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.InputDataConfigOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.InputDataConfigOutput]
 
 ### OutputDataConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.OutputDataConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### LanguageCode
 - **Type**: typing.Optional[typing.Literal['ar', 'de', 'en', 'es', 'fr', 'hi', 'it', 'ja', 'ko', 'pt', 'zh', 'zh-TW']]
@@ -2373,16 +2373,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### VpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.VpcConfigOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.VpcConfigOutput]
 
 
-# ListDatasetsRequestTypeDef
+# ListDatasetsRequest
 
 ### FlywheelArn
 - **Type**: typing.Optional[str]
 
 ### Filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.DatasetFilterTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.DatasetFilter]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -2391,33 +2391,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListDatasetsResponseTypeDef
+# ListDatasetsResponse
 
 ### DatasetPropertiesList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.DatasetPropertiesTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.DatasetProperties]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListDocumentClassificationJobsRequestPaginateTypeDef
+# ListDocumentClassificationJobsRequest
 
 ### Filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.DocumentClassificationJobFilterTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.PaginatorConfigTypeDef]
-
-
-# ListDocumentClassificationJobsRequestTypeDef
-
-### Filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.DocumentClassificationJobFilterTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.DocumentClassificationJobFilter]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -2426,21 +2417,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListDocumentClassificationJobsResponseTypeDef
+# ListDocumentClassificationJobsRequestPaginate
+
+### Filter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.DocumentClassificationJobFilter]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.PaginatorConfig]
+
+
+# ListDocumentClassificationJobsResponse
 
 ### DocumentClassificationJobPropertiesList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.DocumentClassificationJobPropertiesTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.DocumentClassificationJobProperties]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListDocumentClassifierSummariesRequestTypeDef
+# ListDocumentClassifierSummariesRequest
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -2449,33 +2449,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListDocumentClassifierSummariesResponseTypeDef
+# ListDocumentClassifierSummariesResponse
 
 ### DocumentClassifierSummariesList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.DocumentClassifierSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.DocumentClassifierSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListDocumentClassifiersRequestPaginateTypeDef
+# ListDocumentClassifiersRequest
 
 ### Filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.DocumentClassifierFilterTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.PaginatorConfigTypeDef]
-
-
-# ListDocumentClassifiersRequestTypeDef
-
-### Filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.DocumentClassifierFilterTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.DocumentClassifierFilter]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -2484,33 +2475,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListDocumentClassifiersResponseTypeDef
+# ListDocumentClassifiersRequestPaginate
+
+### Filter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.DocumentClassifierFilter]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.PaginatorConfig]
+
+
+# ListDocumentClassifiersResponse
 
 ### DocumentClassifierPropertiesList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.DocumentClassifierPropertiesTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.DocumentClassifierProperties]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListDominantLanguageDetectionJobsRequestPaginateTypeDef
+# ListDominantLanguageDetectionJobsRequest
 
 ### Filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.DominantLanguageDetectionJobFilterTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.PaginatorConfigTypeDef]
-
-
-# ListDominantLanguageDetectionJobsRequestTypeDef
-
-### Filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.DominantLanguageDetectionJobFilterTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.DominantLanguageDetectionJobFilter]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -2519,33 +2510,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListDominantLanguageDetectionJobsResponseTypeDef
+# ListDominantLanguageDetectionJobsRequestPaginate
+
+### Filter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.DominantLanguageDetectionJobFilter]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.PaginatorConfig]
+
+
+# ListDominantLanguageDetectionJobsResponse
 
 ### DominantLanguageDetectionJobPropertiesList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.DominantLanguageDetectionJobPropertiesTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.DominantLanguageDetectionJobProperties]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListEndpointsRequestPaginateTypeDef
+# ListEndpointsRequest
 
 ### Filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.EndpointFilterTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.PaginatorConfigTypeDef]
-
-
-# ListEndpointsRequestTypeDef
-
-### Filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.EndpointFilterTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.EndpointFilter]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -2554,33 +2545,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListEndpointsResponseTypeDef
+# ListEndpointsRequestPaginate
+
+### Filter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.EndpointFilter]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.PaginatorConfig]
+
+
+# ListEndpointsResponse
 
 ### EndpointPropertiesList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.EndpointPropertiesTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.EndpointProperties]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListEntitiesDetectionJobsRequestPaginateTypeDef
+# ListEntitiesDetectionJobsRequest
 
 ### Filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.EntitiesDetectionJobFilterTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.PaginatorConfigTypeDef]
-
-
-# ListEntitiesDetectionJobsRequestTypeDef
-
-### Filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.EntitiesDetectionJobFilterTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.EntitiesDetectionJobFilter]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -2589,21 +2580,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListEntitiesDetectionJobsResponseTypeDef
+# ListEntitiesDetectionJobsRequestPaginate
+
+### Filter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.EntitiesDetectionJobFilter]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.PaginatorConfig]
+
+
+# ListEntitiesDetectionJobsResponse
 
 ### EntitiesDetectionJobPropertiesList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.EntitiesDetectionJobPropertiesTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.EntitiesDetectionJobProperties]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListEntityRecognizerSummariesRequestTypeDef
+# ListEntityRecognizerSummariesRequest
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -2612,59 +2612,59 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListEntityRecognizerSummariesResponseTypeDef
+# ListEntityRecognizerSummariesResponse
 
 ### EntityRecognizerSummariesList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.EntityRecognizerSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.EntityRecognizerSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListEntityRecognizersRequestPaginateTypeDef
+# ListEntityRecognizersRequest
 
 ### Filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.EntityRecognizerFilterTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.EntityRecognizerFilter]
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+### MaxResults
+- **Type**: typing.Optional[int]
+
+
+# ListEntityRecognizersRequestPaginate
+
+### Filter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.EntityRecognizerFilter]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.PaginatorConfig]
 
 
-# ListEntityRecognizersRequestTypeDef
-
-### Filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.EntityRecognizerFilterTypeDef]
-
-### NextToken
-- **Type**: typing.Optional[str]
-
-### MaxResults
-- **Type**: typing.Optional[int]
-
-
-# ListEntityRecognizersResponseTypeDef
+# ListEntityRecognizersResponse
 
 ### EntityRecognizerPropertiesList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.EntityRecognizerPropertiesTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.EntityRecognizerProperties]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListEventsDetectionJobsRequestTypeDef
+# ListEventsDetectionJobsRequest
 
 ### Filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.EventsDetectionJobFilterTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.EventsDetectionJobFilter]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -2673,28 +2673,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListEventsDetectionJobsResponseTypeDef
+# ListEventsDetectionJobsResponse
 
 ### EventsDetectionJobPropertiesList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.EventsDetectionJobPropertiesTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.EventsDetectionJobProperties]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListFlywheelIterationHistoryRequestTypeDef
+# ListFlywheelIterationHistoryRequest
 
 ### FlywheelArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.FlywheelIterationFilterTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.FlywheelIterationFilter]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -2703,24 +2703,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListFlywheelIterationHistoryResponseTypeDef
+# ListFlywheelIterationHistoryResponse
 
 ### FlywheelIterationPropertiesList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.FlywheelIterationPropertiesTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.FlywheelIterationProperties]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListFlywheelsRequestTypeDef
+# ListFlywheelsRequest
 
 ### Filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.FlywheelFilterTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.FlywheelFilter]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -2729,33 +2729,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListFlywheelsResponseTypeDef
+# ListFlywheelsResponse
 
 ### FlywheelSummaryList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.FlywheelSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.FlywheelSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListKeyPhrasesDetectionJobsRequestPaginateTypeDef
+# ListKeyPhrasesDetectionJobsRequest
 
 ### Filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.KeyPhrasesDetectionJobFilterTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.PaginatorConfigTypeDef]
-
-
-# ListKeyPhrasesDetectionJobsRequestTypeDef
-
-### Filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.KeyPhrasesDetectionJobFilterTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.KeyPhrasesDetectionJobFilter]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -2764,33 +2755,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListKeyPhrasesDetectionJobsResponseTypeDef
+# ListKeyPhrasesDetectionJobsRequestPaginate
+
+### Filter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.KeyPhrasesDetectionJobFilter]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.PaginatorConfig]
+
+
+# ListKeyPhrasesDetectionJobsResponse
 
 ### KeyPhrasesDetectionJobPropertiesList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.KeyPhrasesDetectionJobPropertiesTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.KeyPhrasesDetectionJobProperties]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListPiiEntitiesDetectionJobsRequestPaginateTypeDef
+# ListPiiEntitiesDetectionJobsRequest
 
 ### Filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.PiiEntitiesDetectionJobFilterTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.PaginatorConfigTypeDef]
-
-
-# ListPiiEntitiesDetectionJobsRequestTypeDef
-
-### Filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.PiiEntitiesDetectionJobFilterTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.PiiEntitiesDetectionJobFilter]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -2799,33 +2790,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListPiiEntitiesDetectionJobsResponseTypeDef
+# ListPiiEntitiesDetectionJobsRequestPaginate
+
+### Filter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.PiiEntitiesDetectionJobFilter]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.PaginatorConfig]
+
+
+# ListPiiEntitiesDetectionJobsResponse
 
 ### PiiEntitiesDetectionJobPropertiesList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.PiiEntitiesDetectionJobPropertiesTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.PiiEntitiesDetectionJobProperties]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListSentimentDetectionJobsRequestPaginateTypeDef
+# ListSentimentDetectionJobsRequest
 
 ### Filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.SentimentDetectionJobFilterTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.PaginatorConfigTypeDef]
-
-
-# ListSentimentDetectionJobsRequestTypeDef
-
-### Filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.SentimentDetectionJobFilterTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.SentimentDetectionJobFilter]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -2834,46 +2825,55 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListSentimentDetectionJobsResponseTypeDef
+# ListSentimentDetectionJobsRequestPaginate
+
+### Filter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.SentimentDetectionJobFilter]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.PaginatorConfig]
+
+
+# ListSentimentDetectionJobsResponse
 
 ### SentimentDetectionJobPropertiesList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.SentimentDetectionJobPropertiesTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.SentimentDetectionJobProperties]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestTypeDef
+# ListTagsForResourceRequest
 
 ### ResourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ListTagsForResourceResponseTypeDef
+# ListTagsForResourceResponse
 
 ### ResourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.TagTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListTargetedSentimentDetectionJobsRequestTypeDef
+# ListTargetedSentimentDetectionJobsRequest
 
 ### Filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.TargetedSentimentDetectionJobFilterTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.TargetedSentimentDetectionJobFilter]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -2882,33 +2882,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListTargetedSentimentDetectionJobsResponseTypeDef
+# ListTargetedSentimentDetectionJobsResponse
 
 ### TargetedSentimentDetectionJobPropertiesList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.TargetedSentimentDetectionJobPropertiesTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.TargetedSentimentDetectionJobProperties]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTopicsDetectionJobsRequestPaginateTypeDef
+# ListTopicsDetectionJobsRequest
 
 ### Filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.TopicsDetectionJobFilterTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.PaginatorConfigTypeDef]
-
-
-# ListTopicsDetectionJobsRequestTypeDef
-
-### Filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.TopicsDetectionJobFilterTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.TopicsDetectionJobFilter]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -2917,30 +2908,39 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListTopicsDetectionJobsResponseTypeDef
+# ListTopicsDetectionJobsRequestPaginate
+
+### Filter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.TopicsDetectionJobFilter]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.PaginatorConfig]
+
+
+# ListTopicsDetectionJobsResponse
 
 ### TopicsDetectionJobPropertiesList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.TopicsDetectionJobPropertiesTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.comprehend_classes.TopicsDetectionJobProperties]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# MentionSentimentTypeDef
+# MentionSentiment
 
 ### Sentiment
 - **Type**: typing.Optional[typing.Literal['MIXED', 'NEGATIVE', 'NEUTRAL', 'POSITIVE']]
 
 ### SentimentScore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.SentimentScoreTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# OutputDataConfigTypeDef
+# OutputDataConfig
 
 ### S3Uri
 - **Type**: <class 'str'>
@@ -2950,7 +2950,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -2962,7 +2962,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PartOfSpeechTagTypeDef
+# PartOfSpeechTag
 
 ### Tag
 - **Type**: typing.Optional[typing.Literal['ADJ', 'ADP', 'ADV', 'AUX', 'CCONJ', 'CONJ', 'DET', 'INTJ', 'NOUN', 'NUM', 'O', 'PART', 'PRON', 'PROPN', 'PUNCT', 'SCONJ', 'SYM', 'VERB']]
@@ -2971,7 +2971,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# PiiEntitiesDetectionJobFilterTypeDef
+# PiiEntitiesDetectionJobFilter
 
 ### JobName
 - **Type**: typing.Optional[str]
@@ -2980,13 +2980,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['COMPLETED', 'FAILED', 'IN_PROGRESS', 'STOPPED', 'STOP_REQUESTED', 'SUBMITTED']]
 
 ### SubmitTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.Timestamp]
 
 ### SubmitTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.Timestamp]
 
 
-# PiiEntitiesDetectionJobPropertiesTypeDef
+# PiiEntitiesDetectionJobProperties
 
 ### JobId
 - **Type**: typing.Optional[str]
@@ -3010,13 +3010,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### InputDataConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.InputDataConfigOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.InputDataConfigOutput]
 
 ### OutputDataConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.PiiOutputDataConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.PiiOutputDataConfig]
 
 ### RedactionConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.RedactionConfigOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.RedactionConfigOutput]
 
 ### LanguageCode
 - **Type**: typing.Optional[typing.Literal['ar', 'de', 'en', 'es', 'fr', 'hi', 'it', 'ja', 'ko', 'pt', 'zh', 'zh-TW']]
@@ -3028,13 +3028,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ONLY_OFFSETS', 'ONLY_REDACTION']]
 
 
-# PiiEntityTypeDef
+# PiiEntity
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# PiiOutputDataConfigTypeDef
+# PiiOutputDataConfig
 
 ### S3Uri
 - **Type**: <class 'str'>
@@ -3044,7 +3044,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PointTypeDef
+# Point
 
 ### X
 - **Type**: typing.Optional[float]
@@ -3053,7 +3053,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# PutResourcePolicyRequestTypeDef
+# PutResourcePolicyRequest
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -3067,30 +3067,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PutResourcePolicyResponseTypeDef
+# PutResourcePolicyResponse
 
 ### PolicyRevisionId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# RedactionConfigOutputTypeDef
-
-### PiiEntityTypes
-- **Type**: typing.Optional[typing.List[typing.Literal['ADDRESS', 'AGE', 'ALL', 'AWS_ACCESS_KEY', 'AWS_SECRET_KEY', 'BANK_ACCOUNT_NUMBER', 'BANK_ROUTING', 'CA_HEALTH_NUMBER', 'CA_SOCIAL_INSURANCE_NUMBER', 'CREDIT_DEBIT_CVV', 'CREDIT_DEBIT_EXPIRY', 'CREDIT_DEBIT_NUMBER', 'DATE_TIME', 'DRIVER_ID', 'EMAIL', 'INTERNATIONAL_BANK_ACCOUNT_NUMBER', 'IN_AADHAAR', 'IN_NREGA', 'IN_PERMANENT_ACCOUNT_NUMBER', 'IN_VOTER_NUMBER', 'IP_ADDRESS', 'LICENSE_PLATE', 'MAC_ADDRESS', 'NAME', 'PASSPORT_NUMBER', 'PASSWORD', 'PHONE', 'PIN', 'SSN', 'SWIFT_CODE', 'UK_NATIONAL_HEALTH_SERVICE_NUMBER', 'UK_NATIONAL_INSURANCE_NUMBER', 'UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER', 'URL', 'USERNAME', 'US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER', 'VEHICLE_IDENTIFICATION_NUMBER']]]
-
-### MaskMode
-- **Type**: typing.Optional[typing.Literal['MASK', 'REPLACE_WITH_PII_ENTITY_TYPE']]
-
-### MaskCharacter
-- **Type**: typing.Optional[str]
-
-
-# RedactionConfigTypeDef
+# RedactionConfig
 
 ### PiiEntityTypes
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['ADDRESS', 'AGE', 'ALL', 'AWS_ACCESS_KEY', 'AWS_SECRET_KEY', 'BANK_ACCOUNT_NUMBER', 'BANK_ROUTING', 'CA_HEALTH_NUMBER', 'CA_SOCIAL_INSURANCE_NUMBER', 'CREDIT_DEBIT_CVV', 'CREDIT_DEBIT_EXPIRY', 'CREDIT_DEBIT_NUMBER', 'DATE_TIME', 'DRIVER_ID', 'EMAIL', 'INTERNATIONAL_BANK_ACCOUNT_NUMBER', 'IN_AADHAAR', 'IN_NREGA', 'IN_PERMANENT_ACCOUNT_NUMBER', 'IN_VOTER_NUMBER', 'IP_ADDRESS', 'LICENSE_PLATE', 'MAC_ADDRESS', 'NAME', 'PASSPORT_NUMBER', 'PASSWORD', 'PHONE', 'PIN', 'SSN', 'SWIFT_CODE', 'UK_NATIONAL_HEALTH_SERVICE_NUMBER', 'UK_NATIONAL_INSURANCE_NUMBER', 'UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER', 'URL', 'USERNAME', 'US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER', 'VEHICLE_IDENTIFICATION_NUMBER']]]
@@ -3102,13 +3090,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RedactionConfigUnionTypeDef
+# RedactionConfigOutput
+
+### PiiEntityTypes
+- **Type**: typing.Optional[typing.List[typing.Literal['ADDRESS', 'AGE', 'ALL', 'AWS_ACCESS_KEY', 'AWS_SECRET_KEY', 'BANK_ACCOUNT_NUMBER', 'BANK_ROUTING', 'CA_HEALTH_NUMBER', 'CA_SOCIAL_INSURANCE_NUMBER', 'CREDIT_DEBIT_CVV', 'CREDIT_DEBIT_EXPIRY', 'CREDIT_DEBIT_NUMBER', 'DATE_TIME', 'DRIVER_ID', 'EMAIL', 'INTERNATIONAL_BANK_ACCOUNT_NUMBER', 'IN_AADHAAR', 'IN_NREGA', 'IN_PERMANENT_ACCOUNT_NUMBER', 'IN_VOTER_NUMBER', 'IP_ADDRESS', 'LICENSE_PLATE', 'MAC_ADDRESS', 'NAME', 'PASSPORT_NUMBER', 'PASSWORD', 'PHONE', 'PIN', 'SSN', 'SWIFT_CODE', 'UK_NATIONAL_HEALTH_SERVICE_NUMBER', 'UK_NATIONAL_INSURANCE_NUMBER', 'UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER', 'URL', 'USERNAME', 'US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER', 'VEHICLE_IDENTIFICATION_NUMBER']]]
+
+### MaskMode
+- **Type**: typing.Optional[typing.Literal['MASK', 'REPLACE_WITH_PII_ENTITY_TYPE']]
+
+### MaskCharacter
+- **Type**: typing.Optional[str]
+
+
+# RedactionConfigUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -3130,7 +3130,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SentimentDetectionJobFilterTypeDef
+# SentimentDetectionJobFilter
 
 ### JobName
 - **Type**: typing.Optional[str]
@@ -3139,13 +3139,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['COMPLETED', 'FAILED', 'IN_PROGRESS', 'STOPPED', 'STOP_REQUESTED', 'SUBMITTED']]
 
 ### SubmitTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.Timestamp]
 
 ### SubmitTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.Timestamp]
 
 
-# SentimentDetectionJobPropertiesTypeDef
+# SentimentDetectionJobProperties
 
 ### JobId
 - **Type**: typing.Optional[str]
@@ -3169,10 +3169,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### InputDataConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.InputDataConfigOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.InputDataConfigOutput]
 
 ### OutputDataConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.OutputDataConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### LanguageCode
 - **Type**: typing.Optional[typing.Literal['ar', 'de', 'en', 'es', 'fr', 'hi', 'it', 'ja', 'ko', 'pt', 'zh', 'zh-TW']]
@@ -3184,10 +3184,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### VpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.VpcConfigOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.VpcConfigOutput]
 
 
-# SentimentScoreTypeDef
+# SentimentScore
 
 ### Positive
 - **Type**: typing.Optional[float]
@@ -3202,14 +3202,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# StartDocumentClassificationJobRequestTypeDef
+# StartDocumentClassificationJobRequest
 
 ### InputDataConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.InputDataConfigUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.InputDataConfigUnion'>
 - **Required**: Yes
 
 ### OutputDataConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.OutputDataConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.OutputDataConfig'>
 - **Required**: Yes
 
 ### DataAccessRoleArn
@@ -3229,16 +3229,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### VpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.VpcConfigUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.VpcConfigUnion]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.comprehend_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.comprehend_classes.Tag]]
 
 ### FlywheelArn
 - **Type**: typing.Optional[str]
 
 
-# StartDocumentClassificationJobResponseTypeDef
+# StartDocumentClassificationJobResponse
 
 ### JobId
 - **Type**: <class 'str'>
@@ -3257,18 +3257,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# StartDominantLanguageDetectionJobRequestTypeDef
+# StartDominantLanguageDetectionJobRequest
 
 ### InputDataConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.InputDataConfigUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.InputDataConfigUnion'>
 - **Required**: Yes
 
 ### OutputDataConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.OutputDataConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.OutputDataConfig'>
 - **Required**: Yes
 
 ### DataAccessRoleArn
@@ -3285,13 +3285,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### VpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.VpcConfigUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.VpcConfigUnion]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.comprehend_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.comprehend_classes.Tag]]
 
 
-# StartDominantLanguageDetectionJobResponseTypeDef
+# StartDominantLanguageDetectionJobResponse
 
 ### JobId
 - **Type**: <class 'str'>
@@ -3306,18 +3306,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# StartEntitiesDetectionJobRequestTypeDef
+# StartEntitiesDetectionJobRequest
 
 ### InputDataConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.InputDataConfigUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.InputDataConfigUnion'>
 - **Required**: Yes
 
 ### OutputDataConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.OutputDataConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.OutputDataConfig'>
 - **Required**: Yes
 
 ### DataAccessRoleArn
@@ -3341,16 +3341,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### VpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.VpcConfigUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.VpcConfigUnion]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.comprehend_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.comprehend_classes.Tag]]
 
 ### FlywheelArn
 - **Type**: typing.Optional[str]
 
 
-# StartEntitiesDetectionJobResponseTypeDef
+# StartEntitiesDetectionJobResponse
 
 ### JobId
 - **Type**: <class 'str'>
@@ -3369,18 +3369,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# StartEventsDetectionJobRequestTypeDef
+# StartEventsDetectionJobRequest
 
 ### InputDataConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.InputDataConfigUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.InputDataConfigUnion'>
 - **Required**: Yes
 
 ### OutputDataConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.OutputDataConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.OutputDataConfig'>
 - **Required**: Yes
 
 ### DataAccessRoleArn
@@ -3402,10 +3402,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.comprehend_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.comprehend_classes.Tag]]
 
 
-# StartEventsDetectionJobResponseTypeDef
+# StartEventsDetectionJobResponse
 
 ### JobId
 - **Type**: <class 'str'>
@@ -3420,11 +3420,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# StartFlywheelIterationRequestTypeDef
+# StartFlywheelIterationRequest
 
 ### FlywheelArn
 - **Type**: <class 'str'>
@@ -3434,7 +3434,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# StartFlywheelIterationResponseTypeDef
+# StartFlywheelIterationResponse
 
 ### FlywheelArn
 - **Type**: <class 'str'>
@@ -3445,18 +3445,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# StartKeyPhrasesDetectionJobRequestTypeDef
+# StartKeyPhrasesDetectionJobRequest
 
 ### InputDataConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.InputDataConfigUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.InputDataConfigUnion'>
 - **Required**: Yes
 
 ### OutputDataConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.OutputDataConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.OutputDataConfig'>
 - **Required**: Yes
 
 ### DataAccessRoleArn
@@ -3477,13 +3477,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### VpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.VpcConfigUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.VpcConfigUnion]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.comprehend_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.comprehend_classes.Tag]]
 
 
-# StartKeyPhrasesDetectionJobResponseTypeDef
+# StartKeyPhrasesDetectionJobResponse
 
 ### JobId
 - **Type**: <class 'str'>
@@ -3498,18 +3498,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# StartPiiEntitiesDetectionJobRequestTypeDef
+# StartPiiEntitiesDetectionJobRequest
 
 ### InputDataConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.InputDataConfigUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.InputDataConfigUnion'>
 - **Required**: Yes
 
 ### OutputDataConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.OutputDataConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.OutputDataConfig'>
 - **Required**: Yes
 
 ### Mode
@@ -3525,7 +3525,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### RedactionConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.RedactionConfigUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.RedactionConfigUnion]
 
 ### JobName
 - **Type**: typing.Optional[str]
@@ -3534,10 +3534,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.comprehend_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.comprehend_classes.Tag]]
 
 
-# StartPiiEntitiesDetectionJobResponseTypeDef
+# StartPiiEntitiesDetectionJobResponse
 
 ### JobId
 - **Type**: <class 'str'>
@@ -3552,18 +3552,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# StartSentimentDetectionJobRequestTypeDef
+# StartSentimentDetectionJobRequest
 
 ### InputDataConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.InputDataConfigUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.InputDataConfigUnion'>
 - **Required**: Yes
 
 ### OutputDataConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.OutputDataConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.OutputDataConfig'>
 - **Required**: Yes
 
 ### DataAccessRoleArn
@@ -3584,13 +3584,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### VpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.VpcConfigUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.VpcConfigUnion]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.comprehend_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.comprehend_classes.Tag]]
 
 
-# StartSentimentDetectionJobResponseTypeDef
+# StartSentimentDetectionJobResponse
 
 ### JobId
 - **Type**: <class 'str'>
@@ -3605,18 +3605,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# StartTargetedSentimentDetectionJobRequestTypeDef
+# StartTargetedSentimentDetectionJobRequest
 
 ### InputDataConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.InputDataConfigUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.InputDataConfigUnion'>
 - **Required**: Yes
 
 ### OutputDataConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.OutputDataConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.OutputDataConfig'>
 - **Required**: Yes
 
 ### DataAccessRoleArn
@@ -3637,13 +3637,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### VpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.VpcConfigUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.VpcConfigUnion]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.comprehend_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.comprehend_classes.Tag]]
 
 
-# StartTargetedSentimentDetectionJobResponseTypeDef
+# StartTargetedSentimentDetectionJobResponse
 
 ### JobId
 - **Type**: <class 'str'>
@@ -3658,18 +3658,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# StartTopicsDetectionJobRequestTypeDef
+# StartTopicsDetectionJobRequest
 
 ### InputDataConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.InputDataConfigUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.InputDataConfigUnion'>
 - **Required**: Yes
 
 ### OutputDataConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.OutputDataConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.OutputDataConfig'>
 - **Required**: Yes
 
 ### DataAccessRoleArn
@@ -3689,13 +3689,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### VpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.VpcConfigUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.VpcConfigUnion]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.comprehend_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.comprehend_classes.Tag]]
 
 
-# StartTopicsDetectionJobResponseTypeDef
+# StartTopicsDetectionJobResponse
 
 ### JobId
 - **Type**: <class 'str'>
@@ -3710,40 +3710,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# StopDominantLanguageDetectionJobRequestTypeDef
+# StopDominantLanguageDetectionJobRequest
 
 ### JobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# StopDominantLanguageDetectionJobResponseTypeDef
-
-### JobId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### JobStatus
-- **Type**: typing.Literal['COMPLETED', 'FAILED', 'IN_PROGRESS', 'STOPPED', 'STOP_REQUESTED', 'SUBMITTED']
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# StopEntitiesDetectionJobRequestTypeDef
-
-### JobId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# StopEntitiesDetectionJobResponseTypeDef
+# StopDominantLanguageDetectionJobResponse
 
 ### JobId
 - **Type**: <class 'str'>
@@ -3754,40 +3732,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# StopEventsDetectionJobRequestTypeDef
+# StopEntitiesDetectionJobRequest
 
 ### JobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# StopEventsDetectionJobResponseTypeDef
-
-### JobId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### JobStatus
-- **Type**: typing.Literal['COMPLETED', 'FAILED', 'IN_PROGRESS', 'STOPPED', 'STOP_REQUESTED', 'SUBMITTED']
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# StopKeyPhrasesDetectionJobRequestTypeDef
-
-### JobId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# StopKeyPhrasesDetectionJobResponseTypeDef
+# StopEntitiesDetectionJobResponse
 
 ### JobId
 - **Type**: <class 'str'>
@@ -3798,40 +3754,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# StopPiiEntitiesDetectionJobRequestTypeDef
+# StopEventsDetectionJobRequest
 
 ### JobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# StopPiiEntitiesDetectionJobResponseTypeDef
-
-### JobId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### JobStatus
-- **Type**: typing.Literal['COMPLETED', 'FAILED', 'IN_PROGRESS', 'STOPPED', 'STOP_REQUESTED', 'SUBMITTED']
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# StopSentimentDetectionJobRequestTypeDef
-
-### JobId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# StopSentimentDetectionJobResponseTypeDef
+# StopEventsDetectionJobResponse
 
 ### JobId
 - **Type**: <class 'str'>
@@ -3842,18 +3776,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# StopTargetedSentimentDetectionJobRequestTypeDef
+# StopKeyPhrasesDetectionJobRequest
 
 ### JobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# StopTargetedSentimentDetectionJobResponseTypeDef
+# StopKeyPhrasesDetectionJobResponse
 
 ### JobId
 - **Type**: <class 'str'>
@@ -3864,42 +3798,97 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# StopTrainingDocumentClassifierRequestTypeDef
+# StopPiiEntitiesDetectionJobRequest
+
+### JobId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# StopPiiEntitiesDetectionJobResponse
+
+### JobId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### JobStatus
+- **Type**: typing.Literal['COMPLETED', 'FAILED', 'IN_PROGRESS', 'STOPPED', 'STOP_REQUESTED', 'SUBMITTED']
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
+# StopSentimentDetectionJobRequest
+
+### JobId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# StopSentimentDetectionJobResponse
+
+### JobId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### JobStatus
+- **Type**: typing.Literal['COMPLETED', 'FAILED', 'IN_PROGRESS', 'STOPPED', 'STOP_REQUESTED', 'SUBMITTED']
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
+# StopTargetedSentimentDetectionJobRequest
+
+### JobId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# StopTargetedSentimentDetectionJobResponse
+
+### JobId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### JobStatus
+- **Type**: typing.Literal['COMPLETED', 'FAILED', 'IN_PROGRESS', 'STOPPED', 'STOP_REQUESTED', 'SUBMITTED']
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
+# StopTrainingDocumentClassifierRequest
 
 ### DocumentClassifierArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# StopTrainingEntityRecognizerRequestTypeDef
+# StopTrainingEntityRecognizerRequest
 
 ### EntityRecognizerArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# SyntaxTokenTypeDef
+# SyntaxToken
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# TagResourceRequestTypeDef
-
-### ResourceArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.comprehend_classes.TagTypeDef]
-- **Required**: Yes
-
-
-# TagTypeDef
+# Tag
 
 ### Key
 - **Type**: <class 'str'>
@@ -3909,7 +3898,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TargetedSentimentDetectionJobFilterTypeDef
+# TagResourceRequest
+
+### ResourceArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Tags
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.comprehend_classes.Tag]
+- **Required**: Yes
+
+
+# TargetedSentimentDetectionJobFilter
 
 ### JobName
 - **Type**: typing.Optional[str]
@@ -3918,13 +3918,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['COMPLETED', 'FAILED', 'IN_PROGRESS', 'STOPPED', 'STOP_REQUESTED', 'SUBMITTED']]
 
 ### SubmitTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.Timestamp]
 
 ### SubmitTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.Timestamp]
 
 
-# TargetedSentimentDetectionJobPropertiesTypeDef
+# TargetedSentimentDetectionJobProperties
 
 ### JobId
 - **Type**: typing.Optional[str]
@@ -3948,10 +3948,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### InputDataConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.InputDataConfigOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.InputDataConfigOutput]
 
 ### OutputDataConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.OutputDataConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### LanguageCode
 - **Type**: typing.Optional[typing.Literal['ar', 'de', 'en', 'es', 'fr', 'hi', 'it', 'ja', 'ko', 'pt', 'zh', 'zh-TW']]
@@ -3963,69 +3963,69 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### VpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.VpcConfigOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.VpcConfigOutput]
 
 
-# TargetedSentimentEntityTypeDef
+# TargetedSentimentEntity
 
 ### DescriptiveMentionIndex
 - **Type**: typing.Optional[typing.List[int]]
 
 ### Mentions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.comprehend_classes.TargetedSentimentMentionTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.comprehend_classes.TargetedSentimentMention]]
 
 
-# TargetedSentimentMentionTypeDef
+# TargetedSentimentMention
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# TaskConfigOutputTypeDef
+# TaskConfig
 
 ### LanguageCode
 - **Type**: typing.Literal['ar', 'de', 'en', 'es', 'fr', 'hi', 'it', 'ja', 'ko', 'pt', 'zh', 'zh-TW']
 - **Required**: Yes
 
 ### DocumentClassificationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.DocumentClassificationConfigOutputTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### EntityRecognitionConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.EntityRecognitionConfigOutputTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# TaskConfigTypeDef
+# TaskConfigOutput
 
 ### LanguageCode
 - **Type**: typing.Literal['ar', 'de', 'en', 'es', 'fr', 'hi', 'it', 'ja', 'ko', 'pt', 'zh', 'zh-TW']
 - **Required**: Yes
 
 ### DocumentClassificationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.DocumentClassificationConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.DocumentClassificationConfigOutput]
 
 ### EntityRecognitionConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.EntityRecognitionConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.EntityRecognitionConfigOutput]
 
 
-# TaskConfigUnionTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# TextSegmentTypeDef
+# TaskConfigUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# TimestampTypeDef
+# TextSegment
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# TopicsDetectionJobFilterTypeDef
+# Timestamp
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# TopicsDetectionJobFilter
 
 ### JobName
 - **Type**: typing.Optional[str]
@@ -4034,13 +4034,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['COMPLETED', 'FAILED', 'IN_PROGRESS', 'STOPPED', 'STOP_REQUESTED', 'SUBMITTED']]
 
 ### SubmitTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.Timestamp]
 
 ### SubmitTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.Timestamp]
 
 
-# TopicsDetectionJobPropertiesTypeDef
+# TopicsDetectionJobProperties
 
 ### JobId
 - **Type**: typing.Optional[str]
@@ -4064,10 +4064,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### InputDataConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.InputDataConfigOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.InputDataConfigOutput]
 
 ### OutputDataConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.OutputDataConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### NumberOfTopics
 - **Type**: typing.Optional[int]
@@ -4079,10 +4079,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### VpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.VpcConfigOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.VpcConfigOutput]
 
 
-# ToxicContentTypeDef
+# ToxicContent
 
 ### Name
 - **Type**: typing.Optional[typing.Literal['GRAPHIC', 'HARASSMENT_OR_ABUSE', 'HATE_SPEECH', 'INSULT', 'PROFANITY', 'SEXUAL', 'VIOLENCE_OR_THREAT']]
@@ -4091,16 +4091,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# ToxicLabelsTypeDef
+# ToxicLabels
 
 ### Labels
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.comprehend_classes.ToxicContentTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.comprehend_classes.ToxicContent]]
 
 ### Toxicity
 - **Type**: typing.Optional[float]
 
 
-# UntagResourceRequestTypeDef
+# UntagResourceRequest
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -4111,7 +4111,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateDataSecurityConfigTypeDef
+# UpdateDataSecurityConfig
 
 ### ModelKmsKeyId
 - **Type**: typing.Optional[str]
@@ -4120,10 +4120,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### VpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.VpcConfigUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.VpcConfigUnion]
 
 
-# UpdateEndpointRequestTypeDef
+# UpdateEndpointRequest
 
 ### EndpointArn
 - **Type**: <class 'str'>
@@ -4142,18 +4142,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateEndpointResponseTypeDef
+# UpdateEndpointResponse
 
 ### DesiredModelArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateFlywheelRequestTypeDef
+# UpdateFlywheelRequest
 
 ### FlywheelArn
 - **Type**: <class 'str'>
@@ -4166,32 +4166,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### DataSecurityConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.UpdateDataSecurityConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.comprehend_classes.UpdateDataSecurityConfig]
 
 
-# UpdateFlywheelResponseTypeDef
+# UpdateFlywheelResponse
 
 ### FlywheelProperties
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.FlywheelPropertiesTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.FlywheelProperties'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.comprehend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# VpcConfigOutputTypeDef
-
-### SecurityGroupIds
-- **Type**: typing.List[str]
-- **Required**: Yes
-
-### Subnets
-- **Type**: typing.List[str]
-- **Required**: Yes
-
-
-# VpcConfigTypeDef
+# VpcConfig
 
 ### SecurityGroupIds
 - **Type**: typing.Sequence[str]
@@ -4202,13 +4191,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# VpcConfigUnionTypeDef
+# VpcConfigOutput
+
+### SecurityGroupIds
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### Subnets
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+
+# VpcConfigUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# WarningsListItemTypeDef
+# WarningsListItem
 
 ### Page
 - **Type**: typing.Optional[int]

@@ -12,13 +12,13 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.freetier_constants import *
 
-class DimensionValuesTypeDef(BaseValidatorModel):
+class DimensionValues(BaseValidatorModel):
     Key: DimensionType
     MatchOptions: Sequence[MatchOptionType]
     Values: Sequence[str]
 
 
-class FreeTierUsageTypeDef(BaseValidatorModel):
+class FreeTierUsage(BaseValidatorModel):
     actualUsageAmount: Optional[float] = None
     description: Optional[str] = None
     forecastedUsageAmount: Optional[float] = None
@@ -31,13 +31,13 @@ class FreeTierUsageTypeDef(BaseValidatorModel):
     usageType: Optional[str] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -45,23 +45,23 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class ExpressionPaginatorTypeDef(BaseValidatorModel):
+class ExpressionPaginator(BaseValidatorModel):
     And: Optional[Sequence[Mapping[str, Any]]] = None
-    Dimensions: Optional[DimensionValuesTypeDef] = None
+    Dimensions: Optional[DimensionValues] = None
     Not: Optional[Mapping[str, Any]] = None
     Or: Optional[Sequence[Mapping[str, Any]]] = None
 
 
-class ExpressionTypeDef(BaseValidatorModel):
+class Expression(BaseValidatorModel):
     And: Optional[Sequence[Mapping[str, Any]]] = None
-    Dimensions: Optional[DimensionValuesTypeDef] = None
+    Dimensions: Optional[DimensionValues] = None
     Not: Optional[Mapping[str, Any]] = None
     Or: Optional[Sequence[Mapping[str, Any]]] = None
 
 
-class GetFreeTierUsageResponseTypeDef(BaseValidatorModel):
-    freeTierUsages: List[FreeTierUsageTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetFreeTierUsageResponse(BaseValidatorModel):
+    freeTierUsages: List[FreeTierUsage]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 

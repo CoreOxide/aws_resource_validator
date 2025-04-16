@@ -12,23 +12,23 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.lex_runtime_constants import *
 
-class ActiveContextTimeToLiveTypeDef(BaseValidatorModel):
+class ActiveContextTimeToLive(BaseValidatorModel):
     timeToLiveInSeconds: Optional[int] = None
     turnsToLive: Optional[int] = None
 
 
-class ButtonTypeDef(BaseValidatorModel):
+class Button(BaseValidatorModel):
     text: str
     value: str
 
 
-class DeleteSessionRequestTypeDef(BaseValidatorModel):
+class DeleteSessionRequest(BaseValidatorModel):
     botName: str
     botAlias: str
     userId: str
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -36,14 +36,14 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class GetSessionRequestTypeDef(BaseValidatorModel):
+class GetSessionRequest(BaseValidatorModel):
     botName: str
     botAlias: str
     userId: str
     checkpointLabelFilter: Optional[str] = None
 
 
-class IntentSummaryOutputTypeDef(BaseValidatorModel):
+class IntentSummaryOutput(BaseValidatorModel):
     dialogActionType: DialogActionTypeType
     intentName: Optional[str] = None
     checkpointLabel: Optional[str] = None
@@ -53,11 +53,11 @@ class IntentSummaryOutputTypeDef(BaseValidatorModel):
     slotToElicit: Optional[str] = None
 
 
-class IntentConfidenceTypeDef(BaseValidatorModel):
+class IntentConfidence(BaseValidatorModel):
     score: Optional[float] = None
 
 
-class IntentSummaryTypeDef(BaseValidatorModel):
+class IntentSummary(BaseValidatorModel):
     dialogActionType: DialogActionTypeType
     intentName: Optional[str] = None
     checkpointLabel: Optional[str] = None
@@ -67,56 +67,56 @@ class IntentSummaryTypeDef(BaseValidatorModel):
     slotToElicit: Optional[str] = None
 
 
-class SentimentResponseTypeDef(BaseValidatorModel):
+class SentimentResponse(BaseValidatorModel):
     sentimentLabel: Optional[str] = None
     sentimentScore: Optional[str] = None
 
 
-class ActiveContextOutputTypeDef(BaseValidatorModel):
+class ActiveContextOutput(BaseValidatorModel):
     name: str
-    timeToLive: ActiveContextTimeToLiveTypeDef
+    timeToLive: ActiveContextTimeToLive
     parameters: Dict[str, str]
 
 
-class ActiveContextTypeDef(BaseValidatorModel):
+class ActiveContext(BaseValidatorModel):
     name: str
-    timeToLive: ActiveContextTimeToLiveTypeDef
+    timeToLive: ActiveContextTimeToLive
     parameters: Mapping[str, str]
 
 
-class BlobTypeDef(BaseValidatorModel):
+class Blob(BaseValidatorModel):
     pass
 
 
-class PostContentRequestTypeDef(BaseValidatorModel):
+class PostContentRequest(BaseValidatorModel):
     botName: str
     botAlias: str
     userId: str
     contentType: str
-    inputStream: BlobTypeDef
+    inputStream: Blob
     sessionAttributes: Optional[str] = None
     requestAttributes: Optional[str] = None
     accept: Optional[str] = None
     activeContexts: Optional[str] = None
 
 
-class GenericAttachmentTypeDef(BaseValidatorModel):
+class GenericAttachment(BaseValidatorModel):
     title: Optional[str] = None
     subTitle: Optional[str] = None
     attachmentLinkUrl: Optional[str] = None
     imageUrl: Optional[str] = None
-    buttons: Optional[List[ButtonTypeDef]] = None
+    buttons: Optional[List[Button]] = None
 
 
-class DeleteSessionResponseTypeDef(BaseValidatorModel):
+class DeleteSessionResponse(BaseValidatorModel):
     botName: str
     botAlias: str
     userId: str
     sessionId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class PostContentResponseTypeDef(BaseValidatorModel):
+class PostContentResponse(BaseValidatorModel):
     contentType: str
     intentName: str
     nluIntentConfidence: str
@@ -135,10 +135,10 @@ class PostContentResponseTypeDef(BaseValidatorModel):
     botVersion: str
     sessionId: str
     activeContexts: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class PutSessionResponseTypeDef(BaseValidatorModel):
+class PutSessionResponse(BaseValidatorModel):
     contentType: str
     intentName: str
     slots: str
@@ -151,82 +151,82 @@ class PutSessionResponseTypeDef(BaseValidatorModel):
     audioStream: StreamingBody
     sessionId: str
     activeContexts: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class PredictedIntentTypeDef(BaseValidatorModel):
+class PredictedIntent(BaseValidatorModel):
     intentName: Optional[str] = None
-    nluIntentConfidence: Optional[IntentConfidenceTypeDef] = None
+    nluIntentConfidence: Optional[IntentConfidence] = None
     slots: Optional[Dict[str, str]] = None
 
 
-class DialogActionOutputTypeDef(BaseValidatorModel):
+class DialogActionOutput(BaseValidatorModel):
     pass
 
 
-class GetSessionResponseTypeDef(BaseValidatorModel):
-    recentIntentSummaryView: List[IntentSummaryOutputTypeDef]
+class GetSessionResponse(BaseValidatorModel):
+    recentIntentSummaryView: List[IntentSummaryOutput]
     sessionAttributes: Dict[str, str]
     sessionId: str
-    dialogAction: DialogActionOutputTypeDef
-    activeContexts: List[ActiveContextOutputTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    dialogAction: DialogActionOutput
+    activeContexts: List[ActiveContextOutput]
+    ResponseMetadata: ResponseMetadata
 
 
-class ResponseCardTypeDef(BaseValidatorModel):
+class ResponseCard(BaseValidatorModel):
     version: Optional[str] = None
     contentType: Optional[Literal["application/vnd.amazonaws.card.generic"]] = None
-    genericAttachments: Optional[List[GenericAttachmentTypeDef]] = None
+    genericAttachments: Optional[List[GenericAttachment]] = None
 
 
-class ActiveContextUnionTypeDef(BaseValidatorModel):
+class ActiveContextUnion(BaseValidatorModel):
     pass
 
 
-class PostTextRequestTypeDef(BaseValidatorModel):
+class PostTextRequest(BaseValidatorModel):
     botName: str
     botAlias: str
     userId: str
     inputText: str
     sessionAttributes: Optional[Mapping[str, str]] = None
     requestAttributes: Optional[Mapping[str, str]] = None
-    activeContexts: Optional[Sequence[ActiveContextUnionTypeDef]] = None
+    activeContexts: Optional[Sequence[ActiveContextUnion]] = None
 
 
-class IntentSummaryUnionTypeDef(BaseValidatorModel):
+class IntentSummaryUnion(BaseValidatorModel):
     pass
 
 
-class DialogActionUnionTypeDef(BaseValidatorModel):
+class DialogActionUnion(BaseValidatorModel):
     pass
 
 
-class PutSessionRequestTypeDef(BaseValidatorModel):
+class PutSessionRequest(BaseValidatorModel):
     botName: str
     botAlias: str
     userId: str
     sessionAttributes: Optional[Mapping[str, str]] = None
-    dialogAction: Optional[DialogActionUnionTypeDef] = None
-    recentIntentSummaryView: Optional[Sequence[IntentSummaryUnionTypeDef]] = None
+    dialogAction: Optional[DialogActionUnion] = None
+    recentIntentSummaryView: Optional[Sequence[IntentSummaryUnion]] = None
     accept: Optional[str] = None
-    activeContexts: Optional[Sequence[ActiveContextUnionTypeDef]] = None
+    activeContexts: Optional[Sequence[ActiveContextUnion]] = None
 
 
-class PostTextResponseTypeDef(BaseValidatorModel):
+class PostTextResponse(BaseValidatorModel):
     intentName: str
-    nluIntentConfidence: IntentConfidenceTypeDef
-    alternativeIntents: List[PredictedIntentTypeDef]
+    nluIntentConfidence: IntentConfidence
+    alternativeIntents: List[PredictedIntent]
     slots: Dict[str, str]
     sessionAttributes: Dict[str, str]
     message: str
-    sentimentResponse: SentimentResponseTypeDef
+    sentimentResponse: SentimentResponse
     messageFormat: MessageFormatTypeType
     dialogState: DialogStateType
     slotToElicit: str
-    responseCard: ResponseCardTypeDef
+    responseCard: ResponseCard
     sessionId: str
     botVersion: str
-    activeContexts: List[ActiveContextOutputTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    activeContexts: List[ActiveContextOutput]
+    ResponseMetadata: ResponseMetadata
 
 

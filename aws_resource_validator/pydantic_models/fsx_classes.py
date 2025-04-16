@@ -12,33 +12,33 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.fsx_constants import *
 
-class ActiveDirectoryBackupAttributesTypeDef(BaseValidatorModel):
+class ActiveDirectoryBackupAttributes(BaseValidatorModel):
     DomainName: Optional[str] = None
     ActiveDirectoryId: Optional[str] = None
     ResourceARN: Optional[str] = None
 
 
-class AdministrativeActionFailureDetailsTypeDef(BaseValidatorModel):
+class AdministrativeActionFailureDetails(BaseValidatorModel):
     Message: Optional[str] = None
 
 
-class AggregateConfigurationTypeDef(BaseValidatorModel):
+class AggregateConfiguration(BaseValidatorModel):
     Aggregates: Optional[List[str]] = None
     TotalConstituents: Optional[int] = None
 
 
-class AliasTypeDef(BaseValidatorModel):
+class Alias(BaseValidatorModel):
     Name: Optional[str] = None
     Lifecycle: Optional[AliasLifecycleType] = None
 
 
-class AssociateFileSystemAliasesRequestTypeDef(BaseValidatorModel):
+class AssociateFileSystemAliasesRequest(BaseValidatorModel):
     FileSystemId: str
     Aliases: Sequence[str]
     ClientRequestToken: Optional[str] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -46,43 +46,43 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class AutoExportPolicyOutputTypeDef(BaseValidatorModel):
+class AutoExportPolicyOutput(BaseValidatorModel):
     Events: Optional[List[EventTypeType]] = None
 
 
-class AutoExportPolicyTypeDef(BaseValidatorModel):
+class AutoExportPolicy(BaseValidatorModel):
     Events: Optional[Sequence[EventTypeType]] = None
 
 
-class AutoImportPolicyOutputTypeDef(BaseValidatorModel):
+class AutoImportPolicyOutput(BaseValidatorModel):
     Events: Optional[List[EventTypeType]] = None
 
 
-class AutoImportPolicyTypeDef(BaseValidatorModel):
+class AutoImportPolicy(BaseValidatorModel):
     Events: Optional[Sequence[EventTypeType]] = None
 
 
-class BackupFailureDetailsTypeDef(BaseValidatorModel):
+class BackupFailureDetails(BaseValidatorModel):
     Message: Optional[str] = None
 
 
-class TagTypeDef(BaseValidatorModel):
+class Tag(BaseValidatorModel):
     Key: str
     Value: str
 
 
-class CancelDataRepositoryTaskRequestTypeDef(BaseValidatorModel):
+class CancelDataRepositoryTaskRequest(BaseValidatorModel):
     TaskId: str
 
 
-class CompletionReportTypeDef(BaseValidatorModel):
+class CompletionReport(BaseValidatorModel):
     Enabled: bool
     Path: Optional[str] = None
     Format: Optional[Literal["REPORT_CSV_20191124"]] = None
     Scope: Optional[Literal["FAILED_FILES_ONLY"]] = None
 
 
-class CopySnapshotAndUpdateVolumeRequestTypeDef(BaseValidatorModel):
+class CopySnapshotAndUpdateVolumeRequest(BaseValidatorModel):
     VolumeId: str
     SourceSnapshotARN: str
     ClientRequestToken: Optional[str] = None
@@ -90,36 +90,36 @@ class CopySnapshotAndUpdateVolumeRequestTypeDef(BaseValidatorModel):
     Options: Optional[Sequence[UpdateOpenZFSVolumeOptionType]] = None
 
 
-class CreateAggregateConfigurationTypeDef(BaseValidatorModel):
+class CreateAggregateConfiguration(BaseValidatorModel):
     Aggregates: Optional[Sequence[str]] = None
     ConstituentsPerAggregate: Optional[int] = None
 
 
-class FileCacheLustreMetadataConfigurationTypeDef(BaseValidatorModel):
+class FileCacheLustreMetadataConfiguration(BaseValidatorModel):
     StorageCapacity: int
 
 
-class CreateFileSystemLustreMetadataConfigurationTypeDef(BaseValidatorModel):
+class CreateFileSystemLustreMetadataConfiguration(BaseValidatorModel):
     Mode: MetadataConfigurationModeType
     Iops: Optional[int] = None
 
 
-class LustreLogCreateConfigurationTypeDef(BaseValidatorModel):
+class LustreLogCreateConfiguration(BaseValidatorModel):
     Level: LustreAccessAuditLogLevelType
     Destination: Optional[str] = None
 
 
-class DiskIopsConfigurationTypeDef(BaseValidatorModel):
+class DiskIopsConfiguration(BaseValidatorModel):
     Mode: Optional[DiskIopsConfigurationModeType] = None
     Iops: Optional[int] = None
 
 
-class OpenZFSReadCacheConfigurationTypeDef(BaseValidatorModel):
+class OpenZFSReadCacheConfiguration(BaseValidatorModel):
     SizingMode: Optional[OpenZFSReadCacheSizingModeType] = None
     SizeGiB: Optional[int] = None
 
 
-class SelfManagedActiveDirectoryConfigurationTypeDef(BaseValidatorModel):
+class SelfManagedActiveDirectoryConfiguration(BaseValidatorModel):
     DomainName: str
     UserName: str
     Password: str
@@ -128,36 +128,36 @@ class SelfManagedActiveDirectoryConfigurationTypeDef(BaseValidatorModel):
     FileSystemAdministratorsGroup: Optional[str] = None
 
 
-class WindowsAuditLogCreateConfigurationTypeDef(BaseValidatorModel):
+class WindowsAuditLogCreateConfiguration(BaseValidatorModel):
     FileAccessAuditLogLevel: WindowsAccessAuditLogLevelType
     FileShareAccessAuditLogLevel: WindowsAccessAuditLogLevelType
     AuditLogDestination: Optional[str] = None
 
 
-class TieringPolicyTypeDef(BaseValidatorModel):
+class TieringPolicy(BaseValidatorModel):
     CoolingPeriod: Optional[int] = None
     Name: Optional[TieringPolicyNameType] = None
 
 
-class CreateOpenZFSOriginSnapshotConfigurationTypeDef(BaseValidatorModel):
+class CreateOpenZFSOriginSnapshotConfiguration(BaseValidatorModel):
     SnapshotARN: str
     CopyStrategy: OpenZFSCopyStrategyType
 
 
-class DataRepositoryFailureDetailsTypeDef(BaseValidatorModel):
+class DataRepositoryFailureDetails(BaseValidatorModel):
     Message: Optional[str] = None
 
 
-class DataRepositoryTaskFailureDetailsTypeDef(BaseValidatorModel):
+class DataRepositoryTaskFailureDetails(BaseValidatorModel):
     Message: Optional[str] = None
 
 
-class DataRepositoryTaskFilterTypeDef(BaseValidatorModel):
+class DataRepositoryTaskFilter(BaseValidatorModel):
     Name: Optional[DataRepositoryTaskFilterNameType] = None
     Values: Optional[Sequence[str]] = None
 
 
-class DataRepositoryTaskStatusTypeDef(BaseValidatorModel):
+class DataRepositoryTaskStatus(BaseValidatorModel):
     TotalCount: Optional[int] = None
     SucceededCount: Optional[int] = None
     FailedCount: Optional[int] = None
@@ -165,168 +165,168 @@ class DataRepositoryTaskStatusTypeDef(BaseValidatorModel):
     ReleasedCapacity: Optional[int] = None
 
 
-class DeleteBackupRequestTypeDef(BaseValidatorModel):
+class DeleteBackupRequest(BaseValidatorModel):
     BackupId: str
     ClientRequestToken: Optional[str] = None
 
 
-class DeleteDataRepositoryAssociationRequestTypeDef(BaseValidatorModel):
+class DeleteDataRepositoryAssociationRequest(BaseValidatorModel):
     AssociationId: str
     ClientRequestToken: Optional[str] = None
     DeleteDataInFileSystem: Optional[bool] = None
 
 
-class DeleteFileCacheRequestTypeDef(BaseValidatorModel):
+class DeleteFileCacheRequest(BaseValidatorModel):
     FileCacheId: str
     ClientRequestToken: Optional[str] = None
 
 
-class DeleteSnapshotRequestTypeDef(BaseValidatorModel):
+class DeleteSnapshotRequest(BaseValidatorModel):
     SnapshotId: str
     ClientRequestToken: Optional[str] = None
 
 
-class DeleteStorageVirtualMachineRequestTypeDef(BaseValidatorModel):
+class DeleteStorageVirtualMachineRequest(BaseValidatorModel):
     StorageVirtualMachineId: str
     ClientRequestToken: Optional[str] = None
 
 
-class DeleteVolumeOpenZFSConfigurationTypeDef(BaseValidatorModel):
+class DeleteVolumeOpenZFSConfiguration(BaseValidatorModel):
     Options: Optional[Sequence[Literal["DELETE_CHILD_VOLUMES_AND_SNAPSHOTS"]]] = None
 
 
-class FilterTypeDef(BaseValidatorModel):
+class Filter(BaseValidatorModel):
     Name: Optional[FilterNameType] = None
     Values: Optional[Sequence[str]] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class DescribeFileCachesRequestTypeDef(BaseValidatorModel):
+class DescribeFileCachesRequest(BaseValidatorModel):
     FileCacheIds: Optional[Sequence[str]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class DescribeFileSystemAliasesRequestTypeDef(BaseValidatorModel):
+class DescribeFileSystemAliasesRequest(BaseValidatorModel):
     FileSystemId: str
     ClientRequestToken: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class DescribeFileSystemsRequestTypeDef(BaseValidatorModel):
+class DescribeFileSystemsRequest(BaseValidatorModel):
     FileSystemIds: Optional[Sequence[str]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class SnapshotFilterTypeDef(BaseValidatorModel):
+class SnapshotFilter(BaseValidatorModel):
     Name: Optional[SnapshotFilterNameType] = None
     Values: Optional[Sequence[str]] = None
 
 
-class StorageVirtualMachineFilterTypeDef(BaseValidatorModel):
+class StorageVirtualMachineFilter(BaseValidatorModel):
     Name: Optional[Literal["file-system-id"]] = None
     Values: Optional[Sequence[str]] = None
 
 
-class VolumeFilterTypeDef(BaseValidatorModel):
+class VolumeFilter(BaseValidatorModel):
     Name: Optional[VolumeFilterNameType] = None
     Values: Optional[Sequence[str]] = None
 
 
-class DisassociateFileSystemAliasesRequestTypeDef(BaseValidatorModel):
+class DisassociateFileSystemAliasesRequest(BaseValidatorModel):
     FileSystemId: str
     Aliases: Sequence[str]
     ClientRequestToken: Optional[str] = None
 
 
-class DurationSinceLastAccessTypeDef(BaseValidatorModel):
+class DurationSinceLastAccess(BaseValidatorModel):
     Unit: Optional[Literal["DAYS"]] = None
     Value: Optional[int] = None
 
 
-class FileCacheFailureDetailsTypeDef(BaseValidatorModel):
+class FileCacheFailureDetails(BaseValidatorModel):
     Message: Optional[str] = None
 
 
-class FileCacheNFSConfigurationTypeDef(BaseValidatorModel):
+class FileCacheNFSConfiguration(BaseValidatorModel):
     Version: Literal["NFS3"]
     DnsIps: Optional[Sequence[str]] = None
 
 
-class LustreLogConfigurationTypeDef(BaseValidatorModel):
+class LustreLogConfiguration(BaseValidatorModel):
     Level: LustreAccessAuditLogLevelType
     Destination: Optional[str] = None
 
 
-class FileSystemEndpointTypeDef(BaseValidatorModel):
+class FileSystemEndpoint(BaseValidatorModel):
     DNSName: Optional[str] = None
     IpAddresses: Optional[List[str]] = None
 
 
-class FileSystemFailureDetailsTypeDef(BaseValidatorModel):
+class FileSystemFailureDetails(BaseValidatorModel):
     Message: Optional[str] = None
 
 
-class FileSystemLustreMetadataConfigurationTypeDef(BaseValidatorModel):
+class FileSystemLustreMetadataConfiguration(BaseValidatorModel):
     Mode: MetadataConfigurationModeType
     Iops: Optional[int] = None
 
 
-class LifecycleTransitionReasonTypeDef(BaseValidatorModel):
+class LifecycleTransitionReason(BaseValidatorModel):
     Message: Optional[str] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceARN: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class LustreRootSquashConfigurationOutputTypeDef(BaseValidatorModel):
+class LustreRootSquashConfigurationOutput(BaseValidatorModel):
     RootSquash: Optional[str] = None
     NoSquashNids: Optional[List[str]] = None
 
 
-class LustreRootSquashConfigurationTypeDef(BaseValidatorModel):
+class LustreRootSquashConfiguration(BaseValidatorModel):
     RootSquash: Optional[str] = None
     NoSquashNids: Optional[Sequence[str]] = None
 
 
-class OpenZFSClientConfigurationOutputTypeDef(BaseValidatorModel):
+class OpenZFSClientConfigurationOutput(BaseValidatorModel):
     Clients: str
     Options: List[str]
 
 
-class OpenZFSClientConfigurationTypeDef(BaseValidatorModel):
+class OpenZFSClientConfiguration(BaseValidatorModel):
     Clients: str
     Options: Sequence[str]
 
 
-class OpenZFSOriginSnapshotConfigurationTypeDef(BaseValidatorModel):
+class OpenZFSOriginSnapshotConfiguration(BaseValidatorModel):
     SnapshotARN: Optional[str] = None
     CopyStrategy: Optional[OpenZFSCopyStrategyType] = None
 
 
-class ReleaseFileSystemNfsV3LocksRequestTypeDef(BaseValidatorModel):
+class ReleaseFileSystemNfsV3LocksRequest(BaseValidatorModel):
     FileSystemId: str
     ClientRequestToken: Optional[str] = None
 
 
-class RestoreVolumeFromSnapshotRequestTypeDef(BaseValidatorModel):
+class RestoreVolumeFromSnapshotRequest(BaseValidatorModel):
     VolumeId: str
     SnapshotId: str
     ClientRequestToken: Optional[str] = None
     Options: Optional[Sequence[RestoreOpenZFSVolumeOptionType]] = None
 
 
-class SelfManagedActiveDirectoryAttributesTypeDef(BaseValidatorModel):
+class SelfManagedActiveDirectoryAttributes(BaseValidatorModel):
     DomainName: Optional[str] = None
     OrganizationalUnitDistinguishedName: Optional[str] = None
     FileSystemAdministratorsGroup: Optional[str] = None
@@ -334,7 +334,7 @@ class SelfManagedActiveDirectoryAttributesTypeDef(BaseValidatorModel):
     DnsIps: Optional[List[str]] = None
 
 
-class SelfManagedActiveDirectoryConfigurationUpdatesTypeDef(BaseValidatorModel):
+class SelfManagedActiveDirectoryConfigurationUpdates(BaseValidatorModel):
     UserName: Optional[str] = None
     Password: Optional[str] = None
     DnsIps: Optional[Sequence[str]] = None
@@ -343,216 +343,216 @@ class SelfManagedActiveDirectoryConfigurationUpdatesTypeDef(BaseValidatorModel):
     FileSystemAdministratorsGroup: Optional[str] = None
 
 
-class StartMisconfiguredStateRecoveryRequestTypeDef(BaseValidatorModel):
+class StartMisconfiguredStateRecoveryRequest(BaseValidatorModel):
     FileSystemId: str
     ClientRequestToken: Optional[str] = None
 
 
-class SvmEndpointTypeDef(BaseValidatorModel):
+class SvmEndpoint(BaseValidatorModel):
     DNSName: Optional[str] = None
     IpAddresses: Optional[List[str]] = None
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     ResourceARN: str
     TagKeys: Sequence[str]
 
 
-class UpdateFileCacheLustreConfigurationTypeDef(BaseValidatorModel):
+class UpdateFileCacheLustreConfiguration(BaseValidatorModel):
     WeeklyMaintenanceStartTime: Optional[str] = None
 
 
-class UpdateFileSystemLustreMetadataConfigurationTypeDef(BaseValidatorModel):
+class UpdateFileSystemLustreMetadataConfiguration(BaseValidatorModel):
     Iops: Optional[int] = None
     Mode: Optional[MetadataConfigurationModeType] = None
 
 
-class UpdateSharedVpcConfigurationRequestTypeDef(BaseValidatorModel):
+class UpdateSharedVpcConfigurationRequest(BaseValidatorModel):
     EnableFsxRouteTableUpdatesFromParticipantAccounts: Optional[str] = None
     ClientRequestToken: Optional[str] = None
 
 
-class UpdateSnapshotRequestTypeDef(BaseValidatorModel):
+class UpdateSnapshotRequest(BaseValidatorModel):
     Name: str
     SnapshotId: str
     ClientRequestToken: Optional[str] = None
 
 
-class WindowsAuditLogConfigurationTypeDef(BaseValidatorModel):
+class WindowsAuditLogConfiguration(BaseValidatorModel):
     FileAccessAuditLogLevel: WindowsAccessAuditLogLevelType
     FileShareAccessAuditLogLevel: WindowsAccessAuditLogLevelType
     AuditLogDestination: Optional[str] = None
 
 
-class AssociateFileSystemAliasesResponseTypeDef(BaseValidatorModel):
-    Aliases: List[AliasTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class AssociateFileSystemAliasesResponse(BaseValidatorModel):
+    Aliases: List[Alias]
+    ResponseMetadata: ResponseMetadata
 
 
-class CancelDataRepositoryTaskResponseTypeDef(BaseValidatorModel):
+class CancelDataRepositoryTaskResponse(BaseValidatorModel):
     Lifecycle: DataRepositoryTaskLifecycleType
     TaskId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteBackupResponseTypeDef(BaseValidatorModel):
+class DeleteBackupResponse(BaseValidatorModel):
     BackupId: str
     Lifecycle: BackupLifecycleType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteDataRepositoryAssociationResponseTypeDef(BaseValidatorModel):
+class DeleteDataRepositoryAssociationResponse(BaseValidatorModel):
     AssociationId: str
     Lifecycle: DataRepositoryLifecycleType
     DeleteDataInFileSystem: bool
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteFileCacheResponseTypeDef(BaseValidatorModel):
+class DeleteFileCacheResponse(BaseValidatorModel):
     FileCacheId: str
     Lifecycle: FileCacheLifecycleType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteSnapshotResponseTypeDef(BaseValidatorModel):
+class DeleteSnapshotResponse(BaseValidatorModel):
     SnapshotId: str
     Lifecycle: SnapshotLifecycleType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteStorageVirtualMachineResponseTypeDef(BaseValidatorModel):
+class DeleteStorageVirtualMachineResponse(BaseValidatorModel):
     StorageVirtualMachineId: str
     Lifecycle: StorageVirtualMachineLifecycleType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeFileSystemAliasesResponseTypeDef(BaseValidatorModel):
-    Aliases: List[AliasTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeFileSystemAliasesResponse(BaseValidatorModel):
+    Aliases: List[Alias]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeSharedVpcConfigurationResponseTypeDef(BaseValidatorModel):
+class DescribeSharedVpcConfigurationResponse(BaseValidatorModel):
     EnableFsxRouteTableUpdatesFromParticipantAccounts: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DisassociateFileSystemAliasesResponseTypeDef(BaseValidatorModel):
-    Aliases: List[AliasTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DisassociateFileSystemAliasesResponse(BaseValidatorModel):
+    Aliases: List[Alias]
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateSharedVpcConfigurationResponseTypeDef(BaseValidatorModel):
+class UpdateSharedVpcConfigurationResponse(BaseValidatorModel):
     EnableFsxRouteTableUpdatesFromParticipantAccounts: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class NFSDataRepositoryConfigurationTypeDef(BaseValidatorModel):
+class NFSDataRepositoryConfiguration(BaseValidatorModel):
     Version: Literal["NFS3"]
     DnsIps: Optional[List[str]] = None
-    AutoExportPolicy: Optional[AutoExportPolicyOutputTypeDef] = None
+    AutoExportPolicy: Optional[AutoExportPolicyOutput] = None
 
 
-class S3DataRepositoryConfigurationOutputTypeDef(BaseValidatorModel):
-    AutoImportPolicy: Optional[AutoImportPolicyOutputTypeDef] = None
-    AutoExportPolicy: Optional[AutoExportPolicyOutputTypeDef] = None
+class S3DataRepositoryConfigurationOutput(BaseValidatorModel):
+    AutoImportPolicy: Optional[AutoImportPolicyOutput] = None
+    AutoExportPolicy: Optional[AutoExportPolicyOutput] = None
 
 
-class S3DataRepositoryConfigurationTypeDef(BaseValidatorModel):
-    AutoImportPolicy: Optional[AutoImportPolicyTypeDef] = None
-    AutoExportPolicy: Optional[AutoExportPolicyTypeDef] = None
+class S3DataRepositoryConfiguration(BaseValidatorModel):
+    AutoImportPolicy: Optional[AutoImportPolicy] = None
+    AutoExportPolicy: Optional[AutoExportPolicy] = None
 
 
-class CopyBackupRequestTypeDef(BaseValidatorModel):
+class CopyBackupRequest(BaseValidatorModel):
     SourceBackupId: str
     ClientRequestToken: Optional[str] = None
     SourceRegion: Optional[str] = None
     KmsKeyId: Optional[str] = None
     CopyTags: Optional[bool] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class CreateBackupRequestTypeDef(BaseValidatorModel):
+class CreateBackupRequest(BaseValidatorModel):
     FileSystemId: Optional[str] = None
     ClientRequestToken: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
     VolumeId: Optional[str] = None
 
 
-class CreateSnapshotRequestTypeDef(BaseValidatorModel):
+class CreateSnapshotRequest(BaseValidatorModel):
     Name: str
     VolumeId: str
     ClientRequestToken: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class DeleteFileSystemLustreConfigurationTypeDef(BaseValidatorModel):
+class DeleteFileSystemLustreConfiguration(BaseValidatorModel):
     SkipFinalBackup: Optional[bool] = None
-    FinalBackupTags: Optional[Sequence[TagTypeDef]] = None
+    FinalBackupTags: Optional[Sequence[Tag]] = None
 
 
-class DeleteFileSystemLustreResponseTypeDef(BaseValidatorModel):
+class DeleteFileSystemLustreResponse(BaseValidatorModel):
     FinalBackupId: Optional[str] = None
-    FinalBackupTags: Optional[List[TagTypeDef]] = None
+    FinalBackupTags: Optional[List[Tag]] = None
 
 
-class DeleteFileSystemOpenZFSConfigurationTypeDef(BaseValidatorModel):
+class DeleteFileSystemOpenZFSConfiguration(BaseValidatorModel):
     SkipFinalBackup: Optional[bool] = None
-    FinalBackupTags: Optional[Sequence[TagTypeDef]] = None
+    FinalBackupTags: Optional[Sequence[Tag]] = None
     Options: Optional[Sequence[Literal["DELETE_CHILD_VOLUMES_AND_SNAPSHOTS"]]] = None
 
 
-class DeleteFileSystemOpenZFSResponseTypeDef(BaseValidatorModel):
+class DeleteFileSystemOpenZFSResponse(BaseValidatorModel):
     FinalBackupId: Optional[str] = None
-    FinalBackupTags: Optional[List[TagTypeDef]] = None
+    FinalBackupTags: Optional[List[Tag]] = None
 
 
-class DeleteFileSystemWindowsConfigurationTypeDef(BaseValidatorModel):
+class DeleteFileSystemWindowsConfiguration(BaseValidatorModel):
     SkipFinalBackup: Optional[bool] = None
-    FinalBackupTags: Optional[Sequence[TagTypeDef]] = None
+    FinalBackupTags: Optional[Sequence[Tag]] = None
 
 
-class DeleteFileSystemWindowsResponseTypeDef(BaseValidatorModel):
+class DeleteFileSystemWindowsResponse(BaseValidatorModel):
     FinalBackupId: Optional[str] = None
-    FinalBackupTags: Optional[List[TagTypeDef]] = None
+    FinalBackupTags: Optional[List[Tag]] = None
 
 
-class DeleteVolumeOntapConfigurationTypeDef(BaseValidatorModel):
+class DeleteVolumeOntapConfiguration(BaseValidatorModel):
     SkipFinalBackup: Optional[bool] = None
-    FinalBackupTags: Optional[Sequence[TagTypeDef]] = None
+    FinalBackupTags: Optional[Sequence[Tag]] = None
     BypassSnaplockEnterpriseRetention: Optional[bool] = None
 
 
-class DeleteVolumeOntapResponseTypeDef(BaseValidatorModel):
+class DeleteVolumeOntapResponse(BaseValidatorModel):
     FinalBackupId: Optional[str] = None
-    FinalBackupTags: Optional[List[TagTypeDef]] = None
+    FinalBackupTags: Optional[List[Tag]] = None
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
-    Tags: List[TagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListTagsForResourceResponse(BaseValidatorModel):
+    Tags: List[Tag]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     ResourceARN: str
-    Tags: Sequence[TagTypeDef]
+    Tags: Sequence[Tag]
 
 
-class CreateFileCacheLustreConfigurationTypeDef(BaseValidatorModel):
+class CreateFileCacheLustreConfiguration(BaseValidatorModel):
     PerUnitStorageThroughput: int
     DeploymentType: Literal["CACHE_1"]
-    MetadataConfiguration: FileCacheLustreMetadataConfigurationTypeDef
+    MetadataConfiguration: FileCacheLustreMetadataConfiguration
     WeeklyMaintenanceStartTime: Optional[str] = None
 
 
-class CreateFileSystemOntapConfigurationTypeDef(BaseValidatorModel):
+class CreateFileSystemOntapConfiguration(BaseValidatorModel):
     DeploymentType: OntapDeploymentTypeType
     AutomaticBackupRetentionDays: Optional[int] = None
     DailyAutomaticBackupStartTime: Optional[str] = None
     EndpointIpAddressRange: Optional[str] = None
     FsxAdminPassword: Optional[str] = None
-    DiskIopsConfiguration: Optional[DiskIopsConfigurationTypeDef] = None
+    DiskIopsConfiguration: Optional[DiskIopsConfiguration] = None
     PreferredSubnetId: Optional[str] = None
     RouteTableIds: Optional[Sequence[str]] = None
     ThroughputCapacity: Optional[int] = None
@@ -561,12 +561,12 @@ class CreateFileSystemOntapConfigurationTypeDef(BaseValidatorModel):
     ThroughputCapacityPerHAPair: Optional[int] = None
 
 
-class UpdateFileSystemOntapConfigurationTypeDef(BaseValidatorModel):
+class UpdateFileSystemOntapConfiguration(BaseValidatorModel):
     AutomaticBackupRetentionDays: Optional[int] = None
     DailyAutomaticBackupStartTime: Optional[str] = None
     FsxAdminPassword: Optional[str] = None
     WeeklyMaintenanceStartTime: Optional[str] = None
-    DiskIopsConfiguration: Optional[DiskIopsConfigurationTypeDef] = None
+    DiskIopsConfiguration: Optional[DiskIopsConfiguration] = None
     ThroughputCapacity: Optional[int] = None
     AddRouteTableIds: Optional[Sequence[str]] = None
     RemoveRouteTableIds: Optional[Sequence[str]] = None
@@ -574,7 +574,7 @@ class UpdateFileSystemOntapConfigurationTypeDef(BaseValidatorModel):
     HAPairs: Optional[int] = None
 
 
-class OpenZFSFileSystemConfigurationTypeDef(BaseValidatorModel):
+class OpenZFSFileSystemConfiguration(BaseValidatorModel):
     AutomaticBackupRetentionDays: Optional[int] = None
     CopyTagsToBackups: Optional[bool] = None
     CopyTagsToVolumes: Optional[bool] = None
@@ -582,37 +582,37 @@ class OpenZFSFileSystemConfigurationTypeDef(BaseValidatorModel):
     DeploymentType: Optional[OpenZFSDeploymentTypeType] = None
     ThroughputCapacity: Optional[int] = None
     WeeklyMaintenanceStartTime: Optional[str] = None
-    DiskIopsConfiguration: Optional[DiskIopsConfigurationTypeDef] = None
+    DiskIopsConfiguration: Optional[DiskIopsConfiguration] = None
     RootVolumeId: Optional[str] = None
     PreferredSubnetId: Optional[str] = None
     EndpointIpAddressRange: Optional[str] = None
     RouteTableIds: Optional[List[str]] = None
     EndpointIpAddress: Optional[str] = None
-    ReadCacheConfiguration: Optional[OpenZFSReadCacheConfigurationTypeDef] = None
+    ReadCacheConfiguration: Optional[OpenZFSReadCacheConfiguration] = None
 
 
-class UpdateFileSystemOpenZFSConfigurationTypeDef(BaseValidatorModel):
+class UpdateFileSystemOpenZFSConfiguration(BaseValidatorModel):
     AutomaticBackupRetentionDays: Optional[int] = None
     CopyTagsToBackups: Optional[bool] = None
     CopyTagsToVolumes: Optional[bool] = None
     DailyAutomaticBackupStartTime: Optional[str] = None
     ThroughputCapacity: Optional[int] = None
     WeeklyMaintenanceStartTime: Optional[str] = None
-    DiskIopsConfiguration: Optional[DiskIopsConfigurationTypeDef] = None
+    DiskIopsConfiguration: Optional[DiskIopsConfiguration] = None
     AddRouteTableIds: Optional[Sequence[str]] = None
     RemoveRouteTableIds: Optional[Sequence[str]] = None
-    ReadCacheConfiguration: Optional[OpenZFSReadCacheConfigurationTypeDef] = None
+    ReadCacheConfiguration: Optional[OpenZFSReadCacheConfiguration] = None
 
 
-class CreateSvmActiveDirectoryConfigurationTypeDef(BaseValidatorModel):
+class CreateSvmActiveDirectoryConfiguration(BaseValidatorModel):
     NetBiosName: str
-    SelfManagedActiveDirectoryConfiguration: Optional[ SelfManagedActiveDirectoryConfigurationTypeDef ] = None
+    SelfManagedActiveDirectoryConfiguration: Optional[ SelfManagedActiveDirectoryConfiguration ] = None
 
 
-class CreateFileSystemWindowsConfigurationTypeDef(BaseValidatorModel):
+class CreateFileSystemWindowsConfiguration(BaseValidatorModel):
     ThroughputCapacity: int
     ActiveDirectoryId: Optional[str] = None
-    SelfManagedActiveDirectoryConfiguration: Optional[ SelfManagedActiveDirectoryConfigurationTypeDef ] = None
+    SelfManagedActiveDirectoryConfiguration: Optional[ SelfManagedActiveDirectoryConfiguration ] = None
     DeploymentType: Optional[WindowsDeploymentTypeType] = None
     PreferredSubnetId: Optional[str] = None
     WeeklyMaintenanceStartTime: Optional[str] = None
@@ -620,189 +620,189 @@ class CreateFileSystemWindowsConfigurationTypeDef(BaseValidatorModel):
     AutomaticBackupRetentionDays: Optional[int] = None
     CopyTagsToBackups: Optional[bool] = None
     Aliases: Optional[Sequence[str]] = None
-    AuditLogConfiguration: Optional[WindowsAuditLogCreateConfigurationTypeDef] = None
-    DiskIopsConfiguration: Optional[DiskIopsConfigurationTypeDef] = None
+    AuditLogConfiguration: Optional[WindowsAuditLogCreateConfiguration] = None
+    DiskIopsConfiguration: Optional[DiskIopsConfiguration] = None
 
 
-class DataRepositoryConfigurationTypeDef(BaseValidatorModel):
+class DataRepositoryConfiguration(BaseValidatorModel):
     Lifecycle: Optional[DataRepositoryLifecycleType] = None
     ImportPath: Optional[str] = None
     ExportPath: Optional[str] = None
     ImportedFileChunkSize: Optional[int] = None
     AutoImportPolicy: Optional[AutoImportPolicyTypeType] = None
-    FailureDetails: Optional[DataRepositoryFailureDetailsTypeDef] = None
+    FailureDetails: Optional[DataRepositoryFailureDetails] = None
 
 
-class DescribeDataRepositoryTasksRequestTypeDef(BaseValidatorModel):
+class DescribeDataRepositoryTasksRequest(BaseValidatorModel):
     TaskIds: Optional[Sequence[str]] = None
-    Filters: Optional[Sequence[DataRepositoryTaskFilterTypeDef]] = None
+    Filters: Optional[Sequence[DataRepositoryTaskFilter]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class DescribeBackupsRequestTypeDef(BaseValidatorModel):
+class DescribeBackupsRequest(BaseValidatorModel):
     BackupIds: Optional[Sequence[str]] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+    Filters: Optional[Sequence[Filter]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class DescribeDataRepositoryAssociationsRequestTypeDef(BaseValidatorModel):
+class DescribeDataRepositoryAssociationsRequest(BaseValidatorModel):
     AssociationIds: Optional[Sequence[str]] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+    Filters: Optional[Sequence[Filter]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class DescribeBackupsRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeBackupsRequestPaginate(BaseValidatorModel):
     BackupIds: Optional[Sequence[str]] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Optional[Sequence[Filter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeFileSystemsRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeFileSystemsRequestPaginate(BaseValidatorModel):
     FileSystemIds: Optional[Sequence[str]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListTagsForResourceRequestPaginateTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequestPaginate(BaseValidatorModel):
     ResourceARN: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeSnapshotsRequestTypeDef(BaseValidatorModel):
+class DescribeSnapshotsRequest(BaseValidatorModel):
     SnapshotIds: Optional[Sequence[str]] = None
-    Filters: Optional[Sequence[SnapshotFilterTypeDef]] = None
+    Filters: Optional[Sequence[SnapshotFilter]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     IncludeShared: Optional[bool] = None
 
 
-class DescribeStorageVirtualMachinesRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeStorageVirtualMachinesRequestPaginate(BaseValidatorModel):
     StorageVirtualMachineIds: Optional[Sequence[str]] = None
-    Filters: Optional[Sequence[StorageVirtualMachineFilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Optional[Sequence[StorageVirtualMachineFilter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeStorageVirtualMachinesRequestTypeDef(BaseValidatorModel):
+class DescribeStorageVirtualMachinesRequest(BaseValidatorModel):
     StorageVirtualMachineIds: Optional[Sequence[str]] = None
-    Filters: Optional[Sequence[StorageVirtualMachineFilterTypeDef]] = None
+    Filters: Optional[Sequence[StorageVirtualMachineFilter]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class DescribeVolumesRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeVolumesRequestPaginate(BaseValidatorModel):
     VolumeIds: Optional[Sequence[str]] = None
-    Filters: Optional[Sequence[VolumeFilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Optional[Sequence[VolumeFilter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeVolumesRequestTypeDef(BaseValidatorModel):
+class DescribeVolumesRequest(BaseValidatorModel):
     VolumeIds: Optional[Sequence[str]] = None
-    Filters: Optional[Sequence[VolumeFilterTypeDef]] = None
+    Filters: Optional[Sequence[VolumeFilter]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ReleaseConfigurationTypeDef(BaseValidatorModel):
-    DurationSinceLastAccess: Optional[DurationSinceLastAccessTypeDef] = None
+class ReleaseConfiguration(BaseValidatorModel):
+    DurationSinceLastAccess: Optional[DurationSinceLastAccess] = None
 
 
-class FileCacheDataRepositoryAssociationTypeDef(BaseValidatorModel):
+class FileCacheDataRepositoryAssociation(BaseValidatorModel):
     FileCachePath: str
     DataRepositoryPath: str
     DataRepositorySubdirectories: Optional[Sequence[str]] = None
-    NFS: Optional[FileCacheNFSConfigurationTypeDef] = None
+    NFS: Optional[FileCacheNFSConfiguration] = None
 
 
-class FileCacheLustreConfigurationTypeDef(BaseValidatorModel):
+class FileCacheLustreConfiguration(BaseValidatorModel):
     PerUnitStorageThroughput: Optional[int] = None
     DeploymentType: Optional[Literal["CACHE_1"]] = None
     MountName: Optional[str] = None
     WeeklyMaintenanceStartTime: Optional[str] = None
-    MetadataConfiguration: Optional[FileCacheLustreMetadataConfigurationTypeDef] = None
-    LogConfiguration: Optional[LustreLogConfigurationTypeDef] = None
+    MetadataConfiguration: Optional[FileCacheLustreMetadataConfiguration] = None
+    LogConfiguration: Optional[LustreLogConfiguration] = None
 
 
-class FileSystemEndpointsTypeDef(BaseValidatorModel):
-    Intercluster: Optional[FileSystemEndpointTypeDef] = None
-    Management: Optional[FileSystemEndpointTypeDef] = None
+class FileSystemEndpoints(BaseValidatorModel):
+    Intercluster: Optional[FileSystemEndpoint] = None
+    Management: Optional[FileSystemEndpoint] = None
 
 
-class SnapshotPaginatorTypeDef(BaseValidatorModel):
+class SnapshotPaginator(BaseValidatorModel):
     ResourceARN: Optional[str] = None
     SnapshotId: Optional[str] = None
     Name: Optional[str] = None
     VolumeId: Optional[str] = None
     CreationTime: Optional[datetime] = None
     Lifecycle: Optional[SnapshotLifecycleType] = None
-    LifecycleTransitionReason: Optional[LifecycleTransitionReasonTypeDef] = None
-    Tags: Optional[List[TagTypeDef]] = None
+    LifecycleTransitionReason: Optional[LifecycleTransitionReason] = None
+    Tags: Optional[List[Tag]] = None
     AdministrativeActions: Optional[List[Dict[str, Any]]] = None
 
 
-class SnapshotTypeDef(BaseValidatorModel):
+class Snapshot(BaseValidatorModel):
     ResourceARN: Optional[str] = None
     SnapshotId: Optional[str] = None
     Name: Optional[str] = None
     VolumeId: Optional[str] = None
     CreationTime: Optional[datetime] = None
     Lifecycle: Optional[SnapshotLifecycleType] = None
-    LifecycleTransitionReason: Optional[LifecycleTransitionReasonTypeDef] = None
-    Tags: Optional[List[TagTypeDef]] = None
+    LifecycleTransitionReason: Optional[LifecycleTransitionReason] = None
+    Tags: Optional[List[Tag]] = None
     AdministrativeActions: Optional[List[Dict[str, Any]]] = None
 
 
-class OpenZFSNfsExportOutputTypeDef(BaseValidatorModel):
-    ClientConfigurations: List[OpenZFSClientConfigurationOutputTypeDef]
+class OpenZFSNfsExportOutput(BaseValidatorModel):
+    ClientConfigurations: List[OpenZFSClientConfigurationOutput]
 
 
-class RetentionPeriodTypeDef(BaseValidatorModel):
+class RetentionPeriod(BaseValidatorModel):
     pass
 
 
-class SnaplockRetentionPeriodTypeDef(BaseValidatorModel):
-    DefaultRetention: RetentionPeriodTypeDef
-    MinimumRetention: RetentionPeriodTypeDef
-    MaximumRetention: RetentionPeriodTypeDef
+class SnaplockRetentionPeriod(BaseValidatorModel):
+    DefaultRetention: RetentionPeriod
+    MinimumRetention: RetentionPeriod
+    MaximumRetention: RetentionPeriod
 
 
-class SvmActiveDirectoryConfigurationTypeDef(BaseValidatorModel):
+class SvmActiveDirectoryConfiguration(BaseValidatorModel):
     NetBiosName: Optional[str] = None
-    SelfManagedActiveDirectoryConfiguration: Optional[ SelfManagedActiveDirectoryAttributesTypeDef ] = None
+    SelfManagedActiveDirectoryConfiguration: Optional[ SelfManagedActiveDirectoryAttributes ] = None
 
 
-class UpdateFileSystemWindowsConfigurationTypeDef(BaseValidatorModel):
+class UpdateFileSystemWindowsConfiguration(BaseValidatorModel):
     WeeklyMaintenanceStartTime: Optional[str] = None
     DailyAutomaticBackupStartTime: Optional[str] = None
     AutomaticBackupRetentionDays: Optional[int] = None
     ThroughputCapacity: Optional[int] = None
-    SelfManagedActiveDirectoryConfiguration: Optional[ SelfManagedActiveDirectoryConfigurationUpdatesTypeDef ] = None
-    AuditLogConfiguration: Optional[WindowsAuditLogCreateConfigurationTypeDef] = None
-    DiskIopsConfiguration: Optional[DiskIopsConfigurationTypeDef] = None
+    SelfManagedActiveDirectoryConfiguration: Optional[ SelfManagedActiveDirectoryConfigurationUpdates ] = None
+    AuditLogConfiguration: Optional[WindowsAuditLogCreateConfiguration] = None
+    DiskIopsConfiguration: Optional[DiskIopsConfiguration] = None
 
 
-class UpdateSvmActiveDirectoryConfigurationTypeDef(BaseValidatorModel):
-    SelfManagedActiveDirectoryConfiguration: Optional[ SelfManagedActiveDirectoryConfigurationUpdatesTypeDef ] = None
+class UpdateSvmActiveDirectoryConfiguration(BaseValidatorModel):
+    SelfManagedActiveDirectoryConfiguration: Optional[ SelfManagedActiveDirectoryConfigurationUpdates ] = None
     NetBiosName: Optional[str] = None
 
 
-class SvmEndpointsTypeDef(BaseValidatorModel):
-    Iscsi: Optional[SvmEndpointTypeDef] = None
-    Management: Optional[SvmEndpointTypeDef] = None
-    Nfs: Optional[SvmEndpointTypeDef] = None
-    Smb: Optional[SvmEndpointTypeDef] = None
+class SvmEndpoints(BaseValidatorModel):
+    Iscsi: Optional[SvmEndpoint] = None
+    Management: Optional[SvmEndpoint] = None
+    Nfs: Optional[SvmEndpoint] = None
+    Smb: Optional[SvmEndpoint] = None
 
 
-class UpdateFileCacheRequestTypeDef(BaseValidatorModel):
+class UpdateFileCacheRequest(BaseValidatorModel):
     FileCacheId: str
     ClientRequestToken: Optional[str] = None
-    LustreConfiguration: Optional[UpdateFileCacheLustreConfigurationTypeDef] = None
+    LustreConfiguration: Optional[UpdateFileCacheLustreConfiguration] = None
 
 
-class WindowsFileSystemConfigurationTypeDef(BaseValidatorModel):
+class WindowsFileSystemConfiguration(BaseValidatorModel):
     ActiveDirectoryId: Optional[str] = None
-    SelfManagedActiveDirectoryConfiguration: Optional[ SelfManagedActiveDirectoryAttributesTypeDef ] = None
+    SelfManagedActiveDirectoryConfiguration: Optional[ SelfManagedActiveDirectoryAttributes ] = None
     DeploymentType: Optional[WindowsDeploymentTypeType] = None
     RemoteAdministrationEndpoint: Optional[str] = None
     PreferredSubnetId: Optional[str] = None
@@ -813,74 +813,74 @@ class WindowsFileSystemConfigurationTypeDef(BaseValidatorModel):
     DailyAutomaticBackupStartTime: Optional[str] = None
     AutomaticBackupRetentionDays: Optional[int] = None
     CopyTagsToBackups: Optional[bool] = None
-    Aliases: Optional[List[AliasTypeDef]] = None
-    AuditLogConfiguration: Optional[WindowsAuditLogConfigurationTypeDef] = None
-    DiskIopsConfiguration: Optional[DiskIopsConfigurationTypeDef] = None
+    Aliases: Optional[List[Alias]] = None
+    AuditLogConfiguration: Optional[WindowsAuditLogConfiguration] = None
+    DiskIopsConfiguration: Optional[DiskIopsConfiguration] = None
 
 
-class DataRepositoryAssociationTypeDef(BaseValidatorModel):
+class DataRepositoryAssociation(BaseValidatorModel):
     AssociationId: Optional[str] = None
     ResourceARN: Optional[str] = None
     FileSystemId: Optional[str] = None
     Lifecycle: Optional[DataRepositoryLifecycleType] = None
-    FailureDetails: Optional[DataRepositoryFailureDetailsTypeDef] = None
+    FailureDetails: Optional[DataRepositoryFailureDetails] = None
     FileSystemPath: Optional[str] = None
     DataRepositoryPath: Optional[str] = None
     BatchImportMetaDataOnCreate: Optional[bool] = None
     ImportedFileChunkSize: Optional[int] = None
-    S3: Optional[S3DataRepositoryConfigurationOutputTypeDef] = None
-    Tags: Optional[List[TagTypeDef]] = None
+    S3: Optional[S3DataRepositoryConfigurationOutput] = None
+    Tags: Optional[List[Tag]] = None
     CreationTime: Optional[datetime] = None
     FileCacheId: Optional[str] = None
     FileCachePath: Optional[str] = None
     DataRepositorySubdirectories: Optional[List[str]] = None
-    NFS: Optional[NFSDataRepositoryConfigurationTypeDef] = None
+    NFS: Optional[NFSDataRepositoryConfiguration] = None
 
 
-class DeleteFileSystemRequestTypeDef(BaseValidatorModel):
+class DeleteFileSystemRequest(BaseValidatorModel):
     FileSystemId: str
     ClientRequestToken: Optional[str] = None
-    WindowsConfiguration: Optional[DeleteFileSystemWindowsConfigurationTypeDef] = None
-    LustreConfiguration: Optional[DeleteFileSystemLustreConfigurationTypeDef] = None
-    OpenZFSConfiguration: Optional[DeleteFileSystemOpenZFSConfigurationTypeDef] = None
+    WindowsConfiguration: Optional[DeleteFileSystemWindowsConfiguration] = None
+    LustreConfiguration: Optional[DeleteFileSystemLustreConfiguration] = None
+    OpenZFSConfiguration: Optional[DeleteFileSystemOpenZFSConfiguration] = None
 
 
-class DeleteFileSystemResponseTypeDef(BaseValidatorModel):
+class DeleteFileSystemResponse(BaseValidatorModel):
     FileSystemId: str
     Lifecycle: FileSystemLifecycleType
-    WindowsResponse: DeleteFileSystemWindowsResponseTypeDef
-    LustreResponse: DeleteFileSystemLustreResponseTypeDef
-    OpenZFSResponse: DeleteFileSystemOpenZFSResponseTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    WindowsResponse: DeleteFileSystemWindowsResponse
+    LustreResponse: DeleteFileSystemLustreResponse
+    OpenZFSResponse: DeleteFileSystemOpenZFSResponse
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteVolumeRequestTypeDef(BaseValidatorModel):
+class DeleteVolumeRequest(BaseValidatorModel):
     VolumeId: str
     ClientRequestToken: Optional[str] = None
-    OntapConfiguration: Optional[DeleteVolumeOntapConfigurationTypeDef] = None
-    OpenZFSConfiguration: Optional[DeleteVolumeOpenZFSConfigurationTypeDef] = None
+    OntapConfiguration: Optional[DeleteVolumeOntapConfiguration] = None
+    OpenZFSConfiguration: Optional[DeleteVolumeOpenZFSConfiguration] = None
 
 
-class DeleteVolumeResponseTypeDef(BaseValidatorModel):
+class DeleteVolumeResponse(BaseValidatorModel):
     VolumeId: str
     Lifecycle: VolumeLifecycleType
-    OntapResponse: DeleteVolumeOntapResponseTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    OntapResponse: DeleteVolumeOntapResponse
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateStorageVirtualMachineRequestTypeDef(BaseValidatorModel):
+class CreateStorageVirtualMachineRequest(BaseValidatorModel):
     FileSystemId: str
     Name: str
-    ActiveDirectoryConfiguration: Optional[CreateSvmActiveDirectoryConfigurationTypeDef] = None
+    ActiveDirectoryConfiguration: Optional[CreateSvmActiveDirectoryConfiguration] = None
     ClientRequestToken: Optional[str] = None
     SvmAdminPassword: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
     RootVolumeSecurityStyle: Optional[StorageVirtualMachineRootVolumeSecurityStyleType] = None
 
 
-class LustreFileSystemConfigurationTypeDef(BaseValidatorModel):
+class LustreFileSystemConfiguration(BaseValidatorModel):
     WeeklyMaintenanceStartTime: Optional[str] = None
-    DataRepositoryConfiguration: Optional[DataRepositoryConfigurationTypeDef] = None
+    DataRepositoryConfiguration: Optional[DataRepositoryConfiguration] = None
     DeploymentType: Optional[LustreDeploymentTypeType] = None
     PerUnitStorageThroughput: Optional[int] = None
     MountName: Optional[str] = None
@@ -889,34 +889,34 @@ class LustreFileSystemConfigurationTypeDef(BaseValidatorModel):
     CopyTagsToBackups: Optional[bool] = None
     DriveCacheType: Optional[DriveCacheTypeType] = None
     DataCompressionType: Optional[DataCompressionTypeType] = None
-    LogConfiguration: Optional[LustreLogConfigurationTypeDef] = None
-    RootSquashConfiguration: Optional[LustreRootSquashConfigurationOutputTypeDef] = None
-    MetadataConfiguration: Optional[FileSystemLustreMetadataConfigurationTypeDef] = None
+    LogConfiguration: Optional[LustreLogConfiguration] = None
+    RootSquashConfiguration: Optional[LustreRootSquashConfigurationOutput] = None
+    MetadataConfiguration: Optional[FileSystemLustreMetadataConfiguration] = None
     EfaEnabled: Optional[bool] = None
 
 
-class CreateFileCacheRequestTypeDef(BaseValidatorModel):
+class CreateFileCacheRequest(BaseValidatorModel):
     FileCacheType: Literal["LUSTRE"]
     FileCacheTypeVersion: str
     StorageCapacity: int
     SubnetIds: Sequence[str]
     ClientRequestToken: Optional[str] = None
     SecurityGroupIds: Optional[Sequence[str]] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
     CopyTagsToDataRepositoryAssociations: Optional[bool] = None
     KmsKeyId: Optional[str] = None
-    LustreConfiguration: Optional[CreateFileCacheLustreConfigurationTypeDef] = None
-    DataRepositoryAssociations: Optional[Sequence[FileCacheDataRepositoryAssociationTypeDef]] = None
+    LustreConfiguration: Optional[CreateFileCacheLustreConfiguration] = None
+    DataRepositoryAssociations: Optional[Sequence[FileCacheDataRepositoryAssociation]] = None
 
 
-class FileCacheCreatingTypeDef(BaseValidatorModel):
+class FileCacheCreating(BaseValidatorModel):
     OwnerId: Optional[str] = None
     CreationTime: Optional[datetime] = None
     FileCacheId: Optional[str] = None
     FileCacheType: Optional[Literal["LUSTRE"]] = None
     FileCacheTypeVersion: Optional[str] = None
     Lifecycle: Optional[FileCacheLifecycleType] = None
-    FailureDetails: Optional[FileCacheFailureDetailsTypeDef] = None
+    FailureDetails: Optional[FileCacheFailureDetails] = None
     StorageCapacity: Optional[int] = None
     VpcId: Optional[str] = None
     SubnetIds: Optional[List[str]] = None
@@ -924,20 +924,20 @@ class FileCacheCreatingTypeDef(BaseValidatorModel):
     DNSName: Optional[str] = None
     KmsKeyId: Optional[str] = None
     ResourceARN: Optional[str] = None
-    Tags: Optional[List[TagTypeDef]] = None
+    Tags: Optional[List[Tag]] = None
     CopyTagsToDataRepositoryAssociations: Optional[bool] = None
-    LustreConfiguration: Optional[FileCacheLustreConfigurationTypeDef] = None
+    LustreConfiguration: Optional[FileCacheLustreConfiguration] = None
     DataRepositoryAssociationIds: Optional[List[str]] = None
 
 
-class FileCacheTypeDef(BaseValidatorModel):
+class FileCache(BaseValidatorModel):
     OwnerId: Optional[str] = None
     CreationTime: Optional[datetime] = None
     FileCacheId: Optional[str] = None
     FileCacheType: Optional[Literal["LUSTRE"]] = None
     FileCacheTypeVersion: Optional[str] = None
     Lifecycle: Optional[FileCacheLifecycleType] = None
-    FailureDetails: Optional[FileCacheFailureDetailsTypeDef] = None
+    FailureDetails: Optional[FileCacheFailureDetails] = None
     StorageCapacity: Optional[int] = None
     VpcId: Optional[str] = None
     SubnetIds: Optional[List[str]] = None
@@ -945,17 +945,17 @@ class FileCacheTypeDef(BaseValidatorModel):
     DNSName: Optional[str] = None
     KmsKeyId: Optional[str] = None
     ResourceARN: Optional[str] = None
-    LustreConfiguration: Optional[FileCacheLustreConfigurationTypeDef] = None
+    LustreConfiguration: Optional[FileCacheLustreConfiguration] = None
     DataRepositoryAssociationIds: Optional[List[str]] = None
 
 
-class OntapFileSystemConfigurationTypeDef(BaseValidatorModel):
+class OntapFileSystemConfiguration(BaseValidatorModel):
     AutomaticBackupRetentionDays: Optional[int] = None
     DailyAutomaticBackupStartTime: Optional[str] = None
     DeploymentType: Optional[OntapDeploymentTypeType] = None
     EndpointIpAddressRange: Optional[str] = None
-    Endpoints: Optional[FileSystemEndpointsTypeDef] = None
-    DiskIopsConfiguration: Optional[DiskIopsConfigurationTypeDef] = None
+    Endpoints: Optional[FileSystemEndpoints] = None
+    DiskIopsConfiguration: Optional[DiskIopsConfiguration] = None
     PreferredSubnetId: Optional[str] = None
     RouteTableIds: Optional[List[str]] = None
     ThroughputCapacity: Optional[int] = None
@@ -965,27 +965,27 @@ class OntapFileSystemConfigurationTypeDef(BaseValidatorModel):
     ThroughputCapacityPerHAPair: Optional[int] = None
 
 
-class CreateSnapshotResponseTypeDef(BaseValidatorModel):
-    Snapshot: SnapshotTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateSnapshotResponse(BaseValidatorModel):
+    Snapshot: Snapshot
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeSnapshotsResponseTypeDef(BaseValidatorModel):
-    Snapshots: List[SnapshotTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeSnapshotsResponse(BaseValidatorModel):
+    Snapshots: List[Snapshot]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class UpdateSnapshotResponseTypeDef(BaseValidatorModel):
-    Snapshot: SnapshotTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateSnapshotResponse(BaseValidatorModel):
+    Snapshot: Snapshot
+    ResponseMetadata: ResponseMetadata
 
 
-class LustreRootSquashConfigurationUnionTypeDef(BaseValidatorModel):
+class LustreRootSquashConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class CreateFileSystemLustreConfigurationTypeDef(BaseValidatorModel):
+class CreateFileSystemLustreConfiguration(BaseValidatorModel):
     WeeklyMaintenanceStartTime: Optional[str] = None
     ImportPath: Optional[str] = None
     ExportPath: Optional[str] = None
@@ -999,72 +999,72 @@ class CreateFileSystemLustreConfigurationTypeDef(BaseValidatorModel):
     DriveCacheType: Optional[DriveCacheTypeType] = None
     DataCompressionType: Optional[DataCompressionTypeType] = None
     EfaEnabled: Optional[bool] = None
-    LogConfiguration: Optional[LustreLogCreateConfigurationTypeDef] = None
-    RootSquashConfiguration: Optional[LustreRootSquashConfigurationUnionTypeDef] = None
-    MetadataConfiguration: Optional[CreateFileSystemLustreMetadataConfigurationTypeDef] = None
+    LogConfiguration: Optional[LustreLogCreateConfiguration] = None
+    RootSquashConfiguration: Optional[LustreRootSquashConfigurationUnion] = None
+    MetadataConfiguration: Optional[CreateFileSystemLustreMetadataConfiguration] = None
 
 
-class UpdateFileSystemLustreConfigurationTypeDef(BaseValidatorModel):
+class UpdateFileSystemLustreConfiguration(BaseValidatorModel):
     WeeklyMaintenanceStartTime: Optional[str] = None
     DailyAutomaticBackupStartTime: Optional[str] = None
     AutomaticBackupRetentionDays: Optional[int] = None
     AutoImportPolicy: Optional[AutoImportPolicyTypeType] = None
     DataCompressionType: Optional[DataCompressionTypeType] = None
-    LogConfiguration: Optional[LustreLogCreateConfigurationTypeDef] = None
-    RootSquashConfiguration: Optional[LustreRootSquashConfigurationUnionTypeDef] = None
+    LogConfiguration: Optional[LustreLogCreateConfiguration] = None
+    RootSquashConfiguration: Optional[LustreRootSquashConfigurationUnion] = None
     PerUnitStorageThroughput: Optional[int] = None
-    MetadataConfiguration: Optional[UpdateFileSystemLustreMetadataConfigurationTypeDef] = None
+    MetadataConfiguration: Optional[UpdateFileSystemLustreMetadataConfiguration] = None
 
 
-class OpenZFSClientConfigurationUnionTypeDef(BaseValidatorModel):
+class OpenZFSClientConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class OpenZFSNfsExportTypeDef(BaseValidatorModel):
-    ClientConfigurations: Sequence[OpenZFSClientConfigurationUnionTypeDef]
+class OpenZFSNfsExport(BaseValidatorModel):
+    ClientConfigurations: Sequence[OpenZFSClientConfigurationUnion]
 
 
-class AutocommitPeriodTypeDef(BaseValidatorModel):
+class AutocommitPeriod(BaseValidatorModel):
     pass
 
 
-class CreateSnaplockConfigurationTypeDef(BaseValidatorModel):
+class CreateSnaplockConfiguration(BaseValidatorModel):
     SnaplockType: SnaplockTypeType
     AuditLogVolume: Optional[bool] = None
-    AutocommitPeriod: Optional[AutocommitPeriodTypeDef] = None
+    AutocommitPeriod: Optional[AutocommitPeriod] = None
     PrivilegedDelete: Optional[PrivilegedDeleteType] = None
-    RetentionPeriod: Optional[SnaplockRetentionPeriodTypeDef] = None
+    RetentionPeriod: Optional[SnaplockRetentionPeriod] = None
     VolumeAppendModeEnabled: Optional[bool] = None
 
 
-class SnaplockConfigurationTypeDef(BaseValidatorModel):
+class SnaplockConfiguration(BaseValidatorModel):
     AuditLogVolume: Optional[bool] = None
-    AutocommitPeriod: Optional[AutocommitPeriodTypeDef] = None
+    AutocommitPeriod: Optional[AutocommitPeriod] = None
     PrivilegedDelete: Optional[PrivilegedDeleteType] = None
-    RetentionPeriod: Optional[SnaplockRetentionPeriodTypeDef] = None
+    RetentionPeriod: Optional[SnaplockRetentionPeriod] = None
     SnaplockType: Optional[SnaplockTypeType] = None
     VolumeAppendModeEnabled: Optional[bool] = None
 
 
-class UpdateSnaplockConfigurationTypeDef(BaseValidatorModel):
+class UpdateSnaplockConfiguration(BaseValidatorModel):
     AuditLogVolume: Optional[bool] = None
-    AutocommitPeriod: Optional[AutocommitPeriodTypeDef] = None
+    AutocommitPeriod: Optional[AutocommitPeriod] = None
     PrivilegedDelete: Optional[PrivilegedDeleteType] = None
-    RetentionPeriod: Optional[SnaplockRetentionPeriodTypeDef] = None
+    RetentionPeriod: Optional[SnaplockRetentionPeriod] = None
     VolumeAppendModeEnabled: Optional[bool] = None
 
 
-class UpdateStorageVirtualMachineRequestTypeDef(BaseValidatorModel):
+class UpdateStorageVirtualMachineRequest(BaseValidatorModel):
     StorageVirtualMachineId: str
-    ActiveDirectoryConfiguration: Optional[UpdateSvmActiveDirectoryConfigurationTypeDef] = None
+    ActiveDirectoryConfiguration: Optional[UpdateSvmActiveDirectoryConfiguration] = None
     ClientRequestToken: Optional[str] = None
     SvmAdminPassword: Optional[str] = None
 
 
-class StorageVirtualMachineTypeDef(BaseValidatorModel):
-    ActiveDirectoryConfiguration: Optional[SvmActiveDirectoryConfigurationTypeDef] = None
+class StorageVirtualMachine(BaseValidatorModel):
+    ActiveDirectoryConfiguration: Optional[SvmActiveDirectoryConfiguration] = None
     CreationTime: Optional[datetime] = None
-    Endpoints: Optional[SvmEndpointsTypeDef] = None
+    Endpoints: Optional[SvmEndpoints] = None
     FileSystemId: Optional[str] = None
     Lifecycle: Optional[StorageVirtualMachineLifecycleType] = None
     Name: Optional[str] = None
@@ -1072,109 +1072,109 @@ class StorageVirtualMachineTypeDef(BaseValidatorModel):
     StorageVirtualMachineId: Optional[str] = None
     Subtype: Optional[StorageVirtualMachineSubtypeType] = None
     UUID: Optional[str] = None
-    Tags: Optional[List[TagTypeDef]] = None
-    LifecycleTransitionReason: Optional[LifecycleTransitionReasonTypeDef] = None
+    Tags: Optional[List[Tag]] = None
+    LifecycleTransitionReason: Optional[LifecycleTransitionReason] = None
     RootVolumeSecurityStyle: Optional[StorageVirtualMachineRootVolumeSecurityStyleType] = None
 
 
-class CreateDataRepositoryAssociationResponseTypeDef(BaseValidatorModel):
-    Association: DataRepositoryAssociationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateDataRepositoryAssociationResponse(BaseValidatorModel):
+    Association: DataRepositoryAssociation
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeDataRepositoryAssociationsResponseTypeDef(BaseValidatorModel):
-    Associations: List[DataRepositoryAssociationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeDataRepositoryAssociationsResponse(BaseValidatorModel):
+    Associations: List[DataRepositoryAssociation]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class UpdateDataRepositoryAssociationResponseTypeDef(BaseValidatorModel):
-    Association: DataRepositoryAssociationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateDataRepositoryAssociationResponse(BaseValidatorModel):
+    Association: DataRepositoryAssociation
+    ResponseMetadata: ResponseMetadata
 
 
-class S3DataRepositoryConfigurationUnionTypeDef(BaseValidatorModel):
+class S3DataRepositoryConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class CreateDataRepositoryAssociationRequestTypeDef(BaseValidatorModel):
+class CreateDataRepositoryAssociationRequest(BaseValidatorModel):
     FileSystemId: str
     DataRepositoryPath: str
     FileSystemPath: Optional[str] = None
     BatchImportMetaDataOnCreate: Optional[bool] = None
     ImportedFileChunkSize: Optional[int] = None
-    S3: Optional[S3DataRepositoryConfigurationUnionTypeDef] = None
+    S3: Optional[S3DataRepositoryConfigurationUnion] = None
     ClientRequestToken: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class UpdateDataRepositoryAssociationRequestTypeDef(BaseValidatorModel):
+class UpdateDataRepositoryAssociationRequest(BaseValidatorModel):
     AssociationId: str
     ClientRequestToken: Optional[str] = None
     ImportedFileChunkSize: Optional[int] = None
-    S3: Optional[S3DataRepositoryConfigurationUnionTypeDef] = None
+    S3: Optional[S3DataRepositoryConfigurationUnion] = None
 
 
-class DataRepositoryTaskTypeDef(BaseValidatorModel):
+class DataRepositoryTask(BaseValidatorModel):
     pass
 
 
-class CreateDataRepositoryTaskResponseTypeDef(BaseValidatorModel):
-    DataRepositoryTask: DataRepositoryTaskTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateDataRepositoryTaskResponse(BaseValidatorModel):
+    DataRepositoryTask: DataRepositoryTask
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeDataRepositoryTasksResponseTypeDef(BaseValidatorModel):
-    DataRepositoryTasks: List[DataRepositoryTaskTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeDataRepositoryTasksResponse(BaseValidatorModel):
+    DataRepositoryTasks: List[DataRepositoryTask]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class CreateFileCacheResponseTypeDef(BaseValidatorModel):
-    FileCache: FileCacheCreatingTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateFileCacheResponse(BaseValidatorModel):
+    FileCache: FileCacheCreating
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeFileCachesResponseTypeDef(BaseValidatorModel):
-    FileCaches: List[FileCacheTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeFileCachesResponse(BaseValidatorModel):
+    FileCaches: List[FileCache]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class UpdateFileCacheResponseTypeDef(BaseValidatorModel):
-    FileCache: FileCacheTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateFileCacheResponse(BaseValidatorModel):
+    FileCache: FileCache
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateFileSystemRequestTypeDef(BaseValidatorModel):
+class UpdateFileSystemRequest(BaseValidatorModel):
     FileSystemId: str
     ClientRequestToken: Optional[str] = None
     StorageCapacity: Optional[int] = None
-    WindowsConfiguration: Optional[UpdateFileSystemWindowsConfigurationTypeDef] = None
-    LustreConfiguration: Optional[UpdateFileSystemLustreConfigurationTypeDef] = None
-    OntapConfiguration: Optional[UpdateFileSystemOntapConfigurationTypeDef] = None
-    OpenZFSConfiguration: Optional[UpdateFileSystemOpenZFSConfigurationTypeDef] = None
+    WindowsConfiguration: Optional[UpdateFileSystemWindowsConfiguration] = None
+    LustreConfiguration: Optional[UpdateFileSystemLustreConfiguration] = None
+    OntapConfiguration: Optional[UpdateFileSystemOntapConfiguration] = None
+    OpenZFSConfiguration: Optional[UpdateFileSystemOpenZFSConfiguration] = None
     StorageType: Optional[StorageTypeType] = None
     FileSystemTypeVersion: Optional[str] = None
 
 
-class CreateOntapVolumeConfigurationTypeDef(BaseValidatorModel):
+class CreateOntapVolumeConfiguration(BaseValidatorModel):
     StorageVirtualMachineId: str
     JunctionPath: Optional[str] = None
     SecurityStyle: Optional[SecurityStyleType] = None
     SizeInMegabytes: Optional[int] = None
     StorageEfficiencyEnabled: Optional[bool] = None
-    TieringPolicy: Optional[TieringPolicyTypeDef] = None
+    TieringPolicy: Optional[TieringPolicy] = None
     OntapVolumeType: Optional[InputOntapVolumeTypeType] = None
     SnapshotPolicy: Optional[str] = None
     CopyTagsToBackups: Optional[bool] = None
-    SnaplockConfiguration: Optional[CreateSnaplockConfigurationTypeDef] = None
+    SnaplockConfiguration: Optional[CreateSnaplockConfiguration] = None
     VolumeStyle: Optional[VolumeStyleType] = None
-    AggregateConfiguration: Optional[CreateAggregateConfigurationTypeDef] = None
+    AggregateConfiguration: Optional[CreateAggregateConfiguration] = None
     SizeInBytes: Optional[int] = None
 
 
-class OntapVolumeConfigurationTypeDef(BaseValidatorModel):
+class OntapVolumeConfiguration(BaseValidatorModel):
     FlexCacheEndpointType: Optional[FlexCacheEndpointTypeType] = None
     JunctionPath: Optional[str] = None
     SecurityStyle: Optional[SecurityStyleType] = None
@@ -1182,105 +1182,105 @@ class OntapVolumeConfigurationTypeDef(BaseValidatorModel):
     StorageEfficiencyEnabled: Optional[bool] = None
     StorageVirtualMachineId: Optional[str] = None
     StorageVirtualMachineRoot: Optional[bool] = None
-    TieringPolicy: Optional[TieringPolicyTypeDef] = None
+    TieringPolicy: Optional[TieringPolicy] = None
     UUID: Optional[str] = None
     OntapVolumeType: Optional[OntapVolumeTypeType] = None
     SnapshotPolicy: Optional[str] = None
     CopyTagsToBackups: Optional[bool] = None
-    SnaplockConfiguration: Optional[SnaplockConfigurationTypeDef] = None
+    SnaplockConfiguration: Optional[SnaplockConfiguration] = None
     VolumeStyle: Optional[VolumeStyleType] = None
-    AggregateConfiguration: Optional[AggregateConfigurationTypeDef] = None
+    AggregateConfiguration: Optional[AggregateConfiguration] = None
     SizeInBytes: Optional[int] = None
 
 
-class UpdateOntapVolumeConfigurationTypeDef(BaseValidatorModel):
+class UpdateOntapVolumeConfiguration(BaseValidatorModel):
     JunctionPath: Optional[str] = None
     SecurityStyle: Optional[SecurityStyleType] = None
     SizeInMegabytes: Optional[int] = None
     StorageEfficiencyEnabled: Optional[bool] = None
-    TieringPolicy: Optional[TieringPolicyTypeDef] = None
+    TieringPolicy: Optional[TieringPolicy] = None
     SnapshotPolicy: Optional[str] = None
     CopyTagsToBackups: Optional[bool] = None
-    SnaplockConfiguration: Optional[UpdateSnaplockConfigurationTypeDef] = None
+    SnaplockConfiguration: Optional[UpdateSnaplockConfiguration] = None
     SizeInBytes: Optional[int] = None
 
 
-class CreateStorageVirtualMachineResponseTypeDef(BaseValidatorModel):
-    StorageVirtualMachine: StorageVirtualMachineTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateStorageVirtualMachineResponse(BaseValidatorModel):
+    StorageVirtualMachine: StorageVirtualMachine
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeStorageVirtualMachinesResponseTypeDef(BaseValidatorModel):
-    StorageVirtualMachines: List[StorageVirtualMachineTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeStorageVirtualMachinesResponse(BaseValidatorModel):
+    StorageVirtualMachines: List[StorageVirtualMachine]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class UpdateStorageVirtualMachineResponseTypeDef(BaseValidatorModel):
-    StorageVirtualMachine: StorageVirtualMachineTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateStorageVirtualMachineResponse(BaseValidatorModel):
+    StorageVirtualMachine: StorageVirtualMachine
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateVolumeFromBackupRequestTypeDef(BaseValidatorModel):
+class CreateVolumeFromBackupRequest(BaseValidatorModel):
     BackupId: str
     Name: str
     ClientRequestToken: Optional[str] = None
-    OntapConfiguration: Optional[CreateOntapVolumeConfigurationTypeDef] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    OntapConfiguration: Optional[CreateOntapVolumeConfiguration] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class OpenZFSVolumeConfigurationTypeDef(BaseValidatorModel):
+class OpenZFSVolumeConfiguration(BaseValidatorModel):
     pass
 
 
-class VolumePaginatorTypeDef(BaseValidatorModel):
+class VolumePaginator(BaseValidatorModel):
     CreationTime: Optional[datetime] = None
     FileSystemId: Optional[str] = None
     Lifecycle: Optional[VolumeLifecycleType] = None
     Name: Optional[str] = None
-    OntapConfiguration: Optional[OntapVolumeConfigurationTypeDef] = None
+    OntapConfiguration: Optional[OntapVolumeConfiguration] = None
     ResourceARN: Optional[str] = None
-    Tags: Optional[List[TagTypeDef]] = None
+    Tags: Optional[List[Tag]] = None
     VolumeId: Optional[str] = None
     VolumeType: Optional[VolumeTypeType] = None
-    LifecycleTransitionReason: Optional[LifecycleTransitionReasonTypeDef] = None
+    LifecycleTransitionReason: Optional[LifecycleTransitionReason] = None
     AdministrativeActions: Optional[List[Dict[str, Any]]] = None
-    OpenZFSConfiguration: Optional[OpenZFSVolumeConfigurationTypeDef] = None
+    OpenZFSConfiguration: Optional[OpenZFSVolumeConfiguration] = None
 
 
-class VolumeTypeDef(BaseValidatorModel):
+class Volume(BaseValidatorModel):
     CreationTime: Optional[datetime] = None
     FileSystemId: Optional[str] = None
     Lifecycle: Optional[VolumeLifecycleType] = None
     Name: Optional[str] = None
-    OntapConfiguration: Optional[OntapVolumeConfigurationTypeDef] = None
+    OntapConfiguration: Optional[OntapVolumeConfiguration] = None
     ResourceARN: Optional[str] = None
-    Tags: Optional[List[TagTypeDef]] = None
+    Tags: Optional[List[Tag]] = None
     VolumeId: Optional[str] = None
     VolumeType: Optional[VolumeTypeType] = None
-    LifecycleTransitionReason: Optional[LifecycleTransitionReasonTypeDef] = None
+    LifecycleTransitionReason: Optional[LifecycleTransitionReason] = None
     AdministrativeActions: Optional[List[Dict[str, Any]]] = None
-    OpenZFSConfiguration: Optional[OpenZFSVolumeConfigurationTypeDef] = None
+    OpenZFSConfiguration: Optional[OpenZFSVolumeConfiguration] = None
 
 
-class CreateOpenZFSVolumeConfigurationTypeDef(BaseValidatorModel):
+class CreateOpenZFSVolumeConfiguration(BaseValidatorModel):
     pass
 
 
-class CreateVolumeRequestTypeDef(BaseValidatorModel):
+class CreateVolumeRequest(BaseValidatorModel):
     VolumeType: VolumeTypeType
     Name: str
     ClientRequestToken: Optional[str] = None
-    OntapConfiguration: Optional[CreateOntapVolumeConfigurationTypeDef] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
-    OpenZFSConfiguration: Optional[CreateOpenZFSVolumeConfigurationTypeDef] = None
+    OntapConfiguration: Optional[CreateOntapVolumeConfiguration] = None
+    Tags: Optional[Sequence[Tag]] = None
+    OpenZFSConfiguration: Optional[CreateOpenZFSVolumeConfiguration] = None
 
 
-class OpenZFSCreateRootVolumeConfigurationTypeDef(BaseValidatorModel):
+class OpenZFSCreateRootVolumeConfiguration(BaseValidatorModel):
     pass
 
 
-class CreateFileSystemOpenZFSConfigurationTypeDef(BaseValidatorModel):
+class CreateFileSystemOpenZFSConfiguration(BaseValidatorModel):
     DeploymentType: OpenZFSDeploymentTypeType
     ThroughputCapacity: int
     AutomaticBackupRetentionDays: Optional[int] = None
@@ -1288,117 +1288,117 @@ class CreateFileSystemOpenZFSConfigurationTypeDef(BaseValidatorModel):
     CopyTagsToVolumes: Optional[bool] = None
     DailyAutomaticBackupStartTime: Optional[str] = None
     WeeklyMaintenanceStartTime: Optional[str] = None
-    DiskIopsConfiguration: Optional[DiskIopsConfigurationTypeDef] = None
-    RootVolumeConfiguration: Optional[OpenZFSCreateRootVolumeConfigurationTypeDef] = None
+    DiskIopsConfiguration: Optional[DiskIopsConfiguration] = None
+    RootVolumeConfiguration: Optional[OpenZFSCreateRootVolumeConfiguration] = None
     PreferredSubnetId: Optional[str] = None
     EndpointIpAddressRange: Optional[str] = None
     RouteTableIds: Optional[Sequence[str]] = None
-    ReadCacheConfiguration: Optional[OpenZFSReadCacheConfigurationTypeDef] = None
+    ReadCacheConfiguration: Optional[OpenZFSReadCacheConfiguration] = None
 
 
-class UpdateOpenZFSVolumeConfigurationTypeDef(BaseValidatorModel):
+class UpdateOpenZFSVolumeConfiguration(BaseValidatorModel):
     pass
 
 
-class UpdateVolumeRequestTypeDef(BaseValidatorModel):
+class UpdateVolumeRequest(BaseValidatorModel):
     VolumeId: str
     ClientRequestToken: Optional[str] = None
-    OntapConfiguration: Optional[UpdateOntapVolumeConfigurationTypeDef] = None
+    OntapConfiguration: Optional[UpdateOntapVolumeConfiguration] = None
     Name: Optional[str] = None
-    OpenZFSConfiguration: Optional[UpdateOpenZFSVolumeConfigurationTypeDef] = None
+    OpenZFSConfiguration: Optional[UpdateOpenZFSVolumeConfiguration] = None
 
 
-class AdministrativeActionPaginatorTypeDef(BaseValidatorModel):
+class AdministrativeActionPaginator(BaseValidatorModel):
     AdministrativeActionType: Optional[AdministrativeActionTypeType] = None
     ProgressPercent: Optional[int] = None
     RequestTime: Optional[datetime] = None
     Status: Optional[StatusType] = None
     TargetFileSystemValues: Optional[Dict[str, Any]] = None
-    FailureDetails: Optional[AdministrativeActionFailureDetailsTypeDef] = None
-    TargetVolumeValues: Optional[VolumePaginatorTypeDef] = None
-    TargetSnapshotValues: Optional[SnapshotPaginatorTypeDef] = None
+    FailureDetails: Optional[AdministrativeActionFailureDetails] = None
+    TargetVolumeValues: Optional[VolumePaginator] = None
+    TargetSnapshotValues: Optional[SnapshotPaginator] = None
     TotalTransferBytes: Optional[int] = None
     RemainingTransferBytes: Optional[int] = None
 
 
-class DescribeVolumesResponsePaginatorTypeDef(BaseValidatorModel):
-    Volumes: List[VolumePaginatorTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeVolumesResponsePaginator(BaseValidatorModel):
+    Volumes: List[VolumePaginator]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class AdministrativeActionTypeDef(BaseValidatorModel):
+class AdministrativeAction(BaseValidatorModel):
     AdministrativeActionType: Optional[AdministrativeActionTypeType] = None
     ProgressPercent: Optional[int] = None
     RequestTime: Optional[datetime] = None
     Status: Optional[StatusType] = None
     TargetFileSystemValues: Optional[Dict[str, Any]] = None
-    FailureDetails: Optional[AdministrativeActionFailureDetailsTypeDef] = None
-    TargetVolumeValues: Optional[VolumeTypeDef] = None
-    TargetSnapshotValues: Optional[SnapshotTypeDef] = None
+    FailureDetails: Optional[AdministrativeActionFailureDetails] = None
+    TargetVolumeValues: Optional[Volume] = None
+    TargetSnapshotValues: Optional[Snapshot] = None
     TotalTransferBytes: Optional[int] = None
     RemainingTransferBytes: Optional[int] = None
 
 
-class CreateVolumeFromBackupResponseTypeDef(BaseValidatorModel):
-    Volume: VolumeTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateVolumeFromBackupResponse(BaseValidatorModel):
+    Volume: Volume
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateVolumeResponseTypeDef(BaseValidatorModel):
-    Volume: VolumeTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateVolumeResponse(BaseValidatorModel):
+    Volume: Volume
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeVolumesResponseTypeDef(BaseValidatorModel):
-    Volumes: List[VolumeTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeVolumesResponse(BaseValidatorModel):
+    Volumes: List[Volume]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class UpdateVolumeResponseTypeDef(BaseValidatorModel):
-    Volume: VolumeTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateVolumeResponse(BaseValidatorModel):
+    Volume: Volume
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateFileSystemFromBackupRequestTypeDef(BaseValidatorModel):
+class CreateFileSystemFromBackupRequest(BaseValidatorModel):
     BackupId: str
     SubnetIds: Sequence[str]
     ClientRequestToken: Optional[str] = None
     SecurityGroupIds: Optional[Sequence[str]] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
-    WindowsConfiguration: Optional[CreateFileSystemWindowsConfigurationTypeDef] = None
-    LustreConfiguration: Optional[CreateFileSystemLustreConfigurationTypeDef] = None
+    Tags: Optional[Sequence[Tag]] = None
+    WindowsConfiguration: Optional[CreateFileSystemWindowsConfiguration] = None
+    LustreConfiguration: Optional[CreateFileSystemLustreConfiguration] = None
     StorageType: Optional[StorageTypeType] = None
     KmsKeyId: Optional[str] = None
     FileSystemTypeVersion: Optional[str] = None
-    OpenZFSConfiguration: Optional[CreateFileSystemOpenZFSConfigurationTypeDef] = None
+    OpenZFSConfiguration: Optional[CreateFileSystemOpenZFSConfiguration] = None
     StorageCapacity: Optional[int] = None
 
 
-class CreateFileSystemRequestTypeDef(BaseValidatorModel):
+class CreateFileSystemRequest(BaseValidatorModel):
     FileSystemType: FileSystemTypeType
     SubnetIds: Sequence[str]
     ClientRequestToken: Optional[str] = None
     StorageCapacity: Optional[int] = None
     StorageType: Optional[StorageTypeType] = None
     SecurityGroupIds: Optional[Sequence[str]] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
     KmsKeyId: Optional[str] = None
-    WindowsConfiguration: Optional[CreateFileSystemWindowsConfigurationTypeDef] = None
-    LustreConfiguration: Optional[CreateFileSystemLustreConfigurationTypeDef] = None
-    OntapConfiguration: Optional[CreateFileSystemOntapConfigurationTypeDef] = None
+    WindowsConfiguration: Optional[CreateFileSystemWindowsConfiguration] = None
+    LustreConfiguration: Optional[CreateFileSystemLustreConfiguration] = None
+    OntapConfiguration: Optional[CreateFileSystemOntapConfiguration] = None
     FileSystemTypeVersion: Optional[str] = None
-    OpenZFSConfiguration: Optional[CreateFileSystemOpenZFSConfigurationTypeDef] = None
+    OpenZFSConfiguration: Optional[CreateFileSystemOpenZFSConfiguration] = None
 
 
-class FileSystemPaginatorTypeDef(BaseValidatorModel):
+class FileSystemPaginator(BaseValidatorModel):
     OwnerId: Optional[str] = None
     CreationTime: Optional[datetime] = None
     FileSystemId: Optional[str] = None
     FileSystemType: Optional[FileSystemTypeType] = None
     Lifecycle: Optional[FileSystemLifecycleType] = None
-    FailureDetails: Optional[FileSystemFailureDetailsTypeDef] = None
+    FailureDetails: Optional[FileSystemFailureDetails] = None
     StorageCapacity: Optional[int] = None
     StorageType: Optional[StorageTypeType] = None
     VpcId: Optional[str] = None
@@ -1407,29 +1407,29 @@ class FileSystemPaginatorTypeDef(BaseValidatorModel):
     DNSName: Optional[str] = None
     KmsKeyId: Optional[str] = None
     ResourceARN: Optional[str] = None
-    Tags: Optional[List[TagTypeDef]] = None
-    WindowsConfiguration: Optional[WindowsFileSystemConfigurationTypeDef] = None
-    LustreConfiguration: Optional[LustreFileSystemConfigurationTypeDef] = None
-    AdministrativeActions: Optional[List[AdministrativeActionPaginatorTypeDef]] = None
-    OntapConfiguration: Optional[OntapFileSystemConfigurationTypeDef] = None
+    Tags: Optional[List[Tag]] = None
+    WindowsConfiguration: Optional[WindowsFileSystemConfiguration] = None
+    LustreConfiguration: Optional[LustreFileSystemConfiguration] = None
+    AdministrativeActions: Optional[List[AdministrativeActionPaginator]] = None
+    OntapConfiguration: Optional[OntapFileSystemConfiguration] = None
     FileSystemTypeVersion: Optional[str] = None
-    OpenZFSConfiguration: Optional[OpenZFSFileSystemConfigurationTypeDef] = None
+    OpenZFSConfiguration: Optional[OpenZFSFileSystemConfiguration] = None
 
 
-class CopySnapshotAndUpdateVolumeResponseTypeDef(BaseValidatorModel):
+class CopySnapshotAndUpdateVolumeResponse(BaseValidatorModel):
     VolumeId: str
     Lifecycle: VolumeLifecycleType
-    AdministrativeActions: List[AdministrativeActionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    AdministrativeActions: List[AdministrativeAction]
+    ResponseMetadata: ResponseMetadata
 
 
-class FileSystemTypeDef(BaseValidatorModel):
+class FileSystem(BaseValidatorModel):
     OwnerId: Optional[str] = None
     CreationTime: Optional[datetime] = None
     FileSystemId: Optional[str] = None
     FileSystemType: Optional[FileSystemTypeType] = None
     Lifecycle: Optional[FileSystemLifecycleType] = None
-    FailureDetails: Optional[FileSystemFailureDetailsTypeDef] = None
+    FailureDetails: Optional[FileSystemFailureDetails] = None
     StorageCapacity: Optional[int] = None
     StorageType: Optional[StorageTypeType] = None
     VpcId: Optional[str] = None
@@ -1438,86 +1438,86 @@ class FileSystemTypeDef(BaseValidatorModel):
     DNSName: Optional[str] = None
     KmsKeyId: Optional[str] = None
     ResourceARN: Optional[str] = None
-    Tags: Optional[List[TagTypeDef]] = None
-    WindowsConfiguration: Optional[WindowsFileSystemConfigurationTypeDef] = None
-    LustreConfiguration: Optional[LustreFileSystemConfigurationTypeDef] = None
-    AdministrativeActions: Optional[List[AdministrativeActionTypeDef]] = None
-    OntapConfiguration: Optional[OntapFileSystemConfigurationTypeDef] = None
+    Tags: Optional[List[Tag]] = None
+    WindowsConfiguration: Optional[WindowsFileSystemConfiguration] = None
+    LustreConfiguration: Optional[LustreFileSystemConfiguration] = None
+    AdministrativeActions: Optional[List[AdministrativeAction]] = None
+    OntapConfiguration: Optional[OntapFileSystemConfiguration] = None
     FileSystemTypeVersion: Optional[str] = None
-    OpenZFSConfiguration: Optional[OpenZFSFileSystemConfigurationTypeDef] = None
+    OpenZFSConfiguration: Optional[OpenZFSFileSystemConfiguration] = None
 
 
-class RestoreVolumeFromSnapshotResponseTypeDef(BaseValidatorModel):
+class RestoreVolumeFromSnapshotResponse(BaseValidatorModel):
     VolumeId: str
     Lifecycle: VolumeLifecycleType
-    AdministrativeActions: List[AdministrativeActionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    AdministrativeActions: List[AdministrativeAction]
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeFileSystemsResponsePaginatorTypeDef(BaseValidatorModel):
-    FileSystems: List[FileSystemPaginatorTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeFileSystemsResponsePaginator(BaseValidatorModel):
+    FileSystems: List[FileSystemPaginator]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class CreateFileSystemFromBackupResponseTypeDef(BaseValidatorModel):
-    FileSystem: FileSystemTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateFileSystemFromBackupResponse(BaseValidatorModel):
+    FileSystem: FileSystem
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateFileSystemResponseTypeDef(BaseValidatorModel):
-    FileSystem: FileSystemTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateFileSystemResponse(BaseValidatorModel):
+    FileSystem: FileSystem
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeFileSystemsResponseTypeDef(BaseValidatorModel):
-    FileSystems: List[FileSystemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeFileSystemsResponse(BaseValidatorModel):
+    FileSystems: List[FileSystem]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ReleaseFileSystemNfsV3LocksResponseTypeDef(BaseValidatorModel):
-    FileSystem: FileSystemTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class ReleaseFileSystemNfsV3LocksResponse(BaseValidatorModel):
+    FileSystem: FileSystem
+    ResponseMetadata: ResponseMetadata
 
 
-class StartMisconfiguredStateRecoveryResponseTypeDef(BaseValidatorModel):
-    FileSystem: FileSystemTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class StartMisconfiguredStateRecoveryResponse(BaseValidatorModel):
+    FileSystem: FileSystem
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateFileSystemResponseTypeDef(BaseValidatorModel):
-    FileSystem: FileSystemTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateFileSystemResponse(BaseValidatorModel):
+    FileSystem: FileSystem
+    ResponseMetadata: ResponseMetadata
 
 
-class BackupPaginatorTypeDef(BaseValidatorModel):
+class BackupPaginator(BaseValidatorModel):
     pass
 
 
-class DescribeBackupsResponsePaginatorTypeDef(BaseValidatorModel):
-    Backups: List[BackupPaginatorTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeBackupsResponsePaginator(BaseValidatorModel):
+    Backups: List[BackupPaginator]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class BackupTypeDef(BaseValidatorModel):
+class Backup(BaseValidatorModel):
     pass
 
 
-class CopyBackupResponseTypeDef(BaseValidatorModel):
-    Backup: BackupTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CopyBackupResponse(BaseValidatorModel):
+    Backup: Backup
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateBackupResponseTypeDef(BaseValidatorModel):
-    Backup: BackupTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateBackupResponse(BaseValidatorModel):
+    Backup: Backup
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeBackupsResponseTypeDef(BaseValidatorModel):
-    Backups: List[BackupTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeBackupsResponse(BaseValidatorModel):
+    Backups: List[Backup]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 

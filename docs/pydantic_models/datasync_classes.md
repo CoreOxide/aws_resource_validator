@@ -1,9 +1,9 @@
 # Datasync Classes
 
-# AddStorageSystemRequestTypeDef
+# AddStorageSystemRequest
 
 ### ServerConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.DiscoveryServerConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.DiscoveryServerConfiguration'>
 - **Required**: Yes
 
 ### SystemType
@@ -19,31 +19,31 @@
 - **Required**: Yes
 
 ### Credentials
-- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.CredentialsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.Credentials'>
 - **Required**: Yes
 
 ### CloudWatchLogGroupArn
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datasync_classes.TagListEntryTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datasync_classes.TagListEntry]]
 
 ### Name
 - **Type**: typing.Optional[str]
 
 
-# AddStorageSystemResponseTypeDef
+# AddStorageSystemResponse
 
 ### StorageSystemArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# AgentListEntryTypeDef
+# AgentListEntry
 
 ### AgentArn
 - **Type**: typing.Optional[str]
@@ -55,10 +55,10 @@
 - **Type**: typing.Optional[typing.Literal['OFFLINE', 'ONLINE']]
 
 ### Platform
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.PlatformTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# AzureBlobSasConfigurationTypeDef
+# AzureBlobSasConfiguration
 
 ### Token
 - **Type**: <class 'str'>
@@ -71,20 +71,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BlobTypeDef
+# Blob
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CancelTaskExecutionRequestTypeDef
+# CancelTaskExecutionRequest
 
 ### TaskExecutionArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# CapacityTypeDef
+# Capacity
 
 ### Used
 - **Type**: typing.Optional[int]
@@ -99,7 +99,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# CreateAgentRequestTypeDef
+# CreateAgentRequest
 
 ### ActivationKey
 - **Type**: <class 'str'>
@@ -109,7 +109,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datasync_classes.TagListEntryTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datasync_classes.TagListEntry]]
 
 ### VpcEndpointId
 - **Type**: typing.Optional[str]
@@ -121,18 +121,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# CreateAgentResponseTypeDef
+# CreateAgentResponse
 
 ### AgentArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateLocationAzureBlobRequestTypeDef
+# CreateLocationAzureBlobRequest
 
 ### ContainerUrl
 - **Type**: <class 'str'>
@@ -147,7 +147,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SasConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.AzureBlobSasConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.AzureBlobSasConfiguration]
 
 ### BlobType
 - **Type**: typing.Optional[typing.Literal['BLOCK']]
@@ -159,35 +159,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datasync_classes.TagListEntryTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datasync_classes.TagListEntry]]
 
 
-# CreateLocationAzureBlobResponseTypeDef
+# CreateLocationAzureBlobResponse
 
 ### LocationArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateLocationEfsRequestTypeDef
+# CreateLocationEfsRequest
 
 ### EfsFilesystemArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Ec2Config
-- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.Ec2ConfigUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.Ec2ConfigUnion'>
 - **Required**: Yes
 
 ### Subdirectory
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datasync_classes.TagListEntryTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datasync_classes.TagListEntry]]
 
 ### AccessPointArn
 - **Type**: typing.Optional[str]
@@ -199,18 +199,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['NONE', 'TLS1_2']]
 
 
-# CreateLocationEfsResponseTypeDef
+# CreateLocationEfsResponse
 
 ### LocationArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateLocationFsxLustreRequestTypeDef
+# CreateLocationFsxLustreRequest
 
 ### FsxFilesystemArn
 - **Type**: <class 'str'>
@@ -224,43 +224,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datasync_classes.TagListEntryTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datasync_classes.TagListEntry]]
 
 
-# CreateLocationFsxLustreResponseTypeDef
-
-### LocationArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# CreateLocationFsxOntapResponseTypeDef
+# CreateLocationFsxLustreResponse
 
 ### LocationArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateLocationFsxOpenZfsResponseTypeDef
+# CreateLocationFsxOntapResponse
 
 ### LocationArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateLocationFsxWindowsRequestTypeDef
+# CreateLocationFsxOpenZfsResponse
+
+### LocationArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
+# CreateLocationFsxWindowsRequest
 
 ### FsxFilesystemArn
 - **Type**: <class 'str'>
@@ -282,27 +282,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datasync_classes.TagListEntryTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datasync_classes.TagListEntry]]
 
 ### Domain
 - **Type**: typing.Optional[str]
 
 
-# CreateLocationFsxWindowsResponseTypeDef
+# CreateLocationFsxWindowsResponse
 
 ### LocationArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateLocationHdfsRequestTypeDef
+# CreateLocationHdfsRequest
 
 ### NameNodes
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.datasync_classes.HdfsNameNodeTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.datasync_classes.HdfsNameNode]
 - **Required**: Yes
 
 ### AuthenticationType
@@ -326,7 +326,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### QopConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.QopConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### SimpleUser
 - **Type**: typing.Optional[str]
@@ -335,27 +335,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### KerberosKeytab
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.BlobTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.Blob]
 
 ### KerberosKrb5Conf
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.BlobTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.Blob]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datasync_classes.TagListEntryTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datasync_classes.TagListEntry]]
 
 
-# CreateLocationHdfsResponseTypeDef
+# CreateLocationHdfsResponse
 
 ### LocationArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateLocationNfsRequestTypeDef
+# CreateLocationNfsRequest
 
 ### Subdirectory
 - **Type**: <class 'str'>
@@ -366,28 +366,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### OnPremConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.OnPremConfigUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.OnPremConfigUnion'>
 - **Required**: Yes
 
 ### MountOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.NfsMountOptionsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.NfsMountOptions]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datasync_classes.TagListEntryTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datasync_classes.TagListEntry]]
 
 
-# CreateLocationNfsResponseTypeDef
+# CreateLocationNfsResponse
 
 ### LocationArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateLocationObjectStorageRequestTypeDef
+# CreateLocationObjectStorageRequest
 
 ### ServerHostname
 - **Type**: <class 'str'>
@@ -417,31 +417,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datasync_classes.TagListEntryTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datasync_classes.TagListEntry]]
 
 ### ServerCertificate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.BlobTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.Blob]
 
 
-# CreateLocationObjectStorageResponseTypeDef
+# CreateLocationObjectStorageResponse
 
 ### LocationArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateLocationS3RequestTypeDef
+# CreateLocationS3Request
 
 ### S3BucketArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### S3Config
-- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.S3ConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.S3Config'>
 - **Required**: Yes
 
 ### Subdirectory
@@ -454,21 +454,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datasync_classes.TagListEntryTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datasync_classes.TagListEntry]]
 
 
-# CreateLocationS3ResponseTypeDef
+# CreateLocationS3Response
 
 ### LocationArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateLocationSmbRequestTypeDef
+# CreateLocationSmbRequest
 
 ### Subdirectory
 - **Type**: <class 'str'>
@@ -492,10 +492,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### MountOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.SmbMountOptionsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.SmbMountOptions]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datasync_classes.TagListEntryTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datasync_classes.TagListEntry]]
 
 ### AuthenticationType
 - **Type**: typing.Optional[typing.Literal['KERBEROS', 'NTLM']]
@@ -507,24 +507,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### KerberosKeytab
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.BlobTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.Blob]
 
 ### KerberosKrb5Conf
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.BlobTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.Blob]
 
 
-# CreateLocationSmbResponseTypeDef
+# CreateLocationSmbResponse
 
 ### LocationArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateTaskRequestTypeDef
+# CreateTaskRequest
 
 ### SourceLocationArn
 - **Type**: <class 'str'>
@@ -541,42 +541,42 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Options
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.OptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### Excludes
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datasync_classes.FilterRuleTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datasync_classes.FilterRule]]
 
 ### Schedule
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.TaskScheduleTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.TaskSchedule]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datasync_classes.TagListEntryTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datasync_classes.TagListEntry]]
 
 ### Includes
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datasync_classes.FilterRuleTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datasync_classes.FilterRule]]
 
 ### ManifestConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.ManifestConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### TaskReportConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.TaskReportConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### TaskMode
 - **Type**: typing.Optional[typing.Literal['BASIC', 'ENHANCED']]
 
 
-# CreateTaskResponseTypeDef
+# CreateTaskResponse
 
 ### TaskArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CredentialsTypeDef
+# Credentials
 
 ### Username
 - **Type**: <class 'str'>
@@ -587,35 +587,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteAgentRequestTypeDef
+# DeleteAgentRequest
 
 ### AgentArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteLocationRequestTypeDef
+# DeleteLocationRequest
 
 ### LocationArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteTaskRequestTypeDef
+# DeleteTaskRequest
 
 ### TaskArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeAgentRequestTypeDef
+# DescribeAgentRequest
 
 ### AgentArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeAgentResponseTypeDef
+# DescribeAgentResponse
 
 ### AgentArn
 - **Type**: <class 'str'>
@@ -642,26 +642,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PrivateLinkConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.PrivateLinkConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.PrivateLinkConfig'>
 - **Required**: Yes
 
 ### Platform
-- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.PlatformTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.Platform'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeDiscoveryJobRequestTypeDef
+# DescribeDiscoveryJobRequest
 
 ### DiscoveryJobArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeDiscoveryJobResponseTypeDef
+# DescribeDiscoveryJobResponse
 
 ### StorageSystemArn
 - **Type**: <class 'str'>
@@ -688,18 +688,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeLocationAzureBlobRequestTypeDef
+# DescribeLocationAzureBlobRequest
 
 ### LocationArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeLocationAzureBlobResponseTypeDef
+# DescribeLocationAzureBlobResponse
 
 ### LocationArn
 - **Type**: <class 'str'>
@@ -730,18 +730,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeLocationEfsRequestTypeDef
+# DescribeLocationEfsRequest
 
 ### LocationArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeLocationEfsResponseTypeDef
+# DescribeLocationEfsResponse
 
 ### LocationArn
 - **Type**: <class 'str'>
@@ -752,7 +752,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Ec2Config
-- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.Ec2ConfigOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.Ec2ConfigOutput'>
 - **Required**: Yes
 
 ### CreationTime
@@ -772,18 +772,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeLocationFsxLustreRequestTypeDef
+# DescribeLocationFsxLustreRequest
 
 ### LocationArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeLocationFsxLustreResponseTypeDef
+# DescribeLocationFsxLustreResponse
 
 ### LocationArn
 - **Type**: <class 'str'>
@@ -802,32 +802,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeLocationFsxOntapRequestTypeDef
+# DescribeLocationFsxOntapRequest
 
 ### LocationArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeLocationFsxOpenZfsRequestTypeDef
+# DescribeLocationFsxOpenZfsRequest
 
 ### LocationArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeLocationFsxWindowsRequestTypeDef
+# DescribeLocationFsxWindowsRequest
 
 ### LocationArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeLocationFsxWindowsResponseTypeDef
+# DescribeLocationFsxWindowsResponse
 
 ### LocationArn
 - **Type**: <class 'str'>
@@ -854,18 +854,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeLocationHdfsRequestTypeDef
+# DescribeLocationHdfsRequest
 
 ### LocationArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeLocationHdfsResponseTypeDef
+# DescribeLocationHdfsResponse
 
 ### LocationArn
 - **Type**: <class 'str'>
@@ -876,7 +876,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### NameNodes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.datasync_classes.HdfsNameNodeTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datasync_classes.HdfsNameNode]
 - **Required**: Yes
 
 ### BlockSize
@@ -892,7 +892,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### QopConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.QopConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.QopConfiguration'>
 - **Required**: Yes
 
 ### AuthenticationType
@@ -916,18 +916,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeLocationNfsRequestTypeDef
+# DescribeLocationNfsRequest
 
 ### LocationArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeLocationNfsResponseTypeDef
+# DescribeLocationNfsResponse
 
 ### LocationArn
 - **Type**: <class 'str'>
@@ -938,11 +938,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### OnPremConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.OnPremConfigOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.OnPremConfigOutput'>
 - **Required**: Yes
 
 ### MountOptions
-- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.NfsMountOptionsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.NfsMountOptions'>
 - **Required**: Yes
 
 ### CreationTime
@@ -950,18 +950,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeLocationObjectStorageRequestTypeDef
+# DescribeLocationObjectStorageRequest
 
 ### LocationArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeLocationObjectStorageResponseTypeDef
+# DescribeLocationObjectStorageResponse
 
 ### LocationArn
 - **Type**: <class 'str'>
@@ -996,18 +996,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeLocationS3RequestTypeDef
+# DescribeLocationS3Request
 
 ### LocationArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeLocationS3ResponseTypeDef
+# DescribeLocationS3Response
 
 ### LocationArn
 - **Type**: <class 'str'>
@@ -1022,7 +1022,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### S3Config
-- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.S3ConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.S3Config'>
 - **Required**: Yes
 
 ### AgentArns
@@ -1034,18 +1034,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeLocationSmbRequestTypeDef
+# DescribeLocationSmbRequest
 
 ### LocationArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeLocationSmbResponseTypeDef
+# DescribeLocationSmbResponse
 
 ### LocationArn
 - **Type**: <class 'str'>
@@ -1068,7 +1068,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### MountOptions
-- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.SmbMountOptionsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.SmbMountOptions'>
 - **Required**: Yes
 
 ### CreationTime
@@ -1088,18 +1088,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeStorageSystemRequestTypeDef
+# DescribeStorageSystemRequest
 
 ### StorageSystemArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeStorageSystemResourceMetricsRequestPaginateTypeDef
+# DescribeStorageSystemResourceMetricsRequest
 
 ### DiscoveryJobArn
 - **Type**: <class 'str'>
@@ -1114,34 +1114,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### StartTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.Timestamp]
 
 ### EndTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.TimestampTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.PaginatorConfigTypeDef]
-
-
-# DescribeStorageSystemResourceMetricsRequestTypeDef
-
-### DiscoveryJobArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ResourceType
-- **Type**: typing.Literal['CLUSTER', 'SVM', 'VOLUME']
-- **Required**: Yes
-
-### ResourceId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### StartTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.TimestampTypeDef]
-
-### EndTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.Timestamp]
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1150,21 +1126,45 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeStorageSystemResourceMetricsResponseTypeDef
+# DescribeStorageSystemResourceMetricsRequestPaginate
+
+### DiscoveryJobArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResourceType
+- **Type**: typing.Literal['CLUSTER', 'SVM', 'VOLUME']
+- **Required**: Yes
+
+### ResourceId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### StartTime
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.Timestamp]
+
+### EndTime
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.Timestamp]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.PaginatorConfig]
+
+
+# DescribeStorageSystemResourceMetricsResponse
 
 ### Metrics
-- **Type**: typing.List[aws_resource_validator.pydantic_models.datasync_classes.ResourceMetricsTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datasync_classes.ResourceMetrics]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# DescribeStorageSystemResourcesRequestTypeDef
+# DescribeStorageSystemResourcesRequest
 
 ### DiscoveryJobArn
 - **Type**: <class 'str'>
@@ -1187,28 +1187,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeStorageSystemResourcesResponseTypeDef
+# DescribeStorageSystemResourcesResponse
 
 ### ResourceDetails
-- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ResourceDetailsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ResourceDetails'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# DescribeStorageSystemResponseTypeDef
+# DescribeStorageSystemResponse
 
 ### StorageSystemArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ServerConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.DiscoveryServerConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.DiscoveryServerConfiguration'>
 - **Required**: Yes
 
 ### SystemType
@@ -1244,18 +1244,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeTaskExecutionRequestTypeDef
+# DescribeTaskExecutionRequest
 
 ### TaskExecutionArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeTaskExecutionResponseTypeDef
+# DescribeTaskExecutionResponse
 
 ### TaskExecutionArn
 - **Type**: <class 'str'>
@@ -1266,19 +1266,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Options
-- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.OptionsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.Options'>
 - **Required**: Yes
 
 ### Excludes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.datasync_classes.FilterRuleTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datasync_classes.FilterRule]
 - **Required**: Yes
 
 ### Includes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.datasync_classes.FilterRuleTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datasync_classes.FilterRule]
 - **Required**: Yes
 
 ### ManifestConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ManifestConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ManifestConfig'>
 - **Required**: Yes
 
 ### StartTime
@@ -1310,11 +1310,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Result
-- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.TaskExecutionResultDetailTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.TaskExecutionResultDetail'>
 - **Required**: Yes
 
 ### TaskReportConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.TaskReportConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.TaskReportConfig'>
 - **Required**: Yes
 
 ### FilesDeleted
@@ -1330,7 +1330,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ReportResult
-- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ReportResultTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ReportResult'>
 - **Required**: Yes
 
 ### EstimatedFilesToDelete
@@ -1346,26 +1346,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### FilesListed
-- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.TaskExecutionFilesListedDetailTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.TaskExecutionFilesListedDetail'>
 - **Required**: Yes
 
 ### FilesFailed
-- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.TaskExecutionFilesFailedDetailTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.TaskExecutionFilesFailedDetail'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeTaskRequestTypeDef
+# DescribeTaskRequest
 
 ### TaskArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeTaskResponseTypeDef
+# DescribeTaskResponse
 
 ### TaskArn
 - **Type**: <class 'str'>
@@ -1404,15 +1404,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Options
-- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.OptionsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.Options'>
 - **Required**: Yes
 
 ### Excludes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.datasync_classes.FilterRuleTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datasync_classes.FilterRule]
 - **Required**: Yes
 
 ### Schedule
-- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.TaskScheduleTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.TaskSchedule'>
 - **Required**: Yes
 
 ### ErrorCode
@@ -1428,19 +1428,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Includes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.datasync_classes.FilterRuleTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datasync_classes.FilterRule]
 - **Required**: Yes
 
 ### ManifestConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ManifestConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ManifestConfig'>
 - **Required**: Yes
 
 ### TaskReportConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.TaskReportConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.TaskReportConfig'>
 - **Required**: Yes
 
 ### ScheduleDetails
-- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.TaskScheduleDetailsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.TaskScheduleDetails'>
 - **Required**: Yes
 
 ### TaskMode
@@ -1448,11 +1448,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DiscoveryJobListEntryTypeDef
+# DiscoveryJobListEntry
 
 ### DiscoveryJobArn
 - **Type**: typing.Optional[str]
@@ -1461,7 +1461,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['COMPLETED', 'COMPLETED_WITH_ISSUES', 'FAILED', 'RUNNING', 'STOPPED', 'TERMINATED', 'WARNING']]
 
 
-# DiscoveryServerConfigurationTypeDef
+# DiscoveryServerConfiguration
 
 ### ServerHostname
 - **Type**: <class 'str'>
@@ -1471,18 +1471,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# Ec2ConfigOutputTypeDef
-
-### SubnetArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### SecurityGroupArns
-- **Type**: typing.List[str]
-- **Required**: Yes
-
-
-# Ec2ConfigTypeDef
+# Ec2Config
 
 ### SubnetArn
 - **Type**: <class 'str'>
@@ -1493,13 +1482,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# Ec2ConfigUnionTypeDef
+# Ec2ConfigOutput
+
+### SubnetArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### SecurityGroupArns
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+
+# Ec2ConfigUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# FilterRuleTypeDef
+# FilterRule
 
 ### FilterType
 - **Type**: typing.Optional[typing.Literal['SIMPLE_PATTERN']]
@@ -1508,13 +1508,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# FsxProtocolNfsTypeDef
+# FsxProtocol
+
+### NFS
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.FsxProtocolNfs]
+
+### SMB
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.FsxProtocolSmb]
+
+
+# FsxProtocolNfs
 
 ### MountOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.NfsMountOptionsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.NfsMountOptions]
 
 
-# FsxProtocolSmbTypeDef
+# FsxProtocolSmb
 
 ### Password
 - **Type**: <class 'str'>
@@ -1528,25 +1537,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### MountOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.SmbMountOptionsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.SmbMountOptions]
 
 
-# FsxProtocolTypeDef
+# FsxUpdateProtocol
 
 ### NFS
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.FsxProtocolNfsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.FsxProtocolNfs]
 
 ### SMB
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.FsxProtocolSmbTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.FsxUpdateProtocolSmb]
 
 
-# FsxUpdateProtocolSmbTypeDef
+# FsxUpdateProtocolSmb
 
 ### Domain
 - **Type**: typing.Optional[str]
 
 ### MountOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.SmbMountOptionsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.SmbMountOptions]
 
 ### Password
 - **Type**: typing.Optional[str]
@@ -1555,16 +1564,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# FsxUpdateProtocolTypeDef
-
-### NFS
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.FsxProtocolNfsTypeDef]
-
-### SMB
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.FsxUpdateProtocolSmbTypeDef]
-
-
-# GenerateRecommendationsRequestTypeDef
+# GenerateRecommendationsRequest
 
 ### DiscoveryJobArn
 - **Type**: <class 'str'>
@@ -1579,7 +1579,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# HdfsNameNodeTypeDef
+# HdfsNameNode
 
 ### Hostname
 - **Type**: <class 'str'>
@@ -1590,7 +1590,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# IOPSTypeDef
+# IOPS
 
 ### Read
 - **Type**: typing.Optional[float]
@@ -1605,7 +1605,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# LatencyTypeDef
+# Latency
 
 ### Read
 - **Type**: typing.Optional[float]
@@ -1617,13 +1617,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# ListAgentsRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.PaginatorConfigTypeDef]
-
-
-# ListAgentsRequestTypeDef
+# ListAgentsRequest
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1632,30 +1626,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListAgentsResponseTypeDef
+# ListAgentsRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.PaginatorConfig]
+
+
+# ListAgentsResponse
 
 ### Agents
-- **Type**: typing.List[aws_resource_validator.pydantic_models.datasync_classes.AgentListEntryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datasync_classes.AgentListEntry]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListDiscoveryJobsRequestPaginateTypeDef
-
-### StorageSystemArn
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.PaginatorConfigTypeDef]
-
-
-# ListDiscoveryJobsRequestTypeDef
+# ListDiscoveryJobsRequest
 
 ### StorageSystemArn
 - **Type**: typing.Optional[str]
@@ -1667,30 +1658,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListDiscoveryJobsResponseTypeDef
+# ListDiscoveryJobsRequestPaginate
+
+### StorageSystemArn
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.PaginatorConfig]
+
+
+# ListDiscoveryJobsResponse
 
 ### DiscoveryJobs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.datasync_classes.DiscoveryJobListEntryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datasync_classes.DiscoveryJobListEntry]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListLocationsRequestPaginateTypeDef
-
-### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datasync_classes.LocationFilterTypeDef]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.PaginatorConfigTypeDef]
-
-
-# ListLocationsRequestTypeDef
+# ListLocationsRequest
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1699,30 +1690,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datasync_classes.LocationFilterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datasync_classes.LocationFilter]]
 
 
-# ListLocationsResponseTypeDef
+# ListLocationsRequestPaginate
+
+### Filters
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datasync_classes.LocationFilter]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.PaginatorConfig]
+
+
+# ListLocationsResponse
 
 ### Locations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.datasync_classes.LocationListEntryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datasync_classes.LocationListEntry]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListStorageSystemsRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.PaginatorConfigTypeDef]
-
-
-# ListStorageSystemsRequestTypeDef
+# ListStorageSystemsRequest
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1731,31 +1725,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListStorageSystemsResponseTypeDef
+# ListStorageSystemsRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.PaginatorConfig]
+
+
+# ListStorageSystemsResponse
 
 ### StorageSystems
-- **Type**: typing.List[aws_resource_validator.pydantic_models.datasync_classes.StorageSystemListEntryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datasync_classes.StorageSystemListEntry]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestPaginateTypeDef
-
-### ResourceArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.PaginatorConfigTypeDef]
-
-
-# ListTagsForResourceRequestTypeDef
+# ListTagsForResourceRequest
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -1768,30 +1758,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceResponseTypeDef
+# ListTagsForResourceRequestPaginate
+
+### ResourceArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.PaginatorConfig]
+
+
+# ListTagsForResourceResponse
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.datasync_classes.TagListEntryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datasync_classes.TagListEntry]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTaskExecutionsRequestPaginateTypeDef
-
-### TaskArn
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.PaginatorConfigTypeDef]
-
-
-# ListTaskExecutionsRequestTypeDef
+# ListTaskExecutionsRequest
 
 ### TaskArn
 - **Type**: typing.Optional[str]
@@ -1803,30 +1794,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListTaskExecutionsResponseTypeDef
+# ListTaskExecutionsRequestPaginate
+
+### TaskArn
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.PaginatorConfig]
+
+
+# ListTaskExecutionsResponse
 
 ### TaskExecutions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.datasync_classes.TaskExecutionListEntryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datasync_classes.TaskExecutionListEntry]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTasksRequestPaginateTypeDef
-
-### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datasync_classes.TaskFilterTypeDef]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.PaginatorConfigTypeDef]
-
-
-# ListTasksRequestTypeDef
+# ListTasksRequest
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1835,24 +1826,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datasync_classes.TaskFilterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datasync_classes.TaskFilter]]
 
 
-# ListTasksResponseTypeDef
+# ListTasksRequestPaginate
+
+### Filters
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datasync_classes.TaskFilter]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.PaginatorConfig]
+
+
+# ListTasksResponse
 
 ### Tasks
-- **Type**: typing.List[aws_resource_validator.pydantic_models.datasync_classes.TaskListEntryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datasync_classes.TaskListEntry]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# LocationFilterTypeDef
+# LocationFilter
 
 ### Name
 - **Type**: typing.Literal['CreationTime', 'LocationType', 'LocationUri']
@@ -1867,7 +1867,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# LocationListEntryTypeDef
+# LocationListEntry
 
 ### LocationArn
 - **Type**: typing.Optional[str]
@@ -1876,7 +1876,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ManifestConfigTypeDef
+# ManifestConfig
 
 ### Action
 - **Type**: typing.Optional[typing.Literal['TRANSFER']]
@@ -1885,10 +1885,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CSV']]
 
 ### Source
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.SourceManifestConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.SourceManifestConfig]
 
 
-# MaxP95PerformanceTypeDef
+# MaxP95Performance
 
 ### IopsRead
 - **Type**: typing.Optional[float]
@@ -1924,7 +1924,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# NetAppONTAPClusterTypeDef
+# NetAppONTAPCluster
 
 ### CifsShareCount
 - **Type**: typing.Optional[int]
@@ -1939,7 +1939,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### MaxP95Performance
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.MaxP95PerformanceTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### ClusterBlockStorageSize
 - **Type**: typing.Optional[int]
@@ -1951,7 +1951,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Recommendations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datasync_classes.RecommendationTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datasync_classes.Recommendation]]
 
 ### RecommendationStatus
 - **Type**: typing.Optional[typing.Literal['COMPLETED', 'FAILED', 'IN_PROGRESS', 'NONE']]
@@ -1963,7 +1963,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# NetAppONTAPSVMTypeDef
+# NetAppONTAPSVM
 
 ### ClusterUuid
 - **Type**: typing.Optional[str]
@@ -1990,10 +1990,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### MaxP95Performance
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.MaxP95PerformanceTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### Recommendations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datasync_classes.RecommendationTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datasync_classes.Recommendation]]
 
 ### NfsExportedVolumes
 - **Type**: typing.Optional[int]
@@ -2008,7 +2008,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# NetAppONTAPVolumeTypeDef
+# NetAppONTAPVolume
 
 ### VolumeName
 - **Type**: typing.Optional[str]
@@ -2044,10 +2044,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### MaxP95Performance
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.MaxP95PerformanceTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### Recommendations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datasync_classes.RecommendationTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datasync_classes.Recommendation]]
 
 ### RecommendationStatus
 - **Type**: typing.Optional[typing.Literal['COMPLETED', 'FAILED', 'IN_PROGRESS', 'NONE']]
@@ -2056,33 +2056,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# NfsMountOptionsTypeDef
+# NfsMountOptions
 
 ### Version
 - **Type**: typing.Optional[typing.Literal['AUTOMATIC', 'NFS3', 'NFS4_0', 'NFS4_1']]
 
 
-# OnPremConfigOutputTypeDef
-
-### AgentArns
-- **Type**: typing.List[str]
-- **Required**: Yes
-
-
-# OnPremConfigTypeDef
+# OnPremConfig
 
 ### AgentArns
 - **Type**: typing.Sequence[str]
 - **Required**: Yes
 
 
-# OnPremConfigUnionTypeDef
+# OnPremConfigOutput
+
+### AgentArns
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+
+# OnPremConfigUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# OptionsTypeDef
+# Options
 
 ### VerifyMode
 - **Type**: typing.Optional[typing.Literal['NONE', 'ONLY_FILES_TRANSFERRED', 'POINT_IN_TIME_CONSISTENT']]
@@ -2130,19 +2130,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['NONE', 'PRESERVE']]
 
 
-# P95MetricsTypeDef
+# P95Metrics
 
 ### IOPS
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.IOPSTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### Throughput
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.ThroughputTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### Latency
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.LatencyTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -2154,13 +2154,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PlatformTypeDef
+# Platform
 
 ### Version
 - **Type**: typing.Optional[str]
 
 
-# PrivateLinkConfigTypeDef
+# PrivateLinkConfig
 
 ### VpcEndpointId
 - **Type**: typing.Optional[str]
@@ -2175,7 +2175,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# QopConfigurationTypeDef
+# QopConfiguration
 
 ### RpcProtection
 - **Type**: typing.Optional[typing.Literal['AUTHENTICATION', 'DISABLED', 'INTEGRITY', 'PRIVACY']]
@@ -2184,7 +2184,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['AUTHENTICATION', 'DISABLED', 'INTEGRITY', 'PRIVACY']]
 
 
-# RecommendationTypeDef
+# Recommendation
 
 ### StorageType
 - **Type**: typing.Optional[str]
@@ -2196,14 +2196,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RemoveStorageSystemRequestTypeDef
+# RemoveStorageSystemRequest
 
 ### StorageSystemArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ReportDestinationS3TypeDef
+# ReportDestination
+
+### S3
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.ReportDestinationS3]
+
+
+# ReportDestinationS3
 
 ### S3BucketArn
 - **Type**: <class 'str'>
@@ -2217,34 +2223,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ReportDestinationTypeDef
-
-### S3
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.ReportDestinationS3TypeDef]
-
-
-# ReportOverrideTypeDef
+# ReportOverride
 
 ### ReportLevel
 - **Type**: typing.Optional[typing.Literal['ERRORS_ONLY', 'SUCCESSES_AND_ERRORS']]
 
 
-# ReportOverridesTypeDef
+# ReportOverrides
 
 ### Transferred
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.ReportOverrideTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.ReportOverride]
 
 ### Verified
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.ReportOverrideTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.ReportOverride]
 
 ### Deleted
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.ReportOverrideTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.ReportOverride]
 
 ### Skipped
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.ReportOverrideTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.ReportOverride]
 
 
-# ReportResultTypeDef
+# ReportResult
 
 ### Status
 - **Type**: typing.Optional[typing.Literal['ERROR', 'PENDING', 'SUCCESS']]
@@ -2256,28 +2256,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ResourceDetailsTypeDef
+# ResourceDetails
 
 ### NetAppONTAPSVMs
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datasync_classes.NetAppONTAPSVMTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datasync_classes.NetAppONTAPSVM]]
 
 ### NetAppONTAPVolumes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datasync_classes.NetAppONTAPVolumeTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datasync_classes.NetAppONTAPVolume]]
 
 ### NetAppONTAPClusters
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datasync_classes.NetAppONTAPClusterTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datasync_classes.NetAppONTAPCluster]]
 
 
-# ResourceMetricsTypeDef
+# ResourceMetrics
 
 ### Timestamp
 - **Type**: typing.Optional[datetime.datetime]
 
 ### P95Metrics
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.P95MetricsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### Capacity
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.CapacityTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### ResourceId
 - **Type**: typing.Optional[str]
@@ -2286,7 +2286,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CLUSTER', 'SVM', 'VOLUME']]
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -2308,14 +2308,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# S3ConfigTypeDef
+# S3Config
 
 ### BucketAccessRoleArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# S3ManifestConfigTypeDef
+# S3ManifestConfig
 
 ### ManifestObjectPath
 - **Type**: <class 'str'>
@@ -2333,20 +2333,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SmbMountOptionsTypeDef
+# SmbMountOptions
 
 ### Version
 - **Type**: typing.Optional[typing.Literal['AUTOMATIC', 'SMB1', 'SMB2', 'SMB2_0', 'SMB3']]
 
 
-# SourceManifestConfigTypeDef
+# SourceManifestConfig
 
 ### S3
-- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.S3ManifestConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.S3ManifestConfig'>
 - **Required**: Yes
 
 
-# StartDiscoveryJobRequestTypeDef
+# StartDiscoveryJobRequest
 
 ### StorageSystemArn
 - **Type**: <class 'str'>
@@ -2361,64 +2361,64 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datasync_classes.TagListEntryTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datasync_classes.TagListEntry]]
 
 
-# StartDiscoveryJobResponseTypeDef
+# StartDiscoveryJobResponse
 
 ### DiscoveryJobArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# StartTaskExecutionRequestTypeDef
+# StartTaskExecutionRequest
 
 ### TaskArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### OverrideOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.OptionsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.Options]
 
 ### Includes
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datasync_classes.FilterRuleTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datasync_classes.FilterRule]]
 
 ### Excludes
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datasync_classes.FilterRuleTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datasync_classes.FilterRule]]
 
 ### ManifestConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.ManifestConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### TaskReportConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.TaskReportConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datasync_classes.TagListEntryTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datasync_classes.TagListEntry]]
 
 
-# StartTaskExecutionResponseTypeDef
+# StartTaskExecutionResponse
 
 ### TaskExecutionArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# StopDiscoveryJobRequestTypeDef
+# StopDiscoveryJobRequest
 
 ### DiscoveryJobArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# StorageSystemListEntryTypeDef
+# StorageSystemListEntry
 
 ### StorageSystemArn
 - **Type**: typing.Optional[str]
@@ -2427,7 +2427,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TagListEntryTypeDef
+# TagListEntry
 
 ### Key
 - **Type**: <class 'str'>
@@ -2437,18 +2437,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TagResourceRequestTypeDef
+# TagResourceRequest
 
 ### ResourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.datasync_classes.TagListEntryTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.datasync_classes.TagListEntry]
 - **Required**: Yes
 
 
-# TaskExecutionFilesFailedDetailTypeDef
+# TaskExecutionFilesFailedDetail
 
 ### Prepare
 - **Type**: typing.Optional[int]
@@ -2463,7 +2463,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# TaskExecutionFilesListedDetailTypeDef
+# TaskExecutionFilesListedDetail
 
 ### AtSource
 - **Type**: typing.Optional[int]
@@ -2472,7 +2472,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# TaskExecutionListEntryTypeDef
+# TaskExecutionListEntry
 
 ### TaskExecutionArn
 - **Type**: typing.Optional[str]
@@ -2484,7 +2484,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['BASIC', 'ENHANCED']]
 
 
-# TaskExecutionResultDetailTypeDef
+# TaskExecutionResultDetail
 
 ### PrepareDuration
 - **Type**: typing.Optional[int]
@@ -2514,7 +2514,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TaskFilterTypeDef
+# TaskFilter
 
 ### Name
 - **Type**: typing.Literal['CreationTime', 'LocationId']
@@ -2529,7 +2529,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TaskListEntryTypeDef
+# TaskListEntry
 
 ### TaskArn
 - **Type**: typing.Optional[str]
@@ -2544,10 +2544,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['BASIC', 'ENHANCED']]
 
 
-# TaskReportConfigTypeDef
+# TaskReportConfig
 
 ### Destination
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.ReportDestinationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.ReportDestination]
 
 ### OutputType
 - **Type**: typing.Optional[typing.Literal['STANDARD', 'SUMMARY_ONLY']]
@@ -2559,10 +2559,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['INCLUDE', 'NONE']]
 
 ### Overrides
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.ReportOverridesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.ReportOverrides]
 
 
-# TaskScheduleDetailsTypeDef
+# TaskSchedule
+
+### ScheduleExpression
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Status
+- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
+
+
+# TaskScheduleDetails
 
 ### StatusUpdateTime
 - **Type**: typing.Optional[datetime.datetime]
@@ -2574,17 +2584,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['SERVICE', 'USER']]
 
 
-# TaskScheduleTypeDef
-
-### ScheduleExpression
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Status
-- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
-
-
-# ThroughputTypeDef
+# Throughput
 
 ### Read
 - **Type**: typing.Optional[float]
@@ -2599,13 +2599,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# TimestampTypeDef
+# Timestamp
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# UntagResourceRequestTypeDef
+# UntagResourceRequest
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -2616,7 +2616,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateAgentRequestTypeDef
+# UpdateAgentRequest
 
 ### AgentArn
 - **Type**: <class 'str'>
@@ -2626,7 +2626,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateDiscoveryJobRequestTypeDef
+# UpdateDiscoveryJobRequest
 
 ### DiscoveryJobArn
 - **Type**: <class 'str'>
@@ -2637,7 +2637,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateLocationAzureBlobRequestTypeDef
+# UpdateLocationAzureBlobRequest
 
 ### LocationArn
 - **Type**: <class 'str'>
@@ -2650,7 +2650,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['SAS']]
 
 ### SasConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.AzureBlobSasConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.AzureBlobSasConfiguration]
 
 ### BlobType
 - **Type**: typing.Optional[typing.Literal['BLOCK']]
@@ -2662,7 +2662,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# UpdateLocationEfsRequestTypeDef
+# UpdateLocationEfsRequest
 
 ### LocationArn
 - **Type**: <class 'str'>
@@ -2681,7 +2681,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['NONE', 'TLS1_2']]
 
 
-# UpdateLocationFsxLustreRequestTypeDef
+# UpdateLocationFsxLustreRequest
 
 ### LocationArn
 - **Type**: <class 'str'>
@@ -2691,7 +2691,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateLocationFsxWindowsRequestTypeDef
+# UpdateLocationFsxWindowsRequest
 
 ### LocationArn
 - **Type**: <class 'str'>
@@ -2710,7 +2710,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateLocationHdfsRequestTypeDef
+# UpdateLocationHdfsRequest
 
 ### LocationArn
 - **Type**: <class 'str'>
@@ -2720,7 +2720,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### NameNodes
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datasync_classes.HdfsNameNodeTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datasync_classes.HdfsNameNode]]
 
 ### BlockSize
 - **Type**: typing.Optional[int]
@@ -2732,7 +2732,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### QopConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.QopConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### AuthenticationType
 - **Type**: typing.Optional[typing.Literal['KERBEROS', 'SIMPLE']]
@@ -2744,16 +2744,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### KerberosKeytab
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.BlobTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.Blob]
 
 ### KerberosKrb5Conf
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.BlobTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.Blob]
 
 ### AgentArns
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# UpdateLocationNfsRequestTypeDef
+# UpdateLocationNfsRequest
 
 ### LocationArn
 - **Type**: <class 'str'>
@@ -2766,13 +2766,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### OnPremConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.OnPremConfigUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.OnPremConfigUnion]
 
 ### MountOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.NfsMountOptionsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.NfsMountOptions]
 
 
-# UpdateLocationObjectStorageRequestTypeDef
+# UpdateLocationObjectStorageRequest
 
 ### LocationArn
 - **Type**: <class 'str'>
@@ -2800,10 +2800,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### ServerCertificate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.BlobTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.Blob]
 
 
-# UpdateLocationS3RequestTypeDef
+# UpdateLocationS3Request
 
 ### LocationArn
 - **Type**: <class 'str'>
@@ -2816,10 +2816,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DEEP_ARCHIVE', 'GLACIER', 'GLACIER_INSTANT_RETRIEVAL', 'INTELLIGENT_TIERING', 'ONEZONE_IA', 'OUTPOSTS', 'STANDARD', 'STANDARD_IA']]
 
 ### S3Config
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.S3ConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# UpdateLocationSmbRequestTypeDef
+# UpdateLocationSmbRequest
 
 ### LocationArn
 - **Type**: <class 'str'>
@@ -2844,7 +2844,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### MountOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.SmbMountOptionsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.SmbMountOptions]
 
 ### AuthenticationType
 - **Type**: typing.Optional[typing.Literal['KERBEROS', 'NTLM']]
@@ -2856,20 +2856,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### KerberosKeytab
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.BlobTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.Blob]
 
 ### KerberosKrb5Conf
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.BlobTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.Blob]
 
 
-# UpdateStorageSystemRequestTypeDef
+# UpdateStorageSystemRequest
 
 ### StorageSystemArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ServerConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.DiscoveryServerConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.DiscoveryServerConfiguration]
 
 ### AgentArns
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -2881,34 +2881,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Credentials
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.CredentialsTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# UpdateTaskExecutionRequestTypeDef
+# UpdateTaskExecutionRequest
 
 ### TaskExecutionArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Options
-- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.OptionsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datasync_classes.Options'>
 - **Required**: Yes
 
 
-# UpdateTaskRequestTypeDef
+# UpdateTaskRequest
 
 ### TaskArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Options
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.OptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### Excludes
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datasync_classes.FilterRuleTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datasync_classes.FilterRule]]
 
 ### Schedule
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.TaskScheduleTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.TaskSchedule]
 
 ### Name
 - **Type**: typing.Optional[str]
@@ -2917,12 +2917,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Includes
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datasync_classes.FilterRuleTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datasync_classes.FilterRule]]
 
 ### ManifestConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.ManifestConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### TaskReportConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datasync_classes.TaskReportConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 

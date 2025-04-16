@@ -12,21 +12,21 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.braket_constants import *
 
-class ContainerImageTypeDef(BaseValidatorModel):
+class ContainerImage(BaseValidatorModel):
     uri: str
 
 
-class ScriptModeConfigTypeDef(BaseValidatorModel):
+class ScriptModeConfig(BaseValidatorModel):
     entryPoint: str
     s3Uri: str
     compressionType: Optional[CompressionTypeType] = None
 
 
-class CancelJobRequestTypeDef(BaseValidatorModel):
+class CancelJobRequest(BaseValidatorModel):
     jobArn: str
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -34,46 +34,46 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class CancelQuantumTaskRequestTypeDef(BaseValidatorModel):
+class CancelQuantumTaskRequest(BaseValidatorModel):
     clientToken: str
     quantumTaskArn: str
 
 
-class DeviceConfigTypeDef(BaseValidatorModel):
+class DeviceConfig(BaseValidatorModel):
     device: str
 
 
-class InstanceConfigTypeDef(BaseValidatorModel):
+class InstanceConfig(BaseValidatorModel):
     instanceType: InstanceTypeType
     volumeSizeInGb: int
     instanceCount: Optional[int] = None
 
 
-class JobCheckpointConfigTypeDef(BaseValidatorModel):
+class JobCheckpointConfig(BaseValidatorModel):
     s3Uri: str
     localPath: Optional[str] = None
 
 
-class JobOutputDataConfigTypeDef(BaseValidatorModel):
+class JobOutputDataConfig(BaseValidatorModel):
     s3Path: str
     kmsKeyId: Optional[str] = None
 
 
-class JobStoppingConditionTypeDef(BaseValidatorModel):
+class JobStoppingCondition(BaseValidatorModel):
     maxRuntimeInSeconds: Optional[int] = None
 
 
-class S3DataSourceTypeDef(BaseValidatorModel):
+class S3DataSource(BaseValidatorModel):
     s3Uri: str
 
 
-class DeviceQueueInfoTypeDef(BaseValidatorModel):
+class DeviceQueueInfo(BaseValidatorModel):
     queue: QueueNameType
     queueSize: str
     queuePriority: Optional[QueuePriorityType] = None
 
 
-class DeviceSummaryTypeDef(BaseValidatorModel):
+class DeviceSummary(BaseValidatorModel):
     deviceArn: str
     deviceName: str
     deviceStatus: DeviceStatusType
@@ -81,40 +81,40 @@ class DeviceSummaryTypeDef(BaseValidatorModel):
     providerName: str
 
 
-class GetDeviceRequestTypeDef(BaseValidatorModel):
+class GetDeviceRequest(BaseValidatorModel):
     deviceArn: str
 
 
-class GetJobRequestTypeDef(BaseValidatorModel):
+class GetJobRequest(BaseValidatorModel):
     jobArn: str
     additionalAttributeNames: Optional[Sequence[Literal["QueueInfo"]]] = None
 
 
-class HybridJobQueueInfoTypeDef(BaseValidatorModel):
+class HybridJobQueueInfo(BaseValidatorModel):
     position: str
     queue: QueueNameType
     message: Optional[str] = None
 
 
-class JobEventDetailsTypeDef(BaseValidatorModel):
+class JobEventDetails(BaseValidatorModel):
     eventType: Optional[JobEventTypeType] = None
     message: Optional[str] = None
     timeOfEvent: Optional[datetime] = None
 
 
-class GetQuantumTaskRequestTypeDef(BaseValidatorModel):
+class GetQuantumTaskRequest(BaseValidatorModel):
     quantumTaskArn: str
     additionalAttributeNames: Optional[Sequence[Literal["QueueInfo"]]] = None
 
 
-class QuantumTaskQueueInfoTypeDef(BaseValidatorModel):
+class QuantumTaskQueueInfo(BaseValidatorModel):
     position: str
     queue: QueueNameType
     message: Optional[str] = None
     queuePriority: Optional[QueuePriorityType] = None
 
 
-class JobSummaryTypeDef(BaseValidatorModel):
+class JobSummary(BaseValidatorModel):
     createdAt: datetime
     device: str
     jobArn: str
@@ -125,17 +125,17 @@ class JobSummaryTypeDef(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class QuantumTaskSummaryTypeDef(BaseValidatorModel):
+class QuantumTaskSummary(BaseValidatorModel):
     createdAt: datetime
     deviceArn: str
     outputS3Bucket: str
@@ -147,93 +147,93 @@ class QuantumTaskSummaryTypeDef(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
-class SearchDevicesFilterTypeDef(BaseValidatorModel):
+class SearchDevicesFilter(BaseValidatorModel):
     name: str
     values: Sequence[str]
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
 
-class AlgorithmSpecificationTypeDef(BaseValidatorModel):
-    containerImage: Optional[ContainerImageTypeDef] = None
-    scriptModeConfig: Optional[ScriptModeConfigTypeDef] = None
+class AlgorithmSpecification(BaseValidatorModel):
+    containerImage: Optional[ContainerImage] = None
+    scriptModeConfig: Optional[ScriptModeConfig] = None
 
 
-class AssociationTypeDef(BaseValidatorModel):
+class Association(BaseValidatorModel):
     pass
 
 
-class CreateQuantumTaskRequestTypeDef(BaseValidatorModel):
+class CreateQuantumTaskRequest(BaseValidatorModel):
     action: str
     clientToken: str
     deviceArn: str
     outputS3Bucket: str
     outputS3KeyPrefix: str
     shots: int
-    associations: Optional[Sequence[AssociationTypeDef]] = None
+    associations: Optional[Sequence[Association]] = None
     deviceParameters: Optional[str] = None
     jobToken: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
 
-class CancelJobResponseTypeDef(BaseValidatorModel):
+class CancelJobResponse(BaseValidatorModel):
     cancellationStatus: CancellationStatusType
     jobArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CancelQuantumTaskResponseTypeDef(BaseValidatorModel):
+class CancelQuantumTaskResponse(BaseValidatorModel):
     cancellationStatus: CancellationStatusType
     quantumTaskArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateJobResponseTypeDef(BaseValidatorModel):
+class CreateJobResponse(BaseValidatorModel):
     jobArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateQuantumTaskResponseTypeDef(BaseValidatorModel):
+class CreateQuantumTaskResponse(BaseValidatorModel):
     quantumTaskArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
+class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DataSourceTypeDef(BaseValidatorModel):
-    s3DataSource: S3DataSourceTypeDef
+class DataSource(BaseValidatorModel):
+    s3DataSource: S3DataSource
 
 
-class GetDeviceResponseTypeDef(BaseValidatorModel):
+class GetDeviceResponse(BaseValidatorModel):
     deviceArn: str
     deviceCapabilities: str
     deviceName: str
-    deviceQueueInfo: List[DeviceQueueInfoTypeDef]
+    deviceQueueInfo: List[DeviceQueueInfo]
     deviceStatus: DeviceStatusType
     deviceType: DeviceTypeType
     providerName: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class SearchDevicesResponseTypeDef(BaseValidatorModel):
-    devices: List[DeviceSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class SearchDevicesResponse(BaseValidatorModel):
+    devices: List[DeviceSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class GetQuantumTaskResponseTypeDef(BaseValidatorModel):
-    associations: List[AssociationTypeDef]
+class GetQuantumTaskResponse(BaseValidatorModel):
+    associations: List[Association]
     createdAt: datetime
     deviceArn: str
     deviceParameters: str
@@ -243,110 +243,110 @@ class GetQuantumTaskResponseTypeDef(BaseValidatorModel):
     outputS3Bucket: str
     outputS3Directory: str
     quantumTaskArn: str
-    queueInfo: QuantumTaskQueueInfoTypeDef
+    queueInfo: QuantumTaskQueueInfo
     shots: int
     status: QuantumTaskStatusType
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class SearchJobsResponseTypeDef(BaseValidatorModel):
-    jobs: List[JobSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class SearchJobsResponse(BaseValidatorModel):
+    jobs: List[JobSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class SearchQuantumTasksResponseTypeDef(BaseValidatorModel):
-    quantumTasks: List[QuantumTaskSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class SearchQuantumTasksResponse(BaseValidatorModel):
+    quantumTasks: List[QuantumTaskSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class SearchDevicesRequestPaginateTypeDef(BaseValidatorModel):
-    filters: Sequence[SearchDevicesFilterTypeDef]
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class SearchDevicesRequestPaginate(BaseValidatorModel):
+    filters: Sequence[SearchDevicesFilter]
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class SearchDevicesRequestTypeDef(BaseValidatorModel):
-    filters: Sequence[SearchDevicesFilterTypeDef]
+class SearchDevicesRequest(BaseValidatorModel):
+    filters: Sequence[SearchDevicesFilter]
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class SearchJobsFilterTypeDef(BaseValidatorModel):
+class SearchJobsFilter(BaseValidatorModel):
     pass
 
 
-class SearchJobsRequestPaginateTypeDef(BaseValidatorModel):
-    filters: Sequence[SearchJobsFilterTypeDef]
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class SearchJobsRequestPaginate(BaseValidatorModel):
+    filters: Sequence[SearchJobsFilter]
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class SearchJobsRequestTypeDef(BaseValidatorModel):
-    filters: Sequence[SearchJobsFilterTypeDef]
+class SearchJobsRequest(BaseValidatorModel):
+    filters: Sequence[SearchJobsFilter]
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class SearchQuantumTasksFilterTypeDef(BaseValidatorModel):
+class SearchQuantumTasksFilter(BaseValidatorModel):
     pass
 
 
-class SearchQuantumTasksRequestPaginateTypeDef(BaseValidatorModel):
-    filters: Sequence[SearchQuantumTasksFilterTypeDef]
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class SearchQuantumTasksRequestPaginate(BaseValidatorModel):
+    filters: Sequence[SearchQuantumTasksFilter]
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class SearchQuantumTasksRequestTypeDef(BaseValidatorModel):
-    filters: Sequence[SearchQuantumTasksFilterTypeDef]
+class SearchQuantumTasksRequest(BaseValidatorModel):
+    filters: Sequence[SearchQuantumTasksFilter]
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class InputFileConfigTypeDef(BaseValidatorModel):
+class InputFileConfig(BaseValidatorModel):
     channelName: str
-    dataSource: DataSourceTypeDef
+    dataSource: DataSource
     contentType: Optional[str] = None
 
 
-class CreateJobRequestTypeDef(BaseValidatorModel):
-    algorithmSpecification: AlgorithmSpecificationTypeDef
+class CreateJobRequest(BaseValidatorModel):
+    algorithmSpecification: AlgorithmSpecification
     clientToken: str
-    deviceConfig: DeviceConfigTypeDef
-    instanceConfig: InstanceConfigTypeDef
+    deviceConfig: DeviceConfig
+    instanceConfig: InstanceConfig
     jobName: str
-    outputDataConfig: JobOutputDataConfigTypeDef
+    outputDataConfig: JobOutputDataConfig
     roleArn: str
-    associations: Optional[Sequence[AssociationTypeDef]] = None
-    checkpointConfig: Optional[JobCheckpointConfigTypeDef] = None
+    associations: Optional[Sequence[Association]] = None
+    checkpointConfig: Optional[JobCheckpointConfig] = None
     hyperParameters: Optional[Mapping[str, str]] = None
-    inputDataConfig: Optional[Sequence[InputFileConfigTypeDef]] = None
-    stoppingCondition: Optional[JobStoppingConditionTypeDef] = None
+    inputDataConfig: Optional[Sequence[InputFileConfig]] = None
+    stoppingCondition: Optional[JobStoppingCondition] = None
     tags: Optional[Mapping[str, str]] = None
 
 
-class GetJobResponseTypeDef(BaseValidatorModel):
-    algorithmSpecification: AlgorithmSpecificationTypeDef
-    associations: List[AssociationTypeDef]
+class GetJobResponse(BaseValidatorModel):
+    algorithmSpecification: AlgorithmSpecification
+    associations: List[Association]
     billableDuration: int
-    checkpointConfig: JobCheckpointConfigTypeDef
+    checkpointConfig: JobCheckpointConfig
     createdAt: datetime
-    deviceConfig: DeviceConfigTypeDef
+    deviceConfig: DeviceConfig
     endedAt: datetime
-    events: List[JobEventDetailsTypeDef]
+    events: List[JobEventDetails]
     failureReason: str
     hyperParameters: Dict[str, str]
-    inputDataConfig: List[InputFileConfigTypeDef]
-    instanceConfig: InstanceConfigTypeDef
+    inputDataConfig: List[InputFileConfig]
+    instanceConfig: InstanceConfig
     jobArn: str
     jobName: str
-    outputDataConfig: JobOutputDataConfigTypeDef
-    queueInfo: HybridJobQueueInfoTypeDef
+    outputDataConfig: JobOutputDataConfig
+    queueInfo: HybridJobQueueInfo
     roleArn: str
     startedAt: datetime
     status: JobPrimaryStatusType
-    stoppingCondition: JobStoppingConditionTypeDef
+    stoppingCondition: JobStoppingCondition
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 

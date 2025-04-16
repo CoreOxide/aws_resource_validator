@@ -12,11 +12,11 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.cur_constants import *
 
-class DeleteReportDefinitionRequestTypeDef(BaseValidatorModel):
+class DeleteReportDefinitionRequest(BaseValidatorModel):
     ReportName: str
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -24,56 +24,56 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class DescribeReportDefinitionsRequestTypeDef(BaseValidatorModel):
+class DescribeReportDefinitionsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     ReportName: str
 
 
-class TagTypeDef(BaseValidatorModel):
+class Tag(BaseValidatorModel):
     Key: str
     Value: str
 
 
-class ReportStatusTypeDef(BaseValidatorModel):
+class ReportStatus(BaseValidatorModel):
     lastDelivery: Optional[str] = None
     lastStatus: Optional[LastStatusType] = None
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     ReportName: str
     TagKeys: Sequence[str]
 
 
-class DeleteReportDefinitionResponseTypeDef(BaseValidatorModel):
+class DeleteReportDefinitionResponse(BaseValidatorModel):
     ResponseMessage: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeReportDefinitionsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class DescribeReportDefinitionsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
-    Tags: List[TagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListTagsForResourceResponse(BaseValidatorModel):
+    Tags: List[Tag]
+    ResponseMetadata: ResponseMetadata
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     ReportName: str
-    Tags: Sequence[TagTypeDef]
+    Tags: Sequence[Tag]
 
 
-class ReportDefinitionOutputTypeDef(BaseValidatorModel):
+class ReportDefinitionOutput(BaseValidatorModel):
     ReportName: str
     TimeUnit: TimeUnitType
     Format: ReportFormatType
@@ -86,10 +86,10 @@ class ReportDefinitionOutputTypeDef(BaseValidatorModel):
     RefreshClosedReports: Optional[bool] = None
     ReportVersioning: Optional[ReportVersioningType] = None
     BillingViewArn: Optional[str] = None
-    ReportStatus: Optional[ReportStatusTypeDef] = None
+    ReportStatus: Optional[ReportStatus] = None
 
 
-class ReportDefinitionTypeDef(BaseValidatorModel):
+class ReportDefinition(BaseValidatorModel):
     ReportName: str
     TimeUnit: TimeUnitType
     Format: ReportFormatType
@@ -102,26 +102,26 @@ class ReportDefinitionTypeDef(BaseValidatorModel):
     RefreshClosedReports: Optional[bool] = None
     ReportVersioning: Optional[ReportVersioningType] = None
     BillingViewArn: Optional[str] = None
-    ReportStatus: Optional[ReportStatusTypeDef] = None
+    ReportStatus: Optional[ReportStatus] = None
 
 
-class DescribeReportDefinitionsResponseTypeDef(BaseValidatorModel):
-    ReportDefinitions: List[ReportDefinitionOutputTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeReportDefinitionsResponse(BaseValidatorModel):
+    ReportDefinitions: List[ReportDefinitionOutput]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ReportDefinitionUnionTypeDef(BaseValidatorModel):
+class ReportDefinitionUnion(BaseValidatorModel):
     pass
 
 
-class ModifyReportDefinitionRequestTypeDef(BaseValidatorModel):
+class ModifyReportDefinitionRequest(BaseValidatorModel):
     ReportName: str
-    ReportDefinition: ReportDefinitionUnionTypeDef
+    ReportDefinition: ReportDefinitionUnion
 
 
-class PutReportDefinitionRequestTypeDef(BaseValidatorModel):
-    ReportDefinition: ReportDefinitionUnionTypeDef
-    Tags: Optional[Sequence[TagTypeDef]] = None
+class PutReportDefinitionRequest(BaseValidatorModel):
+    ReportDefinition: ReportDefinitionUnion
+    Tags: Optional[Sequence[Tag]] = None
 
 

@@ -12,7 +12,7 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.ivs_constants import *
 
-class AudioConfigurationTypeDef(BaseValidatorModel):
+class AudioConfiguration(BaseValidatorModel):
     channels: Optional[int] = None
     codec: Optional[str] = None
     sampleRate: Optional[int] = None
@@ -20,17 +20,17 @@ class AudioConfigurationTypeDef(BaseValidatorModel):
     track: Optional[str] = None
 
 
-class BatchErrorTypeDef(BaseValidatorModel):
+class BatchError(BaseValidatorModel):
     arn: Optional[str] = None
     code: Optional[str] = None
     message: Optional[str] = None
 
 
-class BatchGetChannelRequestTypeDef(BaseValidatorModel):
+class BatchGetChannelRequest(BaseValidatorModel):
     arns: Sequence[str]
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -38,42 +38,42 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class BatchGetStreamKeyRequestTypeDef(BaseValidatorModel):
+class BatchGetStreamKeyRequest(BaseValidatorModel):
     arns: Sequence[str]
 
 
-class StreamKeyTypeDef(BaseValidatorModel):
+class StreamKey(BaseValidatorModel):
     arn: Optional[str] = None
     channelArn: Optional[str] = None
     tags: Optional[Dict[str, str]] = None
     value: Optional[str] = None
 
 
-class BatchStartViewerSessionRevocationErrorTypeDef(BaseValidatorModel):
+class BatchStartViewerSessionRevocationError(BaseValidatorModel):
     channelArn: str
     viewerId: str
     code: Optional[str] = None
     message: Optional[str] = None
 
 
-class BatchStartViewerSessionRevocationViewerSessionTypeDef(BaseValidatorModel):
+class BatchStartViewerSessionRevocationViewerSession(BaseValidatorModel):
     channelArn: str
     viewerId: str
     viewerSessionVersionsLessThanOrEqualTo: Optional[int] = None
 
 
-class MultitrackInputConfigurationTypeDef(BaseValidatorModel):
+class MultitrackInputConfiguration(BaseValidatorModel):
     enabled: Optional[bool] = None
     maximumResolution: Optional[MultitrackMaximumResolutionType] = None
     policy: Optional[MultitrackPolicyType] = None
 
 
-class SrtTypeDef(BaseValidatorModel):
+class Srt(BaseValidatorModel):
     endpoint: Optional[str] = None
     passphrase: Optional[str] = None
 
 
-class CreatePlaybackRestrictionPolicyRequestTypeDef(BaseValidatorModel):
+class CreatePlaybackRestrictionPolicyRequest(BaseValidatorModel):
     allowedCountries: Optional[Sequence[str]] = None
     allowedOrigins: Optional[Sequence[str]] = None
     enableStrictOriginEnforcement: Optional[bool] = None
@@ -81,7 +81,7 @@ class CreatePlaybackRestrictionPolicyRequestTypeDef(BaseValidatorModel):
     tags: Optional[Mapping[str, str]] = None
 
 
-class PlaybackRestrictionPolicyTypeDef(BaseValidatorModel):
+class PlaybackRestrictionPolicy(BaseValidatorModel):
     allowedCountries: List[str]
     allowedOrigins: List[str]
     arn: str
@@ -90,67 +90,67 @@ class PlaybackRestrictionPolicyTypeDef(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
-class CreateStreamKeyRequestTypeDef(BaseValidatorModel):
+class CreateStreamKeyRequest(BaseValidatorModel):
     channelArn: str
     tags: Optional[Mapping[str, str]] = None
 
 
-class DeleteChannelRequestTypeDef(BaseValidatorModel):
+class DeleteChannelRequest(BaseValidatorModel):
     arn: str
 
 
-class DeletePlaybackKeyPairRequestTypeDef(BaseValidatorModel):
+class DeletePlaybackKeyPairRequest(BaseValidatorModel):
     arn: str
 
 
-class DeletePlaybackRestrictionPolicyRequestTypeDef(BaseValidatorModel):
+class DeletePlaybackRestrictionPolicyRequest(BaseValidatorModel):
     arn: str
 
 
-class DeleteRecordingConfigurationRequestTypeDef(BaseValidatorModel):
+class DeleteRecordingConfigurationRequest(BaseValidatorModel):
     arn: str
 
 
-class DeleteStreamKeyRequestTypeDef(BaseValidatorModel):
+class DeleteStreamKeyRequest(BaseValidatorModel):
     arn: str
 
 
-class S3DestinationConfigurationTypeDef(BaseValidatorModel):
+class S3DestinationConfiguration(BaseValidatorModel):
     bucketName: str
 
 
-class GetChannelRequestTypeDef(BaseValidatorModel):
+class GetChannelRequest(BaseValidatorModel):
     arn: str
 
 
-class GetPlaybackKeyPairRequestTypeDef(BaseValidatorModel):
+class GetPlaybackKeyPairRequest(BaseValidatorModel):
     arn: str
 
 
-class PlaybackKeyPairTypeDef(BaseValidatorModel):
+class PlaybackKeyPair(BaseValidatorModel):
     arn: Optional[str] = None
     fingerprint: Optional[str] = None
     name: Optional[str] = None
     tags: Optional[Dict[str, str]] = None
 
 
-class GetPlaybackRestrictionPolicyRequestTypeDef(BaseValidatorModel):
+class GetPlaybackRestrictionPolicyRequest(BaseValidatorModel):
     arn: str
 
 
-class GetRecordingConfigurationRequestTypeDef(BaseValidatorModel):
+class GetRecordingConfigurationRequest(BaseValidatorModel):
     arn: str
 
 
-class GetStreamKeyRequestTypeDef(BaseValidatorModel):
+class GetStreamKeyRequest(BaseValidatorModel):
     arn: str
 
 
-class GetStreamRequestTypeDef(BaseValidatorModel):
+class GetStreamRequest(BaseValidatorModel):
     channelArn: str
 
 
-class StreamTypeDef(BaseValidatorModel):
+class Stream(BaseValidatorModel):
     channelArn: Optional[str] = None
     health: Optional[StreamHealthType] = None
     playbackUrl: Optional[str] = None
@@ -160,18 +160,18 @@ class StreamTypeDef(BaseValidatorModel):
     viewerCount: Optional[int] = None
 
 
-class GetStreamSessionRequestTypeDef(BaseValidatorModel):
+class GetStreamSessionRequest(BaseValidatorModel):
     channelArn: str
     streamId: Optional[str] = None
 
 
-class ImportPlaybackKeyPairRequestTypeDef(BaseValidatorModel):
+class ImportPlaybackKeyPairRequest(BaseValidatorModel):
     publicKeyMaterial: str
     name: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
 
-class VideoConfigurationTypeDef(BaseValidatorModel):
+class VideoConfiguration(BaseValidatorModel):
     avcLevel: Optional[str] = None
     avcProfile: Optional[str] = None
     codec: Optional[str] = None
@@ -185,13 +185,13 @@ class VideoConfigurationTypeDef(BaseValidatorModel):
     videoWidth: Optional[int] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListChannelsRequestTypeDef(BaseValidatorModel):
+class ListChannelsRequest(BaseValidatorModel):
     filterByName: Optional[str] = None
     filterByPlaybackRestrictionPolicyArn: Optional[str] = None
     filterByRecordingConfigurationArn: Optional[str] = None
@@ -199,23 +199,23 @@ class ListChannelsRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
-class ListPlaybackKeyPairsRequestTypeDef(BaseValidatorModel):
+class ListPlaybackKeyPairsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class PlaybackKeyPairSummaryTypeDef(BaseValidatorModel):
+class PlaybackKeyPairSummary(BaseValidatorModel):
     arn: Optional[str] = None
     name: Optional[str] = None
     tags: Optional[Dict[str, str]] = None
 
 
-class ListPlaybackRestrictionPoliciesRequestTypeDef(BaseValidatorModel):
+class ListPlaybackRestrictionPoliciesRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class PlaybackRestrictionPolicySummaryTypeDef(BaseValidatorModel):
+class PlaybackRestrictionPolicySummary(BaseValidatorModel):
     allowedCountries: List[str]
     allowedOrigins: List[str]
     arn: str
@@ -224,41 +224,41 @@ class PlaybackRestrictionPolicySummaryTypeDef(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
-class ListRecordingConfigurationsRequestTypeDef(BaseValidatorModel):
+class ListRecordingConfigurationsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListStreamKeysRequestTypeDef(BaseValidatorModel):
+class ListStreamKeysRequest(BaseValidatorModel):
     channelArn: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class StreamKeySummaryTypeDef(BaseValidatorModel):
+class StreamKeySummary(BaseValidatorModel):
     arn: Optional[str] = None
     channelArn: Optional[str] = None
     tags: Optional[Dict[str, str]] = None
 
 
-class ListStreamSessionsRequestTypeDef(BaseValidatorModel):
+class ListStreamSessionsRequest(BaseValidatorModel):
     channelArn: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class StreamSessionSummaryTypeDef(BaseValidatorModel):
+class StreamSessionSummary(BaseValidatorModel):
     endTime: Optional[datetime] = None
     hasErrorEvent: Optional[bool] = None
     startTime: Optional[datetime] = None
     streamId: Optional[str] = None
 
 
-class StreamFiltersTypeDef(BaseValidatorModel):
+class StreamFilters(BaseValidatorModel):
     health: Optional[StreamHealthType] = None
 
 
-class StreamSummaryTypeDef(BaseValidatorModel):
+class StreamSummary(BaseValidatorModel):
     channelArn: Optional[str] = None
     health: Optional[StreamHealthType] = None
     startTime: Optional[datetime] = None
@@ -267,60 +267,60 @@ class StreamSummaryTypeDef(BaseValidatorModel):
     viewerCount: Optional[int] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
 
-class PutMetadataRequestTypeDef(BaseValidatorModel):
+class PutMetadataRequest(BaseValidatorModel):
     channelArn: str
     metadata: str
 
 
-class RenditionConfigurationOutputTypeDef(BaseValidatorModel):
+class RenditionConfigurationOutput(BaseValidatorModel):
     renditionSelection: Optional[RenditionConfigurationRenditionSelectionType] = None
     renditions: Optional[List[RenditionConfigurationRenditionType]] = None
 
 
-class ThumbnailConfigurationOutputTypeDef(BaseValidatorModel):
+class ThumbnailConfigurationOutput(BaseValidatorModel):
     recordingMode: Optional[RecordingModeType] = None
     resolution: Optional[ThumbnailConfigurationResolutionType] = None
     storage: Optional[List[ThumbnailConfigurationStorageType]] = None
     targetIntervalSeconds: Optional[int] = None
 
 
-class RenditionConfigurationTypeDef(BaseValidatorModel):
+class RenditionConfiguration(BaseValidatorModel):
     renditionSelection: Optional[RenditionConfigurationRenditionSelectionType] = None
     renditions: Optional[Sequence[RenditionConfigurationRenditionType]] = None
 
 
-class StartViewerSessionRevocationRequestTypeDef(BaseValidatorModel):
+class StartViewerSessionRevocationRequest(BaseValidatorModel):
     channelArn: str
     viewerId: str
     viewerSessionVersionsLessThanOrEqualTo: Optional[int] = None
 
 
-class StopStreamRequestTypeDef(BaseValidatorModel):
+class StopStreamRequest(BaseValidatorModel):
     channelArn: str
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
 
-class ThumbnailConfigurationTypeDef(BaseValidatorModel):
+class ThumbnailConfiguration(BaseValidatorModel):
     recordingMode: Optional[RecordingModeType] = None
     resolution: Optional[ThumbnailConfigurationResolutionType] = None
     storage: Optional[Sequence[ThumbnailConfigurationStorageType]] = None
     targetIntervalSeconds: Optional[int] = None
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
 
-class UpdatePlaybackRestrictionPolicyRequestTypeDef(BaseValidatorModel):
+class UpdatePlaybackRestrictionPolicyRequest(BaseValidatorModel):
     arn: str
     allowedCountries: Optional[Sequence[str]] = None
     allowedOrigins: Optional[Sequence[str]] = None
@@ -328,250 +328,250 @@ class UpdatePlaybackRestrictionPolicyRequestTypeDef(BaseValidatorModel):
     name: Optional[str] = None
 
 
-class EmptyResponseMetadataTypeDef(BaseValidatorModel):
-    ResponseMetadata: ResponseMetadataTypeDef
+class EmptyResponseMetadata(BaseValidatorModel):
+    ResponseMetadata: ResponseMetadata
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
+class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class BatchGetStreamKeyResponseTypeDef(BaseValidatorModel):
-    errors: List[BatchErrorTypeDef]
-    streamKeys: List[StreamKeyTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchGetStreamKeyResponse(BaseValidatorModel):
+    errors: List[BatchError]
+    streamKeys: List[StreamKey]
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateStreamKeyResponseTypeDef(BaseValidatorModel):
-    streamKey: StreamKeyTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateStreamKeyResponse(BaseValidatorModel):
+    streamKey: StreamKey
+    ResponseMetadata: ResponseMetadata
 
 
-class GetStreamKeyResponseTypeDef(BaseValidatorModel):
-    streamKey: StreamKeyTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetStreamKeyResponse(BaseValidatorModel):
+    streamKey: StreamKey
+    ResponseMetadata: ResponseMetadata
 
 
-class BatchStartViewerSessionRevocationResponseTypeDef(BaseValidatorModel):
-    errors: List[BatchStartViewerSessionRevocationErrorTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchStartViewerSessionRevocationResponse(BaseValidatorModel):
+    errors: List[BatchStartViewerSessionRevocationError]
+    ResponseMetadata: ResponseMetadata
 
 
-class BatchStartViewerSessionRevocationRequestTypeDef(BaseValidatorModel):
-    viewerSessions: Sequence[BatchStartViewerSessionRevocationViewerSessionTypeDef]
+class BatchStartViewerSessionRevocationRequest(BaseValidatorModel):
+    viewerSessions: Sequence[BatchStartViewerSessionRevocationViewerSession]
 
 
-class ChannelSummaryTypeDef(BaseValidatorModel):
+class ChannelSummary(BaseValidatorModel):
     pass
 
 
-class ListChannelsResponseTypeDef(BaseValidatorModel):
-    channels: List[ChannelSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListChannelsResponse(BaseValidatorModel):
+    channels: List[ChannelSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class CreatePlaybackRestrictionPolicyResponseTypeDef(BaseValidatorModel):
-    playbackRestrictionPolicy: PlaybackRestrictionPolicyTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreatePlaybackRestrictionPolicyResponse(BaseValidatorModel):
+    playbackRestrictionPolicy: PlaybackRestrictionPolicy
+    ResponseMetadata: ResponseMetadata
 
 
-class GetPlaybackRestrictionPolicyResponseTypeDef(BaseValidatorModel):
-    playbackRestrictionPolicy: PlaybackRestrictionPolicyTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetPlaybackRestrictionPolicyResponse(BaseValidatorModel):
+    playbackRestrictionPolicy: PlaybackRestrictionPolicy
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdatePlaybackRestrictionPolicyResponseTypeDef(BaseValidatorModel):
-    playbackRestrictionPolicy: PlaybackRestrictionPolicyTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdatePlaybackRestrictionPolicyResponse(BaseValidatorModel):
+    playbackRestrictionPolicy: PlaybackRestrictionPolicy
+    ResponseMetadata: ResponseMetadata
 
 
-class DestinationConfigurationTypeDef(BaseValidatorModel):
-    s3: Optional[S3DestinationConfigurationTypeDef] = None
+class DestinationConfiguration(BaseValidatorModel):
+    s3: Optional[S3DestinationConfiguration] = None
 
 
-class GetPlaybackKeyPairResponseTypeDef(BaseValidatorModel):
-    keyPair: PlaybackKeyPairTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetPlaybackKeyPairResponse(BaseValidatorModel):
+    keyPair: PlaybackKeyPair
+    ResponseMetadata: ResponseMetadata
 
 
-class ImportPlaybackKeyPairResponseTypeDef(BaseValidatorModel):
-    keyPair: PlaybackKeyPairTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class ImportPlaybackKeyPairResponse(BaseValidatorModel):
+    keyPair: PlaybackKeyPair
+    ResponseMetadata: ResponseMetadata
 
 
-class GetStreamResponseTypeDef(BaseValidatorModel):
-    stream: StreamTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetStreamResponse(BaseValidatorModel):
+    stream: Stream
+    ResponseMetadata: ResponseMetadata
 
 
-class IngestConfigurationTypeDef(BaseValidatorModel):
-    audio: Optional[AudioConfigurationTypeDef] = None
-    video: Optional[VideoConfigurationTypeDef] = None
+class IngestConfiguration(BaseValidatorModel):
+    audio: Optional[AudioConfiguration] = None
+    video: Optional[VideoConfiguration] = None
 
 
-class IngestConfigurationsTypeDef(BaseValidatorModel):
-    audioConfigurations: List[AudioConfigurationTypeDef]
-    videoConfigurations: List[VideoConfigurationTypeDef]
+class IngestConfigurations(BaseValidatorModel):
+    audioConfigurations: List[AudioConfiguration]
+    videoConfigurations: List[VideoConfiguration]
 
 
-class ListChannelsRequestPaginateTypeDef(BaseValidatorModel):
+class ListChannelsRequestPaginate(BaseValidatorModel):
     filterByName: Optional[str] = None
     filterByPlaybackRestrictionPolicyArn: Optional[str] = None
     filterByRecordingConfigurationArn: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListPlaybackKeyPairsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListPlaybackKeyPairsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListRecordingConfigurationsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListRecordingConfigurationsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListStreamKeysRequestPaginateTypeDef(BaseValidatorModel):
+class ListStreamKeysRequestPaginate(BaseValidatorModel):
     channelArn: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListPlaybackKeyPairsResponseTypeDef(BaseValidatorModel):
-    keyPairs: List[PlaybackKeyPairSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListPlaybackKeyPairsResponse(BaseValidatorModel):
+    keyPairs: List[PlaybackKeyPairSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListPlaybackRestrictionPoliciesResponseTypeDef(BaseValidatorModel):
-    playbackRestrictionPolicies: List[PlaybackRestrictionPolicySummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListPlaybackRestrictionPoliciesResponse(BaseValidatorModel):
+    playbackRestrictionPolicies: List[PlaybackRestrictionPolicySummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListStreamKeysResponseTypeDef(BaseValidatorModel):
-    streamKeys: List[StreamKeySummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListStreamKeysResponse(BaseValidatorModel):
+    streamKeys: List[StreamKeySummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListStreamSessionsResponseTypeDef(BaseValidatorModel):
-    streamSessions: List[StreamSessionSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListStreamSessionsResponse(BaseValidatorModel):
+    streamSessions: List[StreamSessionSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListStreamsRequestPaginateTypeDef(BaseValidatorModel):
-    filterBy: Optional[StreamFiltersTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListStreamsRequestPaginate(BaseValidatorModel):
+    filterBy: Optional[StreamFilters] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListStreamsRequestTypeDef(BaseValidatorModel):
-    filterBy: Optional[StreamFiltersTypeDef] = None
+class ListStreamsRequest(BaseValidatorModel):
+    filterBy: Optional[StreamFilters] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListStreamsResponseTypeDef(BaseValidatorModel):
-    streams: List[StreamSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListStreamsResponse(BaseValidatorModel):
+    streams: List[StreamSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ChannelTypeDef(BaseValidatorModel):
+class Channel(BaseValidatorModel):
     pass
 
 
-class BatchGetChannelResponseTypeDef(BaseValidatorModel):
-    channels: List[ChannelTypeDef]
-    errors: List[BatchErrorTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchGetChannelResponse(BaseValidatorModel):
+    channels: List[Channel]
+    errors: List[BatchError]
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateChannelResponseTypeDef(BaseValidatorModel):
-    channel: ChannelTypeDef
-    streamKey: StreamKeyTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateChannelResponse(BaseValidatorModel):
+    channel: Channel
+    streamKey: StreamKey
+    ResponseMetadata: ResponseMetadata
 
 
-class GetChannelResponseTypeDef(BaseValidatorModel):
-    channel: ChannelTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetChannelResponse(BaseValidatorModel):
+    channel: Channel
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateChannelResponseTypeDef(BaseValidatorModel):
-    channel: ChannelTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateChannelResponse(BaseValidatorModel):
+    channel: Channel
+    ResponseMetadata: ResponseMetadata
 
 
-class RecordingConfigurationSummaryTypeDef(BaseValidatorModel):
+class RecordingConfigurationSummary(BaseValidatorModel):
     arn: str
-    destinationConfiguration: DestinationConfigurationTypeDef
+    destinationConfiguration: DestinationConfiguration
     state: RecordingConfigurationStateType
     name: Optional[str] = None
     tags: Optional[Dict[str, str]] = None
 
 
-class RecordingConfigurationTypeDef(BaseValidatorModel):
+class RecordingConfiguration(BaseValidatorModel):
     arn: str
-    destinationConfiguration: DestinationConfigurationTypeDef
+    destinationConfiguration: DestinationConfiguration
     state: RecordingConfigurationStateType
     name: Optional[str] = None
     recordingReconnectWindowSeconds: Optional[int] = None
-    renditionConfiguration: Optional[RenditionConfigurationOutputTypeDef] = None
+    renditionConfiguration: Optional[RenditionConfigurationOutput] = None
     tags: Optional[Dict[str, str]] = None
-    thumbnailConfiguration: Optional[ThumbnailConfigurationOutputTypeDef] = None
+    thumbnailConfiguration: Optional[ThumbnailConfigurationOutput] = None
 
 
-class RenditionConfigurationUnionTypeDef(BaseValidatorModel):
+class RenditionConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class ThumbnailConfigurationUnionTypeDef(BaseValidatorModel):
+class ThumbnailConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class CreateRecordingConfigurationRequestTypeDef(BaseValidatorModel):
-    destinationConfiguration: DestinationConfigurationTypeDef
+class CreateRecordingConfigurationRequest(BaseValidatorModel):
+    destinationConfiguration: DestinationConfiguration
     name: Optional[str] = None
     recordingReconnectWindowSeconds: Optional[int] = None
-    renditionConfiguration: Optional[RenditionConfigurationUnionTypeDef] = None
+    renditionConfiguration: Optional[RenditionConfigurationUnion] = None
     tags: Optional[Mapping[str, str]] = None
-    thumbnailConfiguration: Optional[ThumbnailConfigurationUnionTypeDef] = None
+    thumbnailConfiguration: Optional[ThumbnailConfigurationUnion] = None
 
 
-class ListRecordingConfigurationsResponseTypeDef(BaseValidatorModel):
-    recordingConfigurations: List[RecordingConfigurationSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListRecordingConfigurationsResponse(BaseValidatorModel):
+    recordingConfigurations: List[RecordingConfigurationSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class CreateRecordingConfigurationResponseTypeDef(BaseValidatorModel):
-    recordingConfiguration: RecordingConfigurationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateRecordingConfigurationResponse(BaseValidatorModel):
+    recordingConfiguration: RecordingConfiguration
+    ResponseMetadata: ResponseMetadata
 
 
-class GetRecordingConfigurationResponseTypeDef(BaseValidatorModel):
-    recordingConfiguration: RecordingConfigurationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetRecordingConfigurationResponse(BaseValidatorModel):
+    recordingConfiguration: RecordingConfiguration
+    ResponseMetadata: ResponseMetadata
 
 
-class StreamEventTypeDef(BaseValidatorModel):
+class StreamEvent(BaseValidatorModel):
     pass
 
 
-class StreamSessionTypeDef(BaseValidatorModel):
-    channel: Optional[ChannelTypeDef] = None
+class StreamSession(BaseValidatorModel):
+    channel: Optional[Channel] = None
     endTime: Optional[datetime] = None
-    ingestConfiguration: Optional[IngestConfigurationTypeDef] = None
-    ingestConfigurations: Optional[IngestConfigurationsTypeDef] = None
-    recordingConfiguration: Optional[RecordingConfigurationTypeDef] = None
+    ingestConfiguration: Optional[IngestConfiguration] = None
+    ingestConfigurations: Optional[IngestConfigurations] = None
+    recordingConfiguration: Optional[RecordingConfiguration] = None
     startTime: Optional[datetime] = None
     streamId: Optional[str] = None
-    truncatedEvents: Optional[List[StreamEventTypeDef]] = None
+    truncatedEvents: Optional[List[StreamEvent]] = None
 
 
-class GetStreamSessionResponseTypeDef(BaseValidatorModel):
-    streamSession: StreamSessionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetStreamSessionResponse(BaseValidatorModel):
+    streamSession: StreamSession
+    ResponseMetadata: ResponseMetadata
 
 

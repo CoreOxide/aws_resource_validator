@@ -12,12 +12,12 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.route53profiles_constants import *
 
-class TagTypeDef(BaseValidatorModel):
+class Tag(BaseValidatorModel):
     Key: str
     Value: str
 
 
-class ProfileAssociationTypeDef(BaseValidatorModel):
+class ProfileAssociation(BaseValidatorModel):
     CreationTime: Optional[datetime] = None
     Id: Optional[str] = None
     ModificationTime: Optional[datetime] = None
@@ -29,7 +29,7 @@ class ProfileAssociationTypeDef(BaseValidatorModel):
     StatusMessage: Optional[str] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -37,14 +37,14 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class AssociateResourceToProfileRequestTypeDef(BaseValidatorModel):
+class AssociateResourceToProfileRequest(BaseValidatorModel):
     Name: str
     ProfileId: str
     ResourceArn: str
     ResourceProperties: Optional[str] = None
 
 
-class ProfileResourceAssociationTypeDef(BaseValidatorModel):
+class ProfileResourceAssociation(BaseValidatorModel):
     CreationTime: Optional[datetime] = None
     Id: Optional[str] = None
     ModificationTime: Optional[datetime] = None
@@ -58,7 +58,7 @@ class ProfileResourceAssociationTypeDef(BaseValidatorModel):
     StatusMessage: Optional[str] = None
 
 
-class ProfileTypeDef(BaseValidatorModel):
+class Profile(BaseValidatorModel):
     Arn: Optional[str] = None
     ClientToken: Optional[str] = None
     CreationTime: Optional[datetime] = None
@@ -71,183 +71,183 @@ class ProfileTypeDef(BaseValidatorModel):
     StatusMessage: Optional[str] = None
 
 
-class DeleteProfileRequestTypeDef(BaseValidatorModel):
+class DeleteProfileRequest(BaseValidatorModel):
     ProfileId: str
 
 
-class DisassociateProfileRequestTypeDef(BaseValidatorModel):
+class DisassociateProfileRequest(BaseValidatorModel):
     ProfileId: str
     ResourceId: str
 
 
-class DisassociateResourceFromProfileRequestTypeDef(BaseValidatorModel):
+class DisassociateResourceFromProfileRequest(BaseValidatorModel):
     ProfileId: str
     ResourceArn: str
 
 
-class GetProfileAssociationRequestTypeDef(BaseValidatorModel):
+class GetProfileAssociationRequest(BaseValidatorModel):
     ProfileAssociationId: str
 
 
-class GetProfileRequestTypeDef(BaseValidatorModel):
+class GetProfileRequest(BaseValidatorModel):
     ProfileId: str
 
 
-class GetProfileResourceAssociationRequestTypeDef(BaseValidatorModel):
+class GetProfileResourceAssociationRequest(BaseValidatorModel):
     ProfileResourceAssociationId: str
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListProfileAssociationsRequestTypeDef(BaseValidatorModel):
+class ListProfileAssociationsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     ProfileId: Optional[str] = None
     ResourceId: Optional[str] = None
 
 
-class ListProfileResourceAssociationsRequestTypeDef(BaseValidatorModel):
+class ListProfileResourceAssociationsRequest(BaseValidatorModel):
     ProfileId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     ResourceType: Optional[str] = None
 
 
-class ListProfilesRequestTypeDef(BaseValidatorModel):
+class ListProfilesRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ProfileSummaryTypeDef(BaseValidatorModel):
+class ProfileSummary(BaseValidatorModel):
     Arn: Optional[str] = None
     Id: Optional[str] = None
     Name: Optional[str] = None
     ShareStatus: Optional[ShareStatusType] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     Tags: Mapping[str, str]
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     TagKeys: Sequence[str]
 
 
-class UpdateProfileResourceAssociationRequestTypeDef(BaseValidatorModel):
+class UpdateProfileResourceAssociationRequest(BaseValidatorModel):
     ProfileResourceAssociationId: str
     Name: Optional[str] = None
     ResourceProperties: Optional[str] = None
 
 
-class AssociateProfileRequestTypeDef(BaseValidatorModel):
+class AssociateProfileRequest(BaseValidatorModel):
     Name: str
     ProfileId: str
     ResourceId: str
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class CreateProfileRequestTypeDef(BaseValidatorModel):
+class CreateProfileRequest(BaseValidatorModel):
     ClientToken: str
     Name: str
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class AssociateProfileResponseTypeDef(BaseValidatorModel):
-    ProfileAssociation: ProfileAssociationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class AssociateProfileResponse(BaseValidatorModel):
+    ProfileAssociation: ProfileAssociation
+    ResponseMetadata: ResponseMetadata
 
 
-class DisassociateProfileResponseTypeDef(BaseValidatorModel):
-    ProfileAssociation: ProfileAssociationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DisassociateProfileResponse(BaseValidatorModel):
+    ProfileAssociation: ProfileAssociation
+    ResponseMetadata: ResponseMetadata
 
 
-class GetProfileAssociationResponseTypeDef(BaseValidatorModel):
-    ProfileAssociation: ProfileAssociationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetProfileAssociationResponse(BaseValidatorModel):
+    ProfileAssociation: ProfileAssociation
+    ResponseMetadata: ResponseMetadata
 
 
-class ListProfileAssociationsResponseTypeDef(BaseValidatorModel):
-    ProfileAssociations: List[ProfileAssociationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListProfileAssociationsResponse(BaseValidatorModel):
+    ProfileAssociations: List[ProfileAssociation]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
+class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class AssociateResourceToProfileResponseTypeDef(BaseValidatorModel):
-    ProfileResourceAssociation: ProfileResourceAssociationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class AssociateResourceToProfileResponse(BaseValidatorModel):
+    ProfileResourceAssociation: ProfileResourceAssociation
+    ResponseMetadata: ResponseMetadata
 
 
-class DisassociateResourceFromProfileResponseTypeDef(BaseValidatorModel):
-    ProfileResourceAssociation: ProfileResourceAssociationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DisassociateResourceFromProfileResponse(BaseValidatorModel):
+    ProfileResourceAssociation: ProfileResourceAssociation
+    ResponseMetadata: ResponseMetadata
 
 
-class GetProfileResourceAssociationResponseTypeDef(BaseValidatorModel):
-    ProfileResourceAssociation: ProfileResourceAssociationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetProfileResourceAssociationResponse(BaseValidatorModel):
+    ProfileResourceAssociation: ProfileResourceAssociation
+    ResponseMetadata: ResponseMetadata
 
 
-class ListProfileResourceAssociationsResponseTypeDef(BaseValidatorModel):
-    ProfileResourceAssociations: List[ProfileResourceAssociationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListProfileResourceAssociationsResponse(BaseValidatorModel):
+    ProfileResourceAssociations: List[ProfileResourceAssociation]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class UpdateProfileResourceAssociationResponseTypeDef(BaseValidatorModel):
-    ProfileResourceAssociation: ProfileResourceAssociationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateProfileResourceAssociationResponse(BaseValidatorModel):
+    ProfileResourceAssociation: ProfileResourceAssociation
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateProfileResponseTypeDef(BaseValidatorModel):
-    Profile: ProfileTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateProfileResponse(BaseValidatorModel):
+    Profile: Profile
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteProfileResponseTypeDef(BaseValidatorModel):
-    Profile: ProfileTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeleteProfileResponse(BaseValidatorModel):
+    Profile: Profile
+    ResponseMetadata: ResponseMetadata
 
 
-class GetProfileResponseTypeDef(BaseValidatorModel):
-    Profile: ProfileTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetProfileResponse(BaseValidatorModel):
+    Profile: Profile
+    ResponseMetadata: ResponseMetadata
 
 
-class ListProfileAssociationsRequestPaginateTypeDef(BaseValidatorModel):
+class ListProfileAssociationsRequestPaginate(BaseValidatorModel):
     ProfileId: Optional[str] = None
     ResourceId: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListProfileResourceAssociationsRequestPaginateTypeDef(BaseValidatorModel):
+class ListProfileResourceAssociationsRequestPaginate(BaseValidatorModel):
     ProfileId: str
     ResourceType: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListProfilesRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListProfilesRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListProfilesResponseTypeDef(BaseValidatorModel):
-    ProfileSummaries: List[ProfileSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListProfilesResponse(BaseValidatorModel):
+    ProfileSummaries: List[ProfileSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 

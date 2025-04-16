@@ -12,7 +12,7 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.marketplacecommerceanalytics_constants import *
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -20,13 +20,13 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class TimestampTypeDef(BaseValidatorModel):
+class Timestamp(BaseValidatorModel):
     pass
 
 
-class GenerateDataSetRequestTypeDef(BaseValidatorModel):
+class GenerateDataSetRequest(BaseValidatorModel):
     dataSetType: DataSetTypeType
-    dataSetPublicationDate: TimestampTypeDef
+    dataSetPublicationDate: Timestamp
     roleNameArn: str
     destinationS3BucketName: str
     snsTopicArn: str
@@ -34,9 +34,9 @@ class GenerateDataSetRequestTypeDef(BaseValidatorModel):
     customerDefinedValues: Optional[Mapping[str, str]] = None
 
 
-class StartSupportDataExportRequestTypeDef(BaseValidatorModel):
+class StartSupportDataExportRequest(BaseValidatorModel):
     dataSetType: SupportDataSetTypeType
-    fromDate: TimestampTypeDef
+    fromDate: Timestamp
     roleNameArn: str
     destinationS3BucketName: str
     snsTopicArn: str
@@ -44,13 +44,13 @@ class StartSupportDataExportRequestTypeDef(BaseValidatorModel):
     customerDefinedValues: Optional[Mapping[str, str]] = None
 
 
-class GenerateDataSetResultTypeDef(BaseValidatorModel):
+class GenerateDataSetResult(BaseValidatorModel):
     dataSetRequestId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartSupportDataExportResultTypeDef(BaseValidatorModel):
+class StartSupportDataExportResult(BaseValidatorModel):
     dataSetRequestId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 

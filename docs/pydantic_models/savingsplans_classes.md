@@ -6,7 +6,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CreateSavingsPlanRequestTypeDef
+# CreateSavingsPlanRequest
 
 ### savingsPlanOfferingId
 - **Type**: <class 'str'>
@@ -20,7 +20,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### purchaseTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.savingsplans_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.savingsplans_classes.Timestamp]
 
 ### clientToken
 - **Type**: typing.Optional[str]
@@ -29,32 +29,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateSavingsPlanResponseTypeDef
+# CreateSavingsPlanResponse
 
 ### savingsPlanId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.savingsplans_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.savingsplans_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteQueuedSavingsPlanRequestTypeDef
+# DeleteQueuedSavingsPlanRequest
 
 ### savingsPlanId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeSavingsPlanRatesRequestTypeDef
+# DescribeSavingsPlanRatesRequest
 
 ### savingsPlanId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.savingsplans_classes.SavingsPlanRateFilterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.savingsplans_classes.SavingsPlanRateFilter]]
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -63,25 +63,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# DescribeSavingsPlanRatesResponseTypeDef
+# DescribeSavingsPlanRatesResponse
 
 ### savingsPlanId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### searchResults
-- **Type**: typing.List[aws_resource_validator.pydantic_models.savingsplans_classes.SavingsPlanRateTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.savingsplans_classes.SavingsPlanRate]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.savingsplans_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.savingsplans_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# DescribeSavingsPlansOfferingRatesRequestTypeDef
+# DescribeSavingsPlansOfferingRatesRequest
 
 ### savingsPlanOfferingIds
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -105,7 +105,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.savingsplans_classes.SavingsPlanOfferingRateFilterElementTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.savingsplans_classes.SavingsPlanOfferingRateFilterElement]]
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -114,21 +114,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# DescribeSavingsPlansOfferingRatesResponseTypeDef
+# DescribeSavingsPlansOfferingRatesResponse
 
 ### searchResults
-- **Type**: typing.List[aws_resource_validator.pydantic_models.savingsplans_classes.SavingsPlanOfferingRateTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.savingsplans_classes.SavingsPlanOfferingRate]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.savingsplans_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.savingsplans_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# DescribeSavingsPlansOfferingsRequestTypeDef
+# DescribeSavingsPlansOfferingsRequest
 
 ### offeringIds
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -161,7 +161,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.savingsplans_classes.SavingsPlanOfferingFilterElementTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.savingsplans_classes.SavingsPlanOfferingFilterElement]]
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -170,21 +170,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# DescribeSavingsPlansOfferingsResponseTypeDef
+# DescribeSavingsPlansOfferingsResponse
 
 ### searchResults
-- **Type**: typing.List[aws_resource_validator.pydantic_models.savingsplans_classes.SavingsPlanOfferingTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.savingsplans_classes.SavingsPlanOffering]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.savingsplans_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.savingsplans_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# DescribeSavingsPlansRequestTypeDef
+# DescribeSavingsPlansRequest
 
 ### savingsPlanArns
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -202,42 +202,42 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['active', 'payment-failed', 'payment-pending', 'pending-return', 'queued', 'queued-deleted', 'retired', 'returned']]]
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.savingsplans_classes.SavingsPlanFilterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.savingsplans_classes.SavingsPlanFilter]]
 
 
-# DescribeSavingsPlansResponseTypeDef
+# DescribeSavingsPlansResponse
 
 ### savingsPlans
-- **Type**: typing.List[aws_resource_validator.pydantic_models.savingsplans_classes.SavingsPlanTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.savingsplans_classes.SavingsPlan]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.savingsplans_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.savingsplans_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestTypeDef
+# ListTagsForResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ListTagsForResourceResponseTypeDef
+# ListTagsForResourceResponse
 
 ### tags
 - **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.savingsplans_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.savingsplans_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ParentSavingsPlanOfferingTypeDef
+# ParentSavingsPlanOffering
 
 ### offeringId
 - **Type**: typing.Optional[str]
@@ -258,7 +258,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -280,7 +280,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ReturnSavingsPlanRequestTypeDef
+# ReturnSavingsPlanRequest
 
 ### savingsPlanId
 - **Type**: <class 'str'>
@@ -290,171 +290,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ReturnSavingsPlanResponseTypeDef
+# ReturnSavingsPlanResponse
 
 ### savingsPlanId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.savingsplans_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.savingsplans_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# SavingsPlanFilterTypeDef
-
-### name
-- **Type**: typing.Optional[typing.Literal['commitment', 'ec2-instance-family', 'end', 'payment-option', 'region', 'savings-plan-type', 'start', 'term', 'upfront']]
-
-### values
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-
-# SavingsPlanOfferingFilterElementTypeDef
-
-### name
-- **Type**: typing.Optional[typing.Literal['instanceFamily', 'region']]
-
-### values
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-
-# SavingsPlanOfferingPropertyTypeDef
-
-### name
-- **Type**: typing.Optional[typing.Literal['instanceFamily', 'region']]
-
-### value
-- **Type**: typing.Optional[str]
-
-
-# SavingsPlanOfferingRateFilterElementTypeDef
-
-### name
-- **Type**: typing.Optional[typing.Literal['instanceFamily', 'instanceType', 'productDescription', 'productId', 'region', 'tenancy']]
-
-### values
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-
-# SavingsPlanOfferingRatePropertyTypeDef
-
-### name
-- **Type**: typing.Optional[str]
-
-### value
-- **Type**: typing.Optional[str]
-
-
-# SavingsPlanOfferingRateTypeDef
-
-### savingsPlanOffering
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.savingsplans_classes.ParentSavingsPlanOfferingTypeDef]
-
-### rate
-- **Type**: typing.Optional[str]
-
-### unit
-- **Type**: typing.Optional[typing.Literal['Hrs', 'Lambda-GB-Second', 'Request']]
-
-### productType
-- **Type**: typing.Optional[typing.Literal['EC2', 'Fargate', 'Lambda', 'SageMaker']]
-
-### serviceCode
-- **Type**: typing.Optional[typing.Literal['AWSLambda', 'AmazonEC2', 'AmazonECS', 'AmazonEKS', 'AmazonSageMaker']]
-
-### usageType
-- **Type**: typing.Optional[str]
-
-### operation
-- **Type**: typing.Optional[str]
-
-### properties
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.savingsplans_classes.SavingsPlanOfferingRatePropertyTypeDef]]
-
-
-# SavingsPlanOfferingTypeDef
-
-### offeringId
-- **Type**: typing.Optional[str]
-
-### productTypes
-- **Type**: typing.Optional[typing.List[typing.Literal['EC2', 'Fargate', 'Lambda', 'SageMaker']]]
-
-### planType
-- **Type**: typing.Optional[typing.Literal['Compute', 'EC2Instance', 'SageMaker']]
-
-### description
-- **Type**: typing.Optional[str]
-
-### paymentOption
-- **Type**: typing.Optional[typing.Literal['All Upfront', 'No Upfront', 'Partial Upfront']]
-
-### durationSeconds
-- **Type**: typing.Optional[int]
-
-### currency
-- **Type**: typing.Optional[typing.Literal['CNY', 'USD']]
-
-### serviceCode
-- **Type**: typing.Optional[str]
-
-### usageType
-- **Type**: typing.Optional[str]
-
-### operation
-- **Type**: typing.Optional[str]
-
-### properties
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.savingsplans_classes.SavingsPlanOfferingPropertyTypeDef]]
-
-
-# SavingsPlanRateFilterTypeDef
-
-### name
-- **Type**: typing.Optional[typing.Literal['instanceType', 'operation', 'productDescription', 'productType', 'region', 'serviceCode', 'tenancy', 'usageType']]
-
-### values
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-
-# SavingsPlanRatePropertyTypeDef
-
-### name
-- **Type**: typing.Optional[typing.Literal['instanceFamily', 'instanceType', 'productDescription', 'region', 'tenancy']]
-
-### value
-- **Type**: typing.Optional[str]
-
-
-# SavingsPlanRateTypeDef
-
-### rate
-- **Type**: typing.Optional[str]
-
-### currency
-- **Type**: typing.Optional[typing.Literal['CNY', 'USD']]
-
-### unit
-- **Type**: typing.Optional[typing.Literal['Hrs', 'Lambda-GB-Second', 'Request']]
-
-### productType
-- **Type**: typing.Optional[typing.Literal['EC2', 'Fargate', 'Lambda', 'SageMaker']]
-
-### serviceCode
-- **Type**: typing.Optional[typing.Literal['AWSLambda', 'AmazonEC2', 'AmazonECS', 'AmazonEKS', 'AmazonSageMaker']]
-
-### usageType
-- **Type**: typing.Optional[str]
-
-### operation
-- **Type**: typing.Optional[str]
-
-### properties
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.savingsplans_classes.SavingsPlanRatePropertyTypeDef]]
-
-
-# SavingsPlanTypeDef
+# SavingsPlan
 
 ### offeringId
 - **Type**: typing.Optional[str]
@@ -514,7 +361,160 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TagResourceRequestTypeDef
+# SavingsPlanFilter
+
+### name
+- **Type**: typing.Optional[typing.Literal['commitment', 'ec2-instance-family', 'end', 'payment-option', 'region', 'savings-plan-type', 'start', 'term', 'upfront']]
+
+### values
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+
+# SavingsPlanOffering
+
+### offeringId
+- **Type**: typing.Optional[str]
+
+### productTypes
+- **Type**: typing.Optional[typing.List[typing.Literal['EC2', 'Fargate', 'Lambda', 'SageMaker']]]
+
+### planType
+- **Type**: typing.Optional[typing.Literal['Compute', 'EC2Instance', 'SageMaker']]
+
+### description
+- **Type**: typing.Optional[str]
+
+### paymentOption
+- **Type**: typing.Optional[typing.Literal['All Upfront', 'No Upfront', 'Partial Upfront']]
+
+### durationSeconds
+- **Type**: typing.Optional[int]
+
+### currency
+- **Type**: typing.Optional[typing.Literal['CNY', 'USD']]
+
+### serviceCode
+- **Type**: typing.Optional[str]
+
+### usageType
+- **Type**: typing.Optional[str]
+
+### operation
+- **Type**: typing.Optional[str]
+
+### properties
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.savingsplans_classes.SavingsPlanOfferingProperty]]
+
+
+# SavingsPlanOfferingFilterElement
+
+### name
+- **Type**: typing.Optional[typing.Literal['instanceFamily', 'region']]
+
+### values
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+
+# SavingsPlanOfferingProperty
+
+### name
+- **Type**: typing.Optional[typing.Literal['instanceFamily', 'region']]
+
+### value
+- **Type**: typing.Optional[str]
+
+
+# SavingsPlanOfferingRate
+
+### savingsPlanOffering
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.savingsplans_classes.ParentSavingsPlanOffering]
+
+### rate
+- **Type**: typing.Optional[str]
+
+### unit
+- **Type**: typing.Optional[typing.Literal['Hrs', 'Lambda-GB-Second', 'Request']]
+
+### productType
+- **Type**: typing.Optional[typing.Literal['EC2', 'Fargate', 'Lambda', 'SageMaker']]
+
+### serviceCode
+- **Type**: typing.Optional[typing.Literal['AWSLambda', 'AmazonEC2', 'AmazonECS', 'AmazonEKS', 'AmazonSageMaker']]
+
+### usageType
+- **Type**: typing.Optional[str]
+
+### operation
+- **Type**: typing.Optional[str]
+
+### properties
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.savingsplans_classes.SavingsPlanOfferingRateProperty]]
+
+
+# SavingsPlanOfferingRateFilterElement
+
+### name
+- **Type**: typing.Optional[typing.Literal['instanceFamily', 'instanceType', 'productDescription', 'productId', 'region', 'tenancy']]
+
+### values
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+
+# SavingsPlanOfferingRateProperty
+
+### name
+- **Type**: typing.Optional[str]
+
+### value
+- **Type**: typing.Optional[str]
+
+
+# SavingsPlanRate
+
+### rate
+- **Type**: typing.Optional[str]
+
+### currency
+- **Type**: typing.Optional[typing.Literal['CNY', 'USD']]
+
+### unit
+- **Type**: typing.Optional[typing.Literal['Hrs', 'Lambda-GB-Second', 'Request']]
+
+### productType
+- **Type**: typing.Optional[typing.Literal['EC2', 'Fargate', 'Lambda', 'SageMaker']]
+
+### serviceCode
+- **Type**: typing.Optional[typing.Literal['AWSLambda', 'AmazonEC2', 'AmazonECS', 'AmazonEKS', 'AmazonSageMaker']]
+
+### usageType
+- **Type**: typing.Optional[str]
+
+### operation
+- **Type**: typing.Optional[str]
+
+### properties
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.savingsplans_classes.SavingsPlanRateProperty]]
+
+
+# SavingsPlanRateFilter
+
+### name
+- **Type**: typing.Optional[typing.Literal['instanceType', 'operation', 'productDescription', 'productType', 'region', 'serviceCode', 'tenancy', 'usageType']]
+
+### values
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+
+# SavingsPlanRateProperty
+
+### name
+- **Type**: typing.Optional[typing.Literal['instanceFamily', 'instanceType', 'productDescription', 'region', 'tenancy']]
+
+### value
+- **Type**: typing.Optional[str]
+
+
+# TagResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -525,13 +525,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TimestampTypeDef
+# Timestamp
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# UntagResourceRequestTypeDef
+# UntagResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>

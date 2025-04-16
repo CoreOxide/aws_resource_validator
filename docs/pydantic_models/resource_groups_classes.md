@@ -1,6 +1,6 @@
 # Resource Groups Classes
 
-# AccountSettingsTypeDef
+# AccountSettings
 
 ### GroupLifecycleEventsDesiredStatus
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'INACTIVE']]
@@ -18,14 +18,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CancelTagSyncTaskInputTypeDef
+# CancelTagSyncTaskInput
 
 ### TaskArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# CreateGroupInputTypeDef
+# CreateGroupInput
 
 ### Name
 - **Type**: <class 'str'>
@@ -35,13 +35,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ResourceQuery
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resource_groups_classes.ResourceQueryTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### Tags
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 ### Configuration
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.resource_groups_classes.GroupConfigurationItemUnionTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.resource_groups_classes.GroupConfigurationItemUnion]]
 
 ### Criticality
 - **Type**: typing.Optional[int]
@@ -53,14 +53,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateGroupOutputTypeDef
+# CreateGroupOutput
 
 ### Group
-- **Type**: <class 'aws_resource_validator.pydantic_models.resource_groups_classes.GroupTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resource_groups_classes.Group'>
 - **Required**: Yes
 
 ### ResourceQuery
-- **Type**: <class 'aws_resource_validator.pydantic_models.resource_groups_classes.ResourceQueryTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resource_groups_classes.ResourceQuery'>
 - **Required**: Yes
 
 ### Tags
@@ -68,15 +68,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### GroupConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.resource_groups_classes.GroupConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resource_groups_classes.GroupConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resource_groups_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resource_groups_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteGroupInputTypeDef
+# DeleteGroupInput
 
 ### GroupName
 - **Type**: typing.Optional[str]
@@ -85,25 +85,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteGroupOutputTypeDef
+# DeleteGroupOutput
 
 ### Group
-- **Type**: <class 'aws_resource_validator.pydantic_models.resource_groups_classes.GroupTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resource_groups_classes.Group'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resource_groups_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resource_groups_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# EmptyResponseMetadataTypeDef
+# EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resource_groups_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resource_groups_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# FailedResourceTypeDef
+# FailedResource
 
 ### ResourceArn
 - **Type**: typing.Optional[str]
@@ -115,35 +115,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetAccountSettingsOutputTypeDef
+# GetAccountSettingsOutput
 
 ### AccountSettings
-- **Type**: <class 'aws_resource_validator.pydantic_models.resource_groups_classes.AccountSettingsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resource_groups_classes.AccountSettings'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resource_groups_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resource_groups_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetGroupConfigurationInputTypeDef
+# GetGroupConfigurationInput
 
 ### Group
 - **Type**: typing.Optional[str]
 
 
-# GetGroupConfigurationOutputTypeDef
+# GetGroupConfigurationOutput
 
 ### GroupConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.resource_groups_classes.GroupConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resource_groups_classes.GroupConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resource_groups_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resource_groups_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetGroupInputTypeDef
+# GetGroupInput
 
 ### GroupName
 - **Type**: typing.Optional[str]
@@ -152,18 +152,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetGroupOutputTypeDef
+# GetGroupOutput
 
 ### Group
-- **Type**: <class 'aws_resource_validator.pydantic_models.resource_groups_classes.GroupTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resource_groups_classes.Group'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resource_groups_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resource_groups_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetGroupQueryInputTypeDef
+# GetGroupQueryInput
 
 ### GroupName
 - **Type**: typing.Optional[str]
@@ -172,25 +172,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetGroupQueryOutputTypeDef
+# GetGroupQueryOutput
 
 ### GroupQuery
-- **Type**: <class 'aws_resource_validator.pydantic_models.resource_groups_classes.GroupQueryTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resource_groups_classes.GroupQuery'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resource_groups_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resource_groups_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetTagSyncTaskInputTypeDef
+# GetTagSyncTaskInput
 
 ### TaskArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetTagSyncTaskOutputTypeDef
+# GetTagSyncTaskOutput
 
 ### GroupArn
 - **Type**: <class 'str'>
@@ -229,18 +229,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resource_groups_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resource_groups_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetTagsInputTypeDef
+# GetTagsInput
 
 ### Arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetTagsOutputTypeDef
+# GetTagsOutput
 
 ### Arn
 - **Type**: <class 'str'>
@@ -251,131 +251,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resource_groups_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resource_groups_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GroupConfigurationItemOutputTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# GroupConfigurationItemUnionTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# GroupConfigurationParameterOutputTypeDef
-
-### Name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Values
-- **Type**: typing.Optional[typing.List[str]]
-
-
-# GroupConfigurationParameterTypeDef
-
-### Name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Values
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-
-# GroupConfigurationTypeDef
-
-### Configuration
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.resource_groups_classes.GroupConfigurationItemOutputTypeDef]]
-
-### ProposedConfiguration
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.resource_groups_classes.GroupConfigurationItemOutputTypeDef]]
-
-### Status
-- **Type**: typing.Optional[typing.Literal['UPDATE_COMPLETE', 'UPDATE_FAILED', 'UPDATING']]
-
-### FailureReason
-- **Type**: typing.Optional[str]
-
-
-# GroupFilterTypeDef
-
-### Name
-- **Type**: typing.Literal['configuration-type', 'criticality', 'display-name', 'owner', 'resource-type']
-- **Required**: Yes
-
-### Values
-- **Type**: typing.Sequence[str]
-- **Required**: Yes
-
-
-# GroupIdentifierTypeDef
-
-### GroupName
-- **Type**: typing.Optional[str]
-
-### GroupArn
-- **Type**: typing.Optional[str]
-
-### Description
-- **Type**: typing.Optional[str]
-
-### Criticality
-- **Type**: typing.Optional[int]
-
-### Owner
-- **Type**: typing.Optional[str]
-
-### DisplayName
-- **Type**: typing.Optional[str]
-
-
-# GroupQueryTypeDef
-
-### GroupName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ResourceQuery
-- **Type**: <class 'aws_resource_validator.pydantic_models.resource_groups_classes.ResourceQueryTypeDef'>
-- **Required**: Yes
-
-
-# GroupResourcesInputTypeDef
-
-### Group
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ResourceArns
-- **Type**: typing.Sequence[str]
-- **Required**: Yes
-
-
-# GroupResourcesOutputTypeDef
-
-### Succeeded
-- **Type**: typing.List[str]
-- **Required**: Yes
-
-### Failed
-- **Type**: typing.List[aws_resource_validator.pydantic_models.resource_groups_classes.FailedResourceTypeDef]
-- **Required**: Yes
-
-### Pending
-- **Type**: typing.List[aws_resource_validator.pydantic_models.resource_groups_classes.PendingResourceTypeDef]
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resource_groups_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# GroupTypeDef
+# Group
 
 ### GroupArn
 - **Type**: <class 'str'>
@@ -401,7 +281,127 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 
-# GroupingStatusesItemTypeDef
+# GroupConfiguration
+
+### Configuration
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.resource_groups_classes.GroupConfigurationItemOutput]]
+
+### ProposedConfiguration
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.resource_groups_classes.GroupConfigurationItemOutput]]
+
+### Status
+- **Type**: typing.Optional[typing.Literal['UPDATE_COMPLETE', 'UPDATE_FAILED', 'UPDATING']]
+
+### FailureReason
+- **Type**: typing.Optional[str]
+
+
+# GroupConfigurationItemOutput
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# GroupConfigurationItemUnion
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# GroupConfigurationParameter
+
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Values
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+
+# GroupConfigurationParameterOutput
+
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Values
+- **Type**: typing.Optional[typing.List[str]]
+
+
+# GroupFilter
+
+### Name
+- **Type**: typing.Literal['configuration-type', 'criticality', 'display-name', 'owner', 'resource-type']
+- **Required**: Yes
+
+### Values
+- **Type**: typing.Sequence[str]
+- **Required**: Yes
+
+
+# GroupIdentifier
+
+### GroupName
+- **Type**: typing.Optional[str]
+
+### GroupArn
+- **Type**: typing.Optional[str]
+
+### Description
+- **Type**: typing.Optional[str]
+
+### Criticality
+- **Type**: typing.Optional[int]
+
+### Owner
+- **Type**: typing.Optional[str]
+
+### DisplayName
+- **Type**: typing.Optional[str]
+
+
+# GroupQuery
+
+### GroupName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResourceQuery
+- **Type**: <class 'aws_resource_validator.pydantic_models.resource_groups_classes.ResourceQuery'>
+- **Required**: Yes
+
+
+# GroupResourcesInput
+
+### Group
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResourceArns
+- **Type**: typing.Sequence[str]
+- **Required**: Yes
+
+
+# GroupResourcesOutput
+
+### Succeeded
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### Failed
+- **Type**: typing.List[aws_resource_validator.pydantic_models.resource_groups_classes.FailedResource]
+- **Required**: Yes
+
+### Pending
+- **Type**: typing.List[aws_resource_validator.pydantic_models.resource_groups_classes.PendingResource]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.resource_groups_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
+# GroupingStatusesItem
 
 ### ResourceArn
 - **Type**: typing.Optional[str]
@@ -422,7 +422,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# ListGroupResourcesInputPaginateTypeDef
+# ListGroupResourcesInput
 
 ### GroupName
 - **Type**: typing.Optional[str]
@@ -431,22 +431,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.resource_groups_classes.ResourceFilterTypeDef]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resource_groups_classes.PaginatorConfigTypeDef]
-
-
-# ListGroupResourcesInputTypeDef
-
-### GroupName
-- **Type**: typing.Optional[str]
-
-### Group
-- **Type**: typing.Optional[str]
-
-### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.resource_groups_classes.ResourceFilterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.resource_groups_classes.ResourceFilter]]
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -455,38 +440,53 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListGroupResourcesItemTypeDef
+# ListGroupResourcesInputPaginate
+
+### GroupName
+- **Type**: typing.Optional[str]
+
+### Group
+- **Type**: typing.Optional[str]
+
+### Filters
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.resource_groups_classes.ResourceFilter]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resource_groups_classes.PaginatorConfig]
+
+
+# ListGroupResourcesItem
 
 ### Identifier
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resource_groups_classes.ResourceIdentifierTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resource_groups_classes.ResourceIdentifier]
 
 ### Status
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resource_groups_classes.ResourceStatusTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resource_groups_classes.ResourceStatus]
 
 
-# ListGroupResourcesOutputTypeDef
+# ListGroupResourcesOutput
 
 ### Resources
-- **Type**: typing.List[aws_resource_validator.pydantic_models.resource_groups_classes.ListGroupResourcesItemTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.resource_groups_classes.ListGroupResourcesItem]
 - **Required**: Yes
 
 ### ResourceIdentifiers
-- **Type**: typing.List[aws_resource_validator.pydantic_models.resource_groups_classes.ResourceIdentifierTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.resource_groups_classes.ResourceIdentifier]
 - **Required**: Yes
 
 ### QueryErrors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.resource_groups_classes.QueryErrorTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.resource_groups_classes.QueryError]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resource_groups_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resource_groups_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListGroupingStatusesFilterTypeDef
+# ListGroupingStatusesFilter
 
 ### Name
 - **Type**: typing.Literal['resource-arn', 'status']
@@ -497,20 +497,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListGroupingStatusesInputPaginateTypeDef
-
-### Group
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.resource_groups_classes.ListGroupingStatusesFilterTypeDef]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resource_groups_classes.PaginatorConfigTypeDef]
-
-
-# ListGroupingStatusesInputTypeDef
+# ListGroupingStatusesInput
 
 ### Group
 - **Type**: <class 'str'>
@@ -520,43 +507,47 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.resource_groups_classes.ListGroupingStatusesFilterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.resource_groups_classes.ListGroupingStatusesFilter]]
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListGroupingStatusesOutputTypeDef
+# ListGroupingStatusesInputPaginate
+
+### Group
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Filters
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.resource_groups_classes.ListGroupingStatusesFilter]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resource_groups_classes.PaginatorConfig]
+
+
+# ListGroupingStatusesOutput
 
 ### Group
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### GroupingStatuses
-- **Type**: typing.List[aws_resource_validator.pydantic_models.resource_groups_classes.GroupingStatusesItemTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.resource_groups_classes.GroupingStatusesItem]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resource_groups_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resource_groups_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListGroupsInputPaginateTypeDef
+# ListGroupsInput
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.resource_groups_classes.GroupFilterTypeDef]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resource_groups_classes.PaginatorConfigTypeDef]
-
-
-# ListGroupsInputTypeDef
-
-### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.resource_groups_classes.GroupFilterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.resource_groups_classes.GroupFilter]]
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -565,25 +556,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListGroupsOutputTypeDef
+# ListGroupsInputPaginate
+
+### Filters
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.resource_groups_classes.GroupFilter]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resource_groups_classes.PaginatorConfig]
+
+
+# ListGroupsOutput
 
 ### GroupIdentifiers
-- **Type**: typing.List[aws_resource_validator.pydantic_models.resource_groups_classes.GroupIdentifierTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.resource_groups_classes.GroupIdentifier]
 - **Required**: Yes
 
 ### Groups
-- **Type**: typing.List[aws_resource_validator.pydantic_models.resource_groups_classes.GroupTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.resource_groups_classes.Group]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resource_groups_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resource_groups_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagSyncTasksFilterTypeDef
+# ListTagSyncTasksFilter
 
 ### GroupArn
 - **Type**: typing.Optional[str]
@@ -592,19 +592,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListTagSyncTasksInputPaginateTypeDef
+# ListTagSyncTasksInput
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.resource_groups_classes.ListTagSyncTasksFilterTypeDef]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resource_groups_classes.PaginatorConfigTypeDef]
-
-
-# ListTagSyncTasksInputTypeDef
-
-### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.resource_groups_classes.ListTagSyncTasksFilterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.resource_groups_classes.ListTagSyncTasksFilter]]
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -613,21 +604,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListTagSyncTasksOutputTypeDef
+# ListTagSyncTasksInputPaginate
+
+### Filters
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.resource_groups_classes.ListTagSyncTasksFilter]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resource_groups_classes.PaginatorConfig]
+
+
+# ListTagSyncTasksOutput
 
 ### TagSyncTasks
-- **Type**: typing.List[aws_resource_validator.pydantic_models.resource_groups_classes.TagSyncTaskItemTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.resource_groups_classes.TagSyncTaskItem]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resource_groups_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resource_groups_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -639,22 +639,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PendingResourceTypeDef
+# PendingResource
 
 ### ResourceArn
 - **Type**: typing.Optional[str]
 
 
-# PutGroupConfigurationInputTypeDef
+# PutGroupConfigurationInput
 
 ### Group
 - **Type**: typing.Optional[str]
 
 ### Configuration
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.resource_groups_classes.GroupConfigurationItemUnionTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.resource_groups_classes.GroupConfigurationItemUnion]]
 
 
-# QueryErrorTypeDef
+# QueryError
 
 ### ErrorCode
 - **Type**: typing.Optional[typing.Literal['CLOUDFORMATION_STACK_INACTIVE', 'CLOUDFORMATION_STACK_NOT_EXISTING', 'CLOUDFORMATION_STACK_UNASSUMABLE_ROLE', 'RESOURCE_TYPE_NOT_SUPPORTED']]
@@ -663,7 +663,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ResourceFilterTypeDef
+# ResourceFilter
 
 ### Name
 - **Type**: typing.Literal['resource-type']
@@ -674,7 +674,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ResourceIdentifierTypeDef
+# ResourceIdentifier
 
 ### ResourceArn
 - **Type**: typing.Optional[str]
@@ -683,19 +683,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ResourceQueryTypeDef
+# ResourceQuery
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ResourceStatusTypeDef
+# ResourceStatus
 
 ### Name
 - **Type**: typing.Optional[typing.Literal['PENDING']]
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -717,20 +717,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SearchResourcesInputPaginateTypeDef
+# SearchResourcesInput
 
 ### ResourceQuery
-- **Type**: <class 'aws_resource_validator.pydantic_models.resource_groups_classes.ResourceQueryTypeDef'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resource_groups_classes.PaginatorConfigTypeDef]
-
-
-# SearchResourcesInputTypeDef
-
-### ResourceQuery
-- **Type**: <class 'aws_resource_validator.pydantic_models.resource_groups_classes.ResourceQueryTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resource_groups_classes.ResourceQuery'>
 - **Required**: Yes
 
 ### MaxResults
@@ -740,25 +730,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SearchResourcesOutputTypeDef
+# SearchResourcesInputPaginate
+
+### ResourceQuery
+- **Type**: <class 'aws_resource_validator.pydantic_models.resource_groups_classes.ResourceQuery'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resource_groups_classes.PaginatorConfig]
+
+
+# SearchResourcesOutput
 
 ### ResourceIdentifiers
-- **Type**: typing.List[aws_resource_validator.pydantic_models.resource_groups_classes.ResourceIdentifierTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.resource_groups_classes.ResourceIdentifier]
 - **Required**: Yes
 
 ### QueryErrors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.resource_groups_classes.QueryErrorTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.resource_groups_classes.QueryError]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resource_groups_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resource_groups_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# StartTagSyncTaskInputTypeDef
+# StartTagSyncTaskInput
 
 ### Group
 - **Type**: <class 'str'>
@@ -777,7 +777,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StartTagSyncTaskOutputTypeDef
+# StartTagSyncTaskOutput
 
 ### GroupArn
 - **Type**: <class 'str'>
@@ -804,11 +804,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resource_groups_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resource_groups_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# TagInputTypeDef
+# TagInput
 
 ### Arn
 - **Type**: <class 'str'>
@@ -819,7 +819,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TagOutputTypeDef
+# TagOutput
 
 ### Arn
 - **Type**: <class 'str'>
@@ -830,11 +830,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resource_groups_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resource_groups_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# TagSyncTaskItemTypeDef
+# TagSyncTaskItem
 
 ### GroupArn
 - **Type**: typing.Optional[str]
@@ -864,7 +864,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# UngroupResourcesInputTypeDef
+# UngroupResourcesInput
 
 ### Group
 - **Type**: <class 'str'>
@@ -875,26 +875,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UngroupResourcesOutputTypeDef
+# UngroupResourcesOutput
 
 ### Succeeded
 - **Type**: typing.List[str]
 - **Required**: Yes
 
 ### Failed
-- **Type**: typing.List[aws_resource_validator.pydantic_models.resource_groups_classes.FailedResourceTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.resource_groups_classes.FailedResource]
 - **Required**: Yes
 
 ### Pending
-- **Type**: typing.List[aws_resource_validator.pydantic_models.resource_groups_classes.PendingResourceTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.resource_groups_classes.PendingResource]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resource_groups_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resource_groups_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UntagInputTypeDef
+# UntagInput
 
 ### Arn
 - **Type**: <class 'str'>
@@ -905,7 +905,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagOutputTypeDef
+# UntagOutput
 
 ### Arn
 - **Type**: <class 'str'>
@@ -916,28 +916,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resource_groups_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resource_groups_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateAccountSettingsInputTypeDef
+# UpdateAccountSettingsInput
 
 ### GroupLifecycleEventsDesiredStatus
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'INACTIVE']]
 
 
-# UpdateAccountSettingsOutputTypeDef
+# UpdateAccountSettingsOutput
 
 ### AccountSettings
-- **Type**: <class 'aws_resource_validator.pydantic_models.resource_groups_classes.AccountSettingsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resource_groups_classes.AccountSettings'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resource_groups_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resource_groups_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateGroupInputTypeDef
+# UpdateGroupInput
 
 ### GroupName
 - **Type**: typing.Optional[str]
@@ -958,21 +958,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateGroupOutputTypeDef
+# UpdateGroupOutput
 
 ### Group
-- **Type**: <class 'aws_resource_validator.pydantic_models.resource_groups_classes.GroupTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resource_groups_classes.Group'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resource_groups_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resource_groups_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateGroupQueryInputTypeDef
+# UpdateGroupQueryInput
 
 ### ResourceQuery
-- **Type**: <class 'aws_resource_validator.pydantic_models.resource_groups_classes.ResourceQueryTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resource_groups_classes.ResourceQuery'>
 - **Required**: Yes
 
 ### GroupName
@@ -982,14 +982,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateGroupQueryOutputTypeDef
+# UpdateGroupQueryOutput
 
 ### GroupQuery
-- **Type**: <class 'aws_resource_validator.pydantic_models.resource_groups_classes.GroupQueryTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resource_groups_classes.GroupQuery'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resource_groups_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resource_groups_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

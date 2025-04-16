@@ -12,19 +12,19 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.sagemaker_a2i_runtime_constants import *
 
-class DeleteHumanLoopRequestTypeDef(BaseValidatorModel):
+class DeleteHumanLoopRequest(BaseValidatorModel):
     HumanLoopName: str
 
 
-class DescribeHumanLoopRequestTypeDef(BaseValidatorModel):
+class DescribeHumanLoopRequest(BaseValidatorModel):
     HumanLoopName: str
 
 
-class HumanLoopOutputTypeDef(BaseValidatorModel):
+class HumanLoopOutput(BaseValidatorModel):
     OutputS3Uri: str
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -32,15 +32,15 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class HumanLoopDataAttributesTypeDef(BaseValidatorModel):
+class HumanLoopDataAttributes(BaseValidatorModel):
     ContentClassifiers: Sequence[ContentClassifierType]
 
 
-class HumanLoopInputTypeDef(BaseValidatorModel):
+class HumanLoopInput(BaseValidatorModel):
     InputContent: str
 
 
-class HumanLoopSummaryTypeDef(BaseValidatorModel):
+class HumanLoopSummary(BaseValidatorModel):
     HumanLoopName: Optional[str] = None
     HumanLoopStatus: Optional[HumanLoopStatusType] = None
     CreationTime: Optional[datetime] = None
@@ -48,17 +48,17 @@ class HumanLoopSummaryTypeDef(BaseValidatorModel):
     FlowDefinitionArn: Optional[str] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class StopHumanLoopRequestTypeDef(BaseValidatorModel):
+class StopHumanLoopRequest(BaseValidatorModel):
     HumanLoopName: str
 
 
-class DescribeHumanLoopResponseTypeDef(BaseValidatorModel):
+class DescribeHumanLoopResponse(BaseValidatorModel):
     CreationTime: datetime
     FailureReason: str
     FailureCode: str
@@ -66,44 +66,44 @@ class DescribeHumanLoopResponseTypeDef(BaseValidatorModel):
     HumanLoopName: str
     HumanLoopArn: str
     FlowDefinitionArn: str
-    HumanLoopOutput: HumanLoopOutputTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    HumanLoopOutput: HumanLoopOutput
+    ResponseMetadata: ResponseMetadata
 
 
-class StartHumanLoopResponseTypeDef(BaseValidatorModel):
+class StartHumanLoopResponse(BaseValidatorModel):
     HumanLoopArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartHumanLoopRequestTypeDef(BaseValidatorModel):
+class StartHumanLoopRequest(BaseValidatorModel):
     HumanLoopName: str
     FlowDefinitionArn: str
-    HumanLoopInput: HumanLoopInputTypeDef
-    DataAttributes: Optional[HumanLoopDataAttributesTypeDef] = None
+    HumanLoopInput: HumanLoopInput
+    DataAttributes: Optional[HumanLoopDataAttributes] = None
 
 
-class ListHumanLoopsResponseTypeDef(BaseValidatorModel):
-    HumanLoopSummaries: List[HumanLoopSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListHumanLoopsResponse(BaseValidatorModel):
+    HumanLoopSummaries: List[HumanLoopSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class TimestampTypeDef(BaseValidatorModel):
+class Timestamp(BaseValidatorModel):
     pass
 
 
-class ListHumanLoopsRequestPaginateTypeDef(BaseValidatorModel):
+class ListHumanLoopsRequestPaginate(BaseValidatorModel):
     FlowDefinitionArn: str
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
+    CreationTimeAfter: Optional[Timestamp] = None
+    CreationTimeBefore: Optional[Timestamp] = None
     SortOrder: Optional[SortOrderType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListHumanLoopsRequestTypeDef(BaseValidatorModel):
+class ListHumanLoopsRequest(BaseValidatorModel):
     FlowDefinitionArn: str
-    CreationTimeAfter: Optional[TimestampTypeDef] = None
-    CreationTimeBefore: Optional[TimestampTypeDef] = None
+    CreationTimeAfter: Optional[Timestamp] = None
+    CreationTimeBefore: Optional[Timestamp] = None
     SortOrder: Optional[SortOrderType] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None

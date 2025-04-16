@@ -1,6 +1,20 @@
 # Textract Classes
 
-# AdapterOverviewTypeDef
+# Adapter
+
+### AdapterId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Version
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Pages
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+
+# AdapterOverview
 
 ### AdapterId
 - **Type**: typing.Optional[str]
@@ -15,39 +29,25 @@
 - **Type**: typing.Optional[typing.List[typing.Literal['FORMS', 'LAYOUT', 'QUERIES', 'SIGNATURES', 'TABLES']]]
 
 
-# AdapterTypeDef
-
-### AdapterId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Version
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Pages
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-
-# AdapterVersionDatasetConfigTypeDef
+# AdapterVersionDatasetConfig
 
 ### ManifestS3Object
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.textract_classes.S3ObjectTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.textract_classes.S3Object]
 
 
-# AdapterVersionEvaluationMetricTypeDef
+# AdapterVersionEvaluationMetric
 
 ### Baseline
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.textract_classes.EvaluationMetricTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.textract_classes.EvaluationMetric]
 
 ### AdapterVersion
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.textract_classes.EvaluationMetricTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.textract_classes.EvaluationMetric]
 
 ### FeatureType
 - **Type**: typing.Optional[typing.Literal['FORMS', 'LAYOUT', 'QUERIES', 'SIGNATURES', 'TABLES']]
 
 
-# AdapterVersionOverviewTypeDef
+# AdapterVersionOverview
 
 ### AdapterId
 - **Type**: typing.Optional[str]
@@ -68,17 +68,17 @@
 - **Type**: typing.Optional[str]
 
 
-# AdaptersConfigTypeDef
+# AdaptersConfig
 
 ### Adapters
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.textract_classes.AdapterTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.textract_classes.Adapter]
 - **Required**: Yes
 
 
-# AnalyzeDocumentRequestTypeDef
+# AnalyzeDocumentRequest
 
 ### Document
-- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.DocumentTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.Document'>
 - **Required**: Yes
 
 ### FeatureTypes
@@ -86,27 +86,27 @@
 - **Required**: Yes
 
 ### HumanLoopConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.textract_classes.HumanLoopConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### QueriesConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.textract_classes.QueriesConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### AdaptersConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.textract_classes.AdaptersConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# AnalyzeDocumentResponseTypeDef
+# AnalyzeDocumentResponse
 
 ### DocumentMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.DocumentMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.DocumentMetadata'>
 - **Required**: Yes
 
 ### Blocks
-- **Type**: typing.List[aws_resource_validator.pydantic_models.textract_classes.BlockTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.textract_classes.Block]
 - **Required**: Yes
 
 ### HumanLoopActivationOutput
-- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.HumanLoopActivationOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.HumanLoopActivationOutput'>
 - **Required**: Yes
 
 ### AnalyzeDocumentModelVersion
@@ -114,47 +114,47 @@
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# AnalyzeExpenseRequestTypeDef
+# AnalyzeExpenseRequest
 
 ### Document
-- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.DocumentTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.Document'>
 - **Required**: Yes
 
 
-# AnalyzeExpenseResponseTypeDef
+# AnalyzeExpenseResponse
 
 ### DocumentMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.DocumentMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.DocumentMetadata'>
 - **Required**: Yes
 
 ### ExpenseDocuments
-- **Type**: typing.List[aws_resource_validator.pydantic_models.textract_classes.ExpenseDocumentTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.textract_classes.ExpenseDocument]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# AnalyzeIDRequestTypeDef
+# AnalyzeIDRequest
 
 ### DocumentPages
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.textract_classes.DocumentTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.textract_classes.Document]
 - **Required**: Yes
 
 
-# AnalyzeIDResponseTypeDef
+# AnalyzeIDResponse
 
 ### IdentityDocuments
-- **Type**: typing.List[aws_resource_validator.pydantic_models.textract_classes.IdentityDocumentTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.textract_classes.IdentityDocument]
 - **Required**: Yes
 
 ### DocumentMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.DocumentMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.DocumentMetadata'>
 - **Required**: Yes
 
 ### AnalyzeIDModelVersion
@@ -162,7 +162,7 @@
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -172,19 +172,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BlobTypeDef
+# Blob
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BlockTypeDef
+# Block
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BoundingBoxTypeDef
+# BoundingBox
 
 ### Width
 - **Type**: typing.Optional[float]
@@ -199,7 +199,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# CreateAdapterRequestTypeDef
+# CreateAdapterRequest
 
 ### AdapterName
 - **Type**: <class 'str'>
@@ -222,29 +222,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateAdapterResponseTypeDef
+# CreateAdapterResponse
 
 ### AdapterId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateAdapterVersionRequestTypeDef
+# CreateAdapterVersionRequest
 
 ### AdapterId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### DatasetConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.AdapterVersionDatasetConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.AdapterVersionDatasetConfig'>
 - **Required**: Yes
 
 ### OutputConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.OutputConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.OutputConfig'>
 - **Required**: Yes
 
 ### ClientRequestToken
@@ -257,7 +257,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateAdapterVersionResponseTypeDef
+# CreateAdapterVersionResponse
 
 ### AdapterId
 - **Type**: <class 'str'>
@@ -268,18 +268,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteAdapterRequestTypeDef
+# DeleteAdapterRequest
 
 ### AdapterId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteAdapterVersionRequestTypeDef
+# DeleteAdapterVersionRequest
 
 ### AdapterId
 - **Type**: <class 'str'>
@@ -290,21 +290,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DetectDocumentTextRequestTypeDef
+# DetectDocumentTextRequest
 
 ### Document
-- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.DocumentTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.Document'>
 - **Required**: Yes
 
 
-# DetectDocumentTextResponseTypeDef
+# DetectDocumentTextResponse
 
 ### DocumentMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.DocumentMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.DocumentMetadata'>
 - **Required**: Yes
 
 ### Blocks
-- **Type**: typing.List[aws_resource_validator.pydantic_models.textract_classes.BlockTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.textract_classes.Block]
 - **Required**: Yes
 
 ### DetectDocumentTextModelVersion
@@ -312,44 +312,44 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DetectedSignatureTypeDef
+# DetectedSignature
 
 ### Page
 - **Type**: typing.Optional[int]
 
 
-# DocumentGroupTypeDef
+# Document
+
+### Bytes
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.textract_classes.Blob]
+
+### S3Object
+- **Type**: <class 'NoneType'>
+
+
+# DocumentGroup
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# DocumentLocationTypeDef
+# DocumentLocation
 
 ### S3Object
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.textract_classes.S3ObjectTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# DocumentMetadataTypeDef
+# DocumentMetadata
 
 ### Pages
 - **Type**: typing.Optional[int]
 
 
-# DocumentTypeDef
-
-### Bytes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.textract_classes.BlobTypeDef]
-
-### S3Object
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.textract_classes.S3ObjectTypeDef]
-
-
-# EvaluationMetricTypeDef
+# EvaluationMetric
 
 ### F1Score
 - **Type**: typing.Optional[float]
@@ -361,7 +361,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# ExpenseCurrencyTypeDef
+# ExpenseCurrency
 
 ### Code
 - **Type**: typing.Optional[str]
@@ -370,28 +370,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# ExpenseDocumentTypeDef
+# ExpenseDocument
 
 ### ExpenseIndex
 - **Type**: typing.Optional[int]
 
 ### SummaryFields
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.textract_classes.ExpenseFieldTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.textract_classes.ExpenseField]]
 
 ### LineItemGroups
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.textract_classes.LineItemGroupTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.textract_classes.LineItemGroup]]
 
 ### Blocks
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.textract_classes.BlockTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.textract_classes.Block]]
 
 
-# ExpenseFieldTypeDef
+# ExpenseField
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ExpenseGroupPropertyTypeDef
+# ExpenseGroupProperty
 
 ### Types
 - **Type**: typing.Optional[typing.List[str]]
@@ -400,35 +400,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ExtractionTypeDef
+# Extraction
 
 ### LendingDocument
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.textract_classes.LendingDocumentTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### ExpenseDocument
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.textract_classes.ExpenseDocumentTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### IdentityDocument
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.textract_classes.IdentityDocumentTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# GeometryTypeDef
+# Geometry
 
 ### BoundingBox
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.textract_classes.BoundingBoxTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### Polygon
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.textract_classes.PointTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.textract_classes.Point]]
 
 
-# GetAdapterRequestTypeDef
+# GetAdapterRequest
 
 ### AdapterId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetAdapterResponseTypeDef
+# GetAdapterResponse
 
 ### AdapterId
 - **Type**: <class 'str'>
@@ -459,11 +459,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetAdapterVersionRequestTypeDef
+# GetAdapterVersionRequest
 
 ### AdapterId
 - **Type**: <class 'str'>
@@ -474,7 +474,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetAdapterVersionResponseTypeDef
+# GetAdapterVersionResponse
 
 ### AdapterId
 - **Type**: <class 'str'>
@@ -501,7 +501,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DatasetConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.AdapterVersionDatasetConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.AdapterVersionDatasetConfig'>
 - **Required**: Yes
 
 ### KMSKeyId
@@ -509,11 +509,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### OutputConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.OutputConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.OutputConfig'>
 - **Required**: Yes
 
 ### EvaluationMetrics
-- **Type**: typing.List[aws_resource_validator.pydantic_models.textract_classes.AdapterVersionEvaluationMetricTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.textract_classes.AdapterVersionEvaluationMetric]
 - **Required**: Yes
 
 ### Tags
@@ -521,11 +521,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetDocumentAnalysisRequestTypeDef
+# GetDocumentAnalysisRequest
 
 ### JobId
 - **Type**: <class 'str'>
@@ -538,10 +538,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetDocumentAnalysisResponseTypeDef
+# GetDocumentAnalysisResponse
 
 ### DocumentMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.DocumentMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.DocumentMetadata'>
 - **Required**: Yes
 
 ### JobStatus
@@ -549,11 +549,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Blocks
-- **Type**: typing.List[aws_resource_validator.pydantic_models.textract_classes.BlockTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.textract_classes.Block]
 - **Required**: Yes
 
 ### Warnings
-- **Type**: typing.List[aws_resource_validator.pydantic_models.textract_classes.WarningTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.textract_classes.Warning]
 - **Required**: Yes
 
 ### StatusMessage
@@ -565,14 +565,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# GetDocumentTextDetectionRequestTypeDef
+# GetDocumentTextDetectionRequest
 
 ### JobId
 - **Type**: <class 'str'>
@@ -585,10 +585,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetDocumentTextDetectionResponseTypeDef
+# GetDocumentTextDetectionResponse
 
 ### DocumentMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.DocumentMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.DocumentMetadata'>
 - **Required**: Yes
 
 ### JobStatus
@@ -596,11 +596,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Blocks
-- **Type**: typing.List[aws_resource_validator.pydantic_models.textract_classes.BlockTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.textract_classes.Block]
 - **Required**: Yes
 
 ### Warnings
-- **Type**: typing.List[aws_resource_validator.pydantic_models.textract_classes.WarningTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.textract_classes.Warning]
 - **Required**: Yes
 
 ### StatusMessage
@@ -612,14 +612,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# GetExpenseAnalysisRequestTypeDef
+# GetExpenseAnalysisRequest
 
 ### JobId
 - **Type**: <class 'str'>
@@ -632,10 +632,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetExpenseAnalysisResponseTypeDef
+# GetExpenseAnalysisResponse
 
 ### DocumentMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.DocumentMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.DocumentMetadata'>
 - **Required**: Yes
 
 ### JobStatus
@@ -643,11 +643,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ExpenseDocuments
-- **Type**: typing.List[aws_resource_validator.pydantic_models.textract_classes.ExpenseDocumentTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.textract_classes.ExpenseDocument]
 - **Required**: Yes
 
 ### Warnings
-- **Type**: typing.List[aws_resource_validator.pydantic_models.textract_classes.WarningTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.textract_classes.Warning]
 - **Required**: Yes
 
 ### StatusMessage
@@ -659,14 +659,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# GetLendingAnalysisRequestTypeDef
+# GetLendingAnalysisRequest
 
 ### JobId
 - **Type**: <class 'str'>
@@ -679,10 +679,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetLendingAnalysisResponseTypeDef
+# GetLendingAnalysisResponse
 
 ### DocumentMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.DocumentMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.DocumentMetadata'>
 - **Required**: Yes
 
 ### JobStatus
@@ -690,11 +690,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Results
-- **Type**: typing.List[aws_resource_validator.pydantic_models.textract_classes.LendingResultTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.textract_classes.LendingResult]
 - **Required**: Yes
 
 ### Warnings
-- **Type**: typing.List[aws_resource_validator.pydantic_models.textract_classes.WarningTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.textract_classes.Warning]
 - **Required**: Yes
 
 ### StatusMessage
@@ -706,24 +706,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# GetLendingAnalysisSummaryRequestTypeDef
+# GetLendingAnalysisSummaryRequest
 
 ### JobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetLendingAnalysisSummaryResponseTypeDef
+# GetLendingAnalysisSummaryResponse
 
 ### DocumentMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.DocumentMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.DocumentMetadata'>
 - **Required**: Yes
 
 ### JobStatus
@@ -731,11 +731,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Summary
-- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.LendingSummaryTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.LendingSummary'>
 - **Required**: Yes
 
 ### Warnings
-- **Type**: typing.List[aws_resource_validator.pydantic_models.textract_classes.WarningTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.textract_classes.Warning]
 - **Required**: Yes
 
 ### StatusMessage
@@ -747,11 +747,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# HumanLoopActivationOutputTypeDef
+# HumanLoopActivationOutput
 
 ### HumanLoopArn
 - **Type**: typing.Optional[str]
@@ -763,7 +763,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# HumanLoopConfigTypeDef
+# HumanLoopConfig
 
 ### HumanLoopName
 - **Type**: <class 'str'>
@@ -774,109 +774,94 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DataAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.textract_classes.HumanLoopDataAttributesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.textract_classes.HumanLoopDataAttributes]
 
 
-# HumanLoopDataAttributesTypeDef
+# HumanLoopDataAttributes
 
 ### ContentClassifiers
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['FreeOfAdultContent', 'FreeOfPersonallyIdentifiableInformation']]]
 
 
-# IdentityDocumentFieldTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# IdentityDocumentTypeDef
+# IdentityDocument
 
 ### DocumentIndex
 - **Type**: typing.Optional[int]
 
 ### IdentityDocumentFields
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.textract_classes.IdentityDocumentFieldTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.textract_classes.IdentityDocumentField]]
 
 ### Blocks
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.textract_classes.BlockTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.textract_classes.Block]]
 
 
-# LendingDocumentTypeDef
-
-### LendingFields
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.textract_classes.LendingFieldTypeDef]]
-
-### SignatureDetections
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.textract_classes.SignatureDetectionTypeDef]]
-
-
-# LendingFieldTypeDef
+# IdentityDocumentField
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# LendingResultTypeDef
+# LendingDocument
+
+### LendingFields
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.textract_classes.LendingField]]
+
+### SignatureDetections
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.textract_classes.SignatureDetection]]
+
+
+# LendingField
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# LendingResult
 
 ### Page
 - **Type**: typing.Optional[int]
 
 ### PageClassification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.textract_classes.PageClassificationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### Extractions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.textract_classes.ExtractionTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.textract_classes.Extraction]]
 
 
-# LendingSummaryTypeDef
+# LendingSummary
 
 ### DocumentGroups
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.textract_classes.DocumentGroupTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.textract_classes.DocumentGroup]]
 
 ### UndetectedDocumentTypes
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# LineItemFieldsTypeDef
+# LineItemFields
 
 ### LineItemExpenseFields
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.textract_classes.ExpenseFieldTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.textract_classes.ExpenseField]]
 
 
-# LineItemGroupTypeDef
+# LineItemGroup
 
 ### LineItemGroupIndex
 - **Type**: typing.Optional[int]
 
 ### LineItems
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.textract_classes.LineItemFieldsTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.textract_classes.LineItemFields]]
 
 
-# ListAdapterVersionsRequestPaginateTypeDef
-
-### AdapterId
-- **Type**: typing.Optional[str]
-
-### AfterCreationTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.textract_classes.TimestampTypeDef]
-
-### BeforeCreationTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.textract_classes.TimestampTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.textract_classes.PaginatorConfigTypeDef]
-
-
-# ListAdapterVersionsRequestTypeDef
+# ListAdapterVersionsRequest
 
 ### AdapterId
 - **Type**: typing.Optional[str]
 
 ### AfterCreationTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.textract_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.textract_classes.Timestamp]
 
 ### BeforeCreationTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.textract_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.textract_classes.Timestamp]
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -885,39 +870,42 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListAdapterVersionsResponseTypeDef
+# ListAdapterVersionsRequestPaginate
+
+### AdapterId
+- **Type**: typing.Optional[str]
+
+### AfterCreationTime
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.textract_classes.Timestamp]
+
+### BeforeCreationTime
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.textract_classes.Timestamp]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.textract_classes.PaginatorConfig]
+
+
+# ListAdapterVersionsResponse
 
 ### AdapterVersions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.textract_classes.AdapterVersionOverviewTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.textract_classes.AdapterVersionOverview]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListAdaptersRequestPaginateTypeDef
+# ListAdaptersRequest
 
 ### AfterCreationTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.textract_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.textract_classes.Timestamp]
 
 ### BeforeCreationTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.textract_classes.TimestampTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.textract_classes.PaginatorConfigTypeDef]
-
-
-# ListAdaptersRequestTypeDef
-
-### AfterCreationTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.textract_classes.TimestampTypeDef]
-
-### BeforeCreationTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.textract_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.textract_classes.Timestamp]
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -926,39 +914,51 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListAdaptersResponseTypeDef
+# ListAdaptersRequestPaginate
+
+### AfterCreationTime
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.textract_classes.Timestamp]
+
+### BeforeCreationTime
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.textract_classes.Timestamp]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.textract_classes.PaginatorConfig]
+
+
+# ListAdaptersResponse
 
 ### Adapters
-- **Type**: typing.List[aws_resource_validator.pydantic_models.textract_classes.AdapterOverviewTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.textract_classes.AdapterOverview]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestTypeDef
+# ListTagsForResourceRequest
 
 ### ResourceARN
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ListTagsForResourceResponseTypeDef
+# ListTagsForResourceResponse
 
 ### Tags
 - **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# NormalizedValueTypeDef
+# NormalizedValue
 
 ### Value
 - **Type**: typing.Optional[str]
@@ -967,7 +967,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DATE']]
 
 
-# NotificationChannelTypeDef
+# NotificationChannel
 
 ### SNSTopicArn
 - **Type**: <class 'str'>
@@ -978,7 +978,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# OutputConfigTypeDef
+# OutputConfig
 
 ### S3Bucket
 - **Type**: <class 'str'>
@@ -988,18 +988,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PageClassificationTypeDef
+# PageClassification
 
 ### PageType
-- **Type**: typing.List[aws_resource_validator.pydantic_models.textract_classes.PredictionTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.textract_classes.Prediction]
 - **Required**: Yes
 
 ### PageNumber
-- **Type**: typing.List[aws_resource_validator.pydantic_models.textract_classes.PredictionTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.textract_classes.Prediction]
 - **Required**: Yes
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -1011,7 +1011,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PointTypeDef
+# Point
 
 ### X
 - **Type**: typing.Optional[float]
@@ -1020,7 +1020,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# PredictionTypeDef
+# Prediction
 
 ### Value
 - **Type**: typing.Optional[str]
@@ -1029,20 +1029,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# QueriesConfigTypeDef
+# QueriesConfig
 
 ### Queries
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.textract_classes.QueryUnionTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.textract_classes.QueryUnion]
 - **Required**: Yes
 
 
-# QueryUnionTypeDef
+# QueryUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -1064,7 +1064,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# S3ObjectTypeDef
+# S3Object
 
 ### Bucket
 - **Type**: typing.Optional[str]
@@ -1076,16 +1076,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SignatureDetectionTypeDef
+# SignatureDetection
 
 ### Confidence
 - **Type**: typing.Optional[float]
 
 ### Geometry
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.textract_classes.GeometryTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# SplitDocumentTypeDef
+# SplitDocument
 
 ### Index
 - **Type**: typing.Optional[int]
@@ -1094,10 +1094,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[int]]
 
 
-# StartDocumentAnalysisRequestTypeDef
+# StartDocumentAnalysisRequest
 
 ### DocumentLocation
-- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.DocumentLocationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.DocumentLocation'>
 - **Required**: Yes
 
 ### FeatureTypes
@@ -1111,36 +1111,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### NotificationChannel
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.textract_classes.NotificationChannelTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### OutputConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.textract_classes.OutputConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### KMSKeyId
 - **Type**: typing.Optional[str]
 
 ### QueriesConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.textract_classes.QueriesConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### AdaptersConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.textract_classes.AdaptersConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# StartDocumentAnalysisResponseTypeDef
+# StartDocumentAnalysisResponse
 
 ### JobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# StartDocumentTextDetectionRequestTypeDef
+# StartDocumentTextDetectionRequest
 
 ### DocumentLocation
-- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.DocumentLocationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.DocumentLocation'>
 - **Required**: Yes
 
 ### ClientRequestToken
@@ -1150,30 +1150,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### NotificationChannel
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.textract_classes.NotificationChannelTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### OutputConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.textract_classes.OutputConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### KMSKeyId
 - **Type**: typing.Optional[str]
 
 
-# StartDocumentTextDetectionResponseTypeDef
+# StartDocumentTextDetectionResponse
 
 ### JobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# StartExpenseAnalysisRequestTypeDef
+# StartExpenseAnalysisRequest
 
 ### DocumentLocation
-- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.DocumentLocationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.DocumentLocation'>
 - **Required**: Yes
 
 ### ClientRequestToken
@@ -1183,30 +1183,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### NotificationChannel
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.textract_classes.NotificationChannelTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### OutputConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.textract_classes.OutputConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### KMSKeyId
 - **Type**: typing.Optional[str]
 
 
-# StartExpenseAnalysisResponseTypeDef
+# StartExpenseAnalysisResponse
 
 ### JobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# StartLendingAnalysisRequestTypeDef
+# StartLendingAnalysisRequest
 
 ### DocumentLocation
-- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.DocumentLocationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.DocumentLocation'>
 - **Required**: Yes
 
 ### ClientRequestToken
@@ -1216,27 +1216,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### NotificationChannel
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.textract_classes.NotificationChannelTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### OutputConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.textract_classes.OutputConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### KMSKeyId
 - **Type**: typing.Optional[str]
 
 
-# StartLendingAnalysisResponseTypeDef
+# StartLendingAnalysisResponse
 
 ### JobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# TagResourceRequestTypeDef
+# TagResourceRequest
 
 ### ResourceARN
 - **Type**: <class 'str'>
@@ -1247,19 +1247,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TimestampTypeDef
+# Timestamp
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# UndetectedSignatureTypeDef
+# UndetectedSignature
 
 ### Page
 - **Type**: typing.Optional[int]
 
 
-# UntagResourceRequestTypeDef
+# UntagResourceRequest
 
 ### ResourceARN
 - **Type**: <class 'str'>
@@ -1270,7 +1270,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateAdapterRequestTypeDef
+# UpdateAdapterRequest
 
 ### AdapterId
 - **Type**: <class 'str'>
@@ -1286,7 +1286,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
 
 
-# UpdateAdapterResponseTypeDef
+# UpdateAdapterResponse
 
 ### AdapterId
 - **Type**: <class 'str'>
@@ -1313,11 +1313,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.textract_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# WarningTypeDef
+# Warning
 
 ### ErrorCode
 - **Type**: typing.Optional[str]

@@ -6,14 +6,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CapacityUnitsConfigurationTypeDef
+# CapacityUnitsConfiguration
 
 ### RescoreCapacityUnits
 - **Type**: <class 'int'>
 - **Required**: Yes
 
 
-# CreateRescoreExecutionPlanRequestTypeDef
+# CreateRescoreExecutionPlanRequest
 
 ### Name
 - **Type**: <class 'str'>
@@ -23,16 +23,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CapacityUnits
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_ranking_classes.CapacityUnitsConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_ranking_classes.CapacityUnitsConfiguration]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_ranking_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_ranking_classes.Tag]]
 
 ### ClientToken
 - **Type**: typing.Optional[str]
 
 
-# CreateRescoreExecutionPlanResponseTypeDef
+# CreateRescoreExecutionPlanResponse
 
 ### Id
 - **Type**: <class 'str'>
@@ -43,25 +43,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_ranking_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_ranking_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteRescoreExecutionPlanRequestTypeDef
+# DeleteRescoreExecutionPlanRequest
 
 ### Id
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeRescoreExecutionPlanRequestTypeDef
+# DescribeRescoreExecutionPlanRequest
 
 ### Id
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeRescoreExecutionPlanResponseTypeDef
+# DescribeRescoreExecutionPlanResponse
 
 ### Id
 - **Type**: <class 'str'>
@@ -80,7 +80,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CapacityUnits
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_ranking_classes.CapacityUnitsConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_ranking_classes.CapacityUnitsConfiguration'>
 - **Required**: Yes
 
 ### CreatedAt
@@ -100,11 +100,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_ranking_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_ranking_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DocumentTypeDef
+# Document
 
 ### Id
 - **Type**: <class 'str'>
@@ -130,14 +130,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# EmptyResponseMetadataTypeDef
+# EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_ranking_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_ranking_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListRescoreExecutionPlansRequestTypeDef
+# ListRescoreExecutionPlansRequest
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -146,39 +146,39 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListRescoreExecutionPlansResponseTypeDef
+# ListRescoreExecutionPlansResponse
 
 ### SummaryItems
-- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_ranking_classes.RescoreExecutionPlanSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_ranking_classes.RescoreExecutionPlanSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_ranking_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_ranking_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestTypeDef
+# ListTagsForResourceRequest
 
 ### ResourceARN
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ListTagsForResourceResponseTypeDef
+# ListTagsForResourceResponse
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_ranking_classes.TagTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_ranking_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_ranking_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_ranking_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# RescoreExecutionPlanSummaryTypeDef
+# RescoreExecutionPlanSummary
 
 ### Name
 - **Type**: typing.Optional[str]
@@ -196,7 +196,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'CREATING', 'DELETING', 'FAILED', 'UPDATING']]
 
 
-# RescoreRequestTypeDef
+# RescoreRequest
 
 ### RescoreExecutionPlanId
 - **Type**: <class 'str'>
@@ -207,11 +207,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Documents
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.kendra_ranking_classes.DocumentTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.kendra_ranking_classes.Document]
 - **Required**: Yes
 
 
-# RescoreResultItemTypeDef
+# RescoreResult
+
+### RescoreId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResultItems
+- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_ranking_classes.RescoreResultItem]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_ranking_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
+# RescoreResultItem
 
 ### DocumentId
 - **Type**: typing.Optional[str]
@@ -220,22 +235,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# RescoreResultTypeDef
-
-### RescoreId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ResultItems
-- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_ranking_classes.RescoreResultItemTypeDef]
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_ranking_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -257,18 +257,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TagResourceRequestTypeDef
-
-### ResourceARN
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.kendra_ranking_classes.TagTypeDef]
-- **Required**: Yes
-
-
-# TagTypeDef
+# Tag
 
 ### Key
 - **Type**: <class 'str'>
@@ -279,7 +268,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceRequestTypeDef
+# TagResourceRequest
+
+### ResourceARN
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Tags
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.kendra_ranking_classes.Tag]
+- **Required**: Yes
+
+
+# UntagResourceRequest
 
 ### ResourceARN
 - **Type**: <class 'str'>
@@ -290,7 +290,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateRescoreExecutionPlanRequestTypeDef
+# UpdateRescoreExecutionPlanRequest
 
 ### Id
 - **Type**: <class 'str'>
@@ -303,6 +303,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CapacityUnits
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_ranking_classes.CapacityUnitsConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_ranking_classes.CapacityUnitsConfiguration]
 
 

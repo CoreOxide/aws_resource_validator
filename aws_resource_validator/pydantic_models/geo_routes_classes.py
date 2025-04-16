@@ -12,27 +12,27 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.geo_routes_constants import *
 
-class IsolineAllowOptionsTypeDef(BaseValidatorModel):
+class IsolineAllowOptions(BaseValidatorModel):
     Hot: Optional[bool] = None
     Hov: Optional[bool] = None
 
 
-class IsolineGranularityOptionsTypeDef(BaseValidatorModel):
+class IsolineGranularityOptions(BaseValidatorModel):
     MaxPoints: Optional[int] = None
     MaxResolution: Optional[int] = None
 
 
-class IsolineThresholdsTypeDef(BaseValidatorModel):
+class IsolineThresholds(BaseValidatorModel):
     Distance: Optional[Sequence[int]] = None
     Time: Optional[Sequence[int]] = None
 
 
-class IsolineTrafficOptionsTypeDef(BaseValidatorModel):
+class IsolineTrafficOptions(BaseValidatorModel):
     FlowEventThresholdOverride: Optional[int] = None
     Usage: Optional[TrafficUsageType] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -40,101 +40,101 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class RouteMatrixAllowOptionsTypeDef(BaseValidatorModel):
+class RouteMatrixAllowOptions(BaseValidatorModel):
     Hot: Optional[bool] = None
     Hov: Optional[bool] = None
 
 
-class RouteMatrixExclusionOptionsTypeDef(BaseValidatorModel):
+class RouteMatrixExclusionOptions(BaseValidatorModel):
     Countries: Sequence[str]
 
 
-class RouteMatrixTrafficOptionsTypeDef(BaseValidatorModel):
+class RouteMatrixTrafficOptions(BaseValidatorModel):
     FlowEventThresholdOverride: Optional[int] = None
     Usage: Optional[TrafficUsageType] = None
 
 
-class RouteMatrixEntryTypeDef(BaseValidatorModel):
+class RouteMatrixEntry(BaseValidatorModel):
     Distance: int
     Duration: int
     Error: Optional[RouteMatrixErrorCodeType] = None
 
 
-class RouteAllowOptionsTypeDef(BaseValidatorModel):
+class RouteAllowOptions(BaseValidatorModel):
     Hot: Optional[bool] = None
     Hov: Optional[bool] = None
 
 
-class RouteExclusionOptionsTypeDef(BaseValidatorModel):
+class RouteExclusionOptions(BaseValidatorModel):
     Countries: Sequence[str]
 
 
-class RouteTrafficOptionsTypeDef(BaseValidatorModel):
+class RouteTrafficOptions(BaseValidatorModel):
     FlowEventThresholdOverride: Optional[int] = None
     Usage: Optional[TrafficUsageType] = None
 
 
-class RouteResponseNoticeTypeDef(BaseValidatorModel):
+class RouteResponseNotice(BaseValidatorModel):
     Code: RouteResponseNoticeCodeType
     Impact: Optional[RouteNoticeImpactType] = None
 
 
-class CircleOutputTypeDef(BaseValidatorModel):
+class CircleOutput(BaseValidatorModel):
     Center: List[float]
     Radius: float
 
 
-class CircleTypeDef(BaseValidatorModel):
+class Circle(BaseValidatorModel):
     Center: Sequence[float]
     Radius: float
 
 
-class CorridorTypeDef(BaseValidatorModel):
+class Corridor(BaseValidatorModel):
     LineString: Sequence[Sequence[float]]
     Radius: int
 
 
-class PolylineCorridorTypeDef(BaseValidatorModel):
+class PolylineCorridor(BaseValidatorModel):
     Polyline: str
     Radius: int
 
 
-class IsolineAvoidanceZoneCategoryTypeDef(BaseValidatorModel):
+class IsolineAvoidanceZoneCategory(BaseValidatorModel):
     Category: Optional[IsolineZoneCategoryType] = None
 
 
-class IsolineVehicleLicensePlateTypeDef(BaseValidatorModel):
+class IsolineVehicleLicensePlate(BaseValidatorModel):
     LastCharacter: Optional[str] = None
 
 
-class IsolineConnectionGeometryTypeDef(BaseValidatorModel):
+class IsolineConnectionGeometry(BaseValidatorModel):
     LineString: Optional[List[List[float]]] = None
     Polyline: Optional[str] = None
 
 
-class IsolineMatchingOptionsTypeDef(BaseValidatorModel):
+class IsolineMatchingOptions(BaseValidatorModel):
     NameHint: Optional[str] = None
     OnRoadThreshold: Optional[int] = None
     Radius: Optional[int] = None
     Strategy: Optional[MatchingStrategyType] = None
 
 
-class IsolineSideOfStreetOptionsTypeDef(BaseValidatorModel):
+class IsolineSideOfStreetOptions(BaseValidatorModel):
     Position: Sequence[float]
     UseWith: Optional[SideOfStreetMatchingStrategyType] = None
 
 
-class IsolineShapeGeometryTypeDef(BaseValidatorModel):
+class IsolineShapeGeometry(BaseValidatorModel):
     Polygon: Optional[List[List[List[float]]]] = None
     PolylinePolygon: Optional[List[str]] = None
 
 
-class IsolineTrailerOptionsTypeDef(BaseValidatorModel):
+class IsolineTrailerOptions(BaseValidatorModel):
     AxleCount: Optional[int] = None
     TrailerCount: Optional[int] = None
 
 
-class WeightPerAxleGroupTypeDef(BaseValidatorModel):
+class WeightPerAxleGroup(BaseValidatorModel):
     Single: Optional[int] = None
     Tandem: Optional[int] = None
     Triple: Optional[int] = None
@@ -142,24 +142,24 @@ class WeightPerAxleGroupTypeDef(BaseValidatorModel):
     Quint: Optional[int] = None
 
 
-class LocalizedStringTypeDef(BaseValidatorModel):
+class LocalizedString(BaseValidatorModel):
     Value: str
     Language: Optional[str] = None
 
 
-class WaypointOptimizationExclusionOptionsTypeDef(BaseValidatorModel):
+class WaypointOptimizationExclusionOptions(BaseValidatorModel):
     Countries: Sequence[str]
 
 
-class WaypointOptimizationOriginOptionsTypeDef(BaseValidatorModel):
+class WaypointOptimizationOriginOptions(BaseValidatorModel):
     Id: Optional[str] = None
 
 
-class WaypointOptimizationTrafficOptionsTypeDef(BaseValidatorModel):
+class WaypointOptimizationTrafficOptions(BaseValidatorModel):
     Usage: Optional[TrafficUsageType] = None
 
 
-class WaypointOptimizationConnectionTypeDef(BaseValidatorModel):
+class WaypointOptimizationConnection(BaseValidatorModel):
     Distance: int
     From: str
     RestDuration: int
@@ -168,7 +168,7 @@ class WaypointOptimizationConnectionTypeDef(BaseValidatorModel):
     WaitDuration: int
 
 
-class WaypointOptimizationOptimizedWaypointTypeDef(BaseValidatorModel):
+class WaypointOptimizationOptimizedWaypoint(BaseValidatorModel):
     DepartureTime: str
     Id: str
     Position: List[float]
@@ -176,145 +176,145 @@ class WaypointOptimizationOptimizedWaypointTypeDef(BaseValidatorModel):
     ClusterIndex: Optional[int] = None
 
 
-class WaypointOptimizationTimeBreakdownTypeDef(BaseValidatorModel):
+class WaypointOptimizationTimeBreakdown(BaseValidatorModel):
     RestDuration: int
     ServiceDuration: int
     TravelDuration: int
     WaitDuration: int
 
 
-class RoadSnapNoticeTypeDef(BaseValidatorModel):
+class RoadSnapNotice(BaseValidatorModel):
     Code: RoadSnapNoticeCodeType
     Title: str
     TracePointIndexes: List[int]
 
 
-class RoadSnapSnappedGeometryTypeDef(BaseValidatorModel):
+class RoadSnapSnappedGeometry(BaseValidatorModel):
     LineString: Optional[List[List[float]]] = None
     Polyline: Optional[str] = None
 
 
-class RoadSnapSnappedTracePointTypeDef(BaseValidatorModel):
+class RoadSnapSnappedTracePoint(BaseValidatorModel):
     Confidence: float
     OriginalPosition: List[float]
     SnappedPosition: List[float]
 
 
-class RoadSnapTracePointTypeDef(BaseValidatorModel):
+class RoadSnapTracePoint(BaseValidatorModel):
     Position: Sequence[float]
     Heading: Optional[float] = None
     Speed: Optional[float] = None
     Timestamp: Optional[str] = None
 
 
-class RoadSnapTrailerOptionsTypeDef(BaseValidatorModel):
+class RoadSnapTrailerOptions(BaseValidatorModel):
     TrailerCount: Optional[int] = None
 
 
-class RouteAvoidanceZoneCategoryTypeDef(BaseValidatorModel):
+class RouteAvoidanceZoneCategory(BaseValidatorModel):
     Category: RouteZoneCategoryType
 
 
-class RouteVehicleLicensePlateTypeDef(BaseValidatorModel):
+class RouteVehicleLicensePlate(BaseValidatorModel):
     LastCharacter: Optional[str] = None
 
 
-class RouteMatchingOptionsTypeDef(BaseValidatorModel):
+class RouteMatchingOptions(BaseValidatorModel):
     NameHint: Optional[str] = None
     OnRoadThreshold: Optional[int] = None
     Radius: Optional[int] = None
     Strategy: Optional[MatchingStrategyType] = None
 
 
-class RouteSideOfStreetOptionsTypeDef(BaseValidatorModel):
+class RouteSideOfStreetOptions(BaseValidatorModel):
     Position: Sequence[float]
     UseWith: Optional[SideOfStreetMatchingStrategyType] = None
 
 
-class RouteDriverScheduleIntervalTypeDef(BaseValidatorModel):
+class RouteDriverScheduleInterval(BaseValidatorModel):
     DriveDuration: int
     RestDuration: int
 
 
-class RouteFerryPlaceTypeDef(BaseValidatorModel):
+class RouteFerryPlace(BaseValidatorModel):
     Position: List[float]
     Name: Optional[str] = None
     OriginalPosition: Optional[List[float]] = None
     WaypointIndex: Optional[int] = None
 
 
-class RouteFerryNoticeTypeDef(BaseValidatorModel):
+class RouteFerryNotice(BaseValidatorModel):
     Code: RouteFerryNoticeCodeType
     Impact: Optional[RouteNoticeImpactType] = None
 
 
-class RouteFerryOverviewSummaryTypeDef(BaseValidatorModel):
+class RouteFerryOverviewSummary(BaseValidatorModel):
     Distance: int
     Duration: int
 
 
-class RouteFerryTravelOnlySummaryTypeDef(BaseValidatorModel):
+class RouteFerryTravelOnlySummary(BaseValidatorModel):
     Duration: int
 
 
-class RouteLegGeometryTypeDef(BaseValidatorModel):
+class RouteLegGeometry(BaseValidatorModel):
     LineString: Optional[List[List[float]]] = None
     Polyline: Optional[str] = None
 
 
-class RouteNumberTypeDef(BaseValidatorModel):
+class RouteNumber(BaseValidatorModel):
     Value: str
     Direction: Optional[RouteDirectionType] = None
     Language: Optional[str] = None
 
 
-class RouteMatrixAutoCircleTypeDef(BaseValidatorModel):
+class RouteMatrixAutoCircle(BaseValidatorModel):
     Margin: Optional[int] = None
     MaxRadius: Optional[int] = None
 
 
-class RouteMatrixAvoidanceAreaGeometryTypeDef(BaseValidatorModel):
+class RouteMatrixAvoidanceAreaGeometry(BaseValidatorModel):
     BoundingBox: Optional[Sequence[float]] = None
     Polygon: Optional[Sequence[Sequence[Sequence[float]]]] = None
     PolylinePolygon: Optional[Sequence[str]] = None
 
 
-class RouteMatrixAvoidanceZoneCategoryTypeDef(BaseValidatorModel):
+class RouteMatrixAvoidanceZoneCategory(BaseValidatorModel):
     Category: Optional[RouteMatrixZoneCategoryType] = None
 
 
-class RouteMatrixVehicleLicensePlateTypeDef(BaseValidatorModel):
+class RouteMatrixVehicleLicensePlate(BaseValidatorModel):
     LastCharacter: Optional[str] = None
 
 
-class RouteMatrixMatchingOptionsTypeDef(BaseValidatorModel):
+class RouteMatrixMatchingOptions(BaseValidatorModel):
     NameHint: Optional[str] = None
     OnRoadThreshold: Optional[int] = None
     Radius: Optional[int] = None
     Strategy: Optional[MatchingStrategyType] = None
 
 
-class RouteMatrixSideOfStreetOptionsTypeDef(BaseValidatorModel):
+class RouteMatrixSideOfStreetOptions(BaseValidatorModel):
     Position: Sequence[float]
     UseWith: Optional[SideOfStreetMatchingStrategyType] = None
 
 
-class RouteMatrixTrailerOptionsTypeDef(BaseValidatorModel):
+class RouteMatrixTrailerOptions(BaseValidatorModel):
     TrailerCount: Optional[int] = None
 
 
-class RouteNoticeDetailRangeTypeDef(BaseValidatorModel):
+class RouteNoticeDetailRange(BaseValidatorModel):
     Min: Optional[int] = None
     Max: Optional[int] = None
 
 
-class RoutePassThroughPlaceTypeDef(BaseValidatorModel):
+class RoutePassThroughPlace(BaseValidatorModel):
     Position: List[float]
     OriginalPosition: Optional[List[float]] = None
     WaypointIndex: Optional[int] = None
 
 
-class RoutePedestrianPlaceTypeDef(BaseValidatorModel):
+class RoutePedestrianPlace(BaseValidatorModel):
     Position: List[float]
     Name: Optional[str] = None
     OriginalPosition: Optional[List[float]] = None
@@ -322,64 +322,64 @@ class RoutePedestrianPlaceTypeDef(BaseValidatorModel):
     WaypointIndex: Optional[int] = None
 
 
-class RoutePedestrianNoticeTypeDef(BaseValidatorModel):
+class RoutePedestrianNotice(BaseValidatorModel):
     Code: RoutePedestrianNoticeCodeType
     Impact: Optional[RouteNoticeImpactType] = None
 
 
-class RoutePedestrianOptionsTypeDef(BaseValidatorModel):
+class RoutePedestrianOptions(BaseValidatorModel):
     Speed: Optional[float] = None
 
 
-class RoutePedestrianOverviewSummaryTypeDef(BaseValidatorModel):
+class RoutePedestrianOverviewSummary(BaseValidatorModel):
     Distance: int
     Duration: int
 
 
-class RouteSpanDynamicSpeedDetailsTypeDef(BaseValidatorModel):
+class RouteSpanDynamicSpeedDetails(BaseValidatorModel):
     BestCaseSpeed: Optional[float] = None
     TurnDuration: Optional[int] = None
     TypicalSpeed: Optional[float] = None
 
 
-class RouteSpanSpeedLimitDetailsTypeDef(BaseValidatorModel):
+class RouteSpanSpeedLimitDetails(BaseValidatorModel):
     MaxSpeed: Optional[float] = None
     Unlimited: Optional[bool] = None
 
 
-class RoutePedestrianTravelOnlySummaryTypeDef(BaseValidatorModel):
+class RoutePedestrianTravelOnlySummary(BaseValidatorModel):
     Duration: int
 
 
-class RouteTollPassValidityPeriodTypeDef(BaseValidatorModel):
+class RouteTollPassValidityPeriod(BaseValidatorModel):
     Period: RouteTollPassValidityPeriodTypeType
     PeriodCount: Optional[int] = None
 
 
-class RouteTollPaymentSiteTypeDef(BaseValidatorModel):
+class RouteTollPaymentSite(BaseValidatorModel):
     Position: List[float]
     Name: Optional[str] = None
 
 
-class RouteTollPriceValueRangeTypeDef(BaseValidatorModel):
+class RouteTollPriceValueRange(BaseValidatorModel):
     Min: float
     Max: float
 
 
-class RouteTransponderTypeDef(BaseValidatorModel):
+class RouteTransponder(BaseValidatorModel):
     SystemName: Optional[str] = None
 
 
-class RouteTollSystemTypeDef(BaseValidatorModel):
+class RouteTollSystem(BaseValidatorModel):
     Name: Optional[str] = None
 
 
-class RouteTrailerOptionsTypeDef(BaseValidatorModel):
+class RouteTrailerOptions(BaseValidatorModel):
     AxleCount: Optional[int] = None
     TrailerCount: Optional[int] = None
 
 
-class RouteVehiclePlaceTypeDef(BaseValidatorModel):
+class RouteVehiclePlace(BaseValidatorModel):
     Position: List[float]
     Name: Optional[str] = None
     OriginalPosition: Optional[List[float]] = None
@@ -387,115 +387,115 @@ class RouteVehiclePlaceTypeDef(BaseValidatorModel):
     WaypointIndex: Optional[int] = None
 
 
-class RouteZoneTypeDef(BaseValidatorModel):
+class RouteZone(BaseValidatorModel):
     Category: Optional[RouteZoneCategoryType] = None
     Name: Optional[str] = None
 
 
-class RouteVehicleOverviewSummaryTypeDef(BaseValidatorModel):
+class RouteVehicleOverviewSummary(BaseValidatorModel):
     Distance: int
     Duration: int
     BestCaseDuration: Optional[int] = None
     TypicalDuration: Optional[int] = None
 
 
-class RouteVehicleTravelOnlySummaryTypeDef(BaseValidatorModel):
+class RouteVehicleTravelOnlySummary(BaseValidatorModel):
     Duration: int
     BestCaseDuration: Optional[int] = None
     TypicalDuration: Optional[int] = None
 
 
-class WaypointOptimizationAccessHoursEntryTypeDef(BaseValidatorModel):
+class WaypointOptimizationAccessHoursEntry(BaseValidatorModel):
     DayOfWeek: DayOfWeekType
     TimeOfDay: str
 
 
-class WaypointOptimizationAvoidanceAreaGeometryTypeDef(BaseValidatorModel):
+class WaypointOptimizationAvoidanceAreaGeometry(BaseValidatorModel):
     BoundingBox: Optional[Sequence[float]] = None
 
 
-class WaypointOptimizationDrivingDistanceOptionsTypeDef(BaseValidatorModel):
+class WaypointOptimizationDrivingDistanceOptions(BaseValidatorModel):
     DrivingDistance: int
 
 
-class WaypointOptimizationSideOfStreetOptionsTypeDef(BaseValidatorModel):
+class WaypointOptimizationSideOfStreetOptions(BaseValidatorModel):
     Position: Sequence[float]
     UseWith: Optional[SideOfStreetMatchingStrategyType] = None
 
 
-class WaypointOptimizationRestProfileTypeDef(BaseValidatorModel):
+class WaypointOptimizationRestProfile(BaseValidatorModel):
     Profile: str
 
 
-class WaypointOptimizationFailedConstraintTypeDef(BaseValidatorModel):
+class WaypointOptimizationFailedConstraint(BaseValidatorModel):
     Constraint: Optional[WaypointOptimizationConstraintType] = None
     Reason: Optional[str] = None
 
 
-class WaypointOptimizationPedestrianOptionsTypeDef(BaseValidatorModel):
+class WaypointOptimizationPedestrianOptions(BaseValidatorModel):
     Speed: Optional[float] = None
 
 
-class WaypointOptimizationRestCycleDurationsTypeDef(BaseValidatorModel):
+class WaypointOptimizationRestCycleDurations(BaseValidatorModel):
     RestDuration: int
     WorkDuration: int
 
 
-class WaypointOptimizationTrailerOptionsTypeDef(BaseValidatorModel):
+class WaypointOptimizationTrailerOptions(BaseValidatorModel):
     TrailerCount: Optional[int] = None
 
 
-class IsolineAvoidanceAreaGeometryTypeDef(BaseValidatorModel):
+class IsolineAvoidanceAreaGeometry(BaseValidatorModel):
     BoundingBox: Optional[Sequence[float]] = None
-    Corridor: Optional[CorridorTypeDef] = None
+    Corridor: Optional[Corridor] = None
     Polygon: Optional[Sequence[Sequence[Sequence[float]]]] = None
-    PolylineCorridor: Optional[PolylineCorridorTypeDef] = None
+    PolylineCorridor: Optional[PolylineCorridor] = None
     PolylinePolygon: Optional[Sequence[str]] = None
 
 
-class RouteAvoidanceAreaGeometryTypeDef(BaseValidatorModel):
-    Corridor: Optional[CorridorTypeDef] = None
+class RouteAvoidanceAreaGeometry(BaseValidatorModel):
+    Corridor: Optional[Corridor] = None
     BoundingBox: Optional[Sequence[float]] = None
     Polygon: Optional[Sequence[Sequence[Sequence[float]]]] = None
-    PolylineCorridor: Optional[PolylineCorridorTypeDef] = None
+    PolylineCorridor: Optional[PolylineCorridor] = None
     PolylinePolygon: Optional[Sequence[str]] = None
 
 
-class IsolineCarOptionsTypeDef(BaseValidatorModel):
+class IsolineCarOptions(BaseValidatorModel):
     EngineType: Optional[IsolineEngineTypeType] = None
-    LicensePlate: Optional[IsolineVehicleLicensePlateTypeDef] = None
+    LicensePlate: Optional[IsolineVehicleLicensePlate] = None
     MaxSpeed: Optional[float] = None
     Occupancy: Optional[int] = None
 
 
-class IsolineScooterOptionsTypeDef(BaseValidatorModel):
+class IsolineScooterOptions(BaseValidatorModel):
     EngineType: Optional[IsolineEngineTypeType] = None
-    LicensePlate: Optional[IsolineVehicleLicensePlateTypeDef] = None
+    LicensePlate: Optional[IsolineVehicleLicensePlate] = None
     MaxSpeed: Optional[float] = None
     Occupancy: Optional[int] = None
 
 
-class IsolineConnectionTypeDef(BaseValidatorModel):
+class IsolineConnection(BaseValidatorModel):
     FromPolygonIndex: int
-    Geometry: IsolineConnectionGeometryTypeDef
+    Geometry: IsolineConnectionGeometry
     ToPolygonIndex: int
 
 
-class IsolineDestinationOptionsTypeDef(BaseValidatorModel):
+class IsolineDestinationOptions(BaseValidatorModel):
     AvoidActionsForDistance: Optional[int] = None
     Heading: Optional[float] = None
-    Matching: Optional[IsolineMatchingOptionsTypeDef] = None
-    SideOfStreet: Optional[IsolineSideOfStreetOptionsTypeDef] = None
+    Matching: Optional[IsolineMatchingOptions] = None
+    SideOfStreet: Optional[IsolineSideOfStreetOptions] = None
 
 
-class IsolineOriginOptionsTypeDef(BaseValidatorModel):
+class IsolineOriginOptions(BaseValidatorModel):
     AvoidActionsForDistance: Optional[int] = None
     Heading: Optional[float] = None
-    Matching: Optional[IsolineMatchingOptionsTypeDef] = None
-    SideOfStreet: Optional[IsolineSideOfStreetOptionsTypeDef] = None
+    Matching: Optional[IsolineMatchingOptions] = None
+    SideOfStreet: Optional[IsolineSideOfStreetOptions] = None
 
 
-class IsolineTruckOptionsTypeDef(BaseValidatorModel):
+class IsolineTruckOptions(BaseValidatorModel):
     AxleCount: Optional[int] = None
     EngineType: Optional[IsolineEngineTypeType] = None
     GrossWeight: Optional[int] = None
@@ -504,315 +504,315 @@ class IsolineTruckOptionsTypeDef(BaseValidatorModel):
     HeightAboveFirstAxle: Optional[int] = None
     KpraLength: Optional[int] = None
     Length: Optional[int] = None
-    LicensePlate: Optional[IsolineVehicleLicensePlateTypeDef] = None
+    LicensePlate: Optional[IsolineVehicleLicensePlate] = None
     MaxSpeed: Optional[float] = None
     Occupancy: Optional[int] = None
     PayloadCapacity: Optional[int] = None
     TireCount: Optional[int] = None
-    Trailer: Optional[IsolineTrailerOptionsTypeDef] = None
+    Trailer: Optional[IsolineTrailerOptions] = None
     TruckType: Optional[IsolineTruckTypeType] = None
     TunnelRestrictionCode: Optional[str] = None
     WeightPerAxle: Optional[int] = None
-    WeightPerAxleGroup: Optional[WeightPerAxleGroupTypeDef] = None
+    WeightPerAxleGroup: Optional[WeightPerAxleGroup] = None
     Width: Optional[int] = None
 
 
-class RouteContinueHighwayStepDetailsTypeDef(BaseValidatorModel):
-    Intersection: List[LocalizedStringTypeDef]
+class RouteContinueHighwayStepDetails(BaseValidatorModel):
+    Intersection: List[LocalizedString]
     SteeringDirection: Optional[RouteSteeringDirectionType] = None
     TurnAngle: Optional[float] = None
     TurnIntensity: Optional[RouteTurnIntensityType] = None
 
 
-class RouteContinueStepDetailsTypeDef(BaseValidatorModel):
-    Intersection: List[LocalizedStringTypeDef]
+class RouteContinueStepDetails(BaseValidatorModel):
+    Intersection: List[LocalizedString]
 
 
-class RouteEnterHighwayStepDetailsTypeDef(BaseValidatorModel):
-    Intersection: List[LocalizedStringTypeDef]
+class RouteEnterHighwayStepDetails(BaseValidatorModel):
+    Intersection: List[LocalizedString]
     SteeringDirection: Optional[RouteSteeringDirectionType] = None
     TurnAngle: Optional[float] = None
     TurnIntensity: Optional[RouteTurnIntensityType] = None
 
 
-class RouteExitStepDetailsTypeDef(BaseValidatorModel):
-    Intersection: List[LocalizedStringTypeDef]
+class RouteExitStepDetails(BaseValidatorModel):
+    Intersection: List[LocalizedString]
     RelativeExit: Optional[int] = None
     SteeringDirection: Optional[RouteSteeringDirectionType] = None
     TurnAngle: Optional[float] = None
     TurnIntensity: Optional[RouteTurnIntensityType] = None
 
 
-class RouteFerrySpanTypeDef(BaseValidatorModel):
+class RouteFerrySpan(BaseValidatorModel):
     Country: Optional[str] = None
     Distance: Optional[int] = None
     Duration: Optional[int] = None
     GeometryOffset: Optional[int] = None
-    Names: Optional[List[LocalizedStringTypeDef]] = None
+    Names: Optional[List[LocalizedString]] = None
     Region: Optional[str] = None
 
 
-class RouteKeepStepDetailsTypeDef(BaseValidatorModel):
-    Intersection: List[LocalizedStringTypeDef]
+class RouteKeepStepDetails(BaseValidatorModel):
+    Intersection: List[LocalizedString]
     SteeringDirection: Optional[RouteSteeringDirectionType] = None
     TurnAngle: Optional[float] = None
     TurnIntensity: Optional[RouteTurnIntensityType] = None
 
 
-class RouteRampStepDetailsTypeDef(BaseValidatorModel):
-    Intersection: List[LocalizedStringTypeDef]
+class RouteRampStepDetails(BaseValidatorModel):
+    Intersection: List[LocalizedString]
     SteeringDirection: Optional[RouteSteeringDirectionType] = None
     TurnAngle: Optional[float] = None
     TurnIntensity: Optional[RouteTurnIntensityType] = None
 
 
-class RouteRoundaboutEnterStepDetailsTypeDef(BaseValidatorModel):
-    Intersection: List[LocalizedStringTypeDef]
+class RouteRoundaboutEnterStepDetails(BaseValidatorModel):
+    Intersection: List[LocalizedString]
     SteeringDirection: Optional[RouteSteeringDirectionType] = None
     TurnAngle: Optional[float] = None
     TurnIntensity: Optional[RouteTurnIntensityType] = None
 
 
-class RouteRoundaboutExitStepDetailsTypeDef(BaseValidatorModel):
-    Intersection: List[LocalizedStringTypeDef]
+class RouteRoundaboutExitStepDetails(BaseValidatorModel):
+    Intersection: List[LocalizedString]
     RelativeExit: Optional[int] = None
     RoundaboutAngle: Optional[float] = None
     SteeringDirection: Optional[RouteSteeringDirectionType] = None
 
 
-class RouteRoundaboutPassStepDetailsTypeDef(BaseValidatorModel):
-    Intersection: List[LocalizedStringTypeDef]
+class RouteRoundaboutPassStepDetails(BaseValidatorModel):
+    Intersection: List[LocalizedString]
     SteeringDirection: Optional[RouteSteeringDirectionType] = None
     TurnAngle: Optional[float] = None
     TurnIntensity: Optional[RouteTurnIntensityType] = None
 
 
-class RouteTurnStepDetailsTypeDef(BaseValidatorModel):
-    Intersection: List[LocalizedStringTypeDef]
+class RouteTurnStepDetails(BaseValidatorModel):
+    Intersection: List[LocalizedString]
     SteeringDirection: Optional[RouteSteeringDirectionType] = None
     TurnAngle: Optional[float] = None
     TurnIntensity: Optional[RouteTurnIntensityType] = None
 
 
-class RouteUTurnStepDetailsTypeDef(BaseValidatorModel):
-    Intersection: List[LocalizedStringTypeDef]
+class RouteUTurnStepDetails(BaseValidatorModel):
+    Intersection: List[LocalizedString]
     SteeringDirection: Optional[RouteSteeringDirectionType] = None
     TurnAngle: Optional[float] = None
     TurnIntensity: Optional[RouteTurnIntensityType] = None
 
 
-class SnapToRoadsResponseTypeDef(BaseValidatorModel):
-    Notices: List[RoadSnapNoticeTypeDef]
+class SnapToRoadsResponse(BaseValidatorModel):
+    Notices: List[RoadSnapNotice]
     PricingBucket: str
-    SnappedGeometry: RoadSnapSnappedGeometryTypeDef
+    SnappedGeometry: RoadSnapSnappedGeometry
     SnappedGeometryFormat: GeometryFormatType
-    SnappedTracePoints: List[RoadSnapSnappedTracePointTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    SnappedTracePoints: List[RoadSnapSnappedTracePoint]
+    ResponseMetadata: ResponseMetadata
 
 
-class RoadSnapTruckOptionsTypeDef(BaseValidatorModel):
+class RoadSnapTruckOptions(BaseValidatorModel):
     GrossWeight: Optional[int] = None
     HazardousCargos: Optional[Sequence[RoadSnapHazardousCargoTypeType]] = None
     Height: Optional[int] = None
     Length: Optional[int] = None
-    Trailer: Optional[RoadSnapTrailerOptionsTypeDef] = None
+    Trailer: Optional[RoadSnapTrailerOptions] = None
     TunnelRestrictionCode: Optional[str] = None
     Width: Optional[int] = None
 
 
-class RouteCarOptionsTypeDef(BaseValidatorModel):
+class RouteCarOptions(BaseValidatorModel):
     EngineType: Optional[RouteEngineTypeType] = None
-    LicensePlate: Optional[RouteVehicleLicensePlateTypeDef] = None
+    LicensePlate: Optional[RouteVehicleLicensePlate] = None
     MaxSpeed: Optional[float] = None
     Occupancy: Optional[int] = None
 
 
-class RouteScooterOptionsTypeDef(BaseValidatorModel):
+class RouteScooterOptions(BaseValidatorModel):
     EngineType: Optional[RouteEngineTypeType] = None
-    LicensePlate: Optional[RouteVehicleLicensePlateTypeDef] = None
+    LicensePlate: Optional[RouteVehicleLicensePlate] = None
     MaxSpeed: Optional[float] = None
     Occupancy: Optional[int] = None
 
 
-class RouteDestinationOptionsTypeDef(BaseValidatorModel):
+class RouteDestinationOptions(BaseValidatorModel):
     AvoidActionsForDistance: Optional[int] = None
     AvoidUTurns: Optional[bool] = None
     Heading: Optional[float] = None
-    Matching: Optional[RouteMatchingOptionsTypeDef] = None
-    SideOfStreet: Optional[RouteSideOfStreetOptionsTypeDef] = None
+    Matching: Optional[RouteMatchingOptions] = None
+    SideOfStreet: Optional[RouteSideOfStreetOptions] = None
     StopDuration: Optional[int] = None
 
 
-class RouteOriginOptionsTypeDef(BaseValidatorModel):
+class RouteOriginOptions(BaseValidatorModel):
     AvoidActionsForDistance: Optional[int] = None
     AvoidUTurns: Optional[bool] = None
     Heading: Optional[float] = None
-    Matching: Optional[RouteMatchingOptionsTypeDef] = None
-    SideOfStreet: Optional[RouteSideOfStreetOptionsTypeDef] = None
+    Matching: Optional[RouteMatchingOptions] = None
+    SideOfStreet: Optional[RouteSideOfStreetOptions] = None
 
 
-class RouteWaypointTypeDef(BaseValidatorModel):
+class RouteWaypoint(BaseValidatorModel):
     Position: Sequence[float]
     AvoidActionsForDistance: Optional[int] = None
     AvoidUTurns: Optional[bool] = None
     Heading: Optional[float] = None
-    Matching: Optional[RouteMatchingOptionsTypeDef] = None
+    Matching: Optional[RouteMatchingOptions] = None
     PassThrough: Optional[bool] = None
-    SideOfStreet: Optional[RouteSideOfStreetOptionsTypeDef] = None
+    SideOfStreet: Optional[RouteSideOfStreetOptions] = None
     StopDuration: Optional[int] = None
 
 
-class RouteDriverOptionsTypeDef(BaseValidatorModel):
-    Schedule: Optional[Sequence[RouteDriverScheduleIntervalTypeDef]] = None
+class RouteDriverOptions(BaseValidatorModel):
+    Schedule: Optional[Sequence[RouteDriverScheduleInterval]] = None
 
 
-class RouteEmissionTypeTypeDef(BaseValidatorModel):
+class RouteEmissionType(BaseValidatorModel):
     pass
 
 
-class RouteTollOptionsTypeDef(BaseValidatorModel):
+class RouteTollOptions(BaseValidatorModel):
     AllTransponders: Optional[bool] = None
     AllVignettes: Optional[bool] = None
     Currency: Optional[str] = None
-    EmissionType: Optional[RouteEmissionTypeTypeDef] = None
+    EmissionType: Optional[RouteEmissionType] = None
     VehicleCategory: Optional[Literal["Minibus"]] = None
 
 
-class RouteFerryArrivalTypeDef(BaseValidatorModel):
-    Place: RouteFerryPlaceTypeDef
+class RouteFerryArrival(BaseValidatorModel):
+    Place: RouteFerryPlace
     Time: Optional[str] = None
 
 
-class RouteFerryDepartureTypeDef(BaseValidatorModel):
-    Place: RouteFerryPlaceTypeDef
+class RouteFerryDeparture(BaseValidatorModel):
+    Place: RouteFerryPlace
     Time: Optional[str] = None
 
 
-class RouteFerrySummaryTypeDef(BaseValidatorModel):
-    Overview: Optional[RouteFerryOverviewSummaryTypeDef] = None
-    TravelOnly: Optional[RouteFerryTravelOnlySummaryTypeDef] = None
+class RouteFerrySummary(BaseValidatorModel):
+    Overview: Optional[RouteFerryOverviewSummary] = None
+    TravelOnly: Optional[RouteFerryTravelOnlySummary] = None
 
 
-class RouteMajorRoadLabelTypeDef(BaseValidatorModel):
-    RoadName: Optional[LocalizedStringTypeDef] = None
-    RouteNumber: Optional[RouteNumberTypeDef] = None
+class RouteMajorRoadLabel(BaseValidatorModel):
+    RoadName: Optional[LocalizedString] = None
+    RouteNumber: Optional[RouteNumber] = None
 
 
-class RouteMatrixBoundaryGeometryOutputTypeDef(BaseValidatorModel):
-    AutoCircle: Optional[RouteMatrixAutoCircleTypeDef] = None
-    Circle: Optional[CircleOutputTypeDef] = None
+class RouteMatrixBoundaryGeometryOutput(BaseValidatorModel):
+    AutoCircle: Optional[RouteMatrixAutoCircle] = None
+    Circle: Optional[CircleOutput] = None
     BoundingBox: Optional[List[float]] = None
     Polygon: Optional[List[List[List[float]]]] = None
 
 
-class RouteMatrixBoundaryGeometryTypeDef(BaseValidatorModel):
-    AutoCircle: Optional[RouteMatrixAutoCircleTypeDef] = None
-    Circle: Optional[CircleTypeDef] = None
+class RouteMatrixBoundaryGeometry(BaseValidatorModel):
+    AutoCircle: Optional[RouteMatrixAutoCircle] = None
+    Circle: Optional[Circle] = None
     BoundingBox: Optional[Sequence[float]] = None
     Polygon: Optional[Sequence[Sequence[Sequence[float]]]] = None
 
 
-class RouteMatrixAvoidanceAreaTypeDef(BaseValidatorModel):
-    Geometry: RouteMatrixAvoidanceAreaGeometryTypeDef
+class RouteMatrixAvoidanceArea(BaseValidatorModel):
+    Geometry: RouteMatrixAvoidanceAreaGeometry
 
 
-class RouteMatrixCarOptionsTypeDef(BaseValidatorModel):
-    LicensePlate: Optional[RouteMatrixVehicleLicensePlateTypeDef] = None
+class RouteMatrixCarOptions(BaseValidatorModel):
+    LicensePlate: Optional[RouteMatrixVehicleLicensePlate] = None
     MaxSpeed: Optional[float] = None
     Occupancy: Optional[int] = None
 
 
-class RouteMatrixScooterOptionsTypeDef(BaseValidatorModel):
-    LicensePlate: Optional[RouteMatrixVehicleLicensePlateTypeDef] = None
+class RouteMatrixScooterOptions(BaseValidatorModel):
+    LicensePlate: Optional[RouteMatrixVehicleLicensePlate] = None
     MaxSpeed: Optional[float] = None
     Occupancy: Optional[int] = None
 
 
-class RouteMatrixDestinationOptionsTypeDef(BaseValidatorModel):
+class RouteMatrixDestinationOptions(BaseValidatorModel):
     AvoidActionsForDistance: Optional[int] = None
     Heading: Optional[float] = None
-    Matching: Optional[RouteMatrixMatchingOptionsTypeDef] = None
-    SideOfStreet: Optional[RouteMatrixSideOfStreetOptionsTypeDef] = None
+    Matching: Optional[RouteMatrixMatchingOptions] = None
+    SideOfStreet: Optional[RouteMatrixSideOfStreetOptions] = None
 
 
-class RouteMatrixOriginOptionsTypeDef(BaseValidatorModel):
+class RouteMatrixOriginOptions(BaseValidatorModel):
     AvoidActionsForDistance: Optional[int] = None
     Heading: Optional[float] = None
-    Matching: Optional[RouteMatrixMatchingOptionsTypeDef] = None
-    SideOfStreet: Optional[RouteMatrixSideOfStreetOptionsTypeDef] = None
+    Matching: Optional[RouteMatrixMatchingOptions] = None
+    SideOfStreet: Optional[RouteMatrixSideOfStreetOptions] = None
 
 
-class RouteMatrixTruckOptionsTypeDef(BaseValidatorModel):
+class RouteMatrixTruckOptions(BaseValidatorModel):
     AxleCount: Optional[int] = None
     GrossWeight: Optional[int] = None
     HazardousCargos: Optional[Sequence[RouteMatrixHazardousCargoTypeType]] = None
     Height: Optional[int] = None
     KpraLength: Optional[int] = None
     Length: Optional[int] = None
-    LicensePlate: Optional[RouteMatrixVehicleLicensePlateTypeDef] = None
+    LicensePlate: Optional[RouteMatrixVehicleLicensePlate] = None
     MaxSpeed: Optional[float] = None
     Occupancy: Optional[int] = None
     PayloadCapacity: Optional[int] = None
-    Trailer: Optional[RouteMatrixTrailerOptionsTypeDef] = None
+    Trailer: Optional[RouteMatrixTrailerOptions] = None
     TruckType: Optional[RouteMatrixTruckTypeType] = None
     TunnelRestrictionCode: Optional[str] = None
     WeightPerAxle: Optional[int] = None
-    WeightPerAxleGroup: Optional[WeightPerAxleGroupTypeDef] = None
+    WeightPerAxleGroup: Optional[WeightPerAxleGroup] = None
     Width: Optional[int] = None
 
 
-class RoutePassThroughWaypointTypeDef(BaseValidatorModel):
-    Place: RoutePassThroughPlaceTypeDef
+class RoutePassThroughWaypoint(BaseValidatorModel):
+    Place: RoutePassThroughPlace
     GeometryOffset: Optional[int] = None
 
 
-class RoutePedestrianArrivalTypeDef(BaseValidatorModel):
-    Place: RoutePedestrianPlaceTypeDef
+class RoutePedestrianArrival(BaseValidatorModel):
+    Place: RoutePedestrianPlace
     Time: Optional[str] = None
 
 
-class RoutePedestrianDepartureTypeDef(BaseValidatorModel):
-    Place: RoutePedestrianPlaceTypeDef
+class RoutePedestrianDeparture(BaseValidatorModel):
+    Place: RoutePedestrianPlace
     Time: Optional[str] = None
 
 
-class RoutePedestrianSpanTypeDef(BaseValidatorModel):
+class RoutePedestrianSpan(BaseValidatorModel):
     BestCaseDuration: Optional[int] = None
     Country: Optional[str] = None
     Distance: Optional[int] = None
     Duration: Optional[int] = None
-    DynamicSpeed: Optional[RouteSpanDynamicSpeedDetailsTypeDef] = None
+    DynamicSpeed: Optional[RouteSpanDynamicSpeedDetails] = None
     FunctionalClassification: Optional[int] = None
     GeometryOffset: Optional[int] = None
     Incidents: Optional[List[int]] = None
-    Names: Optional[List[LocalizedStringTypeDef]] = None
+    Names: Optional[List[LocalizedString]] = None
     PedestrianAccess: Optional[List[RouteSpanPedestrianAccessAttributeType]] = None
     Region: Optional[str] = None
     RoadAttributes: Optional[List[RouteSpanRoadAttributeType]] = None
-    RouteNumbers: Optional[List[RouteNumberTypeDef]] = None
-    SpeedLimit: Optional[RouteSpanSpeedLimitDetailsTypeDef] = None
+    RouteNumbers: Optional[List[RouteNumber]] = None
+    SpeedLimit: Optional[RouteSpanSpeedLimitDetails] = None
     TypicalDuration: Optional[int] = None
 
 
-class RouteVehicleSpanTypeDef(BaseValidatorModel):
+class RouteVehicleSpan(BaseValidatorModel):
     BestCaseDuration: Optional[int] = None
     CarAccess: Optional[List[RouteSpanCarAccessAttributeType]] = None
     Country: Optional[str] = None
     Distance: Optional[int] = None
     Duration: Optional[int] = None
-    DynamicSpeed: Optional[RouteSpanDynamicSpeedDetailsTypeDef] = None
+    DynamicSpeed: Optional[RouteSpanDynamicSpeedDetails] = None
     FunctionalClassification: Optional[int] = None
     Gate: Optional[RouteSpanGateAttributeType] = None
     GeometryOffset: Optional[int] = None
     Incidents: Optional[List[int]] = None
-    Names: Optional[List[LocalizedStringTypeDef]] = None
+    Names: Optional[List[LocalizedString]] = None
     Notices: Optional[List[int]] = None
     RailwayCrossing: Optional[RouteSpanRailwayCrossingAttributeType] = None
     Region: Optional[str] = None
     RoadAttributes: Optional[List[RouteSpanRoadAttributeType]] = None
-    RouteNumbers: Optional[List[RouteNumberTypeDef]] = None
+    RouteNumbers: Optional[List[RouteNumber]] = None
     ScooterAccess: Optional[List[RouteSpanScooterAccessAttributeType]] = None
-    SpeedLimit: Optional[RouteSpanSpeedLimitDetailsTypeDef] = None
+    SpeedLimit: Optional[RouteSpanSpeedLimitDetails] = None
     TollSystems: Optional[List[int]] = None
     TruckAccess: Optional[List[RouteSpanTruckAccessAttributeType]] = None
     TruckRoadTypes: Optional[List[int]] = None
@@ -820,37 +820,37 @@ class RouteVehicleSpanTypeDef(BaseValidatorModel):
     Zones: Optional[List[int]] = None
 
 
-class RoutePedestrianSummaryTypeDef(BaseValidatorModel):
-    Overview: Optional[RoutePedestrianOverviewSummaryTypeDef] = None
-    TravelOnly: Optional[RoutePedestrianTravelOnlySummaryTypeDef] = None
+class RoutePedestrianSummary(BaseValidatorModel):
+    Overview: Optional[RoutePedestrianOverviewSummary] = None
+    TravelOnly: Optional[RoutePedestrianTravelOnlySummary] = None
 
 
-class RouteTollPassTypeDef(BaseValidatorModel):
+class RouteTollPass(BaseValidatorModel):
     IncludesReturnTrip: Optional[bool] = None
     SeniorPass: Optional[bool] = None
     TransferCount: Optional[int] = None
     TripCount: Optional[int] = None
-    ValidityPeriod: Optional[RouteTollPassValidityPeriodTypeDef] = None
+    ValidityPeriod: Optional[RouteTollPassValidityPeriod] = None
 
 
-class RouteTollPriceSummaryTypeDef(BaseValidatorModel):
+class RouteTollPriceSummary(BaseValidatorModel):
     Currency: str
     Estimate: bool
     Range: bool
     Value: float
-    RangeValue: Optional[RouteTollPriceValueRangeTypeDef] = None
+    RangeValue: Optional[RouteTollPriceValueRange] = None
 
 
-class RouteTollPriceTypeDef(BaseValidatorModel):
+class RouteTollPrice(BaseValidatorModel):
     Currency: str
     Estimate: bool
     Range: bool
     Value: float
     PerDuration: Optional[int] = None
-    RangeValue: Optional[RouteTollPriceValueRangeTypeDef] = None
+    RangeValue: Optional[RouteTollPriceValueRange] = None
 
 
-class RouteTruckOptionsTypeDef(BaseValidatorModel):
+class RouteTruckOptions(BaseValidatorModel):
     AxleCount: Optional[int] = None
     EngineType: Optional[RouteEngineTypeType] = None
     GrossWeight: Optional[int] = None
@@ -859,144 +859,144 @@ class RouteTruckOptionsTypeDef(BaseValidatorModel):
     HeightAboveFirstAxle: Optional[int] = None
     KpraLength: Optional[int] = None
     Length: Optional[int] = None
-    LicensePlate: Optional[RouteVehicleLicensePlateTypeDef] = None
+    LicensePlate: Optional[RouteVehicleLicensePlate] = None
     MaxSpeed: Optional[float] = None
     Occupancy: Optional[int] = None
     PayloadCapacity: Optional[int] = None
     TireCount: Optional[int] = None
-    Trailer: Optional[RouteTrailerOptionsTypeDef] = None
+    Trailer: Optional[RouteTrailerOptions] = None
     TruckType: Optional[RouteTruckTypeType] = None
     TunnelRestrictionCode: Optional[str] = None
     WeightPerAxle: Optional[int] = None
-    WeightPerAxleGroup: Optional[WeightPerAxleGroupTypeDef] = None
+    WeightPerAxleGroup: Optional[WeightPerAxleGroup] = None
     Width: Optional[int] = None
 
 
-class RouteVehicleArrivalTypeDef(BaseValidatorModel):
-    Place: RouteVehiclePlaceTypeDef
+class RouteVehicleArrival(BaseValidatorModel):
+    Place: RouteVehiclePlace
     Time: Optional[str] = None
 
 
-class RouteVehicleDepartureTypeDef(BaseValidatorModel):
-    Place: RouteVehiclePlaceTypeDef
+class RouteVehicleDeparture(BaseValidatorModel):
+    Place: RouteVehiclePlace
     Time: Optional[str] = None
 
 
-class RouteVehicleSummaryTypeDef(BaseValidatorModel):
-    Overview: Optional[RouteVehicleOverviewSummaryTypeDef] = None
-    TravelOnly: Optional[RouteVehicleTravelOnlySummaryTypeDef] = None
+class RouteVehicleSummary(BaseValidatorModel):
+    Overview: Optional[RouteVehicleOverviewSummary] = None
+    TravelOnly: Optional[RouteVehicleTravelOnlySummary] = None
 
 
-class RouteWeightConstraintTypeDef(BaseValidatorModel):
+class RouteWeightConstraint(BaseValidatorModel):
     pass
 
 
-class RouteViolatedConstraintsTypeDef(BaseValidatorModel):
+class RouteViolatedConstraints(BaseValidatorModel):
     HazardousCargos: List[RouteHazardousCargoTypeType]
     AllHazardsRestricted: Optional[bool] = None
-    AxleCount: Optional[RouteNoticeDetailRangeTypeDef] = None
+    AxleCount: Optional[RouteNoticeDetailRange] = None
     MaxHeight: Optional[int] = None
     MaxKpraLength: Optional[int] = None
     MaxLength: Optional[int] = None
     MaxPayloadCapacity: Optional[int] = None
-    MaxWeight: Optional[RouteWeightConstraintTypeDef] = None
+    MaxWeight: Optional[RouteWeightConstraint] = None
     MaxWeightPerAxle: Optional[int] = None
-    MaxWeightPerAxleGroup: Optional[WeightPerAxleGroupTypeDef] = None
+    MaxWeightPerAxleGroup: Optional[WeightPerAxleGroup] = None
     MaxWidth: Optional[int] = None
-    Occupancy: Optional[RouteNoticeDetailRangeTypeDef] = None
+    Occupancy: Optional[RouteNoticeDetailRange] = None
     RestrictedTimes: Optional[str] = None
     TimeDependent: Optional[bool] = None
-    TrailerCount: Optional[RouteNoticeDetailRangeTypeDef] = None
+    TrailerCount: Optional[RouteNoticeDetailRange] = None
     TravelMode: Optional[bool] = None
     TruckRoadType: Optional[str] = None
     TruckType: Optional[RouteTruckTypeType] = None
     TunnelRestrictionCode: Optional[str] = None
 
 
-class WaypointOptimizationAccessHoursTypeDef(BaseValidatorModel):
-    From: WaypointOptimizationAccessHoursEntryTypeDef
-    To: WaypointOptimizationAccessHoursEntryTypeDef
+class WaypointOptimizationAccessHours(BaseValidatorModel):
+    From: WaypointOptimizationAccessHoursEntry
+    To: WaypointOptimizationAccessHoursEntry
 
 
-class WaypointOptimizationAvoidanceAreaTypeDef(BaseValidatorModel):
-    Geometry: WaypointOptimizationAvoidanceAreaGeometryTypeDef
+class WaypointOptimizationAvoidanceArea(BaseValidatorModel):
+    Geometry: WaypointOptimizationAvoidanceAreaGeometry
 
 
-class WaypointOptimizationClusteringOptionsTypeDef(BaseValidatorModel):
+class WaypointOptimizationClusteringOptions(BaseValidatorModel):
     Algorithm: WaypointOptimizationClusteringAlgorithmType
-    DrivingDistanceOptions: Optional[WaypointOptimizationDrivingDistanceOptionsTypeDef] = None
+    DrivingDistanceOptions: Optional[WaypointOptimizationDrivingDistanceOptions] = None
 
 
-class WaypointOptimizationImpedingWaypointTypeDef(BaseValidatorModel):
-    FailedConstraints: List[WaypointOptimizationFailedConstraintTypeDef]
+class WaypointOptimizationImpedingWaypoint(BaseValidatorModel):
+    FailedConstraints: List[WaypointOptimizationFailedConstraint]
     Id: str
     Position: List[float]
 
 
-class WaypointOptimizationRestCyclesTypeDef(BaseValidatorModel):
-    LongCycle: WaypointOptimizationRestCycleDurationsTypeDef
-    ShortCycle: WaypointOptimizationRestCycleDurationsTypeDef
+class WaypointOptimizationRestCycles(BaseValidatorModel):
+    LongCycle: WaypointOptimizationRestCycleDurations
+    ShortCycle: WaypointOptimizationRestCycleDurations
 
 
-class WaypointOptimizationTruckOptionsTypeDef(BaseValidatorModel):
+class WaypointOptimizationTruckOptions(BaseValidatorModel):
     GrossWeight: Optional[int] = None
     HazardousCargos: Optional[Sequence[WaypointOptimizationHazardousCargoTypeType]] = None
     Height: Optional[int] = None
     Length: Optional[int] = None
-    Trailer: Optional[WaypointOptimizationTrailerOptionsTypeDef] = None
+    Trailer: Optional[WaypointOptimizationTrailerOptions] = None
     TruckType: Optional[WaypointOptimizationTruckTypeType] = None
     TunnelRestrictionCode: Optional[str] = None
     WeightPerAxle: Optional[int] = None
     Width: Optional[int] = None
 
 
-class IsolineAvoidanceAreaTypeDef(BaseValidatorModel):
-    Geometry: IsolineAvoidanceAreaGeometryTypeDef
-    Except: Optional[Sequence[IsolineAvoidanceAreaGeometryTypeDef]] = None
+class IsolineAvoidanceArea(BaseValidatorModel):
+    Geometry: IsolineAvoidanceAreaGeometry
+    Except: Optional[Sequence[IsolineAvoidanceAreaGeometry]] = None
 
 
-class RouteAvoidanceAreaTypeDef(BaseValidatorModel):
-    Geometry: RouteAvoidanceAreaGeometryTypeDef
-    Except: Optional[Sequence[RouteAvoidanceAreaGeometryTypeDef]] = None
+class RouteAvoidanceArea(BaseValidatorModel):
+    Geometry: RouteAvoidanceAreaGeometry
+    Except: Optional[Sequence[RouteAvoidanceAreaGeometry]] = None
 
 
-class IsolineTypeDef(BaseValidatorModel):
-    Connections: List[IsolineConnectionTypeDef]
-    Geometries: List[IsolineShapeGeometryTypeDef]
+class Isoline(BaseValidatorModel):
+    Connections: List[IsolineConnection]
+    Geometries: List[IsolineShapeGeometry]
     DistanceThreshold: Optional[int] = None
     TimeThreshold: Optional[int] = None
 
 
-class IsolineTravelModeOptionsTypeDef(BaseValidatorModel):
-    Car: Optional[IsolineCarOptionsTypeDef] = None
-    Scooter: Optional[IsolineScooterOptionsTypeDef] = None
-    Truck: Optional[IsolineTruckOptionsTypeDef] = None
+class IsolineTravelModeOptions(BaseValidatorModel):
+    Car: Optional[IsolineCarOptions] = None
+    Scooter: Optional[IsolineScooterOptions] = None
+    Truck: Optional[IsolineTruckOptions] = None
 
 
-class RoadSnapTravelModeOptionsTypeDef(BaseValidatorModel):
-    Truck: Optional[RoadSnapTruckOptionsTypeDef] = None
+class RoadSnapTravelModeOptions(BaseValidatorModel):
+    Truck: Optional[RoadSnapTruckOptions] = None
 
 
-class RouteSignpostLabelTypeDef(BaseValidatorModel):
+class RouteSignpostLabel(BaseValidatorModel):
     pass
 
 
-class RouteSignpostTypeDef(BaseValidatorModel):
-    Labels: List[RouteSignpostLabelTypeDef]
+class RouteSignpost(BaseValidatorModel):
+    Labels: List[RouteSignpostLabel]
 
 
-class RouteMatrixBoundaryOutputTypeDef(BaseValidatorModel):
-    Geometry: Optional[RouteMatrixBoundaryGeometryOutputTypeDef] = None
+class RouteMatrixBoundaryOutput(BaseValidatorModel):
+    Geometry: Optional[RouteMatrixBoundaryGeometryOutput] = None
     Unbounded: Optional[bool] = None
 
 
-class RouteMatrixBoundaryTypeDef(BaseValidatorModel):
-    Geometry: Optional[RouteMatrixBoundaryGeometryTypeDef] = None
+class RouteMatrixBoundary(BaseValidatorModel):
+    Geometry: Optional[RouteMatrixBoundaryGeometry] = None
     Unbounded: Optional[bool] = None
 
 
-class RouteMatrixAvoidanceOptionsTypeDef(BaseValidatorModel):
-    Areas: Optional[Sequence[RouteMatrixAvoidanceAreaTypeDef]] = None
+class RouteMatrixAvoidanceOptions(BaseValidatorModel):
+    Areas: Optional[Sequence[RouteMatrixAvoidanceArea]] = None
     CarShuttleTrains: Optional[bool] = None
     ControlledAccessHighways: Optional[bool] = None
     DirtRoads: Optional[bool] = None
@@ -1006,99 +1006,99 @@ class RouteMatrixAvoidanceOptionsTypeDef(BaseValidatorModel):
     TruckRoadTypes: Optional[Sequence[str]] = None
     Tunnels: Optional[bool] = None
     UTurns: Optional[bool] = None
-    ZoneCategories: Optional[Sequence[RouteMatrixAvoidanceZoneCategoryTypeDef]] = None
+    ZoneCategories: Optional[Sequence[RouteMatrixAvoidanceZoneCategory]] = None
 
 
-class RouteMatrixDestinationTypeDef(BaseValidatorModel):
+class RouteMatrixDestination(BaseValidatorModel):
     Position: Sequence[float]
-    Options: Optional[RouteMatrixDestinationOptionsTypeDef] = None
+    Options: Optional[RouteMatrixDestinationOptions] = None
 
 
-class RouteMatrixOriginTypeDef(BaseValidatorModel):
+class RouteMatrixOrigin(BaseValidatorModel):
     Position: Sequence[float]
-    Options: Optional[RouteMatrixOriginOptionsTypeDef] = None
+    Options: Optional[RouteMatrixOriginOptions] = None
 
 
-class RouteMatrixTravelModeOptionsTypeDef(BaseValidatorModel):
-    Car: Optional[RouteMatrixCarOptionsTypeDef] = None
-    Scooter: Optional[RouteMatrixScooterOptionsTypeDef] = None
-    Truck: Optional[RouteMatrixTruckOptionsTypeDef] = None
+class RouteMatrixTravelModeOptions(BaseValidatorModel):
+    Car: Optional[RouteMatrixCarOptions] = None
+    Scooter: Optional[RouteMatrixScooterOptions] = None
+    Truck: Optional[RouteMatrixTruckOptions] = None
 
 
-class RouteFerryAfterTravelStepTypeDef(BaseValidatorModel):
+class RouteFerryAfterTravelStep(BaseValidatorModel):
     pass
 
 
-class RouteFerryTravelStepTypeDef(BaseValidatorModel):
+class RouteFerryTravelStep(BaseValidatorModel):
     pass
 
 
-class RouteFerryBeforeTravelStepTypeDef(BaseValidatorModel):
+class RouteFerryBeforeTravelStep(BaseValidatorModel):
     pass
 
 
-class RouteFerryLegDetailsTypeDef(BaseValidatorModel):
-    AfterTravelSteps: List[RouteFerryAfterTravelStepTypeDef]
-    Arrival: RouteFerryArrivalTypeDef
-    BeforeTravelSteps: List[RouteFerryBeforeTravelStepTypeDef]
-    Departure: RouteFerryDepartureTypeDef
-    Notices: List[RouteFerryNoticeTypeDef]
-    PassThroughWaypoints: List[RoutePassThroughWaypointTypeDef]
-    Spans: List[RouteFerrySpanTypeDef]
-    TravelSteps: List[RouteFerryTravelStepTypeDef]
+class RouteFerryLegDetails(BaseValidatorModel):
+    AfterTravelSteps: List[RouteFerryAfterTravelStep]
+    Arrival: RouteFerryArrival
+    BeforeTravelSteps: List[RouteFerryBeforeTravelStep]
+    Departure: RouteFerryDeparture
+    Notices: List[RouteFerryNotice]
+    PassThroughWaypoints: List[RoutePassThroughWaypoint]
+    Spans: List[RouteFerrySpan]
+    TravelSteps: List[RouteFerryTravelStep]
     RouteName: Optional[str] = None
-    Summary: Optional[RouteFerrySummaryTypeDef] = None
+    Summary: Optional[RouteFerrySummary] = None
 
 
-class RouteTollSummaryTypeDef(BaseValidatorModel):
-    Total: Optional[RouteTollPriceSummaryTypeDef] = None
+class RouteTollSummary(BaseValidatorModel):
+    Total: Optional[RouteTollPriceSummary] = None
 
 
-class RouteTollRateTypeDef(BaseValidatorModel):
+class RouteTollRate(BaseValidatorModel):
     Id: str
-    LocalPrice: RouteTollPriceTypeDef
+    LocalPrice: RouteTollPrice
     Name: str
     PaymentMethods: List[RouteTollPaymentMethodType]
-    Transponders: List[RouteTransponderTypeDef]
+    Transponders: List[RouteTransponder]
     ApplicableTimes: Optional[str] = None
-    ConvertedPrice: Optional[RouteTollPriceTypeDef] = None
-    Pass: Optional[RouteTollPassTypeDef] = None
+    ConvertedPrice: Optional[RouteTollPrice] = None
+    Pass: Optional[RouteTollPass] = None
 
 
-class RouteTravelModeOptionsTypeDef(BaseValidatorModel):
-    Car: Optional[RouteCarOptionsTypeDef] = None
-    Pedestrian: Optional[RoutePedestrianOptionsTypeDef] = None
-    Scooter: Optional[RouteScooterOptionsTypeDef] = None
-    Truck: Optional[RouteTruckOptionsTypeDef] = None
+class RouteTravelModeOptions(BaseValidatorModel):
+    Car: Optional[RouteCarOptions] = None
+    Pedestrian: Optional[RoutePedestrianOptions] = None
+    Scooter: Optional[RouteScooterOptions] = None
+    Truck: Optional[RouteTruckOptions] = None
 
 
-class RouteVehicleNoticeDetailTypeDef(BaseValidatorModel):
+class RouteVehicleNoticeDetail(BaseValidatorModel):
     Title: Optional[str] = None
-    ViolatedConstraints: Optional[RouteViolatedConstraintsTypeDef] = None
+    ViolatedConstraints: Optional[RouteViolatedConstraints] = None
 
 
-class WaypointOptimizationDestinationOptionsTypeDef(BaseValidatorModel):
-    AccessHours: Optional[WaypointOptimizationAccessHoursTypeDef] = None
+class WaypointOptimizationDestinationOptions(BaseValidatorModel):
+    AccessHours: Optional[WaypointOptimizationAccessHours] = None
     AppointmentTime: Optional[str] = None
     Heading: Optional[float] = None
     Id: Optional[str] = None
     ServiceDuration: Optional[int] = None
-    SideOfStreet: Optional[WaypointOptimizationSideOfStreetOptionsTypeDef] = None
+    SideOfStreet: Optional[WaypointOptimizationSideOfStreetOptions] = None
 
 
-class WaypointOptimizationWaypointTypeDef(BaseValidatorModel):
+class WaypointOptimizationWaypoint(BaseValidatorModel):
     Position: Sequence[float]
-    AccessHours: Optional[WaypointOptimizationAccessHoursTypeDef] = None
+    AccessHours: Optional[WaypointOptimizationAccessHours] = None
     AppointmentTime: Optional[str] = None
     Before: Optional[Sequence[int]] = None
     Heading: Optional[float] = None
     Id: Optional[str] = None
     ServiceDuration: Optional[int] = None
-    SideOfStreet: Optional[WaypointOptimizationSideOfStreetOptionsTypeDef] = None
+    SideOfStreet: Optional[WaypointOptimizationSideOfStreetOptions] = None
 
 
-class WaypointOptimizationAvoidanceOptionsTypeDef(BaseValidatorModel):
-    Areas: Optional[Sequence[WaypointOptimizationAvoidanceAreaTypeDef]] = None
+class WaypointOptimizationAvoidanceOptions(BaseValidatorModel):
+    Areas: Optional[Sequence[WaypointOptimizationAvoidanceArea]] = None
     CarShuttleTrains: Optional[bool] = None
     ControlledAccessHighways: Optional[bool] = None
     DirtRoads: Optional[bool] = None
@@ -1108,30 +1108,30 @@ class WaypointOptimizationAvoidanceOptionsTypeDef(BaseValidatorModel):
     UTurns: Optional[bool] = None
 
 
-class OptimizeWaypointsResponseTypeDef(BaseValidatorModel):
-    Connections: List[WaypointOptimizationConnectionTypeDef]
+class OptimizeWaypointsResponse(BaseValidatorModel):
+    Connections: List[WaypointOptimizationConnection]
     Distance: int
     Duration: int
-    ImpedingWaypoints: List[WaypointOptimizationImpedingWaypointTypeDef]
-    OptimizedWaypoints: List[WaypointOptimizationOptimizedWaypointTypeDef]
+    ImpedingWaypoints: List[WaypointOptimizationImpedingWaypoint]
+    OptimizedWaypoints: List[WaypointOptimizationOptimizedWaypoint]
     PricingBucket: str
-    TimeBreakdown: WaypointOptimizationTimeBreakdownTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    TimeBreakdown: WaypointOptimizationTimeBreakdown
+    ResponseMetadata: ResponseMetadata
 
 
-class WaypointOptimizationDriverOptionsTypeDef(BaseValidatorModel):
-    RestCycles: Optional[WaypointOptimizationRestCyclesTypeDef] = None
-    RestProfile: Optional[WaypointOptimizationRestProfileTypeDef] = None
+class WaypointOptimizationDriverOptions(BaseValidatorModel):
+    RestCycles: Optional[WaypointOptimizationRestCycles] = None
+    RestProfile: Optional[WaypointOptimizationRestProfile] = None
     TreatServiceTimeAs: Optional[WaypointOptimizationServiceTimeTreatmentType] = None
 
 
-class WaypointOptimizationTravelModeOptionsTypeDef(BaseValidatorModel):
-    Pedestrian: Optional[WaypointOptimizationPedestrianOptionsTypeDef] = None
-    Truck: Optional[WaypointOptimizationTruckOptionsTypeDef] = None
+class WaypointOptimizationTravelModeOptions(BaseValidatorModel):
+    Pedestrian: Optional[WaypointOptimizationPedestrianOptions] = None
+    Truck: Optional[WaypointOptimizationTruckOptions] = None
 
 
-class IsolineAvoidanceOptionsTypeDef(BaseValidatorModel):
-    Areas: Optional[Sequence[IsolineAvoidanceAreaTypeDef]] = None
+class IsolineAvoidanceOptions(BaseValidatorModel):
+    Areas: Optional[Sequence[IsolineAvoidanceArea]] = None
     CarShuttleTrains: Optional[bool] = None
     ControlledAccessHighways: Optional[bool] = None
     DirtRoads: Optional[bool] = None
@@ -1142,11 +1142,11 @@ class IsolineAvoidanceOptionsTypeDef(BaseValidatorModel):
     TruckRoadTypes: Optional[Sequence[str]] = None
     Tunnels: Optional[bool] = None
     UTurns: Optional[bool] = None
-    ZoneCategories: Optional[Sequence[IsolineAvoidanceZoneCategoryTypeDef]] = None
+    ZoneCategories: Optional[Sequence[IsolineAvoidanceZoneCategory]] = None
 
 
-class RouteAvoidanceOptionsTypeDef(BaseValidatorModel):
-    Areas: Optional[Sequence[RouteAvoidanceAreaTypeDef]] = None
+class RouteAvoidanceOptions(BaseValidatorModel):
+    Areas: Optional[Sequence[RouteAvoidanceArea]] = None
     CarShuttleTrains: Optional[bool] = None
     ControlledAccessHighways: Optional[bool] = None
     DirtRoads: Optional[bool] = None
@@ -1157,106 +1157,106 @@ class RouteAvoidanceOptionsTypeDef(BaseValidatorModel):
     TruckRoadTypes: Optional[Sequence[str]] = None
     Tunnels: Optional[bool] = None
     UTurns: Optional[bool] = None
-    ZoneCategories: Optional[Sequence[RouteAvoidanceZoneCategoryTypeDef]] = None
+    ZoneCategories: Optional[Sequence[RouteAvoidanceZoneCategory]] = None
 
 
-class CalculateIsolinesResponseTypeDef(BaseValidatorModel):
+class CalculateIsolinesResponse(BaseValidatorModel):
     ArrivalTime: str
     DepartureTime: str
     IsolineGeometryFormat: GeometryFormatType
-    Isolines: List[IsolineTypeDef]
+    Isolines: List[Isoline]
     PricingBucket: str
     SnappedDestination: List[float]
     SnappedOrigin: List[float]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class SnapToRoadsRequestTypeDef(BaseValidatorModel):
-    TracePoints: Sequence[RoadSnapTracePointTypeDef]
+class SnapToRoadsRequest(BaseValidatorModel):
+    TracePoints: Sequence[RoadSnapTracePoint]
     Key: Optional[str] = None
     SnappedGeometryFormat: Optional[GeometryFormatType] = None
     SnapRadius: Optional[int] = None
     TravelMode: Optional[RoadSnapTravelModeType] = None
-    TravelModeOptions: Optional[RoadSnapTravelModeOptionsTypeDef] = None
+    TravelModeOptions: Optional[RoadSnapTravelModeOptions] = None
 
 
-class CalculateRouteMatrixResponseTypeDef(BaseValidatorModel):
+class CalculateRouteMatrixResponse(BaseValidatorModel):
     ErrorCount: int
     PricingBucket: str
-    RouteMatrix: List[List[RouteMatrixEntryTypeDef]]
-    RoutingBoundary: RouteMatrixBoundaryOutputTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    RouteMatrix: List[List[RouteMatrixEntry]]
+    RoutingBoundary: RouteMatrixBoundaryOutput
+    ResponseMetadata: ResponseMetadata
 
 
-class RouteSummaryTypeDef(BaseValidatorModel):
+class RouteSummary(BaseValidatorModel):
     Distance: Optional[int] = None
     Duration: Optional[int] = None
-    Tolls: Optional[RouteTollSummaryTypeDef] = None
+    Tolls: Optional[RouteTollSummary] = None
 
 
-class RouteTollTypeDef(BaseValidatorModel):
-    PaymentSites: List[RouteTollPaymentSiteTypeDef]
-    Rates: List[RouteTollRateTypeDef]
+class RouteToll(BaseValidatorModel):
+    PaymentSites: List[RouteTollPaymentSite]
+    Rates: List[RouteTollRate]
     Systems: List[int]
     Country: Optional[str] = None
 
 
-class RouteVehicleNoticeTypeDef(BaseValidatorModel):
+class RouteVehicleNotice(BaseValidatorModel):
     Code: RouteVehicleNoticeCodeType
-    Details: List[RouteVehicleNoticeDetailTypeDef]
+    Details: List[RouteVehicleNoticeDetail]
     Impact: Optional[RouteNoticeImpactType] = None
 
 
-class OptimizeWaypointsRequestTypeDef(BaseValidatorModel):
+class OptimizeWaypointsRequest(BaseValidatorModel):
     Origin: Sequence[float]
-    Avoid: Optional[WaypointOptimizationAvoidanceOptionsTypeDef] = None
-    Clustering: Optional[WaypointOptimizationClusteringOptionsTypeDef] = None
+    Avoid: Optional[WaypointOptimizationAvoidanceOptions] = None
+    Clustering: Optional[WaypointOptimizationClusteringOptions] = None
     DepartureTime: Optional[str] = None
     Destination: Optional[Sequence[float]] = None
-    DestinationOptions: Optional[WaypointOptimizationDestinationOptionsTypeDef] = None
-    Driver: Optional[WaypointOptimizationDriverOptionsTypeDef] = None
-    Exclude: Optional[WaypointOptimizationExclusionOptionsTypeDef] = None
+    DestinationOptions: Optional[WaypointOptimizationDestinationOptions] = None
+    Driver: Optional[WaypointOptimizationDriverOptions] = None
+    Exclude: Optional[WaypointOptimizationExclusionOptions] = None
     Key: Optional[str] = None
     OptimizeSequencingFor: Optional[WaypointOptimizationSequencingObjectiveType] = None
-    OriginOptions: Optional[WaypointOptimizationOriginOptionsTypeDef] = None
-    Traffic: Optional[WaypointOptimizationTrafficOptionsTypeDef] = None
+    OriginOptions: Optional[WaypointOptimizationOriginOptions] = None
+    Traffic: Optional[WaypointOptimizationTrafficOptions] = None
     TravelMode: Optional[WaypointOptimizationTravelModeType] = None
-    TravelModeOptions: Optional[WaypointOptimizationTravelModeOptionsTypeDef] = None
-    Waypoints: Optional[Sequence[WaypointOptimizationWaypointTypeDef]] = None
+    TravelModeOptions: Optional[WaypointOptimizationTravelModeOptions] = None
+    Waypoints: Optional[Sequence[WaypointOptimizationWaypoint]] = None
 
 
-class CalculateIsolinesRequestTypeDef(BaseValidatorModel):
-    Thresholds: IsolineThresholdsTypeDef
-    Allow: Optional[IsolineAllowOptionsTypeDef] = None
+class CalculateIsolinesRequest(BaseValidatorModel):
+    Thresholds: IsolineThresholds
+    Allow: Optional[IsolineAllowOptions] = None
     ArrivalTime: Optional[str] = None
-    Avoid: Optional[IsolineAvoidanceOptionsTypeDef] = None
+    Avoid: Optional[IsolineAvoidanceOptions] = None
     DepartNow: Optional[bool] = None
     DepartureTime: Optional[str] = None
     Destination: Optional[Sequence[float]] = None
-    DestinationOptions: Optional[IsolineDestinationOptionsTypeDef] = None
+    DestinationOptions: Optional[IsolineDestinationOptions] = None
     IsolineGeometryFormat: Optional[GeometryFormatType] = None
-    IsolineGranularity: Optional[IsolineGranularityOptionsTypeDef] = None
+    IsolineGranularity: Optional[IsolineGranularityOptions] = None
     Key: Optional[str] = None
     OptimizeIsolineFor: Optional[IsolineOptimizationObjectiveType] = None
     OptimizeRoutingFor: Optional[RoutingObjectiveType] = None
     Origin: Optional[Sequence[float]] = None
-    OriginOptions: Optional[IsolineOriginOptionsTypeDef] = None
-    Traffic: Optional[IsolineTrafficOptionsTypeDef] = None
+    OriginOptions: Optional[IsolineOriginOptions] = None
+    Traffic: Optional[IsolineTrafficOptions] = None
     TravelMode: Optional[IsolineTravelModeType] = None
-    TravelModeOptions: Optional[IsolineTravelModeOptionsTypeDef] = None
+    TravelModeOptions: Optional[IsolineTravelModeOptions] = None
 
 
-class CalculateRoutesRequestTypeDef(BaseValidatorModel):
+class CalculateRoutesRequest(BaseValidatorModel):
     Destination: Sequence[float]
     Origin: Sequence[float]
-    Allow: Optional[RouteAllowOptionsTypeDef] = None
+    Allow: Optional[RouteAllowOptions] = None
     ArrivalTime: Optional[str] = None
-    Avoid: Optional[RouteAvoidanceOptionsTypeDef] = None
+    Avoid: Optional[RouteAvoidanceOptions] = None
     DepartNow: Optional[bool] = None
     DepartureTime: Optional[str] = None
-    DestinationOptions: Optional[RouteDestinationOptionsTypeDef] = None
-    Driver: Optional[RouteDriverOptionsTypeDef] = None
-    Exclude: Optional[RouteExclusionOptionsTypeDef] = None
+    DestinationOptions: Optional[RouteDestinationOptions] = None
+    Driver: Optional[RouteDriverOptions] = None
+    Exclude: Optional[RouteExclusionOptions] = None
     InstructionsMeasurementSystem: Optional[MeasurementSystemType] = None
     Key: Optional[str] = None
     Languages: Optional[Sequence[str]] = None
@@ -1264,88 +1264,88 @@ class CalculateRoutesRequestTypeDef(BaseValidatorModel):
     LegGeometryFormat: Optional[GeometryFormatType] = None
     MaxAlternatives: Optional[int] = None
     OptimizeRoutingFor: Optional[RoutingObjectiveType] = None
-    OriginOptions: Optional[RouteOriginOptionsTypeDef] = None
+    OriginOptions: Optional[RouteOriginOptions] = None
     SpanAdditionalFeatures: Optional[Sequence[RouteSpanAdditionalFeatureType]] = None
-    Tolls: Optional[RouteTollOptionsTypeDef] = None
-    Traffic: Optional[RouteTrafficOptionsTypeDef] = None
+    Tolls: Optional[RouteTollOptions] = None
+    Traffic: Optional[RouteTrafficOptions] = None
     TravelMode: Optional[RouteTravelModeType] = None
-    TravelModeOptions: Optional[RouteTravelModeOptionsTypeDef] = None
+    TravelModeOptions: Optional[RouteTravelModeOptions] = None
     TravelStepType: Optional[RouteTravelStepTypeType] = None
-    Waypoints: Optional[Sequence[RouteWaypointTypeDef]] = None
+    Waypoints: Optional[Sequence[RouteWaypoint]] = None
 
 
-class RoutePedestrianTravelStepTypeDef(BaseValidatorModel):
+class RoutePedestrianTravelStep(BaseValidatorModel):
     pass
 
 
-class RoutePedestrianLegDetailsTypeDef(BaseValidatorModel):
-    Arrival: RoutePedestrianArrivalTypeDef
-    Departure: RoutePedestrianDepartureTypeDef
-    Notices: List[RoutePedestrianNoticeTypeDef]
-    PassThroughWaypoints: List[RoutePassThroughWaypointTypeDef]
-    Spans: List[RoutePedestrianSpanTypeDef]
-    TravelSteps: List[RoutePedestrianTravelStepTypeDef]
-    Summary: Optional[RoutePedestrianSummaryTypeDef] = None
+class RoutePedestrianLegDetails(BaseValidatorModel):
+    Arrival: RoutePedestrianArrival
+    Departure: RoutePedestrianDeparture
+    Notices: List[RoutePedestrianNotice]
+    PassThroughWaypoints: List[RoutePassThroughWaypoint]
+    Spans: List[RoutePedestrianSpan]
+    TravelSteps: List[RoutePedestrianTravelStep]
+    Summary: Optional[RoutePedestrianSummary] = None
 
 
-class RouteMatrixBoundaryUnionTypeDef(BaseValidatorModel):
+class RouteMatrixBoundaryUnion(BaseValidatorModel):
     pass
 
 
-class CalculateRouteMatrixRequestTypeDef(BaseValidatorModel):
-    Destinations: Sequence[RouteMatrixDestinationTypeDef]
-    Origins: Sequence[RouteMatrixOriginTypeDef]
-    RoutingBoundary: RouteMatrixBoundaryUnionTypeDef
-    Allow: Optional[RouteMatrixAllowOptionsTypeDef] = None
-    Avoid: Optional[RouteMatrixAvoidanceOptionsTypeDef] = None
+class CalculateRouteMatrixRequest(BaseValidatorModel):
+    Destinations: Sequence[RouteMatrixDestination]
+    Origins: Sequence[RouteMatrixOrigin]
+    RoutingBoundary: RouteMatrixBoundaryUnion
+    Allow: Optional[RouteMatrixAllowOptions] = None
+    Avoid: Optional[RouteMatrixAvoidanceOptions] = None
     DepartNow: Optional[bool] = None
     DepartureTime: Optional[str] = None
-    Exclude: Optional[RouteMatrixExclusionOptionsTypeDef] = None
+    Exclude: Optional[RouteMatrixExclusionOptions] = None
     Key: Optional[str] = None
     OptimizeRoutingFor: Optional[RoutingObjectiveType] = None
-    Traffic: Optional[RouteMatrixTrafficOptionsTypeDef] = None
+    Traffic: Optional[RouteMatrixTrafficOptions] = None
     TravelMode: Optional[RouteMatrixTravelModeType] = None
-    TravelModeOptions: Optional[RouteMatrixTravelModeOptionsTypeDef] = None
+    TravelModeOptions: Optional[RouteMatrixTravelModeOptions] = None
 
 
-class RouteVehicleIncidentTypeDef(BaseValidatorModel):
+class RouteVehicleIncident(BaseValidatorModel):
     pass
 
 
-class RouteVehicleTravelStepTypeDef(BaseValidatorModel):
+class RouteVehicleTravelStep(BaseValidatorModel):
     pass
 
 
-class RouteVehicleLegDetailsTypeDef(BaseValidatorModel):
-    Arrival: RouteVehicleArrivalTypeDef
-    Departure: RouteVehicleDepartureTypeDef
-    Incidents: List[RouteVehicleIncidentTypeDef]
-    Notices: List[RouteVehicleNoticeTypeDef]
-    PassThroughWaypoints: List[RoutePassThroughWaypointTypeDef]
-    Spans: List[RouteVehicleSpanTypeDef]
-    Tolls: List[RouteTollTypeDef]
-    TollSystems: List[RouteTollSystemTypeDef]
-    TravelSteps: List[RouteVehicleTravelStepTypeDef]
+class RouteVehicleLegDetails(BaseValidatorModel):
+    Arrival: RouteVehicleArrival
+    Departure: RouteVehicleDeparture
+    Incidents: List[RouteVehicleIncident]
+    Notices: List[RouteVehicleNotice]
+    PassThroughWaypoints: List[RoutePassThroughWaypoint]
+    Spans: List[RouteVehicleSpan]
+    Tolls: List[RouteToll]
+    TollSystems: List[RouteTollSystem]
+    TravelSteps: List[RouteVehicleTravelStep]
     TruckRoadTypes: List[str]
-    Zones: List[RouteZoneTypeDef]
-    Summary: Optional[RouteVehicleSummaryTypeDef] = None
+    Zones: List[RouteZone]
+    Summary: Optional[RouteVehicleSummary] = None
 
 
-class RouteLegTypeDef(BaseValidatorModel):
+class RouteLeg(BaseValidatorModel):
     pass
 
 
-class RouteTypeDef(BaseValidatorModel):
-    Legs: List[RouteLegTypeDef]
-    MajorRoadLabels: List[RouteMajorRoadLabelTypeDef]
-    Summary: Optional[RouteSummaryTypeDef] = None
+class Route(BaseValidatorModel):
+    Legs: List[RouteLeg]
+    MajorRoadLabels: List[RouteMajorRoadLabel]
+    Summary: Optional[RouteSummary] = None
 
 
-class CalculateRoutesResponseTypeDef(BaseValidatorModel):
+class CalculateRoutesResponse(BaseValidatorModel):
     LegGeometryFormat: GeometryFormatType
-    Notices: List[RouteResponseNoticeTypeDef]
+    Notices: List[RouteResponseNotice]
     PricingBucket: str
-    Routes: List[RouteTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    Routes: List[Route]
+    ResponseMetadata: ResponseMetadata
 
 

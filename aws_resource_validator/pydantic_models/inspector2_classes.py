@@ -12,36 +12,36 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.inspector2_constants import *
 
-class AccountAggregationTypeDef(BaseValidatorModel):
+class AccountAggregation(BaseValidatorModel):
     findingType: Optional[AggregationFindingTypeType] = None
     resourceType: Optional[AggregationResourceTypeType] = None
     sortBy: Optional[AccountSortByType] = None
     sortOrder: Optional[SortOrderType] = None
 
 
-class StateTypeDef(BaseValidatorModel):
+class State(BaseValidatorModel):
     errorCode: ErrorCodeType
     errorMessage: str
     status: StatusType
 
 
-class FindingTypeAggregationTypeDef(BaseValidatorModel):
+class FindingTypeAggregation(BaseValidatorModel):
     findingType: Optional[AggregationFindingTypeType] = None
     resourceType: Optional[AggregationResourceTypeType] = None
     sortBy: Optional[FindingTypeSortByType] = None
     sortOrder: Optional[SortOrderType] = None
 
 
-class StringFilterTypeDef(BaseValidatorModel):
+class StringFilter(BaseValidatorModel):
     comparison: StringComparisonType
     value: str
 
 
-class AssociateMemberRequestTypeDef(BaseValidatorModel):
+class AssociateMemberRequest(BaseValidatorModel):
     accountId: str
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -49,14 +49,14 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class AtigDataTypeDef(BaseValidatorModel):
+class AtigData(BaseValidatorModel):
     firstSeen: Optional[datetime] = None
     lastSeen: Optional[datetime] = None
     targets: Optional[List[str]] = None
     ttps: Optional[List[str]] = None
 
 
-class AwsEcrContainerImageDetailsTypeDef(BaseValidatorModel):
+class AwsEcrContainerImageDetails(BaseValidatorModel):
     imageHash: str
     registry: str
     repositoryName: str
@@ -67,112 +67,112 @@ class AwsEcrContainerImageDetailsTypeDef(BaseValidatorModel):
     pushedAt: Optional[datetime] = None
 
 
-class LambdaVpcConfigTypeDef(BaseValidatorModel):
+class LambdaVpcConfig(BaseValidatorModel):
     securityGroupIds: Optional[List[str]] = None
     subnetIds: Optional[List[str]] = None
     vpcId: Optional[str] = None
 
 
-class BatchGetAccountStatusRequestTypeDef(BaseValidatorModel):
+class BatchGetAccountStatusRequest(BaseValidatorModel):
     accountIds: Optional[Sequence[str]] = None
 
 
-class BatchGetCodeSnippetRequestTypeDef(BaseValidatorModel):
+class BatchGetCodeSnippetRequest(BaseValidatorModel):
     findingArns: Sequence[str]
 
 
-class CodeSnippetErrorTypeDef(BaseValidatorModel):
+class CodeSnippetError(BaseValidatorModel):
     errorCode: CodeSnippetErrorCodeType
     errorMessage: str
     findingArn: str
 
 
-class BatchGetFindingDetailsRequestTypeDef(BaseValidatorModel):
+class BatchGetFindingDetailsRequest(BaseValidatorModel):
     findingArns: Sequence[str]
 
 
-class FindingDetailsErrorTypeDef(BaseValidatorModel):
+class FindingDetailsError(BaseValidatorModel):
     errorCode: FindingDetailsErrorCodeType
     errorMessage: str
     findingArn: str
 
 
-class BatchGetFreeTrialInfoRequestTypeDef(BaseValidatorModel):
+class BatchGetFreeTrialInfoRequest(BaseValidatorModel):
     accountIds: Sequence[str]
 
 
-class FreeTrialInfoErrorTypeDef(BaseValidatorModel):
+class FreeTrialInfoError(BaseValidatorModel):
     accountId: str
     code: FreeTrialInfoErrorCodeType
     message: str
 
 
-class BatchGetMemberEc2DeepInspectionStatusRequestTypeDef(BaseValidatorModel):
+class BatchGetMemberEc2DeepInspectionStatusRequest(BaseValidatorModel):
     accountIds: Optional[Sequence[str]] = None
 
 
-class FailedMemberAccountEc2DeepInspectionStatusStateTypeDef(BaseValidatorModel):
+class FailedMemberAccountEc2DeepInspectionStatusState(BaseValidatorModel):
     accountId: str
     ec2ScanStatus: Optional[StatusType] = None
     errorMessage: Optional[str] = None
 
 
-class MemberAccountEc2DeepInspectionStatusStateTypeDef(BaseValidatorModel):
+class MemberAccountEc2DeepInspectionStatusState(BaseValidatorModel):
     accountId: str
     errorMessage: Optional[str] = None
     status: Optional[Ec2DeepInspectionStatusType] = None
 
 
-class MemberAccountEc2DeepInspectionStatusTypeDef(BaseValidatorModel):
+class MemberAccountEc2DeepInspectionStatus(BaseValidatorModel):
     accountId: str
     activateDeepInspection: bool
 
 
-class CancelFindingsReportRequestTypeDef(BaseValidatorModel):
+class CancelFindingsReportRequest(BaseValidatorModel):
     reportId: str
 
 
-class CancelSbomExportRequestTypeDef(BaseValidatorModel):
+class CancelSbomExportRequest(BaseValidatorModel):
     reportId: str
 
 
-class StatusCountsTypeDef(BaseValidatorModel):
+class StatusCounts(BaseValidatorModel):
     failed: Optional[int] = None
     passed: Optional[int] = None
     skipped: Optional[int] = None
 
 
-class CisFindingStatusFilterTypeDef(BaseValidatorModel):
+class CisFindingStatusFilter(BaseValidatorModel):
     comparison: Literal["EQUALS"]
     value: CisFindingStatusType
 
 
-class CisNumberFilterTypeDef(BaseValidatorModel):
+class CisNumberFilter(BaseValidatorModel):
     lowerInclusive: Optional[int] = None
     upperInclusive: Optional[int] = None
 
 
-class CisResultStatusFilterTypeDef(BaseValidatorModel):
+class CisResultStatusFilter(BaseValidatorModel):
     comparison: Literal["EQUALS"]
     value: CisResultStatusType
 
 
-class CisTargetsTypeDef(BaseValidatorModel):
+class CisTargets(BaseValidatorModel):
     accountIds: Optional[List[str]] = None
     targetResourceTags: Optional[Dict[str, List[str]]] = None
 
 
-class CisSecurityLevelFilterTypeDef(BaseValidatorModel):
+class CisSecurityLevelFilter(BaseValidatorModel):
     comparison: Literal["EQUALS"]
     value: CisSecurityLevelType
 
 
-class CisStringFilterTypeDef(BaseValidatorModel):
+class CisStringFilter(BaseValidatorModel):
     comparison: CisStringComparisonType
     value: str
 
 
-class CisScanResultDetailsTypeDef(BaseValidatorModel):
+class CisScanResultDetails(BaseValidatorModel):
     scanArn: str
     accountId: Optional[str] = None
     checkDescription: Optional[str] = None
@@ -187,336 +187,336 @@ class CisScanResultDetailsTypeDef(BaseValidatorModel):
     title: Optional[str] = None
 
 
-class CisTargetStatusFilterTypeDef(BaseValidatorModel):
+class CisTargetStatusFilter(BaseValidatorModel):
     comparison: Literal["EQUALS"]
     value: CisTargetStatusType
 
 
-class CisTargetStatusReasonFilterTypeDef(BaseValidatorModel):
+class CisTargetStatusReasonFilter(BaseValidatorModel):
     comparison: Literal["EQUALS"]
     value: CisTargetStatusReasonType
 
 
-class TagFilterTypeDef(BaseValidatorModel):
+class TagFilter(BaseValidatorModel):
     comparison: Literal["EQUALS"]
     key: str
     value: str
 
 
-class CisScanStatusFilterTypeDef(BaseValidatorModel):
+class CisScanStatusFilter(BaseValidatorModel):
     comparison: Literal["EQUALS"]
     value: CisScanStatusType
 
 
-class CisaDataTypeDef(BaseValidatorModel):
+class CisaData(BaseValidatorModel):
     action: Optional[str] = None
     dateAdded: Optional[datetime] = None
     dateDue: Optional[datetime] = None
 
 
-class CodeFilePathTypeDef(BaseValidatorModel):
+class CodeFilePath(BaseValidatorModel):
     endLine: int
     fileName: str
     filePath: str
     startLine: int
 
 
-class CodeLineTypeDef(BaseValidatorModel):
+class CodeLine(BaseValidatorModel):
     content: str
     lineNumber: int
 
 
-class SuggestedFixTypeDef(BaseValidatorModel):
+class SuggestedFix(BaseValidatorModel):
     code: Optional[str] = None
     description: Optional[str] = None
 
 
-class ComputePlatformTypeDef(BaseValidatorModel):
+class ComputePlatform(BaseValidatorModel):
     product: Optional[str] = None
     vendor: Optional[str] = None
     version: Optional[str] = None
 
 
-class CountsTypeDef(BaseValidatorModel):
+class Counts(BaseValidatorModel):
     count: Optional[int] = None
     groupKey: Optional[GroupKeyType] = None
 
 
-class CoverageMapFilterTypeDef(BaseValidatorModel):
+class CoverageMapFilter(BaseValidatorModel):
     comparison: Literal["EQUALS"]
     key: str
     value: Optional[str] = None
 
 
-class CoverageStringFilterTypeDef(BaseValidatorModel):
+class CoverageStringFilter(BaseValidatorModel):
     comparison: CoverageStringComparisonType
     value: str
 
 
-class ScanStatusTypeDef(BaseValidatorModel):
+class ScanStatus(BaseValidatorModel):
     reason: ScanStatusReasonType
     statusCode: ScanStatusCodeType
 
 
-class CreateCisTargetsTypeDef(BaseValidatorModel):
+class CreateCisTargets(BaseValidatorModel):
     accountIds: Sequence[str]
     targetResourceTags: Mapping[str, Sequence[str]]
 
 
-class DestinationTypeDef(BaseValidatorModel):
+class Destination(BaseValidatorModel):
     bucketName: str
     kmsKeyArn: str
     keyPrefix: Optional[str] = None
 
 
-class Cvss2TypeDef(BaseValidatorModel):
+class Cvss2(BaseValidatorModel):
     baseScore: Optional[float] = None
     scoringVector: Optional[str] = None
 
 
-class Cvss3TypeDef(BaseValidatorModel):
+class Cvss3(BaseValidatorModel):
     baseScore: Optional[float] = None
     scoringVector: Optional[str] = None
 
 
-class CvssScoreAdjustmentTypeDef(BaseValidatorModel):
+class CvssScoreAdjustment(BaseValidatorModel):
     metric: str
     reason: str
 
 
-class CvssScoreTypeDef(BaseValidatorModel):
+class CvssScore(BaseValidatorModel):
     baseScore: float
     scoringVector: str
     source: str
     version: str
 
 
-class TimeTypeDef(BaseValidatorModel):
+class Time(BaseValidatorModel):
     timeOfDay: str
     timezone: str
 
 
-class DateFilterOutputTypeDef(BaseValidatorModel):
+class DateFilterOutput(BaseValidatorModel):
     endInclusive: Optional[datetime] = None
     startInclusive: Optional[datetime] = None
 
 
-class DelegatedAdminAccountTypeDef(BaseValidatorModel):
+class DelegatedAdminAccount(BaseValidatorModel):
     accountId: Optional[str] = None
     status: Optional[DelegatedAdminStatusType] = None
 
 
-class DelegatedAdminTypeDef(BaseValidatorModel):
+class DelegatedAdmin(BaseValidatorModel):
     accountId: Optional[str] = None
     relationshipStatus: Optional[RelationshipStatusType] = None
 
 
-class DeleteCisScanConfigurationRequestTypeDef(BaseValidatorModel):
+class DeleteCisScanConfigurationRequest(BaseValidatorModel):
     scanConfigurationArn: str
 
 
-class DeleteFilterRequestTypeDef(BaseValidatorModel):
+class DeleteFilterRequest(BaseValidatorModel):
     arn: str
 
 
-class DisableDelegatedAdminAccountRequestTypeDef(BaseValidatorModel):
+class DisableDelegatedAdminAccountRequest(BaseValidatorModel):
     delegatedAdminAccountId: str
 
 
-class DisableRequestTypeDef(BaseValidatorModel):
+class DisableRequest(BaseValidatorModel):
     accountIds: Optional[Sequence[str]] = None
     resourceTypes: Optional[Sequence[ResourceScanTypeType]] = None
 
 
-class DisassociateMemberRequestTypeDef(BaseValidatorModel):
+class DisassociateMemberRequest(BaseValidatorModel):
     accountId: str
 
 
-class Ec2ScanModeStateTypeDef(BaseValidatorModel):
+class Ec2ScanModeState(BaseValidatorModel):
     scanMode: Optional[Ec2ScanModeType] = None
     scanModeStatus: Optional[Ec2ScanModeStatusType] = None
 
 
-class Ec2ConfigurationTypeDef(BaseValidatorModel):
+class Ec2Configuration(BaseValidatorModel):
     scanMode: Ec2ScanModeType
 
 
-class MapFilterTypeDef(BaseValidatorModel):
+class MapFilter(BaseValidatorModel):
     comparison: Literal["EQUALS"]
     key: str
     value: Optional[str] = None
 
 
-class Ec2MetadataTypeDef(BaseValidatorModel):
+class Ec2Metadata(BaseValidatorModel):
     amiId: Optional[str] = None
     platform: Optional[Ec2PlatformType] = None
     tags: Optional[Dict[str, str]] = None
 
 
-class EcrRescanDurationStateTypeDef(BaseValidatorModel):
+class EcrRescanDurationState(BaseValidatorModel):
     pullDateRescanDuration: Optional[EcrPullDateRescanDurationType] = None
     rescanDuration: Optional[EcrRescanDurationType] = None
     status: Optional[EcrRescanDurationStatusType] = None
     updatedAt: Optional[datetime] = None
 
 
-class EcrConfigurationTypeDef(BaseValidatorModel):
+class EcrConfiguration(BaseValidatorModel):
     rescanDuration: EcrRescanDurationType
     pullDateRescanDuration: Optional[EcrPullDateRescanDurationType] = None
 
 
-class EcrContainerImageMetadataTypeDef(BaseValidatorModel):
+class EcrContainerImageMetadata(BaseValidatorModel):
     imagePulledAt: Optional[datetime] = None
     tags: Optional[List[str]] = None
 
 
-class EcrRepositoryMetadataTypeDef(BaseValidatorModel):
+class EcrRepositoryMetadata(BaseValidatorModel):
     name: Optional[str] = None
     scanFrequency: Optional[EcrScanFrequencyType] = None
 
 
-class EnableDelegatedAdminAccountRequestTypeDef(BaseValidatorModel):
+class EnableDelegatedAdminAccountRequest(BaseValidatorModel):
     delegatedAdminAccountId: str
     clientToken: Optional[str] = None
 
 
-class EnableRequestTypeDef(BaseValidatorModel):
+class EnableRequest(BaseValidatorModel):
     resourceTypes: Sequence[ResourceScanTypeType]
     accountIds: Optional[Sequence[str]] = None
     clientToken: Optional[str] = None
 
 
-class EpssDetailsTypeDef(BaseValidatorModel):
+class EpssDetails(BaseValidatorModel):
     score: Optional[float] = None
 
 
-class EpssTypeDef(BaseValidatorModel):
+class Epss(BaseValidatorModel):
     score: Optional[float] = None
 
 
-class EvidenceTypeDef(BaseValidatorModel):
+class Evidence(BaseValidatorModel):
     evidenceDetail: Optional[str] = None
     evidenceRule: Optional[str] = None
     severity: Optional[str] = None
 
 
-class ExploitObservedTypeDef(BaseValidatorModel):
+class ExploitObserved(BaseValidatorModel):
     firstSeen: Optional[datetime] = None
     lastSeen: Optional[datetime] = None
 
 
-class ExploitabilityDetailsTypeDef(BaseValidatorModel):
+class ExploitabilityDetails(BaseValidatorModel):
     lastKnownExploitAt: Optional[datetime] = None
 
 
-class NumberFilterTypeDef(BaseValidatorModel):
+class NumberFilter(BaseValidatorModel):
     lowerInclusive: Optional[float] = None
     upperInclusive: Optional[float] = None
 
 
-class PortRangeFilterTypeDef(BaseValidatorModel):
+class PortRangeFilter(BaseValidatorModel):
     beginInclusive: Optional[int] = None
     endInclusive: Optional[int] = None
 
 
-class GetCisScanReportRequestTypeDef(BaseValidatorModel):
+class GetCisScanReportRequest(BaseValidatorModel):
     scanArn: str
     reportFormat: Optional[CisReportFormatType] = None
     targetAccounts: Optional[Sequence[str]] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class GetEncryptionKeyRequestTypeDef(BaseValidatorModel):
+class GetEncryptionKeyRequest(BaseValidatorModel):
     resourceType: ResourceTypeType
     scanType: ScanTypeType
 
 
-class GetFindingsReportStatusRequestTypeDef(BaseValidatorModel):
+class GetFindingsReportStatusRequest(BaseValidatorModel):
     reportId: Optional[str] = None
 
 
-class GetMemberRequestTypeDef(BaseValidatorModel):
+class GetMemberRequest(BaseValidatorModel):
     accountId: str
 
 
-class MemberTypeDef(BaseValidatorModel):
+class Member(BaseValidatorModel):
     accountId: Optional[str] = None
     delegatedAdminAccountId: Optional[str] = None
     relationshipStatus: Optional[RelationshipStatusType] = None
     updatedAt: Optional[datetime] = None
 
 
-class GetSbomExportRequestTypeDef(BaseValidatorModel):
+class GetSbomExportRequest(BaseValidatorModel):
     reportId: str
 
 
-class LambdaFunctionMetadataTypeDef(BaseValidatorModel):
+class LambdaFunctionMetadata(BaseValidatorModel):
     functionName: Optional[str] = None
     functionTags: Optional[Dict[str, str]] = None
     layers: Optional[List[str]] = None
     runtime: Optional[RuntimeType] = None
 
 
-class ListAccountPermissionsRequestTypeDef(BaseValidatorModel):
+class ListAccountPermissionsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     service: Optional[ServiceType] = None
 
 
-class PermissionTypeDef(BaseValidatorModel):
+class Permission(BaseValidatorModel):
     operation: OperationType
     service: ServiceType
 
 
-class ListDelegatedAdminAccountsRequestTypeDef(BaseValidatorModel):
+class ListDelegatedAdminAccountsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListFiltersRequestTypeDef(BaseValidatorModel):
+class ListFiltersRequest(BaseValidatorModel):
     action: Optional[FilterActionType] = None
     arns: Optional[Sequence[str]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class SortCriteriaTypeDef(BaseValidatorModel):
+class SortCriteria(BaseValidatorModel):
     field: SortFieldType
     sortOrder: SortOrderType
 
 
-class ListMembersRequestTypeDef(BaseValidatorModel):
+class ListMembersRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     onlyAssociated: Optional[bool] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
 
-class ListUsageTotalsRequestTypeDef(BaseValidatorModel):
+class ListUsageTotalsRequest(BaseValidatorModel):
     accountIds: Optional[Sequence[str]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class StepTypeDef(BaseValidatorModel):
+class Step(BaseValidatorModel):
     componentId: str
     componentType: str
 
 
-class PortRangeTypeDef(BaseValidatorModel):
+class PortRange(BaseValidatorModel):
     begin: int
     end: int
 
 
-class VulnerablePackageTypeDef(BaseValidatorModel):
+class VulnerablePackage(BaseValidatorModel):
     name: str
     version: str
     arch: Optional[str] = None
@@ -530,41 +530,41 @@ class VulnerablePackageTypeDef(BaseValidatorModel):
     sourceLayerHash: Optional[str] = None
 
 
-class RecommendationTypeDef(BaseValidatorModel):
+class Recommendation(BaseValidatorModel):
     Url: Optional[str] = None
     text: Optional[str] = None
 
 
-class ResetEncryptionKeyRequestTypeDef(BaseValidatorModel):
+class ResetEncryptionKeyRequest(BaseValidatorModel):
     resourceType: ResourceTypeType
     scanType: ScanTypeType
 
 
-class ResourceMapFilterTypeDef(BaseValidatorModel):
+class ResourceMapFilter(BaseValidatorModel):
     comparison: Literal["EQUALS"]
     key: str
     value: Optional[str] = None
 
 
-class ResourceStringFilterTypeDef(BaseValidatorModel):
+class ResourceStringFilter(BaseValidatorModel):
     comparison: ResourceStringComparisonType
     value: str
 
 
-class SearchVulnerabilitiesFilterCriteriaTypeDef(BaseValidatorModel):
+class SearchVulnerabilitiesFilterCriteria(BaseValidatorModel):
     vulnerabilityIds: Sequence[str]
 
 
-class SendCisSessionHealthRequestTypeDef(BaseValidatorModel):
+class SendCisSessionHealthRequest(BaseValidatorModel):
     scanJobId: str
     sessionToken: str
 
 
-class StartCisSessionMessageTypeDef(BaseValidatorModel):
+class StartCisSessionMessage(BaseValidatorModel):
     sessionToken: str
 
 
-class StopCisMessageProgressTypeDef(BaseValidatorModel):
+class StopCisMessageProgress(BaseValidatorModel):
     errorChecks: Optional[int] = None
     failedChecks: Optional[int] = None
     informationalChecks: Optional[int] = None
@@ -575,320 +575,320 @@ class StopCisMessageProgressTypeDef(BaseValidatorModel):
     unknownChecks: Optional[int] = None
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
 
-class UpdateCisTargetsTypeDef(BaseValidatorModel):
+class UpdateCisTargets(BaseValidatorModel):
     accountIds: Optional[Sequence[str]] = None
     targetResourceTags: Optional[Mapping[str, Sequence[str]]] = None
 
 
-class UpdateEc2DeepInspectionConfigurationRequestTypeDef(BaseValidatorModel):
+class UpdateEc2DeepInspectionConfigurationRequest(BaseValidatorModel):
     activateDeepInspection: Optional[bool] = None
     packagePaths: Optional[Sequence[str]] = None
 
 
-class UpdateEncryptionKeyRequestTypeDef(BaseValidatorModel):
+class UpdateEncryptionKeyRequest(BaseValidatorModel):
     kmsKeyId: str
     resourceType: ResourceTypeType
     scanType: ScanTypeType
 
 
-class UpdateOrgEc2DeepInspectionConfigurationRequestTypeDef(BaseValidatorModel):
+class UpdateOrgEc2DeepInspectionConfigurationRequest(BaseValidatorModel):
     orgPackagePaths: Sequence[str]
 
 
-class SeverityCountsTypeDef(BaseValidatorModel):
+class SeverityCounts(BaseValidatorModel):
     pass
 
 
-class AccountAggregationResponseTypeDef(BaseValidatorModel):
+class AccountAggregationResponse(BaseValidatorModel):
     accountId: Optional[str] = None
     exploitAvailableCount: Optional[int] = None
     fixAvailableCount: Optional[int] = None
-    severityCounts: Optional[SeverityCountsTypeDef] = None
+    severityCounts: Optional[SeverityCounts] = None
 
 
-class AmiAggregationResponseTypeDef(BaseValidatorModel):
+class AmiAggregationResponse(BaseValidatorModel):
     ami: str
     accountId: Optional[str] = None
     affectedInstances: Optional[int] = None
-    severityCounts: Optional[SeverityCountsTypeDef] = None
+    severityCounts: Optional[SeverityCounts] = None
 
 
-class AwsEcrContainerAggregationResponseTypeDef(BaseValidatorModel):
+class AwsEcrContainerAggregationResponse(BaseValidatorModel):
     resourceId: str
     accountId: Optional[str] = None
     architecture: Optional[str] = None
     imageSha: Optional[str] = None
     imageTags: Optional[List[str]] = None
     repository: Optional[str] = None
-    severityCounts: Optional[SeverityCountsTypeDef] = None
+    severityCounts: Optional[SeverityCounts] = None
 
 
-class Ec2InstanceAggregationResponseTypeDef(BaseValidatorModel):
+class Ec2InstanceAggregationResponse(BaseValidatorModel):
     instanceId: str
     accountId: Optional[str] = None
     ami: Optional[str] = None
     instanceTags: Optional[Dict[str, str]] = None
     networkFindings: Optional[int] = None
     operatingSystem: Optional[str] = None
-    severityCounts: Optional[SeverityCountsTypeDef] = None
+    severityCounts: Optional[SeverityCounts] = None
 
 
-class FindingTypeAggregationResponseTypeDef(BaseValidatorModel):
+class FindingTypeAggregationResponse(BaseValidatorModel):
     accountId: Optional[str] = None
     exploitAvailableCount: Optional[int] = None
     fixAvailableCount: Optional[int] = None
-    severityCounts: Optional[SeverityCountsTypeDef] = None
+    severityCounts: Optional[SeverityCounts] = None
 
 
-class ImageLayerAggregationResponseTypeDef(BaseValidatorModel):
+class ImageLayerAggregationResponse(BaseValidatorModel):
     accountId: str
     layerHash: str
     repository: str
     resourceId: str
-    severityCounts: Optional[SeverityCountsTypeDef] = None
+    severityCounts: Optional[SeverityCounts] = None
 
 
-class LambdaFunctionAggregationResponseTypeDef(BaseValidatorModel):
+class LambdaFunctionAggregationResponse(BaseValidatorModel):
     resourceId: str
     accountId: Optional[str] = None
     functionName: Optional[str] = None
     lambdaTags: Optional[Dict[str, str]] = None
     lastModifiedAt: Optional[datetime] = None
     runtime: Optional[str] = None
-    severityCounts: Optional[SeverityCountsTypeDef] = None
+    severityCounts: Optional[SeverityCounts] = None
 
 
-class LambdaLayerAggregationResponseTypeDef(BaseValidatorModel):
+class LambdaLayerAggregationResponse(BaseValidatorModel):
     accountId: str
     functionName: str
     layerArn: str
     resourceId: str
-    severityCounts: Optional[SeverityCountsTypeDef] = None
+    severityCounts: Optional[SeverityCounts] = None
 
 
-class PackageAggregationResponseTypeDef(BaseValidatorModel):
+class PackageAggregationResponse(BaseValidatorModel):
     packageName: str
     accountId: Optional[str] = None
-    severityCounts: Optional[SeverityCountsTypeDef] = None
+    severityCounts: Optional[SeverityCounts] = None
 
 
-class RepositoryAggregationResponseTypeDef(BaseValidatorModel):
+class RepositoryAggregationResponse(BaseValidatorModel):
     repository: str
     accountId: Optional[str] = None
     affectedImages: Optional[int] = None
-    severityCounts: Optional[SeverityCountsTypeDef] = None
+    severityCounts: Optional[SeverityCounts] = None
 
 
-class TitleAggregationResponseTypeDef(BaseValidatorModel):
+class TitleAggregationResponse(BaseValidatorModel):
     title: str
     accountId: Optional[str] = None
-    severityCounts: Optional[SeverityCountsTypeDef] = None
+    severityCounts: Optional[SeverityCounts] = None
     vulnerabilityId: Optional[str] = None
 
 
-class ResourceStatusTypeDef(BaseValidatorModel):
+class ResourceStatus(BaseValidatorModel):
     pass
 
 
-class AccountTypeDef(BaseValidatorModel):
+class Account(BaseValidatorModel):
     accountId: str
-    resourceStatus: ResourceStatusTypeDef
+    resourceStatus: ResourceStatus
     status: StatusType
 
 
-class FailedAccountTypeDef(BaseValidatorModel):
+class FailedAccount(BaseValidatorModel):
     accountId: str
     errorCode: ErrorCodeType
     errorMessage: str
-    resourceStatus: Optional[ResourceStatusTypeDef] = None
+    resourceStatus: Optional[ResourceStatus] = None
     status: Optional[StatusType] = None
 
 
-class AmiAggregationTypeDef(BaseValidatorModel):
-    amis: Optional[Sequence[StringFilterTypeDef]] = None
+class AmiAggregation(BaseValidatorModel):
+    amis: Optional[Sequence[StringFilter]] = None
     sortBy: Optional[AmiSortByType] = None
     sortOrder: Optional[SortOrderType] = None
 
 
-class AwsEcrContainerAggregationTypeDef(BaseValidatorModel):
-    architectures: Optional[Sequence[StringFilterTypeDef]] = None
-    imageShas: Optional[Sequence[StringFilterTypeDef]] = None
-    imageTags: Optional[Sequence[StringFilterTypeDef]] = None
-    repositories: Optional[Sequence[StringFilterTypeDef]] = None
-    resourceIds: Optional[Sequence[StringFilterTypeDef]] = None
+class AwsEcrContainerAggregation(BaseValidatorModel):
+    architectures: Optional[Sequence[StringFilter]] = None
+    imageShas: Optional[Sequence[StringFilter]] = None
+    imageTags: Optional[Sequence[StringFilter]] = None
+    repositories: Optional[Sequence[StringFilter]] = None
+    resourceIds: Optional[Sequence[StringFilter]] = None
     sortBy: Optional[AwsEcrContainerSortByType] = None
     sortOrder: Optional[SortOrderType] = None
 
 
-class ImageLayerAggregationTypeDef(BaseValidatorModel):
-    layerHashes: Optional[Sequence[StringFilterTypeDef]] = None
-    repositories: Optional[Sequence[StringFilterTypeDef]] = None
-    resourceIds: Optional[Sequence[StringFilterTypeDef]] = None
+class ImageLayerAggregation(BaseValidatorModel):
+    layerHashes: Optional[Sequence[StringFilter]] = None
+    repositories: Optional[Sequence[StringFilter]] = None
+    resourceIds: Optional[Sequence[StringFilter]] = None
     sortBy: Optional[ImageLayerSortByType] = None
     sortOrder: Optional[SortOrderType] = None
 
 
-class LambdaLayerAggregationTypeDef(BaseValidatorModel):
-    functionNames: Optional[Sequence[StringFilterTypeDef]] = None
-    layerArns: Optional[Sequence[StringFilterTypeDef]] = None
-    resourceIds: Optional[Sequence[StringFilterTypeDef]] = None
+class LambdaLayerAggregation(BaseValidatorModel):
+    functionNames: Optional[Sequence[StringFilter]] = None
+    layerArns: Optional[Sequence[StringFilter]] = None
+    resourceIds: Optional[Sequence[StringFilter]] = None
     sortBy: Optional[LambdaLayerSortByType] = None
     sortOrder: Optional[SortOrderType] = None
 
 
-class PackageAggregationTypeDef(BaseValidatorModel):
-    packageNames: Optional[Sequence[StringFilterTypeDef]] = None
+class PackageAggregation(BaseValidatorModel):
+    packageNames: Optional[Sequence[StringFilter]] = None
     sortBy: Optional[PackageSortByType] = None
     sortOrder: Optional[SortOrderType] = None
 
 
-class RepositoryAggregationTypeDef(BaseValidatorModel):
-    repositories: Optional[Sequence[StringFilterTypeDef]] = None
+class RepositoryAggregation(BaseValidatorModel):
+    repositories: Optional[Sequence[StringFilter]] = None
     sortBy: Optional[RepositorySortByType] = None
     sortOrder: Optional[SortOrderType] = None
 
 
-class TitleAggregationTypeDef(BaseValidatorModel):
+class TitleAggregation(BaseValidatorModel):
     findingType: Optional[AggregationFindingTypeType] = None
     resourceType: Optional[AggregationResourceTypeType] = None
     sortBy: Optional[TitleSortByType] = None
     sortOrder: Optional[SortOrderType] = None
-    titles: Optional[Sequence[StringFilterTypeDef]] = None
-    vulnerabilityIds: Optional[Sequence[StringFilterTypeDef]] = None
+    titles: Optional[Sequence[StringFilter]] = None
+    vulnerabilityIds: Optional[Sequence[StringFilter]] = None
 
 
-class AssociateMemberResponseTypeDef(BaseValidatorModel):
+class AssociateMemberResponse(BaseValidatorModel):
     accountId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CancelFindingsReportResponseTypeDef(BaseValidatorModel):
+class CancelFindingsReportResponse(BaseValidatorModel):
     reportId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CancelSbomExportResponseTypeDef(BaseValidatorModel):
+class CancelSbomExportResponse(BaseValidatorModel):
     reportId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateCisScanConfigurationResponseTypeDef(BaseValidatorModel):
+class CreateCisScanConfigurationResponse(BaseValidatorModel):
     scanConfigurationArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateFilterResponseTypeDef(BaseValidatorModel):
+class CreateFilterResponse(BaseValidatorModel):
     arn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateFindingsReportResponseTypeDef(BaseValidatorModel):
+class CreateFindingsReportResponse(BaseValidatorModel):
     reportId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateSbomExportResponseTypeDef(BaseValidatorModel):
+class CreateSbomExportResponse(BaseValidatorModel):
     reportId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteCisScanConfigurationResponseTypeDef(BaseValidatorModel):
+class DeleteCisScanConfigurationResponse(BaseValidatorModel):
     scanConfigurationArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteFilterResponseTypeDef(BaseValidatorModel):
+class DeleteFilterResponse(BaseValidatorModel):
     arn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DisableDelegatedAdminAccountResponseTypeDef(BaseValidatorModel):
+class DisableDelegatedAdminAccountResponse(BaseValidatorModel):
     delegatedAdminAccountId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DisassociateMemberResponseTypeDef(BaseValidatorModel):
+class DisassociateMemberResponse(BaseValidatorModel):
     accountId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class EnableDelegatedAdminAccountResponseTypeDef(BaseValidatorModel):
+class EnableDelegatedAdminAccountResponse(BaseValidatorModel):
     delegatedAdminAccountId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetCisScanReportResponseTypeDef(BaseValidatorModel):
+class GetCisScanReportResponse(BaseValidatorModel):
     status: CisReportStatusType
     url: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetEc2DeepInspectionConfigurationResponseTypeDef(BaseValidatorModel):
+class GetEc2DeepInspectionConfigurationResponse(BaseValidatorModel):
     errorMessage: str
     orgPackagePaths: List[str]
     packagePaths: List[str]
     status: Ec2DeepInspectionStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetEncryptionKeyResponseTypeDef(BaseValidatorModel):
+class GetEncryptionKeyResponse(BaseValidatorModel):
     kmsKeyId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
+class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateCisScanConfigurationResponseTypeDef(BaseValidatorModel):
+class UpdateCisScanConfigurationResponse(BaseValidatorModel):
     scanConfigurationArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateEc2DeepInspectionConfigurationResponseTypeDef(BaseValidatorModel):
+class UpdateEc2DeepInspectionConfigurationResponse(BaseValidatorModel):
     errorMessage: str
     orgPackagePaths: List[str]
     packagePaths: List[str]
     status: Ec2DeepInspectionStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateFilterResponseTypeDef(BaseValidatorModel):
+class UpdateFilterResponse(BaseValidatorModel):
     arn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class AutoEnableTypeDef(BaseValidatorModel):
+class AutoEnable(BaseValidatorModel):
     pass
 
 
-class DescribeOrganizationConfigurationResponseTypeDef(BaseValidatorModel):
-    autoEnable: AutoEnableTypeDef
+class DescribeOrganizationConfigurationResponse(BaseValidatorModel):
+    autoEnable: AutoEnable
     maxAccountLimitReached: bool
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateOrganizationConfigurationRequestTypeDef(BaseValidatorModel):
-    autoEnable: AutoEnableTypeDef
+class UpdateOrganizationConfigurationRequest(BaseValidatorModel):
+    autoEnable: AutoEnable
 
 
-class UpdateOrganizationConfigurationResponseTypeDef(BaseValidatorModel):
-    autoEnable: AutoEnableTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateOrganizationConfigurationResponse(BaseValidatorModel):
+    autoEnable: AutoEnable
+    ResponseMetadata: ResponseMetadata
 
 
-class AwsLambdaFunctionDetailsTypeDef(BaseValidatorModel):
+class AwsLambdaFunctionDetails(BaseValidatorModel):
     codeSha256: str
     executionRoleArn: str
     functionName: str
@@ -898,77 +898,77 @@ class AwsLambdaFunctionDetailsTypeDef(BaseValidatorModel):
     lastModifiedAt: Optional[datetime] = None
     layers: Optional[List[str]] = None
     packageType: Optional[PackageTypeType] = None
-    vpcConfig: Optional[LambdaVpcConfigTypeDef] = None
+    vpcConfig: Optional[LambdaVpcConfig] = None
 
 
-class BatchGetMemberEc2DeepInspectionStatusResponseTypeDef(BaseValidatorModel):
-    accountIds: List[MemberAccountEc2DeepInspectionStatusStateTypeDef]
-    failedAccountIds: List[FailedMemberAccountEc2DeepInspectionStatusStateTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchGetMemberEc2DeepInspectionStatusResponse(BaseValidatorModel):
+    accountIds: List[MemberAccountEc2DeepInspectionStatusState]
+    failedAccountIds: List[FailedMemberAccountEc2DeepInspectionStatusState]
+    ResponseMetadata: ResponseMetadata
 
 
-class BatchUpdateMemberEc2DeepInspectionStatusResponseTypeDef(BaseValidatorModel):
-    accountIds: List[MemberAccountEc2DeepInspectionStatusStateTypeDef]
-    failedAccountIds: List[FailedMemberAccountEc2DeepInspectionStatusStateTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchUpdateMemberEc2DeepInspectionStatusResponse(BaseValidatorModel):
+    accountIds: List[MemberAccountEc2DeepInspectionStatusState]
+    failedAccountIds: List[FailedMemberAccountEc2DeepInspectionStatusState]
+    ResponseMetadata: ResponseMetadata
 
 
-class BatchUpdateMemberEc2DeepInspectionStatusRequestTypeDef(BaseValidatorModel):
-    accountIds: Sequence[MemberAccountEc2DeepInspectionStatusTypeDef]
+class BatchUpdateMemberEc2DeepInspectionStatusRequest(BaseValidatorModel):
+    accountIds: Sequence[MemberAccountEc2DeepInspectionStatus]
 
 
-class BlobTypeDef(BaseValidatorModel):
+class Blob(BaseValidatorModel):
     pass
 
 
-class CisSessionMessageTypeDef(BaseValidatorModel):
-    cisRuleDetails: BlobTypeDef
+class CisSessionMessage(BaseValidatorModel):
+    cisRuleDetails: Blob
     ruleId: str
     status: CisRuleStatusType
 
 
-class CisCheckAggregationTypeDef(BaseValidatorModel):
+class CisCheckAggregation(BaseValidatorModel):
     scanArn: str
     accountId: Optional[str] = None
     checkDescription: Optional[str] = None
     checkId: Optional[str] = None
     level: Optional[CisSecurityLevelType] = None
     platform: Optional[str] = None
-    statusCounts: Optional[StatusCountsTypeDef] = None
+    statusCounts: Optional[StatusCounts] = None
     title: Optional[str] = None
 
 
-class CisTargetResourceAggregationTypeDef(BaseValidatorModel):
+class CisTargetResourceAggregation(BaseValidatorModel):
     scanArn: str
     accountId: Optional[str] = None
     platform: Optional[str] = None
-    statusCounts: Optional[StatusCountsTypeDef] = None
+    statusCounts: Optional[StatusCounts] = None
     targetResourceId: Optional[str] = None
     targetResourceTags: Optional[Dict[str, List[str]]] = None
     targetStatus: Optional[CisTargetStatusType] = None
     targetStatusReason: Optional[CisTargetStatusReasonType] = None
 
 
-class TimestampTypeDef(BaseValidatorModel):
+class Timestamp(BaseValidatorModel):
     pass
 
 
-class CisDateFilterTypeDef(BaseValidatorModel):
-    earliestScanStartTime: Optional[TimestampTypeDef] = None
-    latestScanStartTime: Optional[TimestampTypeDef] = None
+class CisDateFilter(BaseValidatorModel):
+    earliestScanStartTime: Optional[Timestamp] = None
+    latestScanStartTime: Optional[Timestamp] = None
 
 
-class CoverageDateFilterTypeDef(BaseValidatorModel):
-    endInclusive: Optional[TimestampTypeDef] = None
-    startInclusive: Optional[TimestampTypeDef] = None
+class CoverageDateFilter(BaseValidatorModel):
+    endInclusive: Optional[Timestamp] = None
+    startInclusive: Optional[Timestamp] = None
 
 
-class DateFilterTypeDef(BaseValidatorModel):
-    endInclusive: Optional[TimestampTypeDef] = None
-    startInclusive: Optional[TimestampTypeDef] = None
+class DateFilter(BaseValidatorModel):
+    endInclusive: Optional[Timestamp] = None
+    startInclusive: Optional[Timestamp] = None
 
 
-class CisScanTypeDef(BaseValidatorModel):
+class CisScan(BaseValidatorModel):
     scanArn: str
     scanConfigurationArn: str
     failedChecks: Optional[int] = None
@@ -977,153 +977,153 @@ class CisScanTypeDef(BaseValidatorModel):
     scheduledBy: Optional[str] = None
     securityLevel: Optional[CisSecurityLevelType] = None
     status: Optional[CisScanStatusType] = None
-    targets: Optional[CisTargetsTypeDef] = None
+    targets: Optional[CisTargets] = None
     totalChecks: Optional[int] = None
 
 
-class CisScanResultDetailsFilterCriteriaTypeDef(BaseValidatorModel):
-    checkIdFilters: Optional[Sequence[CisStringFilterTypeDef]] = None
-    findingArnFilters: Optional[Sequence[CisStringFilterTypeDef]] = None
-    findingStatusFilters: Optional[Sequence[CisFindingStatusFilterTypeDef]] = None
-    securityLevelFilters: Optional[Sequence[CisSecurityLevelFilterTypeDef]] = None
-    titleFilters: Optional[Sequence[CisStringFilterTypeDef]] = None
+class CisScanResultDetailsFilterCriteria(BaseValidatorModel):
+    checkIdFilters: Optional[Sequence[CisStringFilter]] = None
+    findingArnFilters: Optional[Sequence[CisStringFilter]] = None
+    findingStatusFilters: Optional[Sequence[CisFindingStatusFilter]] = None
+    securityLevelFilters: Optional[Sequence[CisSecurityLevelFilter]] = None
+    titleFilters: Optional[Sequence[CisStringFilter]] = None
 
 
-class CisScanResultsAggregatedByChecksFilterCriteriaTypeDef(BaseValidatorModel):
-    accountIdFilters: Optional[Sequence[CisStringFilterTypeDef]] = None
-    checkIdFilters: Optional[Sequence[CisStringFilterTypeDef]] = None
-    failedResourcesFilters: Optional[Sequence[CisNumberFilterTypeDef]] = None
-    platformFilters: Optional[Sequence[CisStringFilterTypeDef]] = None
-    securityLevelFilters: Optional[Sequence[CisSecurityLevelFilterTypeDef]] = None
-    titleFilters: Optional[Sequence[CisStringFilterTypeDef]] = None
+class CisScanResultsAggregatedByChecksFilterCriteria(BaseValidatorModel):
+    accountIdFilters: Optional[Sequence[CisStringFilter]] = None
+    checkIdFilters: Optional[Sequence[CisStringFilter]] = None
+    failedResourcesFilters: Optional[Sequence[CisNumberFilter]] = None
+    platformFilters: Optional[Sequence[CisStringFilter]] = None
+    securityLevelFilters: Optional[Sequence[CisSecurityLevelFilter]] = None
+    titleFilters: Optional[Sequence[CisStringFilter]] = None
 
 
-class GetCisScanResultDetailsResponseTypeDef(BaseValidatorModel):
-    scanResultDetails: List[CisScanResultDetailsTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetCisScanResultDetailsResponse(BaseValidatorModel):
+    scanResultDetails: List[CisScanResultDetails]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class CisScanResultsAggregatedByTargetResourceFilterCriteriaTypeDef(BaseValidatorModel):
-    accountIdFilters: Optional[Sequence[CisStringFilterTypeDef]] = None
-    checkIdFilters: Optional[Sequence[CisStringFilterTypeDef]] = None
-    failedChecksFilters: Optional[Sequence[CisNumberFilterTypeDef]] = None
-    platformFilters: Optional[Sequence[CisStringFilterTypeDef]] = None
-    statusFilters: Optional[Sequence[CisResultStatusFilterTypeDef]] = None
-    targetResourceIdFilters: Optional[Sequence[CisStringFilterTypeDef]] = None
-    targetResourceTagFilters: Optional[Sequence[TagFilterTypeDef]] = None
-    targetStatusFilters: Optional[Sequence[CisTargetStatusFilterTypeDef]] = None
-    targetStatusReasonFilters: Optional[Sequence[CisTargetStatusReasonFilterTypeDef]] = None
+class CisScanResultsAggregatedByTargetResourceFilterCriteria(BaseValidatorModel):
+    accountIdFilters: Optional[Sequence[CisStringFilter]] = None
+    checkIdFilters: Optional[Sequence[CisStringFilter]] = None
+    failedChecksFilters: Optional[Sequence[CisNumberFilter]] = None
+    platformFilters: Optional[Sequence[CisStringFilter]] = None
+    statusFilters: Optional[Sequence[CisResultStatusFilter]] = None
+    targetResourceIdFilters: Optional[Sequence[CisStringFilter]] = None
+    targetResourceTagFilters: Optional[Sequence[TagFilter]] = None
+    targetStatusFilters: Optional[Sequence[CisTargetStatusFilter]] = None
+    targetStatusReasonFilters: Optional[Sequence[CisTargetStatusReasonFilter]] = None
 
 
-class ListCisScanConfigurationsFilterCriteriaTypeDef(BaseValidatorModel):
-    scanConfigurationArnFilters: Optional[Sequence[CisStringFilterTypeDef]] = None
-    scanNameFilters: Optional[Sequence[CisStringFilterTypeDef]] = None
-    targetResourceTagFilters: Optional[Sequence[TagFilterTypeDef]] = None
+class ListCisScanConfigurationsFilterCriteria(BaseValidatorModel):
+    scanConfigurationArnFilters: Optional[Sequence[CisStringFilter]] = None
+    scanNameFilters: Optional[Sequence[CisStringFilter]] = None
+    targetResourceTagFilters: Optional[Sequence[TagFilter]] = None
 
 
-class CodeVulnerabilityDetailsTypeDef(BaseValidatorModel):
+class CodeVulnerabilityDetails(BaseValidatorModel):
     cwes: List[str]
     detectorId: str
     detectorName: str
-    filePath: CodeFilePathTypeDef
+    filePath: CodeFilePath
     detectorTags: Optional[List[str]] = None
     referenceUrls: Optional[List[str]] = None
     ruleId: Optional[str] = None
     sourceLambdaLayerArn: Optional[str] = None
 
 
-class CodeSnippetResultTypeDef(BaseValidatorModel):
-    codeSnippet: Optional[List[CodeLineTypeDef]] = None
+class CodeSnippetResult(BaseValidatorModel):
+    codeSnippet: Optional[List[CodeLine]] = None
     endLine: Optional[int] = None
     findingArn: Optional[str] = None
     startLine: Optional[int] = None
-    suggestedFixes: Optional[List[SuggestedFixTypeDef]] = None
+    suggestedFixes: Optional[List[SuggestedFix]] = None
 
 
-class ListCoverageStatisticsResponseTypeDef(BaseValidatorModel):
-    countsByGroup: List[CountsTypeDef]
+class ListCoverageStatisticsResponse(BaseValidatorModel):
+    countsByGroup: List[Counts]
     totalCounts: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class CvssScoreDetailsTypeDef(BaseValidatorModel):
+class CvssScoreDetails(BaseValidatorModel):
     score: float
     scoreSource: str
     scoringVector: str
     version: str
-    adjustments: Optional[List[CvssScoreAdjustmentTypeDef]] = None
+    adjustments: Optional[List[CvssScoreAdjustment]] = None
     cvssSource: Optional[str] = None
 
 
-class DailyScheduleTypeDef(BaseValidatorModel):
-    startTime: TimeTypeDef
+class DailySchedule(BaseValidatorModel):
+    startTime: Time
 
 
-class MonthlyScheduleTypeDef(BaseValidatorModel):
+class MonthlySchedule(BaseValidatorModel):
     day: DayType
-    startTime: TimeTypeDef
+    startTime: Time
 
 
-class WeeklyScheduleOutputTypeDef(BaseValidatorModel):
+class WeeklyScheduleOutput(BaseValidatorModel):
     days: List[DayType]
-    startTime: TimeTypeDef
+    startTime: Time
 
 
-class WeeklyScheduleTypeDef(BaseValidatorModel):
+class WeeklySchedule(BaseValidatorModel):
     days: Sequence[DayType]
-    startTime: TimeTypeDef
+    startTime: Time
 
 
-class ListDelegatedAdminAccountsResponseTypeDef(BaseValidatorModel):
-    delegatedAdminAccounts: List[DelegatedAdminAccountTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListDelegatedAdminAccountsResponse(BaseValidatorModel):
+    delegatedAdminAccounts: List[DelegatedAdminAccount]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class GetDelegatedAdminAccountResponseTypeDef(BaseValidatorModel):
-    delegatedAdmin: DelegatedAdminTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetDelegatedAdminAccountResponse(BaseValidatorModel):
+    delegatedAdmin: DelegatedAdmin
+    ResponseMetadata: ResponseMetadata
 
 
-class Ec2ConfigurationStateTypeDef(BaseValidatorModel):
-    scanModeState: Optional[Ec2ScanModeStateTypeDef] = None
+class Ec2ConfigurationState(BaseValidatorModel):
+    scanModeState: Optional[Ec2ScanModeState] = None
 
 
-class Ec2InstanceAggregationTypeDef(BaseValidatorModel):
-    amis: Optional[Sequence[StringFilterTypeDef]] = None
-    instanceIds: Optional[Sequence[StringFilterTypeDef]] = None
-    instanceTags: Optional[Sequence[MapFilterTypeDef]] = None
-    operatingSystems: Optional[Sequence[StringFilterTypeDef]] = None
+class Ec2InstanceAggregation(BaseValidatorModel):
+    amis: Optional[Sequence[StringFilter]] = None
+    instanceIds: Optional[Sequence[StringFilter]] = None
+    instanceTags: Optional[Sequence[MapFilter]] = None
+    operatingSystems: Optional[Sequence[StringFilter]] = None
     sortBy: Optional[Ec2InstanceSortByType] = None
     sortOrder: Optional[SortOrderType] = None
 
 
-class LambdaFunctionAggregationTypeDef(BaseValidatorModel):
-    functionNames: Optional[Sequence[StringFilterTypeDef]] = None
-    functionTags: Optional[Sequence[MapFilterTypeDef]] = None
-    resourceIds: Optional[Sequence[StringFilterTypeDef]] = None
-    runtimes: Optional[Sequence[StringFilterTypeDef]] = None
+class LambdaFunctionAggregation(BaseValidatorModel):
+    functionNames: Optional[Sequence[StringFilter]] = None
+    functionTags: Optional[Sequence[MapFilter]] = None
+    resourceIds: Optional[Sequence[StringFilter]] = None
+    runtimes: Optional[Sequence[StringFilter]] = None
     sortBy: Optional[LambdaFunctionSortByType] = None
     sortOrder: Optional[SortOrderType] = None
 
 
-class EcrConfigurationStateTypeDef(BaseValidatorModel):
-    rescanDurationState: Optional[EcrRescanDurationStateTypeDef] = None
+class EcrConfigurationState(BaseValidatorModel):
+    rescanDurationState: Optional[EcrRescanDurationState] = None
 
 
-class UpdateConfigurationRequestTypeDef(BaseValidatorModel):
-    ec2Configuration: Optional[Ec2ConfigurationTypeDef] = None
-    ecrConfiguration: Optional[EcrConfigurationTypeDef] = None
+class UpdateConfigurationRequest(BaseValidatorModel):
+    ec2Configuration: Optional[Ec2Configuration] = None
+    ecrConfiguration: Optional[EcrConfiguration] = None
 
 
-class FindingDetailTypeDef(BaseValidatorModel):
-    cisaData: Optional[CisaDataTypeDef] = None
+class FindingDetail(BaseValidatorModel):
+    cisaData: Optional[CisaData] = None
     cwes: Optional[List[str]] = None
     epssScore: Optional[float] = None
-    evidences: Optional[List[EvidenceTypeDef]] = None
-    exploitObserved: Optional[ExploitObservedTypeDef] = None
+    evidences: Optional[List[Evidence]] = None
+    exploitObserved: Optional[ExploitObserved] = None
     findingArn: Optional[str] = None
     referenceUrls: Optional[List[str]] = None
     riskScore: Optional[int] = None
@@ -1131,590 +1131,590 @@ class FindingDetailTypeDef(BaseValidatorModel):
     ttps: Optional[List[str]] = None
 
 
-class PackageFilterTypeDef(BaseValidatorModel):
-    architecture: Optional[StringFilterTypeDef] = None
-    epoch: Optional[NumberFilterTypeDef] = None
-    filePath: Optional[StringFilterTypeDef] = None
-    name: Optional[StringFilterTypeDef] = None
-    release: Optional[StringFilterTypeDef] = None
-    sourceLambdaLayerArn: Optional[StringFilterTypeDef] = None
-    sourceLayerHash: Optional[StringFilterTypeDef] = None
-    version: Optional[StringFilterTypeDef] = None
+class PackageFilter(BaseValidatorModel):
+    architecture: Optional[StringFilter] = None
+    epoch: Optional[NumberFilter] = None
+    filePath: Optional[StringFilter] = None
+    name: Optional[StringFilter] = None
+    release: Optional[StringFilter] = None
+    sourceLambdaLayerArn: Optional[StringFilter] = None
+    sourceLayerHash: Optional[StringFilter] = None
+    version: Optional[StringFilter] = None
 
 
-class FreeTrialInfoTypeDef(BaseValidatorModel):
+class FreeTrialInfo(BaseValidatorModel):
     pass
 
 
-class FreeTrialAccountInfoTypeDef(BaseValidatorModel):
+class FreeTrialAccountInfo(BaseValidatorModel):
     accountId: str
-    freeTrialInfo: List[FreeTrialInfoTypeDef]
+    freeTrialInfo: List[FreeTrialInfo]
 
 
-class ListAccountPermissionsRequestPaginateTypeDef(BaseValidatorModel):
+class ListAccountPermissionsRequestPaginate(BaseValidatorModel):
     service: Optional[ServiceType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListDelegatedAdminAccountsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListDelegatedAdminAccountsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListFiltersRequestPaginateTypeDef(BaseValidatorModel):
+class ListFiltersRequestPaginate(BaseValidatorModel):
     action: Optional[FilterActionType] = None
     arns: Optional[Sequence[str]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListMembersRequestPaginateTypeDef(BaseValidatorModel):
+class ListMembersRequestPaginate(BaseValidatorModel):
     onlyAssociated: Optional[bool] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListUsageTotalsRequestPaginateTypeDef(BaseValidatorModel):
+class ListUsageTotalsRequestPaginate(BaseValidatorModel):
     accountIds: Optional[Sequence[str]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class GetMemberResponseTypeDef(BaseValidatorModel):
-    member: MemberTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetMemberResponse(BaseValidatorModel):
+    member: Member
+    ResponseMetadata: ResponseMetadata
 
 
-class ListMembersResponseTypeDef(BaseValidatorModel):
-    members: List[MemberTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListMembersResponse(BaseValidatorModel):
+    members: List[Member]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ResourceScanMetadataTypeDef(BaseValidatorModel):
-    ec2: Optional[Ec2MetadataTypeDef] = None
-    ecrImage: Optional[EcrContainerImageMetadataTypeDef] = None
-    ecrRepository: Optional[EcrRepositoryMetadataTypeDef] = None
-    lambdaFunction: Optional[LambdaFunctionMetadataTypeDef] = None
+class ResourceScanMetadata(BaseValidatorModel):
+    ec2: Optional[Ec2Metadata] = None
+    ecrImage: Optional[EcrContainerImageMetadata] = None
+    ecrRepository: Optional[EcrRepositoryMetadata] = None
+    lambdaFunction: Optional[LambdaFunctionMetadata] = None
 
 
-class ListAccountPermissionsResponseTypeDef(BaseValidatorModel):
-    permissions: List[PermissionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAccountPermissionsResponse(BaseValidatorModel):
+    permissions: List[Permission]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class NetworkPathTypeDef(BaseValidatorModel):
-    steps: Optional[List[StepTypeDef]] = None
+class NetworkPath(BaseValidatorModel):
+    steps: Optional[List[Step]] = None
 
 
-class PackageVulnerabilityDetailsTypeDef(BaseValidatorModel):
+class PackageVulnerabilityDetails(BaseValidatorModel):
     source: str
     vulnerabilityId: str
-    cvss: Optional[List[CvssScoreTypeDef]] = None
+    cvss: Optional[List[CvssScore]] = None
     referenceUrls: Optional[List[str]] = None
     relatedVulnerabilities: Optional[List[str]] = None
     sourceUrl: Optional[str] = None
     vendorCreatedAt: Optional[datetime] = None
     vendorSeverity: Optional[str] = None
     vendorUpdatedAt: Optional[datetime] = None
-    vulnerablePackages: Optional[List[VulnerablePackageTypeDef]] = None
+    vulnerablePackages: Optional[List[VulnerablePackage]] = None
 
 
-class RemediationTypeDef(BaseValidatorModel):
-    recommendation: Optional[RecommendationTypeDef] = None
+class Remediation(BaseValidatorModel):
+    recommendation: Optional[Recommendation] = None
 
 
-class ResourceFilterCriteriaOutputTypeDef(BaseValidatorModel):
-    accountId: Optional[List[ResourceStringFilterTypeDef]] = None
-    ec2InstanceTags: Optional[List[ResourceMapFilterTypeDef]] = None
-    ecrImageTags: Optional[List[ResourceStringFilterTypeDef]] = None
-    ecrRepositoryName: Optional[List[ResourceStringFilterTypeDef]] = None
-    lambdaFunctionName: Optional[List[ResourceStringFilterTypeDef]] = None
-    lambdaFunctionTags: Optional[List[ResourceMapFilterTypeDef]] = None
-    resourceId: Optional[List[ResourceStringFilterTypeDef]] = None
-    resourceType: Optional[List[ResourceStringFilterTypeDef]] = None
+class ResourceFilterCriteriaOutput(BaseValidatorModel):
+    accountId: Optional[List[ResourceStringFilter]] = None
+    ec2InstanceTags: Optional[List[ResourceMapFilter]] = None
+    ecrImageTags: Optional[List[ResourceStringFilter]] = None
+    ecrRepositoryName: Optional[List[ResourceStringFilter]] = None
+    lambdaFunctionName: Optional[List[ResourceStringFilter]] = None
+    lambdaFunctionTags: Optional[List[ResourceMapFilter]] = None
+    resourceId: Optional[List[ResourceStringFilter]] = None
+    resourceType: Optional[List[ResourceStringFilter]] = None
 
 
-class ResourceFilterCriteriaTypeDef(BaseValidatorModel):
-    accountId: Optional[Sequence[ResourceStringFilterTypeDef]] = None
-    ec2InstanceTags: Optional[Sequence[ResourceMapFilterTypeDef]] = None
-    ecrImageTags: Optional[Sequence[ResourceStringFilterTypeDef]] = None
-    ecrRepositoryName: Optional[Sequence[ResourceStringFilterTypeDef]] = None
-    lambdaFunctionName: Optional[Sequence[ResourceStringFilterTypeDef]] = None
-    lambdaFunctionTags: Optional[Sequence[ResourceMapFilterTypeDef]] = None
-    resourceId: Optional[Sequence[ResourceStringFilterTypeDef]] = None
-    resourceType: Optional[Sequence[ResourceStringFilterTypeDef]] = None
+class ResourceFilterCriteria(BaseValidatorModel):
+    accountId: Optional[Sequence[ResourceStringFilter]] = None
+    ec2InstanceTags: Optional[Sequence[ResourceMapFilter]] = None
+    ecrImageTags: Optional[Sequence[ResourceStringFilter]] = None
+    ecrRepositoryName: Optional[Sequence[ResourceStringFilter]] = None
+    lambdaFunctionName: Optional[Sequence[ResourceStringFilter]] = None
+    lambdaFunctionTags: Optional[Sequence[ResourceMapFilter]] = None
+    resourceId: Optional[Sequence[ResourceStringFilter]] = None
+    resourceType: Optional[Sequence[ResourceStringFilter]] = None
 
 
-class SearchVulnerabilitiesRequestPaginateTypeDef(BaseValidatorModel):
-    filterCriteria: SearchVulnerabilitiesFilterCriteriaTypeDef
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class SearchVulnerabilitiesRequestPaginate(BaseValidatorModel):
+    filterCriteria: SearchVulnerabilitiesFilterCriteria
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class SearchVulnerabilitiesRequestTypeDef(BaseValidatorModel):
-    filterCriteria: SearchVulnerabilitiesFilterCriteriaTypeDef
+class SearchVulnerabilitiesRequest(BaseValidatorModel):
+    filterCriteria: SearchVulnerabilitiesFilterCriteria
     nextToken: Optional[str] = None
 
 
-class StartCisSessionRequestTypeDef(BaseValidatorModel):
-    message: StartCisSessionMessageTypeDef
+class StartCisSessionRequest(BaseValidatorModel):
+    message: StartCisSessionMessage
     scanJobId: str
 
 
-class StopCisSessionMessageTypeDef(BaseValidatorModel):
-    progress: StopCisMessageProgressTypeDef
+class StopCisSessionMessage(BaseValidatorModel):
+    progress: StopCisMessageProgress
     status: StopCisSessionStatusType
     benchmarkProfile: Optional[str] = None
     benchmarkVersion: Optional[str] = None
-    computePlatform: Optional[ComputePlatformTypeDef] = None
+    computePlatform: Optional[ComputePlatform] = None
     reason: Optional[str] = None
 
 
-class UsageTypeDef(BaseValidatorModel):
+class Usage(BaseValidatorModel):
     pass
 
 
-class UsageTotalTypeDef(BaseValidatorModel):
+class UsageTotal(BaseValidatorModel):
     accountId: Optional[str] = None
-    usage: Optional[List[UsageTypeDef]] = None
+    usage: Optional[List[Usage]] = None
 
 
-class AggregationResponseTypeDef(BaseValidatorModel):
-    accountAggregation: Optional[AccountAggregationResponseTypeDef] = None
-    amiAggregation: Optional[AmiAggregationResponseTypeDef] = None
-    awsEcrContainerAggregation: Optional[AwsEcrContainerAggregationResponseTypeDef] = None
-    ec2InstanceAggregation: Optional[Ec2InstanceAggregationResponseTypeDef] = None
-    findingTypeAggregation: Optional[FindingTypeAggregationResponseTypeDef] = None
-    imageLayerAggregation: Optional[ImageLayerAggregationResponseTypeDef] = None
-    lambdaFunctionAggregation: Optional[LambdaFunctionAggregationResponseTypeDef] = None
-    lambdaLayerAggregation: Optional[LambdaLayerAggregationResponseTypeDef] = None
-    packageAggregation: Optional[PackageAggregationResponseTypeDef] = None
-    repositoryAggregation: Optional[RepositoryAggregationResponseTypeDef] = None
-    titleAggregation: Optional[TitleAggregationResponseTypeDef] = None
+class AggregationResponse(BaseValidatorModel):
+    accountAggregation: Optional[AccountAggregationResponse] = None
+    amiAggregation: Optional[AmiAggregationResponse] = None
+    awsEcrContainerAggregation: Optional[AwsEcrContainerAggregationResponse] = None
+    ec2InstanceAggregation: Optional[Ec2InstanceAggregationResponse] = None
+    findingTypeAggregation: Optional[FindingTypeAggregationResponse] = None
+    imageLayerAggregation: Optional[ImageLayerAggregationResponse] = None
+    lambdaFunctionAggregation: Optional[LambdaFunctionAggregationResponse] = None
+    lambdaLayerAggregation: Optional[LambdaLayerAggregationResponse] = None
+    packageAggregation: Optional[PackageAggregationResponse] = None
+    repositoryAggregation: Optional[RepositoryAggregationResponse] = None
+    titleAggregation: Optional[TitleAggregationResponse] = None
 
 
-class ResourceStateTypeDef(BaseValidatorModel):
+class ResourceState(BaseValidatorModel):
     pass
 
 
-class AccountStateTypeDef(BaseValidatorModel):
+class AccountState(BaseValidatorModel):
     accountId: str
-    resourceState: ResourceStateTypeDef
-    state: StateTypeDef
+    resourceState: ResourceState
+    state: State
 
 
-class DisableResponseTypeDef(BaseValidatorModel):
-    accounts: List[AccountTypeDef]
-    failedAccounts: List[FailedAccountTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DisableResponse(BaseValidatorModel):
+    accounts: List[Account]
+    failedAccounts: List[FailedAccount]
+    ResponseMetadata: ResponseMetadata
 
 
-class EnableResponseTypeDef(BaseValidatorModel):
-    accounts: List[AccountTypeDef]
-    failedAccounts: List[FailedAccountTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class EnableResponse(BaseValidatorModel):
+    accounts: List[Account]
+    failedAccounts: List[FailedAccount]
+    ResponseMetadata: ResponseMetadata
 
 
-class AwsEc2InstanceDetailsTypeDef(BaseValidatorModel):
+class AwsEc2InstanceDetails(BaseValidatorModel):
     pass
 
 
-class ResourceDetailsTypeDef(BaseValidatorModel):
-    awsEc2Instance: Optional[AwsEc2InstanceDetailsTypeDef] = None
-    awsEcrContainerImage: Optional[AwsEcrContainerImageDetailsTypeDef] = None
-    awsLambdaFunction: Optional[AwsLambdaFunctionDetailsTypeDef] = None
+class ResourceDetails(BaseValidatorModel):
+    awsEc2Instance: Optional[AwsEc2InstanceDetails] = None
+    awsEcrContainerImage: Optional[AwsEcrContainerImageDetails] = None
+    awsLambdaFunction: Optional[AwsLambdaFunctionDetails] = None
 
 
-class SendCisSessionTelemetryRequestTypeDef(BaseValidatorModel):
-    messages: Sequence[CisSessionMessageTypeDef]
+class SendCisSessionTelemetryRequest(BaseValidatorModel):
+    messages: Sequence[CisSessionMessage]
     scanJobId: str
     sessionToken: str
 
 
-class ListCisScanResultsAggregatedByChecksResponseTypeDef(BaseValidatorModel):
-    checkAggregations: List[CisCheckAggregationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListCisScanResultsAggregatedByChecksResponse(BaseValidatorModel):
+    checkAggregations: List[CisCheckAggregation]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListCisScanResultsAggregatedByTargetResourceResponseTypeDef(BaseValidatorModel):
-    targetResourceAggregations: List[CisTargetResourceAggregationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListCisScanResultsAggregatedByTargetResourceResponse(BaseValidatorModel):
+    targetResourceAggregations: List[CisTargetResourceAggregation]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListCisScansFilterCriteriaTypeDef(BaseValidatorModel):
-    failedChecksFilters: Optional[Sequence[CisNumberFilterTypeDef]] = None
-    scanArnFilters: Optional[Sequence[CisStringFilterTypeDef]] = None
-    scanAtFilters: Optional[Sequence[CisDateFilterTypeDef]] = None
-    scanConfigurationArnFilters: Optional[Sequence[CisStringFilterTypeDef]] = None
-    scanNameFilters: Optional[Sequence[CisStringFilterTypeDef]] = None
-    scanStatusFilters: Optional[Sequence[CisScanStatusFilterTypeDef]] = None
-    scheduledByFilters: Optional[Sequence[CisStringFilterTypeDef]] = None
-    targetAccountIdFilters: Optional[Sequence[CisStringFilterTypeDef]] = None
-    targetResourceIdFilters: Optional[Sequence[CisStringFilterTypeDef]] = None
-    targetResourceTagFilters: Optional[Sequence[TagFilterTypeDef]] = None
+class ListCisScansFilterCriteria(BaseValidatorModel):
+    failedChecksFilters: Optional[Sequence[CisNumberFilter]] = None
+    scanArnFilters: Optional[Sequence[CisStringFilter]] = None
+    scanAtFilters: Optional[Sequence[CisDateFilter]] = None
+    scanConfigurationArnFilters: Optional[Sequence[CisStringFilter]] = None
+    scanNameFilters: Optional[Sequence[CisStringFilter]] = None
+    scanStatusFilters: Optional[Sequence[CisScanStatusFilter]] = None
+    scheduledByFilters: Optional[Sequence[CisStringFilter]] = None
+    targetAccountIdFilters: Optional[Sequence[CisStringFilter]] = None
+    targetResourceIdFilters: Optional[Sequence[CisStringFilter]] = None
+    targetResourceTagFilters: Optional[Sequence[TagFilter]] = None
 
 
-class CoverageFilterCriteriaTypeDef(BaseValidatorModel):
-    accountId: Optional[Sequence[CoverageStringFilterTypeDef]] = None
-    ec2InstanceTags: Optional[Sequence[CoverageMapFilterTypeDef]] = None
-    ecrImageTags: Optional[Sequence[CoverageStringFilterTypeDef]] = None
-    ecrRepositoryName: Optional[Sequence[CoverageStringFilterTypeDef]] = None
-    imagePulledAt: Optional[Sequence[CoverageDateFilterTypeDef]] = None
-    lambdaFunctionName: Optional[Sequence[CoverageStringFilterTypeDef]] = None
-    lambdaFunctionRuntime: Optional[Sequence[CoverageStringFilterTypeDef]] = None
-    lambdaFunctionTags: Optional[Sequence[CoverageMapFilterTypeDef]] = None
-    lastScannedAt: Optional[Sequence[CoverageDateFilterTypeDef]] = None
-    resourceId: Optional[Sequence[CoverageStringFilterTypeDef]] = None
-    resourceType: Optional[Sequence[CoverageStringFilterTypeDef]] = None
-    scanMode: Optional[Sequence[CoverageStringFilterTypeDef]] = None
-    scanStatusCode: Optional[Sequence[CoverageStringFilterTypeDef]] = None
-    scanStatusReason: Optional[Sequence[CoverageStringFilterTypeDef]] = None
-    scanType: Optional[Sequence[CoverageStringFilterTypeDef]] = None
+class CoverageFilterCriteria(BaseValidatorModel):
+    accountId: Optional[Sequence[CoverageStringFilter]] = None
+    ec2InstanceTags: Optional[Sequence[CoverageMapFilter]] = None
+    ecrImageTags: Optional[Sequence[CoverageStringFilter]] = None
+    ecrRepositoryName: Optional[Sequence[CoverageStringFilter]] = None
+    imagePulledAt: Optional[Sequence[CoverageDateFilter]] = None
+    lambdaFunctionName: Optional[Sequence[CoverageStringFilter]] = None
+    lambdaFunctionRuntime: Optional[Sequence[CoverageStringFilter]] = None
+    lambdaFunctionTags: Optional[Sequence[CoverageMapFilter]] = None
+    lastScannedAt: Optional[Sequence[CoverageDateFilter]] = None
+    resourceId: Optional[Sequence[CoverageStringFilter]] = None
+    resourceType: Optional[Sequence[CoverageStringFilter]] = None
+    scanMode: Optional[Sequence[CoverageStringFilter]] = None
+    scanStatusCode: Optional[Sequence[CoverageStringFilter]] = None
+    scanStatusReason: Optional[Sequence[CoverageStringFilter]] = None
+    scanType: Optional[Sequence[CoverageStringFilter]] = None
 
 
-class ListCisScansResponseTypeDef(BaseValidatorModel):
-    scans: List[CisScanTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListCisScansResponse(BaseValidatorModel):
+    scans: List[CisScan]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class GetCisScanResultDetailsRequestPaginateTypeDef(BaseValidatorModel):
+class GetCisScanResultDetailsRequestPaginate(BaseValidatorModel):
     accountId: str
     scanArn: str
     targetResourceId: str
-    filterCriteria: Optional[CisScanResultDetailsFilterCriteriaTypeDef] = None
+    filterCriteria: Optional[CisScanResultDetailsFilterCriteria] = None
     sortBy: Optional[CisScanResultDetailsSortByType] = None
     sortOrder: Optional[CisSortOrderType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class GetCisScanResultDetailsRequestTypeDef(BaseValidatorModel):
+class GetCisScanResultDetailsRequest(BaseValidatorModel):
     accountId: str
     scanArn: str
     targetResourceId: str
-    filterCriteria: Optional[CisScanResultDetailsFilterCriteriaTypeDef] = None
+    filterCriteria: Optional[CisScanResultDetailsFilterCriteria] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     sortBy: Optional[CisScanResultDetailsSortByType] = None
     sortOrder: Optional[CisSortOrderType] = None
 
 
-class ListCisScanResultsAggregatedByChecksRequestPaginateTypeDef(BaseValidatorModel):
+class ListCisScanResultsAggregatedByChecksRequestPaginate(BaseValidatorModel):
     scanArn: str
-    filterCriteria: Optional[CisScanResultsAggregatedByChecksFilterCriteriaTypeDef] = None
+    filterCriteria: Optional[CisScanResultsAggregatedByChecksFilterCriteria] = None
     sortBy: Optional[CisScanResultsAggregatedByChecksSortByType] = None
     sortOrder: Optional[CisSortOrderType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListCisScanResultsAggregatedByChecksRequestTypeDef(BaseValidatorModel):
+class ListCisScanResultsAggregatedByChecksRequest(BaseValidatorModel):
     scanArn: str
-    filterCriteria: Optional[CisScanResultsAggregatedByChecksFilterCriteriaTypeDef] = None
+    filterCriteria: Optional[CisScanResultsAggregatedByChecksFilterCriteria] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     sortBy: Optional[CisScanResultsAggregatedByChecksSortByType] = None
     sortOrder: Optional[CisSortOrderType] = None
 
 
-class ListCisScanResultsAggregatedByTargetResourceRequestPaginateTypeDef(BaseValidatorModel):
+class ListCisScanResultsAggregatedByTargetResourceRequestPaginate(BaseValidatorModel):
     scanArn: str
-    filterCriteria: Optional[CisScanResultsAggregatedByTargetResourceFilterCriteriaTypeDef] = None
+    filterCriteria: Optional[CisScanResultsAggregatedByTargetResourceFilterCriteria] = None
     sortBy: Optional[CisScanResultsAggregatedByTargetResourceSortByType] = None
     sortOrder: Optional[CisSortOrderType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListCisScanResultsAggregatedByTargetResourceRequestTypeDef(BaseValidatorModel):
+class ListCisScanResultsAggregatedByTargetResourceRequest(BaseValidatorModel):
     scanArn: str
-    filterCriteria: Optional[CisScanResultsAggregatedByTargetResourceFilterCriteriaTypeDef] = None
+    filterCriteria: Optional[CisScanResultsAggregatedByTargetResourceFilterCriteria] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     sortBy: Optional[CisScanResultsAggregatedByTargetResourceSortByType] = None
     sortOrder: Optional[CisSortOrderType] = None
 
 
-class ListCisScanConfigurationsRequestPaginateTypeDef(BaseValidatorModel):
-    filterCriteria: Optional[ListCisScanConfigurationsFilterCriteriaTypeDef] = None
+class ListCisScanConfigurationsRequestPaginate(BaseValidatorModel):
+    filterCriteria: Optional[ListCisScanConfigurationsFilterCriteria] = None
     sortBy: Optional[CisScanConfigurationsSortByType] = None
     sortOrder: Optional[CisSortOrderType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListCisScanConfigurationsRequestTypeDef(BaseValidatorModel):
-    filterCriteria: Optional[ListCisScanConfigurationsFilterCriteriaTypeDef] = None
+class ListCisScanConfigurationsRequest(BaseValidatorModel):
+    filterCriteria: Optional[ListCisScanConfigurationsFilterCriteria] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     sortBy: Optional[CisScanConfigurationsSortByType] = None
     sortOrder: Optional[CisSortOrderType] = None
 
 
-class BatchGetCodeSnippetResponseTypeDef(BaseValidatorModel):
-    codeSnippetResults: List[CodeSnippetResultTypeDef]
-    errors: List[CodeSnippetErrorTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchGetCodeSnippetResponse(BaseValidatorModel):
+    codeSnippetResults: List[CodeSnippetResult]
+    errors: List[CodeSnippetError]
+    ResponseMetadata: ResponseMetadata
 
 
-class InspectorScoreDetailsTypeDef(BaseValidatorModel):
-    adjustedCvss: Optional[CvssScoreDetailsTypeDef] = None
+class InspectorScoreDetails(BaseValidatorModel):
+    adjustedCvss: Optional[CvssScoreDetails] = None
 
 
-class ScheduleOutputTypeDef(BaseValidatorModel):
-    daily: Optional[DailyScheduleTypeDef] = None
-    monthly: Optional[MonthlyScheduleTypeDef] = None
+class ScheduleOutput(BaseValidatorModel):
+    daily: Optional[DailySchedule] = None
+    monthly: Optional[MonthlySchedule] = None
     oneTime: Optional[Dict[str, Any]] = None
-    weekly: Optional[WeeklyScheduleOutputTypeDef] = None
+    weekly: Optional[WeeklyScheduleOutput] = None
 
 
-class ScheduleTypeDef(BaseValidatorModel):
-    daily: Optional[DailyScheduleTypeDef] = None
-    monthly: Optional[MonthlyScheduleTypeDef] = None
+class Schedule(BaseValidatorModel):
+    daily: Optional[DailySchedule] = None
+    monthly: Optional[MonthlySchedule] = None
     oneTime: Optional[Mapping[str, Any]] = None
-    weekly: Optional[WeeklyScheduleTypeDef] = None
+    weekly: Optional[WeeklySchedule] = None
 
 
-class AggregationRequestTypeDef(BaseValidatorModel):
-    accountAggregation: Optional[AccountAggregationTypeDef] = None
-    amiAggregation: Optional[AmiAggregationTypeDef] = None
-    awsEcrContainerAggregation: Optional[AwsEcrContainerAggregationTypeDef] = None
-    ec2InstanceAggregation: Optional[Ec2InstanceAggregationTypeDef] = None
-    findingTypeAggregation: Optional[FindingTypeAggregationTypeDef] = None
-    imageLayerAggregation: Optional[ImageLayerAggregationTypeDef] = None
-    lambdaFunctionAggregation: Optional[LambdaFunctionAggregationTypeDef] = None
-    lambdaLayerAggregation: Optional[LambdaLayerAggregationTypeDef] = None
-    packageAggregation: Optional[PackageAggregationTypeDef] = None
-    repositoryAggregation: Optional[RepositoryAggregationTypeDef] = None
-    titleAggregation: Optional[TitleAggregationTypeDef] = None
+class AggregationRequest(BaseValidatorModel):
+    accountAggregation: Optional[AccountAggregation] = None
+    amiAggregation: Optional[AmiAggregation] = None
+    awsEcrContainerAggregation: Optional[AwsEcrContainerAggregation] = None
+    ec2InstanceAggregation: Optional[Ec2InstanceAggregation] = None
+    findingTypeAggregation: Optional[FindingTypeAggregation] = None
+    imageLayerAggregation: Optional[ImageLayerAggregation] = None
+    lambdaFunctionAggregation: Optional[LambdaFunctionAggregation] = None
+    lambdaLayerAggregation: Optional[LambdaLayerAggregation] = None
+    packageAggregation: Optional[PackageAggregation] = None
+    repositoryAggregation: Optional[RepositoryAggregation] = None
+    titleAggregation: Optional[TitleAggregation] = None
 
 
-class GetConfigurationResponseTypeDef(BaseValidatorModel):
-    ec2Configuration: Ec2ConfigurationStateTypeDef
-    ecrConfiguration: EcrConfigurationStateTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetConfigurationResponse(BaseValidatorModel):
+    ec2Configuration: Ec2ConfigurationState
+    ecrConfiguration: EcrConfigurationState
+    ResponseMetadata: ResponseMetadata
 
 
-class BatchGetFindingDetailsResponseTypeDef(BaseValidatorModel):
-    errors: List[FindingDetailsErrorTypeDef]
-    findingDetails: List[FindingDetailTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchGetFindingDetailsResponse(BaseValidatorModel):
+    errors: List[FindingDetailsError]
+    findingDetails: List[FindingDetail]
+    ResponseMetadata: ResponseMetadata
 
 
-class VulnerabilityTypeDef(BaseValidatorModel):
+class Vulnerability(BaseValidatorModel):
     pass
 
 
-class SearchVulnerabilitiesResponseTypeDef(BaseValidatorModel):
-    vulnerabilities: List[VulnerabilityTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class SearchVulnerabilitiesResponse(BaseValidatorModel):
+    vulnerabilities: List[Vulnerability]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class FilterCriteriaOutputTypeDef(BaseValidatorModel):
-    awsAccountId: Optional[List[StringFilterTypeDef]] = None
-    codeVulnerabilityDetectorName: Optional[List[StringFilterTypeDef]] = None
-    codeVulnerabilityDetectorTags: Optional[List[StringFilterTypeDef]] = None
-    codeVulnerabilityFilePath: Optional[List[StringFilterTypeDef]] = None
-    componentId: Optional[List[StringFilterTypeDef]] = None
-    componentType: Optional[List[StringFilterTypeDef]] = None
-    ec2InstanceImageId: Optional[List[StringFilterTypeDef]] = None
-    ec2InstanceSubnetId: Optional[List[StringFilterTypeDef]] = None
-    ec2InstanceVpcId: Optional[List[StringFilterTypeDef]] = None
-    ecrImageArchitecture: Optional[List[StringFilterTypeDef]] = None
-    ecrImageHash: Optional[List[StringFilterTypeDef]] = None
-    ecrImagePushedAt: Optional[List[DateFilterOutputTypeDef]] = None
-    ecrImageRegistry: Optional[List[StringFilterTypeDef]] = None
-    ecrImageRepositoryName: Optional[List[StringFilterTypeDef]] = None
-    ecrImageTags: Optional[List[StringFilterTypeDef]] = None
-    epssScore: Optional[List[NumberFilterTypeDef]] = None
-    exploitAvailable: Optional[List[StringFilterTypeDef]] = None
-    findingArn: Optional[List[StringFilterTypeDef]] = None
-    findingStatus: Optional[List[StringFilterTypeDef]] = None
-    findingType: Optional[List[StringFilterTypeDef]] = None
-    firstObservedAt: Optional[List[DateFilterOutputTypeDef]] = None
-    fixAvailable: Optional[List[StringFilterTypeDef]] = None
-    inspectorScore: Optional[List[NumberFilterTypeDef]] = None
-    lambdaFunctionExecutionRoleArn: Optional[List[StringFilterTypeDef]] = None
-    lambdaFunctionLastModifiedAt: Optional[List[DateFilterOutputTypeDef]] = None
-    lambdaFunctionLayers: Optional[List[StringFilterTypeDef]] = None
-    lambdaFunctionName: Optional[List[StringFilterTypeDef]] = None
-    lambdaFunctionRuntime: Optional[List[StringFilterTypeDef]] = None
-    lastObservedAt: Optional[List[DateFilterOutputTypeDef]] = None
-    networkProtocol: Optional[List[StringFilterTypeDef]] = None
-    portRange: Optional[List[PortRangeFilterTypeDef]] = None
-    relatedVulnerabilities: Optional[List[StringFilterTypeDef]] = None
-    resourceId: Optional[List[StringFilterTypeDef]] = None
-    resourceTags: Optional[List[MapFilterTypeDef]] = None
-    resourceType: Optional[List[StringFilterTypeDef]] = None
-    severity: Optional[List[StringFilterTypeDef]] = None
-    title: Optional[List[StringFilterTypeDef]] = None
-    updatedAt: Optional[List[DateFilterOutputTypeDef]] = None
-    vendorSeverity: Optional[List[StringFilterTypeDef]] = None
-    vulnerabilityId: Optional[List[StringFilterTypeDef]] = None
-    vulnerabilitySource: Optional[List[StringFilterTypeDef]] = None
-    vulnerablePackages: Optional[List[PackageFilterTypeDef]] = None
+class FilterCriteriaOutput(BaseValidatorModel):
+    awsAccountId: Optional[List[StringFilter]] = None
+    codeVulnerabilityDetectorName: Optional[List[StringFilter]] = None
+    codeVulnerabilityDetectorTags: Optional[List[StringFilter]] = None
+    codeVulnerabilityFilePath: Optional[List[StringFilter]] = None
+    componentId: Optional[List[StringFilter]] = None
+    componentType: Optional[List[StringFilter]] = None
+    ec2InstanceImageId: Optional[List[StringFilter]] = None
+    ec2InstanceSubnetId: Optional[List[StringFilter]] = None
+    ec2InstanceVpcId: Optional[List[StringFilter]] = None
+    ecrImageArchitecture: Optional[List[StringFilter]] = None
+    ecrImageHash: Optional[List[StringFilter]] = None
+    ecrImagePushedAt: Optional[List[DateFilterOutput]] = None
+    ecrImageRegistry: Optional[List[StringFilter]] = None
+    ecrImageRepositoryName: Optional[List[StringFilter]] = None
+    ecrImageTags: Optional[List[StringFilter]] = None
+    epssScore: Optional[List[NumberFilter]] = None
+    exploitAvailable: Optional[List[StringFilter]] = None
+    findingArn: Optional[List[StringFilter]] = None
+    findingStatus: Optional[List[StringFilter]] = None
+    findingType: Optional[List[StringFilter]] = None
+    firstObservedAt: Optional[List[DateFilterOutput]] = None
+    fixAvailable: Optional[List[StringFilter]] = None
+    inspectorScore: Optional[List[NumberFilter]] = None
+    lambdaFunctionExecutionRoleArn: Optional[List[StringFilter]] = None
+    lambdaFunctionLastModifiedAt: Optional[List[DateFilterOutput]] = None
+    lambdaFunctionLayers: Optional[List[StringFilter]] = None
+    lambdaFunctionName: Optional[List[StringFilter]] = None
+    lambdaFunctionRuntime: Optional[List[StringFilter]] = None
+    lastObservedAt: Optional[List[DateFilterOutput]] = None
+    networkProtocol: Optional[List[StringFilter]] = None
+    portRange: Optional[List[PortRangeFilter]] = None
+    relatedVulnerabilities: Optional[List[StringFilter]] = None
+    resourceId: Optional[List[StringFilter]] = None
+    resourceTags: Optional[List[MapFilter]] = None
+    resourceType: Optional[List[StringFilter]] = None
+    severity: Optional[List[StringFilter]] = None
+    title: Optional[List[StringFilter]] = None
+    updatedAt: Optional[List[DateFilterOutput]] = None
+    vendorSeverity: Optional[List[StringFilter]] = None
+    vulnerabilityId: Optional[List[StringFilter]] = None
+    vulnerabilitySource: Optional[List[StringFilter]] = None
+    vulnerablePackages: Optional[List[PackageFilter]] = None
 
 
-class FilterCriteriaTypeDef(BaseValidatorModel):
-    awsAccountId: Optional[Sequence[StringFilterTypeDef]] = None
-    codeVulnerabilityDetectorName: Optional[Sequence[StringFilterTypeDef]] = None
-    codeVulnerabilityDetectorTags: Optional[Sequence[StringFilterTypeDef]] = None
-    codeVulnerabilityFilePath: Optional[Sequence[StringFilterTypeDef]] = None
-    componentId: Optional[Sequence[StringFilterTypeDef]] = None
-    componentType: Optional[Sequence[StringFilterTypeDef]] = None
-    ec2InstanceImageId: Optional[Sequence[StringFilterTypeDef]] = None
-    ec2InstanceSubnetId: Optional[Sequence[StringFilterTypeDef]] = None
-    ec2InstanceVpcId: Optional[Sequence[StringFilterTypeDef]] = None
-    ecrImageArchitecture: Optional[Sequence[StringFilterTypeDef]] = None
-    ecrImageHash: Optional[Sequence[StringFilterTypeDef]] = None
-    ecrImagePushedAt: Optional[Sequence[DateFilterTypeDef]] = None
-    ecrImageRegistry: Optional[Sequence[StringFilterTypeDef]] = None
-    ecrImageRepositoryName: Optional[Sequence[StringFilterTypeDef]] = None
-    ecrImageTags: Optional[Sequence[StringFilterTypeDef]] = None
-    epssScore: Optional[Sequence[NumberFilterTypeDef]] = None
-    exploitAvailable: Optional[Sequence[StringFilterTypeDef]] = None
-    findingArn: Optional[Sequence[StringFilterTypeDef]] = None
-    findingStatus: Optional[Sequence[StringFilterTypeDef]] = None
-    findingType: Optional[Sequence[StringFilterTypeDef]] = None
-    firstObservedAt: Optional[Sequence[DateFilterTypeDef]] = None
-    fixAvailable: Optional[Sequence[StringFilterTypeDef]] = None
-    inspectorScore: Optional[Sequence[NumberFilterTypeDef]] = None
-    lambdaFunctionExecutionRoleArn: Optional[Sequence[StringFilterTypeDef]] = None
-    lambdaFunctionLastModifiedAt: Optional[Sequence[DateFilterTypeDef]] = None
-    lambdaFunctionLayers: Optional[Sequence[StringFilterTypeDef]] = None
-    lambdaFunctionName: Optional[Sequence[StringFilterTypeDef]] = None
-    lambdaFunctionRuntime: Optional[Sequence[StringFilterTypeDef]] = None
-    lastObservedAt: Optional[Sequence[DateFilterTypeDef]] = None
-    networkProtocol: Optional[Sequence[StringFilterTypeDef]] = None
-    portRange: Optional[Sequence[PortRangeFilterTypeDef]] = None
-    relatedVulnerabilities: Optional[Sequence[StringFilterTypeDef]] = None
-    resourceId: Optional[Sequence[StringFilterTypeDef]] = None
-    resourceTags: Optional[Sequence[MapFilterTypeDef]] = None
-    resourceType: Optional[Sequence[StringFilterTypeDef]] = None
-    severity: Optional[Sequence[StringFilterTypeDef]] = None
-    title: Optional[Sequence[StringFilterTypeDef]] = None
-    updatedAt: Optional[Sequence[DateFilterTypeDef]] = None
-    vendorSeverity: Optional[Sequence[StringFilterTypeDef]] = None
-    vulnerabilityId: Optional[Sequence[StringFilterTypeDef]] = None
-    vulnerabilitySource: Optional[Sequence[StringFilterTypeDef]] = None
-    vulnerablePackages: Optional[Sequence[PackageFilterTypeDef]] = None
+class FilterCriteria(BaseValidatorModel):
+    awsAccountId: Optional[Sequence[StringFilter]] = None
+    codeVulnerabilityDetectorName: Optional[Sequence[StringFilter]] = None
+    codeVulnerabilityDetectorTags: Optional[Sequence[StringFilter]] = None
+    codeVulnerabilityFilePath: Optional[Sequence[StringFilter]] = None
+    componentId: Optional[Sequence[StringFilter]] = None
+    componentType: Optional[Sequence[StringFilter]] = None
+    ec2InstanceImageId: Optional[Sequence[StringFilter]] = None
+    ec2InstanceSubnetId: Optional[Sequence[StringFilter]] = None
+    ec2InstanceVpcId: Optional[Sequence[StringFilter]] = None
+    ecrImageArchitecture: Optional[Sequence[StringFilter]] = None
+    ecrImageHash: Optional[Sequence[StringFilter]] = None
+    ecrImagePushedAt: Optional[Sequence[DateFilter]] = None
+    ecrImageRegistry: Optional[Sequence[StringFilter]] = None
+    ecrImageRepositoryName: Optional[Sequence[StringFilter]] = None
+    ecrImageTags: Optional[Sequence[StringFilter]] = None
+    epssScore: Optional[Sequence[NumberFilter]] = None
+    exploitAvailable: Optional[Sequence[StringFilter]] = None
+    findingArn: Optional[Sequence[StringFilter]] = None
+    findingStatus: Optional[Sequence[StringFilter]] = None
+    findingType: Optional[Sequence[StringFilter]] = None
+    firstObservedAt: Optional[Sequence[DateFilter]] = None
+    fixAvailable: Optional[Sequence[StringFilter]] = None
+    inspectorScore: Optional[Sequence[NumberFilter]] = None
+    lambdaFunctionExecutionRoleArn: Optional[Sequence[StringFilter]] = None
+    lambdaFunctionLastModifiedAt: Optional[Sequence[DateFilter]] = None
+    lambdaFunctionLayers: Optional[Sequence[StringFilter]] = None
+    lambdaFunctionName: Optional[Sequence[StringFilter]] = None
+    lambdaFunctionRuntime: Optional[Sequence[StringFilter]] = None
+    lastObservedAt: Optional[Sequence[DateFilter]] = None
+    networkProtocol: Optional[Sequence[StringFilter]] = None
+    portRange: Optional[Sequence[PortRangeFilter]] = None
+    relatedVulnerabilities: Optional[Sequence[StringFilter]] = None
+    resourceId: Optional[Sequence[StringFilter]] = None
+    resourceTags: Optional[Sequence[MapFilter]] = None
+    resourceType: Optional[Sequence[StringFilter]] = None
+    severity: Optional[Sequence[StringFilter]] = None
+    title: Optional[Sequence[StringFilter]] = None
+    updatedAt: Optional[Sequence[DateFilter]] = None
+    vendorSeverity: Optional[Sequence[StringFilter]] = None
+    vulnerabilityId: Optional[Sequence[StringFilter]] = None
+    vulnerabilitySource: Optional[Sequence[StringFilter]] = None
+    vulnerablePackages: Optional[Sequence[PackageFilter]] = None
 
 
-class BatchGetFreeTrialInfoResponseTypeDef(BaseValidatorModel):
-    accounts: List[FreeTrialAccountInfoTypeDef]
-    failedAccounts: List[FreeTrialInfoErrorTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchGetFreeTrialInfoResponse(BaseValidatorModel):
+    accounts: List[FreeTrialAccountInfo]
+    failedAccounts: List[FreeTrialInfoError]
+    ResponseMetadata: ResponseMetadata
 
 
-class CoveredResourceTypeDef(BaseValidatorModel):
+class CoveredResource(BaseValidatorModel):
     accountId: str
     resourceId: str
     resourceType: CoverageResourceTypeType
     scanType: ScanTypeType
     lastScannedAt: Optional[datetime] = None
-    resourceMetadata: Optional[ResourceScanMetadataTypeDef] = None
+    resourceMetadata: Optional[ResourceScanMetadata] = None
     scanMode: Optional[ScanModeType] = None
-    scanStatus: Optional[ScanStatusTypeDef] = None
+    scanStatus: Optional[ScanStatus] = None
 
 
-class NetworkReachabilityDetailsTypeDef(BaseValidatorModel):
-    networkPath: NetworkPathTypeDef
-    openPortRange: PortRangeTypeDef
+class NetworkReachabilityDetails(BaseValidatorModel):
+    networkPath: NetworkPath
+    openPortRange: PortRange
     protocol: NetworkProtocolType
 
 
-class StopCisSessionRequestTypeDef(BaseValidatorModel):
-    message: StopCisSessionMessageTypeDef
+class StopCisSessionRequest(BaseValidatorModel):
+    message: StopCisSessionMessage
     scanJobId: str
     sessionToken: str
 
 
-class ListUsageTotalsResponseTypeDef(BaseValidatorModel):
-    totals: List[UsageTotalTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListUsageTotalsResponse(BaseValidatorModel):
+    totals: List[UsageTotal]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListFindingAggregationsResponseTypeDef(BaseValidatorModel):
+class ListFindingAggregationsResponse(BaseValidatorModel):
     aggregationType: AggregationTypeType
-    responses: List[AggregationResponseTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    responses: List[AggregationResponse]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class BatchGetAccountStatusResponseTypeDef(BaseValidatorModel):
-    accounts: List[AccountStateTypeDef]
-    failedAccounts: List[FailedAccountTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchGetAccountStatusResponse(BaseValidatorModel):
+    accounts: List[AccountState]
+    failedAccounts: List[FailedAccount]
+    ResponseMetadata: ResponseMetadata
 
 
-class ListCisScansRequestPaginateTypeDef(BaseValidatorModel):
+class ListCisScansRequestPaginate(BaseValidatorModel):
     detailLevel: Optional[ListCisScansDetailLevelType] = None
-    filterCriteria: Optional[ListCisScansFilterCriteriaTypeDef] = None
+    filterCriteria: Optional[ListCisScansFilterCriteria] = None
     sortBy: Optional[ListCisScansSortByType] = None
     sortOrder: Optional[CisSortOrderType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListCisScansRequestTypeDef(BaseValidatorModel):
+class ListCisScansRequest(BaseValidatorModel):
     detailLevel: Optional[ListCisScansDetailLevelType] = None
-    filterCriteria: Optional[ListCisScansFilterCriteriaTypeDef] = None
+    filterCriteria: Optional[ListCisScansFilterCriteria] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     sortBy: Optional[ListCisScansSortByType] = None
     sortOrder: Optional[CisSortOrderType] = None
 
 
-class ListCoverageRequestPaginateTypeDef(BaseValidatorModel):
-    filterCriteria: Optional[CoverageFilterCriteriaTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListCoverageRequestPaginate(BaseValidatorModel):
+    filterCriteria: Optional[CoverageFilterCriteria] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListCoverageRequestTypeDef(BaseValidatorModel):
-    filterCriteria: Optional[CoverageFilterCriteriaTypeDef] = None
+class ListCoverageRequest(BaseValidatorModel):
+    filterCriteria: Optional[CoverageFilterCriteria] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListCoverageStatisticsRequestPaginateTypeDef(BaseValidatorModel):
-    filterCriteria: Optional[CoverageFilterCriteriaTypeDef] = None
+class ListCoverageStatisticsRequestPaginate(BaseValidatorModel):
+    filterCriteria: Optional[CoverageFilterCriteria] = None
     groupBy: Optional[GroupKeyType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListCoverageStatisticsRequestTypeDef(BaseValidatorModel):
-    filterCriteria: Optional[CoverageFilterCriteriaTypeDef] = None
+class ListCoverageStatisticsRequest(BaseValidatorModel):
+    filterCriteria: Optional[CoverageFilterCriteria] = None
     groupBy: Optional[GroupKeyType] = None
     nextToken: Optional[str] = None
 
 
-class CisScanConfigurationTypeDef(BaseValidatorModel):
+class CisScanConfiguration(BaseValidatorModel):
     scanConfigurationArn: str
     ownerId: Optional[str] = None
     scanName: Optional[str] = None
-    schedule: Optional[ScheduleOutputTypeDef] = None
+    schedule: Optional[ScheduleOutput] = None
     securityLevel: Optional[CisSecurityLevelType] = None
     tags: Optional[Dict[str, str]] = None
-    targets: Optional[CisTargetsTypeDef] = None
+    targets: Optional[CisTargets] = None
 
 
-class ListFindingAggregationsRequestPaginateTypeDef(BaseValidatorModel):
+class ListFindingAggregationsRequestPaginate(BaseValidatorModel):
     aggregationType: AggregationTypeType
-    accountIds: Optional[Sequence[StringFilterTypeDef]] = None
-    aggregationRequest: Optional[AggregationRequestTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    accountIds: Optional[Sequence[StringFilter]] = None
+    aggregationRequest: Optional[AggregationRequest] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListFindingAggregationsRequestTypeDef(BaseValidatorModel):
+class ListFindingAggregationsRequest(BaseValidatorModel):
     aggregationType: AggregationTypeType
-    accountIds: Optional[Sequence[StringFilterTypeDef]] = None
-    aggregationRequest: Optional[AggregationRequestTypeDef] = None
+    accountIds: Optional[Sequence[StringFilter]] = None
+    aggregationRequest: Optional[AggregationRequest] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class FilterTypeDef(BaseValidatorModel):
+class Filter(BaseValidatorModel):
     action: FilterActionType
     arn: str
     createdAt: datetime
-    criteria: FilterCriteriaOutputTypeDef
+    criteria: FilterCriteriaOutput
     name: str
     ownerId: str
     updatedAt: datetime
@@ -1723,112 +1723,112 @@ class FilterTypeDef(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
-class GetFindingsReportStatusResponseTypeDef(BaseValidatorModel):
-    destination: DestinationTypeDef
+class GetFindingsReportStatusResponse(BaseValidatorModel):
+    destination: Destination
     errorCode: ReportingErrorCodeType
     errorMessage: str
-    filterCriteria: FilterCriteriaOutputTypeDef
+    filterCriteria: FilterCriteriaOutput
     reportId: str
     status: ExternalReportStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListCoverageResponseTypeDef(BaseValidatorModel):
-    coveredResources: List[CoveredResourceTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListCoverageResponse(BaseValidatorModel):
+    coveredResources: List[CoveredResource]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ResourceFilterCriteriaUnionTypeDef(BaseValidatorModel):
+class ResourceFilterCriteriaUnion(BaseValidatorModel):
     pass
 
 
-class CreateSbomExportRequestTypeDef(BaseValidatorModel):
+class CreateSbomExportRequest(BaseValidatorModel):
     reportFormat: SbomReportFormatType
-    s3Destination: DestinationTypeDef
-    resourceFilterCriteria: Optional[ResourceFilterCriteriaUnionTypeDef] = None
+    s3Destination: Destination
+    resourceFilterCriteria: Optional[ResourceFilterCriteriaUnion] = None
 
 
-class ListCisScanConfigurationsResponseTypeDef(BaseValidatorModel):
-    scanConfigurations: List[CisScanConfigurationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListCisScanConfigurationsResponse(BaseValidatorModel):
+    scanConfigurations: List[CisScanConfiguration]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ScheduleUnionTypeDef(BaseValidatorModel):
+class ScheduleUnion(BaseValidatorModel):
     pass
 
 
-class CreateCisScanConfigurationRequestTypeDef(BaseValidatorModel):
+class CreateCisScanConfigurationRequest(BaseValidatorModel):
     scanName: str
-    schedule: ScheduleUnionTypeDef
+    schedule: ScheduleUnion
     securityLevel: CisSecurityLevelType
-    targets: CreateCisTargetsTypeDef
+    targets: CreateCisTargets
     tags: Optional[Mapping[str, str]] = None
 
 
-class UpdateCisScanConfigurationRequestTypeDef(BaseValidatorModel):
+class UpdateCisScanConfigurationRequest(BaseValidatorModel):
     scanConfigurationArn: str
     scanName: Optional[str] = None
-    schedule: Optional[ScheduleUnionTypeDef] = None
+    schedule: Optional[ScheduleUnion] = None
     securityLevel: Optional[CisSecurityLevelType] = None
-    targets: Optional[UpdateCisTargetsTypeDef] = None
+    targets: Optional[UpdateCisTargets] = None
 
 
-class ListFiltersResponseTypeDef(BaseValidatorModel):
-    filters: List[FilterTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListFiltersResponse(BaseValidatorModel):
+    filters: List[Filter]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class FilterCriteriaUnionTypeDef(BaseValidatorModel):
+class FilterCriteriaUnion(BaseValidatorModel):
     pass
 
 
-class CreateFilterRequestTypeDef(BaseValidatorModel):
+class CreateFilterRequest(BaseValidatorModel):
     action: FilterActionType
-    filterCriteria: FilterCriteriaUnionTypeDef
+    filterCriteria: FilterCriteriaUnion
     name: str
     description: Optional[str] = None
     reason: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
 
-class CreateFindingsReportRequestTypeDef(BaseValidatorModel):
+class CreateFindingsReportRequest(BaseValidatorModel):
     reportFormat: ReportFormatType
-    s3Destination: DestinationTypeDef
-    filterCriteria: Optional[FilterCriteriaUnionTypeDef] = None
+    s3Destination: Destination
+    filterCriteria: Optional[FilterCriteriaUnion] = None
 
 
-class ListFindingsRequestPaginateTypeDef(BaseValidatorModel):
-    filterCriteria: Optional[FilterCriteriaUnionTypeDef] = None
-    sortCriteria: Optional[SortCriteriaTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListFindingsRequestPaginate(BaseValidatorModel):
+    filterCriteria: Optional[FilterCriteriaUnion] = None
+    sortCriteria: Optional[SortCriteria] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListFindingsRequestTypeDef(BaseValidatorModel):
-    filterCriteria: Optional[FilterCriteriaUnionTypeDef] = None
+class ListFindingsRequest(BaseValidatorModel):
+    filterCriteria: Optional[FilterCriteriaUnion] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
-    sortCriteria: Optional[SortCriteriaTypeDef] = None
+    sortCriteria: Optional[SortCriteria] = None
 
 
-class UpdateFilterRequestTypeDef(BaseValidatorModel):
+class UpdateFilterRequest(BaseValidatorModel):
     filterArn: str
     action: Optional[FilterActionType] = None
     description: Optional[str] = None
-    filterCriteria: Optional[FilterCriteriaUnionTypeDef] = None
+    filterCriteria: Optional[FilterCriteriaUnion] = None
     name: Optional[str] = None
     reason: Optional[str] = None
 
 
-class FindingTypeDef(BaseValidatorModel):
+class Finding(BaseValidatorModel):
     pass
 
 
-class ListFindingsResponseTypeDef(BaseValidatorModel):
-    findings: List[FindingTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListFindingsResponse(BaseValidatorModel):
+    findings: List[Finding]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 

@@ -6,21 +6,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# DeleteHumanLoopRequestTypeDef
+# DeleteHumanLoopRequest
 
 ### HumanLoopName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeHumanLoopRequestTypeDef
+# DescribeHumanLoopRequest
 
 ### HumanLoopName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeHumanLoopResponseTypeDef
+# DescribeHumanLoopResponse
 
 ### CreationTime
 - **Type**: <class 'datetime.datetime'>
@@ -51,36 +51,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### HumanLoopOutput
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_a2i_runtime_classes.HumanLoopOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_a2i_runtime_classes.HumanLoopOutput'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_a2i_runtime_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_a2i_runtime_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# HumanLoopDataAttributesTypeDef
+# HumanLoopDataAttributes
 
 ### ContentClassifiers
 - **Type**: typing.Sequence[typing.Literal['FreeOfAdultContent', 'FreeOfPersonallyIdentifiableInformation']]
 - **Required**: Yes
 
 
-# HumanLoopInputTypeDef
+# HumanLoopInput
 
 ### InputContent
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# HumanLoopOutputTypeDef
+# HumanLoopOutput
 
 ### OutputS3Uri
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# HumanLoopSummaryTypeDef
+# HumanLoopSummary
 
 ### HumanLoopName
 - **Type**: typing.Optional[str]
@@ -98,36 +98,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListHumanLoopsRequestPaginateTypeDef
+# ListHumanLoopsRequest
 
 ### FlowDefinitionArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_a2i_runtime_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_a2i_runtime_classes.Timestamp]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_a2i_runtime_classes.TimestampTypeDef]
-
-### SortOrder
-- **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_a2i_runtime_classes.PaginatorConfigTypeDef]
-
-
-# ListHumanLoopsRequestTypeDef
-
-### FlowDefinitionArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_a2i_runtime_classes.TimestampTypeDef]
-
-### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_a2i_runtime_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_a2i_runtime_classes.Timestamp]
 
 ### SortOrder
 - **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
@@ -139,21 +120,40 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListHumanLoopsResponseTypeDef
+# ListHumanLoopsRequestPaginate
+
+### FlowDefinitionArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### CreationTimeAfter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_a2i_runtime_classes.Timestamp]
+
+### CreationTimeBefore
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_a2i_runtime_classes.Timestamp]
+
+### SortOrder
+- **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_a2i_runtime_classes.PaginatorConfig]
+
+
+# ListHumanLoopsResponse
 
 ### HumanLoopSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_a2i_runtime_classes.HumanLoopSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_a2i_runtime_classes.HumanLoopSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_a2i_runtime_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_a2i_runtime_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -165,7 +165,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -187,7 +187,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# StartHumanLoopRequestTypeDef
+# StartHumanLoopRequest
 
 ### HumanLoopName
 - **Type**: <class 'str'>
@@ -198,32 +198,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### HumanLoopInput
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_a2i_runtime_classes.HumanLoopInputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_a2i_runtime_classes.HumanLoopInput'>
 - **Required**: Yes
 
 ### DataAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_a2i_runtime_classes.HumanLoopDataAttributesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_a2i_runtime_classes.HumanLoopDataAttributes]
 
 
-# StartHumanLoopResponseTypeDef
+# StartHumanLoopResponse
 
 ### HumanLoopArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_a2i_runtime_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_a2i_runtime_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# StopHumanLoopRequestTypeDef
+# StopHumanLoopRequest
 
 ### HumanLoopName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# TimestampTypeDef
+# Timestamp
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 

@@ -6,7 +6,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CreateLinkInputTypeDef
+# CreateLinkInput
 
 ### LabelTemplate
 - **Type**: <class 'str'>
@@ -21,13 +21,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LinkConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.oam_classes.LinkConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### Tags
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateLinkOutputTypeDef
+# CreateLinkOutput
 
 ### Arn
 - **Type**: <class 'str'>
@@ -46,7 +46,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LinkConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.oam_classes.LinkConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.oam_classes.LinkConfiguration'>
 - **Required**: Yes
 
 ### ResourceTypes
@@ -62,11 +62,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.oam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.oam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateSinkInputTypeDef
+# CreateSinkInput
 
 ### Name
 - **Type**: <class 'str'>
@@ -76,7 +76,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateSinkOutputTypeDef
+# CreateSinkOutput
 
 ### Arn
 - **Type**: <class 'str'>
@@ -95,32 +95,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.oam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.oam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteLinkInputTypeDef
+# DeleteLinkInput
 
 ### Identifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteSinkInputTypeDef
+# DeleteSinkInput
 
 ### Identifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetLinkInputTypeDef
+# GetLinkInput
 
 ### Identifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetLinkOutputTypeDef
+# GetLinkOutput
 
 ### Arn
 - **Type**: <class 'str'>
@@ -139,7 +139,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LinkConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.oam_classes.LinkConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.oam_classes.LinkConfiguration'>
 - **Required**: Yes
 
 ### ResourceTypes
@@ -155,18 +155,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.oam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.oam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetSinkInputTypeDef
+# GetSinkInput
 
 ### Identifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetSinkOutputTypeDef
+# GetSinkOutput
 
 ### Arn
 - **Type**: <class 'str'>
@@ -185,18 +185,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.oam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.oam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetSinkPolicyInputTypeDef
+# GetSinkPolicyInput
 
 ### SinkIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetSinkPolicyOutputTypeDef
+# GetSinkPolicyOutput
 
 ### Policy
 - **Type**: <class 'str'>
@@ -211,30 +211,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.oam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.oam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# LinkConfigurationTypeDef
+# LinkConfiguration
 
 ### LogGroupConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.oam_classes.LogGroupConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### MetricConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.oam_classes.MetricConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# ListAttachedLinksInputPaginateTypeDef
-
-### SinkIdentifier
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.oam_classes.PaginatorConfigTypeDef]
-
-
-# ListAttachedLinksInputTypeDef
+# ListAttachedLinksInput
 
 ### SinkIdentifier
 - **Type**: <class 'str'>
@@ -247,7 +237,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListAttachedLinksItemTypeDef
+# ListAttachedLinksInputPaginate
+
+### SinkIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.oam_classes.PaginatorConfig]
+
+
+# ListAttachedLinksItem
 
 ### Label
 - **Type**: typing.Optional[str]
@@ -259,27 +259,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# ListAttachedLinksOutputTypeDef
+# ListAttachedLinksOutput
 
 ### Items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.oam_classes.ListAttachedLinksItemTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.oam_classes.ListAttachedLinksItem]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.oam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.oam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListLinksInputPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.oam_classes.PaginatorConfigTypeDef]
-
-
-# ListLinksInputTypeDef
+# ListLinksInput
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -288,7 +282,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListLinksItemTypeDef
+# ListLinksInputPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.oam_classes.PaginatorConfig]
+
+
+# ListLinksItem
 
 ### Arn
 - **Type**: typing.Optional[str]
@@ -306,27 +306,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListLinksOutputTypeDef
+# ListLinksOutput
 
 ### Items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.oam_classes.ListLinksItemTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.oam_classes.ListLinksItem]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.oam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.oam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListSinksInputPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.oam_classes.PaginatorConfigTypeDef]
-
-
-# ListSinksInputTypeDef
+# ListSinksInput
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -335,7 +329,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListSinksItemTypeDef
+# ListSinksInputPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.oam_classes.PaginatorConfig]
+
+
+# ListSinksItem
 
 ### Arn
 - **Type**: typing.Optional[str]
@@ -347,53 +347,53 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListSinksOutputTypeDef
+# ListSinksOutput
 
 ### Items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.oam_classes.ListSinksItemTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.oam_classes.ListSinksItem]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.oam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.oam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceInputTypeDef
+# ListTagsForResourceInput
 
 ### ResourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ListTagsForResourceOutputTypeDef
+# ListTagsForResourceOutput
 
 ### Tags
 - **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.oam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.oam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# LogGroupConfigurationTypeDef
+# LogGroupConfiguration
 
 ### Filter
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# MetricConfigurationTypeDef
+# MetricConfiguration
 
 ### Filter
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -405,7 +405,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PutSinkPolicyInputTypeDef
+# PutSinkPolicyInput
 
 ### Policy
 - **Type**: <class 'str'>
@@ -416,7 +416,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutSinkPolicyOutputTypeDef
+# PutSinkPolicyOutput
 
 ### Policy
 - **Type**: <class 'str'>
@@ -431,11 +431,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.oam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.oam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -457,7 +457,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TagResourceInputTypeDef
+# TagResourceInput
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -468,7 +468,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceInputTypeDef
+# UntagResourceInput
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -479,7 +479,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateLinkInputTypeDef
+# UpdateLinkInput
 
 ### Identifier
 - **Type**: <class 'str'>
@@ -490,10 +490,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LinkConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.oam_classes.LinkConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# UpdateLinkOutputTypeDef
+# UpdateLinkOutput
 
 ### Arn
 - **Type**: <class 'str'>
@@ -512,7 +512,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LinkConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.oam_classes.LinkConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.oam_classes.LinkConfiguration'>
 - **Required**: Yes
 
 ### ResourceTypes
@@ -528,7 +528,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.oam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.oam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

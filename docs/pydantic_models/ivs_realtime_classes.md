@@ -1,22 +1,6 @@
 # Ivs Realtime Classes
 
-# AutoParticipantRecordingConfigurationOutputTypeDef
-
-### storageConfigurationArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### mediaTypes
-- **Type**: typing.Optional[typing.List[typing.Literal['AUDIO_ONLY', 'AUDIO_VIDEO', 'NONE']]]
-
-### thumbnailConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs_realtime_classes.ParticipantThumbnailConfigurationOutputTypeDef]
-
-### recordingReconnectWindowSeconds
-- **Type**: typing.Optional[int]
-
-
-# AutoParticipantRecordingConfigurationTypeDef
+# AutoParticipantRecordingConfiguration
 
 ### storageConfigurationArn
 - **Type**: <class 'str'>
@@ -26,13 +10,29 @@
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['AUDIO_ONLY', 'AUDIO_VIDEO', 'NONE']]]
 
 ### thumbnailConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs_realtime_classes.ParticipantThumbnailConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs_realtime_classes.ParticipantThumbnailConfiguration]
 
 ### recordingReconnectWindowSeconds
 - **Type**: typing.Optional[int]
 
 
-# AutoParticipantRecordingConfigurationUnionTypeDef
+# AutoParticipantRecordingConfigurationOutput
+
+### storageConfigurationArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### mediaTypes
+- **Type**: typing.Optional[typing.List[typing.Literal['AUDIO_ONLY', 'AUDIO_VIDEO', 'NONE']]]
+
+### thumbnailConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs_realtime_classes.ParticipantThumbnailConfigurationOutput]
+
+### recordingReconnectWindowSeconds
+- **Type**: typing.Optional[int]
+
+
+# AutoParticipantRecordingConfigurationUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
@@ -44,7 +44,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ChannelDestinationConfigurationTypeDef
+# ChannelDestinationConfiguration
 
 ### channelArn
 - **Type**: <class 'str'>
@@ -54,59 +54,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CompositionSummaryTypeDef
-
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### stageArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### destinations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ivs_realtime_classes.DestinationSummaryTypeDef]
-- **Required**: Yes
-
-### state
-- **Type**: typing.Literal['ACTIVE', 'FAILED', 'STARTING', 'STOPPED', 'STOPPING']
-- **Required**: Yes
-
-### tags
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-### startTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### endTime
-- **Type**: typing.Optional[datetime.datetime]
-
-
-# CompositionThumbnailConfigurationOutputTypeDef
-
-### targetIntervalSeconds
-- **Type**: typing.Optional[int]
-
-### storage
-- **Type**: typing.Optional[typing.List[typing.Literal['LATEST', 'SEQUENTIAL']]]
-
-
-# CompositionThumbnailConfigurationTypeDef
-
-### targetIntervalSeconds
-- **Type**: typing.Optional[int]
-
-### storage
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['LATEST', 'SEQUENTIAL']]]
-
-
-# CompositionThumbnailConfigurationUnionTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# CompositionTypeDef
+# Composition
 
 ### arn
 - **Type**: <class 'str'>
@@ -121,11 +69,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### layout
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.LayoutConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.LayoutConfiguration'>
 - **Required**: Yes
 
 ### destinations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ivs_realtime_classes.DestinationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ivs_realtime_classes.Destination]
 - **Required**: Yes
 
 ### tags
@@ -138,30 +86,82 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# CreateEncoderConfigurationRequestTypeDef
+# CompositionSummary
+
+### arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### stageArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### destinations
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ivs_realtime_classes.DestinationSummary]
+- **Required**: Yes
+
+### state
+- **Type**: typing.Literal['ACTIVE', 'FAILED', 'STARTING', 'STOPPED', 'STOPPING']
+- **Required**: Yes
+
+### tags
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+### startTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### endTime
+- **Type**: typing.Optional[datetime.datetime]
+
+
+# CompositionThumbnailConfiguration
+
+### targetIntervalSeconds
+- **Type**: typing.Optional[int]
+
+### storage
+- **Type**: typing.Optional[typing.Sequence[typing.Literal['LATEST', 'SEQUENTIAL']]]
+
+
+# CompositionThumbnailConfigurationOutput
+
+### targetIntervalSeconds
+- **Type**: typing.Optional[int]
+
+### storage
+- **Type**: typing.Optional[typing.List[typing.Literal['LATEST', 'SEQUENTIAL']]]
+
+
+# CompositionThumbnailConfigurationUnion
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# CreateEncoderConfigurationRequest
 
 ### name
 - **Type**: typing.Optional[str]
 
 ### video
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs_realtime_classes.VideoTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs_realtime_classes.Video]
 
 ### tags
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateEncoderConfigurationResponseTypeDef
+# CreateEncoderConfigurationResponse
 
 ### encoderConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.EncoderConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.EncoderConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateIngestConfigurationRequestTypeDef
+# CreateIngestConfigurationRequest
 
 ### ingestProtocol
 - **Type**: typing.Literal['RTMP', 'RTMPS']
@@ -186,18 +186,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateIngestConfigurationResponseTypeDef
+# CreateIngestConfigurationResponse
 
 ### ingestConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.IngestConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.IngestConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateParticipantTokenRequestTypeDef
+# CreateParticipantTokenRequest
 
 ### stageArn
 - **Type**: <class 'str'>
@@ -216,51 +216,51 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['PUBLISH', 'SUBSCRIBE']]]
 
 
-# CreateParticipantTokenResponseTypeDef
+# CreateParticipantTokenResponse
 
 ### participantToken
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.ParticipantTokenTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.ParticipantToken'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateStageRequestTypeDef
+# CreateStageRequest
 
 ### name
 - **Type**: typing.Optional[str]
 
 ### participantTokenConfigurations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ivs_realtime_classes.ParticipantTokenConfigurationTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ivs_realtime_classes.ParticipantTokenConfiguration]]
 
 ### tags
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 ### autoParticipantRecordingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs_realtime_classes.AutoParticipantRecordingConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs_realtime_classes.AutoParticipantRecordingConfigurationUnion]
 
 
-# CreateStageResponseTypeDef
+# CreateStageResponse
 
 ### stage
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.StageTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.Stage'>
 - **Required**: Yes
 
 ### participantTokens
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ivs_realtime_classes.ParticipantTokenTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ivs_realtime_classes.ParticipantToken]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateStorageConfigurationRequestTypeDef
+# CreateStorageConfigurationRequest
 
 ### s3
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.S3StorageConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.S3StorageConfiguration'>
 - **Required**: Yes
 
 ### name
@@ -270,25 +270,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateStorageConfigurationResponseTypeDef
+# CreateStorageConfigurationResponse
 
 ### storageConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.StorageConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.StorageConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteEncoderConfigurationRequestTypeDef
+# DeleteEncoderConfigurationRequest
 
 ### arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteIngestConfigurationRequestTypeDef
+# DeleteIngestConfigurationRequest
 
 ### arn
 - **Type**: <class 'str'>
@@ -298,76 +298,76 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# DeletePublicKeyRequestTypeDef
+# DeletePublicKeyRequest
 
 ### arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteStageRequestTypeDef
+# DeleteStageRequest
 
 ### arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteStorageConfigurationRequestTypeDef
+# DeleteStorageConfigurationRequest
 
 ### arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DestinationConfigurationOutputTypeDef
+# Destination
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# DestinationConfiguration
 
 ### name
 - **Type**: typing.Optional[str]
 
 ### channel
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs_realtime_classes.ChannelDestinationConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs_realtime_classes.ChannelDestinationConfiguration]
 
 ### s3
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs_realtime_classes.S3DestinationConfigurationOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs_realtime_classes.S3DestinationConfigurationUnion]
 
 
-# DestinationConfigurationTypeDef
+# DestinationConfigurationOutput
 
 ### name
 - **Type**: typing.Optional[str]
 
 ### channel
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs_realtime_classes.ChannelDestinationConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs_realtime_classes.ChannelDestinationConfiguration]
 
 ### s3
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs_realtime_classes.S3DestinationConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs_realtime_classes.S3DestinationConfigurationOutput]
 
 
-# DestinationConfigurationUnionTypeDef
+# DestinationConfigurationUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# DestinationDetailTypeDef
+# DestinationDetail
 
 ### s3
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs_realtime_classes.S3DetailTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs_realtime_classes.S3Detail]
 
 
-# DestinationSummaryTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# DestinationTypeDef
+# DestinationSummary
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# DisconnectParticipantRequestTypeDef
+# DisconnectParticipantRequest
 
 ### stageArn
 - **Type**: <class 'str'>
@@ -381,20 +381,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# EncoderConfigurationSummaryTypeDef
-
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### name
-- **Type**: typing.Optional[str]
-
-### tags
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-
-# EncoderConfigurationTypeDef
+# EncoderConfiguration
 
 ### arn
 - **Type**: <class 'str'>
@@ -404,13 +391,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### video
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs_realtime_classes.VideoTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs_realtime_classes.Video]
 
 ### tags
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 
-# EventTypeDef
+# EncoderConfigurationSummary
+
+### arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: typing.Optional[str]
+
+### tags
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+
+# Event
 
 ### name
 - **Type**: typing.Optional[typing.Literal['JOINED', 'JOIN_ERROR', 'LEFT', 'PUBLISH_ERROR', 'PUBLISH_STARTED', 'PUBLISH_STOPPED', 'SUBSCRIBE_ERROR', 'SUBSCRIBE_STARTED', 'SUBSCRIBE_STOPPED']]
@@ -428,61 +428,61 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['BITRATE_EXCEEDED', 'B_FRAME_PRESENT', 'INSUFFICIENT_CAPABILITIES', 'INTERNAL_SERVER_EXCEPTION', 'INVALID_AUDIO_CODEC', 'INVALID_INPUT', 'INVALID_PROTOCOL', 'INVALID_STREAM_KEY', 'INVALID_VIDEO_CODEC', 'PUBLISHER_NOT_FOUND', 'QUOTA_EXCEEDED', 'RESOLUTION_EXCEEDED', 'REUSE_OF_STREAM_KEY', 'STREAM_DURATION_EXCEEDED']]
 
 
-# GetCompositionRequestTypeDef
+# GetCompositionRequest
 
 ### arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetCompositionResponseTypeDef
+# GetCompositionResponse
 
 ### composition
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.CompositionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.Composition'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetEncoderConfigurationRequestTypeDef
+# GetEncoderConfigurationRequest
 
 ### arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetEncoderConfigurationResponseTypeDef
+# GetEncoderConfigurationResponse
 
 ### encoderConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.EncoderConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.EncoderConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetIngestConfigurationRequestTypeDef
+# GetIngestConfigurationRequest
 
 ### arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetIngestConfigurationResponseTypeDef
+# GetIngestConfigurationResponse
 
 ### ingestConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.IngestConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.IngestConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetParticipantRequestTypeDef
+# GetParticipantRequest
 
 ### stageArn
 - **Type**: <class 'str'>
@@ -497,54 +497,54 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetParticipantResponseTypeDef
+# GetParticipantResponse
 
 ### participant
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.ParticipantTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.Participant'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetPublicKeyRequestTypeDef
+# GetPublicKeyRequest
 
 ### arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetPublicKeyResponseTypeDef
+# GetPublicKeyResponse
 
 ### publicKey
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.PublicKeyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.PublicKey'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetStageRequestTypeDef
+# GetStageRequest
 
 ### arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetStageResponseTypeDef
+# GetStageResponse
 
 ### stage
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.StageTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.Stage'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetStageSessionRequestTypeDef
+# GetStageSessionRequest
 
 ### stageArn
 - **Type**: <class 'str'>
@@ -555,36 +555,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetStageSessionResponseTypeDef
+# GetStageSessionResponse
 
 ### stageSession
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.StageSessionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.StageSession'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetStorageConfigurationRequestTypeDef
+# GetStorageConfigurationRequest
 
 ### arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetStorageConfigurationResponseTypeDef
+# GetStorageConfigurationResponse
 
 ### storageConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.StorageConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.StorageConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GridConfigurationTypeDef
+# GridConfiguration
 
 ### featuredParticipantAttribute
 - **Type**: typing.Optional[str]
@@ -602,7 +602,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ImportPublicKeyRequestTypeDef
+# ImportPublicKeyRequest
 
 ### publicKeyMaterial
 - **Type**: <class 'str'>
@@ -615,47 +615,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# ImportPublicKeyResponseTypeDef
+# ImportPublicKeyResponse
 
 ### publicKey
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.PublicKeyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.PublicKey'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# IngestConfigurationSummaryTypeDef
-
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ingestProtocol
-- **Type**: typing.Literal['RTMP', 'RTMPS']
-- **Required**: Yes
-
-### stageArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### participantId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### state
-- **Type**: typing.Literal['ACTIVE', 'INACTIVE']
-- **Required**: Yes
-
-### name
-- **Type**: typing.Optional[str]
-
-### userId
-- **Type**: typing.Optional[str]
-
-
-# IngestConfigurationTypeDef
+# IngestConfiguration
 
 ### arn
 - **Type**: <class 'str'>
@@ -694,16 +665,45 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 
-# LayoutConfigurationTypeDef
+# IngestConfigurationSummary
+
+### arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ingestProtocol
+- **Type**: typing.Literal['RTMP', 'RTMPS']
+- **Required**: Yes
+
+### stageArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### participantId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### state
+- **Type**: typing.Literal['ACTIVE', 'INACTIVE']
+- **Required**: Yes
+
+### name
+- **Type**: typing.Optional[str]
+
+### userId
+- **Type**: typing.Optional[str]
+
+
+# LayoutConfiguration
 
 ### grid
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs_realtime_classes.GridConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs_realtime_classes.GridConfiguration]
 
 ### pip
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs_realtime_classes.PipConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs_realtime_classes.PipConfiguration]
 
 
-# ListCompositionsRequestTypeDef
+# ListCompositionsRequest
 
 ### filterByStageArn
 - **Type**: typing.Optional[str]
@@ -718,21 +718,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListCompositionsResponseTypeDef
+# ListCompositionsResponse
 
 ### compositions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ivs_realtime_classes.CompositionSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ivs_realtime_classes.CompositionSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListEncoderConfigurationsRequestTypeDef
+# ListEncoderConfigurationsRequest
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -741,21 +741,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListEncoderConfigurationsResponseTypeDef
+# ListEncoderConfigurationsResponse
 
 ### encoderConfigurations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ivs_realtime_classes.EncoderConfigurationSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ivs_realtime_classes.EncoderConfigurationSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListIngestConfigurationsRequestPaginateTypeDef
+# ListIngestConfigurationsRequest
+
+### filterByStageArn
+- **Type**: typing.Optional[str]
+
+### filterByState
+- **Type**: typing.Optional[typing.Literal['ACTIVE', 'INACTIVE']]
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+### maxResults
+- **Type**: typing.Optional[int]
+
+
+# ListIngestConfigurationsRequestPaginate
 
 ### filterByStageArn
 - **Type**: typing.Optional[str]
@@ -764,39 +779,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'INACTIVE']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs_realtime_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs_realtime_classes.PaginatorConfig]
 
 
-# ListIngestConfigurationsRequestTypeDef
-
-### filterByStageArn
-- **Type**: typing.Optional[str]
-
-### filterByState
-- **Type**: typing.Optional[typing.Literal['ACTIVE', 'INACTIVE']]
-
-### nextToken
-- **Type**: typing.Optional[str]
-
-### maxResults
-- **Type**: typing.Optional[int]
-
-
-# ListIngestConfigurationsResponseTypeDef
+# ListIngestConfigurationsResponse
 
 ### ingestConfigurations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ivs_realtime_classes.IngestConfigurationSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ivs_realtime_classes.IngestConfigurationSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListParticipantEventsRequestTypeDef
+# ListParticipantEventsRequest
 
 ### stageArn
 - **Type**: <class 'str'>
@@ -817,21 +817,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListParticipantEventsResponseTypeDef
+# ListParticipantEventsResponse
 
 ### events
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ivs_realtime_classes.EventTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ivs_realtime_classes.Event]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListParticipantsRequestTypeDef
+# ListParticipantsRequest
 
 ### stageArn
 - **Type**: <class 'str'>
@@ -860,27 +860,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'FAILED', 'STARTING', 'STOPPED', 'STOPPING']]
 
 
-# ListParticipantsResponseTypeDef
+# ListParticipantsResponse
 
 ### participants
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ivs_realtime_classes.ParticipantSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ivs_realtime_classes.ParticipantSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListPublicKeysRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs_realtime_classes.PaginatorConfigTypeDef]
-
-
-# ListPublicKeysRequestTypeDef
+# ListPublicKeysRequest
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -889,21 +883,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListPublicKeysResponseTypeDef
+# ListPublicKeysRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs_realtime_classes.PaginatorConfig]
+
+
+# ListPublicKeysResponse
 
 ### publicKeys
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ivs_realtime_classes.PublicKeySummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ivs_realtime_classes.PublicKeySummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListStageSessionsRequestTypeDef
+# ListStageSessionsRequest
 
 ### stageArn
 - **Type**: <class 'str'>
@@ -916,21 +916,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListStageSessionsResponseTypeDef
+# ListStageSessionsResponse
 
 ### stageSessions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ivs_realtime_classes.StageSessionSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ivs_realtime_classes.StageSessionSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListStagesRequestTypeDef
+# ListStagesRequest
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -939,21 +939,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListStagesResponseTypeDef
+# ListStagesResponse
 
 ### stages
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ivs_realtime_classes.StageSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ivs_realtime_classes.StageSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListStorageConfigurationsRequestTypeDef
+# ListStorageConfigurationsRequest
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -962,39 +962,39 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListStorageConfigurationsResponseTypeDef
+# ListStorageConfigurationsResponse
 
 ### storageConfigurations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ivs_realtime_classes.StorageConfigurationSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ivs_realtime_classes.StorageConfigurationSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestTypeDef
+# ListTagsForResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ListTagsForResourceResponseTypeDef
+# ListTagsForResourceResponse
 
 ### tags
 - **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -1006,91 +1006,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ParticipantSummaryTypeDef
-
-### participantId
-- **Type**: typing.Optional[str]
-
-### userId
-- **Type**: typing.Optional[str]
-
-### state
-- **Type**: typing.Optional[typing.Literal['CONNECTED', 'DISCONNECTED']]
-
-### firstJoinTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### published
-- **Type**: typing.Optional[bool]
-
-### recordingState
-- **Type**: typing.Optional[typing.Literal['ACTIVE', 'DISABLED', 'FAILED', 'STARTING', 'STOPPED', 'STOPPING']]
-
-
-# ParticipantThumbnailConfigurationOutputTypeDef
-
-### targetIntervalSeconds
-- **Type**: typing.Optional[int]
-
-### storage
-- **Type**: typing.Optional[typing.List[typing.Literal['LATEST', 'SEQUENTIAL']]]
-
-### recordingMode
-- **Type**: typing.Optional[typing.Literal['DISABLED', 'INTERVAL']]
-
-
-# ParticipantThumbnailConfigurationTypeDef
-
-### targetIntervalSeconds
-- **Type**: typing.Optional[int]
-
-### storage
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['LATEST', 'SEQUENTIAL']]]
-
-### recordingMode
-- **Type**: typing.Optional[typing.Literal['DISABLED', 'INTERVAL']]
-
-
-# ParticipantTokenConfigurationTypeDef
-
-### duration
-- **Type**: typing.Optional[int]
-
-### userId
-- **Type**: typing.Optional[str]
-
-### attributes
-- **Type**: typing.Optional[typing.Mapping[str, str]]
-
-### capabilities
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['PUBLISH', 'SUBSCRIBE']]]
-
-
-# ParticipantTokenTypeDef
-
-### participantId
-- **Type**: typing.Optional[str]
-
-### token
-- **Type**: typing.Optional[str]
-
-### userId
-- **Type**: typing.Optional[str]
-
-### attributes
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-### duration
-- **Type**: typing.Optional[int]
-
-### capabilities
-- **Type**: typing.Optional[typing.List[typing.Literal['PUBLISH', 'SUBSCRIBE']]]
-
-### expirationTime
-- **Type**: typing.Optional[datetime.datetime]
-
-
-# ParticipantTypeDef
+# Participant
 
 ### participantId
 - **Type**: typing.Optional[str]
@@ -1141,7 +1057,91 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['RTMP', 'RTMPS', 'UNKNOWN', 'WHIP']]
 
 
-# PipConfigurationTypeDef
+# ParticipantSummary
+
+### participantId
+- **Type**: typing.Optional[str]
+
+### userId
+- **Type**: typing.Optional[str]
+
+### state
+- **Type**: typing.Optional[typing.Literal['CONNECTED', 'DISCONNECTED']]
+
+### firstJoinTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### published
+- **Type**: typing.Optional[bool]
+
+### recordingState
+- **Type**: typing.Optional[typing.Literal['ACTIVE', 'DISABLED', 'FAILED', 'STARTING', 'STOPPED', 'STOPPING']]
+
+
+# ParticipantThumbnailConfiguration
+
+### targetIntervalSeconds
+- **Type**: typing.Optional[int]
+
+### storage
+- **Type**: typing.Optional[typing.Sequence[typing.Literal['LATEST', 'SEQUENTIAL']]]
+
+### recordingMode
+- **Type**: typing.Optional[typing.Literal['DISABLED', 'INTERVAL']]
+
+
+# ParticipantThumbnailConfigurationOutput
+
+### targetIntervalSeconds
+- **Type**: typing.Optional[int]
+
+### storage
+- **Type**: typing.Optional[typing.List[typing.Literal['LATEST', 'SEQUENTIAL']]]
+
+### recordingMode
+- **Type**: typing.Optional[typing.Literal['DISABLED', 'INTERVAL']]
+
+
+# ParticipantToken
+
+### participantId
+- **Type**: typing.Optional[str]
+
+### token
+- **Type**: typing.Optional[str]
+
+### userId
+- **Type**: typing.Optional[str]
+
+### attributes
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+### duration
+- **Type**: typing.Optional[int]
+
+### capabilities
+- **Type**: typing.Optional[typing.List[typing.Literal['PUBLISH', 'SUBSCRIBE']]]
+
+### expirationTime
+- **Type**: typing.Optional[datetime.datetime]
+
+
+# ParticipantTokenConfiguration
+
+### duration
+- **Type**: typing.Optional[int]
+
+### userId
+- **Type**: typing.Optional[str]
+
+### attributes
+- **Type**: typing.Optional[typing.Mapping[str, str]]
+
+### capabilities
+- **Type**: typing.Optional[typing.Sequence[typing.Literal['PUBLISH', 'SUBSCRIBE']]]
+
+
+# PipConfiguration
 
 ### featuredParticipantAttribute
 - **Type**: typing.Optional[str]
@@ -1174,19 +1174,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# PublicKeySummaryTypeDef
-
-### arn
-- **Type**: typing.Optional[str]
-
-### name
-- **Type**: typing.Optional[str]
-
-### tags
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-
-# PublicKeyTypeDef
+# PublicKey
 
 ### arn
 - **Type**: typing.Optional[str]
@@ -1204,13 +1192,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 
-# RecordingConfigurationTypeDef
+# PublicKeySummary
+
+### arn
+- **Type**: typing.Optional[str]
+
+### name
+- **Type**: typing.Optional[str]
+
+### tags
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+
+# RecordingConfiguration
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -1232,24 +1232,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# S3DestinationConfigurationOutputTypeDef
-
-### storageConfigurationArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### encoderConfigurationArns
-- **Type**: typing.List[str]
-- **Required**: Yes
-
-### recordingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs_realtime_classes.RecordingConfigurationTypeDef]
-
-### thumbnailConfigurations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ivs_realtime_classes.CompositionThumbnailConfigurationOutputTypeDef]]
-
-
-# S3DestinationConfigurationTypeDef
+# S3DestinationConfiguration
 
 ### storageConfigurationArn
 - **Type**: <class 'str'>
@@ -1260,33 +1243,72 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### recordingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs_realtime_classes.RecordingConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs_realtime_classes.RecordingConfiguration]
 
 ### thumbnailConfigurations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ivs_realtime_classes.CompositionThumbnailConfigurationUnionTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ivs_realtime_classes.CompositionThumbnailConfigurationUnion]]
 
 
-# S3DestinationConfigurationUnionTypeDef
+# S3DestinationConfigurationOutput
+
+### storageConfigurationArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### encoderConfigurationArns
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### recordingConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs_realtime_classes.RecordingConfiguration]
+
+### thumbnailConfigurations
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ivs_realtime_classes.CompositionThumbnailConfigurationOutput]]
+
+
+# S3DestinationConfigurationUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# S3DetailTypeDef
+# S3Detail
 
 ### recordingPrefix
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# S3StorageConfigurationTypeDef
+# S3StorageConfiguration
 
 ### bucketName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# StageEndpointsTypeDef
+# Stage
+
+### arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: typing.Optional[str]
+
+### activeSessionId
+- **Type**: typing.Optional[str]
+
+### tags
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+### autoParticipantRecordingConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs_realtime_classes.AutoParticipantRecordingConfigurationOutput]
+
+### endpoints
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs_realtime_classes.StageEndpoints]
+
+
+# StageEndpoints
 
 ### events
 - **Type**: typing.Optional[str]
@@ -1301,7 +1323,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# StageSessionSummaryTypeDef
+# StageSession
 
 ### sessionId
 - **Type**: typing.Optional[str]
@@ -1313,7 +1335,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# StageSessionTypeDef
+# StageSessionSummary
 
 ### sessionId
 - **Type**: typing.Optional[str]
@@ -1325,7 +1347,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# StageSummaryTypeDef
+# StageSummary
 
 ### arn
 - **Type**: <class 'str'>
@@ -1341,83 +1363,45 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 
-# StageTypeDef
-
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### name
-- **Type**: typing.Optional[str]
-
-### activeSessionId
-- **Type**: typing.Optional[str]
-
-### tags
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-### autoParticipantRecordingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs_realtime_classes.AutoParticipantRecordingConfigurationOutputTypeDef]
-
-### endpoints
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs_realtime_classes.StageEndpointsTypeDef]
-
-
-# StartCompositionRequestTypeDef
+# StartCompositionRequest
 
 ### stageArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### destinations
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.ivs_realtime_classes.DestinationConfigurationUnionTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.ivs_realtime_classes.DestinationConfigurationUnion]
 - **Required**: Yes
 
 ### idempotencyToken
 - **Type**: typing.Optional[str]
 
 ### layout
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs_realtime_classes.LayoutConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs_realtime_classes.LayoutConfiguration]
 
 ### tags
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# StartCompositionResponseTypeDef
+# StartCompositionResponse
 
 ### composition
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.CompositionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.Composition'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# StopCompositionRequestTypeDef
+# StopCompositionRequest
 
 ### arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# StorageConfigurationSummaryTypeDef
-
-### arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### name
-- **Type**: typing.Optional[str]
-
-### s3
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs_realtime_classes.S3StorageConfigurationTypeDef]
-
-### tags
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-
-# StorageConfigurationTypeDef
+# StorageConfiguration
 
 ### arn
 - **Type**: <class 'str'>
@@ -1427,13 +1411,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### s3
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs_realtime_classes.S3StorageConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs_realtime_classes.S3StorageConfiguration]
 
 ### tags
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 
-# TagResourceRequestTypeDef
+# StorageConfigurationSummary
+
+### arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: typing.Optional[str]
+
+### s3
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs_realtime_classes.S3StorageConfiguration]
+
+### tags
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+
+# TagResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -1444,7 +1444,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceRequestTypeDef
+# UntagResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -1455,7 +1455,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateIngestConfigurationRequestTypeDef
+# UpdateIngestConfigurationRequest
 
 ### arn
 - **Type**: <class 'str'>
@@ -1465,18 +1465,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateIngestConfigurationResponseTypeDef
+# UpdateIngestConfigurationResponse
 
 ### ingestConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.IngestConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.IngestConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateStageRequestTypeDef
+# UpdateStageRequest
 
 ### arn
 - **Type**: <class 'str'>
@@ -1486,21 +1486,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### autoParticipantRecordingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs_realtime_classes.AutoParticipantRecordingConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs_realtime_classes.AutoParticipantRecordingConfigurationUnion]
 
 
-# UpdateStageResponseTypeDef
+# UpdateStageResponse
 
 ### stage
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.StageTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.Stage'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_realtime_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# VideoTypeDef
+# Video
 
 ### width
 - **Type**: typing.Optional[int]

@@ -12,18 +12,18 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.geo_places_constants import *
 
-class AccessPointTypeDef(BaseValidatorModel):
+class AccessPoint(BaseValidatorModel):
     Position: Optional[List[float]] = None
 
 
-class CategoryTypeDef(BaseValidatorModel):
+class Category(BaseValidatorModel):
     Id: str
     Name: str
     LocalizedName: Optional[str] = None
     Primary: Optional[bool] = None
 
 
-class AddressComponentMatchScoresTypeDef(BaseValidatorModel):
+class AddressComponentMatchScores(BaseValidatorModel):
     Country: Optional[float] = None
     Region: Optional[float] = None
     SubRegion: Optional[float] = None
@@ -38,40 +38,40 @@ class AddressComponentMatchScoresTypeDef(BaseValidatorModel):
     Building: Optional[float] = None
 
 
-class PhonemeTranscriptionTypeDef(BaseValidatorModel):
+class PhonemeTranscription(BaseValidatorModel):
     Value: Optional[str] = None
     Language: Optional[str] = None
     Preferred: Optional[bool] = None
 
 
-class CountryTypeDef(BaseValidatorModel):
+class Country(BaseValidatorModel):
     Code2: Optional[str] = None
     Code3: Optional[str] = None
     Name: Optional[str] = None
 
 
-class RegionTypeDef(BaseValidatorModel):
+class Region(BaseValidatorModel):
     Code: Optional[str] = None
     Name: Optional[str] = None
 
 
-class SubRegionTypeDef(BaseValidatorModel):
+class SubRegion(BaseValidatorModel):
     Code: Optional[str] = None
     Name: Optional[str] = None
 
 
-class HighlightTypeDef(BaseValidatorModel):
+class Highlight(BaseValidatorModel):
     StartIndex: Optional[int] = None
     EndIndex: Optional[int] = None
     Value: Optional[str] = None
 
 
-class FilterCircleTypeDef(BaseValidatorModel):
+class FilterCircle(BaseValidatorModel):
     Center: Sequence[float]
     Radius: int
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -79,23 +79,23 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class BusinessChainTypeDef(BaseValidatorModel):
+class BusinessChain(BaseValidatorModel):
     Name: Optional[str] = None
     Id: Optional[str] = None
 
 
-class FoodTypeTypeDef(BaseValidatorModel):
+class FoodType(BaseValidatorModel):
     LocalizedName: str
     Id: Optional[str] = None
     Primary: Optional[bool] = None
 
 
-class GeocodeFilterTypeDef(BaseValidatorModel):
+class GeocodeFilter(BaseValidatorModel):
     IncludeCountries: Optional[Sequence[str]] = None
     IncludePlaceTypes: Optional[Sequence[GeocodeFilterPlaceTypeType]] = None
 
 
-class GeocodeQueryComponentsTypeDef(BaseValidatorModel):
+class GeocodeQueryComponents(BaseValidatorModel):
     Country: Optional[str] = None
     Region: Optional[str] = None
     SubRegion: Optional[str] = None
@@ -106,13 +106,13 @@ class GeocodeQueryComponentsTypeDef(BaseValidatorModel):
     PostalCode: Optional[str] = None
 
 
-class TimeZoneTypeDef(BaseValidatorModel):
+class TimeZone(BaseValidatorModel):
     Name: str
     Offset: Optional[str] = None
     OffsetSeconds: Optional[int] = None
 
 
-class GetPlaceRequestTypeDef(BaseValidatorModel):
+class GetPlaceRequest(BaseValidatorModel):
     PlaceId: str
     AdditionalFeatures: Optional[Sequence[GetPlaceAdditionalFeatureType]] = None
     Language: Optional[str] = None
@@ -121,32 +121,32 @@ class GetPlaceRequestTypeDef(BaseValidatorModel):
     Key: Optional[str] = None
 
 
-class OpeningHoursComponentsTypeDef(BaseValidatorModel):
+class OpeningHoursComponents(BaseValidatorModel):
     OpenTime: Optional[str] = None
     OpenDuration: Optional[str] = None
     Recurrence: Optional[str] = None
 
 
-class UspsZipPlus4TypeDef(BaseValidatorModel):
+class UspsZipPlus4(BaseValidatorModel):
     RecordTypeCode: Optional[RecordTypeCodeType] = None
 
 
-class UspsZipTypeDef(BaseValidatorModel):
+class UspsZip(BaseValidatorModel):
     ZipClassificationCode: Optional[ZipClassificationCodeType] = None
 
 
-class QueryRefinementTypeDef(BaseValidatorModel):
+class QueryRefinement(BaseValidatorModel):
     RefinedTerm: str
     OriginalTerm: str
     StartIndex: int
     EndIndex: int
 
 
-class ReverseGeocodeFilterTypeDef(BaseValidatorModel):
+class ReverseGeocodeFilter(BaseValidatorModel):
     IncludePlaceTypes: Optional[Sequence[ReverseGeocodeFilterPlaceTypeType]] = None
 
 
-class SearchNearbyFilterTypeDef(BaseValidatorModel):
+class SearchNearbyFilter(BaseValidatorModel):
     BoundingBox: Optional[Sequence[float]] = None
     IncludeCountries: Optional[Sequence[str]] = None
     IncludeCategories: Optional[Sequence[str]] = None
@@ -157,48 +157,48 @@ class SearchNearbyFilterTypeDef(BaseValidatorModel):
     ExcludeFoodTypes: Optional[Sequence[str]] = None
 
 
-class SuggestQueryResultTypeDef(BaseValidatorModel):
+class SuggestQueryResult(BaseValidatorModel):
     QueryId: Optional[str] = None
     QueryType: Optional[QueryTypeType] = None
 
 
-class AccessRestrictionTypeDef(BaseValidatorModel):
+class AccessRestriction(BaseValidatorModel):
     Restricted: Optional[bool] = None
-    Categories: Optional[List[CategoryTypeDef]] = None
+    Categories: Optional[List[Category]] = None
 
 
-class ContactDetailsTypeDef(BaseValidatorModel):
+class ContactDetails(BaseValidatorModel):
     Label: Optional[str] = None
     Value: Optional[str] = None
-    Categories: Optional[List[CategoryTypeDef]] = None
+    Categories: Optional[List[Category]] = None
 
 
-class ComponentMatchScoresTypeDef(BaseValidatorModel):
+class ComponentMatchScores(BaseValidatorModel):
     Title: Optional[float] = None
-    Address: Optional[AddressComponentMatchScoresTypeDef] = None
+    Address: Optional[AddressComponentMatchScores] = None
 
 
-class AddressComponentPhonemesTypeDef(BaseValidatorModel):
-    Country: Optional[List[PhonemeTranscriptionTypeDef]] = None
-    Region: Optional[List[PhonemeTranscriptionTypeDef]] = None
-    SubRegion: Optional[List[PhonemeTranscriptionTypeDef]] = None
-    Locality: Optional[List[PhonemeTranscriptionTypeDef]] = None
-    District: Optional[List[PhonemeTranscriptionTypeDef]] = None
-    SubDistrict: Optional[List[PhonemeTranscriptionTypeDef]] = None
-    Block: Optional[List[PhonemeTranscriptionTypeDef]] = None
-    SubBlock: Optional[List[PhonemeTranscriptionTypeDef]] = None
-    Street: Optional[List[PhonemeTranscriptionTypeDef]] = None
+class AddressComponentPhonemes(BaseValidatorModel):
+    Country: Optional[List[PhonemeTranscription]] = None
+    Region: Optional[List[PhonemeTranscription]] = None
+    SubRegion: Optional[List[PhonemeTranscription]] = None
+    Locality: Optional[List[PhonemeTranscription]] = None
+    District: Optional[List[PhonemeTranscription]] = None
+    SubDistrict: Optional[List[PhonemeTranscription]] = None
+    Block: Optional[List[PhonemeTranscription]] = None
+    SubBlock: Optional[List[PhonemeTranscription]] = None
+    Street: Optional[List[PhonemeTranscription]] = None
 
 
-class StreetComponentsTypeDef(BaseValidatorModel):
+class StreetComponents(BaseValidatorModel):
     pass
 
 
-class AddressTypeDef(BaseValidatorModel):
+class Address(BaseValidatorModel):
     Label: Optional[str] = None
-    Country: Optional[CountryTypeDef] = None
-    Region: Optional[RegionTypeDef] = None
-    SubRegion: Optional[SubRegionTypeDef] = None
+    Country: Optional[Country] = None
+    Region: Optional[Region] = None
+    SubRegion: Optional[SubRegion] = None
     Locality: Optional[str] = None
     District: Optional[str] = None
     SubDistrict: Optional[str] = None
@@ -207,55 +207,55 @@ class AddressTypeDef(BaseValidatorModel):
     SubBlock: Optional[str] = None
     Intersection: Optional[List[str]] = None
     Street: Optional[str] = None
-    StreetComponents: Optional[List[StreetComponentsTypeDef]] = None
+    StreetComponents: Optional[List[StreetComponents]] = None
     AddressNumber: Optional[str] = None
     Building: Optional[str] = None
 
 
-class CountryHighlightsTypeDef(BaseValidatorModel):
-    Code: Optional[List[HighlightTypeDef]] = None
-    Name: Optional[List[HighlightTypeDef]] = None
+class CountryHighlights(BaseValidatorModel):
+    Code: Optional[List[Highlight]] = None
+    Name: Optional[List[Highlight]] = None
 
 
-class RegionHighlightsTypeDef(BaseValidatorModel):
-    Code: Optional[List[HighlightTypeDef]] = None
-    Name: Optional[List[HighlightTypeDef]] = None
+class RegionHighlights(BaseValidatorModel):
+    Code: Optional[List[Highlight]] = None
+    Name: Optional[List[Highlight]] = None
 
 
-class SubRegionHighlightsTypeDef(BaseValidatorModel):
-    Code: Optional[List[HighlightTypeDef]] = None
-    Name: Optional[List[HighlightTypeDef]] = None
+class SubRegionHighlights(BaseValidatorModel):
+    Code: Optional[List[Highlight]] = None
+    Name: Optional[List[Highlight]] = None
 
 
-class SuggestAddressHighlightsTypeDef(BaseValidatorModel):
-    Label: Optional[List[HighlightTypeDef]] = None
+class SuggestAddressHighlights(BaseValidatorModel):
+    Label: Optional[List[Highlight]] = None
 
 
-class AutocompleteFilterTypeDef(BaseValidatorModel):
+class AutocompleteFilter(BaseValidatorModel):
     BoundingBox: Optional[Sequence[float]] = None
-    Circle: Optional[FilterCircleTypeDef] = None
+    Circle: Optional[FilterCircle] = None
     IncludeCountries: Optional[Sequence[str]] = None
     IncludePlaceTypes: Optional[Sequence[AutocompleteFilterPlaceTypeType]] = None
 
 
-class SearchTextFilterTypeDef(BaseValidatorModel):
+class SearchTextFilter(BaseValidatorModel):
     BoundingBox: Optional[Sequence[float]] = None
-    Circle: Optional[FilterCircleTypeDef] = None
+    Circle: Optional[FilterCircle] = None
     IncludeCountries: Optional[Sequence[str]] = None
 
 
-class SuggestFilterTypeDef(BaseValidatorModel):
+class SuggestFilter(BaseValidatorModel):
     BoundingBox: Optional[Sequence[float]] = None
-    Circle: Optional[FilterCircleTypeDef] = None
+    Circle: Optional[FilterCircle] = None
     IncludeCountries: Optional[Sequence[str]] = None
 
 
-class GeocodeRequestTypeDef(BaseValidatorModel):
+class GeocodeRequest(BaseValidatorModel):
     QueryText: Optional[str] = None
-    QueryComponents: Optional[GeocodeQueryComponentsTypeDef] = None
+    QueryComponents: Optional[GeocodeQueryComponents] = None
     MaxResults: Optional[int] = None
     BiasPosition: Optional[Sequence[float]] = None
-    Filter: Optional[GeocodeFilterTypeDef] = None
+    Filter: Optional[GeocodeFilter] = None
     AdditionalFeatures: Optional[Sequence[GeocodeAdditionalFeatureType]] = None
     Language: Optional[str] = None
     PoliticalView: Optional[str] = None
@@ -263,26 +263,26 @@ class GeocodeRequestTypeDef(BaseValidatorModel):
     Key: Optional[str] = None
 
 
-class OpeningHoursTypeDef(BaseValidatorModel):
+class OpeningHours(BaseValidatorModel):
     Display: Optional[List[str]] = None
     OpenNow: Optional[bool] = None
-    Components: Optional[List[OpeningHoursComponentsTypeDef]] = None
-    Categories: Optional[List[CategoryTypeDef]] = None
+    Components: Optional[List[OpeningHoursComponents]] = None
+    Categories: Optional[List[Category]] = None
 
 
-class PostalCodeDetailsTypeDef(BaseValidatorModel):
+class PostalCodeDetails(BaseValidatorModel):
     PostalCode: Optional[str] = None
     PostalAuthority: Optional[Literal["Usps"]] = None
     PostalCodeType: Optional[PostalCodeTypeType] = None
-    UspsZip: Optional[UspsZipTypeDef] = None
-    UspsZipPlus4: Optional[UspsZipPlus4TypeDef] = None
+    UspsZip: Optional[UspsZip] = None
+    UspsZipPlus4: Optional[UspsZipPlus4] = None
 
 
-class ReverseGeocodeRequestTypeDef(BaseValidatorModel):
+class ReverseGeocodeRequest(BaseValidatorModel):
     QueryPosition: Sequence[float]
     QueryRadius: Optional[int] = None
     MaxResults: Optional[int] = None
-    Filter: Optional[ReverseGeocodeFilterTypeDef] = None
+    Filter: Optional[ReverseGeocodeFilter] = None
     AdditionalFeatures: Optional[Sequence[ReverseGeocodeAdditionalFeatureType]] = None
     Language: Optional[str] = None
     PoliticalView: Optional[str] = None
@@ -290,11 +290,11 @@ class ReverseGeocodeRequestTypeDef(BaseValidatorModel):
     Key: Optional[str] = None
 
 
-class SearchNearbyRequestTypeDef(BaseValidatorModel):
+class SearchNearbyRequest(BaseValidatorModel):
     QueryPosition: Sequence[float]
     QueryRadius: Optional[int] = None
     MaxResults: Optional[int] = None
-    Filter: Optional[SearchNearbyFilterTypeDef] = None
+    Filter: Optional[SearchNearbyFilter] = None
     AdditionalFeatures: Optional[Sequence[SearchNearbyAdditionalFeatureType]] = None
     Language: Optional[str] = None
     PoliticalView: Optional[str] = None
@@ -303,50 +303,50 @@ class SearchNearbyRequestTypeDef(BaseValidatorModel):
     Key: Optional[str] = None
 
 
-class ContactsTypeDef(BaseValidatorModel):
-    Phones: Optional[List[ContactDetailsTypeDef]] = None
-    Faxes: Optional[List[ContactDetailsTypeDef]] = None
-    Websites: Optional[List[ContactDetailsTypeDef]] = None
-    Emails: Optional[List[ContactDetailsTypeDef]] = None
+class Contacts(BaseValidatorModel):
+    Phones: Optional[List[ContactDetails]] = None
+    Faxes: Optional[List[ContactDetails]] = None
+    Websites: Optional[List[ContactDetails]] = None
+    Emails: Optional[List[ContactDetails]] = None
 
 
-class MatchScoreDetailsTypeDef(BaseValidatorModel):
+class MatchScoreDetails(BaseValidatorModel):
     Overall: Optional[float] = None
-    Components: Optional[ComponentMatchScoresTypeDef] = None
+    Components: Optional[ComponentMatchScores] = None
 
 
-class PhonemeDetailsTypeDef(BaseValidatorModel):
-    Title: Optional[List[PhonemeTranscriptionTypeDef]] = None
-    Address: Optional[AddressComponentPhonemesTypeDef] = None
+class PhonemeDetails(BaseValidatorModel):
+    Title: Optional[List[PhonemeTranscription]] = None
+    Address: Optional[AddressComponentPhonemes] = None
 
 
-class AutocompleteAddressHighlightsTypeDef(BaseValidatorModel):
-    Label: Optional[List[HighlightTypeDef]] = None
-    Country: Optional[CountryHighlightsTypeDef] = None
-    Region: Optional[RegionHighlightsTypeDef] = None
-    SubRegion: Optional[SubRegionHighlightsTypeDef] = None
-    Locality: Optional[List[HighlightTypeDef]] = None
-    District: Optional[List[HighlightTypeDef]] = None
-    SubDistrict: Optional[List[HighlightTypeDef]] = None
-    Street: Optional[List[HighlightTypeDef]] = None
-    Block: Optional[List[HighlightTypeDef]] = None
-    SubBlock: Optional[List[HighlightTypeDef]] = None
-    Intersection: Optional[List[List[HighlightTypeDef]]] = None
-    PostalCode: Optional[List[HighlightTypeDef]] = None
-    AddressNumber: Optional[List[HighlightTypeDef]] = None
-    Building: Optional[List[HighlightTypeDef]] = None
+class AutocompleteAddressHighlights(BaseValidatorModel):
+    Label: Optional[List[Highlight]] = None
+    Country: Optional[CountryHighlights] = None
+    Region: Optional[RegionHighlights] = None
+    SubRegion: Optional[SubRegionHighlights] = None
+    Locality: Optional[List[Highlight]] = None
+    District: Optional[List[Highlight]] = None
+    SubDistrict: Optional[List[Highlight]] = None
+    Street: Optional[List[Highlight]] = None
+    Block: Optional[List[Highlight]] = None
+    SubBlock: Optional[List[Highlight]] = None
+    Intersection: Optional[List[List[Highlight]]] = None
+    PostalCode: Optional[List[Highlight]] = None
+    AddressNumber: Optional[List[Highlight]] = None
+    Building: Optional[List[Highlight]] = None
 
 
-class SuggestHighlightsTypeDef(BaseValidatorModel):
-    Title: Optional[List[HighlightTypeDef]] = None
-    Address: Optional[SuggestAddressHighlightsTypeDef] = None
+class SuggestHighlights(BaseValidatorModel):
+    Title: Optional[List[Highlight]] = None
+    Address: Optional[SuggestAddressHighlights] = None
 
 
-class AutocompleteRequestTypeDef(BaseValidatorModel):
+class AutocompleteRequest(BaseValidatorModel):
     QueryText: str
     MaxResults: Optional[int] = None
     BiasPosition: Optional[Sequence[float]] = None
-    Filter: Optional[AutocompleteFilterTypeDef] = None
+    Filter: Optional[AutocompleteFilter] = None
     PostalCodeMode: Optional[PostalCodeModeType] = None
     AdditionalFeatures: Optional[Sequence[Literal["Core"]]] = None
     Language: Optional[str] = None
@@ -355,12 +355,12 @@ class AutocompleteRequestTypeDef(BaseValidatorModel):
     Key: Optional[str] = None
 
 
-class SearchTextRequestTypeDef(BaseValidatorModel):
+class SearchTextRequest(BaseValidatorModel):
     QueryText: Optional[str] = None
     QueryId: Optional[str] = None
     MaxResults: Optional[int] = None
     BiasPosition: Optional[Sequence[float]] = None
-    Filter: Optional[SearchTextFilterTypeDef] = None
+    Filter: Optional[SearchTextFilter] = None
     AdditionalFeatures: Optional[Sequence[SearchTextAdditionalFeatureType]] = None
     Language: Optional[str] = None
     PoliticalView: Optional[str] = None
@@ -369,12 +369,12 @@ class SearchTextRequestTypeDef(BaseValidatorModel):
     Key: Optional[str] = None
 
 
-class SuggestRequestTypeDef(BaseValidatorModel):
+class SuggestRequest(BaseValidatorModel):
     QueryText: str
     MaxResults: Optional[int] = None
     MaxQueryRefinements: Optional[int] = None
     BiasPosition: Optional[Sequence[float]] = None
-    Filter: Optional[SuggestFilterTypeDef] = None
+    Filter: Optional[SuggestFilter] = None
     AdditionalFeatures: Optional[Sequence[SuggestAdditionalFeatureType]] = None
     Language: Optional[str] = None
     PoliticalView: Optional[str] = None
@@ -382,183 +382,183 @@ class SuggestRequestTypeDef(BaseValidatorModel):
     Key: Optional[str] = None
 
 
-class ReverseGeocodeResultItemTypeDef(BaseValidatorModel):
+class ReverseGeocodeResultItem(BaseValidatorModel):
     PlaceId: str
     PlaceType: PlaceTypeType
     Title: str
-    Address: Optional[AddressTypeDef] = None
+    Address: Optional[Address] = None
     AddressNumberCorrected: Optional[bool] = None
-    PostalCodeDetails: Optional[List[PostalCodeDetailsTypeDef]] = None
+    PostalCodeDetails: Optional[List[PostalCodeDetails]] = None
     Position: Optional[List[float]] = None
     Distance: Optional[int] = None
     MapView: Optional[List[float]] = None
-    Categories: Optional[List[CategoryTypeDef]] = None
-    FoodTypes: Optional[List[FoodTypeTypeDef]] = None
-    AccessPoints: Optional[List[AccessPointTypeDef]] = None
-    TimeZone: Optional[TimeZoneTypeDef] = None
+    Categories: Optional[List[Category]] = None
+    FoodTypes: Optional[List[FoodType]] = None
+    AccessPoints: Optional[List[AccessPoint]] = None
+    TimeZone: Optional[TimeZone] = None
     PoliticalView: Optional[str] = None
 
 
-class GeocodeResultItemTypeDef(BaseValidatorModel):
+class GeocodeResultItem(BaseValidatorModel):
     PlaceId: str
     PlaceType: PlaceTypeType
     Title: str
-    Address: Optional[AddressTypeDef] = None
+    Address: Optional[Address] = None
     AddressNumberCorrected: Optional[bool] = None
-    PostalCodeDetails: Optional[List[PostalCodeDetailsTypeDef]] = None
+    PostalCodeDetails: Optional[List[PostalCodeDetails]] = None
     Position: Optional[List[float]] = None
     Distance: Optional[int] = None
     MapView: Optional[List[float]] = None
-    Categories: Optional[List[CategoryTypeDef]] = None
-    FoodTypes: Optional[List[FoodTypeTypeDef]] = None
-    AccessPoints: Optional[List[AccessPointTypeDef]] = None
-    TimeZone: Optional[TimeZoneTypeDef] = None
+    Categories: Optional[List[Category]] = None
+    FoodTypes: Optional[List[FoodType]] = None
+    AccessPoints: Optional[List[AccessPoint]] = None
+    TimeZone: Optional[TimeZone] = None
     PoliticalView: Optional[str] = None
-    MatchScores: Optional[MatchScoreDetailsTypeDef] = None
+    MatchScores: Optional[MatchScoreDetails] = None
 
 
-class GetPlaceResponseTypeDef(BaseValidatorModel):
+class GetPlaceResponse(BaseValidatorModel):
     PlaceId: str
     PlaceType: PlaceTypeType
     Title: str
     PricingBucket: str
-    Address: AddressTypeDef
+    Address: Address
     AddressNumberCorrected: bool
-    PostalCodeDetails: List[PostalCodeDetailsTypeDef]
+    PostalCodeDetails: List[PostalCodeDetails]
     Position: List[float]
     MapView: List[float]
-    Categories: List[CategoryTypeDef]
-    FoodTypes: List[FoodTypeTypeDef]
-    BusinessChains: List[BusinessChainTypeDef]
-    Contacts: ContactsTypeDef
-    OpeningHours: List[OpeningHoursTypeDef]
-    AccessPoints: List[AccessPointTypeDef]
-    AccessRestrictions: List[AccessRestrictionTypeDef]
-    TimeZone: TimeZoneTypeDef
+    Categories: List[Category]
+    FoodTypes: List[FoodType]
+    BusinessChains: List[BusinessChain]
+    Contacts: Contacts
+    OpeningHours: List[OpeningHours]
+    AccessPoints: List[AccessPoint]
+    AccessRestrictions: List[AccessRestriction]
+    TimeZone: TimeZone
     PoliticalView: str
-    Phonemes: PhonemeDetailsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    Phonemes: PhonemeDetails
+    ResponseMetadata: ResponseMetadata
 
 
-class SearchNearbyResultItemTypeDef(BaseValidatorModel):
+class SearchNearbyResultItem(BaseValidatorModel):
     PlaceId: str
     PlaceType: PlaceTypeType
     Title: str
-    Address: Optional[AddressTypeDef] = None
+    Address: Optional[Address] = None
     AddressNumberCorrected: Optional[bool] = None
     Position: Optional[List[float]] = None
     Distance: Optional[int] = None
     MapView: Optional[List[float]] = None
-    Categories: Optional[List[CategoryTypeDef]] = None
-    FoodTypes: Optional[List[FoodTypeTypeDef]] = None
-    BusinessChains: Optional[List[BusinessChainTypeDef]] = None
-    Contacts: Optional[ContactsTypeDef] = None
-    OpeningHours: Optional[List[OpeningHoursTypeDef]] = None
-    AccessPoints: Optional[List[AccessPointTypeDef]] = None
-    AccessRestrictions: Optional[List[AccessRestrictionTypeDef]] = None
-    TimeZone: Optional[TimeZoneTypeDef] = None
+    Categories: Optional[List[Category]] = None
+    FoodTypes: Optional[List[FoodType]] = None
+    BusinessChains: Optional[List[BusinessChain]] = None
+    Contacts: Optional[Contacts] = None
+    OpeningHours: Optional[List[OpeningHours]] = None
+    AccessPoints: Optional[List[AccessPoint]] = None
+    AccessRestrictions: Optional[List[AccessRestriction]] = None
+    TimeZone: Optional[TimeZone] = None
     PoliticalView: Optional[str] = None
-    Phonemes: Optional[PhonemeDetailsTypeDef] = None
+    Phonemes: Optional[PhonemeDetails] = None
 
 
-class SearchTextResultItemTypeDef(BaseValidatorModel):
+class SearchTextResultItem(BaseValidatorModel):
     PlaceId: str
     PlaceType: PlaceTypeType
     Title: str
-    Address: Optional[AddressTypeDef] = None
+    Address: Optional[Address] = None
     AddressNumberCorrected: Optional[bool] = None
     Position: Optional[List[float]] = None
     Distance: Optional[int] = None
     MapView: Optional[List[float]] = None
-    Categories: Optional[List[CategoryTypeDef]] = None
-    FoodTypes: Optional[List[FoodTypeTypeDef]] = None
-    BusinessChains: Optional[List[BusinessChainTypeDef]] = None
-    Contacts: Optional[ContactsTypeDef] = None
-    OpeningHours: Optional[List[OpeningHoursTypeDef]] = None
-    AccessPoints: Optional[List[AccessPointTypeDef]] = None
-    AccessRestrictions: Optional[List[AccessRestrictionTypeDef]] = None
-    TimeZone: Optional[TimeZoneTypeDef] = None
+    Categories: Optional[List[Category]] = None
+    FoodTypes: Optional[List[FoodType]] = None
+    BusinessChains: Optional[List[BusinessChain]] = None
+    Contacts: Optional[Contacts] = None
+    OpeningHours: Optional[List[OpeningHours]] = None
+    AccessPoints: Optional[List[AccessPoint]] = None
+    AccessRestrictions: Optional[List[AccessRestriction]] = None
+    TimeZone: Optional[TimeZone] = None
     PoliticalView: Optional[str] = None
-    Phonemes: Optional[PhonemeDetailsTypeDef] = None
+    Phonemes: Optional[PhonemeDetails] = None
 
 
-class SuggestPlaceResultTypeDef(BaseValidatorModel):
+class SuggestPlaceResult(BaseValidatorModel):
     PlaceId: Optional[str] = None
     PlaceType: Optional[PlaceTypeType] = None
-    Address: Optional[AddressTypeDef] = None
+    Address: Optional[Address] = None
     Position: Optional[List[float]] = None
     Distance: Optional[int] = None
     MapView: Optional[List[float]] = None
-    Categories: Optional[List[CategoryTypeDef]] = None
-    FoodTypes: Optional[List[FoodTypeTypeDef]] = None
-    BusinessChains: Optional[List[BusinessChainTypeDef]] = None
-    AccessPoints: Optional[List[AccessPointTypeDef]] = None
-    AccessRestrictions: Optional[List[AccessRestrictionTypeDef]] = None
-    TimeZone: Optional[TimeZoneTypeDef] = None
+    Categories: Optional[List[Category]] = None
+    FoodTypes: Optional[List[FoodType]] = None
+    BusinessChains: Optional[List[BusinessChain]] = None
+    AccessPoints: Optional[List[AccessPoint]] = None
+    AccessRestrictions: Optional[List[AccessRestriction]] = None
+    TimeZone: Optional[TimeZone] = None
     PoliticalView: Optional[str] = None
-    Phonemes: Optional[PhonemeDetailsTypeDef] = None
+    Phonemes: Optional[PhonemeDetails] = None
 
 
-class AutocompleteHighlightsTypeDef(BaseValidatorModel):
-    Title: Optional[List[HighlightTypeDef]] = None
-    Address: Optional[AutocompleteAddressHighlightsTypeDef] = None
+class AutocompleteHighlights(BaseValidatorModel):
+    Title: Optional[List[Highlight]] = None
+    Address: Optional[AutocompleteAddressHighlights] = None
 
 
-class ReverseGeocodeResponseTypeDef(BaseValidatorModel):
+class ReverseGeocodeResponse(BaseValidatorModel):
     PricingBucket: str
-    ResultItems: List[ReverseGeocodeResultItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResultItems: List[ReverseGeocodeResultItem]
+    ResponseMetadata: ResponseMetadata
 
 
-class GeocodeResponseTypeDef(BaseValidatorModel):
+class GeocodeResponse(BaseValidatorModel):
     PricingBucket: str
-    ResultItems: List[GeocodeResultItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResultItems: List[GeocodeResultItem]
+    ResponseMetadata: ResponseMetadata
 
 
-class SearchNearbyResponseTypeDef(BaseValidatorModel):
+class SearchNearbyResponse(BaseValidatorModel):
     PricingBucket: str
-    ResultItems: List[SearchNearbyResultItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResultItems: List[SearchNearbyResultItem]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class SearchTextResponseTypeDef(BaseValidatorModel):
+class SearchTextResponse(BaseValidatorModel):
     PricingBucket: str
-    ResultItems: List[SearchTextResultItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResultItems: List[SearchTextResultItem]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class SuggestResultItemTypeDef(BaseValidatorModel):
+class SuggestResultItem(BaseValidatorModel):
     Title: str
     SuggestResultItemType: SuggestResultItemTypeType
-    Place: Optional[SuggestPlaceResultTypeDef] = None
-    Query: Optional[SuggestQueryResultTypeDef] = None
-    Highlights: Optional[SuggestHighlightsTypeDef] = None
+    Place: Optional[SuggestPlaceResult] = None
+    Query: Optional[SuggestQueryResult] = None
+    Highlights: Optional[SuggestHighlights] = None
 
 
-class AutocompleteResultItemTypeDef(BaseValidatorModel):
+class AutocompleteResultItem(BaseValidatorModel):
     PlaceId: str
     PlaceType: PlaceTypeType
     Title: str
-    Address: Optional[AddressTypeDef] = None
+    Address: Optional[Address] = None
     Distance: Optional[int] = None
     Language: Optional[str] = None
     PoliticalView: Optional[str] = None
-    Highlights: Optional[AutocompleteHighlightsTypeDef] = None
+    Highlights: Optional[AutocompleteHighlights] = None
 
 
-class SuggestResponseTypeDef(BaseValidatorModel):
+class SuggestResponse(BaseValidatorModel):
     PricingBucket: str
-    ResultItems: List[SuggestResultItemTypeDef]
-    QueryRefinements: List[QueryRefinementTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResultItems: List[SuggestResultItem]
+    QueryRefinements: List[QueryRefinement]
+    ResponseMetadata: ResponseMetadata
 
 
-class AutocompleteResponseTypeDef(BaseValidatorModel):
+class AutocompleteResponse(BaseValidatorModel):
     PricingBucket: str
-    ResultItems: List[AutocompleteResultItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResultItems: List[AutocompleteResultItem]
+    ResponseMetadata: ResponseMetadata
 
 

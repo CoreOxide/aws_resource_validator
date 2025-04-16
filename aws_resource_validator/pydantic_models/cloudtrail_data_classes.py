@@ -12,7 +12,7 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.cloudtrail_data_constants import *
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -20,27 +20,27 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class AuditEventTypeDef(BaseValidatorModel):
+class AuditEvent(BaseValidatorModel):
     pass
 
 
-class PutAuditEventsRequestTypeDef(BaseValidatorModel):
-    auditEvents: Sequence[AuditEventTypeDef]
+class PutAuditEventsRequest(BaseValidatorModel):
+    auditEvents: Sequence[AuditEvent]
     channelArn: str
     externalId: Optional[str] = None
 
 
-class AuditEventResultEntryTypeDef(BaseValidatorModel):
+class AuditEventResultEntry(BaseValidatorModel):
     pass
 
 
-class ResultErrorEntryTypeDef(BaseValidatorModel):
+class ResultErrorEntry(BaseValidatorModel):
     pass
 
 
-class PutAuditEventsResponseTypeDef(BaseValidatorModel):
-    failed: List[ResultErrorEntryTypeDef]
-    successful: List[AuditEventResultEntryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class PutAuditEventsResponse(BaseValidatorModel):
+    failed: List[ResultErrorEntry]
+    successful: List[AuditEventResultEntry]
+    ResponseMetadata: ResponseMetadata
 
 

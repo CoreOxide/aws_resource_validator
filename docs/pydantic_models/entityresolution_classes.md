@@ -1,6 +1,6 @@
 # Entityresolution Classes
 
-# AddPolicyStatementInputTypeDef
+# AddPolicyStatementInput
 
 ### action
 - **Type**: typing.Sequence[str]
@@ -26,7 +26,7 @@
 - **Type**: typing.Optional[str]
 
 
-# AddPolicyStatementOutputTypeDef
+# AddPolicyStatementOutput
 
 ### arn
 - **Type**: <class 'str'>
@@ -41,7 +41,7 @@
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -51,7 +51,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BatchDeleteUniqueIdInputTypeDef
+# BatchDeleteUniqueIdInput
 
 ### uniqueIds
 - **Type**: typing.Sequence[str]
@@ -65,10 +65,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# BatchDeleteUniqueIdOutputTypeDef
+# BatchDeleteUniqueIdOutput
 
 ### deleted
-- **Type**: typing.List[aws_resource_validator.pydantic_models.entityresolution_classes.DeletedUniqueIdTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.entityresolution_classes.DeletedUniqueId]
 - **Required**: Yes
 
 ### disconnectedUniqueIds
@@ -76,7 +76,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### errors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.entityresolution_classes.DeleteUniqueIdErrorTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.entityresolution_classes.DeleteUniqueIdError]
 - **Required**: Yes
 
 ### status
@@ -84,18 +84,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateIdMappingWorkflowInputTypeDef
+# CreateIdMappingWorkflowInput
 
 ### idMappingTechniques
-- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.IdMappingTechniquesUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.IdMappingTechniquesUnion'>
 - **Required**: Yes
 
 ### inputSourceConfig
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.entityresolution_classes.IdMappingWorkflowInputSourceTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.entityresolution_classes.IdMappingWorkflowInputSource]
 - **Required**: Yes
 
 ### workflowName
@@ -106,7 +106,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### outputSourceConfig
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.entityresolution_classes.IdMappingWorkflowOutputSourceTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.entityresolution_classes.IdMappingWorkflowOutputSource]]
 
 ### roleArn
 - **Type**: typing.Optional[str]
@@ -115,22 +115,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateIdMappingWorkflowOutputTypeDef
+# CreateIdMappingWorkflowOutput
 
 ### description
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### idMappingTechniques
-- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.IdMappingTechniquesOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.IdMappingTechniquesOutput'>
 - **Required**: Yes
 
 ### inputSourceConfig
-- **Type**: typing.List[aws_resource_validator.pydantic_models.entityresolution_classes.IdMappingWorkflowInputSourceTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.entityresolution_classes.IdMappingWorkflowInputSource]
 - **Required**: Yes
 
 ### outputSourceConfig
-- **Type**: typing.List[aws_resource_validator.pydantic_models.entityresolution_classes.IdMappingWorkflowOutputSourceTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.entityresolution_classes.IdMappingWorkflowOutputSource]
 - **Required**: Yes
 
 ### roleArn
@@ -146,22 +146,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateMatchingWorkflowInputTypeDef
+# CreateMatchingWorkflowInput
 
 ### inputSourceConfig
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.entityresolution_classes.InputSourceTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.entityresolution_classes.InputSource]
 - **Required**: Yes
 
 ### outputSourceConfig
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.entityresolution_classes.OutputSourceUnionTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.entityresolution_classes.OutputSourceUnion]
 - **Required**: Yes
 
 ### resolutionTechniques
-- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ResolutionTechniquesUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ResolutionTechniquesUnion'>
 - **Required**: Yes
 
 ### roleArn
@@ -176,32 +176,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### incrementalRunConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.entityresolution_classes.IncrementalRunConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.entityresolution_classes.IncrementalRunConfig]
 
 ### tags
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateMatchingWorkflowOutputTypeDef
+# CreateMatchingWorkflowOutput
 
 ### description
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### incrementalRunConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.IncrementalRunConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.IncrementalRunConfig'>
 - **Required**: Yes
 
 ### inputSourceConfig
-- **Type**: typing.List[aws_resource_validator.pydantic_models.entityresolution_classes.InputSourceTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.entityresolution_classes.InputSource]
 - **Required**: Yes
 
 ### outputSourceConfig
-- **Type**: typing.List[aws_resource_validator.pydantic_models.entityresolution_classes.OutputSourceOutputTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.entityresolution_classes.OutputSourceOutput]
 - **Required**: Yes
 
 ### resolutionTechniques
-- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ResolutionTechniquesOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ResolutionTechniquesOutput'>
 - **Required**: Yes
 
 ### roleArn
@@ -217,14 +217,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateSchemaMappingInputTypeDef
+# CreateSchemaMappingInput
 
 ### mappedInputFields
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.entityresolution_classes.SchemaInputAttributeTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.entityresolution_classes.SchemaInputAttribute]
 - **Required**: Yes
 
 ### schemaName
@@ -238,14 +238,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateSchemaMappingOutputTypeDef
+# CreateSchemaMappingOutput
 
 ### description
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### mappedInputFields
-- **Type**: typing.List[aws_resource_validator.pydantic_models.entityresolution_classes.SchemaInputAttributeTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.entityresolution_classes.SchemaInputAttribute]
 - **Required**: Yes
 
 ### schemaArn
@@ -257,65 +257,65 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteIdMappingWorkflowInputTypeDef
+# DeleteIdMappingWorkflowInput
 
 ### workflowName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteIdMappingWorkflowOutputTypeDef
+# DeleteIdMappingWorkflowOutput
 
 ### message
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteIdNamespaceInputTypeDef
+# DeleteIdNamespaceInput
 
 ### idNamespaceName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteIdNamespaceOutputTypeDef
+# DeleteIdNamespaceOutput
 
 ### message
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteMatchingWorkflowInputTypeDef
+# DeleteMatchingWorkflowInput
 
 ### workflowName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteMatchingWorkflowOutputTypeDef
+# DeleteMatchingWorkflowOutput
 
 ### message
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeletePolicyStatementInputTypeDef
+# DeletePolicyStatementInput
 
 ### arn
 - **Type**: <class 'str'>
@@ -326,7 +326,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeletePolicyStatementOutputTypeDef
+# DeletePolicyStatementOutput
 
 ### arn
 - **Type**: <class 'str'>
@@ -341,29 +341,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteSchemaMappingInputTypeDef
+# DeleteSchemaMappingInput
 
 ### schemaName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteSchemaMappingOutputTypeDef
+# DeleteSchemaMappingOutput
 
 ### message
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteUniqueIdErrorTypeDef
+# DeleteUniqueIdError
 
 ### errorType
 - **Type**: typing.Literal['SERVICE_ERROR', 'VALIDATION_ERROR']
@@ -374,20 +374,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeletedUniqueIdTypeDef
+# DeletedUniqueId
 
 ### uniqueId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ErrorDetailsTypeDef
+# ErrorDetails
 
 ### errorMessage
 - **Type**: typing.Optional[str]
 
 
-# GetIdMappingJobInputTypeDef
+# GetIdMappingJobInput
 
 ### jobId
 - **Type**: <class 'str'>
@@ -398,14 +398,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetIdMappingJobOutputTypeDef
+# GetIdMappingJobOutput
 
 ### endTime
 - **Type**: <class 'datetime.datetime'>
 - **Required**: Yes
 
 ### errorDetails
-- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ErrorDetailsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ErrorDetails'>
 - **Required**: Yes
 
 ### jobId
@@ -413,11 +413,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### metrics
-- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.IdMappingJobMetricsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.IdMappingJobMetrics'>
 - **Required**: Yes
 
 ### outputSourceConfig
-- **Type**: typing.List[aws_resource_validator.pydantic_models.entityresolution_classes.IdMappingJobOutputSourceTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.entityresolution_classes.IdMappingJobOutputSource]
 - **Required**: Yes
 
 ### startTime
@@ -429,18 +429,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetIdMappingWorkflowInputTypeDef
+# GetIdMappingWorkflowInput
 
 ### workflowName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetIdMappingWorkflowOutputTypeDef
+# GetIdMappingWorkflowOutput
 
 ### createdAt
 - **Type**: <class 'datetime.datetime'>
@@ -451,15 +451,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### idMappingTechniques
-- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.IdMappingTechniquesOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.IdMappingTechniquesOutput'>
 - **Required**: Yes
 
 ### inputSourceConfig
-- **Type**: typing.List[aws_resource_validator.pydantic_models.entityresolution_classes.IdMappingWorkflowInputSourceTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.entityresolution_classes.IdMappingWorkflowInputSource]
 - **Required**: Yes
 
 ### outputSourceConfig
-- **Type**: typing.List[aws_resource_validator.pydantic_models.entityresolution_classes.IdMappingWorkflowOutputSourceTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.entityresolution_classes.IdMappingWorkflowOutputSource]
 - **Required**: Yes
 
 ### roleArn
@@ -483,18 +483,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetIdNamespaceInputTypeDef
+# GetIdNamespaceInput
 
 ### idNamespaceName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetMatchIdInputTypeDef
+# GetMatchIdInput
 
 ### record
 - **Type**: typing.Mapping[str, str]
@@ -508,7 +508,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# GetMatchIdOutputTypeDef
+# GetMatchIdOutput
 
 ### matchId
 - **Type**: <class 'str'>
@@ -519,11 +519,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetMatchingJobInputTypeDef
+# GetMatchingJobInput
 
 ### jobId
 - **Type**: <class 'str'>
@@ -534,14 +534,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetMatchingJobOutputTypeDef
+# GetMatchingJobOutput
 
 ### endTime
 - **Type**: <class 'datetime.datetime'>
 - **Required**: Yes
 
 ### errorDetails
-- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ErrorDetailsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ErrorDetails'>
 - **Required**: Yes
 
 ### jobId
@@ -549,11 +549,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### metrics
-- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.JobMetricsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.JobMetrics'>
 - **Required**: Yes
 
 ### outputSourceConfig
-- **Type**: typing.List[aws_resource_validator.pydantic_models.entityresolution_classes.JobOutputSourceTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.entityresolution_classes.JobOutputSource]
 - **Required**: Yes
 
 ### startTime
@@ -565,18 +565,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetMatchingWorkflowInputTypeDef
+# GetMatchingWorkflowInput
 
 ### workflowName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetMatchingWorkflowOutputTypeDef
+# GetMatchingWorkflowOutput
 
 ### createdAt
 - **Type**: <class 'datetime.datetime'>
@@ -587,19 +587,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### incrementalRunConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.IncrementalRunConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.IncrementalRunConfig'>
 - **Required**: Yes
 
 ### inputSourceConfig
-- **Type**: typing.List[aws_resource_validator.pydantic_models.entityresolution_classes.InputSourceTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.entityresolution_classes.InputSource]
 - **Required**: Yes
 
 ### outputSourceConfig
-- **Type**: typing.List[aws_resource_validator.pydantic_models.entityresolution_classes.OutputSourceOutputTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.entityresolution_classes.OutputSourceOutput]
 - **Required**: Yes
 
 ### resolutionTechniques
-- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ResolutionTechniquesOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ResolutionTechniquesOutput'>
 - **Required**: Yes
 
 ### roleArn
@@ -623,18 +623,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetPolicyInputTypeDef
+# GetPolicyInput
 
 ### arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetPolicyOutputTypeDef
+# GetPolicyOutput
 
 ### arn
 - **Type**: <class 'str'>
@@ -649,11 +649,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetProviderServiceInputTypeDef
+# GetProviderServiceInput
 
 ### providerName
 - **Type**: <class 'str'>
@@ -664,14 +664,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetProviderServiceOutputTypeDef
+# GetProviderServiceOutput
 
 ### anonymizedOutput
 - **Type**: <class 'bool'>
 - **Required**: Yes
 
 ### providerComponentSchema
-- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ProviderComponentSchemaTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ProviderComponentSchema'>
 - **Required**: Yes
 
 ### providerConfigurationDefinition
@@ -679,7 +679,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### providerEndpointConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ProviderEndpointConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ProviderEndpointConfiguration'>
 - **Required**: Yes
 
 ### providerEntityOutputDefinition
@@ -687,11 +687,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### providerIdNameSpaceConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ProviderIdNameSpaceConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ProviderIdNameSpaceConfiguration'>
 - **Required**: Yes
 
 ### providerIntermediateDataAccessConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ProviderIntermediateDataAccessConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ProviderIntermediateDataAccessConfiguration'>
 - **Required**: Yes
 
 ### providerJobConfiguration
@@ -719,18 +719,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetSchemaMappingInputTypeDef
+# GetSchemaMappingInput
 
 ### schemaName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetSchemaMappingOutputTypeDef
+# GetSchemaMappingOutput
 
 ### createdAt
 - **Type**: <class 'datetime.datetime'>
@@ -745,7 +745,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### mappedInputFields
-- **Type**: typing.List[aws_resource_validator.pydantic_models.entityresolution_classes.SchemaInputAttributeTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.entityresolution_classes.SchemaInputAttribute]
 - **Required**: Yes
 
 ### schemaArn
@@ -765,11 +765,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# IdMappingJobMetricsTypeDef
+# IdMappingJobMetrics
 
 ### inputRecords
 - **Type**: typing.Optional[int]
@@ -790,7 +790,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# IdMappingJobOutputSourceTypeDef
+# IdMappingJobOutputSource
 
 ### outputS3Path
 - **Type**: <class 'str'>
@@ -804,7 +804,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# IdMappingRuleBasedPropertiesOutputTypeDef
+# IdMappingRuleBasedProperties
 
 ### attributeMatchingModel
 - **Type**: typing.Literal['MANY_TO_MANY', 'ONE_TO_ONE']
@@ -819,10 +819,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### rules
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.entityresolution_classes.RuleOutputTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.entityresolution_classes.Rule]]
 
 
-# IdMappingRuleBasedPropertiesTypeDef
+# IdMappingRuleBasedPropertiesOutput
 
 ### attributeMatchingModel
 - **Type**: typing.Literal['MANY_TO_MANY', 'ONE_TO_ONE']
@@ -837,48 +837,48 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### rules
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.entityresolution_classes.RuleTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.entityresolution_classes.RuleOutput]]
 
 
-# IdMappingTechniquesOutputTypeDef
-
-### idMappingType
-- **Type**: typing.Literal['PROVIDER', 'RULE_BASED']
-- **Required**: Yes
-
-### providerProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.entityresolution_classes.ProviderPropertiesOutputTypeDef]
-
-### ruleBasedProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.entityresolution_classes.IdMappingRuleBasedPropertiesOutputTypeDef]
-
-
-# IdMappingTechniquesTypeDef
+# IdMappingTechniques
 
 ### idMappingType
 - **Type**: typing.Literal['PROVIDER', 'RULE_BASED']
 - **Required**: Yes
 
 ### providerProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.entityresolution_classes.ProviderPropertiesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.entityresolution_classes.ProviderProperties]
 
 ### ruleBasedProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.entityresolution_classes.IdMappingRuleBasedPropertiesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.entityresolution_classes.IdMappingRuleBasedProperties]
 
 
-# IdMappingTechniquesUnionTypeDef
+# IdMappingTechniquesOutput
+
+### idMappingType
+- **Type**: typing.Literal['PROVIDER', 'RULE_BASED']
+- **Required**: Yes
+
+### providerProperties
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.entityresolution_classes.ProviderPropertiesOutput]
+
+### ruleBasedProperties
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.entityresolution_classes.IdMappingRuleBasedPropertiesOutput]
+
+
+# IdMappingTechniquesUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# IdMappingWorkflowInputSourceTypeDef
+# IdMappingWorkflowInputSource
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# IdMappingWorkflowOutputSourceTypeDef
+# IdMappingWorkflowOutputSource
 
 ### outputS3Path
 - **Type**: <class 'str'>
@@ -888,7 +888,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# IdMappingWorkflowSummaryTypeDef
+# IdMappingWorkflowSummary
 
 ### createdAt
 - **Type**: <class 'datetime.datetime'>
@@ -907,46 +907,46 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# IdNamespaceIdMappingWorkflowMetadataTypeDef
+# IdNamespaceIdMappingWorkflowMetadata
 
 ### idMappingType
 - **Type**: typing.Literal['PROVIDER', 'RULE_BASED']
 - **Required**: Yes
 
 
-# IdNamespaceIdMappingWorkflowPropertiesOutputTypeDef
-
-### idMappingType
-- **Type**: typing.Literal['PROVIDER', 'RULE_BASED']
-- **Required**: Yes
-
-### providerProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.entityresolution_classes.NamespaceProviderPropertiesOutputTypeDef]
-
-### ruleBasedProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.entityresolution_classes.NamespaceRuleBasedPropertiesOutputTypeDef]
-
-
-# IdNamespaceIdMappingWorkflowPropertiesTypeDef
+# IdNamespaceIdMappingWorkflowProperties
 
 ### idMappingType
 - **Type**: typing.Literal['PROVIDER', 'RULE_BASED']
 - **Required**: Yes
 
 ### providerProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.entityresolution_classes.NamespaceProviderPropertiesUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.entityresolution_classes.NamespaceProviderPropertiesUnion]
 
 ### ruleBasedProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.entityresolution_classes.NamespaceRuleBasedPropertiesUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.entityresolution_classes.NamespaceRuleBasedPropertiesUnion]
 
 
-# IdNamespaceIdMappingWorkflowPropertiesUnionTypeDef
+# IdNamespaceIdMappingWorkflowPropertiesOutput
+
+### idMappingType
+- **Type**: typing.Literal['PROVIDER', 'RULE_BASED']
+- **Required**: Yes
+
+### providerProperties
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.entityresolution_classes.NamespaceProviderPropertiesOutput]
+
+### ruleBasedProperties
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.entityresolution_classes.NamespaceRuleBasedPropertiesOutput]
+
+
+# IdNamespaceIdMappingWorkflowPropertiesUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# IdNamespaceInputSourceTypeDef
+# IdNamespaceInputSource
 
 ### inputSourceARN
 - **Type**: <class 'str'>
@@ -956,19 +956,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# IdNamespaceSummaryTypeDef
+# IdNamespaceSummary
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# IncrementalRunConfigTypeDef
+# IncrementalRunConfig
 
 ### incrementalRunType
 - **Type**: typing.Optional[typing.Literal['IMMEDIATE']]
 
 
-# InputSourceTypeDef
+# InputSource
 
 ### inputSourceARN
 - **Type**: <class 'str'>
@@ -982,14 +982,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# IntermediateSourceConfigurationTypeDef
+# IntermediateSourceConfiguration
 
 ### intermediateS3Path
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# JobMetricsTypeDef
+# JobMetrics
 
 ### inputRecords
 - **Type**: typing.Optional[int]
@@ -1004,7 +1004,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# JobOutputSourceTypeDef
+# JobOutputSource
 
 ### outputS3Path
 - **Type**: <class 'str'>
@@ -1018,7 +1018,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# JobSummaryTypeDef
+# JobSummary
 
 ### jobId
 - **Type**: <class 'str'>
@@ -1036,17 +1036,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# ListIdMappingJobsInputPaginateTypeDef
-
-### workflowName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.entityresolution_classes.PaginatorConfigTypeDef]
-
-
-# ListIdMappingJobsInputTypeDef
+# ListIdMappingJobsInput
 
 ### workflowName
 - **Type**: <class 'str'>
@@ -1059,27 +1049,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListIdMappingJobsOutputTypeDef
+# ListIdMappingJobsInputPaginate
+
+### workflowName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.entityresolution_classes.PaginatorConfig]
+
+
+# ListIdMappingJobsOutput
 
 ### jobs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.entityresolution_classes.JobSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.entityresolution_classes.JobSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListIdMappingWorkflowsInputPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.entityresolution_classes.PaginatorConfigTypeDef]
-
-
-# ListIdMappingWorkflowsInputTypeDef
+# ListIdMappingWorkflowsInput
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -1088,27 +1082,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListIdMappingWorkflowsOutputTypeDef
+# ListIdMappingWorkflowsInputPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.entityresolution_classes.PaginatorConfig]
+
+
+# ListIdMappingWorkflowsOutput
 
 ### workflowSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.entityresolution_classes.IdMappingWorkflowSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.entityresolution_classes.IdMappingWorkflowSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListIdNamespacesInputPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.entityresolution_classes.PaginatorConfigTypeDef]
-
-
-# ListIdNamespacesInputTypeDef
+# ListIdNamespacesInput
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -1117,31 +1111,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListIdNamespacesOutputTypeDef
+# ListIdNamespacesInputPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.entityresolution_classes.PaginatorConfig]
+
+
+# ListIdNamespacesOutput
 
 ### idNamespaceSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.entityresolution_classes.IdNamespaceSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.entityresolution_classes.IdNamespaceSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListMatchingJobsInputPaginateTypeDef
-
-### workflowName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.entityresolution_classes.PaginatorConfigTypeDef]
-
-
-# ListMatchingJobsInputTypeDef
+# ListMatchingJobsInput
 
 ### workflowName
 - **Type**: <class 'str'>
@@ -1154,27 +1144,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListMatchingJobsOutputTypeDef
+# ListMatchingJobsInputPaginate
+
+### workflowName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.entityresolution_classes.PaginatorConfig]
+
+
+# ListMatchingJobsOutput
 
 ### jobs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.entityresolution_classes.JobSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.entityresolution_classes.JobSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListMatchingWorkflowsInputPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.entityresolution_classes.PaginatorConfigTypeDef]
-
-
-# ListMatchingWorkflowsInputTypeDef
+# ListMatchingWorkflowsInput
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -1183,30 +1177,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListMatchingWorkflowsOutputTypeDef
+# ListMatchingWorkflowsInputPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.entityresolution_classes.PaginatorConfig]
+
+
+# ListMatchingWorkflowsOutput
 
 ### workflowSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.entityresolution_classes.MatchingWorkflowSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.entityresolution_classes.MatchingWorkflowSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListProviderServicesInputPaginateTypeDef
-
-### providerName
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.entityresolution_classes.PaginatorConfigTypeDef]
-
-
-# ListProviderServicesInputTypeDef
+# ListProviderServicesInput
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -1218,27 +1209,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListProviderServicesOutputTypeDef
+# ListProviderServicesInputPaginate
+
+### providerName
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.entityresolution_classes.PaginatorConfig]
+
+
+# ListProviderServicesOutput
 
 ### providerServiceSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.entityresolution_classes.ProviderServiceSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.entityresolution_classes.ProviderServiceSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListSchemaMappingsInputPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.entityresolution_classes.PaginatorConfigTypeDef]
-
-
-# ListSchemaMappingsInputTypeDef
+# ListSchemaMappingsInput
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -1247,39 +1241,45 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListSchemaMappingsOutputTypeDef
+# ListSchemaMappingsInputPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.entityresolution_classes.PaginatorConfig]
+
+
+# ListSchemaMappingsOutput
 
 ### schemaList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.entityresolution_classes.SchemaMappingSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.entityresolution_classes.SchemaMappingSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceInputTypeDef
+# ListTagsForResourceInput
 
 ### resourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ListTagsForResourceOutputTypeDef
+# ListTagsForResourceOutput
 
 ### tags
 - **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# MatchingWorkflowSummaryTypeDef
+# MatchingWorkflowSummary
 
 ### createdAt
 - **Type**: <class 'datetime.datetime'>
@@ -1302,17 +1302,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# NamespaceProviderPropertiesOutputTypeDef
-
-### providerServiceArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### providerConfiguration
-- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
-
-
-# NamespaceProviderPropertiesTypeDef
+# NamespaceProviderProperties
 
 ### providerServiceArn
 - **Type**: <class 'str'>
@@ -1322,28 +1312,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, typing.Any]]
 
 
-# NamespaceProviderPropertiesUnionTypeDef
+# NamespaceProviderPropertiesOutput
+
+### providerServiceArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### providerConfiguration
+- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
+
+
+# NamespaceProviderPropertiesUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# NamespaceRuleBasedPropertiesOutputTypeDef
-
-### attributeMatchingModel
-- **Type**: typing.Optional[typing.Literal['MANY_TO_MANY', 'ONE_TO_ONE']]
-
-### recordMatchingModels
-- **Type**: typing.Optional[typing.List[typing.Literal['MANY_SOURCE_TO_ONE_TARGET', 'ONE_SOURCE_TO_ONE_TARGET']]]
-
-### ruleDefinitionTypes
-- **Type**: typing.Optional[typing.List[typing.Literal['SOURCE', 'TARGET']]]
-
-### rules
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.entityresolution_classes.RuleOutputTypeDef]]
-
-
-# NamespaceRuleBasedPropertiesTypeDef
+# NamespaceRuleBasedProperties
 
 ### attributeMatchingModel
 - **Type**: typing.Optional[typing.Literal['MANY_TO_MANY', 'ONE_TO_ONE']]
@@ -1355,16 +1340,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['SOURCE', 'TARGET']]]
 
 ### rules
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.entityresolution_classes.RuleUnionTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.entityresolution_classes.RuleUnion]]
 
 
-# NamespaceRuleBasedPropertiesUnionTypeDef
+# NamespaceRuleBasedPropertiesOutput
+
+### attributeMatchingModel
+- **Type**: typing.Optional[typing.Literal['MANY_TO_MANY', 'ONE_TO_ONE']]
+
+### recordMatchingModels
+- **Type**: typing.Optional[typing.List[typing.Literal['MANY_SOURCE_TO_ONE_TARGET', 'ONE_SOURCE_TO_ONE_TARGET']]]
+
+### ruleDefinitionTypes
+- **Type**: typing.Optional[typing.List[typing.Literal['SOURCE', 'TARGET']]]
+
+### rules
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.entityresolution_classes.RuleOutput]]
+
+
+# NamespaceRuleBasedPropertiesUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# OutputAttributeTypeDef
+# OutputAttribute
 
 ### name
 - **Type**: <class 'str'>
@@ -1374,10 +1374,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# OutputSourceOutputTypeDef
+# OutputSource
 
 ### output
-- **Type**: typing.List[aws_resource_validator.pydantic_models.entityresolution_classes.OutputAttributeTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.entityresolution_classes.OutputAttribute]
 - **Required**: Yes
 
 ### outputS3Path
@@ -1391,10 +1391,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# OutputSourceTypeDef
+# OutputSourceOutput
 
 ### output
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.entityresolution_classes.OutputAttributeTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.entityresolution_classes.OutputAttribute]
 - **Required**: Yes
 
 ### outputS3Path
@@ -1408,13 +1408,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# OutputSourceUnionTypeDef
+# OutputSourceUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -1426,22 +1426,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ProviderComponentSchemaTypeDef
+# ProviderComponentSchema
 
 ### providerSchemaAttributes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.entityresolution_classes.ProviderSchemaAttributeTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.entityresolution_classes.ProviderSchemaAttribute]]
 
 ### schemas
 - **Type**: typing.Optional[typing.List[typing.List[str]]]
 
 
-# ProviderEndpointConfigurationTypeDef
+# ProviderEndpointConfiguration
 
 ### marketplaceConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.entityresolution_classes.ProviderMarketplaceConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.entityresolution_classes.ProviderMarketplaceConfiguration]
 
 
-# ProviderIdNameSpaceConfigurationTypeDef
+# ProviderIdNameSpaceConfiguration
 
 ### description
 - **Type**: typing.Optional[str]
@@ -1453,7 +1453,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, typing.Any]]
 
 
-# ProviderIntermediateDataAccessConfigurationTypeDef
+# ProviderIntermediateDataAccessConfiguration
 
 ### awsAccountIds
 - **Type**: typing.Optional[typing.List[str]]
@@ -1462,7 +1462,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# ProviderMarketplaceConfigurationTypeDef
+# ProviderMarketplaceConfiguration
 
 ### assetId
 - **Type**: <class 'str'>
@@ -1481,39 +1481,39 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ProviderPropertiesOutputTypeDef
+# ProviderProperties
 
 ### providerServiceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### intermediateSourceConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.entityresolution_classes.IntermediateSourceConfigurationTypeDef]
-
-### providerConfiguration
-- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
-
-
-# ProviderPropertiesTypeDef
-
-### providerServiceArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### intermediateSourceConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.entityresolution_classes.IntermediateSourceConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.entityresolution_classes.IntermediateSourceConfiguration]
 
 ### providerConfiguration
 - **Type**: typing.Optional[typing.Mapping[str, typing.Any]]
 
 
-# ProviderSchemaAttributeTypeDef
+# ProviderPropertiesOutput
+
+### providerServiceArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### intermediateSourceConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.entityresolution_classes.IntermediateSourceConfiguration]
+
+### providerConfiguration
+- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
+
+
+# ProviderSchemaAttribute
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ProviderServiceSummaryTypeDef
+# ProviderServiceSummary
 
 ### providerName
 - **Type**: <class 'str'>
@@ -1536,7 +1536,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutPolicyInputTypeDef
+# PutPolicyInput
 
 ### arn
 - **Type**: <class 'str'>
@@ -1550,7 +1550,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PutPolicyOutputTypeDef
+# PutPolicyOutput
 
 ### arn
 - **Type**: <class 'str'>
@@ -1565,43 +1565,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ResolutionTechniquesOutputTypeDef
+# ResolutionTechniques
 
 ### resolutionType
 - **Type**: typing.Literal['ML_MATCHING', 'PROVIDER', 'RULE_MATCHING']
 - **Required**: Yes
 
 ### providerProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.entityresolution_classes.ProviderPropertiesOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.entityresolution_classes.ProviderProperties]
 
 ### ruleBasedProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.entityresolution_classes.RuleBasedPropertiesOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.entityresolution_classes.RuleBasedProperties]
 
 
-# ResolutionTechniquesTypeDef
+# ResolutionTechniquesOutput
 
 ### resolutionType
 - **Type**: typing.Literal['ML_MATCHING', 'PROVIDER', 'RULE_MATCHING']
 - **Required**: Yes
 
 ### providerProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.entityresolution_classes.ProviderPropertiesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.entityresolution_classes.ProviderPropertiesOutput]
 
 ### ruleBasedProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.entityresolution_classes.RuleBasedPropertiesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.entityresolution_classes.RuleBasedPropertiesOutput]
 
 
-# ResolutionTechniquesUnionTypeDef
+# ResolutionTechniquesUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -1623,46 +1623,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RuleBasedPropertiesOutputTypeDef
-
-### attributeMatchingModel
-- **Type**: typing.Literal['MANY_TO_MANY', 'ONE_TO_ONE']
-- **Required**: Yes
-
-### rules
-- **Type**: typing.List[aws_resource_validator.pydantic_models.entityresolution_classes.RuleOutputTypeDef]
-- **Required**: Yes
-
-### matchPurpose
-- **Type**: typing.Optional[typing.Literal['IDENTIFIER_GENERATION', 'INDEXING']]
-
-
-# RuleBasedPropertiesTypeDef
-
-### attributeMatchingModel
-- **Type**: typing.Literal['MANY_TO_MANY', 'ONE_TO_ONE']
-- **Required**: Yes
-
-### rules
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.entityresolution_classes.RuleTypeDef]
-- **Required**: Yes
-
-### matchPurpose
-- **Type**: typing.Optional[typing.Literal['IDENTIFIER_GENERATION', 'INDEXING']]
-
-
-# RuleOutputTypeDef
-
-### matchingKeys
-- **Type**: typing.List[str]
-- **Required**: Yes
-
-### ruleName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# RuleTypeDef
+# Rule
 
 ### matchingKeys
 - **Type**: typing.Sequence[str]
@@ -1673,19 +1634,58 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RuleUnionTypeDef
+# RuleBasedProperties
+
+### attributeMatchingModel
+- **Type**: typing.Literal['MANY_TO_MANY', 'ONE_TO_ONE']
+- **Required**: Yes
+
+### rules
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.entityresolution_classes.Rule]
+- **Required**: Yes
+
+### matchPurpose
+- **Type**: typing.Optional[typing.Literal['IDENTIFIER_GENERATION', 'INDEXING']]
+
+
+# RuleBasedPropertiesOutput
+
+### attributeMatchingModel
+- **Type**: typing.Literal['MANY_TO_MANY', 'ONE_TO_ONE']
+- **Required**: Yes
+
+### rules
+- **Type**: typing.List[aws_resource_validator.pydantic_models.entityresolution_classes.RuleOutput]
+- **Required**: Yes
+
+### matchPurpose
+- **Type**: typing.Optional[typing.Literal['IDENTIFIER_GENERATION', 'INDEXING']]
+
+
+# RuleOutput
+
+### matchingKeys
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### ruleName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# RuleUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# SchemaInputAttributeTypeDef
+# SchemaInputAttribute
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# SchemaMappingSummaryTypeDef
+# SchemaMappingSummary
 
 ### createdAt
 - **Type**: <class 'datetime.datetime'>
@@ -1708,50 +1708,50 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StartIdMappingJobInputTypeDef
+# StartIdMappingJobInput
 
 ### workflowName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### outputSourceConfig
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.entityresolution_classes.IdMappingJobOutputSourceTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.entityresolution_classes.IdMappingJobOutputSource]]
 
 
-# StartIdMappingJobOutputTypeDef
+# StartIdMappingJobOutput
 
 ### jobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### outputSourceConfig
-- **Type**: typing.List[aws_resource_validator.pydantic_models.entityresolution_classes.IdMappingJobOutputSourceTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.entityresolution_classes.IdMappingJobOutputSource]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# StartMatchingJobInputTypeDef
+# StartMatchingJobInput
 
 ### workflowName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# StartMatchingJobOutputTypeDef
+# StartMatchingJobOutput
 
 ### jobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# TagResourceInputTypeDef
+# TagResourceInput
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -1762,7 +1762,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceInputTypeDef
+# UntagResourceInput
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -1773,14 +1773,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateIdMappingWorkflowInputTypeDef
+# UpdateIdMappingWorkflowInput
 
 ### idMappingTechniques
-- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.IdMappingTechniquesUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.IdMappingTechniquesUnion'>
 - **Required**: Yes
 
 ### inputSourceConfig
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.entityresolution_classes.IdMappingWorkflowInputSourceTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.entityresolution_classes.IdMappingWorkflowInputSource]
 - **Required**: Yes
 
 ### workflowName
@@ -1791,28 +1791,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### outputSourceConfig
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.entityresolution_classes.IdMappingWorkflowOutputSourceTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.entityresolution_classes.IdMappingWorkflowOutputSource]]
 
 ### roleArn
 - **Type**: typing.Optional[str]
 
 
-# UpdateIdMappingWorkflowOutputTypeDef
+# UpdateIdMappingWorkflowOutput
 
 ### description
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### idMappingTechniques
-- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.IdMappingTechniquesOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.IdMappingTechniquesOutput'>
 - **Required**: Yes
 
 ### inputSourceConfig
-- **Type**: typing.List[aws_resource_validator.pydantic_models.entityresolution_classes.IdMappingWorkflowInputSourceTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.entityresolution_classes.IdMappingWorkflowInputSource]
 - **Required**: Yes
 
 ### outputSourceConfig
-- **Type**: typing.List[aws_resource_validator.pydantic_models.entityresolution_classes.IdMappingWorkflowOutputSourceTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.entityresolution_classes.IdMappingWorkflowOutputSource]
 - **Required**: Yes
 
 ### roleArn
@@ -1828,11 +1828,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateIdNamespaceInputTypeDef
+# UpdateIdNamespaceInput
 
 ### idNamespaceName
 - **Type**: <class 'str'>
@@ -1842,27 +1842,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### idMappingWorkflowProperties
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.entityresolution_classes.IdNamespaceIdMappingWorkflowPropertiesUnionTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.entityresolution_classes.IdNamespaceIdMappingWorkflowPropertiesUnion]]
 
 ### inputSourceConfig
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.entityresolution_classes.IdNamespaceInputSourceTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.entityresolution_classes.IdNamespaceInputSource]]
 
 ### roleArn
 - **Type**: typing.Optional[str]
 
 
-# UpdateMatchingWorkflowInputTypeDef
+# UpdateMatchingWorkflowInput
 
 ### inputSourceConfig
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.entityresolution_classes.InputSourceTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.entityresolution_classes.InputSource]
 - **Required**: Yes
 
 ### outputSourceConfig
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.entityresolution_classes.OutputSourceUnionTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.entityresolution_classes.OutputSourceUnion]
 - **Required**: Yes
 
 ### resolutionTechniques
-- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ResolutionTechniquesUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ResolutionTechniquesUnion'>
 - **Required**: Yes
 
 ### roleArn
@@ -1877,29 +1877,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### incrementalRunConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.entityresolution_classes.IncrementalRunConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.entityresolution_classes.IncrementalRunConfig]
 
 
-# UpdateMatchingWorkflowOutputTypeDef
+# UpdateMatchingWorkflowOutput
 
 ### description
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### incrementalRunConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.IncrementalRunConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.IncrementalRunConfig'>
 - **Required**: Yes
 
 ### inputSourceConfig
-- **Type**: typing.List[aws_resource_validator.pydantic_models.entityresolution_classes.InputSourceTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.entityresolution_classes.InputSource]
 - **Required**: Yes
 
 ### outputSourceConfig
-- **Type**: typing.List[aws_resource_validator.pydantic_models.entityresolution_classes.OutputSourceOutputTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.entityresolution_classes.OutputSourceOutput]
 - **Required**: Yes
 
 ### resolutionTechniques
-- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ResolutionTechniquesOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ResolutionTechniquesOutput'>
 - **Required**: Yes
 
 ### roleArn
@@ -1911,14 +1911,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateSchemaMappingInputTypeDef
+# UpdateSchemaMappingInput
 
 ### mappedInputFields
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.entityresolution_classes.SchemaInputAttributeTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.entityresolution_classes.SchemaInputAttribute]
 - **Required**: Yes
 
 ### schemaName
@@ -1929,14 +1929,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateSchemaMappingOutputTypeDef
+# UpdateSchemaMappingOutput
 
 ### description
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### mappedInputFields
-- **Type**: typing.List[aws_resource_validator.pydantic_models.entityresolution_classes.SchemaInputAttributeTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.entityresolution_classes.SchemaInputAttribute]
 - **Required**: Yes
 
 ### schemaArn
@@ -1948,7 +1948,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.entityresolution_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

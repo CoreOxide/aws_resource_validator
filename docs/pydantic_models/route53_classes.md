@@ -1,12 +1,12 @@
 # Route53 Classes
 
-# AccountLimitTypeDef
+# AccountLimit
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ActivateKeySigningKeyRequestTypeDef
+# ActivateKeySigningKeyRequest
 
 ### HostedZoneId
 - **Type**: <class 'str'>
@@ -17,18 +17,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ActivateKeySigningKeyResponseTypeDef
+# ActivateKeySigningKeyResponse
 
 ### ChangeInfo
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ChangeInfoTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ChangeInfo'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# AlarmIdentifierTypeDef
+# AlarmIdentifier
 
 ### Region
 - **Type**: typing.Literal['af-south-1', 'ap-east-1', 'ap-northeast-1', 'ap-northeast-2', 'ap-northeast-3', 'ap-south-1', 'ap-south-2', 'ap-southeast-1', 'ap-southeast-2', 'ap-southeast-3', 'ap-southeast-4', 'ap-southeast-5', 'ap-southeast-7', 'ca-central-1', 'ca-west-1', 'cn-north-1', 'cn-northwest-1', 'eu-central-1', 'eu-central-2', 'eu-north-1', 'eu-south-1', 'eu-south-2', 'eu-west-1', 'eu-west-2', 'eu-west-3', 'il-central-1', 'me-central-1', 'me-south-1', 'mx-central-1', 'sa-east-1', 'us-east-1', 'us-east-2', 'us-gov-east-1', 'us-gov-west-1', 'us-iso-east-1', 'us-iso-west-1', 'us-isob-east-1', 'us-west-1', 'us-west-2']
@@ -39,7 +39,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# AliasTargetTypeDef
+# AliasTarget
 
 ### HostedZoneId
 - **Type**: <class 'str'>
@@ -54,28 +54,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# AssociateVPCWithHostedZoneRequestTypeDef
+# AssociateVPCWithHostedZoneRequest
 
 ### HostedZoneId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### VPC
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.VPCTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.VPC'>
 - **Required**: Yes
 
 ### Comment
 - **Type**: typing.Optional[str]
 
 
-# AssociateVPCWithHostedZoneResponseTypeDef
+# AssociateVPCWithHostedZoneResponse
 
 ### ChangeInfo
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ChangeInfoTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ChangeInfo'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -85,42 +85,53 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ChangeBatchTypeDef
+# Change
+
+### Action
+- **Type**: typing.Literal['CREATE', 'DELETE', 'UPSERT']
+- **Required**: Yes
+
+### ResourceRecordSet
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResourceRecordSetUnion'>
+- **Required**: Yes
+
+
+# ChangeBatch
 
 ### Changes
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.route53_classes.ChangeTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.route53_classes.Change]
 - **Required**: Yes
 
 ### Comment
 - **Type**: typing.Optional[str]
 
 
-# ChangeCidrCollectionRequestTypeDef
+# ChangeCidrCollectionRequest
 
 ### Id
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Changes
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.route53_classes.CidrCollectionChangeTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.route53_classes.CidrCollectionChange]
 - **Required**: Yes
 
 ### CollectionVersion
 - **Type**: typing.Optional[int]
 
 
-# ChangeCidrCollectionResponseTypeDef
+# ChangeCidrCollectionResponse
 
 ### Id
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ChangeInfoTypeDef
+# ChangeInfo
 
 ### Id
 - **Type**: <class 'str'>
@@ -138,29 +149,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ChangeResourceRecordSetsRequestTypeDef
+# ChangeResourceRecordSetsRequest
 
 ### HostedZoneId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ChangeBatch
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ChangeBatchTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ChangeBatch'>
 - **Required**: Yes
 
 
-# ChangeResourceRecordSetsResponseTypeDef
+# ChangeResourceRecordSetsResponse
 
 ### ChangeInfo
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ChangeInfoTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ChangeInfo'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ChangeTagsForResourceRequestTypeDef
+# ChangeTagsForResourceRequest
 
 ### ResourceType
 - **Type**: typing.Literal['healthcheck', 'hostedzone']
@@ -171,24 +182,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AddTags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.route53_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.route53_classes.Tag]]
 
 ### RemoveTagKeys
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# ChangeTypeDef
-
-### Action
-- **Type**: typing.Literal['CREATE', 'DELETE', 'UPSERT']
-- **Required**: Yes
-
-### ResourceRecordSet
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResourceRecordSetUnionTypeDef'>
-- **Required**: Yes
-
-
-# CidrBlockSummaryTypeDef
+# CidrBlockSummary
 
 ### CidrBlock
 - **Type**: typing.Optional[str]
@@ -197,22 +197,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CidrCollectionChangeTypeDef
-
-### LocationName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Action
-- **Type**: typing.Literal['DELETE_IF_EXISTS', 'PUT']
-- **Required**: Yes
-
-### CidrList
-- **Type**: typing.Sequence[str]
-- **Required**: Yes
-
-
-# CidrCollectionTypeDef
+# CidrCollection
 
 ### Arn
 - **Type**: typing.Optional[str]
@@ -227,7 +212,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# CidrRoutingConfigTypeDef
+# CidrCollectionChange
+
+### LocationName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Action
+- **Type**: typing.Literal['DELETE_IF_EXISTS', 'PUT']
+- **Required**: Yes
+
+### CidrList
+- **Type**: typing.Sequence[str]
+- **Required**: Yes
+
+
+# CidrRoutingConfig
 
 ### CollectionId
 - **Type**: <class 'str'>
@@ -238,7 +238,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CloudWatchAlarmConfigurationTypeDef
+# CloudWatchAlarmConfiguration
 
 ### EvaluationPeriods
 - **Type**: <class 'int'>
@@ -269,10 +269,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Dimensions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.route53_classes.DimensionTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.route53_classes.Dimension]]
 
 
-# CollectionSummaryTypeDef
+# CollectionSummary
 
 ### Arn
 - **Type**: typing.Optional[str]
@@ -287,7 +287,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# CoordinatesTypeDef
+# Coordinates
 
 ### Latitude
 - **Type**: <class 'str'>
@@ -298,7 +298,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateCidrCollectionRequestTypeDef
+# CreateCidrCollectionRequest
 
 ### Name
 - **Type**: <class 'str'>
@@ -309,21 +309,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateHealthCheckRequestTypeDef
+# CreateHealthCheckRequest
 
 ### CallerReference
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### HealthCheckConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.HealthCheckConfigUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.HealthCheckConfigUnion'>
 - **Required**: Yes
 
 
-# CreateHealthCheckResponseTypeDef
+# CreateHealthCheckResponse
 
 ### HealthCheck
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.HealthCheckTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.HealthCheck'>
 - **Required**: Yes
 
 ### Location
@@ -331,11 +331,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateHostedZoneRequestTypeDef
+# CreateHostedZoneRequest
 
 ### Name
 - **Type**: <class 'str'>
@@ -346,31 +346,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### VPC
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_classes.VPCTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### HostedZoneConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_classes.HostedZoneConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### DelegationSetId
 - **Type**: typing.Optional[str]
 
 
-# CreateHostedZoneResponseTypeDef
+# CreateHostedZoneResponse
 
 ### HostedZone
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.HostedZoneTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.HostedZone'>
 - **Required**: Yes
 
 ### ChangeInfo
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ChangeInfoTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ChangeInfo'>
 - **Required**: Yes
 
 ### DelegationSet
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.DelegationSetTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.DelegationSet'>
 - **Required**: Yes
 
 ### VPC
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.VPCTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.VPC'>
 - **Required**: Yes
 
 ### Location
@@ -378,11 +378,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateKeySigningKeyRequestTypeDef
+# CreateKeySigningKeyRequest
 
 ### CallerReference
 - **Type**: <class 'str'>
@@ -405,14 +405,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateKeySigningKeyResponseTypeDef
+# CreateKeySigningKeyResponse
 
 ### ChangeInfo
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ChangeInfoTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ChangeInfo'>
 - **Required**: Yes
 
 ### KeySigningKey
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.KeySigningKeyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.KeySigningKey'>
 - **Required**: Yes
 
 ### Location
@@ -420,11 +420,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateQueryLoggingConfigRequestTypeDef
+# CreateQueryLoggingConfigRequest
 
 ### HostedZoneId
 - **Type**: <class 'str'>
@@ -435,10 +435,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateQueryLoggingConfigResponseTypeDef
+# CreateQueryLoggingConfigResponse
 
 ### QueryLoggingConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.QueryLoggingConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.QueryLoggingConfig'>
 - **Required**: Yes
 
 ### Location
@@ -446,11 +446,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateReusableDelegationSetRequestTypeDef
+# CreateReusableDelegationSetRequest
 
 ### CallerReference
 - **Type**: <class 'str'>
@@ -460,10 +460,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateReusableDelegationSetResponseTypeDef
+# CreateReusableDelegationSetResponse
 
 ### DelegationSet
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.DelegationSetTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.DelegationSet'>
 - **Required**: Yes
 
 ### Location
@@ -471,11 +471,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateTrafficPolicyInstanceRequestTypeDef
+# CreateTrafficPolicyInstanceRequest
 
 ### HostedZoneId
 - **Type**: <class 'str'>
@@ -498,10 +498,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateTrafficPolicyInstanceResponseTypeDef
+# CreateTrafficPolicyInstanceResponse
 
 ### TrafficPolicyInstance
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.TrafficPolicyInstanceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.TrafficPolicyInstance'>
 - **Required**: Yes
 
 ### Location
@@ -509,11 +509,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateTrafficPolicyRequestTypeDef
+# CreateTrafficPolicyRequest
 
 ### Name
 - **Type**: <class 'str'>
@@ -527,10 +527,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateTrafficPolicyResponseTypeDef
+# CreateTrafficPolicyResponse
 
 ### TrafficPolicy
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.TrafficPolicyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.TrafficPolicy'>
 - **Required**: Yes
 
 ### Location
@@ -538,11 +538,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateTrafficPolicyVersionRequestTypeDef
+# CreateTrafficPolicyVersionRequest
 
 ### Id
 - **Type**: <class 'str'>
@@ -556,10 +556,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateTrafficPolicyVersionResponseTypeDef
+# CreateTrafficPolicyVersionResponse
 
 ### TrafficPolicy
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.TrafficPolicyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.TrafficPolicy'>
 - **Required**: Yes
 
 ### Location
@@ -567,37 +567,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateVPCAssociationAuthorizationRequestTypeDef
+# CreateVPCAssociationAuthorizationRequest
 
 ### HostedZoneId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### VPC
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.VPCTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.VPC'>
 - **Required**: Yes
 
 
-# CreateVPCAssociationAuthorizationResponseTypeDef
+# CreateVPCAssociationAuthorizationResponse
 
 ### HostedZoneId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### VPC
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.VPCTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.VPC'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DNSSECStatusTypeDef
+# DNSSECStatus
 
 ### ServeSignature
 - **Type**: typing.Optional[str]
@@ -606,7 +606,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeactivateKeySigningKeyRequestTypeDef
+# DeactivateKeySigningKeyRequest
 
 ### HostedZoneId
 - **Type**: <class 'str'>
@@ -617,18 +617,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeactivateKeySigningKeyResponseTypeDef
+# DeactivateKeySigningKeyResponse
 
 ### ChangeInfo
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ChangeInfoTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ChangeInfo'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DelegationSetTypeDef
+# DelegationSet
 
 ### NameServers
 - **Type**: typing.List[str]
@@ -641,39 +641,39 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteCidrCollectionRequestTypeDef
+# DeleteCidrCollectionRequest
 
 ### Id
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteHealthCheckRequestTypeDef
+# DeleteHealthCheckRequest
 
 ### HealthCheckId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteHostedZoneRequestTypeDef
+# DeleteHostedZoneRequest
 
 ### Id
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteHostedZoneResponseTypeDef
+# DeleteHostedZoneResponse
 
 ### ChangeInfo
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ChangeInfoTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ChangeInfo'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteKeySigningKeyRequestTypeDef
+# DeleteKeySigningKeyRequest
 
 ### HostedZoneId
 - **Type**: <class 'str'>
@@ -684,39 +684,39 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteKeySigningKeyResponseTypeDef
+# DeleteKeySigningKeyResponse
 
 ### ChangeInfo
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ChangeInfoTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ChangeInfo'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteQueryLoggingConfigRequestTypeDef
+# DeleteQueryLoggingConfigRequest
 
 ### Id
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteReusableDelegationSetRequestTypeDef
+# DeleteReusableDelegationSetRequest
 
 ### Id
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteTrafficPolicyInstanceRequestTypeDef
+# DeleteTrafficPolicyInstanceRequest
 
 ### Id
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteTrafficPolicyRequestTypeDef
+# DeleteTrafficPolicyRequest
 
 ### Id
 - **Type**: <class 'str'>
@@ -727,18 +727,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteVPCAssociationAuthorizationRequestTypeDef
+# DeleteVPCAssociationAuthorizationRequest
 
 ### HostedZoneId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### VPC
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.VPCTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.VPC'>
 - **Required**: Yes
 
 
-# DimensionTypeDef
+# Dimension
 
 ### Name
 - **Type**: <class 'str'>
@@ -749,68 +749,80 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DisableHostedZoneDNSSECRequestTypeDef
+# DisableHostedZoneDNSSECRequest
 
 ### HostedZoneId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DisableHostedZoneDNSSECResponseTypeDef
+# DisableHostedZoneDNSSECResponse
 
 ### ChangeInfo
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ChangeInfoTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ChangeInfo'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DisassociateVPCFromHostedZoneRequestTypeDef
+# DisassociateVPCFromHostedZoneRequest
 
 ### HostedZoneId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### VPC
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.VPCTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.VPC'>
 - **Required**: Yes
 
 ### Comment
 - **Type**: typing.Optional[str]
 
 
-# DisassociateVPCFromHostedZoneResponseTypeDef
+# DisassociateVPCFromHostedZoneResponse
 
 ### ChangeInfo
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ChangeInfoTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ChangeInfo'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# EnableHostedZoneDNSSECRequestTypeDef
+# EnableHostedZoneDNSSECRequest
 
 ### HostedZoneId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# EnableHostedZoneDNSSECResponseTypeDef
+# EnableHostedZoneDNSSECResponse
 
 ### ChangeInfo
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ChangeInfoTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ChangeInfo'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GeoLocationDetailsTypeDef
+# GeoLocation
+
+### ContinentCode
+- **Type**: typing.Optional[str]
+
+### CountryCode
+- **Type**: typing.Optional[str]
+
+### SubdivisionCode
+- **Type**: typing.Optional[str]
+
+
+# GeoLocationDetails
 
 ### ContinentCode
 - **Type**: typing.Optional[str]
@@ -831,19 +843,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GeoLocationTypeDef
-
-### ContinentCode
-- **Type**: typing.Optional[str]
-
-### CountryCode
-- **Type**: typing.Optional[str]
-
-### SubdivisionCode
-- **Type**: typing.Optional[str]
-
-
-# GeoProximityLocationTypeDef
+# GeoProximityLocation
 
 ### AWSRegion
 - **Type**: typing.Optional[str]
@@ -852,16 +852,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Coordinates
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_classes.CoordinatesTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### Bias
 - **Type**: typing.Optional[int]
 
 
-# GetAccountLimitResponseTypeDef
+# GetAccountLimitResponse
 
 ### Limit
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.AccountLimitTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.AccountLimit'>
 - **Required**: Yes
 
 ### Count
@@ -869,72 +869,72 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetChangeRequestTypeDef
+# GetChangeRequest
 
 ### Id
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetChangeRequestWaitTypeDef
+# GetChangeRequestWait
 
 ### Id
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### WaiterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_classes.WaiterConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# GetChangeResponseTypeDef
+# GetChangeResponse
 
 ### ChangeInfo
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ChangeInfoTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ChangeInfo'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetCheckerIpRangesResponseTypeDef
+# GetCheckerIpRangesResponse
 
 ### CheckerIpRanges
 - **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetDNSSECRequestTypeDef
+# GetDNSSECRequest
 
 ### HostedZoneId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetDNSSECResponseTypeDef
+# GetDNSSECResponse
 
 ### Status
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.DNSSECStatusTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.DNSSECStatus'>
 - **Required**: Yes
 
 ### KeySigningKeys
-- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_classes.KeySigningKeyTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_classes.KeySigningKey]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetGeoLocationRequestTypeDef
+# GetGeoLocationRequest
 
 ### ContinentCode
 - **Type**: typing.Optional[str]
@@ -946,97 +946,97 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetGeoLocationResponseTypeDef
+# GetGeoLocationResponse
 
 ### GeoLocationDetails
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.GeoLocationDetailsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.GeoLocationDetails'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetHealthCheckCountResponseTypeDef
+# GetHealthCheckCountResponse
 
 ### HealthCheckCount
 - **Type**: <class 'int'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetHealthCheckLastFailureReasonRequestTypeDef
+# GetHealthCheckLastFailureReasonRequest
 
 ### HealthCheckId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetHealthCheckLastFailureReasonResponseTypeDef
+# GetHealthCheckLastFailureReasonResponse
 
 ### HealthCheckObservations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_classes.HealthCheckObservationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_classes.HealthCheckObservation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetHealthCheckRequestTypeDef
+# GetHealthCheckRequest
 
 ### HealthCheckId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetHealthCheckResponseTypeDef
+# GetHealthCheckResponse
 
 ### HealthCheck
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.HealthCheckTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.HealthCheck'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetHealthCheckStatusRequestTypeDef
+# GetHealthCheckStatusRequest
 
 ### HealthCheckId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetHealthCheckStatusResponseTypeDef
+# GetHealthCheckStatusResponse
 
 ### HealthCheckObservations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_classes.HealthCheckObservationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_classes.HealthCheckObservation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetHostedZoneCountResponseTypeDef
+# GetHostedZoneCountResponse
 
 ### HostedZoneCount
 - **Type**: <class 'int'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetHostedZoneLimitResponseTypeDef
+# GetHostedZoneLimitResponse
 
 ### Limit
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.HostedZoneLimitTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.HostedZoneLimit'>
 - **Required**: Yes
 
 ### Count
@@ -1044,58 +1044,58 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetHostedZoneRequestTypeDef
+# GetHostedZoneRequest
 
 ### Id
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetHostedZoneResponseTypeDef
+# GetHostedZoneResponse
 
 ### HostedZone
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.HostedZoneTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.HostedZone'>
 - **Required**: Yes
 
 ### DelegationSet
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.DelegationSetTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.DelegationSet'>
 - **Required**: Yes
 
 ### VPCs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_classes.VPCTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_classes.VPC]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetQueryLoggingConfigRequestTypeDef
+# GetQueryLoggingConfigRequest
 
 ### Id
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetQueryLoggingConfigResponseTypeDef
+# GetQueryLoggingConfigResponse
 
 ### QueryLoggingConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.QueryLoggingConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.QueryLoggingConfig'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetReusableDelegationSetLimitResponseTypeDef
+# GetReusableDelegationSetLimitResponse
 
 ### Limit
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ReusableDelegationSetLimitTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ReusableDelegationSetLimit'>
 - **Required**: Yes
 
 ### Count
@@ -1103,58 +1103,58 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetReusableDelegationSetRequestTypeDef
+# GetReusableDelegationSetRequest
 
 ### Id
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetReusableDelegationSetResponseTypeDef
+# GetReusableDelegationSetResponse
 
 ### DelegationSet
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.DelegationSetTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.DelegationSet'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetTrafficPolicyInstanceCountResponseTypeDef
+# GetTrafficPolicyInstanceCountResponse
 
 ### TrafficPolicyInstanceCount
 - **Type**: <class 'int'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetTrafficPolicyInstanceRequestTypeDef
+# GetTrafficPolicyInstanceRequest
 
 ### Id
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetTrafficPolicyInstanceResponseTypeDef
+# GetTrafficPolicyInstanceResponse
 
 ### TrafficPolicyInstance
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.TrafficPolicyInstanceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.TrafficPolicyInstance'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetTrafficPolicyRequestTypeDef
+# GetTrafficPolicyRequest
 
 ### Id
 - **Type**: <class 'str'>
@@ -1165,42 +1165,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetTrafficPolicyResponseTypeDef
+# GetTrafficPolicyResponse
 
 ### TrafficPolicy
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.TrafficPolicyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.TrafficPolicy'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# HealthCheckConfigOutputTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# HealthCheckConfigUnionTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# HealthCheckObservationTypeDef
-
-### Region
-- **Type**: typing.Optional[typing.Literal['ap-northeast-1', 'ap-southeast-1', 'ap-southeast-2', 'eu-west-1', 'sa-east-1', 'us-east-1', 'us-west-1', 'us-west-2']]
-
-### IPAddress
-- **Type**: typing.Optional[str]
-
-### StatusReport
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_classes.StatusReportTypeDef]
-
-
-# HealthCheckTypeDef
+# HealthCheck
 
 ### Id
 - **Type**: <class 'str'>
@@ -1211,7 +1187,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### HealthCheckConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.HealthCheckConfigOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.HealthCheckConfigOutput'>
 - **Required**: Yes
 
 ### HealthCheckVersion
@@ -1219,52 +1195,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LinkedService
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_classes.LinkedServiceTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### CloudWatchAlarmConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_classes.CloudWatchAlarmConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# HostedZoneConfigTypeDef
-
-### Comment
-- **Type**: typing.Optional[str]
-
-### PrivateZone
-- **Type**: typing.Optional[bool]
-
-
-# HostedZoneLimitTypeDef
+# HealthCheckConfigOutput
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# HostedZoneOwnerTypeDef
+# HealthCheckConfigUnion
 
-### OwningAccount
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# HealthCheckObservation
+
+### Region
+- **Type**: typing.Optional[typing.Literal['ap-northeast-1', 'ap-southeast-1', 'ap-southeast-2', 'eu-west-1', 'sa-east-1', 'us-east-1', 'us-west-1', 'us-west-2']]
+
+### IPAddress
 - **Type**: typing.Optional[str]
 
-### OwningService
-- **Type**: typing.Optional[str]
+### StatusReport
+- **Type**: <class 'NoneType'>
 
 
-# HostedZoneSummaryTypeDef
-
-### HostedZoneId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Owner
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.HostedZoneOwnerTypeDef'>
-- **Required**: Yes
-
-
-# HostedZoneTypeDef
+# HostedZone
 
 ### Id
 - **Type**: <class 'str'>
@@ -1279,16 +1240,55 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Config
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_classes.HostedZoneConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_classes.HostedZoneConfig]
 
 ### ResourceRecordSetCount
 - **Type**: typing.Optional[int]
 
 ### LinkedService
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_classes.LinkedServiceTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# KeySigningKeyTypeDef
+# HostedZoneConfig
+
+### Comment
+- **Type**: typing.Optional[str]
+
+### PrivateZone
+- **Type**: typing.Optional[bool]
+
+
+# HostedZoneLimit
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# HostedZoneOwner
+
+### OwningAccount
+- **Type**: typing.Optional[str]
+
+### OwningService
+- **Type**: typing.Optional[str]
+
+
+# HostedZoneSummary
+
+### HostedZoneId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Owner
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.HostedZoneOwner'>
+- **Required**: Yes
+
+
+# KeySigningKey
 
 ### Name
 - **Type**: typing.Optional[str]
@@ -1339,7 +1339,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# LinkedServiceTypeDef
+# LinkedService
 
 ### ServicePrincipal
 - **Type**: typing.Optional[str]
@@ -1348,20 +1348,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListCidrBlocksRequestPaginateTypeDef
-
-### CollectionId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### LocationName
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_classes.PaginatorConfigTypeDef]
-
-
-# ListCidrBlocksRequestTypeDef
+# ListCidrBlocksRequest
 
 ### CollectionId
 - **Type**: <class 'str'>
@@ -1377,27 +1364,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListCidrBlocksResponseTypeDef
+# ListCidrBlocksRequestPaginate
+
+### CollectionId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### LocationName
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_classes.PaginatorConfig]
+
+
+# ListCidrBlocksResponse
 
 ### CidrBlocks
-- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_classes.CidrBlockSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_classes.CidrBlockSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListCidrCollectionsRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_classes.PaginatorConfigTypeDef]
-
-
-# ListCidrCollectionsRequestTypeDef
+# ListCidrCollectionsRequest
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -1406,31 +1400,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListCidrCollectionsResponseTypeDef
+# ListCidrCollectionsRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_classes.PaginatorConfig]
+
+
+# ListCidrCollectionsResponse
 
 ### CidrCollections
-- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_classes.CollectionSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_classes.CollectionSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListCidrLocationsRequestPaginateTypeDef
-
-### CollectionId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_classes.PaginatorConfigTypeDef]
-
-
-# ListCidrLocationsRequestTypeDef
+# ListCidrLocationsRequest
 
 ### CollectionId
 - **Type**: <class 'str'>
@@ -1443,21 +1433,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListCidrLocationsResponseTypeDef
+# ListCidrLocationsRequestPaginate
+
+### CollectionId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_classes.PaginatorConfig]
+
+
+# ListCidrLocationsResponse
 
 ### CidrLocations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_classes.LocationSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_classes.LocationSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListGeoLocationsRequestTypeDef
+# ListGeoLocationsRequest
 
 ### StartContinentCode
 - **Type**: typing.Optional[str]
@@ -1472,10 +1472,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListGeoLocationsResponseTypeDef
+# ListGeoLocationsResponse
 
 ### GeoLocationDetailsList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_classes.GeoLocationDetailsTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_classes.GeoLocationDetails]
 - **Required**: Yes
 
 ### IsTruncated
@@ -1499,17 +1499,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListHealthChecksRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_classes.PaginatorConfigTypeDef]
-
-
-# ListHealthChecksRequestTypeDef
+# ListHealthChecksRequest
 
 ### Marker
 - **Type**: typing.Optional[str]
@@ -1518,10 +1512,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListHealthChecksResponseTypeDef
+# ListHealthChecksRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_classes.PaginatorConfig]
+
+
+# ListHealthChecksResponse
 
 ### HealthChecks
-- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_classes.HealthCheckTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_classes.HealthCheck]
 - **Required**: Yes
 
 ### Marker
@@ -1541,11 +1541,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListHostedZonesByNameRequestTypeDef
+# ListHostedZonesByNameRequest
 
 ### DNSName
 - **Type**: typing.Optional[str]
@@ -1557,10 +1557,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListHostedZonesByNameResponseTypeDef
+# ListHostedZonesByNameResponse
 
 ### HostedZones
-- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_classes.HostedZoneTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_classes.HostedZone]
 - **Required**: Yes
 
 ### DNSName
@@ -1588,11 +1588,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListHostedZonesByVPCRequestTypeDef
+# ListHostedZonesByVPCRequest
 
 ### VPCId
 - **Type**: <class 'str'>
@@ -1609,10 +1609,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListHostedZonesByVPCResponseTypeDef
+# ListHostedZonesByVPCResponse
 
 ### HostedZoneSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_classes.HostedZoneSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_classes.HostedZoneSummary]
 - **Required**: Yes
 
 ### MaxItems
@@ -1620,26 +1620,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListHostedZonesRequestPaginateTypeDef
-
-### DelegationSetId
-- **Type**: typing.Optional[str]
-
-### HostedZoneType
-- **Type**: typing.Optional[typing.Literal['PrivateHostedZone']]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_classes.PaginatorConfigTypeDef]
-
-
-# ListHostedZonesRequestTypeDef
+# ListHostedZonesRequest
 
 ### Marker
 - **Type**: typing.Optional[str]
@@ -1654,10 +1642,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['PrivateHostedZone']]
 
 
-# ListHostedZonesResponseTypeDef
+# ListHostedZonesRequestPaginate
+
+### DelegationSetId
+- **Type**: typing.Optional[str]
+
+### HostedZoneType
+- **Type**: typing.Optional[typing.Literal['PrivateHostedZone']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_classes.PaginatorConfig]
+
+
+# ListHostedZonesResponse
 
 ### HostedZones
-- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_classes.HostedZoneTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_classes.HostedZone]
 - **Required**: Yes
 
 ### Marker
@@ -1677,20 +1677,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListQueryLoggingConfigsRequestPaginateTypeDef
-
-### HostedZoneId
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_classes.PaginatorConfigTypeDef]
-
-
-# ListQueryLoggingConfigsRequestTypeDef
+# ListQueryLoggingConfigsRequest
 
 ### HostedZoneId
 - **Type**: typing.Optional[str]
@@ -1702,31 +1693,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListQueryLoggingConfigsResponseTypeDef
+# ListQueryLoggingConfigsRequestPaginate
+
+### HostedZoneId
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_classes.PaginatorConfig]
+
+
+# ListQueryLoggingConfigsResponse
 
 ### QueryLoggingConfigs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_classes.QueryLoggingConfigTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_classes.QueryLoggingConfig]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListResourceRecordSetsRequestPaginateTypeDef
-
-### HostedZoneId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_classes.PaginatorConfigTypeDef]
-
-
-# ListResourceRecordSetsRequestTypeDef
+# ListResourceRecordSetsRequest
 
 ### HostedZoneId
 - **Type**: <class 'str'>
@@ -1745,10 +1735,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListResourceRecordSetsResponseTypeDef
+# ListResourceRecordSetsRequestPaginate
+
+### HostedZoneId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_classes.PaginatorConfig]
+
+
+# ListResourceRecordSetsResponse
 
 ### ResourceRecordSets
-- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_classes.ResourceRecordSetOutputTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_classes.ResourceRecordSetOutput]
 - **Required**: Yes
 
 ### IsTruncated
@@ -1772,11 +1772,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListReusableDelegationSetsRequestTypeDef
+# ListReusableDelegationSetsRequest
 
 ### Marker
 - **Type**: typing.Optional[str]
@@ -1785,10 +1785,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListReusableDelegationSetsResponseTypeDef
+# ListReusableDelegationSetsResponse
 
 ### DelegationSets
-- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_classes.DelegationSetTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_classes.DelegationSet]
 - **Required**: Yes
 
 ### Marker
@@ -1808,11 +1808,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListTagsForResourceRequestTypeDef
+# ListTagsForResourceRequest
 
 ### ResourceType
 - **Type**: typing.Literal['healthcheck', 'hostedzone']
@@ -1823,18 +1823,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListTagsForResourceResponseTypeDef
+# ListTagsForResourceResponse
 
 ### ResourceTagSet
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResourceTagSetTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResourceTagSet'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListTagsForResourcesRequestTypeDef
+# ListTagsForResourcesRequest
 
 ### ResourceType
 - **Type**: typing.Literal['healthcheck', 'hostedzone']
@@ -1845,18 +1845,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListTagsForResourcesResponseTypeDef
+# ListTagsForResourcesResponse
 
 ### ResourceTagSets
-- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_classes.ResourceTagSetTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_classes.ResourceTagSet]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListTrafficPoliciesRequestTypeDef
+# ListTrafficPoliciesRequest
 
 ### TrafficPolicyIdMarker
 - **Type**: typing.Optional[str]
@@ -1865,10 +1865,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListTrafficPoliciesResponseTypeDef
+# ListTrafficPoliciesResponse
 
 ### TrafficPolicySummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_classes.TrafficPolicySummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_classes.TrafficPolicySummary]
 - **Required**: Yes
 
 ### IsTruncated
@@ -1884,11 +1884,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListTrafficPolicyInstancesByHostedZoneRequestTypeDef
+# ListTrafficPolicyInstancesByHostedZoneRequest
 
 ### HostedZoneId
 - **Type**: <class 'str'>
@@ -1904,10 +1904,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListTrafficPolicyInstancesByHostedZoneResponseTypeDef
+# ListTrafficPolicyInstancesByHostedZoneResponse
 
 ### TrafficPolicyInstances
-- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_classes.TrafficPolicyInstanceTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_classes.TrafficPolicyInstance]
 - **Required**: Yes
 
 ### TrafficPolicyInstanceNameMarker
@@ -1927,11 +1927,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListTrafficPolicyInstancesByPolicyRequestTypeDef
+# ListTrafficPolicyInstancesByPolicyRequest
 
 ### TrafficPolicyId
 - **Type**: <class 'str'>
@@ -1954,10 +1954,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListTrafficPolicyInstancesByPolicyResponseTypeDef
+# ListTrafficPolicyInstancesByPolicyResponse
 
 ### TrafficPolicyInstances
-- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_classes.TrafficPolicyInstanceTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_classes.TrafficPolicyInstance]
 - **Required**: Yes
 
 ### HostedZoneIdMarker
@@ -1981,11 +1981,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListTrafficPolicyInstancesRequestTypeDef
+# ListTrafficPolicyInstancesRequest
 
 ### HostedZoneIdMarker
 - **Type**: typing.Optional[str]
@@ -2000,10 +2000,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListTrafficPolicyInstancesResponseTypeDef
+# ListTrafficPolicyInstancesResponse
 
 ### TrafficPolicyInstances
-- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_classes.TrafficPolicyInstanceTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_classes.TrafficPolicyInstance]
 - **Required**: Yes
 
 ### HostedZoneIdMarker
@@ -2027,11 +2027,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListTrafficPolicyVersionsRequestTypeDef
+# ListTrafficPolicyVersionsRequest
 
 ### Id
 - **Type**: <class 'str'>
@@ -2044,10 +2044,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListTrafficPolicyVersionsResponseTypeDef
+# ListTrafficPolicyVersionsResponse
 
 ### TrafficPolicies
-- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_classes.TrafficPolicyTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_classes.TrafficPolicy]
 - **Required**: Yes
 
 ### IsTruncated
@@ -2063,11 +2063,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListVPCAssociationAuthorizationsRequestPaginateTypeDef
+# ListVPCAssociationAuthorizationsRequest
+
+### HostedZoneId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+### MaxResults
+- **Type**: typing.Optional[str]
+
+
+# ListVPCAssociationAuthorizationsRequestPaginate
 
 ### HostedZoneId
 - **Type**: <class 'str'>
@@ -2077,47 +2090,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_classes.PaginatorConfig]
 
 
-# ListVPCAssociationAuthorizationsRequestTypeDef
-
-### HostedZoneId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### NextToken
-- **Type**: typing.Optional[str]
-
-### MaxResults
-- **Type**: typing.Optional[str]
-
-
-# ListVPCAssociationAuthorizationsResponseTypeDef
+# ListVPCAssociationAuthorizationsResponse
 
 ### HostedZoneId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### VPCs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_classes.VPCTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_classes.VPC]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# LocationSummaryTypeDef
+# LocationSummary
 
 ### LocationName
 - **Type**: typing.Optional[str]
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -2129,7 +2129,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# QueryLoggingConfigTypeDef
+# QueryLoggingConfig
 
 ### Id
 - **Type**: <class 'str'>
@@ -2144,26 +2144,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ResourceRecordSetOutputTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# ResourceRecordSetUnionTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# ResourceRecordTypeDef
+# ResourceRecord
 
 ### Value
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ResourceTagSetTypeDef
+# ResourceRecordSetOutput
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# ResourceRecordSetUnion
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# ResourceTagSet
 
 ### ResourceType
 - **Type**: typing.Optional[typing.Literal['healthcheck', 'hostedzone']]
@@ -2172,10 +2172,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.route53_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.route53_classes.Tag]]
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -2197,13 +2197,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ReusableDelegationSetLimitTypeDef
+# ReusableDelegationSetLimit
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# StatusReportTypeDef
+# StatusReport
 
 ### Status
 - **Type**: typing.Optional[str]
@@ -2212,7 +2212,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# TagTypeDef
+# Tag
 
 ### Key
 - **Type**: typing.Optional[str]
@@ -2221,7 +2221,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TestDNSAnswerRequestTypeDef
+# TestDNSAnswerRequest
 
 ### HostedZoneId
 - **Type**: <class 'str'>
@@ -2245,7 +2245,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TrafficPolicyInstanceTypeDef
+# TrafficPolicy
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# TrafficPolicyInstance
 
 ### Id
 - **Type**: <class 'str'>
@@ -2284,19 +2290,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TrafficPolicySummaryTypeDef
+# TrafficPolicySummary
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# TrafficPolicyTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# UpdateHealthCheckRequestTypeDef
+# UpdateHealthCheckRequest
 
 ### HealthCheckId
 - **Type**: <class 'str'>
@@ -2342,7 +2342,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['ap-northeast-1', 'ap-southeast-1', 'ap-southeast-2', 'eu-west-1', 'sa-east-1', 'us-east-1', 'us-west-1', 'us-west-2']]]
 
 ### AlarmIdentifier
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_classes.AlarmIdentifierTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### InsufficientDataHealthStatus
 - **Type**: typing.Optional[typing.Literal['Healthy', 'LastKnownStatus', 'Unhealthy']]
@@ -2351,18 +2351,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['ChildHealthChecks', 'FullyQualifiedDomainName', 'Regions', 'ResourcePath']]]
 
 
-# UpdateHealthCheckResponseTypeDef
+# UpdateHealthCheckResponse
 
 ### HealthCheck
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.HealthCheckTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.HealthCheck'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateHostedZoneCommentRequestTypeDef
+# UpdateHostedZoneCommentRequest
 
 ### Id
 - **Type**: <class 'str'>
@@ -2372,18 +2372,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateHostedZoneCommentResponseTypeDef
+# UpdateHostedZoneCommentResponse
 
 ### HostedZone
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.HostedZoneTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.HostedZone'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateTrafficPolicyCommentRequestTypeDef
+# UpdateTrafficPolicyCommentRequest
 
 ### Id
 - **Type**: <class 'str'>
@@ -2398,18 +2398,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateTrafficPolicyCommentResponseTypeDef
+# UpdateTrafficPolicyCommentResponse
 
 ### TrafficPolicy
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.TrafficPolicyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.TrafficPolicy'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateTrafficPolicyInstanceRequestTypeDef
+# UpdateTrafficPolicyInstanceRequest
 
 ### Id
 - **Type**: <class 'str'>
@@ -2428,18 +2428,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateTrafficPolicyInstanceResponseTypeDef
+# UpdateTrafficPolicyInstanceResponse
 
 ### TrafficPolicyInstance
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.TrafficPolicyInstanceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.TrafficPolicyInstance'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# VPCTypeDef
+# VPC
 
 ### VPCRegion
 - **Type**: typing.Optional[typing.Literal['af-south-1', 'ap-east-1', 'ap-northeast-1', 'ap-northeast-2', 'ap-northeast-3', 'ap-south-1', 'ap-south-2', 'ap-southeast-1', 'ap-southeast-2', 'ap-southeast-3', 'ap-southeast-4', 'ap-southeast-5', 'ap-southeast-7', 'ca-central-1', 'ca-west-1', 'cn-north-1', 'cn-northwest-1', 'eu-central-1', 'eu-central-2', 'eu-north-1', 'eu-south-1', 'eu-south-2', 'eu-west-1', 'eu-west-2', 'eu-west-3', 'il-central-1', 'me-central-1', 'me-south-1', 'mx-central-1', 'sa-east-1', 'us-east-1', 'us-east-2', 'us-gov-east-1', 'us-gov-west-1', 'us-iso-east-1', 'us-iso-west-1', 'us-isob-east-1', 'us-west-1', 'us-west-2']]
@@ -2448,7 +2448,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# WaiterConfigTypeDef
+# WaiterConfig
 
 ### Delay
 - **Type**: typing.Optional[int]

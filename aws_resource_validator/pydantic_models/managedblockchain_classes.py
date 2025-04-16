@@ -12,20 +12,20 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.managedblockchain_constants import *
 
-class ApprovalThresholdPolicyTypeDef(BaseValidatorModel):
+class ApprovalThresholdPolicy(BaseValidatorModel):
     ThresholdPercentage: Optional[int] = None
     ProposalDurationInHours: Optional[int] = None
     ThresholdComparator: Optional[ThresholdComparatorType] = None
 
 
-class CreateAccessorInputTypeDef(BaseValidatorModel):
+class CreateAccessorInput(BaseValidatorModel):
     ClientRequestToken: str
     AccessorType: Literal["BILLING_TOKEN"]
     Tags: Optional[Mapping[str, str]] = None
     NetworkType: Optional[AccessorNetworkTypeType] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -33,46 +33,46 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class DeleteAccessorInputTypeDef(BaseValidatorModel):
+class DeleteAccessorInput(BaseValidatorModel):
     AccessorId: str
 
 
-class DeleteMemberInputTypeDef(BaseValidatorModel):
+class DeleteMemberInput(BaseValidatorModel):
     NetworkId: str
     MemberId: str
 
 
-class DeleteNodeInputTypeDef(BaseValidatorModel):
+class DeleteNodeInput(BaseValidatorModel):
     NetworkId: str
     NodeId: str
     MemberId: Optional[str] = None
 
 
-class GetAccessorInputTypeDef(BaseValidatorModel):
+class GetAccessorInput(BaseValidatorModel):
     AccessorId: str
 
 
-class GetMemberInputTypeDef(BaseValidatorModel):
+class GetMemberInput(BaseValidatorModel):
     NetworkId: str
     MemberId: str
 
 
-class GetNetworkInputTypeDef(BaseValidatorModel):
+class GetNetworkInput(BaseValidatorModel):
     NetworkId: str
 
 
-class GetNodeInputTypeDef(BaseValidatorModel):
+class GetNodeInput(BaseValidatorModel):
     NetworkId: str
     NodeId: str
     MemberId: Optional[str] = None
 
 
-class GetProposalInputTypeDef(BaseValidatorModel):
+class GetProposalInput(BaseValidatorModel):
     NetworkId: str
     ProposalId: str
 
 
-class NetworkSummaryTypeDef(BaseValidatorModel):
+class NetworkSummary(BaseValidatorModel):
     Id: Optional[str] = None
     Name: Optional[str] = None
     Description: Optional[str] = None
@@ -83,28 +83,28 @@ class NetworkSummaryTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
 
 
-class InviteActionTypeDef(BaseValidatorModel):
+class InviteAction(BaseValidatorModel):
     Principal: str
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListAccessorsInputTypeDef(BaseValidatorModel):
+class ListAccessorsInput(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     NetworkType: Optional[AccessorNetworkTypeType] = None
 
 
-class ListInvitationsInputTypeDef(BaseValidatorModel):
+class ListInvitationsInput(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListMembersInputTypeDef(BaseValidatorModel):
+class ListMembersInput(BaseValidatorModel):
     NetworkId: str
     Name: Optional[str] = None
     Status: Optional[MemberStatusType] = None
@@ -113,7 +113,7 @@ class ListMembersInputTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
-class MemberSummaryTypeDef(BaseValidatorModel):
+class MemberSummary(BaseValidatorModel):
     Id: Optional[str] = None
     Name: Optional[str] = None
     Description: Optional[str] = None
@@ -123,7 +123,7 @@ class MemberSummaryTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
 
 
-class ListNetworksInputTypeDef(BaseValidatorModel):
+class ListNetworksInput(BaseValidatorModel):
     Name: Optional[str] = None
     Framework: Optional[FrameworkType] = None
     Status: Optional[NetworkStatusType] = None
@@ -131,7 +131,7 @@ class ListNetworksInputTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
-class ListNodesInputTypeDef(BaseValidatorModel):
+class ListNodesInput(BaseValidatorModel):
     NetworkId: str
     MemberId: Optional[str] = None
     Status: Optional[NodeStatusType] = None
@@ -139,7 +139,7 @@ class ListNodesInputTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
-class NodeSummaryTypeDef(BaseValidatorModel):
+class NodeSummary(BaseValidatorModel):
     Id: Optional[str] = None
     Status: Optional[NodeStatusType] = None
     CreationDate: Optional[datetime] = None
@@ -148,26 +148,26 @@ class NodeSummaryTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
 
 
-class ListProposalVotesInputTypeDef(BaseValidatorModel):
+class ListProposalVotesInput(BaseValidatorModel):
     NetworkId: str
     ProposalId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class VoteSummaryTypeDef(BaseValidatorModel):
+class VoteSummary(BaseValidatorModel):
     Vote: Optional[VoteValueType] = None
     MemberName: Optional[str] = None
     MemberId: Optional[str] = None
 
 
-class ListProposalsInputTypeDef(BaseValidatorModel):
+class ListProposalsInput(BaseValidatorModel):
     NetworkId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ProposalSummaryTypeDef(BaseValidatorModel):
+class ProposalSummary(BaseValidatorModel):
     ProposalId: Optional[str] = None
     Description: Optional[str] = None
     ProposedByMemberId: Optional[str] = None
@@ -178,243 +178,243 @@ class ProposalSummaryTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
 
-class LogConfigurationTypeDef(BaseValidatorModel):
+class LogConfiguration(BaseValidatorModel):
     Enabled: Optional[bool] = None
 
 
-class MemberFabricAttributesTypeDef(BaseValidatorModel):
+class MemberFabricAttributes(BaseValidatorModel):
     AdminUsername: Optional[str] = None
     CaEndpoint: Optional[str] = None
 
 
-class MemberFabricConfigurationTypeDef(BaseValidatorModel):
+class MemberFabricConfiguration(BaseValidatorModel):
     AdminUsername: str
     AdminPassword: str
 
 
-class NetworkEthereumAttributesTypeDef(BaseValidatorModel):
+class NetworkEthereumAttributes(BaseValidatorModel):
     ChainId: Optional[str] = None
 
 
-class NetworkFabricAttributesTypeDef(BaseValidatorModel):
+class NetworkFabricAttributes(BaseValidatorModel):
     OrderingServiceEndpoint: Optional[str] = None
     Edition: Optional[EditionType] = None
 
 
-class NetworkFabricConfigurationTypeDef(BaseValidatorModel):
+class NetworkFabricConfiguration(BaseValidatorModel):
     Edition: EditionType
 
 
-class NodeEthereumAttributesTypeDef(BaseValidatorModel):
+class NodeEthereumAttributes(BaseValidatorModel):
     HttpEndpoint: Optional[str] = None
     WebSocketEndpoint: Optional[str] = None
 
 
-class NodeFabricAttributesTypeDef(BaseValidatorModel):
+class NodeFabricAttributes(BaseValidatorModel):
     PeerEndpoint: Optional[str] = None
     PeerEventEndpoint: Optional[str] = None
 
 
-class RemoveActionTypeDef(BaseValidatorModel):
+class RemoveAction(BaseValidatorModel):
     MemberId: str
 
 
-class RejectInvitationInputTypeDef(BaseValidatorModel):
+class RejectInvitationInput(BaseValidatorModel):
     InvitationId: str
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     Tags: Mapping[str, str]
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     TagKeys: Sequence[str]
 
 
-class VoteOnProposalInputTypeDef(BaseValidatorModel):
+class VoteOnProposalInput(BaseValidatorModel):
     NetworkId: str
     ProposalId: str
     VoterMemberId: str
     Vote: VoteValueType
 
 
-class VotingPolicyTypeDef(BaseValidatorModel):
-    ApprovalThresholdPolicy: Optional[ApprovalThresholdPolicyTypeDef] = None
+class VotingPolicy(BaseValidatorModel):
+    ApprovalThresholdPolicy: Optional[ApprovalThresholdPolicy] = None
 
 
-class CreateAccessorOutputTypeDef(BaseValidatorModel):
+class CreateAccessorOutput(BaseValidatorModel):
     AccessorId: str
     BillingToken: str
     NetworkType: AccessorNetworkTypeType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateMemberOutputTypeDef(BaseValidatorModel):
+class CreateMemberOutput(BaseValidatorModel):
     MemberId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateNetworkOutputTypeDef(BaseValidatorModel):
+class CreateNetworkOutput(BaseValidatorModel):
     NetworkId: str
     MemberId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateNodeOutputTypeDef(BaseValidatorModel):
+class CreateNodeOutput(BaseValidatorModel):
     NodeId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateProposalOutputTypeDef(BaseValidatorModel):
+class CreateProposalOutput(BaseValidatorModel):
     ProposalId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class AccessorTypeDef(BaseValidatorModel):
+class Accessor(BaseValidatorModel):
     pass
 
 
-class GetAccessorOutputTypeDef(BaseValidatorModel):
-    Accessor: AccessorTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetAccessorOutput(BaseValidatorModel):
+    Accessor: Accessor
+    ResponseMetadata: ResponseMetadata
 
 
-class AccessorSummaryTypeDef(BaseValidatorModel):
+class AccessorSummary(BaseValidatorModel):
     pass
 
 
-class ListAccessorsOutputTypeDef(BaseValidatorModel):
-    Accessors: List[AccessorSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAccessorsOutput(BaseValidatorModel):
+    Accessors: List[AccessorSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
+class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class InvitationTypeDef(BaseValidatorModel):
+class Invitation(BaseValidatorModel):
     InvitationId: Optional[str] = None
     CreationDate: Optional[datetime] = None
     ExpirationDate: Optional[datetime] = None
     Status: Optional[InvitationStatusType] = None
-    NetworkSummary: Optional[NetworkSummaryTypeDef] = None
+    NetworkSummary: Optional[NetworkSummary] = None
     Arn: Optional[str] = None
 
 
-class ListNetworksOutputTypeDef(BaseValidatorModel):
-    Networks: List[NetworkSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListNetworksOutput(BaseValidatorModel):
+    Networks: List[NetworkSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListAccessorsInputPaginateTypeDef(BaseValidatorModel):
+class ListAccessorsInputPaginate(BaseValidatorModel):
     NetworkType: Optional[AccessorNetworkTypeType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListMembersOutputTypeDef(BaseValidatorModel):
-    Members: List[MemberSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListMembersOutput(BaseValidatorModel):
+    Members: List[MemberSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListNodesOutputTypeDef(BaseValidatorModel):
-    Nodes: List[NodeSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListNodesOutput(BaseValidatorModel):
+    Nodes: List[NodeSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListProposalVotesOutputTypeDef(BaseValidatorModel):
-    ProposalVotes: List[VoteSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListProposalVotesOutput(BaseValidatorModel):
+    ProposalVotes: List[VoteSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListProposalsOutputTypeDef(BaseValidatorModel):
-    Proposals: List[ProposalSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListProposalsOutput(BaseValidatorModel):
+    Proposals: List[ProposalSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class LogConfigurationsTypeDef(BaseValidatorModel):
-    Cloudwatch: Optional[LogConfigurationTypeDef] = None
+class LogConfigurations(BaseValidatorModel):
+    Cloudwatch: Optional[LogConfiguration] = None
 
 
-class MemberFrameworkAttributesTypeDef(BaseValidatorModel):
-    Fabric: Optional[MemberFabricAttributesTypeDef] = None
+class MemberFrameworkAttributes(BaseValidatorModel):
+    Fabric: Optional[MemberFabricAttributes] = None
 
 
-class MemberFrameworkConfigurationTypeDef(BaseValidatorModel):
-    Fabric: Optional[MemberFabricConfigurationTypeDef] = None
+class MemberFrameworkConfiguration(BaseValidatorModel):
+    Fabric: Optional[MemberFabricConfiguration] = None
 
 
-class NetworkFrameworkAttributesTypeDef(BaseValidatorModel):
-    Fabric: Optional[NetworkFabricAttributesTypeDef] = None
-    Ethereum: Optional[NetworkEthereumAttributesTypeDef] = None
+class NetworkFrameworkAttributes(BaseValidatorModel):
+    Fabric: Optional[NetworkFabricAttributes] = None
+    Ethereum: Optional[NetworkEthereumAttributes] = None
 
 
-class NetworkFrameworkConfigurationTypeDef(BaseValidatorModel):
-    Fabric: Optional[NetworkFabricConfigurationTypeDef] = None
+class NetworkFrameworkConfiguration(BaseValidatorModel):
+    Fabric: Optional[NetworkFabricConfiguration] = None
 
 
-class NodeFrameworkAttributesTypeDef(BaseValidatorModel):
-    Fabric: Optional[NodeFabricAttributesTypeDef] = None
-    Ethereum: Optional[NodeEthereumAttributesTypeDef] = None
+class NodeFrameworkAttributes(BaseValidatorModel):
+    Fabric: Optional[NodeFabricAttributes] = None
+    Ethereum: Optional[NodeEthereumAttributes] = None
 
 
-class ProposalActionsOutputTypeDef(BaseValidatorModel):
-    Invitations: Optional[List[InviteActionTypeDef]] = None
-    Removals: Optional[List[RemoveActionTypeDef]] = None
+class ProposalActionsOutput(BaseValidatorModel):
+    Invitations: Optional[List[InviteAction]] = None
+    Removals: Optional[List[RemoveAction]] = None
 
 
-class ProposalActionsTypeDef(BaseValidatorModel):
-    Invitations: Optional[Sequence[InviteActionTypeDef]] = None
-    Removals: Optional[Sequence[RemoveActionTypeDef]] = None
+class ProposalActions(BaseValidatorModel):
+    Invitations: Optional[Sequence[InviteAction]] = None
+    Removals: Optional[Sequence[RemoveAction]] = None
 
 
-class ListInvitationsOutputTypeDef(BaseValidatorModel):
-    Invitations: List[InvitationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListInvitationsOutput(BaseValidatorModel):
+    Invitations: List[Invitation]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class MemberFabricLogPublishingConfigurationTypeDef(BaseValidatorModel):
-    CaLogs: Optional[LogConfigurationsTypeDef] = None
+class MemberFabricLogPublishingConfiguration(BaseValidatorModel):
+    CaLogs: Optional[LogConfigurations] = None
 
 
-class NodeFabricLogPublishingConfigurationTypeDef(BaseValidatorModel):
-    ChaincodeLogs: Optional[LogConfigurationsTypeDef] = None
-    PeerLogs: Optional[LogConfigurationsTypeDef] = None
+class NodeFabricLogPublishingConfiguration(BaseValidatorModel):
+    ChaincodeLogs: Optional[LogConfigurations] = None
+    PeerLogs: Optional[LogConfigurations] = None
 
 
-class NetworkTypeDef(BaseValidatorModel):
+class Network(BaseValidatorModel):
     Id: Optional[str] = None
     Name: Optional[str] = None
     Description: Optional[str] = None
     Framework: Optional[FrameworkType] = None
     FrameworkVersion: Optional[str] = None
-    FrameworkAttributes: Optional[NetworkFrameworkAttributesTypeDef] = None
+    FrameworkAttributes: Optional[NetworkFrameworkAttributes] = None
     VpcEndpointServiceName: Optional[str] = None
-    VotingPolicy: Optional[VotingPolicyTypeDef] = None
+    VotingPolicy: Optional[VotingPolicy] = None
     Status: Optional[NetworkStatusType] = None
     CreationDate: Optional[datetime] = None
     Tags: Optional[Dict[str, str]] = None
     Arn: Optional[str] = None
 
 
-class ProposalTypeDef(BaseValidatorModel):
+class Proposal(BaseValidatorModel):
     ProposalId: Optional[str] = None
     NetworkId: Optional[str] = None
     Description: Optional[str] = None
-    Actions: Optional[ProposalActionsOutputTypeDef] = None
+    Actions: Optional[ProposalActionsOutput] = None
     ProposedByMemberId: Optional[str] = None
     ProposedByMemberName: Optional[str] = None
     Status: Optional[ProposalStatusType] = None
@@ -427,53 +427,53 @@ class ProposalTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
 
 
-class MemberLogPublishingConfigurationTypeDef(BaseValidatorModel):
-    Fabric: Optional[MemberFabricLogPublishingConfigurationTypeDef] = None
+class MemberLogPublishingConfiguration(BaseValidatorModel):
+    Fabric: Optional[MemberFabricLogPublishingConfiguration] = None
 
 
-class NodeLogPublishingConfigurationTypeDef(BaseValidatorModel):
-    Fabric: Optional[NodeFabricLogPublishingConfigurationTypeDef] = None
+class NodeLogPublishingConfiguration(BaseValidatorModel):
+    Fabric: Optional[NodeFabricLogPublishingConfiguration] = None
 
 
-class GetNetworkOutputTypeDef(BaseValidatorModel):
-    Network: NetworkTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetNetworkOutput(BaseValidatorModel):
+    Network: Network
+    ResponseMetadata: ResponseMetadata
 
 
-class GetProposalOutputTypeDef(BaseValidatorModel):
-    Proposal: ProposalTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetProposalOutput(BaseValidatorModel):
+    Proposal: Proposal
+    ResponseMetadata: ResponseMetadata
 
 
-class ProposalActionsUnionTypeDef(BaseValidatorModel):
+class ProposalActionsUnion(BaseValidatorModel):
     pass
 
 
-class CreateProposalInputTypeDef(BaseValidatorModel):
+class CreateProposalInput(BaseValidatorModel):
     ClientRequestToken: str
     NetworkId: str
     MemberId: str
-    Actions: ProposalActionsUnionTypeDef
+    Actions: ProposalActionsUnion
     Description: Optional[str] = None
     Tags: Optional[Mapping[str, str]] = None
 
 
-class MemberConfigurationTypeDef(BaseValidatorModel):
+class MemberConfiguration(BaseValidatorModel):
     Name: str
-    FrameworkConfiguration: MemberFrameworkConfigurationTypeDef
+    FrameworkConfiguration: MemberFrameworkConfiguration
     Description: Optional[str] = None
-    LogPublishingConfiguration: Optional[MemberLogPublishingConfigurationTypeDef] = None
+    LogPublishingConfiguration: Optional[MemberLogPublishingConfiguration] = None
     Tags: Optional[Mapping[str, str]] = None
     KmsKeyArn: Optional[str] = None
 
 
-class MemberTypeDef(BaseValidatorModel):
+class Member(BaseValidatorModel):
     NetworkId: Optional[str] = None
     Id: Optional[str] = None
     Name: Optional[str] = None
     Description: Optional[str] = None
-    FrameworkAttributes: Optional[MemberFrameworkAttributesTypeDef] = None
-    LogPublishingConfiguration: Optional[MemberLogPublishingConfigurationTypeDef] = None
+    FrameworkAttributes: Optional[MemberFrameworkAttributes] = None
+    LogPublishingConfiguration: Optional[MemberLogPublishingConfiguration] = None
     Status: Optional[MemberStatusType] = None
     CreationDate: Optional[datetime] = None
     Tags: Optional[Dict[str, str]] = None
@@ -481,27 +481,27 @@ class MemberTypeDef(BaseValidatorModel):
     KmsKeyArn: Optional[str] = None
 
 
-class UpdateMemberInputTypeDef(BaseValidatorModel):
+class UpdateMemberInput(BaseValidatorModel):
     NetworkId: str
     MemberId: str
-    LogPublishingConfiguration: Optional[MemberLogPublishingConfigurationTypeDef] = None
+    LogPublishingConfiguration: Optional[MemberLogPublishingConfiguration] = None
 
 
-class NodeConfigurationTypeDef(BaseValidatorModel):
+class NodeConfiguration(BaseValidatorModel):
     InstanceType: str
     AvailabilityZone: Optional[str] = None
-    LogPublishingConfiguration: Optional[NodeLogPublishingConfigurationTypeDef] = None
+    LogPublishingConfiguration: Optional[NodeLogPublishingConfiguration] = None
     StateDB: Optional[StateDBTypeType] = None
 
 
-class NodeTypeDef(BaseValidatorModel):
+class Node(BaseValidatorModel):
     NetworkId: Optional[str] = None
     MemberId: Optional[str] = None
     Id: Optional[str] = None
     InstanceType: Optional[str] = None
     AvailabilityZone: Optional[str] = None
-    FrameworkAttributes: Optional[NodeFrameworkAttributesTypeDef] = None
-    LogPublishingConfiguration: Optional[NodeLogPublishingConfigurationTypeDef] = None
+    FrameworkAttributes: Optional[NodeFrameworkAttributes] = None
+    LogPublishingConfiguration: Optional[NodeLogPublishingConfiguration] = None
     StateDB: Optional[StateDBTypeType] = None
     Status: Optional[NodeStatusType] = None
     CreationDate: Optional[datetime] = None
@@ -510,47 +510,47 @@ class NodeTypeDef(BaseValidatorModel):
     KmsKeyArn: Optional[str] = None
 
 
-class UpdateNodeInputTypeDef(BaseValidatorModel):
+class UpdateNodeInput(BaseValidatorModel):
     NetworkId: str
     NodeId: str
     MemberId: Optional[str] = None
-    LogPublishingConfiguration: Optional[NodeLogPublishingConfigurationTypeDef] = None
+    LogPublishingConfiguration: Optional[NodeLogPublishingConfiguration] = None
 
 
-class CreateMemberInputTypeDef(BaseValidatorModel):
+class CreateMemberInput(BaseValidatorModel):
     ClientRequestToken: str
     InvitationId: str
     NetworkId: str
-    MemberConfiguration: MemberConfigurationTypeDef
+    MemberConfiguration: MemberConfiguration
 
 
-class CreateNetworkInputTypeDef(BaseValidatorModel):
+class CreateNetworkInput(BaseValidatorModel):
     ClientRequestToken: str
     Name: str
     Framework: FrameworkType
     FrameworkVersion: str
-    VotingPolicy: VotingPolicyTypeDef
-    MemberConfiguration: MemberConfigurationTypeDef
+    VotingPolicy: VotingPolicy
+    MemberConfiguration: MemberConfiguration
     Description: Optional[str] = None
-    FrameworkConfiguration: Optional[NetworkFrameworkConfigurationTypeDef] = None
+    FrameworkConfiguration: Optional[NetworkFrameworkConfiguration] = None
     Tags: Optional[Mapping[str, str]] = None
 
 
-class GetMemberOutputTypeDef(BaseValidatorModel):
-    Member: MemberTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetMemberOutput(BaseValidatorModel):
+    Member: Member
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateNodeInputTypeDef(BaseValidatorModel):
+class CreateNodeInput(BaseValidatorModel):
     ClientRequestToken: str
     NetworkId: str
-    NodeConfiguration: NodeConfigurationTypeDef
+    NodeConfiguration: NodeConfiguration
     MemberId: Optional[str] = None
     Tags: Optional[Mapping[str, str]] = None
 
 
-class GetNodeOutputTypeDef(BaseValidatorModel):
-    Node: NodeTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetNodeOutput(BaseValidatorModel):
+    Node: Node
+    ResponseMetadata: ResponseMetadata
 
 

@@ -12,38 +12,38 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.groundstation_constants import *
 
-class ComponentVersionTypeDef(BaseValidatorModel):
+class ComponentVersion(BaseValidatorModel):
     componentType: str
     versions: Sequence[str]
 
 
-class AggregateStatusTypeDef(BaseValidatorModel):
+class AggregateStatus(BaseValidatorModel):
     status: AgentStatusType
     signatureMap: Optional[Mapping[str, bool]] = None
 
 
-class AntennaDemodDecodeDetailsTypeDef(BaseValidatorModel):
+class AntennaDemodDecodeDetails(BaseValidatorModel):
     outputNode: Optional[str] = None
 
 
-class DecodeConfigTypeDef(BaseValidatorModel):
+class DecodeConfig(BaseValidatorModel):
     unvalidatedJSON: str
 
 
-class DemodulationConfigTypeDef(BaseValidatorModel):
+class DemodulationConfig(BaseValidatorModel):
     unvalidatedJSON: str
 
 
-class EirpTypeDef(BaseValidatorModel):
+class Eirp(BaseValidatorModel):
     units: Literal["dBW"]
     value: float
 
 
-class CancelContactRequestTypeDef(BaseValidatorModel):
+class CancelContactRequest(BaseValidatorModel):
     contactId: str
 
 
-class ComponentStatusDataTypeDef(BaseValidatorModel):
+class ComponentStatusData(BaseValidatorModel):
     capabilityArn: str
     componentType: str
     dataflowId: str
@@ -53,12 +53,12 @@ class ComponentStatusDataTypeDef(BaseValidatorModel):
     packetsDropped: Optional[int] = None
 
 
-class S3RecordingDetailsTypeDef(BaseValidatorModel):
+class S3RecordingDetails(BaseValidatorModel):
     bucketArn: Optional[str] = None
     keyTemplate: Optional[str] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -66,320 +66,320 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class ConfigListItemTypeDef(BaseValidatorModel):
+class ConfigListItem(BaseValidatorModel):
     configArn: Optional[str] = None
     configId: Optional[str] = None
     configType: Optional[ConfigCapabilityTypeType] = None
     name: Optional[str] = None
 
 
-class DataflowEndpointConfigTypeDef(BaseValidatorModel):
+class DataflowEndpointConfig(BaseValidatorModel):
     dataflowEndpointName: str
     dataflowEndpointRegion: Optional[str] = None
 
 
-class S3RecordingConfigTypeDef(BaseValidatorModel):
+class S3RecordingConfig(BaseValidatorModel):
     bucketArn: str
     roleArn: str
     prefix: Optional[str] = None
 
 
-class TrackingConfigTypeDef(BaseValidatorModel):
+class TrackingConfig(BaseValidatorModel):
     autotrack: CriticalityType
 
 
-class UplinkEchoConfigTypeDef(BaseValidatorModel):
+class UplinkEchoConfig(BaseValidatorModel):
     antennaUplinkConfigArn: str
     enabled: bool
 
 
-class SocketAddressTypeDef(BaseValidatorModel):
+class SocketAddress(BaseValidatorModel):
     name: str
     port: int
 
 
-class ElevationTypeDef(BaseValidatorModel):
+class Elevation(BaseValidatorModel):
     unit: AngleUnitsType
     value: float
 
 
-class KmsKeyTypeDef(BaseValidatorModel):
+class KmsKey(BaseValidatorModel):
     kmsAliasArn: Optional[str] = None
     kmsAliasName: Optional[str] = None
     kmsKeyArn: Optional[str] = None
 
 
-class DataflowEndpointListItemTypeDef(BaseValidatorModel):
+class DataflowEndpointListItem(BaseValidatorModel):
     dataflowEndpointGroupArn: Optional[str] = None
     dataflowEndpointGroupId: Optional[str] = None
 
 
-class DeleteConfigRequestTypeDef(BaseValidatorModel):
+class DeleteConfigRequest(BaseValidatorModel):
     configId: str
     configType: ConfigCapabilityTypeType
 
 
-class DeleteDataflowEndpointGroupRequestTypeDef(BaseValidatorModel):
+class DeleteDataflowEndpointGroupRequest(BaseValidatorModel):
     dataflowEndpointGroupId: str
 
 
-class DeleteEphemerisRequestTypeDef(BaseValidatorModel):
+class DeleteEphemerisRequest(BaseValidatorModel):
     ephemerisId: str
 
 
-class DeleteMissionProfileRequestTypeDef(BaseValidatorModel):
+class DeleteMissionProfileRequest(BaseValidatorModel):
     missionProfileId: str
 
 
-class DescribeContactRequestTypeDef(BaseValidatorModel):
+class DescribeContactRequest(BaseValidatorModel):
     contactId: str
 
 
-class WaiterConfigTypeDef(BaseValidatorModel):
+class WaiterConfig(BaseValidatorModel):
     Delay: Optional[int] = None
     MaxAttempts: Optional[int] = None
 
 
-class DescribeEphemerisRequestTypeDef(BaseValidatorModel):
+class DescribeEphemerisRequest(BaseValidatorModel):
     ephemerisId: str
 
 
-class DiscoveryDataTypeDef(BaseValidatorModel):
+class DiscoveryData(BaseValidatorModel):
     capabilityArns: Sequence[str]
     privateIpAddresses: Sequence[str]
     publicIpAddresses: Sequence[str]
 
 
-class SecurityDetailsOutputTypeDef(BaseValidatorModel):
+class SecurityDetailsOutput(BaseValidatorModel):
     roleArn: str
     securityGroupIds: List[str]
     subnetIds: List[str]
 
 
-class S3ObjectTypeDef(BaseValidatorModel):
+class S3Object(BaseValidatorModel):
     bucket: Optional[str] = None
     key: Optional[str] = None
     version: Optional[str] = None
 
 
-class EphemerisMetaDataTypeDef(BaseValidatorModel):
+class EphemerisMetaData(BaseValidatorModel):
     source: EphemerisSourceType
     ephemerisId: Optional[str] = None
     epoch: Optional[datetime] = None
     name: Optional[str] = None
 
 
-class FrequencyBandwidthTypeDef(BaseValidatorModel):
+class FrequencyBandwidth(BaseValidatorModel):
     units: BandwidthUnitsType
     value: float
 
 
-class FrequencyTypeDef(BaseValidatorModel):
+class Frequency(BaseValidatorModel):
     units: FrequencyUnitsType
     value: float
 
 
-class GetAgentConfigurationRequestTypeDef(BaseValidatorModel):
+class GetAgentConfigurationRequest(BaseValidatorModel):
     agentId: str
 
 
-class GetConfigRequestTypeDef(BaseValidatorModel):
+class GetConfigRequest(BaseValidatorModel):
     configId: str
     configType: ConfigCapabilityTypeType
 
 
-class GetDataflowEndpointGroupRequestTypeDef(BaseValidatorModel):
+class GetDataflowEndpointGroupRequest(BaseValidatorModel):
     dataflowEndpointGroupId: str
 
 
-class GetMinuteUsageRequestTypeDef(BaseValidatorModel):
+class GetMinuteUsageRequest(BaseValidatorModel):
     month: int
     year: int
 
 
-class GetMissionProfileRequestTypeDef(BaseValidatorModel):
+class GetMissionProfileRequest(BaseValidatorModel):
     missionProfileId: str
 
 
-class GetSatelliteRequestTypeDef(BaseValidatorModel):
+class GetSatelliteRequest(BaseValidatorModel):
     satelliteId: str
 
 
-class GroundStationDataTypeDef(BaseValidatorModel):
+class GroundStationData(BaseValidatorModel):
     groundStationId: Optional[str] = None
     groundStationName: Optional[str] = None
     region: Optional[str] = None
 
 
-class IntegerRangeTypeDef(BaseValidatorModel):
+class IntegerRange(BaseValidatorModel):
     maximum: int
     minimum: int
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListConfigsRequestTypeDef(BaseValidatorModel):
+class ListConfigsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListDataflowEndpointGroupsRequestTypeDef(BaseValidatorModel):
+class ListDataflowEndpointGroupsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListGroundStationsRequestTypeDef(BaseValidatorModel):
+class ListGroundStationsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     satelliteId: Optional[str] = None
 
 
-class ListMissionProfilesRequestTypeDef(BaseValidatorModel):
+class ListMissionProfilesRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class MissionProfileListItemTypeDef(BaseValidatorModel):
+class MissionProfileListItem(BaseValidatorModel):
     missionProfileArn: Optional[str] = None
     missionProfileId: Optional[str] = None
     name: Optional[str] = None
     region: Optional[str] = None
 
 
-class ListSatellitesRequestTypeDef(BaseValidatorModel):
+class ListSatellitesRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
 
-class SecurityDetailsTypeDef(BaseValidatorModel):
+class SecurityDetails(BaseValidatorModel):
     roleArn: str
     securityGroupIds: Sequence[str]
     subnetIds: Sequence[str]
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
 
-class UpdateEphemerisRequestTypeDef(BaseValidatorModel):
+class UpdateEphemerisRequest(BaseValidatorModel):
     enabled: bool
     ephemerisId: str
     name: Optional[str] = None
     priority: Optional[int] = None
 
 
-class AgentDetailsTypeDef(BaseValidatorModel):
+class AgentDetails(BaseValidatorModel):
     agentVersion: str
-    componentVersions: Sequence[ComponentVersionTypeDef]
+    componentVersions: Sequence[ComponentVersion]
     instanceId: str
     instanceType: str
     agentCpuCores: Optional[Sequence[int]] = None
     reservedCpuCores: Optional[Sequence[int]] = None
 
 
-class UpdateAgentStatusRequestTypeDef(BaseValidatorModel):
+class UpdateAgentStatusRequest(BaseValidatorModel):
     agentId: str
-    aggregateStatus: AggregateStatusTypeDef
-    componentStatuses: Sequence[ComponentStatusDataTypeDef]
+    aggregateStatus: AggregateStatus
+    componentStatuses: Sequence[ComponentStatusData]
     taskId: str
 
 
-class ConfigIdResponseTypeDef(BaseValidatorModel):
+class ConfigIdResponse(BaseValidatorModel):
     configArn: str
     configId: str
     configType: ConfigCapabilityTypeType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ContactIdResponseTypeDef(BaseValidatorModel):
+class ContactIdResponse(BaseValidatorModel):
     contactId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DataflowEndpointGroupIdResponseTypeDef(BaseValidatorModel):
+class DataflowEndpointGroupIdResponse(BaseValidatorModel):
     dataflowEndpointGroupId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class EphemerisIdResponseTypeDef(BaseValidatorModel):
+class EphemerisIdResponse(BaseValidatorModel):
     ephemerisId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetAgentConfigurationResponseTypeDef(BaseValidatorModel):
+class GetAgentConfigurationResponse(BaseValidatorModel):
     agentId: str
     taskingDocument: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetMinuteUsageResponseTypeDef(BaseValidatorModel):
+class GetMinuteUsageResponse(BaseValidatorModel):
     estimatedMinutesRemaining: int
     isReservedMinutesCustomer: bool
     totalReservedMinuteAllocation: int
     totalScheduledMinutes: int
     upcomingMinutesScheduled: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
+class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class MissionProfileIdResponseTypeDef(BaseValidatorModel):
+class MissionProfileIdResponse(BaseValidatorModel):
     missionProfileId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class RegisterAgentResponseTypeDef(BaseValidatorModel):
+class RegisterAgentResponse(BaseValidatorModel):
     agentId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateAgentStatusResponseTypeDef(BaseValidatorModel):
+class UpdateAgentStatusResponse(BaseValidatorModel):
     agentId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListConfigsResponseTypeDef(BaseValidatorModel):
-    configList: List[ConfigListItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListConfigsResponse(BaseValidatorModel):
+    configList: List[ConfigListItem]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ConnectionDetailsTypeDef(BaseValidatorModel):
-    socketAddress: SocketAddressTypeDef
+class ConnectionDetails(BaseValidatorModel):
+    socketAddress: SocketAddress
     mtu: Optional[int] = None
 
 
-class DataflowEndpointTypeDef(BaseValidatorModel):
-    address: Optional[SocketAddressTypeDef] = None
+class DataflowEndpoint(BaseValidatorModel):
+    address: Optional[SocketAddress] = None
     mtu: Optional[int] = None
     name: Optional[str] = None
     status: Optional[EndpointStatusType] = None
 
 
-class ContactDataTypeDef(BaseValidatorModel):
+class ContactData(BaseValidatorModel):
     contactId: Optional[str] = None
     contactStatus: Optional[ContactStatusType] = None
     endTime: Optional[datetime] = None
     errorMessage: Optional[str] = None
     groundStation: Optional[str] = None
-    maximumElevation: Optional[ElevationTypeDef] = None
+    maximumElevation: Optional[Elevation] = None
     missionProfileArn: Optional[str] = None
     postPassEndTime: Optional[datetime] = None
     prePassStartTime: Optional[datetime] = None
@@ -391,13 +391,13 @@ class ContactDataTypeDef(BaseValidatorModel):
     visibilityStartTime: Optional[datetime] = None
 
 
-class TimestampTypeDef(BaseValidatorModel):
+class Timestamp(BaseValidatorModel):
     pass
 
 
-class ListContactsRequestTypeDef(BaseValidatorModel):
-    endTime: TimestampTypeDef
-    startTime: TimestampTypeDef
+class ListContactsRequest(BaseValidatorModel):
+    endTime: Timestamp
+    startTime: Timestamp
     statusList: Sequence[ContactStatusType]
     groundStation: Optional[str] = None
     maxResults: Optional[int] = None
@@ -406,42 +406,42 @@ class ListContactsRequestTypeDef(BaseValidatorModel):
     satelliteArn: Optional[str] = None
 
 
-class ListEphemeridesRequestTypeDef(BaseValidatorModel):
-    endTime: TimestampTypeDef
+class ListEphemeridesRequest(BaseValidatorModel):
+    endTime: Timestamp
     satelliteId: str
-    startTime: TimestampTypeDef
+    startTime: Timestamp
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     statusList: Optional[Sequence[EphemerisStatusType]] = None
 
 
-class ReserveContactRequestTypeDef(BaseValidatorModel):
-    endTime: TimestampTypeDef
+class ReserveContactRequest(BaseValidatorModel):
+    endTime: Timestamp
     groundStation: str
     missionProfileArn: str
     satelliteArn: str
-    startTime: TimestampTypeDef
+    startTime: Timestamp
     tags: Optional[Mapping[str, str]] = None
 
 
-class TimeRangeTypeDef(BaseValidatorModel):
-    endTime: TimestampTypeDef
-    startTime: TimestampTypeDef
+class TimeRange(BaseValidatorModel):
+    endTime: Timestamp
+    startTime: Timestamp
 
 
-class CreateMissionProfileRequestTypeDef(BaseValidatorModel):
+class CreateMissionProfileRequest(BaseValidatorModel):
     dataflowEdges: Sequence[Sequence[str]]
     minimumViableContactDurationSeconds: int
     name: str
     trackingConfigArn: str
     contactPostPassDurationSeconds: Optional[int] = None
     contactPrePassDurationSeconds: Optional[int] = None
-    streamsKmsKey: Optional[KmsKeyTypeDef] = None
+    streamsKmsKey: Optional[KmsKey] = None
     streamsKmsRole: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
 
-class GetMissionProfileResponseTypeDef(BaseValidatorModel):
+class GetMissionProfileResponse(BaseValidatorModel):
     contactPostPassDurationSeconds: int
     contactPrePassDurationSeconds: int
     dataflowEdges: List[List[str]]
@@ -450,201 +450,201 @@ class GetMissionProfileResponseTypeDef(BaseValidatorModel):
     missionProfileId: str
     name: str
     region: str
-    streamsKmsKey: KmsKeyTypeDef
+    streamsKmsKey: KmsKey
     streamsKmsRole: str
     tags: Dict[str, str]
     trackingConfigArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateMissionProfileRequestTypeDef(BaseValidatorModel):
+class UpdateMissionProfileRequest(BaseValidatorModel):
     missionProfileId: str
     contactPostPassDurationSeconds: Optional[int] = None
     contactPrePassDurationSeconds: Optional[int] = None
     dataflowEdges: Optional[Sequence[Sequence[str]]] = None
     minimumViableContactDurationSeconds: Optional[int] = None
     name: Optional[str] = None
-    streamsKmsKey: Optional[KmsKeyTypeDef] = None
+    streamsKmsKey: Optional[KmsKey] = None
     streamsKmsRole: Optional[str] = None
     trackingConfigArn: Optional[str] = None
 
 
-class ListDataflowEndpointGroupsResponseTypeDef(BaseValidatorModel):
-    dataflowEndpointGroupList: List[DataflowEndpointListItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListDataflowEndpointGroupsResponse(BaseValidatorModel):
+    dataflowEndpointGroupList: List[DataflowEndpointListItem]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class DescribeContactRequestWaitTypeDef(BaseValidatorModel):
+class DescribeContactRequestWait(BaseValidatorModel):
     contactId: str
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class EphemerisDescriptionTypeDef(BaseValidatorModel):
+class EphemerisDescription(BaseValidatorModel):
     ephemerisData: Optional[str] = None
-    sourceS3Object: Optional[S3ObjectTypeDef] = None
+    sourceS3Object: Optional[S3Object] = None
 
 
-class EphemerisItemTypeDef(BaseValidatorModel):
+class EphemerisItem(BaseValidatorModel):
     creationTime: Optional[datetime] = None
     enabled: Optional[bool] = None
     ephemerisId: Optional[str] = None
     name: Optional[str] = None
     priority: Optional[int] = None
-    sourceS3Object: Optional[S3ObjectTypeDef] = None
+    sourceS3Object: Optional[S3Object] = None
     status: Optional[EphemerisStatusType] = None
 
 
-class OEMEphemerisTypeDef(BaseValidatorModel):
+class OEMEphemeris(BaseValidatorModel):
     oemData: Optional[str] = None
-    s3Object: Optional[S3ObjectTypeDef] = None
+    s3Object: Optional[S3Object] = None
 
 
-class GetSatelliteResponseTypeDef(BaseValidatorModel):
-    currentEphemeris: EphemerisMetaDataTypeDef
+class GetSatelliteResponse(BaseValidatorModel):
+    currentEphemeris: EphemerisMetaData
     groundStations: List[str]
     noradSatelliteID: int
     satelliteArn: str
     satelliteId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class SatelliteListItemTypeDef(BaseValidatorModel):
-    currentEphemeris: Optional[EphemerisMetaDataTypeDef] = None
+class SatelliteListItem(BaseValidatorModel):
+    currentEphemeris: Optional[EphemerisMetaData] = None
     groundStations: Optional[List[str]] = None
     noradSatelliteID: Optional[int] = None
     satelliteArn: Optional[str] = None
     satelliteId: Optional[str] = None
 
 
-class SpectrumConfigTypeDef(BaseValidatorModel):
-    bandwidth: FrequencyBandwidthTypeDef
-    centerFrequency: FrequencyTypeDef
+class SpectrumConfig(BaseValidatorModel):
+    bandwidth: FrequencyBandwidth
+    centerFrequency: Frequency
     polarization: Optional[PolarizationType] = None
 
 
-class UplinkSpectrumConfigTypeDef(BaseValidatorModel):
-    centerFrequency: FrequencyTypeDef
+class UplinkSpectrumConfig(BaseValidatorModel):
+    centerFrequency: Frequency
     polarization: Optional[PolarizationType] = None
 
 
-class ListGroundStationsResponseTypeDef(BaseValidatorModel):
-    groundStationList: List[GroundStationDataTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListGroundStationsResponse(BaseValidatorModel):
+    groundStationList: List[GroundStationData]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class RangedSocketAddressTypeDef(BaseValidatorModel):
+class RangedSocketAddress(BaseValidatorModel):
     name: str
-    portRange: IntegerRangeTypeDef
+    portRange: IntegerRange
 
 
-class ListConfigsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListConfigsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListContactsRequestPaginateTypeDef(BaseValidatorModel):
-    endTime: TimestampTypeDef
-    startTime: TimestampTypeDef
+class ListContactsRequestPaginate(BaseValidatorModel):
+    endTime: Timestamp
+    startTime: Timestamp
     statusList: Sequence[ContactStatusType]
     groundStation: Optional[str] = None
     missionProfileArn: Optional[str] = None
     satelliteArn: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListDataflowEndpointGroupsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListDataflowEndpointGroupsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListEphemeridesRequestPaginateTypeDef(BaseValidatorModel):
-    endTime: TimestampTypeDef
+class ListEphemeridesRequestPaginate(BaseValidatorModel):
+    endTime: Timestamp
     satelliteId: str
-    startTime: TimestampTypeDef
+    startTime: Timestamp
     statusList: Optional[Sequence[EphemerisStatusType]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListGroundStationsRequestPaginateTypeDef(BaseValidatorModel):
+class ListGroundStationsRequestPaginate(BaseValidatorModel):
     satelliteId: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListMissionProfilesRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListMissionProfilesRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListSatellitesRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListSatellitesRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListMissionProfilesResponseTypeDef(BaseValidatorModel):
-    missionProfileList: List[MissionProfileListItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListMissionProfilesResponse(BaseValidatorModel):
+    missionProfileList: List[MissionProfileListItem]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class RegisterAgentRequestTypeDef(BaseValidatorModel):
-    agentDetails: AgentDetailsTypeDef
-    discoveryData: DiscoveryDataTypeDef
+class RegisterAgentRequest(BaseValidatorModel):
+    agentDetails: AgentDetails
+    discoveryData: DiscoveryData
 
 
-class ListContactsResponseTypeDef(BaseValidatorModel):
-    contactList: List[ContactDataTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListContactsResponse(BaseValidatorModel):
+    contactList: List[ContactData]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class TLEDataTypeDef(BaseValidatorModel):
+class TLEData(BaseValidatorModel):
     tleLine1: str
     tleLine2: str
-    validTimeRange: TimeRangeTypeDef
+    validTimeRange: TimeRange
 
 
-class EphemerisTypeDescriptionTypeDef(BaseValidatorModel):
-    oem: Optional[EphemerisDescriptionTypeDef] = None
-    tle: Optional[EphemerisDescriptionTypeDef] = None
+class EphemerisTypeDescription(BaseValidatorModel):
+    oem: Optional[EphemerisDescription] = None
+    tle: Optional[EphemerisDescription] = None
 
 
-class ListEphemeridesResponseTypeDef(BaseValidatorModel):
-    ephemerides: List[EphemerisItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListEphemeridesResponse(BaseValidatorModel):
+    ephemerides: List[EphemerisItem]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListSatellitesResponseTypeDef(BaseValidatorModel):
-    satellites: List[SatelliteListItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListSatellitesResponse(BaseValidatorModel):
+    satellites: List[SatelliteListItem]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class AntennaDownlinkConfigTypeDef(BaseValidatorModel):
-    spectrumConfig: SpectrumConfigTypeDef
+class AntennaDownlinkConfig(BaseValidatorModel):
+    spectrumConfig: SpectrumConfig
 
 
-class AntennaDownlinkDemodDecodeConfigTypeDef(BaseValidatorModel):
-    decodeConfig: DecodeConfigTypeDef
-    demodulationConfig: DemodulationConfigTypeDef
-    spectrumConfig: SpectrumConfigTypeDef
+class AntennaDownlinkDemodDecodeConfig(BaseValidatorModel):
+    decodeConfig: DecodeConfig
+    demodulationConfig: DemodulationConfig
+    spectrumConfig: SpectrumConfig
 
 
-class AntennaUplinkConfigTypeDef(BaseValidatorModel):
-    spectrumConfig: UplinkSpectrumConfigTypeDef
-    targetEirp: EirpTypeDef
+class AntennaUplinkConfig(BaseValidatorModel):
+    spectrumConfig: UplinkSpectrumConfig
+    targetEirp: Eirp
     transmitDisabled: Optional[bool] = None
 
 
-class RangedConnectionDetailsTypeDef(BaseValidatorModel):
-    socketAddress: RangedSocketAddressTypeDef
+class RangedConnectionDetails(BaseValidatorModel):
+    socketAddress: RangedSocketAddress
     mtu: Optional[int] = None
 
 
-class TLEEphemerisTypeDef(BaseValidatorModel):
-    s3Object: Optional[S3ObjectTypeDef] = None
-    tleData: Optional[Sequence[TLEDataTypeDef]] = None
+class TLEEphemeris(BaseValidatorModel):
+    s3Object: Optional[S3Object] = None
+    tleData: Optional[Sequence[TLEData]] = None
 
 
-class DescribeEphemerisResponseTypeDef(BaseValidatorModel):
+class DescribeEphemerisResponse(BaseValidatorModel):
     creationTime: datetime
     enabled: bool
     ephemerisId: str
@@ -653,143 +653,143 @@ class DescribeEphemerisResponseTypeDef(BaseValidatorModel):
     priority: int
     satelliteId: str
     status: EphemerisStatusType
-    suppliedData: EphemerisTypeDescriptionTypeDef
+    suppliedData: EphemerisTypeDescription
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ConfigTypeDataTypeDef(BaseValidatorModel):
-    antennaDownlinkConfig: Optional[AntennaDownlinkConfigTypeDef] = None
-    antennaDownlinkDemodDecodeConfig: Optional[AntennaDownlinkDemodDecodeConfigTypeDef] = None
-    antennaUplinkConfig: Optional[AntennaUplinkConfigTypeDef] = None
-    dataflowEndpointConfig: Optional[DataflowEndpointConfigTypeDef] = None
-    s3RecordingConfig: Optional[S3RecordingConfigTypeDef] = None
-    trackingConfig: Optional[TrackingConfigTypeDef] = None
-    uplinkEchoConfig: Optional[UplinkEchoConfigTypeDef] = None
+class ConfigTypeData(BaseValidatorModel):
+    antennaDownlinkConfig: Optional[AntennaDownlinkConfig] = None
+    antennaDownlinkDemodDecodeConfig: Optional[AntennaDownlinkDemodDecodeConfig] = None
+    antennaUplinkConfig: Optional[AntennaUplinkConfig] = None
+    dataflowEndpointConfig: Optional[DataflowEndpointConfig] = None
+    s3RecordingConfig: Optional[S3RecordingConfig] = None
+    trackingConfig: Optional[TrackingConfig] = None
+    uplinkEchoConfig: Optional[UplinkEchoConfig] = None
 
 
-class AwsGroundStationAgentEndpointTypeDef(BaseValidatorModel):
-    egressAddress: ConnectionDetailsTypeDef
-    ingressAddress: RangedConnectionDetailsTypeDef
+class AwsGroundStationAgentEndpoint(BaseValidatorModel):
+    egressAddress: ConnectionDetails
+    ingressAddress: RangedConnectionDetails
     name: str
     agentStatus: Optional[AgentStatusType] = None
     auditResults: Optional[AuditResultsType] = None
 
 
-class EphemerisDataTypeDef(BaseValidatorModel):
-    oem: Optional[OEMEphemerisTypeDef] = None
-    tle: Optional[TLEEphemerisTypeDef] = None
+class EphemerisData(BaseValidatorModel):
+    oem: Optional[OEMEphemeris] = None
+    tle: Optional[TLEEphemeris] = None
 
 
-class CreateConfigRequestTypeDef(BaseValidatorModel):
-    configData: ConfigTypeDataTypeDef
+class CreateConfigRequest(BaseValidatorModel):
+    configData: ConfigTypeData
     name: str
     tags: Optional[Mapping[str, str]] = None
 
 
-class GetConfigResponseTypeDef(BaseValidatorModel):
+class GetConfigResponse(BaseValidatorModel):
     configArn: str
-    configData: ConfigTypeDataTypeDef
+    configData: ConfigTypeData
     configId: str
     configType: ConfigCapabilityTypeType
     name: str
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateConfigRequestTypeDef(BaseValidatorModel):
-    configData: ConfigTypeDataTypeDef
+class UpdateConfigRequest(BaseValidatorModel):
+    configData: ConfigTypeData
     configId: str
     configType: ConfigCapabilityTypeType
     name: str
 
 
-class EndpointDetailsOutputTypeDef(BaseValidatorModel):
-    awsGroundStationAgentEndpoint: Optional[AwsGroundStationAgentEndpointTypeDef] = None
-    endpoint: Optional[DataflowEndpointTypeDef] = None
+class EndpointDetailsOutput(BaseValidatorModel):
+    awsGroundStationAgentEndpoint: Optional[AwsGroundStationAgentEndpoint] = None
+    endpoint: Optional[DataflowEndpoint] = None
     healthReasons: Optional[List[CapabilityHealthReasonType]] = None
     healthStatus: Optional[CapabilityHealthType] = None
-    securityDetails: Optional[SecurityDetailsOutputTypeDef] = None
+    securityDetails: Optional[SecurityDetailsOutput] = None
 
 
-class SecurityDetailsUnionTypeDef(BaseValidatorModel):
+class SecurityDetailsUnion(BaseValidatorModel):
     pass
 
 
-class EndpointDetailsTypeDef(BaseValidatorModel):
-    awsGroundStationAgentEndpoint: Optional[AwsGroundStationAgentEndpointTypeDef] = None
-    endpoint: Optional[DataflowEndpointTypeDef] = None
+class EndpointDetails(BaseValidatorModel):
+    awsGroundStationAgentEndpoint: Optional[AwsGroundStationAgentEndpoint] = None
+    endpoint: Optional[DataflowEndpoint] = None
     healthReasons: Optional[Sequence[CapabilityHealthReasonType]] = None
     healthStatus: Optional[CapabilityHealthType] = None
-    securityDetails: Optional[SecurityDetailsUnionTypeDef] = None
+    securityDetails: Optional[SecurityDetailsUnion] = None
 
 
-class CreateEphemerisRequestTypeDef(BaseValidatorModel):
+class CreateEphemerisRequest(BaseValidatorModel):
     name: str
     satelliteId: str
     enabled: Optional[bool] = None
-    ephemeris: Optional[EphemerisDataTypeDef] = None
-    expirationTime: Optional[TimestampTypeDef] = None
+    ephemeris: Optional[EphemerisData] = None
+    expirationTime: Optional[Timestamp] = None
     kmsKeyArn: Optional[str] = None
     priority: Optional[int] = None
     tags: Optional[Mapping[str, str]] = None
 
 
-class ConfigDetailsTypeDef(BaseValidatorModel):
-    antennaDemodDecodeDetails: Optional[AntennaDemodDecodeDetailsTypeDef] = None
-    endpointDetails: Optional[EndpointDetailsOutputTypeDef] = None
-    s3RecordingDetails: Optional[S3RecordingDetailsTypeDef] = None
+class ConfigDetails(BaseValidatorModel):
+    antennaDemodDecodeDetails: Optional[AntennaDemodDecodeDetails] = None
+    endpointDetails: Optional[EndpointDetailsOutput] = None
+    s3RecordingDetails: Optional[S3RecordingDetails] = None
 
 
-class GetDataflowEndpointGroupResponseTypeDef(BaseValidatorModel):
+class GetDataflowEndpointGroupResponse(BaseValidatorModel):
     contactPostPassDurationSeconds: int
     contactPrePassDurationSeconds: int
     dataflowEndpointGroupArn: str
     dataflowEndpointGroupId: str
-    endpointsDetails: List[EndpointDetailsOutputTypeDef]
+    endpointsDetails: List[EndpointDetailsOutput]
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DestinationTypeDef(BaseValidatorModel):
-    configDetails: Optional[ConfigDetailsTypeDef] = None
+class Destination(BaseValidatorModel):
+    configDetails: Optional[ConfigDetails] = None
     configId: Optional[str] = None
     configType: Optional[ConfigCapabilityTypeType] = None
     dataflowDestinationRegion: Optional[str] = None
 
 
-class SourceTypeDef(BaseValidatorModel):
-    configDetails: Optional[ConfigDetailsTypeDef] = None
+class Source(BaseValidatorModel):
+    configDetails: Optional[ConfigDetails] = None
     configId: Optional[str] = None
     configType: Optional[ConfigCapabilityTypeType] = None
     dataflowSourceRegion: Optional[str] = None
 
 
-class EndpointDetailsUnionTypeDef(BaseValidatorModel):
+class EndpointDetailsUnion(BaseValidatorModel):
     pass
 
 
-class CreateDataflowEndpointGroupRequestTypeDef(BaseValidatorModel):
-    endpointDetails: Sequence[EndpointDetailsUnionTypeDef]
+class CreateDataflowEndpointGroupRequest(BaseValidatorModel):
+    endpointDetails: Sequence[EndpointDetailsUnion]
     contactPostPassDurationSeconds: Optional[int] = None
     contactPrePassDurationSeconds: Optional[int] = None
     tags: Optional[Mapping[str, str]] = None
 
 
-class DataflowDetailTypeDef(BaseValidatorModel):
-    destination: Optional[DestinationTypeDef] = None
+class DataflowDetail(BaseValidatorModel):
+    destination: Optional[Destination] = None
     errorMessage: Optional[str] = None
-    source: Optional[SourceTypeDef] = None
+    source: Optional[Source] = None
 
 
-class DescribeContactResponseTypeDef(BaseValidatorModel):
+class DescribeContactResponse(BaseValidatorModel):
     contactId: str
     contactStatus: ContactStatusType
-    dataflowList: List[DataflowDetailTypeDef]
+    dataflowList: List[DataflowDetail]
     endTime: datetime
     errorMessage: str
     groundStation: str
-    maximumElevation: ElevationTypeDef
+    maximumElevation: Elevation
     missionProfileArn: str
     postPassEndTime: datetime
     prePassStartTime: datetime
@@ -799,6 +799,6 @@ class DescribeContactResponseTypeDef(BaseValidatorModel):
     tags: Dict[str, str]
     visibilityEndTime: datetime
     visibilityStartTime: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 

@@ -6,14 +6,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# GetLatestConfigurationRequestTypeDef
+# GetLatestConfigurationRequest
 
 ### ConfigurationToken
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetLatestConfigurationResponseTypeDef
+# GetLatestConfigurationResponse
 
 ### NextPollConfigurationToken
 - **Type**: <class 'str'>
@@ -36,11 +36,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appconfigdata_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appconfigdata_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -62,7 +62,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# StartConfigurationSessionRequestTypeDef
+# StartConfigurationSessionRequest
 
 ### ApplicationIdentifier
 - **Type**: <class 'str'>
@@ -80,14 +80,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# StartConfigurationSessionResponseTypeDef
+# StartConfigurationSessionResponse
 
 ### InitialConfigurationToken
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appconfigdata_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appconfigdata_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

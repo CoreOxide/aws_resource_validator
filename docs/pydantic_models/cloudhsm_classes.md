@@ -1,24 +1,24 @@
 # Cloudhsm Classes
 
-# AddTagsToResourceRequestTypeDef
+# AddTagsToResourceRequest
 
 ### ResourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### TagList
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.cloudhsm_classes.TagTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.cloudhsm_classes.Tag]
 - **Required**: Yes
 
 
-# AddTagsToResourceResponseTypeDef
+# AddTagsToResourceResponse
 
 ### Status
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -28,25 +28,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CreateHapgRequestTypeDef
+# CreateHapgRequest
 
 ### Label
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# CreateHapgResponseTypeDef
+# CreateHapgResponse
 
 ### HapgArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateHsmRequestTypeDef
+# CreateHsmRequest
 
 ### SubnetId
 - **Type**: <class 'str'>
@@ -77,18 +77,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateHsmResponseTypeDef
+# CreateHsmResponse
 
 ### HsmArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateLunaClientRequestTypeDef
+# CreateLunaClientRequest
 
 ### Certificate
 - **Type**: <class 'str'>
@@ -98,79 +98,79 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateLunaClientResponseTypeDef
+# CreateLunaClientResponse
 
 ### ClientArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteHapgRequestTypeDef
+# DeleteHapgRequest
 
 ### HapgArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteHapgResponseTypeDef
+# DeleteHapgResponse
 
 ### Status
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteHsmRequestTypeDef
+# DeleteHsmRequest
 
 ### HsmArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteHsmResponseTypeDef
+# DeleteHsmResponse
 
 ### Status
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteLunaClientRequestTypeDef
+# DeleteLunaClientRequest
 
 ### ClientArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteLunaClientResponseTypeDef
+# DeleteLunaClientResponse
 
 ### Status
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeHapgRequestTypeDef
+# DescribeHapgRequest
 
 ### HapgArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeHapgResponseTypeDef
+# DescribeHapgResponse
 
 ### HapgArn
 - **Type**: <class 'str'>
@@ -209,11 +209,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeHsmRequestTypeDef
+# DescribeHsmRequest
 
 ### HsmArn
 - **Type**: typing.Optional[str]
@@ -222,7 +222,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeHsmResponseTypeDef
+# DescribeHsmResponse
 
 ### HsmArn
 - **Type**: <class 'str'>
@@ -309,11 +309,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeLunaClientRequestTypeDef
+# DescribeLunaClientRequest
 
 ### ClientArn
 - **Type**: typing.Optional[str]
@@ -322,7 +322,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeLunaClientResponseTypeDef
+# DescribeLunaClientResponse
 
 ### ClientArn
 - **Type**: <class 'str'>
@@ -345,11 +345,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetConfigRequestTypeDef
+# GetConfigRequest
 
 ### ClientArn
 - **Type**: <class 'str'>
@@ -364,7 +364,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetConfigResponseTypeDef
+# GetConfigResponse
 
 ### ConfigType
 - **Type**: <class 'str'>
@@ -379,118 +379,118 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListAvailableZonesResponseTypeDef
+# ListAvailableZonesResponse
 
 ### AZList
 - **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListHapgsRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudhsm_classes.PaginatorConfigTypeDef]
-
-
-# ListHapgsRequestTypeDef
+# ListHapgsRequest
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListHapgsResponseTypeDef
+# ListHapgsRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudhsm_classes.PaginatorConfig]
+
+
+# ListHapgsResponse
 
 ### HapgList
 - **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListHsmsRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudhsm_classes.PaginatorConfigTypeDef]
-
-
-# ListHsmsRequestTypeDef
+# ListHsmsRequest
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListHsmsResponseTypeDef
+# ListHsmsRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudhsm_classes.PaginatorConfig]
+
+
+# ListHsmsResponse
 
 ### HsmList
 - **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListLunaClientsRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudhsm_classes.PaginatorConfigTypeDef]
-
-
-# ListLunaClientsRequestTypeDef
+# ListLunaClientsRequest
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListLunaClientsResponseTypeDef
+# ListLunaClientsRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudhsm_classes.PaginatorConfig]
+
+
+# ListLunaClientsResponse
 
 ### ClientList
 - **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestTypeDef
+# ListTagsForResourceRequest
 
 ### ResourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ListTagsForResourceResponseTypeDef
+# ListTagsForResourceResponse
 
 ### TagList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudhsm_classes.TagTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudhsm_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ModifyHapgRequestTypeDef
+# ModifyHapgRequest
 
 ### HapgArn
 - **Type**: <class 'str'>
@@ -503,18 +503,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# ModifyHapgResponseTypeDef
+# ModifyHapgResponse
 
 ### HapgArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ModifyHsmRequestTypeDef
+# ModifyHsmRequest
 
 ### HsmArn
 - **Type**: <class 'str'>
@@ -536,18 +536,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ModifyHsmResponseTypeDef
+# ModifyHsmResponse
 
 ### HsmArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ModifyLunaClientRequestTypeDef
+# ModifyLunaClientRequest
 
 ### ClientArn
 - **Type**: <class 'str'>
@@ -558,18 +558,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ModifyLunaClientResponseTypeDef
+# ModifyLunaClientResponse
 
 ### ClientArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -581,7 +581,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RemoveTagsFromResourceRequestTypeDef
+# RemoveTagsFromResourceRequest
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -592,18 +592,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RemoveTagsFromResourceResponseTypeDef
+# RemoveTagsFromResourceResponse
 
 ### Status
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudhsm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -625,7 +625,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TagTypeDef
+# Tag
 
 ### Key
 - **Type**: <class 'str'>

@@ -1,6 +1,6 @@
 # Compute Optimizer Classes
 
-# AccountEnrollmentStatusTypeDef
+# AccountEnrollmentStatus
 
 ### accountId
 - **Type**: typing.Optional[str]
@@ -15,13 +15,13 @@
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# AutoScalingGroupConfigurationTypeDef
+# AutoScalingGroupConfiguration
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# AutoScalingGroupEstimatedMonthlySavingsTypeDef
+# AutoScalingGroupEstimatedMonthlySavings
 
 ### currency
 - **Type**: typing.Optional[typing.Literal['CNY', 'USD']]
@@ -30,34 +30,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# AutoScalingGroupRecommendationOptionTypeDef
-
-### configuration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.AutoScalingGroupConfigurationTypeDef]
-
-### instanceGpuInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.GpuInfoTypeDef]
-
-### projectedUtilizationMetrics
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.UtilizationMetricTypeDef]]
-
-### performanceRisk
-- **Type**: typing.Optional[float]
-
-### rank
-- **Type**: typing.Optional[int]
-
-### savingsOpportunity
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.SavingsOpportunityTypeDef]
-
-### savingsOpportunityAfterDiscounts
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.AutoScalingGroupSavingsOpportunityAfterDiscountsTypeDef]
-
-### migrationEffort
-- **Type**: typing.Optional[typing.Literal['High', 'Low', 'Medium', 'VeryLow']]
-
-
-# AutoScalingGroupRecommendationTypeDef
+# AutoScalingGroupRecommendation
 
 ### accountId
 - **Type**: typing.Optional[str]
@@ -72,19 +45,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['NotOptimized', 'Optimized', 'Overprovisioned', 'Underprovisioned']]
 
 ### utilizationMetrics
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.UtilizationMetricTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.UtilizationMetric]]
 
 ### lookBackPeriodInDays
 - **Type**: typing.Optional[float]
 
 ### currentConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.AutoScalingGroupConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.AutoScalingGroupConfiguration]
 
 ### currentInstanceGpuInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.GpuInfoTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.GpuInfo]
 
 ### recommendationOptions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.AutoScalingGroupRecommendationOptionTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.AutoScalingGroupRecommendationOption]]
 
 ### lastRefreshTimestamp
 - **Type**: typing.Optional[datetime.datetime]
@@ -93,19 +66,46 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['High', 'Low', 'Medium', 'VeryLow']]
 
 ### effectiveRecommendationPreferences
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.EffectiveRecommendationPreferencesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.EffectiveRecommendationPreferences]
 
 ### inferredWorkloadTypes
 - **Type**: typing.Optional[typing.List[typing.Literal['AmazonEmr', 'ApacheCassandra', 'ApacheHadoop', 'Kafka', 'Memcached', 'Nginx', 'PostgreSql', 'Redis', 'SQLServer']]]
 
 
-# AutoScalingGroupSavingsOpportunityAfterDiscountsTypeDef
+# AutoScalingGroupRecommendationOption
+
+### configuration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.AutoScalingGroupConfiguration]
+
+### instanceGpuInfo
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.GpuInfo]
+
+### projectedUtilizationMetrics
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.UtilizationMetric]]
+
+### performanceRisk
+- **Type**: typing.Optional[float]
+
+### rank
+- **Type**: typing.Optional[int]
+
+### savingsOpportunity
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.SavingsOpportunity]
+
+### savingsOpportunityAfterDiscounts
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.AutoScalingGroupSavingsOpportunityAfterDiscounts]
+
+### migrationEffort
+- **Type**: typing.Optional[typing.Literal['High', 'Low', 'Medium', 'VeryLow']]
+
+
+# AutoScalingGroupSavingsOpportunityAfterDiscounts
 
 ### savingsOpportunityPercentage
 - **Type**: typing.Optional[float]
 
 ### estimatedMonthlySavings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.AutoScalingGroupEstimatedMonthlySavingsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.AutoScalingGroupEstimatedMonthlySavings]
 
 
 # BaseValidatorModel
@@ -114,31 +114,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ContainerConfigurationTypeDef
+# ContainerConfiguration
 
 ### containerName
 - **Type**: typing.Optional[str]
 
 ### memorySizeConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.MemorySizeConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.MemorySizeConfiguration]
 
 ### cpu
 - **Type**: typing.Optional[int]
 
 
-# ContainerRecommendationTypeDef
+# ContainerRecommendation
 
 ### containerName
 - **Type**: typing.Optional[str]
 
 ### memorySizeConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.MemorySizeConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.MemorySizeConfiguration]
 
 ### cpu
 - **Type**: typing.Optional[int]
 
 
-# CurrentPerformanceRiskRatingsTypeDef
+# CurrentPerformanceRiskRatings
 
 ### high
 - **Type**: typing.Optional[int]
@@ -153,7 +153,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# CustomizableMetricParametersTypeDef
+# CustomizableMetricParameters
 
 ### threshold
 - **Type**: typing.Optional[typing.Literal['P90', 'P95', 'P99_5']]
@@ -162,7 +162,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['PERCENT_0', 'PERCENT_10', 'PERCENT_20', 'PERCENT_30']]
 
 
-# DBStorageConfigurationTypeDef
+# DBStorageConfiguration
 
 ### storageType
 - **Type**: typing.Optional[str]
@@ -180,7 +180,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# DeleteRecommendationPreferencesRequestTypeDef
+# DeleteRecommendationPreferencesRequest
 
 ### resourceType
 - **Type**: typing.Literal['AutoScalingGroup', 'EbsVolume', 'Ec2Instance', 'EcsService', 'Idle', 'LambdaFunction', 'License', 'NotApplicable', 'RdsDBInstance']
@@ -191,28 +191,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### scope
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.ScopeTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.Scope]
 
 
-# DescribeRecommendationExportJobsRequestPaginateTypeDef
-
-### jobIds
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.compute_optimizer_classes.JobFilterTypeDef]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.PaginatorConfigTypeDef]
-
-
-# DescribeRecommendationExportJobsRequestTypeDef
+# DescribeRecommendationExportJobsRequest
 
 ### jobIds
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.compute_optimizer_classes.JobFilterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.compute_optimizer_classes.JobFilter]]
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -221,27 +209,39 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# DescribeRecommendationExportJobsResponseTypeDef
+# DescribeRecommendationExportJobsRequestPaginate
+
+### jobIds
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### filters
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.compute_optimizer_classes.JobFilter]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.PaginatorConfig]
+
+
+# DescribeRecommendationExportJobsResponse
 
 ### recommendationExportJobs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.RecommendationExportJobTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.RecommendationExportJob]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# EBSEffectiveRecommendationPreferencesTypeDef
+# EBSEffectiveRecommendationPreferences
 
 ### savingsEstimationMode
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.EBSSavingsEstimationModeTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.EBSSavingsEstimationMode]
 
 
-# EBSEstimatedMonthlySavingsTypeDef
+# EBSEstimatedMonthlySavings
 
 ### currency
 - **Type**: typing.Optional[typing.Literal['CNY', 'USD']]
@@ -250,7 +250,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# EBSFilterTypeDef
+# EBSFilter
 
 ### name
 - **Type**: typing.Optional[typing.Literal['Finding']]
@@ -259,22 +259,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# EBSSavingsEstimationModeTypeDef
+# EBSSavingsEstimationMode
 
 ### source
 - **Type**: typing.Optional[typing.Literal['CostExplorerRightsizing', 'CostOptimizationHub', 'PublicPricing']]
 
 
-# EBSSavingsOpportunityAfterDiscountsTypeDef
+# EBSSavingsOpportunityAfterDiscounts
 
 ### savingsOpportunityPercentage
 - **Type**: typing.Optional[float]
 
 ### estimatedMonthlySavings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.EBSEstimatedMonthlySavingsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.EBSEstimatedMonthlySavings]
 
 
-# EBSUtilizationMetricTypeDef
+# EBSUtilizationMetric
 
 ### name
 - **Type**: typing.Optional[typing.Literal['VolumeReadBytesPerSecond', 'VolumeReadOpsPerSecond', 'VolumeWriteBytesPerSecond', 'VolumeWriteOpsPerSecond']]
@@ -286,13 +286,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# ECSEffectiveRecommendationPreferencesTypeDef
+# ECSEffectiveRecommendationPreferences
 
 ### savingsEstimationMode
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.ECSSavingsEstimationModeTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.ECSSavingsEstimationMode]
 
 
-# ECSEstimatedMonthlySavingsTypeDef
+# ECSEstimatedMonthlySavings
 
 ### currency
 - **Type**: typing.Optional[typing.Literal['CNY', 'USD']]
@@ -301,22 +301,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# ECSSavingsEstimationModeTypeDef
+# ECSSavingsEstimationMode
 
 ### source
 - **Type**: typing.Optional[typing.Literal['CostExplorerRightsizing', 'CostOptimizationHub', 'PublicPricing']]
 
 
-# ECSSavingsOpportunityAfterDiscountsTypeDef
+# ECSSavingsOpportunityAfterDiscounts
 
 ### savingsOpportunityPercentage
 - **Type**: typing.Optional[float]
 
 ### estimatedMonthlySavings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.ECSEstimatedMonthlySavingsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.ECSEstimatedMonthlySavings]
 
 
-# ECSServiceProjectedMetricTypeDef
+# ECSServiceProjectedMetric
 
 ### name
 - **Type**: typing.Optional[typing.Literal['Cpu', 'Memory']]
@@ -331,7 +331,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[float]]
 
 
-# ECSServiceProjectedUtilizationMetricTypeDef
+# ECSServiceProjectedUtilizationMetric
 
 ### name
 - **Type**: typing.Optional[typing.Literal['Cpu', 'Memory']]
@@ -346,37 +346,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# ECSServiceRecommendationFilterTypeDef
-
-### name
-- **Type**: typing.Optional[typing.Literal['Finding', 'FindingReasonCode']]
-
-### values
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-
-# ECSServiceRecommendationOptionTypeDef
-
-### memory
-- **Type**: typing.Optional[int]
-
-### cpu
-- **Type**: typing.Optional[int]
-
-### savingsOpportunity
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.SavingsOpportunityTypeDef]
-
-### savingsOpportunityAfterDiscounts
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.ECSSavingsOpportunityAfterDiscountsTypeDef]
-
-### projectedUtilizationMetrics
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.ECSServiceProjectedUtilizationMetricTypeDef]]
-
-### containerRecommendations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.ContainerRecommendationTypeDef]]
-
-
-# ECSServiceRecommendationTypeDef
+# ECSServiceRecommendation
 
 ### serviceArn
 - **Type**: typing.Optional[str]
@@ -385,10 +355,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### currentServiceConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.ServiceConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.ServiceConfiguration]
 
 ### utilizationMetrics
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.ECSServiceUtilizationMetricTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.ECSServiceUtilizationMetric]]
 
 ### lookbackPeriodInDays
 - **Type**: typing.Optional[float]
@@ -406,19 +376,49 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[typing.Literal['CPUOverprovisioned', 'CPUUnderprovisioned', 'MemoryOverprovisioned', 'MemoryUnderprovisioned']]]
 
 ### serviceRecommendationOptions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.ECSServiceRecommendationOptionTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.ECSServiceRecommendationOption]]
 
 ### currentPerformanceRisk
 - **Type**: typing.Optional[typing.Literal['High', 'Low', 'Medium', 'VeryLow']]
 
 ### effectiveRecommendationPreferences
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.ECSEffectiveRecommendationPreferencesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.ECSEffectiveRecommendationPreferences]
 
 ### tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.Tag]]
 
 
-# ECSServiceRecommendedOptionProjectedMetricTypeDef
+# ECSServiceRecommendationFilter
+
+### name
+- **Type**: typing.Optional[typing.Literal['Finding', 'FindingReasonCode']]
+
+### values
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+
+# ECSServiceRecommendationOption
+
+### memory
+- **Type**: typing.Optional[int]
+
+### cpu
+- **Type**: typing.Optional[int]
+
+### savingsOpportunity
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.SavingsOpportunity]
+
+### savingsOpportunityAfterDiscounts
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.ECSSavingsOpportunityAfterDiscounts]
+
+### projectedUtilizationMetrics
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.ECSServiceProjectedUtilizationMetric]]
+
+### containerRecommendations
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.ContainerRecommendation]]
+
+
+# ECSServiceRecommendedOptionProjectedMetric
 
 ### recommendedCpuUnits
 - **Type**: typing.Optional[int]
@@ -427,10 +427,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### projectedMetrics
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.ECSServiceProjectedMetricTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.ECSServiceProjectedMetric]]
 
 
-# ECSServiceUtilizationMetricTypeDef
+# ECSServiceUtilizationMetric
 
 ### name
 - **Type**: typing.Optional[typing.Literal['Cpu', 'Memory']]
@@ -442,7 +442,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# EffectivePreferredResourceTypeDef
+# EffectivePreferredResource
 
 ### name
 - **Type**: typing.Optional[typing.Literal['Ec2InstanceTypes']]
@@ -457,7 +457,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# EffectiveRecommendationPreferencesTypeDef
+# EffectiveRecommendationPreferences
 
 ### cpuVendorArchitectures
 - **Type**: typing.Optional[typing.List[typing.Literal['AWS_ARM64', 'CURRENT']]]
@@ -469,22 +469,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Active', 'Inactive']]
 
 ### externalMetricsPreference
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.ExternalMetricsPreferenceTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.ExternalMetricsPreference]
 
 ### lookBackPeriod
 - **Type**: typing.Optional[typing.Literal['DAYS_14', 'DAYS_32', 'DAYS_93']]
 
 ### utilizationPreferences
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.UtilizationPreferenceTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.UtilizationPreference]]
 
 ### preferredResources
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.EffectivePreferredResourceTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.EffectivePreferredResource]]
 
 ### savingsEstimationMode
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.InstanceSavingsEstimationModeTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.InstanceSavingsEstimationMode]
 
 
-# EnrollmentFilterTypeDef
+# EnrollmentFilter
 
 ### name
 - **Type**: typing.Optional[typing.Literal['Status']]
@@ -493,7 +493,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# EstimatedMonthlySavingsTypeDef
+# EstimatedMonthlySavings
 
 ### currency
 - **Type**: typing.Optional[typing.Literal['CNY', 'USD']]
@@ -502,17 +502,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# ExportAutoScalingGroupRecommendationsRequestTypeDef
+# ExportAutoScalingGroupRecommendationsRequest
 
 ### s3DestinationConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.S3DestinationConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.S3DestinationConfig'>
 - **Required**: Yes
 
 ### accountIds
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.compute_optimizer_classes.FilterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.compute_optimizer_classes.Filter]]
 
 ### fieldsToExport
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['AccountId', 'AutoScalingGroupArn', 'AutoScalingGroupName', 'CurrentConfigurationAllocationStrategy', 'CurrentConfigurationDesiredCapacity', 'CurrentConfigurationInstanceType', 'CurrentConfigurationMaxSize', 'CurrentConfigurationMinSize', 'CurrentConfigurationMixedInstanceTypes', 'CurrentConfigurationType', 'CurrentInstanceGpuInfo', 'CurrentMemory', 'CurrentNetwork', 'CurrentOnDemandPrice', 'CurrentPerformanceRisk', 'CurrentStandardOneYearNoUpfrontReservedPrice', 'CurrentStandardThreeYearNoUpfrontReservedPrice', 'CurrentStorage', 'CurrentVCpus', 'EffectiveRecommendationPreferencesCpuVendorArchitectures', 'EffectiveRecommendationPreferencesEnhancedInfrastructureMetrics', 'EffectiveRecommendationPreferencesInferredWorkloadTypes', 'EffectiveRecommendationPreferencesLookBackPeriod', 'EffectiveRecommendationPreferencesPreferredResources', 'EffectiveRecommendationPreferencesSavingsEstimationMode', 'Finding', 'InferredWorkloadTypes', 'LastRefreshTimestamp', 'LookbackPeriodInDays', 'RecommendationOptionsConfigurationAllocationStrategy', 'RecommendationOptionsConfigurationDesiredCapacity', 'RecommendationOptionsConfigurationEstimatedInstanceHourReductionPercentage', 'RecommendationOptionsConfigurationInstanceType', 'RecommendationOptionsConfigurationMaxSize', 'RecommendationOptionsConfigurationMinSize', 'RecommendationOptionsConfigurationMixedInstanceTypes', 'RecommendationOptionsConfigurationType', 'RecommendationOptionsEstimatedMonthlySavingsCurrency', 'RecommendationOptionsEstimatedMonthlySavingsCurrencyAfterDiscounts', 'RecommendationOptionsEstimatedMonthlySavingsValue', 'RecommendationOptionsEstimatedMonthlySavingsValueAfterDiscounts', 'RecommendationOptionsInstanceGpuInfo', 'RecommendationOptionsMemory', 'RecommendationOptionsMigrationEffort', 'RecommendationOptionsNetwork', 'RecommendationOptionsOnDemandPrice', 'RecommendationOptionsPerformanceRisk', 'RecommendationOptionsProjectedUtilizationMetricsCpuMaximum', 'RecommendationOptionsProjectedUtilizationMetricsGpuMemoryPercentageMaximum', 'RecommendationOptionsProjectedUtilizationMetricsGpuPercentageMaximum', 'RecommendationOptionsProjectedUtilizationMetricsMemoryMaximum', 'RecommendationOptionsSavingsOpportunityAfterDiscountsPercentage', 'RecommendationOptionsSavingsOpportunityPercentage', 'RecommendationOptionsStandardOneYearNoUpfrontReservedPrice', 'RecommendationOptionsStandardThreeYearNoUpfrontReservedPrice', 'RecommendationOptionsStorage', 'RecommendationOptionsVcpus', 'UtilizationMetricsCpuMaximum', 'UtilizationMetricsDiskReadBytesPerSecondMaximum', 'UtilizationMetricsDiskReadOpsPerSecondMaximum', 'UtilizationMetricsDiskWriteBytesPerSecondMaximum', 'UtilizationMetricsDiskWriteOpsPerSecondMaximum', 'UtilizationMetricsEbsReadBytesPerSecondMaximum', 'UtilizationMetricsEbsReadOpsPerSecondMaximum', 'UtilizationMetricsEbsWriteBytesPerSecondMaximum', 'UtilizationMetricsEbsWriteOpsPerSecondMaximum', 'UtilizationMetricsGpuMemoryPercentageMaximum', 'UtilizationMetricsGpuPercentageMaximum', 'UtilizationMetricsMemoryMaximum', 'UtilizationMetricsNetworkInBytesPerSecondMaximum', 'UtilizationMetricsNetworkOutBytesPerSecondMaximum', 'UtilizationMetricsNetworkPacketsInPerSecondMaximum', 'UtilizationMetricsNetworkPacketsOutPerSecondMaximum']]]
@@ -524,41 +524,41 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### recommendationPreferences
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.RecommendationPreferencesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.RecommendationPreferences]
 
 
-# ExportAutoScalingGroupRecommendationsResponseTypeDef
+# ExportAutoScalingGroupRecommendationsResponse
 
 ### jobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### s3Destination
-- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.S3DestinationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.S3Destination'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ExportDestinationTypeDef
+# ExportDestination
 
 ### s3
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.S3DestinationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.S3Destination]
 
 
-# ExportEBSVolumeRecommendationsRequestTypeDef
+# ExportEBSVolumeRecommendationsRequest
 
 ### s3DestinationConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.S3DestinationConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.S3DestinationConfig'>
 - **Required**: Yes
 
 ### accountIds
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.compute_optimizer_classes.EBSFilterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.compute_optimizer_classes.EBSFilter]]
 
 ### fieldsToExport
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['AccountId', 'CurrentConfigurationRootVolume', 'CurrentConfigurationVolumeBaselineIOPS', 'CurrentConfigurationVolumeBaselineThroughput', 'CurrentConfigurationVolumeBurstIOPS', 'CurrentConfigurationVolumeBurstThroughput', 'CurrentConfigurationVolumeSize', 'CurrentConfigurationVolumeType', 'CurrentMonthlyPrice', 'CurrentPerformanceRisk', 'EffectiveRecommendationPreferencesSavingsEstimationMode', 'Finding', 'LastRefreshTimestamp', 'LookbackPeriodInDays', 'RecommendationOptionsConfigurationVolumeBaselineIOPS', 'RecommendationOptionsConfigurationVolumeBaselineThroughput', 'RecommendationOptionsConfigurationVolumeBurstIOPS', 'RecommendationOptionsConfigurationVolumeBurstThroughput', 'RecommendationOptionsConfigurationVolumeSize', 'RecommendationOptionsConfigurationVolumeType', 'RecommendationOptionsEstimatedMonthlySavingsCurrency', 'RecommendationOptionsEstimatedMonthlySavingsCurrencyAfterDiscounts', 'RecommendationOptionsEstimatedMonthlySavingsValue', 'RecommendationOptionsEstimatedMonthlySavingsValueAfterDiscounts', 'RecommendationOptionsMonthlyPrice', 'RecommendationOptionsPerformanceRisk', 'RecommendationOptionsSavingsOpportunityAfterDiscountsPercentage', 'RecommendationOptionsSavingsOpportunityPercentage', 'RootVolume', 'Tags', 'UtilizationMetricsVolumeReadBytesPerSecondMaximum', 'UtilizationMetricsVolumeReadOpsPerSecondMaximum', 'UtilizationMetricsVolumeWriteBytesPerSecondMaximum', 'UtilizationMetricsVolumeWriteOpsPerSecondMaximum', 'VolumeArn']]]
@@ -570,32 +570,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# ExportEBSVolumeRecommendationsResponseTypeDef
+# ExportEBSVolumeRecommendationsResponse
 
 ### jobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### s3Destination
-- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.S3DestinationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.S3Destination'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ExportEC2InstanceRecommendationsRequestTypeDef
+# ExportEC2InstanceRecommendationsRequest
 
 ### s3DestinationConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.S3DestinationConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.S3DestinationConfig'>
 - **Required**: Yes
 
 ### accountIds
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.compute_optimizer_classes.FilterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.compute_optimizer_classes.Filter]]
 
 ### fieldsToExport
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['AccountId', 'CurrentInstanceGpuInfo', 'CurrentInstanceType', 'CurrentMemory', 'CurrentNetwork', 'CurrentOnDemandPrice', 'CurrentPerformanceRisk', 'CurrentStandardOneYearNoUpfrontReservedPrice', 'CurrentStandardThreeYearNoUpfrontReservedPrice', 'CurrentStorage', 'CurrentVCpus', 'EffectiveRecommendationPreferencesCpuVendorArchitectures', 'EffectiveRecommendationPreferencesEnhancedInfrastructureMetrics', 'EffectiveRecommendationPreferencesExternalMetricsSource', 'EffectiveRecommendationPreferencesInferredWorkloadTypes', 'EffectiveRecommendationPreferencesLookBackPeriod', 'EffectiveRecommendationPreferencesPreferredResources', 'EffectiveRecommendationPreferencesSavingsEstimationMode', 'EffectiveRecommendationPreferencesUtilizationPreferences', 'ExternalMetricStatusCode', 'ExternalMetricStatusReason', 'Finding', 'FindingReasonCodes', 'Idle', 'InferredWorkloadTypes', 'InstanceArn', 'InstanceName', 'InstanceState', 'LastRefreshTimestamp', 'LookbackPeriodInDays', 'RecommendationOptionsEstimatedMonthlySavingsCurrency', 'RecommendationOptionsEstimatedMonthlySavingsCurrencyAfterDiscounts', 'RecommendationOptionsEstimatedMonthlySavingsValue', 'RecommendationOptionsEstimatedMonthlySavingsValueAfterDiscounts', 'RecommendationOptionsInstanceGpuInfo', 'RecommendationOptionsInstanceType', 'RecommendationOptionsMemory', 'RecommendationOptionsMigrationEffort', 'RecommendationOptionsNetwork', 'RecommendationOptionsOnDemandPrice', 'RecommendationOptionsPerformanceRisk', 'RecommendationOptionsPlatformDifferences', 'RecommendationOptionsProjectedUtilizationMetricsCpuMaximum', 'RecommendationOptionsProjectedUtilizationMetricsGpuMemoryPercentageMaximum', 'RecommendationOptionsProjectedUtilizationMetricsGpuPercentageMaximum', 'RecommendationOptionsProjectedUtilizationMetricsMemoryMaximum', 'RecommendationOptionsSavingsOpportunityAfterDiscountsPercentage', 'RecommendationOptionsSavingsOpportunityPercentage', 'RecommendationOptionsStandardOneYearNoUpfrontReservedPrice', 'RecommendationOptionsStandardThreeYearNoUpfrontReservedPrice', 'RecommendationOptionsStorage', 'RecommendationOptionsVcpus', 'RecommendationsSourcesRecommendationSourceArn', 'RecommendationsSourcesRecommendationSourceType', 'Tags', 'UtilizationMetricsCpuMaximum', 'UtilizationMetricsDiskReadBytesPerSecondMaximum', 'UtilizationMetricsDiskReadOpsPerSecondMaximum', 'UtilizationMetricsDiskWriteBytesPerSecondMaximum', 'UtilizationMetricsDiskWriteOpsPerSecondMaximum', 'UtilizationMetricsEbsReadBytesPerSecondMaximum', 'UtilizationMetricsEbsReadOpsPerSecondMaximum', 'UtilizationMetricsEbsWriteBytesPerSecondMaximum', 'UtilizationMetricsEbsWriteOpsPerSecondMaximum', 'UtilizationMetricsGpuMemoryPercentageMaximum', 'UtilizationMetricsGpuPercentageMaximum', 'UtilizationMetricsMemoryMaximum', 'UtilizationMetricsNetworkInBytesPerSecondMaximum', 'UtilizationMetricsNetworkOutBytesPerSecondMaximum', 'UtilizationMetricsNetworkPacketsInPerSecondMaximum', 'UtilizationMetricsNetworkPacketsOutPerSecondMaximum']]]
@@ -607,35 +607,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### recommendationPreferences
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.RecommendationPreferencesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.RecommendationPreferences]
 
 
-# ExportEC2InstanceRecommendationsResponseTypeDef
+# ExportEC2InstanceRecommendationsResponse
 
 ### jobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### s3Destination
-- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.S3DestinationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.S3Destination'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ExportECSServiceRecommendationsRequestTypeDef
+# ExportECSServiceRecommendationsRequest
 
 ### s3DestinationConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.S3DestinationConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.S3DestinationConfig'>
 - **Required**: Yes
 
 ### accountIds
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.compute_optimizer_classes.ECSServiceRecommendationFilterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.compute_optimizer_classes.ECSServiceRecommendationFilter]]
 
 ### fieldsToExport
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['AccountId', 'CurrentPerformanceRisk', 'CurrentServiceConfigurationAutoScalingConfiguration', 'CurrentServiceConfigurationCpu', 'CurrentServiceConfigurationMemory', 'CurrentServiceConfigurationTaskDefinitionArn', 'CurrentServiceContainerConfigurations', 'EffectiveRecommendationPreferencesSavingsEstimationMode', 'Finding', 'FindingReasonCodes', 'LastRefreshTimestamp', 'LaunchType', 'LookbackPeriodInDays', 'RecommendationOptionsContainerRecommendations', 'RecommendationOptionsCpu', 'RecommendationOptionsEstimatedMonthlySavingsCurrency', 'RecommendationOptionsEstimatedMonthlySavingsCurrencyAfterDiscounts', 'RecommendationOptionsEstimatedMonthlySavingsValue', 'RecommendationOptionsEstimatedMonthlySavingsValueAfterDiscounts', 'RecommendationOptionsMemory', 'RecommendationOptionsProjectedUtilizationMetricsCpuMaximum', 'RecommendationOptionsProjectedUtilizationMetricsMemoryMaximum', 'RecommendationOptionsSavingsOpportunityAfterDiscountsPercentage', 'RecommendationOptionsSavingsOpportunityPercentage', 'ServiceArn', 'Tags', 'UtilizationMetricsCpuMaximum', 'UtilizationMetricsMemoryMaximum']]]
@@ -647,32 +647,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# ExportECSServiceRecommendationsResponseTypeDef
+# ExportECSServiceRecommendationsResponse
 
 ### jobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### s3Destination
-- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.S3DestinationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.S3Destination'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ExportIdleRecommendationsRequestTypeDef
+# ExportIdleRecommendationsRequest
 
 ### s3DestinationConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.S3DestinationConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.S3DestinationConfig'>
 - **Required**: Yes
 
 ### accountIds
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.compute_optimizer_classes.IdleRecommendationFilterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.compute_optimizer_classes.IdleRecommendationFilter]]
 
 ### fieldsToExport
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['AccountId', 'Finding', 'FindingDescription', 'LastRefreshTimestamp', 'LookbackPeriodInDays', 'ResourceArn', 'ResourceId', 'ResourceType', 'SavingsOpportunity', 'SavingsOpportunityAfterDiscount', 'Tags', 'UtilizationMetricsCpuMaximum', 'UtilizationMetricsDatabaseConnectionsMaximum', 'UtilizationMetricsEBSVolumeReadIOPSMaximum', 'UtilizationMetricsEBSVolumeWriteIOPSMaximum', 'UtilizationMetricsMemoryMaximum', 'UtilizationMetricsNetworkInBytesPerSecondMaximum', 'UtilizationMetricsNetworkOutBytesPerSecondMaximum', 'UtilizationMetricsVolumeReadOpsPerSecondMaximum', 'UtilizationMetricsVolumeWriteOpsPerSecondMaximum']]]
@@ -684,32 +684,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# ExportIdleRecommendationsResponseTypeDef
+# ExportIdleRecommendationsResponse
 
 ### jobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### s3Destination
-- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.S3DestinationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.S3Destination'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ExportLambdaFunctionRecommendationsRequestTypeDef
+# ExportLambdaFunctionRecommendationsRequest
 
 ### s3DestinationConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.S3DestinationConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.S3DestinationConfig'>
 - **Required**: Yes
 
 ### accountIds
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.compute_optimizer_classes.LambdaFunctionRecommendationFilterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.compute_optimizer_classes.LambdaFunctionRecommendationFilter]]
 
 ### fieldsToExport
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['AccountId', 'CurrentConfigurationMemorySize', 'CurrentConfigurationTimeout', 'CurrentCostAverage', 'CurrentCostTotal', 'CurrentPerformanceRisk', 'EffectiveRecommendationPreferencesSavingsEstimationMode', 'Finding', 'FindingReasonCodes', 'FunctionArn', 'FunctionVersion', 'LastRefreshTimestamp', 'LookbackPeriodInDays', 'NumberOfInvocations', 'RecommendationOptionsConfigurationMemorySize', 'RecommendationOptionsCostHigh', 'RecommendationOptionsCostLow', 'RecommendationOptionsEstimatedMonthlySavingsCurrency', 'RecommendationOptionsEstimatedMonthlySavingsCurrencyAfterDiscounts', 'RecommendationOptionsEstimatedMonthlySavingsValue', 'RecommendationOptionsEstimatedMonthlySavingsValueAfterDiscounts', 'RecommendationOptionsProjectedUtilizationMetricsDurationExpected', 'RecommendationOptionsProjectedUtilizationMetricsDurationLowerBound', 'RecommendationOptionsProjectedUtilizationMetricsDurationUpperBound', 'RecommendationOptionsSavingsOpportunityAfterDiscountsPercentage', 'RecommendationOptionsSavingsOpportunityPercentage', 'Tags', 'UtilizationMetricsDurationAverage', 'UtilizationMetricsDurationMaximum', 'UtilizationMetricsMemoryAverage', 'UtilizationMetricsMemoryMaximum']]]
@@ -721,32 +721,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# ExportLambdaFunctionRecommendationsResponseTypeDef
+# ExportLambdaFunctionRecommendationsResponse
 
 ### jobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### s3Destination
-- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.S3DestinationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.S3Destination'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ExportLicenseRecommendationsRequestTypeDef
+# ExportLicenseRecommendationsRequest
 
 ### s3DestinationConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.S3DestinationConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.S3DestinationConfig'>
 - **Required**: Yes
 
 ### accountIds
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.compute_optimizer_classes.LicenseRecommendationFilterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.compute_optimizer_classes.LicenseRecommendationFilter]]
 
 ### fieldsToExport
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['AccountId', 'CurrentLicenseConfigurationInstanceType', 'CurrentLicenseConfigurationLicenseEdition', 'CurrentLicenseConfigurationLicenseModel', 'CurrentLicenseConfigurationLicenseName', 'CurrentLicenseConfigurationLicenseVersion', 'CurrentLicenseConfigurationMetricsSource', 'CurrentLicenseConfigurationNumberOfCores', 'CurrentLicenseConfigurationOperatingSystem', 'Finding', 'FindingReasonCodes', 'LastRefreshTimestamp', 'LookbackPeriodInDays', 'RecommendationOptionsEstimatedMonthlySavingsCurrency', 'RecommendationOptionsEstimatedMonthlySavingsValue', 'RecommendationOptionsLicenseEdition', 'RecommendationOptionsLicenseModel', 'RecommendationOptionsOperatingSystem', 'RecommendationOptionsSavingsOpportunityPercentage', 'ResourceArn', 'Tags']]]
@@ -758,32 +758,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# ExportLicenseRecommendationsResponseTypeDef
+# ExportLicenseRecommendationsResponse
 
 ### jobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### s3Destination
-- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.S3DestinationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.S3Destination'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ExportRDSDatabaseRecommendationsRequestTypeDef
+# ExportRDSDatabaseRecommendationsRequest
 
 ### s3DestinationConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.S3DestinationConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.S3DestinationConfig'>
 - **Required**: Yes
 
 ### accountIds
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.compute_optimizer_classes.RDSDBRecommendationFilterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.compute_optimizer_classes.RDSDBRecommendationFilter]]
 
 ### fieldsToExport
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['AccountId', 'CurrentDBInstanceClass', 'CurrentInstanceOnDemandHourlyPrice', 'CurrentInstancePerformanceRisk', 'CurrentStorageConfigurationAllocatedStorage', 'CurrentStorageConfigurationIOPS', 'CurrentStorageConfigurationMaxAllocatedStorage', 'CurrentStorageConfigurationStorageThroughput', 'CurrentStorageConfigurationStorageType', 'CurrentStorageOnDemandMonthlyPrice', 'DBClusterIdentifier', 'EffectiveRecommendationPreferencesCpuVendorArchitectures', 'EffectiveRecommendationPreferencesEnhancedInfrastructureMetrics', 'EffectiveRecommendationPreferencesLookBackPeriod', 'EffectiveRecommendationPreferencesSavingsEstimationMode', 'Engine', 'EngineVersion', 'Idle', 'InstanceFinding', 'InstanceFindingReasonCodes', 'InstanceRecommendationOptionsDBInstanceClass', 'InstanceRecommendationOptionsEstimatedMonthlySavingsCurrency', 'InstanceRecommendationOptionsEstimatedMonthlySavingsCurrencyAfterDiscounts', 'InstanceRecommendationOptionsEstimatedMonthlySavingsValue', 'InstanceRecommendationOptionsEstimatedMonthlySavingsValueAfterDiscounts', 'InstanceRecommendationOptionsInstanceOnDemandHourlyPrice', 'InstanceRecommendationOptionsPerformanceRisk', 'InstanceRecommendationOptionsProjectedUtilizationMetricsCpuMaximum', 'InstanceRecommendationOptionsRank', 'InstanceRecommendationOptionsSavingsOpportunityAfterDiscountsPercentage', 'InstanceRecommendationOptionsSavingsOpportunityPercentage', 'LastRefreshTimestamp', 'LookbackPeriodInDays', 'MultiAZDBInstance', 'PromotionTier', 'ResourceArn', 'StorageFinding', 'StorageFindingReasonCodes', 'StorageRecommendationOptionsAllocatedStorage', 'StorageRecommendationOptionsEstimatedMonthlySavingsCurrency', 'StorageRecommendationOptionsEstimatedMonthlySavingsCurrencyAfterDiscounts', 'StorageRecommendationOptionsEstimatedMonthlySavingsValue', 'StorageRecommendationOptionsEstimatedMonthlySavingsValueAfterDiscounts', 'StorageRecommendationOptionsIOPS', 'StorageRecommendationOptionsMaxAllocatedStorage', 'StorageRecommendationOptionsOnDemandMonthlyPrice', 'StorageRecommendationOptionsRank', 'StorageRecommendationOptionsSavingsOpportunityAfterDiscountsPercentage', 'StorageRecommendationOptionsSavingsOpportunityPercentage', 'StorageRecommendationOptionsStorageThroughput', 'StorageRecommendationOptionsStorageType', 'Tags', 'UtilizationMetricsAuroraMemoryHealthStateMaximum', 'UtilizationMetricsAuroraMemoryNumDeclinedSqlTotalMaximum', 'UtilizationMetricsAuroraMemoryNumKillConnTotalMaximum', 'UtilizationMetricsAuroraMemoryNumKillQueryTotalMaximum', 'UtilizationMetricsCpuMaximum', 'UtilizationMetricsDatabaseConnectionsMaximum', 'UtilizationMetricsEBSVolumeReadIOPSMaximum', 'UtilizationMetricsEBSVolumeReadThroughputMaximum', 'UtilizationMetricsEBSVolumeStorageSpaceUtilizationMaximum', 'UtilizationMetricsEBSVolumeWriteIOPSMaximum', 'UtilizationMetricsEBSVolumeWriteThroughputMaximum', 'UtilizationMetricsMemoryMaximum', 'UtilizationMetricsNetworkReceiveThroughputMaximum', 'UtilizationMetricsNetworkTransmitThroughputMaximum', 'UtilizationMetricsReadIOPSEphemeralStorageMaximum', 'UtilizationMetricsStorageNetworkReceiveThroughputMaximum', 'UtilizationMetricsStorageNetworkTransmitThroughputMaximum', 'UtilizationMetricsWriteIOPSEphemeralStorageMaximum']]]
@@ -795,25 +795,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### recommendationPreferences
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.RecommendationPreferencesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.RecommendationPreferences]
 
 
-# ExportRDSDatabaseRecommendationsResponseTypeDef
+# ExportRDSDatabaseRecommendationsResponse
 
 ### jobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### s3Destination
-- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.S3DestinationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.S3Destination'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ExternalMetricStatusTypeDef
+# ExternalMetricStatus
 
 ### statusCode
 - **Type**: typing.Optional[typing.Literal['DATADOG_INTEGRATION_ERROR', 'DYNATRACE_INTEGRATION_ERROR', 'INSTANA_INTEGRATION_ERROR', 'INSUFFICIENT_DATADOG_METRICS', 'INSUFFICIENT_DYNATRACE_METRICS', 'INSUFFICIENT_INSTANA_METRICS', 'INSUFFICIENT_NEWRELIC_METRICS', 'INTEGRATION_SUCCESS', 'NEWRELIC_INTEGRATION_ERROR', 'NO_EXTERNAL_METRIC_SET']]
@@ -822,13 +822,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ExternalMetricsPreferenceTypeDef
+# ExternalMetricsPreference
 
 ### source
 - **Type**: typing.Optional[typing.Literal['Datadog', 'Dynatrace', 'Instana', 'NewRelic']]
 
 
-# FilterTypeDef
+# Filter
 
 ### name
 - **Type**: typing.Optional[typing.Literal['Finding', 'FindingReasonCodes', 'InferredWorkloadTypes', 'RecommendationSourceType']]
@@ -837,7 +837,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# GetAutoScalingGroupRecommendationsRequestTypeDef
+# GetAutoScalingGroupRecommendationsRequest
 
 ### accountIds
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -852,31 +852,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.compute_optimizer_classes.FilterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.compute_optimizer_classes.Filter]]
 
 ### recommendationPreferences
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.RecommendationPreferencesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.RecommendationPreferences]
 
 
-# GetAutoScalingGroupRecommendationsResponseTypeDef
+# GetAutoScalingGroupRecommendationsResponse
 
 ### autoScalingGroupRecommendations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.AutoScalingGroupRecommendationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.AutoScalingGroupRecommendation]
 - **Required**: Yes
 
 ### errors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.GetRecommendationErrorTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.GetRecommendationError]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# GetEBSVolumeRecommendationsRequestTypeDef
+# GetEBSVolumeRecommendationsRequest
 
 ### volumeArns
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -888,31 +888,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.compute_optimizer_classes.EBSFilterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.compute_optimizer_classes.EBSFilter]]
 
 ### accountIds
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# GetEBSVolumeRecommendationsResponseTypeDef
+# GetEBSVolumeRecommendationsResponse
 
 ### volumeRecommendations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.VolumeRecommendationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.VolumeRecommendation]
 - **Required**: Yes
 
 ### errors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.GetRecommendationErrorTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.GetRecommendationError]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# GetEC2InstanceRecommendationsRequestTypeDef
+# GetEC2InstanceRecommendationsRequest
 
 ### instanceArns
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -924,34 +924,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.compute_optimizer_classes.FilterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.compute_optimizer_classes.Filter]]
 
 ### accountIds
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### recommendationPreferences
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.RecommendationPreferencesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.RecommendationPreferences]
 
 
-# GetEC2InstanceRecommendationsResponseTypeDef
+# GetEC2InstanceRecommendationsResponse
 
 ### instanceRecommendations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.InstanceRecommendationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.InstanceRecommendation]
 - **Required**: Yes
 
 ### errors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.GetRecommendationErrorTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.GetRecommendationError]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# GetEC2RecommendationProjectedMetricsRequestTypeDef
+# GetEC2RecommendationProjectedMetricsRequest
 
 ### instanceArn
 - **Type**: <class 'str'>
@@ -966,29 +966,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### startTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.TimestampTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.Timestamp'>
 - **Required**: Yes
 
 ### endTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.TimestampTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.Timestamp'>
 - **Required**: Yes
 
 ### recommendationPreferences
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.RecommendationPreferencesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.RecommendationPreferences]
 
 
-# GetEC2RecommendationProjectedMetricsResponseTypeDef
+# GetEC2RecommendationProjectedMetricsResponse
 
 ### recommendedOptionProjectedMetrics
-- **Type**: typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.RecommendedOptionProjectedMetricTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.RecommendedOptionProjectedMetric]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetECSServiceRecommendationProjectedMetricsRequestTypeDef
+# GetECSServiceRecommendationProjectedMetricsRequest
 
 ### serviceArn
 - **Type**: <class 'str'>
@@ -1003,26 +1003,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### startTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.TimestampTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.Timestamp'>
 - **Required**: Yes
 
 ### endTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.TimestampTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.Timestamp'>
 - **Required**: Yes
 
 
-# GetECSServiceRecommendationProjectedMetricsResponseTypeDef
+# GetECSServiceRecommendationProjectedMetricsResponse
 
 ### recommendedOptionProjectedMetrics
-- **Type**: typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.ECSServiceRecommendedOptionProjectedMetricTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.ECSServiceRecommendedOptionProjectedMetric]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetECSServiceRecommendationsRequestTypeDef
+# GetECSServiceRecommendationsRequest
 
 ### serviceArns
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -1034,45 +1034,45 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.compute_optimizer_classes.ECSServiceRecommendationFilterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.compute_optimizer_classes.ECSServiceRecommendationFilter]]
 
 ### accountIds
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# GetECSServiceRecommendationsResponseTypeDef
+# GetECSServiceRecommendationsResponse
 
 ### ecsServiceRecommendations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.ECSServiceRecommendationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.ECSServiceRecommendation]
 - **Required**: Yes
 
 ### errors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.GetRecommendationErrorTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.GetRecommendationError]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# GetEffectiveRecommendationPreferencesRequestTypeDef
+# GetEffectiveRecommendationPreferencesRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetEffectiveRecommendationPreferencesResponseTypeDef
+# GetEffectiveRecommendationPreferencesResponse
 
 ### enhancedInfrastructureMetrics
 - **Type**: typing.Literal['Active', 'Inactive']
 - **Required**: Yes
 
 ### externalMetricsPreference
-- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.ExternalMetricsPreferenceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.ExternalMetricsPreference'>
 - **Required**: Yes
 
 ### lookBackPeriod
@@ -1080,19 +1080,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### utilizationPreferences
-- **Type**: typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.UtilizationPreferenceTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.UtilizationPreference]
 - **Required**: Yes
 
 ### preferredResources
-- **Type**: typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.EffectivePreferredResourceTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.EffectivePreferredResource]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetEnrollmentStatusResponseTypeDef
+# GetEnrollmentStatusResponse
 
 ### status
 - **Type**: typing.Literal['Active', 'Failed', 'Inactive', 'Pending']
@@ -1115,23 +1115,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetEnrollmentStatusesForOrganizationRequestPaginateTypeDef
+# GetEnrollmentStatusesForOrganizationRequest
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.compute_optimizer_classes.EnrollmentFilterTypeDef]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.PaginatorConfigTypeDef]
-
-
-# GetEnrollmentStatusesForOrganizationRequestTypeDef
-
-### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.compute_optimizer_classes.EnrollmentFilterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.compute_optimizer_classes.EnrollmentFilter]]
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -1140,21 +1131,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# GetEnrollmentStatusesForOrganizationResponseTypeDef
+# GetEnrollmentStatusesForOrganizationRequestPaginate
+
+### filters
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.compute_optimizer_classes.EnrollmentFilter]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.PaginatorConfig]
+
+
+# GetEnrollmentStatusesForOrganizationResponse
 
 ### accountEnrollmentStatuses
-- **Type**: typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.AccountEnrollmentStatusTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.AccountEnrollmentStatus]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# GetIdleRecommendationsRequestTypeDef
+# GetIdleRecommendationsRequest
 
 ### resourceArns
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -1166,34 +1166,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.compute_optimizer_classes.IdleRecommendationFilterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.compute_optimizer_classes.IdleRecommendationFilter]]
 
 ### accountIds
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### orderBy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.OrderByTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.OrderBy]
 
 
-# GetIdleRecommendationsResponseTypeDef
+# GetIdleRecommendationsResponse
 
 ### idleRecommendations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.IdleRecommendationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.IdleRecommendation]
 - **Required**: Yes
 
 ### errors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.IdleRecommendationErrorTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.IdleRecommendationError]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# GetLambdaFunctionRecommendationsRequestPaginateTypeDef
+# GetLambdaFunctionRecommendationsRequest
 
 ### functionArns
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -1202,22 +1202,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.compute_optimizer_classes.LambdaFunctionRecommendationFilterTypeDef]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.PaginatorConfigTypeDef]
-
-
-# GetLambdaFunctionRecommendationsRequestTypeDef
-
-### functionArns
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### accountIds
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.compute_optimizer_classes.LambdaFunctionRecommendationFilterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.compute_optimizer_classes.LambdaFunctionRecommendationFilter]]
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -1226,21 +1211,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# GetLambdaFunctionRecommendationsResponseTypeDef
+# GetLambdaFunctionRecommendationsRequestPaginate
+
+### functionArns
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### accountIds
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### filters
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.compute_optimizer_classes.LambdaFunctionRecommendationFilter]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.PaginatorConfig]
+
+
+# GetLambdaFunctionRecommendationsResponse
 
 ### lambdaFunctionRecommendations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.LambdaFunctionRecommendationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.LambdaFunctionRecommendation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# GetLicenseRecommendationsRequestTypeDef
+# GetLicenseRecommendationsRequest
 
 ### resourceArns
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -1252,31 +1252,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.compute_optimizer_classes.LicenseRecommendationFilterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.compute_optimizer_classes.LicenseRecommendationFilter]]
 
 ### accountIds
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# GetLicenseRecommendationsResponseTypeDef
+# GetLicenseRecommendationsResponse
 
 ### licenseRecommendations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.LicenseRecommendationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.LicenseRecommendation]
 - **Required**: Yes
 
 ### errors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.GetRecommendationErrorTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.GetRecommendationError]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# GetRDSDatabaseRecommendationProjectedMetricsRequestTypeDef
+# GetRDSDatabaseRecommendationProjectedMetricsRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -1291,29 +1291,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### startTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.TimestampTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.Timestamp'>
 - **Required**: Yes
 
 ### endTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.TimestampTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.Timestamp'>
 - **Required**: Yes
 
 ### recommendationPreferences
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.RecommendationPreferencesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.RecommendationPreferences]
 
 
-# GetRDSDatabaseRecommendationProjectedMetricsResponseTypeDef
+# GetRDSDatabaseRecommendationProjectedMetricsResponse
 
 ### recommendedOptionProjectedMetrics
-- **Type**: typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.RDSDatabaseRecommendedOptionProjectedMetricTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.RDSDatabaseRecommendedOptionProjectedMetric]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetRDSDatabaseRecommendationsRequestTypeDef
+# GetRDSDatabaseRecommendationsRequest
 
 ### resourceArns
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -1325,34 +1325,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.compute_optimizer_classes.RDSDBRecommendationFilterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.compute_optimizer_classes.RDSDBRecommendationFilter]]
 
 ### accountIds
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### recommendationPreferences
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.RecommendationPreferencesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.RecommendationPreferences]
 
 
-# GetRDSDatabaseRecommendationsResponseTypeDef
+# GetRDSDatabaseRecommendationsResponse
 
 ### rdsDBRecommendations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.RDSDBRecommendationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.RDSDBRecommendation]
 - **Required**: Yes
 
 ### errors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.GetRecommendationErrorTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.GetRecommendationError]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# GetRecommendationErrorTypeDef
+# GetRecommendationError
 
 ### identifier
 - **Type**: typing.Optional[str]
@@ -1364,27 +1364,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetRecommendationPreferencesRequestPaginateTypeDef
+# GetRecommendationPreferencesRequest
 
 ### resourceType
 - **Type**: typing.Literal['AutoScalingGroup', 'EbsVolume', 'Ec2Instance', 'EcsService', 'Idle', 'LambdaFunction', 'License', 'NotApplicable', 'RdsDBInstance']
 - **Required**: Yes
 
 ### scope
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.ScopeTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.PaginatorConfigTypeDef]
-
-
-# GetRecommendationPreferencesRequestTypeDef
-
-### resourceType
-- **Type**: typing.Literal['AutoScalingGroup', 'EbsVolume', 'Ec2Instance', 'EcsService', 'Idle', 'LambdaFunction', 'License', 'NotApplicable', 'RdsDBInstance']
-- **Required**: Yes
-
-### scope
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.ScopeTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.Scope]
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -1393,30 +1380,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# GetRecommendationPreferencesResponseTypeDef
+# GetRecommendationPreferencesRequestPaginate
+
+### resourceType
+- **Type**: typing.Literal['AutoScalingGroup', 'EbsVolume', 'Ec2Instance', 'EcsService', 'Idle', 'LambdaFunction', 'License', 'NotApplicable', 'RdsDBInstance']
+- **Required**: Yes
+
+### scope
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.Scope]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.PaginatorConfig]
+
+
+# GetRecommendationPreferencesResponse
 
 ### recommendationPreferencesDetails
-- **Type**: typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.RecommendationPreferencesDetailTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.RecommendationPreferencesDetail]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# GetRecommendationSummariesRequestPaginateTypeDef
-
-### accountIds
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.PaginatorConfigTypeDef]
-
-
-# GetRecommendationSummariesRequestTypeDef
+# GetRecommendationSummariesRequest
 
 ### accountIds
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -1428,27 +1419,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# GetRecommendationSummariesResponseTypeDef
+# GetRecommendationSummariesRequestPaginate
+
+### accountIds
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.PaginatorConfig]
+
+
+# GetRecommendationSummariesResponse
 
 ### recommendationSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.RecommendationSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.RecommendationSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# GpuInfoTypeDef
-
-### gpus
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.GpuTypeDef]]
-
-
-# GpuTypeDef
+# Gpu
 
 ### gpuCount
 - **Type**: typing.Optional[int]
@@ -1457,7 +1451,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# IdleEstimatedMonthlySavingsTypeDef
+# GpuInfo
+
+### gpus
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.Gpu]]
+
+
+# IdleEstimatedMonthlySavings
 
 ### currency
 - **Type**: typing.Optional[typing.Literal['CNY', 'USD']]
@@ -1466,31 +1466,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# IdleRecommendationErrorTypeDef
-
-### identifier
-- **Type**: typing.Optional[str]
-
-### code
-- **Type**: typing.Optional[str]
-
-### message
-- **Type**: typing.Optional[str]
-
-### resourceType
-- **Type**: typing.Optional[typing.Literal['AutoScalingGroup', 'EBSVolume', 'EC2Instance', 'ECSService', 'RDSDBInstance']]
-
-
-# IdleRecommendationFilterTypeDef
-
-### name
-- **Type**: typing.Optional[typing.Literal['Finding', 'ResourceType']]
-
-### values
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-
-# IdleRecommendationTypeDef
+# IdleRecommendation
 
 ### resourceArn
 - **Type**: typing.Optional[str]
@@ -1511,13 +1487,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### savingsOpportunity
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.IdleSavingsOpportunityTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.IdleSavingsOpportunity]
 
 ### savingsOpportunityAfterDiscounts
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.IdleSavingsOpportunityAfterDiscountsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.IdleSavingsOpportunityAfterDiscounts]
 
 ### utilizationMetrics
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.IdleUtilizationMetricTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.IdleUtilizationMetric]]
 
 ### lookBackPeriodInDays
 - **Type**: typing.Optional[float]
@@ -1526,28 +1502,52 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.Tag]]
 
 
-# IdleSavingsOpportunityAfterDiscountsTypeDef
+# IdleRecommendationError
+
+### identifier
+- **Type**: typing.Optional[str]
+
+### code
+- **Type**: typing.Optional[str]
+
+### message
+- **Type**: typing.Optional[str]
+
+### resourceType
+- **Type**: typing.Optional[typing.Literal['AutoScalingGroup', 'EBSVolume', 'EC2Instance', 'ECSService', 'RDSDBInstance']]
+
+
+# IdleRecommendationFilter
+
+### name
+- **Type**: typing.Optional[typing.Literal['Finding', 'ResourceType']]
+
+### values
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+
+# IdleSavingsOpportunity
 
 ### savingsOpportunityPercentage
 - **Type**: typing.Optional[float]
 
 ### estimatedMonthlySavings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.IdleEstimatedMonthlySavingsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.IdleEstimatedMonthlySavings]
 
 
-# IdleSavingsOpportunityTypeDef
+# IdleSavingsOpportunityAfterDiscounts
 
 ### savingsOpportunityPercentage
 - **Type**: typing.Optional[float]
 
 ### estimatedMonthlySavings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.IdleEstimatedMonthlySavingsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.IdleEstimatedMonthlySavings]
 
 
-# IdleSummaryTypeDef
+# IdleSummary
 
 ### name
 - **Type**: typing.Optional[typing.Literal['Idle', 'Unattached']]
@@ -1556,7 +1556,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# IdleUtilizationMetricTypeDef
+# IdleUtilizationMetric
 
 ### name
 - **Type**: typing.Optional[typing.Literal['CPU', 'DatabaseConnections', 'EBSVolumeReadIOPS', 'EBSVolumeWriteIOPS', 'Memory', 'NetworkInBytesPerSecond', 'NetworkOutBytesPerSecond', 'VolumeReadOpsPerSecond', 'VolumeWriteOpsPerSecond']]
@@ -1568,16 +1568,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# InferredWorkloadSavingTypeDef
+# InferredWorkloadSaving
 
 ### inferredWorkloadTypes
 - **Type**: typing.Optional[typing.List[typing.Literal['AmazonEmr', 'ApacheCassandra', 'ApacheHadoop', 'Kafka', 'Memcached', 'Nginx', 'PostgreSql', 'Redis', 'SQLServer']]]
 
 ### estimatedMonthlySavings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.EstimatedMonthlySavingsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.EstimatedMonthlySavings]
 
 
-# InstanceEstimatedMonthlySavingsTypeDef
+# InstanceEstimatedMonthlySavings
 
 ### currency
 - **Type**: typing.Optional[typing.Literal['CNY', 'USD']]
@@ -1586,37 +1586,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# InstanceRecommendationOptionTypeDef
-
-### instanceType
-- **Type**: typing.Optional[str]
-
-### instanceGpuInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.GpuInfoTypeDef]
-
-### projectedUtilizationMetrics
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.UtilizationMetricTypeDef]]
-
-### platformDifferences
-- **Type**: typing.Optional[typing.List[typing.Literal['Architecture', 'Hypervisor', 'InstanceStoreAvailability', 'NetworkInterface', 'StorageInterface', 'VirtualizationType']]]
-
-### performanceRisk
-- **Type**: typing.Optional[float]
-
-### rank
-- **Type**: typing.Optional[int]
-
-### savingsOpportunity
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.SavingsOpportunityTypeDef]
-
-### savingsOpportunityAfterDiscounts
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.InstanceSavingsOpportunityAfterDiscountsTypeDef]
-
-### migrationEffort
-- **Type**: typing.Optional[typing.Literal['High', 'Low', 'Medium', 'VeryLow']]
-
-
-# InstanceRecommendationTypeDef
+# InstanceRecommendation
 
 ### instanceArn
 - **Type**: typing.Optional[str]
@@ -1637,16 +1607,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[typing.Literal['CPUOverprovisioned', 'CPUUnderprovisioned', 'DiskIOPSOverprovisioned', 'DiskIOPSUnderprovisioned', 'DiskThroughputOverprovisioned', 'DiskThroughputUnderprovisioned', 'EBSIOPSOverprovisioned', 'EBSIOPSUnderprovisioned', 'EBSThroughputOverprovisioned', 'EBSThroughputUnderprovisioned', 'GPUMemoryOverprovisioned', 'GPUMemoryUnderprovisioned', 'GPUOverprovisioned', 'GPUUnderprovisioned', 'MemoryOverprovisioned', 'MemoryUnderprovisioned', 'NetworkBandwidthOverprovisioned', 'NetworkBandwidthUnderprovisioned', 'NetworkPPSOverprovisioned', 'NetworkPPSUnderprovisioned']]]
 
 ### utilizationMetrics
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.UtilizationMetricTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.UtilizationMetric]]
 
 ### lookBackPeriodInDays
 - **Type**: typing.Optional[float]
 
 ### recommendationOptions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.InstanceRecommendationOptionTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.InstanceRecommendationOption]]
 
 ### recommendationSources
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.RecommendationSourceTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.RecommendationSource]]
 
 ### lastRefreshTimestamp
 - **Type**: typing.Optional[datetime.datetime]
@@ -1655,7 +1625,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['High', 'Low', 'Medium', 'VeryLow']]
 
 ### effectiveRecommendationPreferences
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.EffectiveRecommendationPreferencesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.EffectiveRecommendationPreferences]
 
 ### inferredWorkloadTypes
 - **Type**: typing.Optional[typing.List[typing.Literal['AmazonEmr', 'ApacheCassandra', 'ApacheHadoop', 'Kafka', 'Memcached', 'Nginx', 'PostgreSql', 'Redis', 'SQLServer']]]
@@ -1664,34 +1634,64 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['pending', 'running', 'shutting-down', 'stopped', 'stopping', 'terminated']]
 
 ### tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.Tag]]
 
 ### externalMetricStatus
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.ExternalMetricStatusTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.ExternalMetricStatus]
 
 ### currentInstanceGpuInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.GpuInfoTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.GpuInfo]
 
 ### idle
 - **Type**: typing.Optional[typing.Literal['False', 'True']]
 
 
-# InstanceSavingsEstimationModeTypeDef
+# InstanceRecommendationOption
+
+### instanceType
+- **Type**: typing.Optional[str]
+
+### instanceGpuInfo
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.GpuInfo]
+
+### projectedUtilizationMetrics
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.UtilizationMetric]]
+
+### platformDifferences
+- **Type**: typing.Optional[typing.List[typing.Literal['Architecture', 'Hypervisor', 'InstanceStoreAvailability', 'NetworkInterface', 'StorageInterface', 'VirtualizationType']]]
+
+### performanceRisk
+- **Type**: typing.Optional[float]
+
+### rank
+- **Type**: typing.Optional[int]
+
+### savingsOpportunity
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.SavingsOpportunity]
+
+### savingsOpportunityAfterDiscounts
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.InstanceSavingsOpportunityAfterDiscounts]
+
+### migrationEffort
+- **Type**: typing.Optional[typing.Literal['High', 'Low', 'Medium', 'VeryLow']]
+
+
+# InstanceSavingsEstimationMode
 
 ### source
 - **Type**: typing.Optional[typing.Literal['CostExplorerRightsizing', 'CostOptimizationHub', 'PublicPricing']]
 
 
-# InstanceSavingsOpportunityAfterDiscountsTypeDef
+# InstanceSavingsOpportunityAfterDiscounts
 
 ### savingsOpportunityPercentage
 - **Type**: typing.Optional[float]
 
 ### estimatedMonthlySavings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.InstanceEstimatedMonthlySavingsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.InstanceEstimatedMonthlySavings]
 
 
-# JobFilterTypeDef
+# JobFilter
 
 ### name
 - **Type**: typing.Optional[typing.Literal['JobStatus', 'ResourceType']]
@@ -1700,13 +1700,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# LambdaEffectiveRecommendationPreferencesTypeDef
+# LambdaEffectiveRecommendationPreferences
 
 ### savingsEstimationMode
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.LambdaSavingsEstimationModeTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.LambdaSavingsEstimationMode]
 
 
-# LambdaEstimatedMonthlySavingsTypeDef
+# LambdaEstimatedMonthlySavings
 
 ### currency
 - **Type**: typing.Optional[typing.Literal['CNY', 'USD']]
@@ -1715,7 +1715,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# LambdaFunctionMemoryProjectedMetricTypeDef
+# LambdaFunctionMemoryProjectedMetric
 
 ### name
 - **Type**: typing.Optional[typing.Literal['Duration']]
@@ -1727,7 +1727,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# LambdaFunctionMemoryRecommendationOptionTypeDef
+# LambdaFunctionMemoryRecommendationOption
 
 ### rank
 - **Type**: typing.Optional[int]
@@ -1736,25 +1736,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### projectedUtilizationMetrics
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.LambdaFunctionMemoryProjectedMetricTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.LambdaFunctionMemoryProjectedMetric]]
 
 ### savingsOpportunity
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.SavingsOpportunityTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.SavingsOpportunity]
 
 ### savingsOpportunityAfterDiscounts
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.LambdaSavingsOpportunityAfterDiscountsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.LambdaSavingsOpportunityAfterDiscounts]
 
 
-# LambdaFunctionRecommendationFilterTypeDef
-
-### name
-- **Type**: typing.Optional[typing.Literal['Finding', 'FindingReasonCode']]
-
-### values
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-
-# LambdaFunctionRecommendationTypeDef
+# LambdaFunctionRecommendation
 
 ### functionArn
 - **Type**: typing.Optional[str]
@@ -1772,7 +1763,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### utilizationMetrics
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.LambdaFunctionUtilizationMetricTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.LambdaFunctionUtilizationMetric]]
 
 ### lookbackPeriodInDays
 - **Type**: typing.Optional[float]
@@ -1787,19 +1778,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[typing.Literal['Inconclusive', 'InsufficientData', 'MemoryOverprovisioned', 'MemoryUnderprovisioned']]]
 
 ### memorySizeRecommendationOptions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.LambdaFunctionMemoryRecommendationOptionTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.LambdaFunctionMemoryRecommendationOption]]
 
 ### currentPerformanceRisk
 - **Type**: typing.Optional[typing.Literal['High', 'Low', 'Medium', 'VeryLow']]
 
 ### effectiveRecommendationPreferences
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.LambdaEffectiveRecommendationPreferencesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.LambdaEffectiveRecommendationPreferences]
 
 ### tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.Tag]]
 
 
-# LambdaFunctionUtilizationMetricTypeDef
+# LambdaFunctionRecommendationFilter
+
+### name
+- **Type**: typing.Optional[typing.Literal['Finding', 'FindingReasonCode']]
+
+### values
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+
+# LambdaFunctionUtilizationMetric
 
 ### name
 - **Type**: typing.Optional[typing.Literal['Duration', 'Memory']]
@@ -1811,22 +1811,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# LambdaSavingsEstimationModeTypeDef
+# LambdaSavingsEstimationMode
 
 ### source
 - **Type**: typing.Optional[typing.Literal['CostExplorerRightsizing', 'CostOptimizationHub', 'PublicPricing']]
 
 
-# LambdaSavingsOpportunityAfterDiscountsTypeDef
+# LambdaSavingsOpportunityAfterDiscounts
 
 ### savingsOpportunityPercentage
 - **Type**: typing.Optional[float]
 
 ### estimatedMonthlySavings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.LambdaEstimatedMonthlySavingsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.LambdaEstimatedMonthlySavings]
 
 
-# LicenseConfigurationTypeDef
+# LicenseConfiguration
 
 ### numberOfCores
 - **Type**: typing.Optional[int]
@@ -1850,37 +1850,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### metricsSource
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.MetricSourceTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.MetricSource]]
 
 
-# LicenseRecommendationFilterTypeDef
-
-### name
-- **Type**: typing.Optional[typing.Literal['Finding', 'FindingReasonCode', 'LicenseName']]
-
-### values
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-
-# LicenseRecommendationOptionTypeDef
-
-### rank
-- **Type**: typing.Optional[int]
-
-### operatingSystem
-- **Type**: typing.Optional[str]
-
-### licenseEdition
-- **Type**: typing.Optional[typing.Literal['Enterprise', 'Free', 'NoLicenseEditionFound', 'Standard']]
-
-### licenseModel
-- **Type**: typing.Optional[typing.Literal['BringYourOwnLicense', 'LicenseIncluded']]
-
-### savingsOpportunity
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.SavingsOpportunityTypeDef]
-
-
-# LicenseRecommendationTypeDef
+# LicenseRecommendation
 
 ### resourceArn
 - **Type**: typing.Optional[str]
@@ -1889,7 +1862,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### currentLicenseConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.LicenseConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.LicenseConfiguration]
 
 ### lookbackPeriodInDays
 - **Type**: typing.Optional[float]
@@ -1904,13 +1877,40 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[typing.Literal['CloudWatchApplicationInsightsError', 'InvalidCloudWatchApplicationInsightsSetup', 'LicenseOverprovisioned', 'Optimized']]]
 
 ### licenseRecommendationOptions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.LicenseRecommendationOptionTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.LicenseRecommendationOption]]
 
 ### tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.Tag]]
 
 
-# MemorySizeConfigurationTypeDef
+# LicenseRecommendationFilter
+
+### name
+- **Type**: typing.Optional[typing.Literal['Finding', 'FindingReasonCode', 'LicenseName']]
+
+### values
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+
+# LicenseRecommendationOption
+
+### rank
+- **Type**: typing.Optional[int]
+
+### operatingSystem
+- **Type**: typing.Optional[str]
+
+### licenseEdition
+- **Type**: typing.Optional[typing.Literal['Enterprise', 'Free', 'NoLicenseEditionFound', 'Standard']]
+
+### licenseModel
+- **Type**: typing.Optional[typing.Literal['BringYourOwnLicense', 'LicenseIncluded']]
+
+### savingsOpportunity
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.SavingsOpportunity]
+
+
+# MemorySizeConfiguration
 
 ### memory
 - **Type**: typing.Optional[int]
@@ -1919,7 +1919,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# MetricSourceTypeDef
+# MetricSource
 
 ### provider
 - **Type**: typing.Optional[typing.Literal['CloudWatchApplicationInsights']]
@@ -1928,7 +1928,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# OrderByTypeDef
+# OrderBy
 
 ### dimension
 - **Type**: typing.Optional[typing.Literal['SavingsValue', 'SavingsValueAfterDiscount']]
@@ -1937,7 +1937,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Asc', 'Desc']]
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -1949,7 +1949,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PreferredResourceTypeDef
+# PreferredResource
 
 ### name
 - **Type**: typing.Optional[typing.Literal['Ec2InstanceTypes']]
@@ -1961,7 +1961,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# ProjectedMetricTypeDef
+# ProjectedMetric
 
 ### name
 - **Type**: typing.Optional[typing.Literal['Cpu', 'DISK_READ_BYTES_PER_SECOND', 'DISK_READ_OPS_PER_SECOND', 'DISK_WRITE_BYTES_PER_SECOND', 'DISK_WRITE_OPS_PER_SECOND', 'EBS_READ_BYTES_PER_SECOND', 'EBS_READ_OPS_PER_SECOND', 'EBS_WRITE_BYTES_PER_SECOND', 'EBS_WRITE_OPS_PER_SECOND', 'GPU_MEMORY_PERCENTAGE', 'GPU_PERCENTAGE', 'Memory', 'NETWORK_IN_BYTES_PER_SECOND', 'NETWORK_OUT_BYTES_PER_SECOND', 'NETWORK_PACKETS_IN_PER_SECOND', 'NETWORK_PACKETS_OUT_PER_SECOND']]
@@ -1973,14 +1973,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[float]]
 
 
-# PutRecommendationPreferencesRequestTypeDef
+# PutRecommendationPreferencesRequest
 
 ### resourceType
 - **Type**: typing.Literal['AutoScalingGroup', 'EbsVolume', 'Ec2Instance', 'EcsService', 'Idle', 'LambdaFunction', 'License', 'NotApplicable', 'RdsDBInstance']
 - **Required**: Yes
 
 ### scope
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.ScopeTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.Scope]
 
 ### enhancedInfrastructureMetrics
 - **Type**: typing.Optional[typing.Literal['Active', 'Inactive']]
@@ -1989,28 +1989,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Active', 'Inactive']]
 
 ### externalMetricsPreference
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.ExternalMetricsPreferenceTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.ExternalMetricsPreference]
 
 ### lookBackPeriod
 - **Type**: typing.Optional[typing.Literal['DAYS_14', 'DAYS_32', 'DAYS_93']]
 
 ### utilizationPreferences
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.compute_optimizer_classes.UtilizationPreferenceTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.compute_optimizer_classes.UtilizationPreference]]
 
 ### preferredResources
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.compute_optimizer_classes.PreferredResourceTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.compute_optimizer_classes.PreferredResource]]
 
 ### savingsEstimationMode
 - **Type**: typing.Optional[typing.Literal['AfterDiscounts', 'BeforeDiscounts']]
 
 
-# RDSDBInstanceRecommendationOptionTypeDef
+# RDSDBInstanceRecommendationOption
 
 ### dbInstanceClass
 - **Type**: typing.Optional[str]
 
 ### projectedUtilizationMetrics
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.RDSDBUtilizationMetricTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.RDSDBUtilizationMetric]]
 
 ### performanceRisk
 - **Type**: typing.Optional[float]
@@ -2019,22 +2019,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### savingsOpportunity
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.SavingsOpportunityTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.SavingsOpportunity]
 
 ### savingsOpportunityAfterDiscounts
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.RDSInstanceSavingsOpportunityAfterDiscountsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.RDSInstanceSavingsOpportunityAfterDiscounts]
 
 
-# RDSDBRecommendationFilterTypeDef
-
-### name
-- **Type**: typing.Optional[typing.Literal['Idle', 'InstanceFinding', 'InstanceFindingReasonCode', 'StorageFinding', 'StorageFindingReasonCode']]
-
-### values
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-
-# RDSDBRecommendationTypeDef
+# RDSDBRecommendation
 
 ### resourceArn
 - **Type**: typing.Optional[str]
@@ -2055,7 +2046,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### currentStorageConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.DBStorageConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.DBStorageConfiguration]
 
 ### dbClusterIdentifier
 - **Type**: typing.Optional[str]
@@ -2079,16 +2070,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[typing.Literal['EBSVolumeAllocatedStorageUnderprovisioned', 'EBSVolumeIOPSOverprovisioned', 'EBSVolumeThroughputOverprovisioned', 'EBSVolumeThroughputUnderprovisioned', 'NewGenerationStorageTypeAvailable']]]
 
 ### instanceRecommendationOptions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.RDSDBInstanceRecommendationOptionTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.RDSDBInstanceRecommendationOption]]
 
 ### storageRecommendationOptions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.RDSDBStorageRecommendationOptionTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.RDSDBStorageRecommendationOption]]
 
 ### utilizationMetrics
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.RDSDBUtilizationMetricTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.RDSDBUtilizationMetric]]
 
 ### effectiveRecommendationPreferences
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.RDSEffectiveRecommendationPreferencesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.RDSEffectiveRecommendationPreferences]
 
 ### lookbackPeriodInDays
 - **Type**: typing.Optional[float]
@@ -2097,25 +2088,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.Tag]]
 
 
-# RDSDBStorageRecommendationOptionTypeDef
+# RDSDBRecommendationFilter
+
+### name
+- **Type**: typing.Optional[typing.Literal['Idle', 'InstanceFinding', 'InstanceFindingReasonCode', 'StorageFinding', 'StorageFindingReasonCode']]
+
+### values
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+
+# RDSDBStorageRecommendationOption
 
 ### storageConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.DBStorageConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.DBStorageConfiguration]
 
 ### rank
 - **Type**: typing.Optional[int]
 
 ### savingsOpportunity
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.SavingsOpportunityTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.SavingsOpportunity]
 
 ### savingsOpportunityAfterDiscounts
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.RDSStorageSavingsOpportunityAfterDiscountsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.RDSStorageSavingsOpportunityAfterDiscounts]
 
 
-# RDSDBUtilizationMetricTypeDef
+# RDSDBUtilizationMetric
 
 ### name
 - **Type**: typing.Optional[typing.Literal['AuroraMemoryHealthState', 'AuroraMemoryNumDeclinedSql', 'AuroraMemoryNumKillConnTotal', 'AuroraMemoryNumKillQueryTotal', 'CPU', 'DatabaseConnections', 'EBSVolumeReadIOPS', 'EBSVolumeReadThroughput', 'EBSVolumeStorageSpaceUtilization', 'EBSVolumeWriteIOPS', 'EBSVolumeWriteThroughput', 'Memory', 'NetworkReceiveThroughput', 'NetworkTransmitThroughput', 'ReadIOPSEphemeralStorage', 'StorageNetworkReceiveThroughput', 'StorageNetworkTransmitThroughput', 'WriteIOPSEphemeralStorage']]
@@ -2127,7 +2127,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# RDSDatabaseProjectedMetricTypeDef
+# RDSDatabaseProjectedMetric
 
 ### name
 - **Type**: typing.Optional[typing.Literal['AuroraMemoryHealthState', 'AuroraMemoryNumDeclinedSql', 'AuroraMemoryNumKillConnTotal', 'AuroraMemoryNumKillQueryTotal', 'CPU', 'DatabaseConnections', 'EBSVolumeReadIOPS', 'EBSVolumeReadThroughput', 'EBSVolumeStorageSpaceUtilization', 'EBSVolumeWriteIOPS', 'EBSVolumeWriteThroughput', 'Memory', 'NetworkReceiveThroughput', 'NetworkTransmitThroughput', 'ReadIOPSEphemeralStorage', 'StorageNetworkReceiveThroughput', 'StorageNetworkTransmitThroughput', 'WriteIOPSEphemeralStorage']]
@@ -2139,7 +2139,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[float]]
 
 
-# RDSDatabaseRecommendedOptionProjectedMetricTypeDef
+# RDSDatabaseRecommendedOptionProjectedMetric
 
 ### recommendedDBInstanceClass
 - **Type**: typing.Optional[str]
@@ -2148,10 +2148,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### projectedMetrics
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.RDSDatabaseProjectedMetricTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.RDSDatabaseProjectedMetric]]
 
 
-# RDSEffectiveRecommendationPreferencesTypeDef
+# RDSEffectiveRecommendationPreferences
 
 ### cpuVendorArchitectures
 - **Type**: typing.Optional[typing.List[typing.Literal['AWS_ARM64', 'CURRENT']]]
@@ -2163,10 +2163,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DAYS_14', 'DAYS_32', 'DAYS_93']]
 
 ### savingsEstimationMode
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.RDSSavingsEstimationModeTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.RDSSavingsEstimationMode]
 
 
-# RDSInstanceEstimatedMonthlySavingsTypeDef
+# RDSInstanceEstimatedMonthlySavings
 
 ### currency
 - **Type**: typing.Optional[typing.Literal['CNY', 'USD']]
@@ -2175,22 +2175,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# RDSInstanceSavingsOpportunityAfterDiscountsTypeDef
+# RDSInstanceSavingsOpportunityAfterDiscounts
 
 ### savingsOpportunityPercentage
 - **Type**: typing.Optional[float]
 
 ### estimatedMonthlySavings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.RDSInstanceEstimatedMonthlySavingsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.RDSInstanceEstimatedMonthlySavings]
 
 
-# RDSSavingsEstimationModeTypeDef
+# RDSSavingsEstimationMode
 
 ### source
 - **Type**: typing.Optional[typing.Literal['CostExplorerRightsizing', 'CostOptimizationHub', 'PublicPricing']]
 
 
-# RDSStorageEstimatedMonthlySavingsTypeDef
+# RDSStorageEstimatedMonthlySavings
 
 ### currency
 - **Type**: typing.Optional[typing.Literal['CNY', 'USD']]
@@ -2199,16 +2199,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# RDSStorageSavingsOpportunityAfterDiscountsTypeDef
+# RDSStorageSavingsOpportunityAfterDiscounts
 
 ### savingsOpportunityPercentage
 - **Type**: typing.Optional[float]
 
 ### estimatedMonthlySavings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.RDSStorageEstimatedMonthlySavingsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.RDSStorageEstimatedMonthlySavings]
 
 
-# ReasonCodeSummaryTypeDef
+# ReasonCodeSummary
 
 ### name
 - **Type**: typing.Optional[typing.Literal['MemoryOverprovisioned', 'MemoryUnderprovisioned']]
@@ -2217,13 +2217,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# RecommendationExportJobTypeDef
+# RecommendationExportJob
 
 ### jobId
 - **Type**: typing.Optional[str]
 
 ### destination
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.ExportDestinationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.ExportDestination]
 
 ### resourceType
 - **Type**: typing.Optional[typing.Literal['AutoScalingGroup', 'EbsVolume', 'Ec2Instance', 'EcsService', 'Idle', 'LambdaFunction', 'License', 'NotApplicable', 'RdsDBInstance']]
@@ -2241,10 +2241,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RecommendationPreferencesDetailTypeDef
+# RecommendationPreferences
+
+### cpuVendorArchitectures
+- **Type**: typing.Optional[typing.Sequence[typing.Literal['AWS_ARM64', 'CURRENT']]]
+
+
+# RecommendationPreferencesDetail
 
 ### scope
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.ScopeTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.Scope]
 
 ### resourceType
 - **Type**: typing.Optional[typing.Literal['AutoScalingGroup', 'EbsVolume', 'Ec2Instance', 'EcsService', 'Idle', 'LambdaFunction', 'License', 'NotApplicable', 'RdsDBInstance']]
@@ -2256,28 +2262,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Active', 'Inactive']]
 
 ### externalMetricsPreference
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.ExternalMetricsPreferenceTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.ExternalMetricsPreference]
 
 ### lookBackPeriod
 - **Type**: typing.Optional[typing.Literal['DAYS_14', 'DAYS_32', 'DAYS_93']]
 
 ### utilizationPreferences
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.UtilizationPreferenceTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.UtilizationPreference]]
 
 ### preferredResources
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.EffectivePreferredResourceTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.EffectivePreferredResource]]
 
 ### savingsEstimationMode
 - **Type**: typing.Optional[typing.Literal['AfterDiscounts', 'BeforeDiscounts']]
 
 
-# RecommendationPreferencesTypeDef
-
-### cpuVendorArchitectures
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['AWS_ARM64', 'CURRENT']]]
-
-
-# RecommendationSourceTypeDef
+# RecommendationSource
 
 ### recommendationSourceArn
 - **Type**: typing.Optional[str]
@@ -2286,13 +2286,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['AutoScalingGroup', 'EbsVolume', 'Ec2Instance', 'EcsService', 'LambdaFunction', 'License', 'RdsDBInstance', 'RdsDBInstanceStorage']]
 
 
-# RecommendationSummaryTypeDef
+# RecommendationSummary
 
 ### summaries
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.SummaryTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.Summary]]
 
 ### idleSummaries
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.IdleSummaryTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.IdleSummary]]
 
 ### recommendationResourceType
 - **Type**: typing.Optional[typing.Literal['AutoScalingGroup', 'EbsVolume', 'Ec2Instance', 'EcsService', 'LambdaFunction', 'License', 'RdsDBInstance', 'RdsDBInstanceStorage']]
@@ -2301,22 +2301,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### savingsOpportunity
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.SavingsOpportunityTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.SavingsOpportunity]
 
 ### idleSavingsOpportunity
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.SavingsOpportunityTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.SavingsOpportunity]
 
 ### aggregatedSavingsOpportunity
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.SavingsOpportunityTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.SavingsOpportunity]
 
 ### currentPerformanceRiskRatings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.CurrentPerformanceRiskRatingsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.CurrentPerformanceRiskRatings]
 
 ### inferredWorkloadSavings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.InferredWorkloadSavingTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.InferredWorkloadSaving]]
 
 
-# RecommendedOptionProjectedMetricTypeDef
+# RecommendedOptionProjectedMetric
 
 ### recommendedInstanceType
 - **Type**: typing.Optional[str]
@@ -2325,10 +2325,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### projectedMetrics
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.ProjectedMetricTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.ProjectedMetric]]
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -2350,16 +2350,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# S3DestinationConfigTypeDef
-
-### bucket
-- **Type**: typing.Optional[str]
-
-### keyPrefix
-- **Type**: typing.Optional[str]
-
-
-# S3DestinationTypeDef
+# S3Destination
 
 ### bucket
 - **Type**: typing.Optional[str]
@@ -2371,16 +2362,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SavingsOpportunityTypeDef
+# S3DestinationConfig
+
+### bucket
+- **Type**: typing.Optional[str]
+
+### keyPrefix
+- **Type**: typing.Optional[str]
+
+
+# SavingsOpportunity
 
 ### savingsOpportunityPercentage
 - **Type**: typing.Optional[float]
 
 ### estimatedMonthlySavings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.EstimatedMonthlySavingsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.EstimatedMonthlySavings]
 
 
-# ScopeTypeDef
+# Scope
 
 ### name
 - **Type**: typing.Optional[typing.Literal['AccountId', 'Organization', 'ResourceArn']]
@@ -2389,7 +2389,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ServiceConfigurationTypeDef
+# ServiceConfiguration
 
 ### memory
 - **Type**: typing.Optional[int]
@@ -2398,7 +2398,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### containerConfigurations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.ContainerConfigurationTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.ContainerConfiguration]]
 
 ### autoScalingConfiguration
 - **Type**: typing.Optional[typing.Literal['TargetTrackingScalingCpu', 'TargetTrackingScalingMemory']]
@@ -2407,7 +2407,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SummaryTypeDef
+# Summary
 
 ### name
 - **Type**: typing.Optional[typing.Literal['NotOptimized', 'Optimized', 'Overprovisioned', 'Underprovisioned']]
@@ -2416,10 +2416,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 ### reasonCodeSummaries
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.ReasonCodeSummaryTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.ReasonCodeSummary]]
 
 
-# TagTypeDef
+# Tag
 
 ### key
 - **Type**: typing.Optional[str]
@@ -2428,13 +2428,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TimestampTypeDef
+# Timestamp
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# UpdateEnrollmentStatusRequestTypeDef
+# UpdateEnrollmentStatusRequest
 
 ### status
 - **Type**: typing.Literal['Active', 'Failed', 'Inactive', 'Pending']
@@ -2444,7 +2444,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# UpdateEnrollmentStatusResponseTypeDef
+# UpdateEnrollmentStatusResponse
 
 ### status
 - **Type**: typing.Literal['Active', 'Failed', 'Inactive', 'Pending']
@@ -2455,11 +2455,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.compute_optimizer_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UtilizationMetricTypeDef
+# UtilizationMetric
 
 ### name
 - **Type**: typing.Optional[typing.Literal['Cpu', 'DISK_READ_BYTES_PER_SECOND', 'DISK_READ_OPS_PER_SECOND', 'DISK_WRITE_BYTES_PER_SECOND', 'DISK_WRITE_OPS_PER_SECOND', 'EBS_READ_BYTES_PER_SECOND', 'EBS_READ_OPS_PER_SECOND', 'EBS_WRITE_BYTES_PER_SECOND', 'EBS_WRITE_OPS_PER_SECOND', 'GPU_MEMORY_PERCENTAGE', 'GPU_PERCENTAGE', 'Memory', 'NETWORK_IN_BYTES_PER_SECOND', 'NETWORK_OUT_BYTES_PER_SECOND', 'NETWORK_PACKETS_IN_PER_SECOND', 'NETWORK_PACKETS_OUT_PER_SECOND']]
@@ -2471,16 +2471,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# UtilizationPreferenceTypeDef
+# UtilizationPreference
 
 ### metricName
 - **Type**: typing.Optional[typing.Literal['CpuUtilization', 'MemoryUtilization']]
 
 ### metricParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.CustomizableMetricParametersTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.CustomizableMetricParameters]
 
 
-# VolumeConfigurationTypeDef
+# VolumeConfiguration
 
 ### volumeType
 - **Type**: typing.Optional[str]
@@ -2504,25 +2504,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# VolumeRecommendationOptionTypeDef
-
-### configuration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.VolumeConfigurationTypeDef]
-
-### performanceRisk
-- **Type**: typing.Optional[float]
-
-### rank
-- **Type**: typing.Optional[int]
-
-### savingsOpportunity
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.SavingsOpportunityTypeDef]
-
-### savingsOpportunityAfterDiscounts
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.EBSSavingsOpportunityAfterDiscountsTypeDef]
-
-
-# VolumeRecommendationTypeDef
+# VolumeRecommendation
 
 ### volumeArn
 - **Type**: typing.Optional[str]
@@ -2531,19 +2513,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### currentConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.VolumeConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.VolumeConfiguration]
 
 ### finding
 - **Type**: typing.Optional[typing.Literal['NotOptimized', 'Optimized']]
 
 ### utilizationMetrics
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.EBSUtilizationMetricTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.EBSUtilizationMetric]]
 
 ### lookBackPeriodInDays
 - **Type**: typing.Optional[float]
 
 ### volumeRecommendationOptions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.VolumeRecommendationOptionTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.VolumeRecommendationOption]]
 
 ### lastRefreshTimestamp
 - **Type**: typing.Optional[datetime.datetime]
@@ -2552,9 +2534,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['High', 'Low', 'Medium', 'VeryLow']]
 
 ### effectiveRecommendationPreferences
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.EBSEffectiveRecommendationPreferencesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.EBSEffectiveRecommendationPreferences]
 
 ### tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.compute_optimizer_classes.Tag]]
+
+
+# VolumeRecommendationOption
+
+### configuration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.VolumeConfiguration]
+
+### performanceRisk
+- **Type**: typing.Optional[float]
+
+### rank
+- **Type**: typing.Optional[int]
+
+### savingsOpportunity
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.SavingsOpportunity]
+
+### savingsOpportunityAfterDiscounts
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.compute_optimizer_classes.EBSSavingsOpportunityAfterDiscounts]
 
 

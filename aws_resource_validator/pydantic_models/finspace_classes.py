@@ -12,7 +12,7 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.finspace_constants import *
 
-class AutoScalingConfigurationTypeDef(BaseValidatorModel):
+class AutoScalingConfiguration(BaseValidatorModel):
     minNodeCount: Optional[int] = None
     maxNodeCount: Optional[int] = None
     autoScalingMetric: Optional[Literal["CPU_UTILIZATION_PERCENTAGE"]] = None
@@ -21,30 +21,30 @@ class AutoScalingConfigurationTypeDef(BaseValidatorModel):
     scaleOutCooldownSeconds: Optional[float] = None
 
 
-class CapacityConfigurationTypeDef(BaseValidatorModel):
+class CapacityConfiguration(BaseValidatorModel):
     nodeType: Optional[str] = None
     nodeCount: Optional[int] = None
 
 
-class ChangeRequestTypeDef(BaseValidatorModel):
+class ChangeRequest(BaseValidatorModel):
     changeType: ChangeTypeType
     dbPath: str
     s3Path: Optional[str] = None
 
 
-class CodeConfigurationTypeDef(BaseValidatorModel):
+class CodeConfiguration(BaseValidatorModel):
     s3Bucket: Optional[str] = None
     s3Key: Optional[str] = None
     s3ObjectVersion: Optional[str] = None
 
 
-class SuperuserParametersTypeDef(BaseValidatorModel):
+class SuperuserParameters(BaseValidatorModel):
     emailAddress: str
     firstName: str
     lastName: str
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -52,17 +52,17 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class ErrorInfoTypeDef(BaseValidatorModel):
+class ErrorInfo(BaseValidatorModel):
     errorMessage: Optional[str] = None
     errorType: Optional[ErrorDetailsType] = None
 
 
-class KxCommandLineArgumentTypeDef(BaseValidatorModel):
+class KxCommandLineArgument(BaseValidatorModel):
     key: Optional[str] = None
     value: Optional[str] = None
 
 
-class KxScalingGroupConfigurationTypeDef(BaseValidatorModel):
+class KxScalingGroupConfiguration(BaseValidatorModel):
     scalingGroupName: str
     memoryReservation: int
     nodeCount: int
@@ -70,23 +70,23 @@ class KxScalingGroupConfigurationTypeDef(BaseValidatorModel):
     cpu: Optional[float] = None
 
 
-class TickerplantLogConfigurationOutputTypeDef(BaseValidatorModel):
+class TickerplantLogConfigurationOutput(BaseValidatorModel):
     tickerplantLogVolumes: Optional[List[str]] = None
 
 
-class VolumeTypeDef(BaseValidatorModel):
+class Volume(BaseValidatorModel):
     volumeName: Optional[str] = None
     volumeType: Optional[Literal["NAS_1"]] = None
 
 
-class VpcConfigurationOutputTypeDef(BaseValidatorModel):
+class VpcConfigurationOutput(BaseValidatorModel):
     vpcId: Optional[str] = None
     securityGroupIds: Optional[List[str]] = None
     subnetIds: Optional[List[str]] = None
     ipAddressType: Optional[Literal["IP_V4"]] = None
 
 
-class CreateKxDatabaseRequestTypeDef(BaseValidatorModel):
+class CreateKxDatabaseRequest(BaseValidatorModel):
     environmentId: str
     databaseName: str
     clientToken: str
@@ -94,13 +94,13 @@ class CreateKxDatabaseRequestTypeDef(BaseValidatorModel):
     tags: Optional[Mapping[str, str]] = None
 
 
-class KxDataviewSegmentConfigurationOutputTypeDef(BaseValidatorModel):
+class KxDataviewSegmentConfigurationOutput(BaseValidatorModel):
     dbPaths: List[str]
     volumeName: str
     onDemand: Optional[bool] = None
 
 
-class CreateKxEnvironmentRequestTypeDef(BaseValidatorModel):
+class CreateKxEnvironmentRequest(BaseValidatorModel):
     name: str
     kmsKeyId: str
     description: Optional[str] = None
@@ -108,7 +108,7 @@ class CreateKxEnvironmentRequestTypeDef(BaseValidatorModel):
     clientToken: Optional[str] = None
 
 
-class CreateKxScalingGroupRequestTypeDef(BaseValidatorModel):
+class CreateKxScalingGroupRequest(BaseValidatorModel):
     clientToken: str
     environmentId: str
     scalingGroupName: str
@@ -117,7 +117,7 @@ class CreateKxScalingGroupRequestTypeDef(BaseValidatorModel):
     tags: Optional[Mapping[str, str]] = None
 
 
-class CreateKxUserRequestTypeDef(BaseValidatorModel):
+class CreateKxUserRequest(BaseValidatorModel):
     environmentId: str
     userName: str
     iamRole: str
@@ -125,64 +125,64 @@ class CreateKxUserRequestTypeDef(BaseValidatorModel):
     clientToken: Optional[str] = None
 
 
-class CustomDNSServerTypeDef(BaseValidatorModel):
+class CustomDNSServer(BaseValidatorModel):
     customDNSServerName: str
     customDNSServerIP: str
 
 
-class DeleteEnvironmentRequestTypeDef(BaseValidatorModel):
+class DeleteEnvironmentRequest(BaseValidatorModel):
     environmentId: str
 
 
-class DeleteKxClusterNodeRequestTypeDef(BaseValidatorModel):
+class DeleteKxClusterNodeRequest(BaseValidatorModel):
     environmentId: str
     clusterName: str
     nodeId: str
 
 
-class DeleteKxClusterRequestTypeDef(BaseValidatorModel):
+class DeleteKxClusterRequest(BaseValidatorModel):
     environmentId: str
     clusterName: str
     clientToken: Optional[str] = None
 
 
-class DeleteKxDatabaseRequestTypeDef(BaseValidatorModel):
+class DeleteKxDatabaseRequest(BaseValidatorModel):
     environmentId: str
     databaseName: str
     clientToken: str
 
 
-class DeleteKxDataviewRequestTypeDef(BaseValidatorModel):
+class DeleteKxDataviewRequest(BaseValidatorModel):
     environmentId: str
     databaseName: str
     dataviewName: str
     clientToken: str
 
 
-class DeleteKxEnvironmentRequestTypeDef(BaseValidatorModel):
+class DeleteKxEnvironmentRequest(BaseValidatorModel):
     environmentId: str
     clientToken: Optional[str] = None
 
 
-class DeleteKxScalingGroupRequestTypeDef(BaseValidatorModel):
+class DeleteKxScalingGroupRequest(BaseValidatorModel):
     environmentId: str
     scalingGroupName: str
     clientToken: Optional[str] = None
 
 
-class DeleteKxUserRequestTypeDef(BaseValidatorModel):
+class DeleteKxUserRequest(BaseValidatorModel):
     userName: str
     environmentId: str
     clientToken: Optional[str] = None
 
 
-class DeleteKxVolumeRequestTypeDef(BaseValidatorModel):
+class DeleteKxVolumeRequest(BaseValidatorModel):
     environmentId: str
     volumeName: str
     clientToken: Optional[str] = None
 
 
-class FederationParametersOutputTypeDef(BaseValidatorModel):
+class FederationParametersOutput(BaseValidatorModel):
     samlMetadataDocument: Optional[str] = None
     samlMetadataURL: Optional[str] = None
     applicationCallBackURL: Optional[str] = None
@@ -191,7 +191,7 @@ class FederationParametersOutputTypeDef(BaseValidatorModel):
     attributeMap: Optional[Dict[str, str]] = None
 
 
-class FederationParametersTypeDef(BaseValidatorModel):
+class FederationParameters(BaseValidatorModel):
     samlMetadataDocument: Optional[str] = None
     samlMetadataURL: Optional[str] = None
     applicationCallBackURL: Optional[str] = None
@@ -200,64 +200,64 @@ class FederationParametersTypeDef(BaseValidatorModel):
     attributeMap: Optional[Mapping[str, str]] = None
 
 
-class GetEnvironmentRequestTypeDef(BaseValidatorModel):
+class GetEnvironmentRequest(BaseValidatorModel):
     environmentId: str
 
 
-class GetKxChangesetRequestTypeDef(BaseValidatorModel):
+class GetKxChangesetRequest(BaseValidatorModel):
     environmentId: str
     databaseName: str
     changesetId: str
 
 
-class GetKxClusterRequestTypeDef(BaseValidatorModel):
+class GetKxClusterRequest(BaseValidatorModel):
     environmentId: str
     clusterName: str
 
 
-class GetKxConnectionStringRequestTypeDef(BaseValidatorModel):
+class GetKxConnectionStringRequest(BaseValidatorModel):
     userArn: str
     environmentId: str
     clusterName: str
 
 
-class GetKxDatabaseRequestTypeDef(BaseValidatorModel):
+class GetKxDatabaseRequest(BaseValidatorModel):
     environmentId: str
     databaseName: str
 
 
-class GetKxDataviewRequestTypeDef(BaseValidatorModel):
+class GetKxDataviewRequest(BaseValidatorModel):
     environmentId: str
     databaseName: str
     dataviewName: str
 
 
-class GetKxEnvironmentRequestTypeDef(BaseValidatorModel):
+class GetKxEnvironmentRequest(BaseValidatorModel):
     environmentId: str
 
 
-class GetKxScalingGroupRequestTypeDef(BaseValidatorModel):
+class GetKxScalingGroupRequest(BaseValidatorModel):
     environmentId: str
     scalingGroupName: str
 
 
-class GetKxUserRequestTypeDef(BaseValidatorModel):
+class GetKxUserRequest(BaseValidatorModel):
     userName: str
     environmentId: str
 
 
-class GetKxVolumeRequestTypeDef(BaseValidatorModel):
+class GetKxVolumeRequest(BaseValidatorModel):
     environmentId: str
     volumeName: str
 
 
-class KxAttachedClusterTypeDef(BaseValidatorModel):
+class KxAttachedCluster(BaseValidatorModel):
     clusterName: Optional[str] = None
     clusterType: Optional[KxClusterTypeType] = None
     clusterStatus: Optional[KxClusterStatusType] = None
 
 
-class KxChangesetListEntryTypeDef(BaseValidatorModel):
+class KxChangesetListEntry(BaseValidatorModel):
     changesetId: Optional[str] = None
     createdTimestamp: Optional[datetime] = None
     activeFromTimestamp: Optional[datetime] = None
@@ -265,46 +265,46 @@ class KxChangesetListEntryTypeDef(BaseValidatorModel):
     status: Optional[ChangesetStatusType] = None
 
 
-class KxClusterCodeDeploymentConfigurationTypeDef(BaseValidatorModel):
+class KxClusterCodeDeploymentConfiguration(BaseValidatorModel):
     deploymentStrategy: KxClusterCodeDeploymentStrategyType
 
 
-class KxDatabaseCacheConfigurationOutputTypeDef(BaseValidatorModel):
+class KxDatabaseCacheConfigurationOutput(BaseValidatorModel):
     cacheType: str
     dbPaths: List[str]
     dataviewName: Optional[str] = None
 
 
-class KxDatabaseCacheConfigurationTypeDef(BaseValidatorModel):
+class KxDatabaseCacheConfiguration(BaseValidatorModel):
     cacheType: str
     dbPaths: Sequence[str]
     dataviewName: Optional[str] = None
 
 
-class KxDatabaseListEntryTypeDef(BaseValidatorModel):
+class KxDatabaseListEntry(BaseValidatorModel):
     databaseName: Optional[str] = None
     createdTimestamp: Optional[datetime] = None
     lastModifiedTimestamp: Optional[datetime] = None
 
 
-class KxDataviewSegmentConfigurationTypeDef(BaseValidatorModel):
+class KxDataviewSegmentConfiguration(BaseValidatorModel):
     dbPaths: Sequence[str]
     volumeName: str
     onDemand: Optional[bool] = None
 
 
-class KxDeploymentConfigurationTypeDef(BaseValidatorModel):
+class KxDeploymentConfiguration(BaseValidatorModel):
     deploymentStrategy: KxDeploymentStrategyType
 
 
-class KxNodeTypeDef(BaseValidatorModel):
+class KxNode(BaseValidatorModel):
     nodeId: Optional[str] = None
     availabilityZoneId: Optional[str] = None
     launchTime: Optional[datetime] = None
     status: Optional[KxNodeStatusType] = None
 
 
-class KxScalingGroupTypeDef(BaseValidatorModel):
+class KxScalingGroup(BaseValidatorModel):
     scalingGroupName: Optional[str] = None
     hostType: Optional[str] = None
     clusters: Optional[List[str]] = None
@@ -315,7 +315,7 @@ class KxScalingGroupTypeDef(BaseValidatorModel):
     createdTimestamp: Optional[datetime] = None
 
 
-class KxUserTypeDef(BaseValidatorModel):
+class KxUser(BaseValidatorModel):
     userArn: Optional[str] = None
     userName: Optional[str] = None
     iamRole: Optional[str] = None
@@ -323,7 +323,7 @@ class KxUserTypeDef(BaseValidatorModel):
     updateTimestamp: Optional[datetime] = None
 
 
-class KxVolumeTypeDef(BaseValidatorModel):
+class KxVolume(BaseValidatorModel):
     volumeName: Optional[str] = None
     volumeType: Optional[Literal["NAS_1"]] = None
     status: Optional[KxVolumeStatusType] = None
@@ -335,146 +335,146 @@ class KxVolumeTypeDef(BaseValidatorModel):
     lastModifiedTimestamp: Optional[datetime] = None
 
 
-class ListEnvironmentsRequestTypeDef(BaseValidatorModel):
+class ListEnvironmentsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListKxChangesetsRequestTypeDef(BaseValidatorModel):
+class ListKxChangesetsRequest(BaseValidatorModel):
     environmentId: str
     databaseName: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListKxClusterNodesRequestTypeDef(BaseValidatorModel):
+class ListKxClusterNodesRequest(BaseValidatorModel):
     environmentId: str
     clusterName: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListKxClustersRequestTypeDef(BaseValidatorModel):
+class ListKxClustersRequest(BaseValidatorModel):
     environmentId: str
     clusterType: Optional[KxClusterTypeType] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListKxDatabasesRequestTypeDef(BaseValidatorModel):
+class ListKxDatabasesRequest(BaseValidatorModel):
     environmentId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListKxDataviewsRequestTypeDef(BaseValidatorModel):
+class ListKxDataviewsRequest(BaseValidatorModel):
     environmentId: str
     databaseName: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListKxEnvironmentsRequestTypeDef(BaseValidatorModel):
+class ListKxEnvironmentsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListKxScalingGroupsRequestTypeDef(BaseValidatorModel):
+class ListKxScalingGroupsRequest(BaseValidatorModel):
     environmentId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListKxUsersRequestTypeDef(BaseValidatorModel):
+class ListKxUsersRequest(BaseValidatorModel):
     environmentId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListKxVolumesRequestTypeDef(BaseValidatorModel):
+class ListKxVolumesRequest(BaseValidatorModel):
     environmentId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     volumeType: Optional[Literal["NAS_1"]] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
 
-class TickerplantLogConfigurationTypeDef(BaseValidatorModel):
+class TickerplantLogConfiguration(BaseValidatorModel):
     tickerplantLogVolumes: Optional[Sequence[str]] = None
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
 
-class UpdateKxDatabaseRequestTypeDef(BaseValidatorModel):
+class UpdateKxDatabaseRequest(BaseValidatorModel):
     environmentId: str
     databaseName: str
     clientToken: str
     description: Optional[str] = None
 
 
-class UpdateKxEnvironmentRequestTypeDef(BaseValidatorModel):
+class UpdateKxEnvironmentRequest(BaseValidatorModel):
     environmentId: str
     name: Optional[str] = None
     description: Optional[str] = None
     clientToken: Optional[str] = None
 
 
-class UpdateKxUserRequestTypeDef(BaseValidatorModel):
+class UpdateKxUserRequest(BaseValidatorModel):
     environmentId: str
     userName: str
     iamRole: str
     clientToken: Optional[str] = None
 
 
-class VpcConfigurationTypeDef(BaseValidatorModel):
+class VpcConfiguration(BaseValidatorModel):
     vpcId: Optional[str] = None
     securityGroupIds: Optional[Sequence[str]] = None
     subnetIds: Optional[Sequence[str]] = None
     ipAddressType: Optional[Literal["IP_V4"]] = None
 
 
-class CreateKxChangesetRequestTypeDef(BaseValidatorModel):
+class CreateKxChangesetRequest(BaseValidatorModel):
     environmentId: str
     databaseName: str
-    changeRequests: Sequence[ChangeRequestTypeDef]
+    changeRequests: Sequence[ChangeRequest]
     clientToken: str
 
 
-class CreateEnvironmentResponseTypeDef(BaseValidatorModel):
+class CreateEnvironmentResponse(BaseValidatorModel):
     environmentId: str
     environmentArn: str
     environmentUrl: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateKxDatabaseResponseTypeDef(BaseValidatorModel):
+class CreateKxDatabaseResponse(BaseValidatorModel):
     databaseName: str
     databaseArn: str
     environmentId: str
     description: str
     createdTimestamp: datetime
     lastModifiedTimestamp: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateKxEnvironmentResponseTypeDef(BaseValidatorModel):
+class CreateKxEnvironmentResponse(BaseValidatorModel):
     name: str
     status: EnvironmentStatusType
     environmentId: str
@@ -482,10 +482,10 @@ class CreateKxEnvironmentResponseTypeDef(BaseValidatorModel):
     environmentArn: str
     kmsKeyId: str
     creationTimestamp: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateKxScalingGroupResponseTypeDef(BaseValidatorModel):
+class CreateKxScalingGroupResponse(BaseValidatorModel):
     environmentId: str
     scalingGroupName: str
     hostType: str
@@ -493,23 +493,23 @@ class CreateKxScalingGroupResponseTypeDef(BaseValidatorModel):
     status: KxScalingGroupStatusType
     lastModifiedTimestamp: datetime
     createdTimestamp: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateKxUserResponseTypeDef(BaseValidatorModel):
+class CreateKxUserResponse(BaseValidatorModel):
     userName: str
     userArn: str
     environmentId: str
     iamRole: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetKxConnectionStringResponseTypeDef(BaseValidatorModel):
+class GetKxConnectionStringResponse(BaseValidatorModel):
     signedConnectionString: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetKxDatabaseResponseTypeDef(BaseValidatorModel):
+class GetKxDatabaseResponse(BaseValidatorModel):
     databaseName: str
     databaseArn: str
     environmentId: str
@@ -520,10 +520,10 @@ class GetKxDatabaseResponseTypeDef(BaseValidatorModel):
     numBytes: int
     numChangesets: int
     numFiles: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetKxScalingGroupResponseTypeDef(BaseValidatorModel):
+class GetKxScalingGroupResponse(BaseValidatorModel):
     scalingGroupName: str
     scalingGroupArn: str
     hostType: str
@@ -533,71 +533,71 @@ class GetKxScalingGroupResponseTypeDef(BaseValidatorModel):
     statusReason: str
     lastModifiedTimestamp: datetime
     createdTimestamp: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetKxUserResponseTypeDef(BaseValidatorModel):
+class GetKxUserResponse(BaseValidatorModel):
     userName: str
     userArn: str
     environmentId: str
     iamRole: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
+class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateKxDatabaseResponseTypeDef(BaseValidatorModel):
+class UpdateKxDatabaseResponse(BaseValidatorModel):
     databaseName: str
     environmentId: str
     description: str
     lastModifiedTimestamp: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateKxUserResponseTypeDef(BaseValidatorModel):
+class UpdateKxUserResponse(BaseValidatorModel):
     userName: str
     userArn: str
     environmentId: str
     iamRole: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateKxChangesetResponseTypeDef(BaseValidatorModel):
+class CreateKxChangesetResponse(BaseValidatorModel):
     changesetId: str
     databaseName: str
     environmentId: str
-    changeRequests: List[ChangeRequestTypeDef]
+    changeRequests: List[ChangeRequest]
     createdTimestamp: datetime
     lastModifiedTimestamp: datetime
     status: ChangesetStatusType
-    errorInfo: ErrorInfoTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    errorInfo: ErrorInfo
+    ResponseMetadata: ResponseMetadata
 
 
-class GetKxChangesetResponseTypeDef(BaseValidatorModel):
+class GetKxChangesetResponse(BaseValidatorModel):
     changesetId: str
     databaseName: str
     environmentId: str
-    changeRequests: List[ChangeRequestTypeDef]
+    changeRequests: List[ChangeRequest]
     createdTimestamp: datetime
     activeFromTimestamp: datetime
     lastModifiedTimestamp: datetime
     status: ChangesetStatusType
-    errorInfo: ErrorInfoTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    errorInfo: ErrorInfo
+    ResponseMetadata: ResponseMetadata
 
 
-class KxClusterTypeDef(BaseValidatorModel):
+class KxCluster(BaseValidatorModel):
     status: Optional[KxClusterStatusType] = None
     statusReason: Optional[str] = None
     clusterName: Optional[str] = None
     clusterType: Optional[KxClusterTypeType] = None
     clusterDescription: Optional[str] = None
     releaseLabel: Optional[str] = None
-    volumes: Optional[List[VolumeTypeDef]] = None
+    volumes: Optional[List[Volume]] = None
     initializationScript: Optional[str] = None
     executionRole: Optional[str] = None
     azMode: Optional[KxAzModeType] = None
@@ -606,43 +606,43 @@ class KxClusterTypeDef(BaseValidatorModel):
     createdTimestamp: Optional[datetime] = None
 
 
-class CreateKxDataviewResponseTypeDef(BaseValidatorModel):
+class CreateKxDataviewResponse(BaseValidatorModel):
     dataviewName: str
     databaseName: str
     environmentId: str
     azMode: KxAzModeType
     availabilityZoneId: str
     changesetId: str
-    segmentConfigurations: List[KxDataviewSegmentConfigurationOutputTypeDef]
+    segmentConfigurations: List[KxDataviewSegmentConfigurationOutput]
     description: str
     autoUpdate: bool
     readWrite: bool
     createdTimestamp: datetime
     lastModifiedTimestamp: datetime
     status: KxDataviewStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class KxDataviewActiveVersionTypeDef(BaseValidatorModel):
+class KxDataviewActiveVersion(BaseValidatorModel):
     changesetId: Optional[str] = None
-    segmentConfigurations: Optional[List[KxDataviewSegmentConfigurationOutputTypeDef]] = None
+    segmentConfigurations: Optional[List[KxDataviewSegmentConfigurationOutput]] = None
     attachedClusters: Optional[List[str]] = None
     createdTimestamp: Optional[datetime] = None
     versionId: Optional[str] = None
 
 
-class KxDataviewConfigurationOutputTypeDef(BaseValidatorModel):
+class KxDataviewConfigurationOutput(BaseValidatorModel):
     dataviewName: Optional[str] = None
     dataviewVersionId: Optional[str] = None
     changesetId: Optional[str] = None
-    segmentConfigurations: Optional[List[KxDataviewSegmentConfigurationOutputTypeDef]] = None
+    segmentConfigurations: Optional[List[KxDataviewSegmentConfigurationOutput]] = None
 
 
-class KxNAS1ConfigurationTypeDef(BaseValidatorModel):
+class KxNAS1Configuration(BaseValidatorModel):
     pass
 
 
-class CreateKxVolumeRequestTypeDef(BaseValidatorModel):
+class CreateKxVolumeRequest(BaseValidatorModel):
     environmentId: str
     volumeType: Literal["NAS_1"]
     volumeName: str
@@ -650,34 +650,34 @@ class CreateKxVolumeRequestTypeDef(BaseValidatorModel):
     availabilityZoneIds: Sequence[str]
     clientToken: Optional[str] = None
     description: Optional[str] = None
-    nas1Configuration: Optional[KxNAS1ConfigurationTypeDef] = None
+    nas1Configuration: Optional[KxNAS1Configuration] = None
     tags: Optional[Mapping[str, str]] = None
 
 
-class CreateKxVolumeResponseTypeDef(BaseValidatorModel):
+class CreateKxVolumeResponse(BaseValidatorModel):
     environmentId: str
     volumeName: str
     volumeType: Literal["NAS_1"]
     volumeArn: str
-    nas1Configuration: KxNAS1ConfigurationTypeDef
+    nas1Configuration: KxNAS1Configuration
     status: KxVolumeStatusType
     statusReason: str
     azMode: KxAzModeType
     description: str
     availabilityZoneIds: List[str]
     createdTimestamp: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateKxVolumeRequestTypeDef(BaseValidatorModel):
+class UpdateKxVolumeRequest(BaseValidatorModel):
     environmentId: str
     volumeName: str
     description: Optional[str] = None
     clientToken: Optional[str] = None
-    nas1Configuration: Optional[KxNAS1ConfigurationTypeDef] = None
+    nas1Configuration: Optional[KxNAS1Configuration] = None
 
 
-class EnvironmentTypeDef(BaseValidatorModel):
+class Environment(BaseValidatorModel):
     name: Optional[str] = None
     environmentId: Optional[str] = None
     awsAccountId: Optional[str] = None
@@ -689,15 +689,15 @@ class EnvironmentTypeDef(BaseValidatorModel):
     kmsKeyId: Optional[str] = None
     dedicatedServiceAccountId: Optional[str] = None
     federationMode: Optional[FederationModeType] = None
-    federationParameters: Optional[FederationParametersOutputTypeDef] = None
+    federationParameters: Optional[FederationParametersOutput] = None
 
 
-class GetKxVolumeResponseTypeDef(BaseValidatorModel):
+class GetKxVolumeResponse(BaseValidatorModel):
     environmentId: str
     volumeName: str
     volumeType: Literal["NAS_1"]
     volumeArn: str
-    nas1Configuration: KxNAS1ConfigurationTypeDef
+    nas1Configuration: KxNAS1Configuration
     status: KxVolumeStatusType
     statusReason: str
     createdTimestamp: datetime
@@ -705,16 +705,16 @@ class GetKxVolumeResponseTypeDef(BaseValidatorModel):
     azMode: KxAzModeType
     availabilityZoneIds: List[str]
     lastModifiedTimestamp: datetime
-    attachedClusters: List[KxAttachedClusterTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    attachedClusters: List[KxAttachedCluster]
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateKxVolumeResponseTypeDef(BaseValidatorModel):
+class UpdateKxVolumeResponse(BaseValidatorModel):
     environmentId: str
     volumeName: str
     volumeType: Literal["NAS_1"]
     volumeArn: str
-    nas1Configuration: KxNAS1ConfigurationTypeDef
+    nas1Configuration: KxNAS1Configuration
     status: KxVolumeStatusType
     description: str
     statusReason: str
@@ -722,91 +722,91 @@ class UpdateKxVolumeResponseTypeDef(BaseValidatorModel):
     azMode: KxAzModeType
     availabilityZoneIds: List[str]
     lastModifiedTimestamp: datetime
-    attachedClusters: List[KxAttachedClusterTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    attachedClusters: List[KxAttachedCluster]
+    ResponseMetadata: ResponseMetadata
 
 
-class ListKxChangesetsResponseTypeDef(BaseValidatorModel):
-    kxChangesets: List[KxChangesetListEntryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListKxChangesetsResponse(BaseValidatorModel):
+    kxChangesets: List[KxChangesetListEntry]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class UpdateKxClusterCodeConfigurationRequestTypeDef(BaseValidatorModel):
+class UpdateKxClusterCodeConfigurationRequest(BaseValidatorModel):
     environmentId: str
     clusterName: str
-    code: CodeConfigurationTypeDef
+    code: CodeConfiguration
     clientToken: Optional[str] = None
     initializationScript: Optional[str] = None
-    commandLineArguments: Optional[Sequence[KxCommandLineArgumentTypeDef]] = None
-    deploymentConfiguration: Optional[KxClusterCodeDeploymentConfigurationTypeDef] = None
+    commandLineArguments: Optional[Sequence[KxCommandLineArgument]] = None
+    deploymentConfiguration: Optional[KxClusterCodeDeploymentConfiguration] = None
 
 
-class ListKxDatabasesResponseTypeDef(BaseValidatorModel):
-    kxDatabases: List[KxDatabaseListEntryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListKxDatabasesResponse(BaseValidatorModel):
+    kxDatabases: List[KxDatabaseListEntry]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListKxClusterNodesResponseTypeDef(BaseValidatorModel):
-    nodes: List[KxNodeTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListKxClusterNodesResponse(BaseValidatorModel):
+    nodes: List[KxNode]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListKxScalingGroupsResponseTypeDef(BaseValidatorModel):
-    scalingGroups: List[KxScalingGroupTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListKxScalingGroupsResponse(BaseValidatorModel):
+    scalingGroups: List[KxScalingGroup]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListKxUsersResponseTypeDef(BaseValidatorModel):
-    users: List[KxUserTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListKxUsersResponse(BaseValidatorModel):
+    users: List[KxUser]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListKxVolumesResponseTypeDef(BaseValidatorModel):
-    kxVolumeSummaries: List[KxVolumeTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListKxVolumesResponse(BaseValidatorModel):
+    kxVolumeSummaries: List[KxVolume]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListKxEnvironmentsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListKxEnvironmentsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class IcmpTypeCodeTypeDef(BaseValidatorModel):
+class IcmpTypeCode(BaseValidatorModel):
     pass
 
 
-class PortRangeTypeDef(BaseValidatorModel):
+class PortRange(BaseValidatorModel):
     pass
 
 
-class NetworkACLEntryTypeDef(BaseValidatorModel):
+class NetworkACLEntry(BaseValidatorModel):
     ruleNumber: int
     protocol: str
     ruleAction: RuleActionType
     cidrBlock: str
-    portRange: Optional[PortRangeTypeDef] = None
-    icmpTypeCode: Optional[IcmpTypeCodeTypeDef] = None
+    portRange: Optional[PortRange] = None
+    icmpTypeCode: Optional[IcmpTypeCode] = None
 
 
-class ListKxClustersResponseTypeDef(BaseValidatorModel):
-    kxClusterSummaries: List[KxClusterTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListKxClustersResponse(BaseValidatorModel):
+    kxClusterSummaries: List[KxCluster]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class GetKxDataviewResponseTypeDef(BaseValidatorModel):
+class GetKxDataviewResponse(BaseValidatorModel):
     databaseName: str
     dataviewName: str
     azMode: KxAzModeType
     availabilityZoneId: str
     changesetId: str
-    segmentConfigurations: List[KxDataviewSegmentConfigurationOutputTypeDef]
-    activeVersions: List[KxDataviewActiveVersionTypeDef]
+    segmentConfigurations: List[KxDataviewSegmentConfigurationOutput]
+    activeVersions: List[KxDataviewActiveVersion]
     description: str
     autoUpdate: bool
     readWrite: bool
@@ -815,18 +815,18 @@ class GetKxDataviewResponseTypeDef(BaseValidatorModel):
     lastModifiedTimestamp: datetime
     status: KxDataviewStatusType
     statusReason: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class KxDataviewListEntryTypeDef(BaseValidatorModel):
+class KxDataviewListEntry(BaseValidatorModel):
     environmentId: Optional[str] = None
     databaseName: Optional[str] = None
     dataviewName: Optional[str] = None
     azMode: Optional[KxAzModeType] = None
     availabilityZoneId: Optional[str] = None
     changesetId: Optional[str] = None
-    segmentConfigurations: Optional[List[KxDataviewSegmentConfigurationOutputTypeDef]] = None
-    activeVersions: Optional[List[KxDataviewActiveVersionTypeDef]] = None
+    segmentConfigurations: Optional[List[KxDataviewSegmentConfigurationOutput]] = None
+    activeVersions: Optional[List[KxDataviewActiveVersion]] = None
     status: Optional[KxDataviewStatusType] = None
     description: Optional[str] = None
     autoUpdate: Optional[bool] = None
@@ -836,76 +836,76 @@ class KxDataviewListEntryTypeDef(BaseValidatorModel):
     statusReason: Optional[str] = None
 
 
-class UpdateKxDataviewResponseTypeDef(BaseValidatorModel):
+class UpdateKxDataviewResponse(BaseValidatorModel):
     environmentId: str
     databaseName: str
     dataviewName: str
     azMode: KxAzModeType
     availabilityZoneId: str
     changesetId: str
-    segmentConfigurations: List[KxDataviewSegmentConfigurationOutputTypeDef]
-    activeVersions: List[KxDataviewActiveVersionTypeDef]
+    segmentConfigurations: List[KxDataviewSegmentConfigurationOutput]
+    activeVersions: List[KxDataviewActiveVersion]
     status: KxDataviewStatusType
     autoUpdate: bool
     readWrite: bool
     description: str
     createdTimestamp: datetime
     lastModifiedTimestamp: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class KxDatabaseConfigurationOutputTypeDef(BaseValidatorModel):
+class KxDatabaseConfigurationOutput(BaseValidatorModel):
     databaseName: str
-    cacheConfigurations: Optional[List[KxDatabaseCacheConfigurationOutputTypeDef]] = None
+    cacheConfigurations: Optional[List[KxDatabaseCacheConfigurationOutput]] = None
     changesetId: Optional[str] = None
     dataviewName: Optional[str] = None
-    dataviewConfiguration: Optional[KxDataviewConfigurationOutputTypeDef] = None
+    dataviewConfiguration: Optional[KxDataviewConfigurationOutput] = None
 
 
-class GetEnvironmentResponseTypeDef(BaseValidatorModel):
-    environment: EnvironmentTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetEnvironmentResponse(BaseValidatorModel):
+    environment: Environment
+    ResponseMetadata: ResponseMetadata
 
 
-class ListEnvironmentsResponseTypeDef(BaseValidatorModel):
-    environments: List[EnvironmentTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListEnvironmentsResponse(BaseValidatorModel):
+    environments: List[Environment]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class UpdateEnvironmentResponseTypeDef(BaseValidatorModel):
-    environment: EnvironmentTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateEnvironmentResponse(BaseValidatorModel):
+    environment: Environment
+    ResponseMetadata: ResponseMetadata
 
 
-class FederationParametersUnionTypeDef(BaseValidatorModel):
+class FederationParametersUnion(BaseValidatorModel):
     pass
 
 
-class CreateEnvironmentRequestTypeDef(BaseValidatorModel):
+class CreateEnvironmentRequest(BaseValidatorModel):
     name: str
     description: Optional[str] = None
     kmsKeyId: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
     federationMode: Optional[FederationModeType] = None
-    federationParameters: Optional[FederationParametersUnionTypeDef] = None
-    superuserParameters: Optional[SuperuserParametersTypeDef] = None
+    federationParameters: Optional[FederationParametersUnion] = None
+    superuserParameters: Optional[SuperuserParameters] = None
     dataBundles: Optional[Sequence[str]] = None
 
 
-class UpdateEnvironmentRequestTypeDef(BaseValidatorModel):
+class UpdateEnvironmentRequest(BaseValidatorModel):
     environmentId: str
     name: Optional[str] = None
     description: Optional[str] = None
     federationMode: Optional[FederationModeType] = None
-    federationParameters: Optional[FederationParametersUnionTypeDef] = None
+    federationParameters: Optional[FederationParametersUnion] = None
 
 
-class KxDataviewSegmentConfigurationUnionTypeDef(BaseValidatorModel):
+class KxDataviewSegmentConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class CreateKxDataviewRequestTypeDef(BaseValidatorModel):
+class CreateKxDataviewRequest(BaseValidatorModel):
     environmentId: str
     databaseName: str
     dataviewName: str
@@ -913,112 +913,112 @@ class CreateKxDataviewRequestTypeDef(BaseValidatorModel):
     clientToken: str
     availabilityZoneId: Optional[str] = None
     changesetId: Optional[str] = None
-    segmentConfigurations: Optional[Sequence[KxDataviewSegmentConfigurationUnionTypeDef]] = None
+    segmentConfigurations: Optional[Sequence[KxDataviewSegmentConfigurationUnion]] = None
     autoUpdate: Optional[bool] = None
     readWrite: Optional[bool] = None
     description: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
 
-class KxDataviewConfigurationTypeDef(BaseValidatorModel):
+class KxDataviewConfiguration(BaseValidatorModel):
     dataviewName: Optional[str] = None
     dataviewVersionId: Optional[str] = None
     changesetId: Optional[str] = None
-    segmentConfigurations: Optional[Sequence[KxDataviewSegmentConfigurationUnionTypeDef]] = None
+    segmentConfigurations: Optional[Sequence[KxDataviewSegmentConfigurationUnion]] = None
 
 
-class UpdateKxDataviewRequestTypeDef(BaseValidatorModel):
+class UpdateKxDataviewRequest(BaseValidatorModel):
     environmentId: str
     databaseName: str
     dataviewName: str
     clientToken: str
     description: Optional[str] = None
     changesetId: Optional[str] = None
-    segmentConfigurations: Optional[Sequence[KxDataviewSegmentConfigurationUnionTypeDef]] = None
+    segmentConfigurations: Optional[Sequence[KxDataviewSegmentConfigurationUnion]] = None
 
 
-class TransitGatewayConfigurationOutputTypeDef(BaseValidatorModel):
+class TransitGatewayConfigurationOutput(BaseValidatorModel):
     transitGatewayID: str
     routableCIDRSpace: str
-    attachmentNetworkAclConfiguration: Optional[List[NetworkACLEntryTypeDef]] = None
+    attachmentNetworkAclConfiguration: Optional[List[NetworkACLEntry]] = None
 
 
-class TransitGatewayConfigurationTypeDef(BaseValidatorModel):
+class TransitGatewayConfiguration(BaseValidatorModel):
     transitGatewayID: str
     routableCIDRSpace: str
-    attachmentNetworkAclConfiguration: Optional[Sequence[NetworkACLEntryTypeDef]] = None
+    attachmentNetworkAclConfiguration: Optional[Sequence[NetworkACLEntry]] = None
 
 
-class ListKxDataviewsResponseTypeDef(BaseValidatorModel):
-    kxDataviews: List[KxDataviewListEntryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListKxDataviewsResponse(BaseValidatorModel):
+    kxDataviews: List[KxDataviewListEntry]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class KxSavedownStorageConfigurationTypeDef(BaseValidatorModel):
+class KxSavedownStorageConfiguration(BaseValidatorModel):
     pass
 
 
-class KxCacheStorageConfigurationTypeDef(BaseValidatorModel):
+class KxCacheStorageConfiguration(BaseValidatorModel):
     pass
 
 
-class CreateKxClusterResponseTypeDef(BaseValidatorModel):
+class CreateKxClusterResponse(BaseValidatorModel):
     environmentId: str
     status: KxClusterStatusType
     statusReason: str
     clusterName: str
     clusterType: KxClusterTypeType
-    tickerplantLogConfiguration: TickerplantLogConfigurationOutputTypeDef
-    volumes: List[VolumeTypeDef]
-    databases: List[KxDatabaseConfigurationOutputTypeDef]
-    cacheStorageConfigurations: List[KxCacheStorageConfigurationTypeDef]
-    autoScalingConfiguration: AutoScalingConfigurationTypeDef
+    tickerplantLogConfiguration: TickerplantLogConfigurationOutput
+    volumes: List[Volume]
+    databases: List[KxDatabaseConfigurationOutput]
+    cacheStorageConfigurations: List[KxCacheStorageConfiguration]
+    autoScalingConfiguration: AutoScalingConfiguration
     clusterDescription: str
-    capacityConfiguration: CapacityConfigurationTypeDef
+    capacityConfiguration: CapacityConfiguration
     releaseLabel: str
-    vpcConfiguration: VpcConfigurationOutputTypeDef
+    vpcConfiguration: VpcConfigurationOutput
     initializationScript: str
-    commandLineArguments: List[KxCommandLineArgumentTypeDef]
-    code: CodeConfigurationTypeDef
+    commandLineArguments: List[KxCommandLineArgument]
+    code: CodeConfiguration
     executionRole: str
     lastModifiedTimestamp: datetime
-    savedownStorageConfiguration: KxSavedownStorageConfigurationTypeDef
+    savedownStorageConfiguration: KxSavedownStorageConfiguration
     azMode: KxAzModeType
     availabilityZoneId: str
     createdTimestamp: datetime
-    scalingGroupConfiguration: KxScalingGroupConfigurationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    scalingGroupConfiguration: KxScalingGroupConfiguration
+    ResponseMetadata: ResponseMetadata
 
 
-class GetKxClusterResponseTypeDef(BaseValidatorModel):
+class GetKxClusterResponse(BaseValidatorModel):
     status: KxClusterStatusType
     statusReason: str
     clusterName: str
     clusterType: KxClusterTypeType
-    tickerplantLogConfiguration: TickerplantLogConfigurationOutputTypeDef
-    volumes: List[VolumeTypeDef]
-    databases: List[KxDatabaseConfigurationOutputTypeDef]
-    cacheStorageConfigurations: List[KxCacheStorageConfigurationTypeDef]
-    autoScalingConfiguration: AutoScalingConfigurationTypeDef
+    tickerplantLogConfiguration: TickerplantLogConfigurationOutput
+    volumes: List[Volume]
+    databases: List[KxDatabaseConfigurationOutput]
+    cacheStorageConfigurations: List[KxCacheStorageConfiguration]
+    autoScalingConfiguration: AutoScalingConfiguration
     clusterDescription: str
-    capacityConfiguration: CapacityConfigurationTypeDef
+    capacityConfiguration: CapacityConfiguration
     releaseLabel: str
-    vpcConfiguration: VpcConfigurationOutputTypeDef
+    vpcConfiguration: VpcConfigurationOutput
     initializationScript: str
-    commandLineArguments: List[KxCommandLineArgumentTypeDef]
-    code: CodeConfigurationTypeDef
+    commandLineArguments: List[KxCommandLineArgument]
+    code: CodeConfiguration
     executionRole: str
     lastModifiedTimestamp: datetime
-    savedownStorageConfiguration: KxSavedownStorageConfigurationTypeDef
+    savedownStorageConfiguration: KxSavedownStorageConfiguration
     azMode: KxAzModeType
     availabilityZoneId: str
     createdTimestamp: datetime
-    scalingGroupConfiguration: KxScalingGroupConfigurationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    scalingGroupConfiguration: KxScalingGroupConfiguration
+    ResponseMetadata: ResponseMetadata
 
 
-class GetKxEnvironmentResponseTypeDef(BaseValidatorModel):
+class GetKxEnvironmentResponse(BaseValidatorModel):
     name: str
     environmentId: str
     awsAccountId: str
@@ -1030,16 +1030,16 @@ class GetKxEnvironmentResponseTypeDef(BaseValidatorModel):
     environmentArn: str
     kmsKeyId: str
     dedicatedServiceAccountId: str
-    transitGatewayConfiguration: TransitGatewayConfigurationOutputTypeDef
-    customDNSConfiguration: List[CustomDNSServerTypeDef]
+    transitGatewayConfiguration: TransitGatewayConfigurationOutput
+    customDNSConfiguration: List[CustomDNSServer]
     creationTimestamp: datetime
     updateTimestamp: datetime
     availabilityZoneIds: List[str]
     certificateAuthorityArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class KxEnvironmentTypeDef(BaseValidatorModel):
+class KxEnvironment(BaseValidatorModel):
     name: Optional[str] = None
     environmentId: Optional[str] = None
     awsAccountId: Optional[str] = None
@@ -1051,15 +1051,15 @@ class KxEnvironmentTypeDef(BaseValidatorModel):
     environmentArn: Optional[str] = None
     kmsKeyId: Optional[str] = None
     dedicatedServiceAccountId: Optional[str] = None
-    transitGatewayConfiguration: Optional[TransitGatewayConfigurationOutputTypeDef] = None
-    customDNSConfiguration: Optional[List[CustomDNSServerTypeDef]] = None
+    transitGatewayConfiguration: Optional[TransitGatewayConfigurationOutput] = None
+    customDNSConfiguration: Optional[List[CustomDNSServer]] = None
     creationTimestamp: Optional[datetime] = None
     updateTimestamp: Optional[datetime] = None
     availabilityZoneIds: Optional[List[str]] = None
     certificateAuthorityArn: Optional[str] = None
 
 
-class UpdateKxEnvironmentNetworkResponseTypeDef(BaseValidatorModel):
+class UpdateKxEnvironmentNetworkResponse(BaseValidatorModel):
     name: str
     environmentId: str
     awsAccountId: str
@@ -1071,15 +1071,15 @@ class UpdateKxEnvironmentNetworkResponseTypeDef(BaseValidatorModel):
     environmentArn: str
     kmsKeyId: str
     dedicatedServiceAccountId: str
-    transitGatewayConfiguration: TransitGatewayConfigurationOutputTypeDef
-    customDNSConfiguration: List[CustomDNSServerTypeDef]
+    transitGatewayConfiguration: TransitGatewayConfigurationOutput
+    customDNSConfiguration: List[CustomDNSServer]
     creationTimestamp: datetime
     updateTimestamp: datetime
     availabilityZoneIds: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateKxEnvironmentResponseTypeDef(BaseValidatorModel):
+class UpdateKxEnvironmentResponse(BaseValidatorModel):
     name: str
     environmentId: str
     awsAccountId: str
@@ -1091,88 +1091,88 @@ class UpdateKxEnvironmentResponseTypeDef(BaseValidatorModel):
     environmentArn: str
     kmsKeyId: str
     dedicatedServiceAccountId: str
-    transitGatewayConfiguration: TransitGatewayConfigurationOutputTypeDef
-    customDNSConfiguration: List[CustomDNSServerTypeDef]
+    transitGatewayConfiguration: TransitGatewayConfigurationOutput
+    customDNSConfiguration: List[CustomDNSServer]
     creationTimestamp: datetime
     updateTimestamp: datetime
     availabilityZoneIds: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class KxDatabaseCacheConfigurationUnionTypeDef(BaseValidatorModel):
+class KxDatabaseCacheConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class KxDataviewConfigurationUnionTypeDef(BaseValidatorModel):
+class KxDataviewConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class KxDatabaseConfigurationTypeDef(BaseValidatorModel):
+class KxDatabaseConfiguration(BaseValidatorModel):
     databaseName: str
-    cacheConfigurations: Optional[Sequence[KxDatabaseCacheConfigurationUnionTypeDef]] = None
+    cacheConfigurations: Optional[Sequence[KxDatabaseCacheConfigurationUnion]] = None
     changesetId: Optional[str] = None
     dataviewName: Optional[str] = None
-    dataviewConfiguration: Optional[KxDataviewConfigurationUnionTypeDef] = None
+    dataviewConfiguration: Optional[KxDataviewConfigurationUnion] = None
 
 
-class ListKxEnvironmentsResponseTypeDef(BaseValidatorModel):
-    environments: List[KxEnvironmentTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListKxEnvironmentsResponse(BaseValidatorModel):
+    environments: List[KxEnvironment]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class TransitGatewayConfigurationUnionTypeDef(BaseValidatorModel):
+class TransitGatewayConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class UpdateKxEnvironmentNetworkRequestTypeDef(BaseValidatorModel):
+class UpdateKxEnvironmentNetworkRequest(BaseValidatorModel):
     environmentId: str
-    transitGatewayConfiguration: Optional[TransitGatewayConfigurationUnionTypeDef] = None
-    customDNSConfiguration: Optional[Sequence[CustomDNSServerTypeDef]] = None
+    transitGatewayConfiguration: Optional[TransitGatewayConfigurationUnion] = None
+    customDNSConfiguration: Optional[Sequence[CustomDNSServer]] = None
     clientToken: Optional[str] = None
 
 
-class TickerplantLogConfigurationUnionTypeDef(BaseValidatorModel):
+class TickerplantLogConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class KxDatabaseConfigurationUnionTypeDef(BaseValidatorModel):
+class KxDatabaseConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class VpcConfigurationUnionTypeDef(BaseValidatorModel):
+class VpcConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class CreateKxClusterRequestTypeDef(BaseValidatorModel):
+class CreateKxClusterRequest(BaseValidatorModel):
     environmentId: str
     clusterName: str
     clusterType: KxClusterTypeType
     releaseLabel: str
-    vpcConfiguration: VpcConfigurationUnionTypeDef
+    vpcConfiguration: VpcConfigurationUnion
     azMode: KxAzModeType
     clientToken: Optional[str] = None
-    tickerplantLogConfiguration: Optional[TickerplantLogConfigurationUnionTypeDef] = None
-    databases: Optional[Sequence[KxDatabaseConfigurationUnionTypeDef]] = None
-    cacheStorageConfigurations: Optional[Sequence[KxCacheStorageConfigurationTypeDef]] = None
-    autoScalingConfiguration: Optional[AutoScalingConfigurationTypeDef] = None
+    tickerplantLogConfiguration: Optional[TickerplantLogConfigurationUnion] = None
+    databases: Optional[Sequence[KxDatabaseConfigurationUnion]] = None
+    cacheStorageConfigurations: Optional[Sequence[KxCacheStorageConfiguration]] = None
+    autoScalingConfiguration: Optional[AutoScalingConfiguration] = None
     clusterDescription: Optional[str] = None
-    capacityConfiguration: Optional[CapacityConfigurationTypeDef] = None
+    capacityConfiguration: Optional[CapacityConfiguration] = None
     initializationScript: Optional[str] = None
-    commandLineArguments: Optional[Sequence[KxCommandLineArgumentTypeDef]] = None
-    code: Optional[CodeConfigurationTypeDef] = None
+    commandLineArguments: Optional[Sequence[KxCommandLineArgument]] = None
+    code: Optional[CodeConfiguration] = None
     executionRole: Optional[str] = None
-    savedownStorageConfiguration: Optional[KxSavedownStorageConfigurationTypeDef] = None
+    savedownStorageConfiguration: Optional[KxSavedownStorageConfiguration] = None
     availabilityZoneId: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
-    scalingGroupConfiguration: Optional[KxScalingGroupConfigurationTypeDef] = None
+    scalingGroupConfiguration: Optional[KxScalingGroupConfiguration] = None
 
 
-class UpdateKxClusterDatabasesRequestTypeDef(BaseValidatorModel):
+class UpdateKxClusterDatabasesRequest(BaseValidatorModel):
     environmentId: str
     clusterName: str
-    databases: Sequence[KxDatabaseConfigurationUnionTypeDef]
+    databases: Sequence[KxDatabaseConfigurationUnion]
     clientToken: Optional[str] = None
-    deploymentConfiguration: Optional[KxDeploymentConfigurationTypeDef] = None
+    deploymentConfiguration: Optional[KxDeploymentConfiguration] = None
 
 

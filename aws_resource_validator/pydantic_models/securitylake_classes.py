@@ -12,24 +12,24 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.securitylake_constants import *
 
-class AwsIdentityTypeDef(BaseValidatorModel):
+class AwsIdentity(BaseValidatorModel):
     externalId: str
     principal: str
 
 
-class AwsLogSourceConfigurationTypeDef(BaseValidatorModel):
+class AwsLogSourceConfiguration(BaseValidatorModel):
     regions: Sequence[str]
     sourceName: AwsLogSourceNameType
     accounts: Optional[Sequence[str]] = None
     sourceVersion: Optional[str] = None
 
 
-class AwsLogSourceResourceTypeDef(BaseValidatorModel):
+class AwsLogSourceResource(BaseValidatorModel):
     sourceName: Optional[AwsLogSourceNameType] = None
     sourceVersion: Optional[str] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -37,106 +37,106 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class CreateDataLakeExceptionSubscriptionRequestTypeDef(BaseValidatorModel):
+class CreateDataLakeExceptionSubscriptionRequest(BaseValidatorModel):
     notificationEndpoint: str
     subscriptionProtocol: str
     exceptionTimeToLive: Optional[int] = None
 
 
-class TagTypeDef(BaseValidatorModel):
+class Tag(BaseValidatorModel):
     key: str
     value: str
 
 
-class CustomLogSourceAttributesTypeDef(BaseValidatorModel):
+class CustomLogSourceAttributes(BaseValidatorModel):
     crawlerArn: Optional[str] = None
     databaseArn: Optional[str] = None
     tableArn: Optional[str] = None
 
 
-class CustomLogSourceCrawlerConfigurationTypeDef(BaseValidatorModel):
+class CustomLogSourceCrawlerConfiguration(BaseValidatorModel):
     roleArn: str
 
 
-class CustomLogSourceProviderTypeDef(BaseValidatorModel):
+class CustomLogSourceProvider(BaseValidatorModel):
     location: Optional[str] = None
     roleArn: Optional[str] = None
 
 
-class DataLakeEncryptionConfigurationTypeDef(BaseValidatorModel):
+class DataLakeEncryptionConfiguration(BaseValidatorModel):
     kmsKeyId: Optional[str] = None
 
 
-class DataLakeExceptionTypeDef(BaseValidatorModel):
+class DataLakeException(BaseValidatorModel):
     exception: Optional[str] = None
     region: Optional[str] = None
     remediation: Optional[str] = None
     timestamp: Optional[datetime] = None
 
 
-class DataLakeLifecycleExpirationTypeDef(BaseValidatorModel):
+class DataLakeLifecycleExpiration(BaseValidatorModel):
     days: Optional[int] = None
 
 
-class DataLakeLifecycleTransitionTypeDef(BaseValidatorModel):
+class DataLakeLifecycleTransition(BaseValidatorModel):
     days: Optional[int] = None
     storageClass: Optional[str] = None
 
 
-class DataLakeReplicationConfigurationOutputTypeDef(BaseValidatorModel):
+class DataLakeReplicationConfigurationOutput(BaseValidatorModel):
     regions: Optional[List[str]] = None
     roleArn: Optional[str] = None
 
 
-class DataLakeReplicationConfigurationTypeDef(BaseValidatorModel):
+class DataLakeReplicationConfiguration(BaseValidatorModel):
     regions: Optional[Sequence[str]] = None
     roleArn: Optional[str] = None
 
 
-class DataLakeSourceStatusTypeDef(BaseValidatorModel):
+class DataLakeSourceStatus(BaseValidatorModel):
     resource: Optional[str] = None
     status: Optional[SourceCollectionStatusType] = None
 
 
-class DataLakeUpdateExceptionTypeDef(BaseValidatorModel):
+class DataLakeUpdateException(BaseValidatorModel):
     code: Optional[str] = None
     reason: Optional[str] = None
 
 
-class DeleteCustomLogSourceRequestTypeDef(BaseValidatorModel):
+class DeleteCustomLogSourceRequest(BaseValidatorModel):
     sourceName: str
     sourceVersion: Optional[str] = None
 
 
-class DeleteDataLakeRequestTypeDef(BaseValidatorModel):
+class DeleteDataLakeRequest(BaseValidatorModel):
     regions: Sequence[str]
 
 
-class DeleteSubscriberNotificationRequestTypeDef(BaseValidatorModel):
+class DeleteSubscriberNotificationRequest(BaseValidatorModel):
     subscriberId: str
 
 
-class DeleteSubscriberRequestTypeDef(BaseValidatorModel):
+class DeleteSubscriberRequest(BaseValidatorModel):
     subscriberId: str
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class GetDataLakeSourcesRequestTypeDef(BaseValidatorModel):
+class GetDataLakeSourcesRequest(BaseValidatorModel):
     accounts: Optional[Sequence[str]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class GetSubscriberRequestTypeDef(BaseValidatorModel):
+class GetSubscriberRequest(BaseValidatorModel):
     subscriberId: str
 
 
-class HttpsNotificationConfigurationTypeDef(BaseValidatorModel):
+class HttpsNotificationConfiguration(BaseValidatorModel):
     endpoint: str
     targetRoleArn: str
     authorizationApiKeyName: Optional[str] = None
@@ -144,252 +144,252 @@ class HttpsNotificationConfigurationTypeDef(BaseValidatorModel):
     httpMethod: Optional[HttpMethodType] = None
 
 
-class ListDataLakeExceptionsRequestTypeDef(BaseValidatorModel):
+class ListDataLakeExceptionsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     regions: Optional[Sequence[str]] = None
 
 
-class ListDataLakesRequestTypeDef(BaseValidatorModel):
+class ListDataLakesRequest(BaseValidatorModel):
     regions: Optional[Sequence[str]] = None
 
 
-class ListSubscribersRequestTypeDef(BaseValidatorModel):
+class ListSubscribersRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
 
-class RegisterDataLakeDelegatedAdministratorRequestTypeDef(BaseValidatorModel):
+class RegisterDataLakeDelegatedAdministratorRequest(BaseValidatorModel):
     accountId: str
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
 
-class UpdateDataLakeExceptionSubscriptionRequestTypeDef(BaseValidatorModel):
+class UpdateDataLakeExceptionSubscriptionRequest(BaseValidatorModel):
     notificationEndpoint: str
     subscriptionProtocol: str
     exceptionTimeToLive: Optional[int] = None
 
 
-class CreateAwsLogSourceRequestTypeDef(BaseValidatorModel):
-    sources: Sequence[AwsLogSourceConfigurationTypeDef]
+class CreateAwsLogSourceRequest(BaseValidatorModel):
+    sources: Sequence[AwsLogSourceConfiguration]
 
 
-class DeleteAwsLogSourceRequestTypeDef(BaseValidatorModel):
-    sources: Sequence[AwsLogSourceConfigurationTypeDef]
+class DeleteAwsLogSourceRequest(BaseValidatorModel):
+    sources: Sequence[AwsLogSourceConfiguration]
 
 
-class DataLakeAutoEnableNewAccountConfigurationOutputTypeDef(BaseValidatorModel):
+class DataLakeAutoEnableNewAccountConfigurationOutput(BaseValidatorModel):
     region: str
-    sources: List[AwsLogSourceResourceTypeDef]
+    sources: List[AwsLogSourceResource]
 
 
-class DataLakeAutoEnableNewAccountConfigurationTypeDef(BaseValidatorModel):
+class DataLakeAutoEnableNewAccountConfiguration(BaseValidatorModel):
     region: str
-    sources: Sequence[AwsLogSourceResourceTypeDef]
+    sources: Sequence[AwsLogSourceResource]
 
 
-class CreateAwsLogSourceResponseTypeDef(BaseValidatorModel):
+class CreateAwsLogSourceResponse(BaseValidatorModel):
     failed: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateSubscriberNotificationResponseTypeDef(BaseValidatorModel):
+class CreateSubscriberNotificationResponse(BaseValidatorModel):
     subscriberEndpoint: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteAwsLogSourceResponseTypeDef(BaseValidatorModel):
+class DeleteAwsLogSourceResponse(BaseValidatorModel):
     failed: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetDataLakeExceptionSubscriptionResponseTypeDef(BaseValidatorModel):
+class GetDataLakeExceptionSubscriptionResponse(BaseValidatorModel):
     exceptionTimeToLive: int
     notificationEndpoint: str
     subscriptionProtocol: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateSubscriberNotificationResponseTypeDef(BaseValidatorModel):
+class UpdateSubscriberNotificationResponse(BaseValidatorModel):
     subscriberEndpoint: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
-    tags: List[TagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListTagsForResourceResponse(BaseValidatorModel):
+    tags: List[Tag]
+    ResponseMetadata: ResponseMetadata
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     resourceArn: str
-    tags: Sequence[TagTypeDef]
+    tags: Sequence[Tag]
 
 
-class CustomLogSourceConfigurationTypeDef(BaseValidatorModel):
-    crawlerConfiguration: CustomLogSourceCrawlerConfigurationTypeDef
-    providerIdentity: AwsIdentityTypeDef
+class CustomLogSourceConfiguration(BaseValidatorModel):
+    crawlerConfiguration: CustomLogSourceCrawlerConfiguration
+    providerIdentity: AwsIdentity
 
 
-class CustomLogSourceResourceTypeDef(BaseValidatorModel):
-    attributes: Optional[CustomLogSourceAttributesTypeDef] = None
-    provider: Optional[CustomLogSourceProviderTypeDef] = None
+class CustomLogSourceResource(BaseValidatorModel):
+    attributes: Optional[CustomLogSourceAttributes] = None
+    provider: Optional[CustomLogSourceProvider] = None
     sourceName: Optional[str] = None
     sourceVersion: Optional[str] = None
 
 
-class ListDataLakeExceptionsResponseTypeDef(BaseValidatorModel):
-    exceptions: List[DataLakeExceptionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListDataLakeExceptionsResponse(BaseValidatorModel):
+    exceptions: List[DataLakeException]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class DataLakeLifecycleConfigurationOutputTypeDef(BaseValidatorModel):
-    expiration: Optional[DataLakeLifecycleExpirationTypeDef] = None
-    transitions: Optional[List[DataLakeLifecycleTransitionTypeDef]] = None
+class DataLakeLifecycleConfigurationOutput(BaseValidatorModel):
+    expiration: Optional[DataLakeLifecycleExpiration] = None
+    transitions: Optional[List[DataLakeLifecycleTransition]] = None
 
 
-class DataLakeLifecycleConfigurationTypeDef(BaseValidatorModel):
-    expiration: Optional[DataLakeLifecycleExpirationTypeDef] = None
-    transitions: Optional[Sequence[DataLakeLifecycleTransitionTypeDef]] = None
+class DataLakeLifecycleConfiguration(BaseValidatorModel):
+    expiration: Optional[DataLakeLifecycleExpiration] = None
+    transitions: Optional[Sequence[DataLakeLifecycleTransition]] = None
 
 
-class DataLakeSourceTypeDef(BaseValidatorModel):
+class DataLakeSource(BaseValidatorModel):
     account: Optional[str] = None
     eventClasses: Optional[List[str]] = None
     sourceName: Optional[str] = None
-    sourceStatuses: Optional[List[DataLakeSourceStatusTypeDef]] = None
+    sourceStatuses: Optional[List[DataLakeSourceStatus]] = None
 
 
-class DataLakeUpdateStatusTypeDef(BaseValidatorModel):
-    exception: Optional[DataLakeUpdateExceptionTypeDef] = None
+class DataLakeUpdateStatus(BaseValidatorModel):
+    exception: Optional[DataLakeUpdateException] = None
     requestId: Optional[str] = None
     status: Optional[DataLakeStatusType] = None
 
 
-class GetDataLakeSourcesRequestPaginateTypeDef(BaseValidatorModel):
+class GetDataLakeSourcesRequestPaginate(BaseValidatorModel):
     accounts: Optional[Sequence[str]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListDataLakeExceptionsRequestPaginateTypeDef(BaseValidatorModel):
+class ListDataLakeExceptionsRequestPaginate(BaseValidatorModel):
     regions: Optional[Sequence[str]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListSubscribersRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListSubscribersRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class NotificationConfigurationTypeDef(BaseValidatorModel):
-    httpsNotificationConfiguration: Optional[HttpsNotificationConfigurationTypeDef] = None
+class NotificationConfiguration(BaseValidatorModel):
+    httpsNotificationConfiguration: Optional[HttpsNotificationConfiguration] = None
     sqsNotificationConfiguration: Optional[Mapping[str, Any]] = None
 
 
-class GetDataLakeOrganizationConfigurationResponseTypeDef(BaseValidatorModel):
-    autoEnableNewAccount: List[DataLakeAutoEnableNewAccountConfigurationOutputTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetDataLakeOrganizationConfigurationResponse(BaseValidatorModel):
+    autoEnableNewAccount: List[DataLakeAutoEnableNewAccountConfigurationOutput]
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateCustomLogSourceRequestTypeDef(BaseValidatorModel):
-    configuration: CustomLogSourceConfigurationTypeDef
+class CreateCustomLogSourceRequest(BaseValidatorModel):
+    configuration: CustomLogSourceConfiguration
     sourceName: str
     eventClasses: Optional[Sequence[str]] = None
     sourceVersion: Optional[str] = None
 
 
-class CreateCustomLogSourceResponseTypeDef(BaseValidatorModel):
-    source: CustomLogSourceResourceTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateCustomLogSourceResponse(BaseValidatorModel):
+    source: CustomLogSourceResource
+    ResponseMetadata: ResponseMetadata
 
 
-class LogSourceResourceTypeDef(BaseValidatorModel):
-    awsLogSource: Optional[AwsLogSourceResourceTypeDef] = None
-    customLogSource: Optional[CustomLogSourceResourceTypeDef] = None
+class LogSourceResource(BaseValidatorModel):
+    awsLogSource: Optional[AwsLogSourceResource] = None
+    customLogSource: Optional[CustomLogSourceResource] = None
 
 
-class GetDataLakeSourcesResponseTypeDef(BaseValidatorModel):
+class GetDataLakeSourcesResponse(BaseValidatorModel):
     dataLakeArn: str
-    dataLakeSources: List[DataLakeSourceTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    dataLakeSources: List[DataLakeSource]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class DataLakeResourceTypeDef(BaseValidatorModel):
+class DataLakeResource(BaseValidatorModel):
     dataLakeArn: str
     region: str
     createStatus: Optional[DataLakeStatusType] = None
-    encryptionConfiguration: Optional[DataLakeEncryptionConfigurationTypeDef] = None
-    lifecycleConfiguration: Optional[DataLakeLifecycleConfigurationOutputTypeDef] = None
-    replicationConfiguration: Optional[DataLakeReplicationConfigurationOutputTypeDef] = None
+    encryptionConfiguration: Optional[DataLakeEncryptionConfiguration] = None
+    lifecycleConfiguration: Optional[DataLakeLifecycleConfigurationOutput] = None
+    replicationConfiguration: Optional[DataLakeReplicationConfigurationOutput] = None
     s3BucketArn: Optional[str] = None
-    updateStatus: Optional[DataLakeUpdateStatusTypeDef] = None
+    updateStatus: Optional[DataLakeUpdateStatus] = None
 
 
-class CreateSubscriberNotificationRequestTypeDef(BaseValidatorModel):
-    configuration: NotificationConfigurationTypeDef
+class CreateSubscriberNotificationRequest(BaseValidatorModel):
+    configuration: NotificationConfiguration
     subscriberId: str
 
 
-class UpdateSubscriberNotificationRequestTypeDef(BaseValidatorModel):
-    configuration: NotificationConfigurationTypeDef
+class UpdateSubscriberNotificationRequest(BaseValidatorModel):
+    configuration: NotificationConfiguration
     subscriberId: str
 
 
-class DataLakeAutoEnableNewAccountConfigurationUnionTypeDef(BaseValidatorModel):
+class DataLakeAutoEnableNewAccountConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class CreateDataLakeOrganizationConfigurationRequestTypeDef(BaseValidatorModel):
-    autoEnableNewAccount: Optional[ Sequence[DataLakeAutoEnableNewAccountConfigurationUnionTypeDef] ] = None
+class CreateDataLakeOrganizationConfigurationRequest(BaseValidatorModel):
+    autoEnableNewAccount: Optional[ Sequence[DataLakeAutoEnableNewAccountConfigurationUnion] ] = None
 
 
-class DeleteDataLakeOrganizationConfigurationRequestTypeDef(BaseValidatorModel):
-    autoEnableNewAccount: Optional[ Sequence[DataLakeAutoEnableNewAccountConfigurationUnionTypeDef] ] = None
+class DeleteDataLakeOrganizationConfigurationRequest(BaseValidatorModel):
+    autoEnableNewAccount: Optional[ Sequence[DataLakeAutoEnableNewAccountConfigurationUnion] ] = None
 
 
-class CreateSubscriberRequestTypeDef(BaseValidatorModel):
-    sources: Sequence[LogSourceResourceTypeDef]
-    subscriberIdentity: AwsIdentityTypeDef
+class CreateSubscriberRequest(BaseValidatorModel):
+    sources: Sequence[LogSourceResource]
+    subscriberIdentity: AwsIdentity
     subscriberName: str
     accessTypes: Optional[Sequence[AccessTypeType]] = None
     subscriberDescription: Optional[str] = None
-    tags: Optional[Sequence[TagTypeDef]] = None
+    tags: Optional[Sequence[Tag]] = None
 
 
-class ListLogSourcesRequestPaginateTypeDef(BaseValidatorModel):
+class ListLogSourcesRequestPaginate(BaseValidatorModel):
     accounts: Optional[Sequence[str]] = None
     regions: Optional[Sequence[str]] = None
-    sources: Optional[Sequence[LogSourceResourceTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    sources: Optional[Sequence[LogSourceResource]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListLogSourcesRequestTypeDef(BaseValidatorModel):
+class ListLogSourcesRequest(BaseValidatorModel):
     accounts: Optional[Sequence[str]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     regions: Optional[Sequence[str]] = None
-    sources: Optional[Sequence[LogSourceResourceTypeDef]] = None
+    sources: Optional[Sequence[LogSourceResource]] = None
 
 
-class LogSourceTypeDef(BaseValidatorModel):
+class LogSource(BaseValidatorModel):
     account: Optional[str] = None
     region: Optional[str] = None
-    sources: Optional[List[LogSourceResourceTypeDef]] = None
+    sources: Optional[List[LogSourceResource]] = None
 
 
-class SubscriberResourceTypeDef(BaseValidatorModel):
-    sources: List[LogSourceResourceTypeDef]
+class SubscriberResource(BaseValidatorModel):
+    sources: List[LogSourceResource]
     subscriberArn: str
     subscriberId: str
-    subscriberIdentity: AwsIdentityTypeDef
+    subscriberIdentity: AwsIdentity
     subscriberName: str
     accessTypes: Optional[List[AccessTypeType]] = None
     createdAt: Optional[datetime] = None
@@ -403,79 +403,79 @@ class SubscriberResourceTypeDef(BaseValidatorModel):
     updatedAt: Optional[datetime] = None
 
 
-class UpdateSubscriberRequestTypeDef(BaseValidatorModel):
+class UpdateSubscriberRequest(BaseValidatorModel):
     subscriberId: str
-    sources: Optional[Sequence[LogSourceResourceTypeDef]] = None
+    sources: Optional[Sequence[LogSourceResource]] = None
     subscriberDescription: Optional[str] = None
-    subscriberIdentity: Optional[AwsIdentityTypeDef] = None
+    subscriberIdentity: Optional[AwsIdentity] = None
     subscriberName: Optional[str] = None
 
 
-class DataLakeReplicationConfigurationUnionTypeDef(BaseValidatorModel):
+class DataLakeReplicationConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class DataLakeLifecycleConfigurationUnionTypeDef(BaseValidatorModel):
+class DataLakeLifecycleConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class DataLakeConfigurationTypeDef(BaseValidatorModel):
+class DataLakeConfiguration(BaseValidatorModel):
     region: str
-    encryptionConfiguration: Optional[DataLakeEncryptionConfigurationTypeDef] = None
-    lifecycleConfiguration: Optional[DataLakeLifecycleConfigurationUnionTypeDef] = None
-    replicationConfiguration: Optional[DataLakeReplicationConfigurationUnionTypeDef] = None
+    encryptionConfiguration: Optional[DataLakeEncryptionConfiguration] = None
+    lifecycleConfiguration: Optional[DataLakeLifecycleConfigurationUnion] = None
+    replicationConfiguration: Optional[DataLakeReplicationConfigurationUnion] = None
 
 
-class CreateDataLakeResponseTypeDef(BaseValidatorModel):
-    dataLakes: List[DataLakeResourceTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateDataLakeResponse(BaseValidatorModel):
+    dataLakes: List[DataLakeResource]
+    ResponseMetadata: ResponseMetadata
 
 
-class ListDataLakesResponseTypeDef(BaseValidatorModel):
-    dataLakes: List[DataLakeResourceTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListDataLakesResponse(BaseValidatorModel):
+    dataLakes: List[DataLakeResource]
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateDataLakeResponseTypeDef(BaseValidatorModel):
-    dataLakes: List[DataLakeResourceTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateDataLakeResponse(BaseValidatorModel):
+    dataLakes: List[DataLakeResource]
+    ResponseMetadata: ResponseMetadata
 
 
-class ListLogSourcesResponseTypeDef(BaseValidatorModel):
-    sources: List[LogSourceTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListLogSourcesResponse(BaseValidatorModel):
+    sources: List[LogSource]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class CreateSubscriberResponseTypeDef(BaseValidatorModel):
-    subscriber: SubscriberResourceTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateSubscriberResponse(BaseValidatorModel):
+    subscriber: SubscriberResource
+    ResponseMetadata: ResponseMetadata
 
 
-class GetSubscriberResponseTypeDef(BaseValidatorModel):
-    subscriber: SubscriberResourceTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetSubscriberResponse(BaseValidatorModel):
+    subscriber: SubscriberResource
+    ResponseMetadata: ResponseMetadata
 
 
-class ListSubscribersResponseTypeDef(BaseValidatorModel):
-    subscribers: List[SubscriberResourceTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListSubscribersResponse(BaseValidatorModel):
+    subscribers: List[SubscriberResource]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class UpdateSubscriberResponseTypeDef(BaseValidatorModel):
-    subscriber: SubscriberResourceTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateSubscriberResponse(BaseValidatorModel):
+    subscriber: SubscriberResource
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateDataLakeRequestTypeDef(BaseValidatorModel):
-    configurations: Sequence[DataLakeConfigurationTypeDef]
+class CreateDataLakeRequest(BaseValidatorModel):
+    configurations: Sequence[DataLakeConfiguration]
     metaStoreManagerRoleArn: str
-    tags: Optional[Sequence[TagTypeDef]] = None
+    tags: Optional[Sequence[Tag]] = None
 
 
-class UpdateDataLakeRequestTypeDef(BaseValidatorModel):
-    configurations: Sequence[DataLakeConfigurationTypeDef]
+class UpdateDataLakeRequest(BaseValidatorModel):
+    configurations: Sequence[DataLakeConfiguration]
     metaStoreManagerRoleArn: Optional[str] = None
 
 

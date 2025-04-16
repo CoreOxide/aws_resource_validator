@@ -1,24 +1,24 @@
 # Organizations Classes
 
-# AcceptHandshakeRequestTypeDef
+# AcceptHandshakeRequest
 
 ### HandshakeId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# AcceptHandshakeResponseTypeDef
+# AcceptHandshakeResponse
 
 ### Handshake
-- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.HandshakeTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.Handshake'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# AccountTypeDef
+# Account
 
 ### Id
 - **Type**: typing.Optional[str]
@@ -42,7 +42,7 @@
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# AttachPolicyRequestTypeDef
+# AttachPolicyRequest
 
 ### PolicyId
 - **Type**: <class 'str'>
@@ -59,38 +59,38 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CancelHandshakeRequestTypeDef
+# CancelHandshakeRequest
 
 ### HandshakeId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# CancelHandshakeResponseTypeDef
+# CancelHandshakeResponse
 
 ### Handshake
-- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.HandshakeTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.Handshake'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ChildTypeDef
+# Child
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CloseAccountRequestTypeDef
+# CloseAccountRequest
 
 ### AccountId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# CreateAccountRequestTypeDef
+# CreateAccountRequest
 
 ### Email
 - **Type**: <class 'str'>
@@ -107,21 +107,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ALLOW', 'DENY']]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.organizations_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.organizations_classes.Tag]]
 
 
-# CreateAccountResponseTypeDef
+# CreateAccountResponse
 
 ### CreateAccountStatus
-- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.CreateAccountStatusTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.CreateAccountStatus'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateAccountStatusTypeDef
+# CreateAccountStatus
 
 ### Id
 - **Type**: typing.Optional[str]
@@ -148,7 +148,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ACCOUNT_LIMIT_EXCEEDED', 'CONCURRENT_ACCOUNT_MODIFICATION', 'EMAIL_ALREADY_EXISTS', 'FAILED_BUSINESS_VALIDATION', 'GOVCLOUD_ACCOUNT_ALREADY_EXISTS', 'INTERNAL_FAILURE', 'INVALID_ADDRESS', 'INVALID_EMAIL', 'INVALID_IDENTITY_FOR_BUSINESS_VALIDATION', 'INVALID_PAYMENT_INSTRUMENT', 'MISSING_BUSINESS_VALIDATION', 'MISSING_PAYMENT_INSTRUMENT', 'PENDING_BUSINESS_VALIDATION', 'UNKNOWN_BUSINESS_VALIDATION', 'UPDATE_EXISTING_RESOURCE_POLICY_WITH_TAGS_NOT_SUPPORTED']]
 
 
-# CreateGovCloudAccountRequestTypeDef
+# CreateGovCloudAccountRequest
 
 ### Email
 - **Type**: <class 'str'>
@@ -165,38 +165,38 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ALLOW', 'DENY']]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.organizations_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.organizations_classes.Tag]]
 
 
-# CreateGovCloudAccountResponseTypeDef
+# CreateGovCloudAccountResponse
 
 ### CreateAccountStatus
-- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.CreateAccountStatusTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.CreateAccountStatus'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateOrganizationRequestTypeDef
+# CreateOrganizationRequest
 
 ### FeatureSet
 - **Type**: typing.Optional[typing.Literal['ALL', 'CONSOLIDATED_BILLING']]
 
 
-# CreateOrganizationResponseTypeDef
+# CreateOrganizationResponse
 
 ### Organization
-- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.OrganizationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.Organization'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateOrganizationalUnitRequestTypeDef
+# CreateOrganizationalUnitRequest
 
 ### ParentId
 - **Type**: <class 'str'>
@@ -207,50 +207,50 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.organizations_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.organizations_classes.Tag]]
 
 
-# CreateOrganizationalUnitResponseTypeDef
+# CreateOrganizationalUnitResponse
 
 ### OrganizationalUnit
-- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.OrganizationalUnitTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.OrganizationalUnit'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreatePolicyResponseTypeDef
+# CreatePolicyResponse
 
 ### Policy
-- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.PolicyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.Policy'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeclineHandshakeRequestTypeDef
+# DeclineHandshakeRequest
 
 ### HandshakeId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeclineHandshakeResponseTypeDef
+# DeclineHandshakeResponse
 
 ### Handshake
-- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.HandshakeTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.Handshake'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DelegatedAdministratorTypeDef
+# DelegatedAdministrator
 
 ### Id
 - **Type**: typing.Optional[str]
@@ -277,7 +277,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# DelegatedServiceTypeDef
+# DelegatedService
 
 ### ServicePrincipal
 - **Type**: typing.Optional[str]
@@ -286,21 +286,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# DeleteOrganizationalUnitRequestTypeDef
+# DeleteOrganizationalUnitRequest
 
 ### OrganizationalUnitId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeletePolicyRequestTypeDef
+# DeletePolicyRequest
 
 ### PolicyId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeregisterDelegatedAdministratorRequestTypeDef
+# DeregisterDelegatedAdministratorRequest
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -311,43 +311,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeAccountRequestTypeDef
+# DescribeAccountRequest
 
 ### AccountId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeAccountResponseTypeDef
+# DescribeAccountResponse
 
 ### Account
-- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.AccountTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.Account'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeCreateAccountStatusRequestTypeDef
+# DescribeCreateAccountStatusRequest
 
 ### CreateAccountRequestId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeCreateAccountStatusResponseTypeDef
+# DescribeCreateAccountStatusResponse
 
 ### CreateAccountStatus
-- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.CreateAccountStatusTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.CreateAccountStatus'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeEffectivePolicyRequestTypeDef
+# DescribeEffectivePolicyRequest
 
 ### PolicyType
 - **Type**: typing.Literal['AISERVICES_OPT_OUT_POLICY', 'BACKUP_POLICY', 'CHATBOT_POLICY', 'DECLARATIVE_POLICY_EC2', 'TAG_POLICY']
@@ -357,94 +357,94 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeEffectivePolicyResponseTypeDef
+# DescribeEffectivePolicyResponse
 
 ### EffectivePolicy
-- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.EffectivePolicyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.EffectivePolicy'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeHandshakeRequestTypeDef
+# DescribeHandshakeRequest
 
 ### HandshakeId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeHandshakeResponseTypeDef
+# DescribeHandshakeResponse
 
 ### Handshake
-- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.HandshakeTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.Handshake'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeOrganizationResponseTypeDef
+# DescribeOrganizationResponse
 
 ### Organization
-- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.OrganizationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.Organization'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeOrganizationalUnitRequestTypeDef
+# DescribeOrganizationalUnitRequest
 
 ### OrganizationalUnitId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeOrganizationalUnitResponseTypeDef
+# DescribeOrganizationalUnitResponse
 
 ### OrganizationalUnit
-- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.OrganizationalUnitTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.OrganizationalUnit'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribePolicyRequestTypeDef
+# DescribePolicyRequest
 
 ### PolicyId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribePolicyResponseTypeDef
+# DescribePolicyResponse
 
 ### Policy
-- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.PolicyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.Policy'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeResourcePolicyResponseTypeDef
+# DescribeResourcePolicyResponse
 
 ### ResourcePolicy
-- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResourcePolicyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResourcePolicy'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DetachPolicyRequestTypeDef
+# DetachPolicyRequest
 
 ### PolicyId
 - **Type**: <class 'str'>
@@ -455,14 +455,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DisableAWSServiceAccessRequestTypeDef
+# DisableAWSServiceAccessRequest
 
 ### ServicePrincipal
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DisablePolicyTypeRequestTypeDef
+# DisablePolicyTypeRequest
 
 ### RootId
 - **Type**: <class 'str'>
@@ -473,18 +473,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DisablePolicyTypeResponseTypeDef
+# DisablePolicyTypeResponse
 
 ### Root
-- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.RootTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.Root'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# EffectivePolicyTypeDef
+# EffectivePolicy
 
 ### PolicyContent
 - **Type**: typing.Optional[str]
@@ -499,32 +499,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['AISERVICES_OPT_OUT_POLICY', 'BACKUP_POLICY', 'CHATBOT_POLICY', 'DECLARATIVE_POLICY_EC2', 'TAG_POLICY']]
 
 
-# EmptyResponseMetadataTypeDef
+# EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# EnableAWSServiceAccessRequestTypeDef
+# EnableAWSServiceAccessRequest
 
 ### ServicePrincipal
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# EnableAllFeaturesResponseTypeDef
+# EnableAllFeaturesResponse
 
 ### Handshake
-- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.HandshakeTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.Handshake'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# EnablePolicyTypeRequestTypeDef
+# EnablePolicyTypeRequest
 
 ### RootId
 - **Type**: <class 'str'>
@@ -535,18 +535,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# EnablePolicyTypeResponseTypeDef
+# EnablePolicyTypeResponse
 
 ### Root
-- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.RootTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.Root'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# EnabledServicePrincipalTypeDef
+# EnabledServicePrincipal
 
 ### ServicePrincipal
 - **Type**: typing.Optional[str]
@@ -555,7 +555,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# HandshakeFilterTypeDef
+# Handshake
+
+### Id
+- **Type**: typing.Optional[str]
+
+### Arn
+- **Type**: typing.Optional[str]
+
+### Parties
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.organizations_classes.HandshakeParty]]
+
+### State
+- **Type**: typing.Optional[typing.Literal['ACCEPTED', 'CANCELED', 'DECLINED', 'EXPIRED', 'OPEN', 'REQUESTED']]
+
+### RequestedTimestamp
+- **Type**: typing.Optional[datetime.datetime]
+
+### ExpirationTimestamp
+- **Type**: typing.Optional[datetime.datetime]
+
+### Action
+- **Type**: typing.Optional[typing.Literal['ADD_ORGANIZATIONS_SERVICE_LINKED_ROLE', 'APPROVE_ALL_FEATURES', 'ENABLE_ALL_FEATURES', 'INVITE']]
+
+### Resources
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.organizations_classes.HandshakeResource]]
+
+
+# HandshakeFilter
 
 ### ActionType
 - **Type**: typing.Optional[typing.Literal['ADD_ORGANIZATIONS_SERVICE_LINKED_ROLE', 'APPROVE_ALL_FEATURES', 'ENABLE_ALL_FEATURES', 'INVITE']]
@@ -564,7 +591,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# HandshakePaginatorTypeDef
+# HandshakePaginator
 
 ### Id
 - **Type**: typing.Optional[str]
@@ -573,7 +600,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Parties
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.organizations_classes.HandshakePartyTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.organizations_classes.HandshakeParty]]
 
 ### State
 - **Type**: typing.Optional[typing.Literal['ACCEPTED', 'CANCELED', 'DECLINED', 'EXPIRED', 'OPEN', 'REQUESTED']]
@@ -588,85 +615,52 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ADD_ORGANIZATIONS_SERVICE_LINKED_ROLE', 'APPROVE_ALL_FEATURES', 'ENABLE_ALL_FEATURES', 'INVITE']]
 
 ### Resources
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.organizations_classes.HandshakeResourcePaginatorTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.organizations_classes.HandshakeResourcePaginator]]
 
 
-# HandshakePartyTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# HandshakeResourcePaginatorTypeDef
+# HandshakeParty
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# HandshakeResourceTypeDef
+# HandshakeResource
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# HandshakeTypeDef
+# HandshakeResourcePaginator
 
-### Id
-- **Type**: typing.Optional[str]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### Arn
-- **Type**: typing.Optional[str]
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-### Parties
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.organizations_classes.HandshakePartyTypeDef]]
-
-### State
-- **Type**: typing.Optional[typing.Literal['ACCEPTED', 'CANCELED', 'DECLINED', 'EXPIRED', 'OPEN', 'REQUESTED']]
-
-### RequestedTimestamp
-- **Type**: typing.Optional[datetime.datetime]
-
-### ExpirationTimestamp
-- **Type**: typing.Optional[datetime.datetime]
-
-### Action
-- **Type**: typing.Optional[typing.Literal['ADD_ORGANIZATIONS_SERVICE_LINKED_ROLE', 'APPROVE_ALL_FEATURES', 'ENABLE_ALL_FEATURES', 'INVITE']]
-
-### Resources
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.organizations_classes.HandshakeResourceTypeDef]]
-
-
-# InviteAccountToOrganizationRequestTypeDef
+# InviteAccountToOrganizationRequest
 
 ### Target
-- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.HandshakePartyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.HandshakeParty'>
 - **Required**: Yes
 
 ### Notes
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.organizations_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.organizations_classes.Tag]]
 
 
-# InviteAccountToOrganizationResponseTypeDef
+# InviteAccountToOrganizationResponse
 
 ### Handshake
-- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.HandshakeTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.Handshake'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListAWSServiceAccessForOrganizationRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.organizations_classes.PaginatorConfigTypeDef]
-
-
-# ListAWSServiceAccessForOrganizationRequestTypeDef
+# ListAWSServiceAccessForOrganizationRequest
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -675,31 +669,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListAWSServiceAccessForOrganizationResponseTypeDef
+# ListAWSServiceAccessForOrganizationRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.organizations_classes.PaginatorConfig]
+
+
+# ListAWSServiceAccessForOrganizationResponse
 
 ### EnabledServicePrincipals
-- **Type**: typing.List[aws_resource_validator.pydantic_models.organizations_classes.EnabledServicePrincipalTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.organizations_classes.EnabledServicePrincipal]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListAccountsForParentRequestPaginateTypeDef
-
-### ParentId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.organizations_classes.PaginatorConfigTypeDef]
-
-
-# ListAccountsForParentRequestTypeDef
+# ListAccountsForParentRequest
 
 ### ParentId
 - **Type**: <class 'str'>
@@ -712,27 +702,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListAccountsForParentResponseTypeDef
+# ListAccountsForParentRequestPaginate
+
+### ParentId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.organizations_classes.PaginatorConfig]
+
+
+# ListAccountsForParentResponse
 
 ### Accounts
-- **Type**: typing.List[aws_resource_validator.pydantic_models.organizations_classes.AccountTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.organizations_classes.Account]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListAccountsRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.organizations_classes.PaginatorConfigTypeDef]
-
-
-# ListAccountsRequestTypeDef
+# ListAccountsRequest
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -741,35 +735,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListAccountsResponseTypeDef
+# ListAccountsRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.organizations_classes.PaginatorConfig]
+
+
+# ListAccountsResponse
 
 ### Accounts
-- **Type**: typing.List[aws_resource_validator.pydantic_models.organizations_classes.AccountTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.organizations_classes.Account]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListChildrenRequestPaginateTypeDef
-
-### ParentId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ChildType
-- **Type**: typing.Literal['ACCOUNT', 'ORGANIZATIONAL_UNIT']
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.organizations_classes.PaginatorConfigTypeDef]
-
-
-# ListChildrenRequestTypeDef
+# ListChildrenRequest
 
 ### ParentId
 - **Type**: <class 'str'>
@@ -786,30 +772,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListChildrenResponseTypeDef
+# ListChildrenRequestPaginate
+
+### ParentId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ChildType
+- **Type**: typing.Literal['ACCOUNT', 'ORGANIZATIONAL_UNIT']
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.organizations_classes.PaginatorConfig]
+
+
+# ListChildrenResponse
 
 ### Children
-- **Type**: typing.List[aws_resource_validator.pydantic_models.organizations_classes.ChildTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.organizations_classes.Child]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListCreateAccountStatusRequestPaginateTypeDef
-
-### States
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['FAILED', 'IN_PROGRESS', 'SUCCEEDED']]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.organizations_classes.PaginatorConfigTypeDef]
-
-
-# ListCreateAccountStatusRequestTypeDef
+# ListCreateAccountStatusRequest
 
 ### States
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['FAILED', 'IN_PROGRESS', 'SUCCEEDED']]]
@@ -821,30 +812,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListCreateAccountStatusResponseTypeDef
+# ListCreateAccountStatusRequestPaginate
+
+### States
+- **Type**: typing.Optional[typing.Sequence[typing.Literal['FAILED', 'IN_PROGRESS', 'SUCCEEDED']]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.organizations_classes.PaginatorConfig]
+
+
+# ListCreateAccountStatusResponse
 
 ### CreateAccountStatuses
-- **Type**: typing.List[aws_resource_validator.pydantic_models.organizations_classes.CreateAccountStatusTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.organizations_classes.CreateAccountStatus]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListDelegatedAdministratorsRequestPaginateTypeDef
-
-### ServicePrincipal
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.organizations_classes.PaginatorConfigTypeDef]
-
-
-# ListDelegatedAdministratorsRequestTypeDef
+# ListDelegatedAdministratorsRequest
 
 ### ServicePrincipal
 - **Type**: typing.Optional[str]
@@ -856,31 +847,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListDelegatedAdministratorsResponseTypeDef
+# ListDelegatedAdministratorsRequestPaginate
+
+### ServicePrincipal
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.organizations_classes.PaginatorConfig]
+
+
+# ListDelegatedAdministratorsResponse
 
 ### DelegatedAdministrators
-- **Type**: typing.List[aws_resource_validator.pydantic_models.organizations_classes.DelegatedAdministratorTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.organizations_classes.DelegatedAdministrator]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListDelegatedServicesForAccountRequestPaginateTypeDef
-
-### AccountId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.organizations_classes.PaginatorConfigTypeDef]
-
-
-# ListDelegatedServicesForAccountRequestTypeDef
+# ListDelegatedServicesForAccountRequest
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -893,33 +883,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListDelegatedServicesForAccountResponseTypeDef
+# ListDelegatedServicesForAccountRequestPaginate
+
+### AccountId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.organizations_classes.PaginatorConfig]
+
+
+# ListDelegatedServicesForAccountResponse
 
 ### DelegatedServices
-- **Type**: typing.List[aws_resource_validator.pydantic_models.organizations_classes.DelegatedServiceTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.organizations_classes.DelegatedService]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListHandshakesForAccountRequestPaginateTypeDef
+# ListHandshakesForAccountRequest
 
 ### Filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.organizations_classes.HandshakeFilterTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.organizations_classes.PaginatorConfigTypeDef]
-
-
-# ListHandshakesForAccountRequestTypeDef
-
-### Filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.organizations_classes.HandshakeFilterTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.organizations_classes.HandshakeFilter]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -928,47 +919,47 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListHandshakesForAccountResponsePaginatorTypeDef
-
-### Handshakes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.organizations_classes.HandshakePaginatorTypeDef]
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-### NextToken
-- **Type**: typing.Optional[str]
-
-
-# ListHandshakesForAccountResponseTypeDef
-
-### Handshakes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.organizations_classes.HandshakeTypeDef]
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-### NextToken
-- **Type**: typing.Optional[str]
-
-
-# ListHandshakesForOrganizationRequestPaginateTypeDef
+# ListHandshakesForAccountRequestPaginate
 
 ### Filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.organizations_classes.HandshakeFilterTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.organizations_classes.HandshakeFilter]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.organizations_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.organizations_classes.PaginatorConfig]
 
 
-# ListHandshakesForOrganizationRequestTypeDef
+# ListHandshakesForAccountResponse
+
+### Handshakes
+- **Type**: typing.List[aws_resource_validator.pydantic_models.organizations_classes.Handshake]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResponseMetadata'>
+- **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# ListHandshakesForAccountResponsePaginator
+
+### Handshakes
+- **Type**: typing.List[aws_resource_validator.pydantic_models.organizations_classes.HandshakePaginator]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResponseMetadata'>
+- **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# ListHandshakesForOrganizationRequest
 
 ### Filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.organizations_classes.HandshakeFilterTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.organizations_classes.HandshakeFilter]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -977,45 +968,44 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListHandshakesForOrganizationResponsePaginatorTypeDef
+# ListHandshakesForOrganizationRequestPaginate
 
-### Handshakes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.organizations_classes.HandshakePaginatorTypeDef]
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-### NextToken
-- **Type**: typing.Optional[str]
-
-
-# ListHandshakesForOrganizationResponseTypeDef
-
-### Handshakes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.organizations_classes.HandshakeTypeDef]
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-### NextToken
-- **Type**: typing.Optional[str]
-
-
-# ListOrganizationalUnitsForParentRequestPaginateTypeDef
-
-### ParentId
-- **Type**: <class 'str'>
-- **Required**: Yes
+### Filter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.organizations_classes.HandshakeFilter]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.organizations_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.organizations_classes.PaginatorConfig]
 
 
-# ListOrganizationalUnitsForParentRequestTypeDef
+# ListHandshakesForOrganizationResponse
+
+### Handshakes
+- **Type**: typing.List[aws_resource_validator.pydantic_models.organizations_classes.Handshake]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResponseMetadata'>
+- **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# ListHandshakesForOrganizationResponsePaginator
+
+### Handshakes
+- **Type**: typing.List[aws_resource_validator.pydantic_models.organizations_classes.HandshakePaginator]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResponseMetadata'>
+- **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# ListOrganizationalUnitsForParentRequest
 
 ### ParentId
 - **Type**: <class 'str'>
@@ -1028,31 +1018,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListOrganizationalUnitsForParentResponseTypeDef
+# ListOrganizationalUnitsForParentRequestPaginate
+
+### ParentId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.organizations_classes.PaginatorConfig]
+
+
+# ListOrganizationalUnitsForParentResponse
 
 ### OrganizationalUnits
-- **Type**: typing.List[aws_resource_validator.pydantic_models.organizations_classes.OrganizationalUnitTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.organizations_classes.OrganizationalUnit]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListParentsRequestPaginateTypeDef
-
-### ChildId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.organizations_classes.PaginatorConfigTypeDef]
-
-
-# ListParentsRequestTypeDef
+# ListParentsRequest
 
 ### ChildId
 - **Type**: <class 'str'>
@@ -1065,35 +1055,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListParentsResponseTypeDef
+# ListParentsRequestPaginate
+
+### ChildId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.organizations_classes.PaginatorConfig]
+
+
+# ListParentsResponse
 
 ### Parents
-- **Type**: typing.List[aws_resource_validator.pydantic_models.organizations_classes.ParentTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.organizations_classes.Parent]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListPoliciesForTargetRequestPaginateTypeDef
-
-### TargetId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Filter
-- **Type**: typing.Literal['AISERVICES_OPT_OUT_POLICY', 'BACKUP_POLICY', 'CHATBOT_POLICY', 'DECLARATIVE_POLICY_EC2', 'RESOURCE_CONTROL_POLICY', 'SERVICE_CONTROL_POLICY', 'TAG_POLICY']
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.organizations_classes.PaginatorConfigTypeDef]
-
-
-# ListPoliciesForTargetRequestTypeDef
+# ListPoliciesForTargetRequest
 
 ### TargetId
 - **Type**: <class 'str'>
@@ -1110,31 +1096,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListPoliciesForTargetResponseTypeDef
+# ListPoliciesForTargetRequestPaginate
 
-### Policies
-- **Type**: typing.List[aws_resource_validator.pydantic_models.organizations_classes.PolicySummaryTypeDef]
+### TargetId
+- **Type**: <class 'str'>
 - **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-### NextToken
-- **Type**: typing.Optional[str]
-
-
-# ListPoliciesRequestPaginateTypeDef
 
 ### Filter
 - **Type**: typing.Literal['AISERVICES_OPT_OUT_POLICY', 'BACKUP_POLICY', 'CHATBOT_POLICY', 'DECLARATIVE_POLICY_EC2', 'RESOURCE_CONTROL_POLICY', 'SERVICE_CONTROL_POLICY', 'TAG_POLICY']
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.organizations_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.organizations_classes.PaginatorConfig]
 
 
-# ListPoliciesRequestTypeDef
+# ListPoliciesForTargetResponse
+
+### Policies
+- **Type**: typing.List[aws_resource_validator.pydantic_models.organizations_classes.PolicySummary]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResponseMetadata'>
+- **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# ListPoliciesRequest
 
 ### Filter
 - **Type**: typing.Literal['AISERVICES_OPT_OUT_POLICY', 'BACKUP_POLICY', 'CHATBOT_POLICY', 'DECLARATIVE_POLICY_EC2', 'RESOURCE_CONTROL_POLICY', 'SERVICE_CONTROL_POLICY', 'TAG_POLICY']
@@ -1147,27 +1137,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListPoliciesResponseTypeDef
+# ListPoliciesRequestPaginate
+
+### Filter
+- **Type**: typing.Literal['AISERVICES_OPT_OUT_POLICY', 'BACKUP_POLICY', 'CHATBOT_POLICY', 'DECLARATIVE_POLICY_EC2', 'RESOURCE_CONTROL_POLICY', 'SERVICE_CONTROL_POLICY', 'TAG_POLICY']
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.organizations_classes.PaginatorConfig]
+
+
+# ListPoliciesResponse
 
 ### Policies
-- **Type**: typing.List[aws_resource_validator.pydantic_models.organizations_classes.PolicySummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.organizations_classes.PolicySummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListRootsRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.organizations_classes.PaginatorConfigTypeDef]
-
-
-# ListRootsRequestTypeDef
+# ListRootsRequest
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -1176,65 +1170,61 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListRootsResponseTypeDef
+# ListRootsRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.organizations_classes.PaginatorConfig]
+
+
+# ListRootsResponse
 
 ### Roots
-- **Type**: typing.List[aws_resource_validator.pydantic_models.organizations_classes.RootTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.organizations_classes.Root]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestPaginateTypeDef
+# ListTagsForResourceRequest
+
+### ResourceId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# ListTagsForResourceRequestPaginate
 
 ### ResourceId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.organizations_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.organizations_classes.PaginatorConfig]
 
 
-# ListTagsForResourceRequestTypeDef
-
-### ResourceId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### NextToken
-- **Type**: typing.Optional[str]
-
-
-# ListTagsForResourceResponseTypeDef
+# ListTagsForResourceResponse
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.organizations_classes.TagTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.organizations_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTargetsForPolicyRequestPaginateTypeDef
-
-### PolicyId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.organizations_classes.PaginatorConfigTypeDef]
-
-
-# ListTargetsForPolicyRequestTypeDef
+# ListTargetsForPolicyRequest
 
 ### PolicyId
 - **Type**: <class 'str'>
@@ -1247,21 +1237,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListTargetsForPolicyResponseTypeDef
+# ListTargetsForPolicyRequestPaginate
+
+### PolicyId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.organizations_classes.PaginatorConfig]
+
+
+# ListTargetsForPolicyResponse
 
 ### Targets
-- **Type**: typing.List[aws_resource_validator.pydantic_models.organizations_classes.PolicyTargetSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.organizations_classes.PolicyTargetSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# MoveAccountRequestTypeDef
+# MoveAccountRequest
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -1276,7 +1276,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# OrganizationTypeDef
+# Organization
 
 ### Id
 - **Type**: typing.Optional[str]
@@ -1297,10 +1297,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### AvailablePolicyTypes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.organizations_classes.PolicyTypeSummaryTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.organizations_classes.PolicyTypeSummary]]
 
 
-# OrganizationalUnitTypeDef
+# OrganizationalUnit
 
 ### Id
 - **Type**: typing.Optional[str]
@@ -1312,7 +1312,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -1324,61 +1324,61 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ParentTypeDef
+# Parent
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# PolicySummaryTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# PolicyTargetSummaryTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# PolicyTypeDef
+# Policy
 
 ### PolicySummary
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.organizations_classes.PolicySummaryTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### Content
 - **Type**: typing.Optional[str]
 
 
-# PolicyTypeSummaryTypeDef
+# PolicySummary
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# PutResourcePolicyRequestTypeDef
+# PolicyTargetSummary
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# PolicyTypeSummary
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# PutResourcePolicyRequest
 
 ### Content
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.organizations_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.organizations_classes.Tag]]
 
 
-# PutResourcePolicyResponseTypeDef
+# PutResourcePolicyResponse
 
 ### ResourcePolicy
-- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResourcePolicyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResourcePolicy'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# RegisterDelegatedAdministratorRequestTypeDef
+# RegisterDelegatedAdministratorRequest
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -1389,14 +1389,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RemoveAccountFromOrganizationRequestTypeDef
+# RemoveAccountFromOrganizationRequest
 
 ### AccountId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ResourcePolicySummaryTypeDef
+# ResourcePolicy
+
+### ResourcePolicySummary
+- **Type**: <class 'NoneType'>
+
+### Content
+- **Type**: typing.Optional[str]
+
+
+# ResourcePolicySummary
 
 ### Id
 - **Type**: typing.Optional[str]
@@ -1405,16 +1414,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ResourcePolicyTypeDef
-
-### ResourcePolicySummary
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.organizations_classes.ResourcePolicySummaryTypeDef]
-
-### Content
-- **Type**: typing.Optional[str]
-
-
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -1436,7 +1436,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RootTypeDef
+# Root
 
 ### Id
 - **Type**: typing.Optional[str]
@@ -1448,21 +1448,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PolicyTypes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.organizations_classes.PolicyTypeSummaryTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.organizations_classes.PolicyTypeSummary]]
 
 
-# TagResourceRequestTypeDef
-
-### ResourceId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.organizations_classes.TagTypeDef]
-- **Required**: Yes
-
-
-# TagTypeDef
+# Tag
 
 ### Key
 - **Type**: <class 'str'>
@@ -1473,7 +1462,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceRequestTypeDef
+# TagResourceRequest
+
+### ResourceId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Tags
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.organizations_classes.Tag]
+- **Required**: Yes
+
+
+# UntagResourceRequest
 
 ### ResourceId
 - **Type**: <class 'str'>
@@ -1484,7 +1484,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateOrganizationalUnitRequestTypeDef
+# UpdateOrganizationalUnitRequest
 
 ### OrganizationalUnitId
 - **Type**: <class 'str'>
@@ -1494,18 +1494,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateOrganizationalUnitResponseTypeDef
+# UpdateOrganizationalUnitResponse
 
 ### OrganizationalUnit
-- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.OrganizationalUnitTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.OrganizationalUnit'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdatePolicyRequestTypeDef
+# UpdatePolicyRequest
 
 ### PolicyId
 - **Type**: <class 'str'>
@@ -1521,14 +1521,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdatePolicyResponseTypeDef
+# UpdatePolicyResponse
 
 ### Policy
-- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.PolicyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.Policy'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.organizations_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

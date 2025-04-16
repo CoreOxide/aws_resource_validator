@@ -12,13 +12,13 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.sso_constants import *
 
-class AccountInfoTypeDef(BaseValidatorModel):
+class AccountInfo(BaseValidatorModel):
     accountId: Optional[str] = None
     accountName: Optional[str] = None
     emailAddress: Optional[str] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -26,76 +26,76 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class GetRoleCredentialsRequestTypeDef(BaseValidatorModel):
+class GetRoleCredentialsRequest(BaseValidatorModel):
     roleName: str
     accountId: str
     accessToken: str
 
 
-class RoleCredentialsTypeDef(BaseValidatorModel):
+class RoleCredentials(BaseValidatorModel):
     accessKeyId: Optional[str] = None
     secretAccessKey: Optional[str] = None
     sessionToken: Optional[str] = None
     expiration: Optional[int] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListAccountRolesRequestTypeDef(BaseValidatorModel):
+class ListAccountRolesRequest(BaseValidatorModel):
     accessToken: str
     accountId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class RoleInfoTypeDef(BaseValidatorModel):
+class RoleInfo(BaseValidatorModel):
     roleName: Optional[str] = None
     accountId: Optional[str] = None
 
 
-class ListAccountsRequestTypeDef(BaseValidatorModel):
+class ListAccountsRequest(BaseValidatorModel):
     accessToken: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class LogoutRequestTypeDef(BaseValidatorModel):
+class LogoutRequest(BaseValidatorModel):
     accessToken: str
 
 
-class EmptyResponseMetadataTypeDef(BaseValidatorModel):
-    ResponseMetadata: ResponseMetadataTypeDef
+class EmptyResponseMetadata(BaseValidatorModel):
+    ResponseMetadata: ResponseMetadata
 
 
-class ListAccountsResponseTypeDef(BaseValidatorModel):
-    accountList: List[AccountInfoTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAccountsResponse(BaseValidatorModel):
+    accountList: List[AccountInfo]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class GetRoleCredentialsResponseTypeDef(BaseValidatorModel):
-    roleCredentials: RoleCredentialsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetRoleCredentialsResponse(BaseValidatorModel):
+    roleCredentials: RoleCredentials
+    ResponseMetadata: ResponseMetadata
 
 
-class ListAccountRolesRequestPaginateTypeDef(BaseValidatorModel):
+class ListAccountRolesRequestPaginate(BaseValidatorModel):
     accessToken: str
     accountId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListAccountsRequestPaginateTypeDef(BaseValidatorModel):
+class ListAccountsRequestPaginate(BaseValidatorModel):
     accessToken: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListAccountRolesResponseTypeDef(BaseValidatorModel):
-    roleList: List[RoleInfoTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAccountRolesResponse(BaseValidatorModel):
+    roleList: List[RoleInfo]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 

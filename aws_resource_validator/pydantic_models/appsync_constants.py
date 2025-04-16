@@ -72,7 +72,7 @@ SourceApiAssociationStatusType = Literal["AUTO_MERGE_SCHEDULE_FAILED",
     "MERGE_IN_PROGRESS",
     "MERGE_SCHEDULED",
     "MERGE_SUCCESS",]
-TypeDefinitionFormatType = Literal["JSON", "SDL"]
+initionFormatType = Literal["JSON", "SDL"]
 AppSyncServiceName = Literal["appsync"]
 ServiceName = Literal["accessanalyzer",
     "account",

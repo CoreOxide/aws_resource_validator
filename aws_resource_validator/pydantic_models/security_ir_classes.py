@@ -12,24 +12,24 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.security_ir_constants import *
 
-class BatchGetMemberAccountDetailsRequestTypeDef(BaseValidatorModel):
+class BatchGetMemberAccountDetailsRequest(BaseValidatorModel):
     membershipId: str
     accountIds: Sequence[str]
 
 
-class GetMembershipAccountDetailErrorTypeDef(BaseValidatorModel):
+class GetMembershipAccountDetailError(BaseValidatorModel):
     accountId: str
     error: str
     message: str
 
 
-class GetMembershipAccountDetailItemTypeDef(BaseValidatorModel):
+class GetMembershipAccountDetailItem(BaseValidatorModel):
     accountId: Optional[str] = None
     relationshipStatus: Optional[MembershipAccountRelationshipStatusType] = None
     relationshipType: Optional[Literal["Organization"]] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -37,11 +37,11 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class CancelMembershipRequestTypeDef(BaseValidatorModel):
+class CancelMembershipRequest(BaseValidatorModel):
     membershipId: str
 
 
-class CaseAttachmentAttributesTypeDef(BaseValidatorModel):
+class CaseAttachmentAttributes(BaseValidatorModel):
     attachmentId: str
     fileName: str
     attachmentStatus: CaseAttachmentStatusType
@@ -49,82 +49,82 @@ class CaseAttachmentAttributesTypeDef(BaseValidatorModel):
     createdDate: datetime
 
 
-class CaseEditItemTypeDef(BaseValidatorModel):
+class CaseEditItem(BaseValidatorModel):
     eventTimestamp: Optional[datetime] = None
     principal: Optional[str] = None
     action: Optional[str] = None
     message: Optional[str] = None
 
 
-class CloseCaseRequestTypeDef(BaseValidatorModel):
+class CloseCaseRequest(BaseValidatorModel):
     caseId: str
 
 
-class CreateCaseCommentRequestTypeDef(BaseValidatorModel):
+class CreateCaseCommentRequest(BaseValidatorModel):
     caseId: str
     body: str
     clientToken: Optional[str] = None
 
 
-class ImpactedAwsRegionTypeDef(BaseValidatorModel):
+class ImpactedAwsRegion(BaseValidatorModel):
     region: AwsRegionType
 
 
-class ThreatActorIpTypeDef(BaseValidatorModel):
+class ThreatActorIp(BaseValidatorModel):
     ipAddress: str
     userAgent: Optional[str] = None
 
 
-class WatcherTypeDef(BaseValidatorModel):
+class Watcher(BaseValidatorModel):
     email: str
     name: Optional[str] = None
     jobTitle: Optional[str] = None
 
 
-class IncidentResponderTypeDef(BaseValidatorModel):
+class IncidentResponder(BaseValidatorModel):
     name: str
     jobTitle: str
     email: str
 
 
-class OptInFeatureTypeDef(BaseValidatorModel):
+class OptInFeature(BaseValidatorModel):
     featureName: Literal["Triage"]
     isEnabled: bool
 
 
-class GetCaseAttachmentDownloadUrlRequestTypeDef(BaseValidatorModel):
+class GetCaseAttachmentDownloadUrlRequest(BaseValidatorModel):
     caseId: str
     attachmentId: str
 
 
-class GetCaseAttachmentUploadUrlRequestTypeDef(BaseValidatorModel):
+class GetCaseAttachmentUploadUrlRequest(BaseValidatorModel):
     caseId: str
     fileName: str
     contentLength: int
     clientToken: Optional[str] = None
 
 
-class GetCaseRequestTypeDef(BaseValidatorModel):
+class GetCaseRequest(BaseValidatorModel):
     caseId: str
 
 
-class GetMembershipRequestTypeDef(BaseValidatorModel):
+class GetMembershipRequest(BaseValidatorModel):
     membershipId: str
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListCaseEditsRequestTypeDef(BaseValidatorModel):
+class ListCaseEditsRequest(BaseValidatorModel):
     caseId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListCasesItemTypeDef(BaseValidatorModel):
+class ListCasesItem(BaseValidatorModel):
     caseId: str
     lastUpdatedDate: Optional[datetime] = None
     title: Optional[str] = None
@@ -137,12 +137,12 @@ class ListCasesItemTypeDef(BaseValidatorModel):
     pendingAction: Optional[PendingActionType] = None
 
 
-class ListCasesRequestTypeDef(BaseValidatorModel):
+class ListCasesRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListCommentsItemTypeDef(BaseValidatorModel):
+class ListCommentsItem(BaseValidatorModel):
     commentId: str
     createdDate: Optional[datetime] = None
     lastUpdatedDate: Optional[datetime] = None
@@ -151,13 +151,13 @@ class ListCommentsItemTypeDef(BaseValidatorModel):
     body: Optional[str] = None
 
 
-class ListCommentsRequestTypeDef(BaseValidatorModel):
+class ListCommentsRequest(BaseValidatorModel):
     caseId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListMembershipItemTypeDef(BaseValidatorModel):
+class ListMembershipItem(BaseValidatorModel):
     membershipId: str
     accountId: Optional[str] = None
     region: Optional[AwsRegionType] = None
@@ -165,133 +165,133 @@ class ListMembershipItemTypeDef(BaseValidatorModel):
     membershipStatus: Optional[MembershipStatusType] = None
 
 
-class ListMembershipsRequestTypeDef(BaseValidatorModel):
+class ListMembershipsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListTagsForResourceInputTypeDef(BaseValidatorModel):
+class ListTagsForResourceInput(BaseValidatorModel):
     resourceArn: str
 
 
-class TagResourceInputTypeDef(BaseValidatorModel):
+class TagResourceInput(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
 
-class UntagResourceInputTypeDef(BaseValidatorModel):
+class UntagResourceInput(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
 
-class UpdateCaseCommentRequestTypeDef(BaseValidatorModel):
+class UpdateCaseCommentRequest(BaseValidatorModel):
     caseId: str
     commentId: str
     body: str
 
 
-class UpdateCaseStatusRequestTypeDef(BaseValidatorModel):
+class UpdateCaseStatusRequest(BaseValidatorModel):
     caseId: str
     caseStatus: SelfManagedCaseStatusType
 
 
-class UpdateResolverTypeRequestTypeDef(BaseValidatorModel):
+class UpdateResolverTypeRequest(BaseValidatorModel):
     caseId: str
     resolverType: ResolverTypeType
 
 
-class BatchGetMemberAccountDetailsResponseTypeDef(BaseValidatorModel):
-    items: List[GetMembershipAccountDetailItemTypeDef]
-    errors: List[GetMembershipAccountDetailErrorTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchGetMemberAccountDetailsResponse(BaseValidatorModel):
+    items: List[GetMembershipAccountDetailItem]
+    errors: List[GetMembershipAccountDetailError]
+    ResponseMetadata: ResponseMetadata
 
 
-class CancelMembershipResponseTypeDef(BaseValidatorModel):
+class CancelMembershipResponse(BaseValidatorModel):
     membershipId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CloseCaseResponseTypeDef(BaseValidatorModel):
+class CloseCaseResponse(BaseValidatorModel):
     caseStatus: CaseStatusType
     closedDate: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateCaseCommentResponseTypeDef(BaseValidatorModel):
+class CreateCaseCommentResponse(BaseValidatorModel):
     commentId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateCaseResponseTypeDef(BaseValidatorModel):
+class CreateCaseResponse(BaseValidatorModel):
     caseId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateMembershipResponseTypeDef(BaseValidatorModel):
+class CreateMembershipResponse(BaseValidatorModel):
     membershipId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetCaseAttachmentDownloadUrlResponseTypeDef(BaseValidatorModel):
+class GetCaseAttachmentDownloadUrlResponse(BaseValidatorModel):
     attachmentPresignedUrl: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetCaseAttachmentUploadUrlResponseTypeDef(BaseValidatorModel):
+class GetCaseAttachmentUploadUrlResponse(BaseValidatorModel):
     attachmentPresignedUrl: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListTagsForResourceOutputTypeDef(BaseValidatorModel):
+class ListTagsForResourceOutput(BaseValidatorModel):
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateCaseCommentResponseTypeDef(BaseValidatorModel):
+class UpdateCaseCommentResponse(BaseValidatorModel):
     commentId: str
     body: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateCaseStatusResponseTypeDef(BaseValidatorModel):
+class UpdateCaseStatusResponse(BaseValidatorModel):
     caseStatus: SelfManagedCaseStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateResolverTypeResponseTypeDef(BaseValidatorModel):
+class UpdateResolverTypeResponse(BaseValidatorModel):
     caseId: str
     caseStatus: CaseStatusType
     resolverType: ResolverTypeType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListCaseEditsResponseTypeDef(BaseValidatorModel):
-    items: List[CaseEditItemTypeDef]
+class ListCaseEditsResponse(BaseValidatorModel):
+    items: List[CaseEditItem]
     total: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class TimestampTypeDef(BaseValidatorModel):
+class Timestamp(BaseValidatorModel):
     pass
 
 
-class CreateCaseRequestTypeDef(BaseValidatorModel):
+class CreateCaseRequest(BaseValidatorModel):
     resolverType: ResolverTypeType
     title: str
     description: str
     engagementType: EngagementTypeType
-    reportedIncidentStartDate: TimestampTypeDef
+    reportedIncidentStartDate: Timestamp
     impactedAccounts: Sequence[str]
-    watchers: Sequence[WatcherTypeDef]
+    watchers: Sequence[Watcher]
     clientToken: Optional[str] = None
-    threatActorIpAddresses: Optional[Sequence[ThreatActorIpTypeDef]] = None
+    threatActorIpAddresses: Optional[Sequence[ThreatActorIp]] = None
     impactedServices: Optional[Sequence[str]] = None
-    impactedAwsRegions: Optional[Sequence[ImpactedAwsRegionTypeDef]] = None
+    impactedAwsRegions: Optional[Sequence[ImpactedAwsRegion]] = None
     tags: Optional[Mapping[str, str]] = None
 
 
-class GetCaseResponseTypeDef(BaseValidatorModel):
+class GetCaseResponse(BaseValidatorModel):
     title: str
     caseArn: str
     description: str
@@ -299,49 +299,49 @@ class GetCaseResponseTypeDef(BaseValidatorModel):
     engagementType: EngagementTypeType
     reportedIncidentStartDate: datetime
     actualIncidentStartDate: datetime
-    impactedAwsRegions: List[ImpactedAwsRegionTypeDef]
-    threatActorIpAddresses: List[ThreatActorIpTypeDef]
+    impactedAwsRegions: List[ImpactedAwsRegion]
+    threatActorIpAddresses: List[ThreatActorIp]
     pendingAction: PendingActionType
     impactedAccounts: List[str]
-    watchers: List[WatcherTypeDef]
+    watchers: List[Watcher]
     createdDate: datetime
     lastUpdatedDate: datetime
     closureCode: ClosureCodeType
     resolverType: ResolverTypeType
     impactedServices: List[str]
-    caseAttachments: List[CaseAttachmentAttributesTypeDef]
+    caseAttachments: List[CaseAttachmentAttributes]
     closedDate: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateCaseRequestTypeDef(BaseValidatorModel):
+class UpdateCaseRequest(BaseValidatorModel):
     caseId: str
     title: Optional[str] = None
     description: Optional[str] = None
-    reportedIncidentStartDate: Optional[TimestampTypeDef] = None
-    actualIncidentStartDate: Optional[TimestampTypeDef] = None
+    reportedIncidentStartDate: Optional[Timestamp] = None
+    actualIncidentStartDate: Optional[Timestamp] = None
     engagementType: Optional[EngagementTypeType] = None
-    watchersToAdd: Optional[Sequence[WatcherTypeDef]] = None
-    watchersToDelete: Optional[Sequence[WatcherTypeDef]] = None
-    threatActorIpAddressesToAdd: Optional[Sequence[ThreatActorIpTypeDef]] = None
-    threatActorIpAddressesToDelete: Optional[Sequence[ThreatActorIpTypeDef]] = None
+    watchersToAdd: Optional[Sequence[Watcher]] = None
+    watchersToDelete: Optional[Sequence[Watcher]] = None
+    threatActorIpAddressesToAdd: Optional[Sequence[ThreatActorIp]] = None
+    threatActorIpAddressesToDelete: Optional[Sequence[ThreatActorIp]] = None
     impactedServicesToAdd: Optional[Sequence[str]] = None
     impactedServicesToDelete: Optional[Sequence[str]] = None
-    impactedAwsRegionsToAdd: Optional[Sequence[ImpactedAwsRegionTypeDef]] = None
-    impactedAwsRegionsToDelete: Optional[Sequence[ImpactedAwsRegionTypeDef]] = None
+    impactedAwsRegionsToAdd: Optional[Sequence[ImpactedAwsRegion]] = None
+    impactedAwsRegionsToDelete: Optional[Sequence[ImpactedAwsRegion]] = None
     impactedAccountsToAdd: Optional[Sequence[str]] = None
     impactedAccountsToDelete: Optional[Sequence[str]] = None
 
 
-class CreateMembershipRequestTypeDef(BaseValidatorModel):
+class CreateMembershipRequest(BaseValidatorModel):
     membershipName: str
-    incidentResponseTeam: Sequence[IncidentResponderTypeDef]
+    incidentResponseTeam: Sequence[IncidentResponder]
     clientToken: Optional[str] = None
-    optInFeatures: Optional[Sequence[OptInFeatureTypeDef]] = None
+    optInFeatures: Optional[Sequence[OptInFeature]] = None
     tags: Optional[Mapping[str, str]] = None
 
 
-class GetMembershipResponseTypeDef(BaseValidatorModel):
+class GetMembershipResponse(BaseValidatorModel):
     membershipId: str
     accountId: str
     region: AwsRegionType
@@ -352,53 +352,53 @@ class GetMembershipResponseTypeDef(BaseValidatorModel):
     membershipDeactivationTimestamp: datetime
     customerType: CustomerTypeType
     numberOfAccountsCovered: int
-    incidentResponseTeam: List[IncidentResponderTypeDef]
-    optInFeatures: List[OptInFeatureTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    incidentResponseTeam: List[IncidentResponder]
+    optInFeatures: List[OptInFeature]
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateMembershipRequestTypeDef(BaseValidatorModel):
+class UpdateMembershipRequest(BaseValidatorModel):
     membershipId: str
     membershipName: Optional[str] = None
-    incidentResponseTeam: Optional[Sequence[IncidentResponderTypeDef]] = None
-    optInFeatures: Optional[Sequence[OptInFeatureTypeDef]] = None
+    incidentResponseTeam: Optional[Sequence[IncidentResponder]] = None
+    optInFeatures: Optional[Sequence[OptInFeature]] = None
 
 
-class ListCaseEditsRequestPaginateTypeDef(BaseValidatorModel):
+class ListCaseEditsRequestPaginate(BaseValidatorModel):
     caseId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListCasesRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListCasesRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListCommentsRequestPaginateTypeDef(BaseValidatorModel):
+class ListCommentsRequestPaginate(BaseValidatorModel):
     caseId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListMembershipsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListMembershipsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListCasesResponseTypeDef(BaseValidatorModel):
-    items: List[ListCasesItemTypeDef]
+class ListCasesResponse(BaseValidatorModel):
+    items: List[ListCasesItem]
     total: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListCommentsResponseTypeDef(BaseValidatorModel):
-    items: List[ListCommentsItemTypeDef]
+class ListCommentsResponse(BaseValidatorModel):
+    items: List[ListCommentsItem]
     total: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListMembershipsResponseTypeDef(BaseValidatorModel):
-    items: List[ListMembershipItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListMembershipsResponse(BaseValidatorModel):
+    items: List[ListMembershipItem]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 

@@ -12,38 +12,38 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.pinpoint_sms_voice_constants import *
 
-class CloudWatchLogsDestinationTypeDef(BaseValidatorModel):
+class CloudWatchLogsDestination(BaseValidatorModel):
     IamRoleArn: Optional[str] = None
     LogGroupArn: Optional[str] = None
 
 
-class CreateConfigurationSetRequestTypeDef(BaseValidatorModel):
+class CreateConfigurationSetRequest(BaseValidatorModel):
     ConfigurationSetName: Optional[str] = None
 
 
-class DeleteConfigurationSetEventDestinationRequestTypeDef(BaseValidatorModel):
+class DeleteConfigurationSetEventDestinationRequest(BaseValidatorModel):
     ConfigurationSetName: str
     EventDestinationName: str
 
 
-class DeleteConfigurationSetRequestTypeDef(BaseValidatorModel):
+class DeleteConfigurationSetRequest(BaseValidatorModel):
     ConfigurationSetName: str
 
 
-class KinesisFirehoseDestinationTypeDef(BaseValidatorModel):
+class KinesisFirehoseDestination(BaseValidatorModel):
     DeliveryStreamArn: Optional[str] = None
     IamRoleArn: Optional[str] = None
 
 
-class SnsDestinationTypeDef(BaseValidatorModel):
+class SnsDestination(BaseValidatorModel):
     TopicArn: Optional[str] = None
 
 
-class GetConfigurationSetEventDestinationsRequestTypeDef(BaseValidatorModel):
+class GetConfigurationSetEventDestinationsRequest(BaseValidatorModel):
     ConfigurationSetName: str
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -51,67 +51,67 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class EventDestinationDefinitionTypeDef(BaseValidatorModel):
-    CloudWatchLogsDestination: Optional[CloudWatchLogsDestinationTypeDef] = None
+class EventDestinationDefinition(BaseValidatorModel):
+    CloudWatchLogsDestination: Optional[CloudWatchLogsDestination] = None
     Enabled: Optional[bool] = None
-    KinesisFirehoseDestination: Optional[KinesisFirehoseDestinationTypeDef] = None
+    KinesisFirehoseDestination: Optional[KinesisFirehoseDestination] = None
     MatchingEventTypes: Optional[Sequence[EventTypeType]] = None
-    SnsDestination: Optional[SnsDestinationTypeDef] = None
+    SnsDestination: Optional[SnsDestination] = None
 
 
-class EventDestinationTypeDef(BaseValidatorModel):
-    CloudWatchLogsDestination: Optional[CloudWatchLogsDestinationTypeDef] = None
+class EventDestination(BaseValidatorModel):
+    CloudWatchLogsDestination: Optional[CloudWatchLogsDestination] = None
     Enabled: Optional[bool] = None
-    KinesisFirehoseDestination: Optional[KinesisFirehoseDestinationTypeDef] = None
+    KinesisFirehoseDestination: Optional[KinesisFirehoseDestination] = None
     MatchingEventTypes: Optional[List[EventTypeType]] = None
     Name: Optional[str] = None
-    SnsDestination: Optional[SnsDestinationTypeDef] = None
+    SnsDestination: Optional[SnsDestination] = None
 
 
-class SendVoiceMessageResponseTypeDef(BaseValidatorModel):
+class SendVoiceMessageResponse(BaseValidatorModel):
     MessageId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class PlainTextMessageTypeTypeDef(BaseValidatorModel):
+class PlainTextMessageType(BaseValidatorModel):
     pass
 
 
-class SSMLMessageTypeTypeDef(BaseValidatorModel):
+class SSMLMessageType(BaseValidatorModel):
     pass
 
 
-class CallInstructionsMessageTypeTypeDef(BaseValidatorModel):
+class CallInstructionsMessageType(BaseValidatorModel):
     pass
 
 
-class VoiceMessageContentTypeDef(BaseValidatorModel):
-    CallInstructionsMessage: Optional[CallInstructionsMessageTypeTypeDef] = None
-    PlainTextMessage: Optional[PlainTextMessageTypeTypeDef] = None
-    SSMLMessage: Optional[SSMLMessageTypeTypeDef] = None
+class VoiceMessageContent(BaseValidatorModel):
+    CallInstructionsMessage: Optional[CallInstructionsMessageType] = None
+    PlainTextMessage: Optional[PlainTextMessageType] = None
+    SSMLMessage: Optional[SSMLMessageType] = None
 
 
-class CreateConfigurationSetEventDestinationRequestTypeDef(BaseValidatorModel):
+class CreateConfigurationSetEventDestinationRequest(BaseValidatorModel):
     ConfigurationSetName: str
-    EventDestination: Optional[EventDestinationDefinitionTypeDef] = None
+    EventDestination: Optional[EventDestinationDefinition] = None
     EventDestinationName: Optional[str] = None
 
 
-class UpdateConfigurationSetEventDestinationRequestTypeDef(BaseValidatorModel):
+class UpdateConfigurationSetEventDestinationRequest(BaseValidatorModel):
     ConfigurationSetName: str
     EventDestinationName: str
-    EventDestination: Optional[EventDestinationDefinitionTypeDef] = None
+    EventDestination: Optional[EventDestinationDefinition] = None
 
 
-class GetConfigurationSetEventDestinationsResponseTypeDef(BaseValidatorModel):
-    EventDestinations: List[EventDestinationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetConfigurationSetEventDestinationsResponse(BaseValidatorModel):
+    EventDestinations: List[EventDestination]
+    ResponseMetadata: ResponseMetadata
 
 
-class SendVoiceMessageRequestTypeDef(BaseValidatorModel):
+class SendVoiceMessageRequest(BaseValidatorModel):
     CallerId: Optional[str] = None
     ConfigurationSetName: Optional[str] = None
-    Content: Optional[VoiceMessageContentTypeDef] = None
+    Content: Optional[VoiceMessageContent] = None
     DestinationPhoneNumber: Optional[str] = None
     OriginationPhoneNumber: Optional[str] = None
 

@@ -12,17 +12,17 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.cloudfront_keyvaluestore_constants import *
 
-class DeleteKeyRequestListItemTypeDef(BaseValidatorModel):
+class DeleteKeyRequestListItem(BaseValidatorModel):
     Key: str
 
 
-class DeleteKeyRequestTypeDef(BaseValidatorModel):
+class DeleteKeyRequest(BaseValidatorModel):
     KvsARN: str
     Key: str
     IfMatch: str
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -30,52 +30,52 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class DescribeKeyValueStoreRequestTypeDef(BaseValidatorModel):
+class DescribeKeyValueStoreRequest(BaseValidatorModel):
     KvsARN: str
 
 
-class GetKeyRequestTypeDef(BaseValidatorModel):
+class GetKeyRequest(BaseValidatorModel):
     KvsARN: str
     Key: str
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListKeysRequestTypeDef(BaseValidatorModel):
+class ListKeysRequest(BaseValidatorModel):
     KvsARN: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListKeysResponseListItemTypeDef(BaseValidatorModel):
+class ListKeysResponseListItem(BaseValidatorModel):
     Key: str
     Value: str
 
 
-class PutKeyRequestListItemTypeDef(BaseValidatorModel):
+class PutKeyRequestListItem(BaseValidatorModel):
     Key: str
     Value: str
 
 
-class PutKeyRequestTypeDef(BaseValidatorModel):
+class PutKeyRequest(BaseValidatorModel):
     Key: str
     Value: str
     KvsARN: str
     IfMatch: str
 
 
-class DeleteKeyResponseTypeDef(BaseValidatorModel):
+class DeleteKeyResponse(BaseValidatorModel):
     ItemCount: int
     TotalSizeInBytes: int
     ETag: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeKeyValueStoreResponseTypeDef(BaseValidatorModel):
+class DescribeKeyValueStoreResponse(BaseValidatorModel):
     ItemCount: int
     TotalSizeInBytes: int
     KvsARN: str
@@ -84,46 +84,46 @@ class DescribeKeyValueStoreResponseTypeDef(BaseValidatorModel):
     LastModified: datetime
     Status: str
     FailureReason: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetKeyResponseTypeDef(BaseValidatorModel):
+class GetKeyResponse(BaseValidatorModel):
     Key: str
     Value: str
     ItemCount: int
     TotalSizeInBytes: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class PutKeyResponseTypeDef(BaseValidatorModel):
+class PutKeyResponse(BaseValidatorModel):
     ItemCount: int
     TotalSizeInBytes: int
     ETag: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateKeysResponseTypeDef(BaseValidatorModel):
+class UpdateKeysResponse(BaseValidatorModel):
     ItemCount: int
     TotalSizeInBytes: int
     ETag: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListKeysRequestPaginateTypeDef(BaseValidatorModel):
+class ListKeysRequestPaginate(BaseValidatorModel):
     KvsARN: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListKeysResponseTypeDef(BaseValidatorModel):
-    Items: List[ListKeysResponseListItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListKeysResponse(BaseValidatorModel):
+    Items: List[ListKeysResponseListItem]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class UpdateKeysRequestTypeDef(BaseValidatorModel):
+class UpdateKeysRequest(BaseValidatorModel):
     KvsARN: str
     IfMatch: str
-    Puts: Optional[Sequence[PutKeyRequestListItemTypeDef]] = None
-    Deletes: Optional[Sequence[DeleteKeyRequestListItemTypeDef]] = None
+    Puts: Optional[Sequence[PutKeyRequestListItem]] = None
+    Deletes: Optional[Sequence[DeleteKeyRequestListItem]] = None
 
 

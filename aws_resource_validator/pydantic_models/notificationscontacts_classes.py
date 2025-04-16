@@ -12,18 +12,18 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.notificationscontacts_constants import *
 
-class ActivateEmailContactRequestTypeDef(BaseValidatorModel):
+class ActivateEmailContactRequest(BaseValidatorModel):
     arn: str
     code: str
 
 
-class CreateEmailContactRequestTypeDef(BaseValidatorModel):
+class CreateEmailContactRequest(BaseValidatorModel):
     name: str
     emailAddress: str
     tags: Optional[Mapping[str, str]] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -31,11 +31,11 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class DeleteEmailContactRequestTypeDef(BaseValidatorModel):
+class DeleteEmailContactRequest(BaseValidatorModel):
     arn: str
 
 
-class EmailContactTypeDef(BaseValidatorModel):
+class EmailContact(BaseValidatorModel):
     arn: str
     name: str
     address: str
@@ -44,61 +44,61 @@ class EmailContactTypeDef(BaseValidatorModel):
     updateTime: datetime
 
 
-class GetEmailContactRequestTypeDef(BaseValidatorModel):
+class GetEmailContactRequest(BaseValidatorModel):
     arn: str
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListEmailContactsRequestTypeDef(BaseValidatorModel):
+class ListEmailContactsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     arn: str
 
 
-class SendActivationCodeRequestTypeDef(BaseValidatorModel):
+class SendActivationCodeRequest(BaseValidatorModel):
     arn: str
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     arn: str
     tags: Mapping[str, str]
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     arn: str
     tagKeys: Sequence[str]
 
 
-class CreateEmailContactResponseTypeDef(BaseValidatorModel):
+class CreateEmailContactResponse(BaseValidatorModel):
     arn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
+class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetEmailContactResponseTypeDef(BaseValidatorModel):
-    emailContact: EmailContactTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetEmailContactResponse(BaseValidatorModel):
+    emailContact: EmailContact
+    ResponseMetadata: ResponseMetadata
 
 
-class ListEmailContactsResponseTypeDef(BaseValidatorModel):
-    emailContacts: List[EmailContactTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListEmailContactsResponse(BaseValidatorModel):
+    emailContacts: List[EmailContact]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListEmailContactsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListEmailContactsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 

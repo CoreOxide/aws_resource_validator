@@ -12,7 +12,7 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.redshift_data_constants import *
 
-class BatchExecuteStatementInputTypeDef(BaseValidatorModel):
+class BatchExecuteStatementInput(BaseValidatorModel):
     Sqls: Sequence[str]
     ClientToken: Optional[str] = None
     ClusterIdentifier: Optional[str] = None
@@ -27,7 +27,7 @@ class BatchExecuteStatementInputTypeDef(BaseValidatorModel):
     WorkgroupName: Optional[str] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -35,11 +35,11 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class CancelStatementRequestTypeDef(BaseValidatorModel):
+class CancelStatementRequest(BaseValidatorModel):
     Id: str
 
 
-class ColumnMetadataTypeDef(BaseValidatorModel):
+class ColumnMetadata(BaseValidatorModel):
     columnDefault: Optional[str] = None
     isCaseSensitive: Optional[bool] = None
     isCurrency: Optional[bool] = None
@@ -55,16 +55,16 @@ class ColumnMetadataTypeDef(BaseValidatorModel):
     typeName: Optional[str] = None
 
 
-class DescribeStatementRequestTypeDef(BaseValidatorModel):
+class DescribeStatementRequest(BaseValidatorModel):
     Id: str
 
 
-class SqlParameterTypeDef(BaseValidatorModel):
+class SqlParameter(BaseValidatorModel):
     name: str
     value: str
 
 
-class SubStatementDataTypeDef(BaseValidatorModel):
+class SubStatementData(BaseValidatorModel):
     Id: str
     CreatedAt: Optional[datetime] = None
     Duration: Optional[int] = None
@@ -78,13 +78,13 @@ class SubStatementDataTypeDef(BaseValidatorModel):
     UpdatedAt: Optional[datetime] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class DescribeTableRequestTypeDef(BaseValidatorModel):
+class DescribeTableRequest(BaseValidatorModel):
     Database: str
     ClusterIdentifier: Optional[str] = None
     ConnectedDatabase: Optional[str] = None
@@ -97,7 +97,7 @@ class DescribeTableRequestTypeDef(BaseValidatorModel):
     WorkgroupName: Optional[str] = None
 
 
-class FieldTypeDef(BaseValidatorModel):
+class Field(BaseValidatorModel):
     blobValue: Optional[bytes] = None
     booleanValue: Optional[bool] = None
     doubleValue: Optional[float] = None
@@ -106,21 +106,21 @@ class FieldTypeDef(BaseValidatorModel):
     stringValue: Optional[str] = None
 
 
-class GetStatementResultRequestTypeDef(BaseValidatorModel):
+class GetStatementResultRequest(BaseValidatorModel):
     Id: str
     NextToken: Optional[str] = None
 
 
-class GetStatementResultV2RequestTypeDef(BaseValidatorModel):
+class GetStatementResultV2Request(BaseValidatorModel):
     Id: str
     NextToken: Optional[str] = None
 
 
-class QueryRecordsTypeDef(BaseValidatorModel):
+class QueryRecords(BaseValidatorModel):
     CSVRecords: Optional[str] = None
 
 
-class ListDatabasesRequestTypeDef(BaseValidatorModel):
+class ListDatabasesRequest(BaseValidatorModel):
     Database: str
     ClusterIdentifier: Optional[str] = None
     DbUser: Optional[str] = None
@@ -130,7 +130,7 @@ class ListDatabasesRequestTypeDef(BaseValidatorModel):
     WorkgroupName: Optional[str] = None
 
 
-class ListSchemasRequestTypeDef(BaseValidatorModel):
+class ListSchemasRequest(BaseValidatorModel):
     Database: str
     ClusterIdentifier: Optional[str] = None
     ConnectedDatabase: Optional[str] = None
@@ -142,7 +142,7 @@ class ListSchemasRequestTypeDef(BaseValidatorModel):
     WorkgroupName: Optional[str] = None
 
 
-class ListStatementsRequestTypeDef(BaseValidatorModel):
+class ListStatementsRequest(BaseValidatorModel):
     ClusterIdentifier: Optional[str] = None
     Database: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -153,7 +153,7 @@ class ListStatementsRequestTypeDef(BaseValidatorModel):
     WorkgroupName: Optional[str] = None
 
 
-class ListTablesRequestTypeDef(BaseValidatorModel):
+class ListTablesRequest(BaseValidatorModel):
     Database: str
     ClusterIdentifier: Optional[str] = None
     ConnectedDatabase: Optional[str] = None
@@ -166,7 +166,7 @@ class ListTablesRequestTypeDef(BaseValidatorModel):
     WorkgroupName: Optional[str] = None
 
 
-class BatchExecuteStatementOutputTypeDef(BaseValidatorModel):
+class BatchExecuteStatementOutput(BaseValidatorModel):
     ClusterIdentifier: str
     CreatedAt: datetime
     Database: str
@@ -176,15 +176,15 @@ class BatchExecuteStatementOutputTypeDef(BaseValidatorModel):
     SecretArn: str
     SessionId: str
     WorkgroupName: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CancelStatementResponseTypeDef(BaseValidatorModel):
+class CancelStatementResponse(BaseValidatorModel):
     Status: bool
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ExecuteStatementOutputTypeDef(BaseValidatorModel):
+class ExecuteStatementOutput(BaseValidatorModel):
     ClusterIdentifier: str
     CreatedAt: datetime
     Database: str
@@ -194,35 +194,35 @@ class ExecuteStatementOutputTypeDef(BaseValidatorModel):
     SecretArn: str
     SessionId: str
     WorkgroupName: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListDatabasesResponseTypeDef(BaseValidatorModel):
+class ListDatabasesResponse(BaseValidatorModel):
     Databases: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListSchemasResponseTypeDef(BaseValidatorModel):
+class ListSchemasResponse(BaseValidatorModel):
     Schemas: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeTableResponseTypeDef(BaseValidatorModel):
-    ColumnList: List[ColumnMetadataTypeDef]
+class DescribeTableResponse(BaseValidatorModel):
+    ColumnList: List[ColumnMetadata]
     TableName: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ExecuteStatementInputTypeDef(BaseValidatorModel):
+class ExecuteStatementInput(BaseValidatorModel):
     Sql: str
     ClientToken: Optional[str] = None
     ClusterIdentifier: Optional[str] = None
     Database: Optional[str] = None
     DbUser: Optional[str] = None
-    Parameters: Optional[Sequence[SqlParameterTypeDef]] = None
+    Parameters: Optional[Sequence[SqlParameter]] = None
     ResultFormat: Optional[ResultFormatStringType] = None
     SecretArn: Optional[str] = None
     SessionId: Optional[str] = None
@@ -232,11 +232,11 @@ class ExecuteStatementInputTypeDef(BaseValidatorModel):
     WorkgroupName: Optional[str] = None
 
 
-class StatementDataTypeDef(BaseValidatorModel):
+class StatementData(BaseValidatorModel):
     Id: str
     CreatedAt: Optional[datetime] = None
     IsBatchStatement: Optional[bool] = None
-    QueryParameters: Optional[List[SqlParameterTypeDef]] = None
+    QueryParameters: Optional[List[SqlParameter]] = None
     QueryString: Optional[str] = None
     QueryStrings: Optional[List[str]] = None
     ResultFormat: Optional[ResultFormatStringType] = None
@@ -247,7 +247,7 @@ class StatementDataTypeDef(BaseValidatorModel):
     UpdatedAt: Optional[datetime] = None
 
 
-class DescribeStatementResponseTypeDef(BaseValidatorModel):
+class DescribeStatementResponse(BaseValidatorModel):
     ClusterIdentifier: str
     CreatedAt: datetime
     Database: str
@@ -256,7 +256,7 @@ class DescribeStatementResponseTypeDef(BaseValidatorModel):
     Error: str
     HasResultSet: bool
     Id: str
-    QueryParameters: List[SqlParameterTypeDef]
+    QueryParameters: List[SqlParameter]
     QueryString: str
     RedshiftPid: int
     RedshiftQueryId: int
@@ -266,13 +266,13 @@ class DescribeStatementResponseTypeDef(BaseValidatorModel):
     SecretArn: str
     SessionId: str
     Status: StatusStringType
-    SubStatements: List[SubStatementDataTypeDef]
+    SubStatements: List[SubStatementData]
     UpdatedAt: datetime
     WorkgroupName: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeTableRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeTableRequestPaginate(BaseValidatorModel):
     Database: str
     ClusterIdentifier: Optional[str] = None
     ConnectedDatabase: Optional[str] = None
@@ -281,29 +281,29 @@ class DescribeTableRequestPaginateTypeDef(BaseValidatorModel):
     SecretArn: Optional[str] = None
     Table: Optional[str] = None
     WorkgroupName: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class GetStatementResultRequestPaginateTypeDef(BaseValidatorModel):
+class GetStatementResultRequestPaginate(BaseValidatorModel):
     Id: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class GetStatementResultV2RequestPaginateTypeDef(BaseValidatorModel):
+class GetStatementResultV2RequestPaginate(BaseValidatorModel):
     Id: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListDatabasesRequestPaginateTypeDef(BaseValidatorModel):
+class ListDatabasesRequestPaginate(BaseValidatorModel):
     Database: str
     ClusterIdentifier: Optional[str] = None
     DbUser: Optional[str] = None
     SecretArn: Optional[str] = None
     WorkgroupName: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListSchemasRequestPaginateTypeDef(BaseValidatorModel):
+class ListSchemasRequestPaginate(BaseValidatorModel):
     Database: str
     ClusterIdentifier: Optional[str] = None
     ConnectedDatabase: Optional[str] = None
@@ -311,20 +311,20 @@ class ListSchemasRequestPaginateTypeDef(BaseValidatorModel):
     SchemaPattern: Optional[str] = None
     SecretArn: Optional[str] = None
     WorkgroupName: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListStatementsRequestPaginateTypeDef(BaseValidatorModel):
+class ListStatementsRequestPaginate(BaseValidatorModel):
     ClusterIdentifier: Optional[str] = None
     Database: Optional[str] = None
     RoleLevel: Optional[bool] = None
     StatementName: Optional[str] = None
     Status: Optional[StatusStringType] = None
     WorkgroupName: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListTablesRequestPaginateTypeDef(BaseValidatorModel):
+class ListTablesRequestPaginate(BaseValidatorModel):
     Database: str
     ClusterIdentifier: Optional[str] = None
     ConnectedDatabase: Optional[str] = None
@@ -333,39 +333,39 @@ class ListTablesRequestPaginateTypeDef(BaseValidatorModel):
     SecretArn: Optional[str] = None
     TablePattern: Optional[str] = None
     WorkgroupName: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class GetStatementResultResponseTypeDef(BaseValidatorModel):
-    ColumnMetadata: List[ColumnMetadataTypeDef]
-    Records: List[List[FieldTypeDef]]
+class GetStatementResultResponse(BaseValidatorModel):
+    ColumnMetadata: List[ColumnMetadata]
+    Records: List[List[Field]]
     TotalNumRows: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class GetStatementResultV2ResponseTypeDef(BaseValidatorModel):
-    ColumnMetadata: List[ColumnMetadataTypeDef]
-    Records: List[QueryRecordsTypeDef]
+class GetStatementResultV2Response(BaseValidatorModel):
+    ColumnMetadata: List[ColumnMetadata]
+    Records: List[QueryRecords]
     ResultFormat: ResultFormatStringType
     TotalNumRows: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class TableMemberTypeDef(BaseValidatorModel):
+class TableMember(BaseValidatorModel):
     pass
 
 
-class ListTablesResponseTypeDef(BaseValidatorModel):
-    Tables: List[TableMemberTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListTablesResponse(BaseValidatorModel):
+    Tables: List[TableMember]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListStatementsResponseTypeDef(BaseValidatorModel):
-    Statements: List[StatementDataTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListStatementsResponse(BaseValidatorModel):
+    Statements: List[StatementData]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 

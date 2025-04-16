@@ -6,39 +6,39 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CreateHomeRegionControlRequestTypeDef
+# CreateHomeRegionControlRequest
 
 ### HomeRegion
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Target
-- **Type**: <class 'aws_resource_validator.pydantic_models.migrationhub_config_classes.TargetTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.migrationhub_config_classes.Target'>
 - **Required**: Yes
 
 ### DryRun
 - **Type**: typing.Optional[bool]
 
 
-# CreateHomeRegionControlResultTypeDef
+# CreateHomeRegionControlResult
 
 ### HomeRegionControl
-- **Type**: <class 'aws_resource_validator.pydantic_models.migrationhub_config_classes.HomeRegionControlTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.migrationhub_config_classes.HomeRegionControl'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.migrationhub_config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.migrationhub_config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteHomeRegionControlRequestTypeDef
+# DeleteHomeRegionControlRequest
 
 ### ControlId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeHomeRegionControlsRequestTypeDef
+# DescribeHomeRegionControlsRequest
 
 ### ControlId
 - **Type**: typing.Optional[str]
@@ -47,7 +47,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Target
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.migrationhub_config_classes.TargetTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -56,32 +56,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeHomeRegionControlsResultTypeDef
+# DescribeHomeRegionControlsResult
 
 ### HomeRegionControls
-- **Type**: typing.List[aws_resource_validator.pydantic_models.migrationhub_config_classes.HomeRegionControlTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.migrationhub_config_classes.HomeRegionControl]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.migrationhub_config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.migrationhub_config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# GetHomeRegionResultTypeDef
+# GetHomeRegionResult
 
 ### HomeRegion
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.migrationhub_config_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.migrationhub_config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# HomeRegionControlTypeDef
+# HomeRegionControl
 
 ### ControlId
 - **Type**: typing.Optional[str]
@@ -90,13 +90,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Target
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.migrationhub_config_classes.TargetTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### RequestedTime
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -118,7 +118,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TargetTypeDef
+# Target
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 

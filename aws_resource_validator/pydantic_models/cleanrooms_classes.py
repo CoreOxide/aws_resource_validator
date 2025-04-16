@@ -12,61 +12,61 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.cleanrooms_constants import *
 
-class AggregateColumnOutputTypeDef(BaseValidatorModel):
+class AggregateColumnOutput(BaseValidatorModel):
     columnNames: List[str]
     function: AggregateFunctionNameType
 
 
-class AggregateColumnTypeDef(BaseValidatorModel):
+class AggregateColumn(BaseValidatorModel):
     columnNames: Sequence[str]
     function: AggregateFunctionNameType
 
 
-class AnalysisRuleListOutputTypeDef(BaseValidatorModel):
+class AnalysisRuleListOutput(BaseValidatorModel):
     joinColumns: List[str]
     listColumns: List[str]
     allowedJoinOperators: Optional[List[JoinOperatorType]] = None
     additionalAnalyses: Optional[AdditionalAnalysesType] = None
 
 
-class AnalysisRuleListTypeDef(BaseValidatorModel):
+class AnalysisRuleList(BaseValidatorModel):
     joinColumns: Sequence[str]
     listColumns: Sequence[str]
     allowedJoinOperators: Optional[Sequence[JoinOperatorType]] = None
     additionalAnalyses: Optional[AdditionalAnalysesType] = None
 
 
-class AnalysisSchemaTypeDef(BaseValidatorModel):
+class AnalysisSchema(BaseValidatorModel):
     referencedTables: Optional[List[str]] = None
 
 
-class AnalysisSourceTypeDef(BaseValidatorModel):
+class AnalysisSource(BaseValidatorModel):
     text: Optional[str] = None
 
 
-class AnalysisTemplateValidationStatusReasonTypeDef(BaseValidatorModel):
+class AnalysisTemplateValidationStatusReason(BaseValidatorModel):
     message: str
 
 
-class AthenaTableReferenceTypeDef(BaseValidatorModel):
+class AthenaTableReference(BaseValidatorModel):
     workGroup: str
     databaseName: str
     tableName: str
     outputLocation: Optional[str] = None
 
 
-class BatchGetCollaborationAnalysisTemplateErrorTypeDef(BaseValidatorModel):
+class BatchGetCollaborationAnalysisTemplateError(BaseValidatorModel):
     arn: str
     code: str
     message: str
 
 
-class BatchGetCollaborationAnalysisTemplateInputTypeDef(BaseValidatorModel):
+class BatchGetCollaborationAnalysisTemplateInput(BaseValidatorModel):
     collaborationIdentifier: str
     analysisTemplateArns: Sequence[str]
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -74,81 +74,81 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class BatchGetSchemaErrorTypeDef(BaseValidatorModel):
+class BatchGetSchemaError(BaseValidatorModel):
     name: str
     code: str
     message: str
 
 
-class BatchGetSchemaInputTypeDef(BaseValidatorModel):
+class BatchGetSchemaInput(BaseValidatorModel):
     collaborationIdentifier: str
     names: Sequence[str]
 
 
-class BilledResourceUtilizationTypeDef(BaseValidatorModel):
+class BilledResourceUtilization(BaseValidatorModel):
     units: float
 
 
-class IdNamespaceAssociationInputReferenceConfigTypeDef(BaseValidatorModel):
+class IdNamespaceAssociationInputReferenceConfig(BaseValidatorModel):
     inputReferenceArn: str
     manageResourcePolicies: bool
 
 
-class IdNamespaceAssociationInputReferencePropertiesSummaryTypeDef(BaseValidatorModel):
+class IdNamespaceAssociationInputReferencePropertiesSummary(BaseValidatorModel):
     idNamespaceType: IdNamespaceTypeType
 
 
-class IdMappingConfigTypeDef(BaseValidatorModel):
+class IdMappingConfig(BaseValidatorModel):
     allowUseAsDimensionColumn: bool
 
 
-class IdNamespaceAssociationInputReferencePropertiesTypeDef(BaseValidatorModel):
+class IdNamespaceAssociationInputReferenceProperties(BaseValidatorModel):
     idNamespaceType: IdNamespaceTypeType
     idMappingWorkflowsSupported: List[Dict[str, Any]]
 
 
-class DataEncryptionMetadataTypeDef(BaseValidatorModel):
+class DataEncryptionMetadata(BaseValidatorModel):
     allowCleartext: bool
     allowDuplicates: bool
     allowJoinsOnColumnsWithDifferentNames: bool
     preserveNulls: bool
 
 
-class DirectAnalysisConfigurationDetailsTypeDef(BaseValidatorModel):
+class DirectAnalysisConfigurationDetails(BaseValidatorModel):
     receiverAccountIds: Optional[List[str]] = None
 
 
-class ConfiguredTableAssociationAnalysisRuleAggregationOutputTypeDef(BaseValidatorModel):
+class ConfiguredTableAssociationAnalysisRuleAggregationOutput(BaseValidatorModel):
     allowedResultReceivers: Optional[List[str]] = None
     allowedAdditionalAnalyses: Optional[List[str]] = None
 
 
-class ConfiguredTableAssociationAnalysisRuleAggregationTypeDef(BaseValidatorModel):
+class ConfiguredTableAssociationAnalysisRuleAggregation(BaseValidatorModel):
     allowedResultReceivers: Optional[Sequence[str]] = None
     allowedAdditionalAnalyses: Optional[Sequence[str]] = None
 
 
-class ConfiguredTableAssociationAnalysisRuleCustomOutputTypeDef(BaseValidatorModel):
+class ConfiguredTableAssociationAnalysisRuleCustomOutput(BaseValidatorModel):
     allowedResultReceivers: Optional[List[str]] = None
     allowedAdditionalAnalyses: Optional[List[str]] = None
 
 
-class ConfiguredTableAssociationAnalysisRuleCustomTypeDef(BaseValidatorModel):
+class ConfiguredTableAssociationAnalysisRuleCustom(BaseValidatorModel):
     allowedResultReceivers: Optional[Sequence[str]] = None
     allowedAdditionalAnalyses: Optional[Sequence[str]] = None
 
 
-class ConfiguredTableAssociationAnalysisRuleListOutputTypeDef(BaseValidatorModel):
+class ConfiguredTableAssociationAnalysisRuleListOutput(BaseValidatorModel):
     allowedResultReceivers: Optional[List[str]] = None
     allowedAdditionalAnalyses: Optional[List[str]] = None
 
 
-class ConfiguredTableAssociationAnalysisRuleListTypeDef(BaseValidatorModel):
+class ConfiguredTableAssociationAnalysisRuleList(BaseValidatorModel):
     allowedResultReceivers: Optional[Sequence[str]] = None
     allowedAdditionalAnalyses: Optional[Sequence[str]] = None
 
 
-class CreateConfiguredAudienceModelAssociationInputTypeDef(BaseValidatorModel):
+class CreateConfiguredAudienceModelAssociationInput(BaseValidatorModel):
     membershipIdentifier: str
     configuredAudienceModelArn: str
     configuredAudienceModelAssociationName: str
@@ -157,7 +157,7 @@ class CreateConfiguredAudienceModelAssociationInputTypeDef(BaseValidatorModel):
     description: Optional[str] = None
 
 
-class CreateConfiguredTableAssociationInputTypeDef(BaseValidatorModel):
+class CreateConfiguredTableAssociationInput(BaseValidatorModel):
     name: str
     membershipIdentifier: str
     configuredTableIdentifier: str
@@ -166,74 +166,74 @@ class CreateConfiguredTableAssociationInputTypeDef(BaseValidatorModel):
     tags: Optional[Mapping[str, str]] = None
 
 
-class IdMappingTableInputReferenceConfigTypeDef(BaseValidatorModel):
+class IdMappingTableInputReferenceConfig(BaseValidatorModel):
     inputReferenceArn: str
     manageResourcePolicies: bool
 
 
-class DeleteAnalysisTemplateInputTypeDef(BaseValidatorModel):
+class DeleteAnalysisTemplateInput(BaseValidatorModel):
     membershipIdentifier: str
     analysisTemplateIdentifier: str
 
 
-class DeleteCollaborationInputTypeDef(BaseValidatorModel):
+class DeleteCollaborationInput(BaseValidatorModel):
     collaborationIdentifier: str
 
 
-class DeleteConfiguredAudienceModelAssociationInputTypeDef(BaseValidatorModel):
+class DeleteConfiguredAudienceModelAssociationInput(BaseValidatorModel):
     configuredAudienceModelAssociationIdentifier: str
     membershipIdentifier: str
 
 
-class DeleteConfiguredTableAnalysisRuleInputTypeDef(BaseValidatorModel):
+class DeleteConfiguredTableAnalysisRuleInput(BaseValidatorModel):
     configuredTableIdentifier: str
     analysisRuleType: ConfiguredTableAnalysisRuleTypeType
 
 
-class DeleteConfiguredTableAssociationAnalysisRuleInputTypeDef(BaseValidatorModel):
+class DeleteConfiguredTableAssociationAnalysisRuleInput(BaseValidatorModel):
     membershipIdentifier: str
     configuredTableAssociationIdentifier: str
     analysisRuleType: ConfiguredTableAssociationAnalysisRuleTypeType
 
 
-class DeleteConfiguredTableAssociationInputTypeDef(BaseValidatorModel):
+class DeleteConfiguredTableAssociationInput(BaseValidatorModel):
     configuredTableAssociationIdentifier: str
     membershipIdentifier: str
 
 
-class DeleteConfiguredTableInputTypeDef(BaseValidatorModel):
+class DeleteConfiguredTableInput(BaseValidatorModel):
     configuredTableIdentifier: str
 
 
-class DeleteIdMappingTableInputTypeDef(BaseValidatorModel):
+class DeleteIdMappingTableInput(BaseValidatorModel):
     idMappingTableIdentifier: str
     membershipIdentifier: str
 
 
-class DeleteIdNamespaceAssociationInputTypeDef(BaseValidatorModel):
+class DeleteIdNamespaceAssociationInput(BaseValidatorModel):
     idNamespaceAssociationIdentifier: str
     membershipIdentifier: str
 
 
-class DeleteMemberInputTypeDef(BaseValidatorModel):
+class DeleteMemberInput(BaseValidatorModel):
     collaborationIdentifier: str
     accountId: str
 
 
-class DeleteMembershipInputTypeDef(BaseValidatorModel):
+class DeleteMembershipInput(BaseValidatorModel):
     membershipIdentifier: str
 
 
-class DeletePrivacyBudgetTemplateInputTypeDef(BaseValidatorModel):
+class DeletePrivacyBudgetTemplateInput(BaseValidatorModel):
     membershipIdentifier: str
     privacyBudgetTemplateIdentifier: str
 
 
-class DifferentialPrivacyColumnTypeDef(BaseValidatorModel):
+class DifferentialPrivacyColumn(BaseValidatorModel):
     name: str
 
 
-class DifferentialPrivacySensitivityParametersTypeDef(BaseValidatorModel):
+class DifferentialPrivacySensitivityParameters(BaseValidatorModel):
     aggregationType: DifferentialPrivacyAggregationTypeType
     aggregationExpression: str
     userContributionLimit: int
@@ -241,1393 +241,1393 @@ class DifferentialPrivacySensitivityParametersTypeDef(BaseValidatorModel):
     maxColumnValue: Optional[float] = None
 
 
-class DifferentialPrivacyPreviewParametersInputTypeDef(BaseValidatorModel):
+class DifferentialPrivacyPreviewParametersInput(BaseValidatorModel):
     epsilon: int
     usersNoisePerQuery: int
 
 
-class DifferentialPrivacyTemplateParametersInputTypeDef(BaseValidatorModel):
+class DifferentialPrivacyTemplateParametersInput(BaseValidatorModel):
     epsilon: int
     usersNoisePerQuery: int
 
 
-class DifferentialPrivacyTemplateParametersOutputTypeDef(BaseValidatorModel):
+class DifferentialPrivacyTemplateParametersOutput(BaseValidatorModel):
     epsilon: int
     usersNoisePerQuery: int
 
 
-class DifferentialPrivacyTemplateUpdateParametersTypeDef(BaseValidatorModel):
+class DifferentialPrivacyTemplateUpdateParameters(BaseValidatorModel):
     epsilon: Optional[int] = None
     usersNoisePerQuery: Optional[int] = None
 
 
-class GetAnalysisTemplateInputTypeDef(BaseValidatorModel):
+class GetAnalysisTemplateInput(BaseValidatorModel):
     membershipIdentifier: str
     analysisTemplateIdentifier: str
 
 
-class GetCollaborationAnalysisTemplateInputTypeDef(BaseValidatorModel):
+class GetCollaborationAnalysisTemplateInput(BaseValidatorModel):
     collaborationIdentifier: str
     analysisTemplateArn: str
 
 
-class GetCollaborationConfiguredAudienceModelAssociationInputTypeDef(BaseValidatorModel):
+class GetCollaborationConfiguredAudienceModelAssociationInput(BaseValidatorModel):
     collaborationIdentifier: str
     configuredAudienceModelAssociationIdentifier: str
 
 
-class GetCollaborationIdNamespaceAssociationInputTypeDef(BaseValidatorModel):
+class GetCollaborationIdNamespaceAssociationInput(BaseValidatorModel):
     collaborationIdentifier: str
     idNamespaceAssociationIdentifier: str
 
 
-class GetCollaborationInputTypeDef(BaseValidatorModel):
+class GetCollaborationInput(BaseValidatorModel):
     collaborationIdentifier: str
 
 
-class GetCollaborationPrivacyBudgetTemplateInputTypeDef(BaseValidatorModel):
+class GetCollaborationPrivacyBudgetTemplateInput(BaseValidatorModel):
     collaborationIdentifier: str
     privacyBudgetTemplateIdentifier: str
 
 
-class GetConfiguredAudienceModelAssociationInputTypeDef(BaseValidatorModel):
+class GetConfiguredAudienceModelAssociationInput(BaseValidatorModel):
     configuredAudienceModelAssociationIdentifier: str
     membershipIdentifier: str
 
 
-class GetConfiguredTableAnalysisRuleInputTypeDef(BaseValidatorModel):
+class GetConfiguredTableAnalysisRuleInput(BaseValidatorModel):
     configuredTableIdentifier: str
     analysisRuleType: ConfiguredTableAnalysisRuleTypeType
 
 
-class GetConfiguredTableAssociationAnalysisRuleInputTypeDef(BaseValidatorModel):
+class GetConfiguredTableAssociationAnalysisRuleInput(BaseValidatorModel):
     membershipIdentifier: str
     configuredTableAssociationIdentifier: str
     analysisRuleType: ConfiguredTableAssociationAnalysisRuleTypeType
 
 
-class GetConfiguredTableAssociationInputTypeDef(BaseValidatorModel):
+class GetConfiguredTableAssociationInput(BaseValidatorModel):
     configuredTableAssociationIdentifier: str
     membershipIdentifier: str
 
 
-class GetConfiguredTableInputTypeDef(BaseValidatorModel):
+class GetConfiguredTableInput(BaseValidatorModel):
     configuredTableIdentifier: str
 
 
-class GetIdMappingTableInputTypeDef(BaseValidatorModel):
+class GetIdMappingTableInput(BaseValidatorModel):
     idMappingTableIdentifier: str
     membershipIdentifier: str
 
 
-class GetIdNamespaceAssociationInputTypeDef(BaseValidatorModel):
+class GetIdNamespaceAssociationInput(BaseValidatorModel):
     idNamespaceAssociationIdentifier: str
     membershipIdentifier: str
 
 
-class GetMembershipInputTypeDef(BaseValidatorModel):
+class GetMembershipInput(BaseValidatorModel):
     membershipIdentifier: str
 
 
-class GetPrivacyBudgetTemplateInputTypeDef(BaseValidatorModel):
+class GetPrivacyBudgetTemplateInput(BaseValidatorModel):
     membershipIdentifier: str
     privacyBudgetTemplateIdentifier: str
 
 
-class GetProtectedQueryInputTypeDef(BaseValidatorModel):
+class GetProtectedQueryInput(BaseValidatorModel):
     membershipIdentifier: str
     protectedQueryIdentifier: str
 
 
-class GetSchemaInputTypeDef(BaseValidatorModel):
+class GetSchemaInput(BaseValidatorModel):
     collaborationIdentifier: str
     name: str
 
 
-class GlueTableReferenceTypeDef(BaseValidatorModel):
+class GlueTableReference(BaseValidatorModel):
     tableName: str
     databaseName: str
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListAnalysisTemplatesInputTypeDef(BaseValidatorModel):
+class ListAnalysisTemplatesInput(BaseValidatorModel):
     membershipIdentifier: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListCollaborationAnalysisTemplatesInputTypeDef(BaseValidatorModel):
+class ListCollaborationAnalysisTemplatesInput(BaseValidatorModel):
     collaborationIdentifier: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListCollaborationConfiguredAudienceModelAssociationsInputTypeDef(BaseValidatorModel):
+class ListCollaborationConfiguredAudienceModelAssociationsInput(BaseValidatorModel):
     collaborationIdentifier: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListCollaborationIdNamespaceAssociationsInputTypeDef(BaseValidatorModel):
+class ListCollaborationIdNamespaceAssociationsInput(BaseValidatorModel):
     collaborationIdentifier: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListCollaborationPrivacyBudgetTemplatesInputTypeDef(BaseValidatorModel):
+class ListCollaborationPrivacyBudgetTemplatesInput(BaseValidatorModel):
     collaborationIdentifier: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListCollaborationPrivacyBudgetsInputTypeDef(BaseValidatorModel):
+class ListCollaborationPrivacyBudgetsInput(BaseValidatorModel):
     collaborationIdentifier: str
     privacyBudgetType: Literal["DIFFERENTIAL_PRIVACY"]
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListCollaborationsInputTypeDef(BaseValidatorModel):
+class ListCollaborationsInput(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     memberStatus: Optional[FilterableMemberStatusType] = None
 
 
-class ListConfiguredAudienceModelAssociationsInputTypeDef(BaseValidatorModel):
+class ListConfiguredAudienceModelAssociationsInput(BaseValidatorModel):
     membershipIdentifier: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListConfiguredTableAssociationsInputTypeDef(BaseValidatorModel):
+class ListConfiguredTableAssociationsInput(BaseValidatorModel):
     membershipIdentifier: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListConfiguredTablesInputTypeDef(BaseValidatorModel):
+class ListConfiguredTablesInput(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListIdMappingTablesInputTypeDef(BaseValidatorModel):
+class ListIdMappingTablesInput(BaseValidatorModel):
     membershipIdentifier: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListIdNamespaceAssociationsInputTypeDef(BaseValidatorModel):
+class ListIdNamespaceAssociationsInput(BaseValidatorModel):
     membershipIdentifier: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListMembersInputTypeDef(BaseValidatorModel):
+class ListMembersInput(BaseValidatorModel):
     collaborationIdentifier: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListMembershipsInputTypeDef(BaseValidatorModel):
+class ListMembershipsInput(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     status: Optional[MembershipStatusType] = None
 
 
-class ListPrivacyBudgetTemplatesInputTypeDef(BaseValidatorModel):
+class ListPrivacyBudgetTemplatesInput(BaseValidatorModel):
     membershipIdentifier: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListPrivacyBudgetsInputTypeDef(BaseValidatorModel):
+class ListPrivacyBudgetsInput(BaseValidatorModel):
     membershipIdentifier: str
     privacyBudgetType: Literal["DIFFERENTIAL_PRIVACY"]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListProtectedQueriesInputTypeDef(BaseValidatorModel):
+class ListProtectedQueriesInput(BaseValidatorModel):
     membershipIdentifier: str
     status: Optional[ProtectedQueryStatusType] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListSchemasInputTypeDef(BaseValidatorModel):
+class ListSchemasInput(BaseValidatorModel):
     collaborationIdentifier: str
     schemaType: Optional[SchemaTypeType] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListTagsForResourceInputTypeDef(BaseValidatorModel):
+class ListTagsForResourceInput(BaseValidatorModel):
     resourceArn: str
 
 
-class MLMemberAbilitiesOutputTypeDef(BaseValidatorModel):
+class MLMemberAbilitiesOutput(BaseValidatorModel):
     customMLMemberAbilities: List[CustomMLMemberAbilityType]
 
 
-class MLMemberAbilitiesTypeDef(BaseValidatorModel):
+class MLMemberAbilities(BaseValidatorModel):
     customMLMemberAbilities: Sequence[CustomMLMemberAbilityType]
 
 
-class ModelInferencePaymentConfigTypeDef(BaseValidatorModel):
+class ModelInferencePaymentConfig(BaseValidatorModel):
     isResponsible: bool
 
 
-class ModelTrainingPaymentConfigTypeDef(BaseValidatorModel):
+class ModelTrainingPaymentConfig(BaseValidatorModel):
     isResponsible: bool
 
 
-class MembershipModelInferencePaymentConfigTypeDef(BaseValidatorModel):
+class MembershipModelInferencePaymentConfig(BaseValidatorModel):
     isResponsible: bool
 
 
-class MembershipModelTrainingPaymentConfigTypeDef(BaseValidatorModel):
+class MembershipModelTrainingPaymentConfig(BaseValidatorModel):
     isResponsible: bool
 
 
-class MembershipQueryComputePaymentConfigTypeDef(BaseValidatorModel):
+class MembershipQueryComputePaymentConfig(BaseValidatorModel):
     isResponsible: bool
 
 
-class ProtectedQueryS3OutputConfigurationTypeDef(BaseValidatorModel):
+class ProtectedQueryS3OutputConfiguration(BaseValidatorModel):
     resultFormat: ResultFormatType
     bucket: str
     keyPrefix: Optional[str] = None
     singleFileOutput: Optional[bool] = None
 
 
-class QueryComputePaymentConfigTypeDef(BaseValidatorModel):
+class QueryComputePaymentConfig(BaseValidatorModel):
     isResponsible: bool
 
 
-class PopulateIdMappingTableInputTypeDef(BaseValidatorModel):
+class PopulateIdMappingTableInput(BaseValidatorModel):
     idMappingTableIdentifier: str
     membershipIdentifier: str
 
 
-class ProtectedQueryErrorTypeDef(BaseValidatorModel):
+class ProtectedQueryError(BaseValidatorModel):
     message: str
     code: str
 
 
-class ProtectedQueryMemberOutputConfigurationTypeDef(BaseValidatorModel):
+class ProtectedQueryMemberOutputConfiguration(BaseValidatorModel):
     accountId: str
 
 
-class ProtectedQueryS3OutputTypeDef(BaseValidatorModel):
+class ProtectedQueryS3Output(BaseValidatorModel):
     location: str
 
 
-class ProtectedQuerySingleMemberOutputTypeDef(BaseValidatorModel):
+class ProtectedQuerySingleMemberOutput(BaseValidatorModel):
     accountId: str
 
 
-class ProtectedQuerySQLParametersOutputTypeDef(BaseValidatorModel):
+class ProtectedQuerySQLParametersOutput(BaseValidatorModel):
     queryString: Optional[str] = None
     analysisTemplateArn: Optional[str] = None
     parameters: Optional[Dict[str, str]] = None
 
 
-class ProtectedQuerySQLParametersTypeDef(BaseValidatorModel):
+class ProtectedQuerySQLParameters(BaseValidatorModel):
     queryString: Optional[str] = None
     analysisTemplateArn: Optional[str] = None
     parameters: Optional[Mapping[str, str]] = None
 
 
-class QueryConstraintRequireOverlapTypeDef(BaseValidatorModel):
+class QueryConstraintRequireOverlap(BaseValidatorModel):
     columns: Optional[List[str]] = None
 
 
-class SchemaStatusReasonTypeDef(BaseValidatorModel):
+class SchemaStatusReason(BaseValidatorModel):
     code: SchemaStatusReasonCodeType
     message: str
 
 
-class SnowflakeTableSchemaV1TypeDef(BaseValidatorModel):
+class SnowflakeTableSchemaV1(BaseValidatorModel):
     columnName: str
     columnType: str
 
 
-class TagResourceInputTypeDef(BaseValidatorModel):
+class TagResourceInput(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
 
-class UntagResourceInputTypeDef(BaseValidatorModel):
+class UntagResourceInput(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
 
-class UpdateAnalysisTemplateInputTypeDef(BaseValidatorModel):
+class UpdateAnalysisTemplateInput(BaseValidatorModel):
     membershipIdentifier: str
     analysisTemplateIdentifier: str
     description: Optional[str] = None
 
 
-class UpdateCollaborationInputTypeDef(BaseValidatorModel):
+class UpdateCollaborationInput(BaseValidatorModel):
     collaborationIdentifier: str
     name: Optional[str] = None
     description: Optional[str] = None
 
 
-class UpdateConfiguredAudienceModelAssociationInputTypeDef(BaseValidatorModel):
+class UpdateConfiguredAudienceModelAssociationInput(BaseValidatorModel):
     configuredAudienceModelAssociationIdentifier: str
     membershipIdentifier: str
     description: Optional[str] = None
     name: Optional[str] = None
 
 
-class UpdateConfiguredTableAssociationInputTypeDef(BaseValidatorModel):
+class UpdateConfiguredTableAssociationInput(BaseValidatorModel):
     configuredTableAssociationIdentifier: str
     membershipIdentifier: str
     description: Optional[str] = None
     roleArn: Optional[str] = None
 
 
-class UpdateConfiguredTableInputTypeDef(BaseValidatorModel):
+class UpdateConfiguredTableInput(BaseValidatorModel):
     configuredTableIdentifier: str
     name: Optional[str] = None
     description: Optional[str] = None
 
 
-class UpdateIdMappingTableInputTypeDef(BaseValidatorModel):
+class UpdateIdMappingTableInput(BaseValidatorModel):
     idMappingTableIdentifier: str
     membershipIdentifier: str
     description: Optional[str] = None
     kmsKeyArn: Optional[str] = None
 
 
-class UpdateProtectedQueryInputTypeDef(BaseValidatorModel):
+class UpdateProtectedQueryInput(BaseValidatorModel):
     membershipIdentifier: str
     protectedQueryIdentifier: str
     targetStatus: Literal["CANCELLED"]
 
 
-class AggregationConstraintTypeDef(BaseValidatorModel):
+class AggregationConstraint(BaseValidatorModel):
     pass
 
 
-class AnalysisRuleAggregationOutputTypeDef(BaseValidatorModel):
-    aggregateColumns: List[AggregateColumnOutputTypeDef]
+class AnalysisRuleAggregationOutput(BaseValidatorModel):
+    aggregateColumns: List[AggregateColumnOutput]
     joinColumns: List[str]
     dimensionColumns: List[str]
     scalarFunctions: List[ScalarFunctionsType]
-    outputConstraints: List[AggregationConstraintTypeDef]
+    outputConstraints: List[AggregationConstraint]
     joinRequired: Optional[Literal["QUERY_RUNNER"]] = None
     allowedJoinOperators: Optional[List[JoinOperatorType]] = None
     additionalAnalyses: Optional[AdditionalAnalysesType] = None
 
 
-class AnalysisRuleAggregationTypeDef(BaseValidatorModel):
-    aggregateColumns: Sequence[AggregateColumnTypeDef]
+class AnalysisRuleAggregation(BaseValidatorModel):
+    aggregateColumns: Sequence[AggregateColumn]
     joinColumns: Sequence[str]
     dimensionColumns: Sequence[str]
     scalarFunctions: Sequence[ScalarFunctionsType]
-    outputConstraints: Sequence[AggregationConstraintTypeDef]
+    outputConstraints: Sequence[AggregationConstraint]
     joinRequired: Optional[Literal["QUERY_RUNNER"]] = None
     allowedJoinOperators: Optional[Sequence[JoinOperatorType]] = None
     additionalAnalyses: Optional[AdditionalAnalysesType] = None
 
 
-class AnalysisTemplateSummaryTypeDef(BaseValidatorModel):
+class AnalysisTemplateSummary(BaseValidatorModel):
     pass
 
 
-class ListAnalysisTemplatesOutputTypeDef(BaseValidatorModel):
-    analysisTemplateSummaries: List[AnalysisTemplateSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAnalysisTemplatesOutput(BaseValidatorModel):
+    analysisTemplateSummaries: List[AnalysisTemplateSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListTagsForResourceOutputTypeDef(BaseValidatorModel):
+class ListTagsForResourceOutput(BaseValidatorModel):
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class PopulateIdMappingTableOutputTypeDef(BaseValidatorModel):
+class PopulateIdMappingTableOutput(BaseValidatorModel):
     idMappingJobId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class SchemaAnalysisRuleRequestTypeDef(BaseValidatorModel):
+class SchemaAnalysisRuleRequest(BaseValidatorModel):
     pass
 
 
-class BatchGetSchemaAnalysisRuleInputTypeDef(BaseValidatorModel):
+class BatchGetSchemaAnalysisRuleInput(BaseValidatorModel):
     collaborationIdentifier: str
-    schemaAnalysisRuleRequests: Sequence[SchemaAnalysisRuleRequestTypeDef]
+    schemaAnalysisRuleRequests: Sequence[SchemaAnalysisRuleRequest]
 
 
-class ProtectedQueryStatisticsTypeDef(BaseValidatorModel):
+class ProtectedQueryStatistics(BaseValidatorModel):
     totalDurationInMillis: Optional[int] = None
-    billedResourceUtilization: Optional[BilledResourceUtilizationTypeDef] = None
+    billedResourceUtilization: Optional[BilledResourceUtilization] = None
 
 
-class CollaborationAnalysisTemplateSummaryTypeDef(BaseValidatorModel):
+class CollaborationAnalysisTemplateSummary(BaseValidatorModel):
     pass
 
 
-class ListCollaborationAnalysisTemplatesOutputTypeDef(BaseValidatorModel):
-    collaborationAnalysisTemplateSummaries: List[CollaborationAnalysisTemplateSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListCollaborationAnalysisTemplatesOutput(BaseValidatorModel):
+    collaborationAnalysisTemplateSummaries: List[CollaborationAnalysisTemplateSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class CollaborationConfiguredAudienceModelAssociationSummaryTypeDef(BaseValidatorModel):
+class CollaborationConfiguredAudienceModelAssociationSummary(BaseValidatorModel):
     pass
 
 
-class ListCollaborationConfiguredAudienceModelAssociationsOutputTypeDef(BaseValidatorModel):
-    collaborationConfiguredAudienceModelAssociationSummaries: List[ CollaborationConfiguredAudienceModelAssociationSummaryTypeDef ]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListCollaborationConfiguredAudienceModelAssociationsOutput(BaseValidatorModel):
+    collaborationConfiguredAudienceModelAssociationSummaries: List[ CollaborationConfiguredAudienceModelAssociationSummary ]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class CollaborationConfiguredAudienceModelAssociationTypeDef(BaseValidatorModel):
+class CollaborationConfiguredAudienceModelAssociation(BaseValidatorModel):
     pass
 
 
-class GetCollaborationConfiguredAudienceModelAssociationOutputTypeDef(BaseValidatorModel):
-    collaborationConfiguredAudienceModelAssociation: ( CollaborationConfiguredAudienceModelAssociationTypeDef )
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetCollaborationConfiguredAudienceModelAssociationOutput(BaseValidatorModel):
+    collaborationConfiguredAudienceModelAssociation: ( CollaborationConfiguredAudienceModelAssociation )
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateIdNamespaceAssociationInputTypeDef(BaseValidatorModel):
+class CreateIdNamespaceAssociationInput(BaseValidatorModel):
     membershipIdentifier: str
-    inputReferenceConfig: IdNamespaceAssociationInputReferenceConfigTypeDef
+    inputReferenceConfig: IdNamespaceAssociationInputReferenceConfig
     name: str
     tags: Optional[Mapping[str, str]] = None
     description: Optional[str] = None
-    idMappingConfig: Optional[IdMappingConfigTypeDef] = None
+    idMappingConfig: Optional[IdMappingConfig] = None
 
 
-class UpdateIdNamespaceAssociationInputTypeDef(BaseValidatorModel):
+class UpdateIdNamespaceAssociationInput(BaseValidatorModel):
     idNamespaceAssociationIdentifier: str
     membershipIdentifier: str
     name: Optional[str] = None
     description: Optional[str] = None
-    idMappingConfig: Optional[IdMappingConfigTypeDef] = None
+    idMappingConfig: Optional[IdMappingConfig] = None
 
 
-class CollaborationPrivacyBudgetTemplateSummaryTypeDef(BaseValidatorModel):
+class CollaborationPrivacyBudgetTemplateSummary(BaseValidatorModel):
     pass
 
 
-class ListCollaborationPrivacyBudgetTemplatesOutputTypeDef(BaseValidatorModel):
-    collaborationPrivacyBudgetTemplateSummaries: List[ CollaborationPrivacyBudgetTemplateSummaryTypeDef ]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListCollaborationPrivacyBudgetTemplatesOutput(BaseValidatorModel):
+    collaborationPrivacyBudgetTemplateSummaries: List[ CollaborationPrivacyBudgetTemplateSummary ]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class CollaborationSummaryTypeDef(BaseValidatorModel):
+class CollaborationSummary(BaseValidatorModel):
     pass
 
 
-class ListCollaborationsOutputTypeDef(BaseValidatorModel):
-    collaborationList: List[CollaborationSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListCollaborationsOutput(BaseValidatorModel):
+    collaborationList: List[CollaborationSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class WorkerComputeConfigurationTypeDef(BaseValidatorModel):
+class WorkerComputeConfiguration(BaseValidatorModel):
     pass
 
 
-class ComputeConfigurationTypeDef(BaseValidatorModel):
-    worker: Optional[WorkerComputeConfigurationTypeDef] = None
+class ComputeConfiguration(BaseValidatorModel):
+    worker: Optional[WorkerComputeConfiguration] = None
 
 
-class ConfigurationDetailsTypeDef(BaseValidatorModel):
-    directAnalysisConfigurationDetails: Optional[DirectAnalysisConfigurationDetailsTypeDef] = None
+class ConfigurationDetails(BaseValidatorModel):
+    directAnalysisConfigurationDetails: Optional[DirectAnalysisConfigurationDetails] = None
 
 
-class ConfiguredAudienceModelAssociationSummaryTypeDef(BaseValidatorModel):
+class ConfiguredAudienceModelAssociationSummary(BaseValidatorModel):
     pass
 
 
-class ListConfiguredAudienceModelAssociationsOutputTypeDef(BaseValidatorModel):
-    configuredAudienceModelAssociationSummaries: List[ ConfiguredAudienceModelAssociationSummaryTypeDef ]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListConfiguredAudienceModelAssociationsOutput(BaseValidatorModel):
+    configuredAudienceModelAssociationSummaries: List[ ConfiguredAudienceModelAssociationSummary ]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ConfiguredAudienceModelAssociationTypeDef(BaseValidatorModel):
+class ConfiguredAudienceModelAssociation(BaseValidatorModel):
     pass
 
 
-class CreateConfiguredAudienceModelAssociationOutputTypeDef(BaseValidatorModel):
-    configuredAudienceModelAssociation: ConfiguredAudienceModelAssociationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateConfiguredAudienceModelAssociationOutput(BaseValidatorModel):
+    configuredAudienceModelAssociation: ConfiguredAudienceModelAssociation
+    ResponseMetadata: ResponseMetadata
 
 
-class GetConfiguredAudienceModelAssociationOutputTypeDef(BaseValidatorModel):
-    configuredAudienceModelAssociation: ConfiguredAudienceModelAssociationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetConfiguredAudienceModelAssociationOutput(BaseValidatorModel):
+    configuredAudienceModelAssociation: ConfiguredAudienceModelAssociation
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateConfiguredAudienceModelAssociationOutputTypeDef(BaseValidatorModel):
-    configuredAudienceModelAssociation: ConfiguredAudienceModelAssociationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateConfiguredAudienceModelAssociationOutput(BaseValidatorModel):
+    configuredAudienceModelAssociation: ConfiguredAudienceModelAssociation
+    ResponseMetadata: ResponseMetadata
 
 
-class ConfiguredTableAssociationSummaryTypeDef(BaseValidatorModel):
+class ConfiguredTableAssociationSummary(BaseValidatorModel):
     pass
 
 
-class ListConfiguredTableAssociationsOutputTypeDef(BaseValidatorModel):
-    configuredTableAssociationSummaries: List[ConfiguredTableAssociationSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListConfiguredTableAssociationsOutput(BaseValidatorModel):
+    configuredTableAssociationSummaries: List[ConfiguredTableAssociationSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ConfiguredTableAssociationTypeDef(BaseValidatorModel):
+class ConfiguredTableAssociation(BaseValidatorModel):
     pass
 
 
-class CreateConfiguredTableAssociationOutputTypeDef(BaseValidatorModel):
-    configuredTableAssociation: ConfiguredTableAssociationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateConfiguredTableAssociationOutput(BaseValidatorModel):
+    configuredTableAssociation: ConfiguredTableAssociation
+    ResponseMetadata: ResponseMetadata
 
 
-class GetConfiguredTableAssociationOutputTypeDef(BaseValidatorModel):
-    configuredTableAssociation: ConfiguredTableAssociationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetConfiguredTableAssociationOutput(BaseValidatorModel):
+    configuredTableAssociation: ConfiguredTableAssociation
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateConfiguredTableAssociationOutputTypeDef(BaseValidatorModel):
-    configuredTableAssociation: ConfiguredTableAssociationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateConfiguredTableAssociationOutput(BaseValidatorModel):
+    configuredTableAssociation: ConfiguredTableAssociation
+    ResponseMetadata: ResponseMetadata
 
 
-class ConfiguredTableSummaryTypeDef(BaseValidatorModel):
+class ConfiguredTableSummary(BaseValidatorModel):
     pass
 
 
-class ListConfiguredTablesOutputTypeDef(BaseValidatorModel):
-    configuredTableSummaries: List[ConfiguredTableSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListConfiguredTablesOutput(BaseValidatorModel):
+    configuredTableSummaries: List[ConfiguredTableSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class CreateIdMappingTableInputTypeDef(BaseValidatorModel):
+class CreateIdMappingTableInput(BaseValidatorModel):
     membershipIdentifier: str
     name: str
-    inputReferenceConfig: IdMappingTableInputReferenceConfigTypeDef
+    inputReferenceConfig: IdMappingTableInputReferenceConfig
     description: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
     kmsKeyArn: Optional[str] = None
 
 
-class DifferentialPrivacyConfigurationOutputTypeDef(BaseValidatorModel):
-    columns: List[DifferentialPrivacyColumnTypeDef]
+class DifferentialPrivacyConfigurationOutput(BaseValidatorModel):
+    columns: List[DifferentialPrivacyColumn]
 
 
-class DifferentialPrivacyConfigurationTypeDef(BaseValidatorModel):
-    columns: Sequence[DifferentialPrivacyColumnTypeDef]
+class DifferentialPrivacyConfiguration(BaseValidatorModel):
+    columns: Sequence[DifferentialPrivacyColumn]
 
 
-class DifferentialPrivacyParametersTypeDef(BaseValidatorModel):
-    sensitivityParameters: List[DifferentialPrivacySensitivityParametersTypeDef]
+class DifferentialPrivacyParameters(BaseValidatorModel):
+    sensitivityParameters: List[DifferentialPrivacySensitivityParameters]
 
 
-class DifferentialPrivacyPreviewAggregationTypeDef(BaseValidatorModel):
+class DifferentialPrivacyPreviewAggregation(BaseValidatorModel):
     pass
 
 
-class DifferentialPrivacyPrivacyImpactTypeDef(BaseValidatorModel):
-    aggregations: List[DifferentialPrivacyPreviewAggregationTypeDef]
+class DifferentialPrivacyPrivacyImpact(BaseValidatorModel):
+    aggregations: List[DifferentialPrivacyPreviewAggregation]
 
 
-class PreviewPrivacyImpactParametersInputTypeDef(BaseValidatorModel):
-    differentialPrivacy: Optional[DifferentialPrivacyPreviewParametersInputTypeDef] = None
+class PreviewPrivacyImpactParametersInput(BaseValidatorModel):
+    differentialPrivacy: Optional[DifferentialPrivacyPreviewParametersInput] = None
 
 
-class DifferentialPrivacyPrivacyBudgetAggregationTypeDef(BaseValidatorModel):
+class DifferentialPrivacyPrivacyBudgetAggregation(BaseValidatorModel):
     pass
 
 
-class DifferentialPrivacyPrivacyBudgetTypeDef(BaseValidatorModel):
-    aggregations: List[DifferentialPrivacyPrivacyBudgetAggregationTypeDef]
+class DifferentialPrivacyPrivacyBudget(BaseValidatorModel):
+    aggregations: List[DifferentialPrivacyPrivacyBudgetAggregation]
     epsilon: int
 
 
-class PrivacyBudgetTemplateParametersInputTypeDef(BaseValidatorModel):
-    differentialPrivacy: Optional[DifferentialPrivacyTemplateParametersInputTypeDef] = None
+class PrivacyBudgetTemplateParametersInput(BaseValidatorModel):
+    differentialPrivacy: Optional[DifferentialPrivacyTemplateParametersInput] = None
 
 
-class PrivacyBudgetTemplateParametersOutputTypeDef(BaseValidatorModel):
-    differentialPrivacy: Optional[DifferentialPrivacyTemplateParametersOutputTypeDef] = None
+class PrivacyBudgetTemplateParametersOutput(BaseValidatorModel):
+    differentialPrivacy: Optional[DifferentialPrivacyTemplateParametersOutput] = None
 
 
-class PrivacyBudgetTemplateUpdateParametersTypeDef(BaseValidatorModel):
-    differentialPrivacy: Optional[DifferentialPrivacyTemplateUpdateParametersTypeDef] = None
+class PrivacyBudgetTemplateUpdateParameters(BaseValidatorModel):
+    differentialPrivacy: Optional[DifferentialPrivacyTemplateUpdateParameters] = None
 
 
-class IdMappingTableInputSourceTypeDef(BaseValidatorModel):
+class IdMappingTableInputSource(BaseValidatorModel):
     pass
 
 
-class IdMappingTableInputReferencePropertiesTypeDef(BaseValidatorModel):
-    idMappingTableInputSource: List[IdMappingTableInputSourceTypeDef]
+class IdMappingTableInputReferenceProperties(BaseValidatorModel):
+    idMappingTableInputSource: List[IdMappingTableInputSource]
 
 
-class IdMappingTableSchemaTypePropertiesTypeDef(BaseValidatorModel):
-    idMappingTableInputSource: List[IdMappingTableInputSourceTypeDef]
+class IdMappingTableSchemaTypeProperties(BaseValidatorModel):
+    idMappingTableInputSource: List[IdMappingTableInputSource]
 
 
-class ListAnalysisTemplatesInputPaginateTypeDef(BaseValidatorModel):
+class ListAnalysisTemplatesInputPaginate(BaseValidatorModel):
     membershipIdentifier: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListCollaborationAnalysisTemplatesInputPaginateTypeDef(BaseValidatorModel):
+class ListCollaborationAnalysisTemplatesInputPaginate(BaseValidatorModel):
     collaborationIdentifier: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListCollaborationConfiguredAudienceModelAssociationsInputPaginateTypeDef(BaseValidatorModel):
+class ListCollaborationConfiguredAudienceModelAssociationsInputPaginate(BaseValidatorModel):
     collaborationIdentifier: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListCollaborationIdNamespaceAssociationsInputPaginateTypeDef(BaseValidatorModel):
+class ListCollaborationIdNamespaceAssociationsInputPaginate(BaseValidatorModel):
     collaborationIdentifier: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListCollaborationPrivacyBudgetTemplatesInputPaginateTypeDef(BaseValidatorModel):
+class ListCollaborationPrivacyBudgetTemplatesInputPaginate(BaseValidatorModel):
     collaborationIdentifier: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListCollaborationPrivacyBudgetsInputPaginateTypeDef(BaseValidatorModel):
+class ListCollaborationPrivacyBudgetsInputPaginate(BaseValidatorModel):
     collaborationIdentifier: str
     privacyBudgetType: Literal["DIFFERENTIAL_PRIVACY"]
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListCollaborationsInputPaginateTypeDef(BaseValidatorModel):
+class ListCollaborationsInputPaginate(BaseValidatorModel):
     memberStatus: Optional[FilterableMemberStatusType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListConfiguredAudienceModelAssociationsInputPaginateTypeDef(BaseValidatorModel):
+class ListConfiguredAudienceModelAssociationsInputPaginate(BaseValidatorModel):
     membershipIdentifier: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListConfiguredTableAssociationsInputPaginateTypeDef(BaseValidatorModel):
+class ListConfiguredTableAssociationsInputPaginate(BaseValidatorModel):
     membershipIdentifier: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListConfiguredTablesInputPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListConfiguredTablesInputPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListIdMappingTablesInputPaginateTypeDef(BaseValidatorModel):
+class ListIdMappingTablesInputPaginate(BaseValidatorModel):
     membershipIdentifier: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListIdNamespaceAssociationsInputPaginateTypeDef(BaseValidatorModel):
+class ListIdNamespaceAssociationsInputPaginate(BaseValidatorModel):
     membershipIdentifier: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListMembersInputPaginateTypeDef(BaseValidatorModel):
+class ListMembersInputPaginate(BaseValidatorModel):
     collaborationIdentifier: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListMembershipsInputPaginateTypeDef(BaseValidatorModel):
+class ListMembershipsInputPaginate(BaseValidatorModel):
     status: Optional[MembershipStatusType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListPrivacyBudgetTemplatesInputPaginateTypeDef(BaseValidatorModel):
+class ListPrivacyBudgetTemplatesInputPaginate(BaseValidatorModel):
     membershipIdentifier: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListPrivacyBudgetsInputPaginateTypeDef(BaseValidatorModel):
+class ListPrivacyBudgetsInputPaginate(BaseValidatorModel):
     membershipIdentifier: str
     privacyBudgetType: Literal["DIFFERENTIAL_PRIVACY"]
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListProtectedQueriesInputPaginateTypeDef(BaseValidatorModel):
+class ListProtectedQueriesInputPaginate(BaseValidatorModel):
     membershipIdentifier: str
     status: Optional[ProtectedQueryStatusType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListSchemasInputPaginateTypeDef(BaseValidatorModel):
+class ListSchemasInputPaginate(BaseValidatorModel):
     collaborationIdentifier: str
     schemaType: Optional[SchemaTypeType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class PrivacyBudgetTemplateSummaryTypeDef(BaseValidatorModel):
+class PrivacyBudgetTemplateSummary(BaseValidatorModel):
     pass
 
 
-class ListPrivacyBudgetTemplatesOutputTypeDef(BaseValidatorModel):
-    privacyBudgetTemplateSummaries: List[PrivacyBudgetTemplateSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListPrivacyBudgetTemplatesOutput(BaseValidatorModel):
+    privacyBudgetTemplateSummaries: List[PrivacyBudgetTemplateSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class SchemaSummaryTypeDef(BaseValidatorModel):
+class SchemaSummary(BaseValidatorModel):
     pass
 
 
-class ListSchemasOutputTypeDef(BaseValidatorModel):
-    schemaSummaries: List[SchemaSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListSchemasOutput(BaseValidatorModel):
+    schemaSummaries: List[SchemaSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class MLPaymentConfigTypeDef(BaseValidatorModel):
-    modelTraining: Optional[ModelTrainingPaymentConfigTypeDef] = None
-    modelInference: Optional[ModelInferencePaymentConfigTypeDef] = None
+class MLPaymentConfig(BaseValidatorModel):
+    modelTraining: Optional[ModelTrainingPaymentConfig] = None
+    modelInference: Optional[ModelInferencePaymentConfig] = None
 
 
-class MembershipMLPaymentConfigTypeDef(BaseValidatorModel):
-    modelTraining: Optional[MembershipModelTrainingPaymentConfigTypeDef] = None
-    modelInference: Optional[MembershipModelInferencePaymentConfigTypeDef] = None
+class MembershipMLPaymentConfig(BaseValidatorModel):
+    modelTraining: Optional[MembershipModelTrainingPaymentConfig] = None
+    modelInference: Optional[MembershipModelInferencePaymentConfig] = None
 
 
-class MembershipProtectedQueryOutputConfigurationTypeDef(BaseValidatorModel):
-    s3: Optional[ProtectedQueryS3OutputConfigurationTypeDef] = None
+class MembershipProtectedQueryOutputConfiguration(BaseValidatorModel):
+    s3: Optional[ProtectedQueryS3OutputConfiguration] = None
 
 
-class ProtectedQueryOutputConfigurationTypeDef(BaseValidatorModel):
-    s3: Optional[ProtectedQueryS3OutputConfigurationTypeDef] = None
-    member: Optional[ProtectedQueryMemberOutputConfigurationTypeDef] = None
+class ProtectedQueryOutputConfiguration(BaseValidatorModel):
+    s3: Optional[ProtectedQueryS3OutputConfiguration] = None
+    member: Optional[ProtectedQueryMemberOutputConfiguration] = None
 
 
-class ProtectedQueryOutputTypeDef(BaseValidatorModel):
-    s3: Optional[ProtectedQueryS3OutputTypeDef] = None
-    memberList: Optional[List[ProtectedQuerySingleMemberOutputTypeDef]] = None
+class ProtectedQueryOutput(BaseValidatorModel):
+    s3: Optional[ProtectedQueryS3Output] = None
+    memberList: Optional[List[ProtectedQuerySingleMemberOutput]] = None
 
 
-class QueryConstraintTypeDef(BaseValidatorModel):
-    requireOverlap: Optional[QueryConstraintRequireOverlapTypeDef] = None
+class QueryConstraint(BaseValidatorModel):
+    requireOverlap: Optional[QueryConstraintRequireOverlap] = None
 
 
-class SchemaStatusDetailTypeDef(BaseValidatorModel):
+class SchemaStatusDetail(BaseValidatorModel):
     status: SchemaStatusType
     analysisType: AnalysisTypeType
-    reasons: Optional[List[SchemaStatusReasonTypeDef]] = None
+    reasons: Optional[List[SchemaStatusReason]] = None
     analysisRuleType: Optional[AnalysisRuleTypeType] = None
     configurations: Optional[List[Literal["DIFFERENTIAL_PRIVACY"]]] = None
 
 
-class SnowflakeTableSchemaOutputTypeDef(BaseValidatorModel):
-    v1: Optional[List[SnowflakeTableSchemaV1TypeDef]] = None
+class SnowflakeTableSchemaOutput(BaseValidatorModel):
+    v1: Optional[List[SnowflakeTableSchemaV1]] = None
 
 
-class SnowflakeTableSchemaTypeDef(BaseValidatorModel):
-    v1: Optional[Sequence[SnowflakeTableSchemaV1TypeDef]] = None
+class SnowflakeTableSchema(BaseValidatorModel):
+    v1: Optional[Sequence[SnowflakeTableSchemaV1]] = None
 
 
-class CollaborationIdNamespaceAssociationSummaryTypeDef(BaseValidatorModel):
+class CollaborationIdNamespaceAssociationSummary(BaseValidatorModel):
     pass
 
 
-class ListCollaborationIdNamespaceAssociationsOutputTypeDef(BaseValidatorModel):
-    collaborationIdNamespaceAssociationSummaries: List[ CollaborationIdNamespaceAssociationSummaryTypeDef ]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListCollaborationIdNamespaceAssociationsOutput(BaseValidatorModel):
+    collaborationIdNamespaceAssociationSummaries: List[ CollaborationIdNamespaceAssociationSummary ]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class IdNamespaceAssociationSummaryTypeDef(BaseValidatorModel):
+class IdNamespaceAssociationSummary(BaseValidatorModel):
     pass
 
 
-class ListIdNamespaceAssociationsOutputTypeDef(BaseValidatorModel):
-    idNamespaceAssociationSummaries: List[IdNamespaceAssociationSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListIdNamespaceAssociationsOutput(BaseValidatorModel):
+    idNamespaceAssociationSummaries: List[IdNamespaceAssociationSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class CollaborationIdNamespaceAssociationTypeDef(BaseValidatorModel):
+class CollaborationIdNamespaceAssociation(BaseValidatorModel):
     pass
 
 
-class GetCollaborationIdNamespaceAssociationOutputTypeDef(BaseValidatorModel):
-    collaborationIdNamespaceAssociation: CollaborationIdNamespaceAssociationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetCollaborationIdNamespaceAssociationOutput(BaseValidatorModel):
+    collaborationIdNamespaceAssociation: CollaborationIdNamespaceAssociation
+    ResponseMetadata: ResponseMetadata
 
 
-class IdNamespaceAssociationTypeDef(BaseValidatorModel):
+class IdNamespaceAssociation(BaseValidatorModel):
     pass
 
 
-class CreateIdNamespaceAssociationOutputTypeDef(BaseValidatorModel):
-    idNamespaceAssociation: IdNamespaceAssociationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateIdNamespaceAssociationOutput(BaseValidatorModel):
+    idNamespaceAssociation: IdNamespaceAssociation
+    ResponseMetadata: ResponseMetadata
 
 
-class GetIdNamespaceAssociationOutputTypeDef(BaseValidatorModel):
-    idNamespaceAssociation: IdNamespaceAssociationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetIdNamespaceAssociationOutput(BaseValidatorModel):
+    idNamespaceAssociation: IdNamespaceAssociation
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateIdNamespaceAssociationOutputTypeDef(BaseValidatorModel):
-    idNamespaceAssociation: IdNamespaceAssociationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateIdNamespaceAssociationOutput(BaseValidatorModel):
+    idNamespaceAssociation: IdNamespaceAssociation
+    ResponseMetadata: ResponseMetadata
 
 
-class CollaborationTypeDef(BaseValidatorModel):
+class Collaboration(BaseValidatorModel):
     pass
 
 
-class CreateCollaborationOutputTypeDef(BaseValidatorModel):
-    collaboration: CollaborationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateCollaborationOutput(BaseValidatorModel):
+    collaboration: Collaboration
+    ResponseMetadata: ResponseMetadata
 
 
-class GetCollaborationOutputTypeDef(BaseValidatorModel):
-    collaboration: CollaborationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetCollaborationOutput(BaseValidatorModel):
+    collaboration: Collaboration
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateCollaborationOutputTypeDef(BaseValidatorModel):
-    collaboration: CollaborationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateCollaborationOutput(BaseValidatorModel):
+    collaboration: Collaboration
+    ResponseMetadata: ResponseMetadata
 
 
-class ReceiverConfigurationTypeDef(BaseValidatorModel):
+class ReceiverConfiguration(BaseValidatorModel):
     analysisType: AnalysisTypeType
-    configurationDetails: Optional[ConfigurationDetailsTypeDef] = None
+    configurationDetails: Optional[ConfigurationDetails] = None
 
 
-class ConfiguredTableAssociationAnalysisRulePolicyV1OutputTypeDef(BaseValidatorModel):
+class ConfiguredTableAssociationAnalysisRulePolicyV1Output(BaseValidatorModel):
     pass
 
 
-class ConfiguredTableAssociationAnalysisRulePolicyOutputTypeDef(BaseValidatorModel):
-    v1: Optional[ConfiguredTableAssociationAnalysisRulePolicyV1OutputTypeDef] = None
+class ConfiguredTableAssociationAnalysisRulePolicyOutput(BaseValidatorModel):
+    v1: Optional[ConfiguredTableAssociationAnalysisRulePolicyV1Output] = None
 
 
-class ConfiguredTableAssociationAnalysisRulePolicyV1TypeDef(BaseValidatorModel):
+class ConfiguredTableAssociationAnalysisRulePolicyV1(BaseValidatorModel):
     pass
 
 
-class ConfiguredTableAssociationAnalysisRulePolicyTypeDef(BaseValidatorModel):
-    v1: Optional[ConfiguredTableAssociationAnalysisRulePolicyV1TypeDef] = None
+class ConfiguredTableAssociationAnalysisRulePolicy(BaseValidatorModel):
+    v1: Optional[ConfiguredTableAssociationAnalysisRulePolicyV1] = None
 
 
-class IdMappingTableSummaryTypeDef(BaseValidatorModel):
+class IdMappingTableSummary(BaseValidatorModel):
     pass
 
 
-class ListIdMappingTablesOutputTypeDef(BaseValidatorModel):
-    idMappingTableSummaries: List[IdMappingTableSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListIdMappingTablesOutput(BaseValidatorModel):
+    idMappingTableSummaries: List[IdMappingTableSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class AnalysisRuleCustomOutputTypeDef(BaseValidatorModel):
+class AnalysisRuleCustomOutput(BaseValidatorModel):
     allowedAnalyses: List[str]
     allowedAnalysisProviders: Optional[List[str]] = None
     additionalAnalyses: Optional[AdditionalAnalysesType] = None
     disallowedOutputColumns: Optional[List[str]] = None
-    differentialPrivacy: Optional[DifferentialPrivacyConfigurationOutputTypeDef] = None
+    differentialPrivacy: Optional[DifferentialPrivacyConfigurationOutput] = None
 
 
-class AnalysisRuleCustomTypeDef(BaseValidatorModel):
+class AnalysisRuleCustom(BaseValidatorModel):
     allowedAnalyses: Sequence[str]
     allowedAnalysisProviders: Optional[Sequence[str]] = None
     additionalAnalyses: Optional[AdditionalAnalysesType] = None
     disallowedOutputColumns: Optional[Sequence[str]] = None
-    differentialPrivacy: Optional[DifferentialPrivacyConfigurationTypeDef] = None
+    differentialPrivacy: Optional[DifferentialPrivacyConfiguration] = None
 
 
-class PrivacyImpactTypeDef(BaseValidatorModel):
-    differentialPrivacy: Optional[DifferentialPrivacyPrivacyImpactTypeDef] = None
+class PrivacyImpact(BaseValidatorModel):
+    differentialPrivacy: Optional[DifferentialPrivacyPrivacyImpact] = None
 
 
-class PreviewPrivacyImpactInputTypeDef(BaseValidatorModel):
+class PreviewPrivacyImpactInput(BaseValidatorModel):
     membershipIdentifier: str
-    parameters: PreviewPrivacyImpactParametersInputTypeDef
+    parameters: PreviewPrivacyImpactParametersInput
 
 
-class PrivacyBudgetTypeDef(BaseValidatorModel):
-    differentialPrivacy: Optional[DifferentialPrivacyPrivacyBudgetTypeDef] = None
+class PrivacyBudget(BaseValidatorModel):
+    differentialPrivacy: Optional[DifferentialPrivacyPrivacyBudget] = None
 
 
-class CreatePrivacyBudgetTemplateInputTypeDef(BaseValidatorModel):
+class CreatePrivacyBudgetTemplateInput(BaseValidatorModel):
     membershipIdentifier: str
     autoRefresh: PrivacyBudgetTemplateAutoRefreshType
     privacyBudgetType: Literal["DIFFERENTIAL_PRIVACY"]
-    parameters: PrivacyBudgetTemplateParametersInputTypeDef
+    parameters: PrivacyBudgetTemplateParametersInput
     tags: Optional[Mapping[str, str]] = None
 
 
-class UpdatePrivacyBudgetTemplateInputTypeDef(BaseValidatorModel):
+class UpdatePrivacyBudgetTemplateInput(BaseValidatorModel):
     membershipIdentifier: str
     privacyBudgetTemplateIdentifier: str
     privacyBudgetType: Literal["DIFFERENTIAL_PRIVACY"]
-    parameters: Optional[PrivacyBudgetTemplateUpdateParametersTypeDef] = None
+    parameters: Optional[PrivacyBudgetTemplateUpdateParameters] = None
 
 
-class SchemaTypePropertiesTypeDef(BaseValidatorModel):
-    idMappingTable: Optional[IdMappingTableSchemaTypePropertiesTypeDef] = None
+class SchemaTypeProperties(BaseValidatorModel):
+    idMappingTable: Optional[IdMappingTableSchemaTypeProperties] = None
 
 
-class PaymentConfigurationTypeDef(BaseValidatorModel):
-    queryCompute: QueryComputePaymentConfigTypeDef
-    machineLearning: Optional[MLPaymentConfigTypeDef] = None
+class PaymentConfiguration(BaseValidatorModel):
+    queryCompute: QueryComputePaymentConfig
+    machineLearning: Optional[MLPaymentConfig] = None
 
 
-class MembershipPaymentConfigurationTypeDef(BaseValidatorModel):
-    queryCompute: MembershipQueryComputePaymentConfigTypeDef
-    machineLearning: Optional[MembershipMLPaymentConfigTypeDef] = None
+class MembershipPaymentConfiguration(BaseValidatorModel):
+    queryCompute: MembershipQueryComputePaymentConfig
+    machineLearning: Optional[MembershipMLPaymentConfig] = None
 
 
-class MembershipProtectedQueryResultConfigurationTypeDef(BaseValidatorModel):
-    outputConfiguration: MembershipProtectedQueryOutputConfigurationTypeDef
+class MembershipProtectedQueryResultConfiguration(BaseValidatorModel):
+    outputConfiguration: MembershipProtectedQueryOutputConfiguration
     roleArn: Optional[str] = None
 
 
-class ProtectedQueryResultConfigurationTypeDef(BaseValidatorModel):
-    outputConfiguration: ProtectedQueryOutputConfigurationTypeDef
+class ProtectedQueryResultConfiguration(BaseValidatorModel):
+    outputConfiguration: ProtectedQueryOutputConfiguration
 
 
-class ProtectedQueryResultTypeDef(BaseValidatorModel):
-    output: ProtectedQueryOutputTypeDef
+class ProtectedQueryResult(BaseValidatorModel):
+    output: ProtectedQueryOutput
 
 
-class AnalysisRuleIdMappingTableTypeDef(BaseValidatorModel):
+class AnalysisRuleIdMappingTable(BaseValidatorModel):
     joinColumns: List[str]
-    queryConstraints: List[QueryConstraintTypeDef]
+    queryConstraints: List[QueryConstraint]
     dimensionColumns: Optional[List[str]] = None
 
 
-class SnowflakeTableReferenceOutputTypeDef(BaseValidatorModel):
+class SnowflakeTableReferenceOutput(BaseValidatorModel):
     secretArn: str
     accountIdentifier: str
     databaseName: str
     tableName: str
     schemaName: str
-    tableSchema: SnowflakeTableSchemaOutputTypeDef
+    tableSchema: SnowflakeTableSchemaOutput
 
 
-class SnowflakeTableReferenceTypeDef(BaseValidatorModel):
+class SnowflakeTableReference(BaseValidatorModel):
     secretArn: str
     accountIdentifier: str
     databaseName: str
     tableName: str
     schemaName: str
-    tableSchema: SnowflakeTableSchemaTypeDef
+    tableSchema: SnowflakeTableSchema
 
 
-class AnalysisTemplateTypeDef(BaseValidatorModel):
+class AnalysisTemplate(BaseValidatorModel):
     pass
 
 
-class CreateAnalysisTemplateOutputTypeDef(BaseValidatorModel):
-    analysisTemplate: AnalysisTemplateTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateAnalysisTemplateOutput(BaseValidatorModel):
+    analysisTemplate: AnalysisTemplate
+    ResponseMetadata: ResponseMetadata
 
 
-class GetAnalysisTemplateOutputTypeDef(BaseValidatorModel):
-    analysisTemplate: AnalysisTemplateTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetAnalysisTemplateOutput(BaseValidatorModel):
+    analysisTemplate: AnalysisTemplate
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateAnalysisTemplateOutputTypeDef(BaseValidatorModel):
-    analysisTemplate: AnalysisTemplateTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateAnalysisTemplateOutput(BaseValidatorModel):
+    analysisTemplate: AnalysisTemplate
+    ResponseMetadata: ResponseMetadata
 
 
-class CollaborationAnalysisTemplateTypeDef(BaseValidatorModel):
+class CollaborationAnalysisTemplate(BaseValidatorModel):
     pass
 
 
-class BatchGetCollaborationAnalysisTemplateOutputTypeDef(BaseValidatorModel):
-    collaborationAnalysisTemplates: List[CollaborationAnalysisTemplateTypeDef]
-    errors: List[BatchGetCollaborationAnalysisTemplateErrorTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchGetCollaborationAnalysisTemplateOutput(BaseValidatorModel):
+    collaborationAnalysisTemplates: List[CollaborationAnalysisTemplate]
+    errors: List[BatchGetCollaborationAnalysisTemplateError]
+    ResponseMetadata: ResponseMetadata
 
 
-class GetCollaborationAnalysisTemplateOutputTypeDef(BaseValidatorModel):
-    collaborationAnalysisTemplate: CollaborationAnalysisTemplateTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetCollaborationAnalysisTemplateOutput(BaseValidatorModel):
+    collaborationAnalysisTemplate: CollaborationAnalysisTemplate
+    ResponseMetadata: ResponseMetadata
 
 
-class PreviewPrivacyImpactOutputTypeDef(BaseValidatorModel):
-    privacyImpact: PrivacyImpactTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class PreviewPrivacyImpactOutput(BaseValidatorModel):
+    privacyImpact: PrivacyImpact
+    ResponseMetadata: ResponseMetadata
 
 
-class CollaborationPrivacyBudgetTemplateTypeDef(BaseValidatorModel):
+class CollaborationPrivacyBudgetTemplate(BaseValidatorModel):
     pass
 
 
-class GetCollaborationPrivacyBudgetTemplateOutputTypeDef(BaseValidatorModel):
-    collaborationPrivacyBudgetTemplate: CollaborationPrivacyBudgetTemplateTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetCollaborationPrivacyBudgetTemplateOutput(BaseValidatorModel):
+    collaborationPrivacyBudgetTemplate: CollaborationPrivacyBudgetTemplate
+    ResponseMetadata: ResponseMetadata
 
 
-class PrivacyBudgetTemplateTypeDef(BaseValidatorModel):
+class PrivacyBudgetTemplate(BaseValidatorModel):
     pass
 
 
-class CreatePrivacyBudgetTemplateOutputTypeDef(BaseValidatorModel):
-    privacyBudgetTemplate: PrivacyBudgetTemplateTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreatePrivacyBudgetTemplateOutput(BaseValidatorModel):
+    privacyBudgetTemplate: PrivacyBudgetTemplate
+    ResponseMetadata: ResponseMetadata
 
 
-class GetPrivacyBudgetTemplateOutputTypeDef(BaseValidatorModel):
-    privacyBudgetTemplate: PrivacyBudgetTemplateTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetPrivacyBudgetTemplateOutput(BaseValidatorModel):
+    privacyBudgetTemplate: PrivacyBudgetTemplate
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdatePrivacyBudgetTemplateOutputTypeDef(BaseValidatorModel):
-    privacyBudgetTemplate: PrivacyBudgetTemplateTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdatePrivacyBudgetTemplateOutput(BaseValidatorModel):
+    privacyBudgetTemplate: PrivacyBudgetTemplate
+    ResponseMetadata: ResponseMetadata
 
 
-class IdMappingTableTypeDef(BaseValidatorModel):
+class IdMappingTable(BaseValidatorModel):
     pass
 
 
-class CreateIdMappingTableOutputTypeDef(BaseValidatorModel):
-    idMappingTable: IdMappingTableTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateIdMappingTableOutput(BaseValidatorModel):
+    idMappingTable: IdMappingTable
+    ResponseMetadata: ResponseMetadata
 
 
-class GetIdMappingTableOutputTypeDef(BaseValidatorModel):
-    idMappingTable: IdMappingTableTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetIdMappingTableOutput(BaseValidatorModel):
+    idMappingTable: IdMappingTable
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateIdMappingTableOutputTypeDef(BaseValidatorModel):
-    idMappingTable: IdMappingTableTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateIdMappingTableOutput(BaseValidatorModel):
+    idMappingTable: IdMappingTable
+    ResponseMetadata: ResponseMetadata
 
 
-class MLMemberAbilitiesUnionTypeDef(BaseValidatorModel):
+class MLMemberAbilitiesUnion(BaseValidatorModel):
     pass
 
 
-class MemberSpecificationTypeDef(BaseValidatorModel):
+class MemberSpecification(BaseValidatorModel):
     accountId: str
     memberAbilities: Sequence[MemberAbilityType]
     displayName: str
-    mlMemberAbilities: Optional[MLMemberAbilitiesUnionTypeDef] = None
-    paymentConfiguration: Optional[PaymentConfigurationTypeDef] = None
+    mlMemberAbilities: Optional[MLMemberAbilitiesUnion] = None
+    paymentConfiguration: Optional[PaymentConfiguration] = None
 
 
-class MemberSummaryTypeDef(BaseValidatorModel):
+class MemberSummary(BaseValidatorModel):
     accountId: str
     status: MemberStatusType
     displayName: str
     abilities: List[MemberAbilityType]
     createTime: datetime
     updateTime: datetime
-    paymentConfiguration: PaymentConfigurationTypeDef
-    mlAbilities: Optional[MLMemberAbilitiesOutputTypeDef] = None
+    paymentConfiguration: PaymentConfiguration
+    mlAbilities: Optional[MLMemberAbilitiesOutput] = None
     membershipId: Optional[str] = None
     membershipArn: Optional[str] = None
 
 
-class CreateMembershipInputTypeDef(BaseValidatorModel):
+class CreateMembershipInput(BaseValidatorModel):
     collaborationIdentifier: str
     queryLogStatus: MembershipQueryLogStatusType
     tags: Optional[Mapping[str, str]] = None
-    defaultResultConfiguration: Optional[MembershipProtectedQueryResultConfigurationTypeDef] = None
-    paymentConfiguration: Optional[MembershipPaymentConfigurationTypeDef] = None
+    defaultResultConfiguration: Optional[MembershipProtectedQueryResultConfiguration] = None
+    paymentConfiguration: Optional[MembershipPaymentConfiguration] = None
 
 
-class UpdateMembershipInputTypeDef(BaseValidatorModel):
+class UpdateMembershipInput(BaseValidatorModel):
     membershipIdentifier: str
     queryLogStatus: Optional[MembershipQueryLogStatusType] = None
-    defaultResultConfiguration: Optional[MembershipProtectedQueryResultConfigurationTypeDef] = None
+    defaultResultConfiguration: Optional[MembershipProtectedQueryResultConfiguration] = None
 
 
-class TableReferenceOutputTypeDef(BaseValidatorModel):
-    glue: Optional[GlueTableReferenceTypeDef] = None
-    snowflake: Optional[SnowflakeTableReferenceOutputTypeDef] = None
-    athena: Optional[AthenaTableReferenceTypeDef] = None
+class TableReferenceOutput(BaseValidatorModel):
+    glue: Optional[GlueTableReference] = None
+    snowflake: Optional[SnowflakeTableReferenceOutput] = None
+    athena: Optional[AthenaTableReference] = None
 
 
-class TableReferenceTypeDef(BaseValidatorModel):
-    glue: Optional[GlueTableReferenceTypeDef] = None
-    snowflake: Optional[SnowflakeTableReferenceTypeDef] = None
-    athena: Optional[AthenaTableReferenceTypeDef] = None
+class TableReference(BaseValidatorModel):
+    glue: Optional[GlueTableReference] = None
+    snowflake: Optional[SnowflakeTableReference] = None
+    athena: Optional[AthenaTableReference] = None
 
 
-class ProtectedQuerySummaryTypeDef(BaseValidatorModel):
+class ProtectedQuerySummary(BaseValidatorModel):
     pass
 
 
-class ListProtectedQueriesOutputTypeDef(BaseValidatorModel):
-    protectedQueries: List[ProtectedQuerySummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListProtectedQueriesOutput(BaseValidatorModel):
+    protectedQueries: List[ProtectedQuerySummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ConfiguredTableAssociationAnalysisRuleTypeDef(BaseValidatorModel):
+class ConfiguredTableAssociationAnalysisRule(BaseValidatorModel):
     pass
 
 
-class CreateConfiguredTableAssociationAnalysisRuleOutputTypeDef(BaseValidatorModel):
-    analysisRule: ConfiguredTableAssociationAnalysisRuleTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateConfiguredTableAssociationAnalysisRuleOutput(BaseValidatorModel):
+    analysisRule: ConfiguredTableAssociationAnalysisRule
+    ResponseMetadata: ResponseMetadata
 
 
-class GetConfiguredTableAssociationAnalysisRuleOutputTypeDef(BaseValidatorModel):
-    analysisRule: ConfiguredTableAssociationAnalysisRuleTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetConfiguredTableAssociationAnalysisRuleOutput(BaseValidatorModel):
+    analysisRule: ConfiguredTableAssociationAnalysisRule
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateConfiguredTableAssociationAnalysisRuleOutputTypeDef(BaseValidatorModel):
-    analysisRule: ConfiguredTableAssociationAnalysisRuleTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateConfiguredTableAssociationAnalysisRuleOutput(BaseValidatorModel):
+    analysisRule: ConfiguredTableAssociationAnalysisRule
+    ResponseMetadata: ResponseMetadata
 
 
-class ConfiguredTableAssociationAnalysisRulePolicyUnionTypeDef(BaseValidatorModel):
+class ConfiguredTableAssociationAnalysisRulePolicyUnion(BaseValidatorModel):
     pass
 
 
-class CreateConfiguredTableAssociationAnalysisRuleInputTypeDef(BaseValidatorModel):
+class CreateConfiguredTableAssociationAnalysisRuleInput(BaseValidatorModel):
     membershipIdentifier: str
     configuredTableAssociationIdentifier: str
     analysisRuleType: ConfiguredTableAssociationAnalysisRuleTypeType
-    analysisRulePolicy: ConfiguredTableAssociationAnalysisRulePolicyUnionTypeDef
+    analysisRulePolicy: ConfiguredTableAssociationAnalysisRulePolicyUnion
 
 
-class UpdateConfiguredTableAssociationAnalysisRuleInputTypeDef(BaseValidatorModel):
+class UpdateConfiguredTableAssociationAnalysisRuleInput(BaseValidatorModel):
     membershipIdentifier: str
     configuredTableAssociationIdentifier: str
     analysisRuleType: ConfiguredTableAssociationAnalysisRuleTypeType
-    analysisRulePolicy: ConfiguredTableAssociationAnalysisRulePolicyUnionTypeDef
+    analysisRulePolicy: ConfiguredTableAssociationAnalysisRulePolicyUnion
 
 
-class ConfiguredTableAnalysisRulePolicyV1OutputTypeDef(BaseValidatorModel):
+class ConfiguredTableAnalysisRulePolicyV1Output(BaseValidatorModel):
     pass
 
 
-class ConfiguredTableAnalysisRulePolicyOutputTypeDef(BaseValidatorModel):
-    v1: Optional[ConfiguredTableAnalysisRulePolicyV1OutputTypeDef] = None
+class ConfiguredTableAnalysisRulePolicyOutput(BaseValidatorModel):
+    v1: Optional[ConfiguredTableAnalysisRulePolicyV1Output] = None
 
 
-class ConfiguredTableAnalysisRulePolicyV1TypeDef(BaseValidatorModel):
+class ConfiguredTableAnalysisRulePolicyV1(BaseValidatorModel):
     pass
 
 
-class ConfiguredTableAnalysisRulePolicyTypeDef(BaseValidatorModel):
-    v1: Optional[ConfiguredTableAnalysisRulePolicyV1TypeDef] = None
+class ConfiguredTableAnalysisRulePolicy(BaseValidatorModel):
+    v1: Optional[ConfiguredTableAnalysisRulePolicyV1] = None
 
 
-class CollaborationPrivacyBudgetSummaryTypeDef(BaseValidatorModel):
+class CollaborationPrivacyBudgetSummary(BaseValidatorModel):
     pass
 
 
-class ListCollaborationPrivacyBudgetsOutputTypeDef(BaseValidatorModel):
-    collaborationPrivacyBudgetSummaries: List[CollaborationPrivacyBudgetSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListCollaborationPrivacyBudgetsOutput(BaseValidatorModel):
+    collaborationPrivacyBudgetSummaries: List[CollaborationPrivacyBudgetSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class PrivacyBudgetSummaryTypeDef(BaseValidatorModel):
+class PrivacyBudgetSummary(BaseValidatorModel):
     pass
 
 
-class ListPrivacyBudgetsOutputTypeDef(BaseValidatorModel):
-    privacyBudgetSummaries: List[PrivacyBudgetSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListPrivacyBudgetsOutput(BaseValidatorModel):
+    privacyBudgetSummaries: List[PrivacyBudgetSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class SchemaTypeDef(BaseValidatorModel):
+class Schema(BaseValidatorModel):
     pass
 
 
-class BatchGetSchemaOutputTypeDef(BaseValidatorModel):
-    schemas: List[SchemaTypeDef]
-    errors: List[BatchGetSchemaErrorTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchGetSchemaOutput(BaseValidatorModel):
+    schemas: List[Schema]
+    errors: List[BatchGetSchemaError]
+    ResponseMetadata: ResponseMetadata
 
 
-class GetSchemaOutputTypeDef(BaseValidatorModel):
-    schema: SchemaTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetSchemaOutput(BaseValidatorModel):
+    schema: Schema
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateCollaborationInputTypeDef(BaseValidatorModel):
-    members: Sequence[MemberSpecificationTypeDef]
+class CreateCollaborationInput(BaseValidatorModel):
+    members: Sequence[MemberSpecification]
     name: str
     description: str
     creatorMemberAbilities: Sequence[MemberAbilityType]
     creatorDisplayName: str
     queryLogStatus: CollaborationQueryLogStatusType
-    creatorMLMemberAbilities: Optional[MLMemberAbilitiesUnionTypeDef] = None
-    dataEncryptionMetadata: Optional[DataEncryptionMetadataTypeDef] = None
+    creatorMLMemberAbilities: Optional[MLMemberAbilitiesUnion] = None
+    dataEncryptionMetadata: Optional[DataEncryptionMetadata] = None
     tags: Optional[Mapping[str, str]] = None
-    creatorPaymentConfiguration: Optional[PaymentConfigurationTypeDef] = None
+    creatorPaymentConfiguration: Optional[PaymentConfiguration] = None
     analyticsEngine: Optional[AnalyticsEngineType] = None
 
 
-class ListMembersOutputTypeDef(BaseValidatorModel):
-    memberSummaries: List[MemberSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListMembersOutput(BaseValidatorModel):
+    memberSummaries: List[MemberSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class MembershipSummaryTypeDef(BaseValidatorModel):
+class MembershipSummary(BaseValidatorModel):
     pass
 
 
-class ListMembershipsOutputTypeDef(BaseValidatorModel):
-    membershipSummaries: List[MembershipSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListMembershipsOutput(BaseValidatorModel):
+    membershipSummaries: List[MembershipSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class MembershipTypeDef(BaseValidatorModel):
+class Membership(BaseValidatorModel):
     pass
 
 
-class CreateMembershipOutputTypeDef(BaseValidatorModel):
-    membership: MembershipTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateMembershipOutput(BaseValidatorModel):
+    membership: Membership
+    ResponseMetadata: ResponseMetadata
 
 
-class GetMembershipOutputTypeDef(BaseValidatorModel):
-    membership: MembershipTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetMembershipOutput(BaseValidatorModel):
+    membership: Membership
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateMembershipOutputTypeDef(BaseValidatorModel):
-    membership: MembershipTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateMembershipOutput(BaseValidatorModel):
+    membership: Membership
+    ResponseMetadata: ResponseMetadata
 
 
-class ProtectedQueryTypeDef(BaseValidatorModel):
+class ProtectedQuery(BaseValidatorModel):
     pass
 
 
-class GetProtectedQueryOutputTypeDef(BaseValidatorModel):
-    protectedQuery: ProtectedQueryTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetProtectedQueryOutput(BaseValidatorModel):
+    protectedQuery: ProtectedQuery
+    ResponseMetadata: ResponseMetadata
 
 
-class StartProtectedQueryOutputTypeDef(BaseValidatorModel):
-    protectedQuery: ProtectedQueryTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class StartProtectedQueryOutput(BaseValidatorModel):
+    protectedQuery: ProtectedQuery
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateProtectedQueryOutputTypeDef(BaseValidatorModel):
-    protectedQuery: ProtectedQueryTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateProtectedQueryOutput(BaseValidatorModel):
+    protectedQuery: ProtectedQuery
+    ResponseMetadata: ResponseMetadata
 
 
-class AnalysisRulePolicyV1TypeDef(BaseValidatorModel):
+class AnalysisRulePolicyV1(BaseValidatorModel):
     pass
 
 
-class AnalysisRulePolicyTypeDef(BaseValidatorModel):
-    v1: Optional[AnalysisRulePolicyV1TypeDef] = None
+class AnalysisRulePolicy(BaseValidatorModel):
+    v1: Optional[AnalysisRulePolicyV1] = None
 
 
-class ConfiguredTableTypeDef(BaseValidatorModel):
+class ConfiguredTable(BaseValidatorModel):
     pass
 
 
-class CreateConfiguredTableOutputTypeDef(BaseValidatorModel):
-    configuredTable: ConfiguredTableTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateConfiguredTableOutput(BaseValidatorModel):
+    configuredTable: ConfiguredTable
+    ResponseMetadata: ResponseMetadata
 
 
-class GetConfiguredTableOutputTypeDef(BaseValidatorModel):
-    configuredTable: ConfiguredTableTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetConfiguredTableOutput(BaseValidatorModel):
+    configuredTable: ConfiguredTable
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateConfiguredTableOutputTypeDef(BaseValidatorModel):
-    configuredTable: ConfiguredTableTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateConfiguredTableOutput(BaseValidatorModel):
+    configuredTable: ConfiguredTable
+    ResponseMetadata: ResponseMetadata
 
 
-class TableReferenceUnionTypeDef(BaseValidatorModel):
+class TableReferenceUnion(BaseValidatorModel):
     pass
 
 
-class CreateConfiguredTableInputTypeDef(BaseValidatorModel):
+class CreateConfiguredTableInput(BaseValidatorModel):
     name: str
-    tableReference: TableReferenceUnionTypeDef
+    tableReference: TableReferenceUnion
     allowedColumns: Sequence[str]
     analysisMethod: Literal["DIRECT_QUERY"]
     description: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
 
-class ConfiguredTableAnalysisRuleTypeDef(BaseValidatorModel):
+class ConfiguredTableAnalysisRule(BaseValidatorModel):
     pass
 
 
-class CreateConfiguredTableAnalysisRuleOutputTypeDef(BaseValidatorModel):
-    analysisRule: ConfiguredTableAnalysisRuleTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateConfiguredTableAnalysisRuleOutput(BaseValidatorModel):
+    analysisRule: ConfiguredTableAnalysisRule
+    ResponseMetadata: ResponseMetadata
 
 
-class GetConfiguredTableAnalysisRuleOutputTypeDef(BaseValidatorModel):
-    analysisRule: ConfiguredTableAnalysisRuleTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetConfiguredTableAnalysisRuleOutput(BaseValidatorModel):
+    analysisRule: ConfiguredTableAnalysisRule
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateConfiguredTableAnalysisRuleOutputTypeDef(BaseValidatorModel):
-    analysisRule: ConfiguredTableAnalysisRuleTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateConfiguredTableAnalysisRuleOutput(BaseValidatorModel):
+    analysisRule: ConfiguredTableAnalysisRule
+    ResponseMetadata: ResponseMetadata
 
 
-class ConfiguredTableAnalysisRulePolicyUnionTypeDef(BaseValidatorModel):
+class ConfiguredTableAnalysisRulePolicyUnion(BaseValidatorModel):
     pass
 
 
-class CreateConfiguredTableAnalysisRuleInputTypeDef(BaseValidatorModel):
+class CreateConfiguredTableAnalysisRuleInput(BaseValidatorModel):
     configuredTableIdentifier: str
     analysisRuleType: ConfiguredTableAnalysisRuleTypeType
-    analysisRulePolicy: ConfiguredTableAnalysisRulePolicyUnionTypeDef
+    analysisRulePolicy: ConfiguredTableAnalysisRulePolicyUnion
 
 
-class UpdateConfiguredTableAnalysisRuleInputTypeDef(BaseValidatorModel):
+class UpdateConfiguredTableAnalysisRuleInput(BaseValidatorModel):
     configuredTableIdentifier: str
     analysisRuleType: ConfiguredTableAnalysisRuleTypeType
-    analysisRulePolicy: ConfiguredTableAnalysisRulePolicyUnionTypeDef
+    analysisRulePolicy: ConfiguredTableAnalysisRulePolicyUnion
 
 
-class BatchGetSchemaAnalysisRuleErrorTypeDef(BaseValidatorModel):
+class BatchGetSchemaAnalysisRuleError(BaseValidatorModel):
     pass
 
 
-class AnalysisRuleTypeDef(BaseValidatorModel):
+class AnalysisRule(BaseValidatorModel):
     pass
 
 
-class BatchGetSchemaAnalysisRuleOutputTypeDef(BaseValidatorModel):
-    analysisRules: List[AnalysisRuleTypeDef]
-    errors: List[BatchGetSchemaAnalysisRuleErrorTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchGetSchemaAnalysisRuleOutput(BaseValidatorModel):
+    analysisRules: List[AnalysisRule]
+    errors: List[BatchGetSchemaAnalysisRuleError]
+    ResponseMetadata: ResponseMetadata
 
 
-class GetSchemaAnalysisRuleOutputTypeDef(BaseValidatorModel):
-    analysisRule: AnalysisRuleTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetSchemaAnalysisRuleOutput(BaseValidatorModel):
+    analysisRule: AnalysisRule
+    ResponseMetadata: ResponseMetadata
 
 

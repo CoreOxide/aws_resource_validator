@@ -12,48 +12,48 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.connectcampaignsv2_constants import *
 
-class AnswerMachineDetectionConfigTypeDef(BaseValidatorModel):
+class AnswerMachineDetectionConfig(BaseValidatorModel):
     enableAnswerMachineDetection: bool
     awaitAnswerMachinePrompt: Optional[bool] = None
 
 
-class ScheduleOutputTypeDef(BaseValidatorModel):
+class ScheduleOutput(BaseValidatorModel):
     startTime: datetime
     endTime: datetime
     refreshFrequency: Optional[str] = None
 
 
-class EmailChannelSubtypeParametersTypeDef(BaseValidatorModel):
+class EmailChannelSubtypeParameters(BaseValidatorModel):
     destinationEmailAddress: str
     templateParameters: Mapping[str, str]
     connectSourceEmailAddress: Optional[str] = None
     templateArn: Optional[str] = None
 
 
-class SmsChannelSubtypeParametersTypeDef(BaseValidatorModel):
+class SmsChannelSubtypeParameters(BaseValidatorModel):
     destinationPhoneNumber: str
     templateParameters: Mapping[str, str]
     connectSourcePhoneNumberArn: Optional[str] = None
     templateArn: Optional[str] = None
 
 
-class CommunicationLimitTypeDef(BaseValidatorModel):
+class CommunicationLimit(BaseValidatorModel):
     maxCountPerRecipient: int
     frequency: int
     unit: Literal["DAY"]
 
 
-class LocalTimeZoneConfigOutputTypeDef(BaseValidatorModel):
+class LocalTimeZoneConfigOutput(BaseValidatorModel):
     defaultTimeZone: Optional[str] = None
     localTimeZoneDetection: Optional[List[LocalTimeZoneDetectionTypeType]] = None
 
 
-class LocalTimeZoneConfigTypeDef(BaseValidatorModel):
+class LocalTimeZoneConfig(BaseValidatorModel):
     defaultTimeZone: Optional[str] = None
     localTimeZoneDetection: Optional[Sequence[LocalTimeZoneDetectionTypeType]] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -61,488 +61,488 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class CustomerProfilesIntegrationConfigTypeDef(BaseValidatorModel):
+class CustomerProfilesIntegrationConfig(BaseValidatorModel):
     domainArn: str
     objectTypeNames: Mapping[EventTypeType, str]
 
 
-class CustomerProfilesIntegrationIdentifierTypeDef(BaseValidatorModel):
+class CustomerProfilesIntegrationIdentifier(BaseValidatorModel):
     domainArn: str
 
 
-class CustomerProfilesIntegrationSummaryTypeDef(BaseValidatorModel):
+class CustomerProfilesIntegrationSummary(BaseValidatorModel):
     domainArn: str
     objectTypeNames: Dict[EventTypeType, str]
 
 
-class DeleteConnectInstanceConfigRequestTypeDef(BaseValidatorModel):
+class DeleteConnectInstanceConfigRequest(BaseValidatorModel):
     connectInstanceId: str
     campaignDeletionPolicy: Optional[CampaignDeletionPolicyType] = None
 
 
-class DeleteInstanceOnboardingJobRequestTypeDef(BaseValidatorModel):
+class DeleteInstanceOnboardingJobRequest(BaseValidatorModel):
     connectInstanceId: str
 
 
-class EmailOutboundConfigTypeDef(BaseValidatorModel):
+class EmailOutboundConfig(BaseValidatorModel):
     connectSourceEmailAddress: str
     wisdomTemplateArn: str
     sourceEmailAddressDisplayName: Optional[str] = None
 
 
-class EmailOutboundModeOutputTypeDef(BaseValidatorModel):
+class EmailOutboundModeOutput(BaseValidatorModel):
     agentless: Optional[Dict[str, Any]] = None
 
 
-class EmailOutboundModeTypeDef(BaseValidatorModel):
+class EmailOutboundMode(BaseValidatorModel):
     agentless: Optional[Mapping[str, Any]] = None
 
 
-class EncryptionConfigTypeDef(BaseValidatorModel):
+class EncryptionConfig(BaseValidatorModel):
     enabled: bool
     encryptionType: Optional[Literal["KMS"]] = None
     keyArn: Optional[str] = None
 
 
-class EventTriggerTypeDef(BaseValidatorModel):
+class EventTrigger(BaseValidatorModel):
     customerProfilesDomainArn: Optional[str] = None
 
 
-class FailedCampaignStateResponseTypeDef(BaseValidatorModel):
+class FailedCampaignStateResponse(BaseValidatorModel):
     campaignId: Optional[str] = None
     failureCode: Optional[GetCampaignStateBatchFailureCodeType] = None
 
 
-class GetCampaignStateBatchRequestTypeDef(BaseValidatorModel):
+class GetCampaignStateBatchRequest(BaseValidatorModel):
     campaignIds: Sequence[str]
 
 
-class SuccessfulCampaignStateResponseTypeDef(BaseValidatorModel):
+class SuccessfulCampaignStateResponse(BaseValidatorModel):
     campaignId: Optional[str] = None
     state: Optional[CampaignStateType] = None
 
 
-class GetConnectInstanceConfigRequestTypeDef(BaseValidatorModel):
+class GetConnectInstanceConfigRequest(BaseValidatorModel):
     connectInstanceId: str
 
 
-class GetInstanceOnboardingJobStatusRequestTypeDef(BaseValidatorModel):
+class GetInstanceOnboardingJobStatusRequest(BaseValidatorModel):
     connectInstanceId: str
 
 
-class InstanceOnboardingJobStatusTypeDef(BaseValidatorModel):
+class InstanceOnboardingJobStatus(BaseValidatorModel):
     connectInstanceId: str
     status: InstanceOnboardingJobStatusCodeType
     failureCode: Optional[InstanceOnboardingJobFailureCodeType] = None
 
 
-class QConnectIntegrationConfigTypeDef(BaseValidatorModel):
+class QConnectIntegrationConfig(BaseValidatorModel):
     knowledgeBaseArn: str
 
 
-class QConnectIntegrationIdentifierTypeDef(BaseValidatorModel):
+class QConnectIntegrationIdentifier(BaseValidatorModel):
     knowledgeBaseArn: str
 
 
-class QConnectIntegrationSummaryTypeDef(BaseValidatorModel):
+class QConnectIntegrationSummary(BaseValidatorModel):
     knowledgeBaseArn: str
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListConnectInstanceIntegrationsRequestTypeDef(BaseValidatorModel):
+class ListConnectInstanceIntegrationsRequest(BaseValidatorModel):
     connectInstanceId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     arn: str
 
 
-class TimeRangeTypeDef(BaseValidatorModel):
+class TimeRange(BaseValidatorModel):
     startTime: str
     endTime: str
 
 
-class PredictiveConfigTypeDef(BaseValidatorModel):
+class PredictiveConfig(BaseValidatorModel):
     bandwidthAllocation: float
 
 
-class ProgressiveConfigTypeDef(BaseValidatorModel):
+class ProgressiveConfig(BaseValidatorModel):
     bandwidthAllocation: float
 
 
-class RestrictedPeriodTypeDef(BaseValidatorModel):
+class RestrictedPeriod(BaseValidatorModel):
     startDate: str
     endDate: str
     name: Optional[str] = None
 
 
-class SmsOutboundConfigTypeDef(BaseValidatorModel):
+class SmsOutboundConfig(BaseValidatorModel):
     connectSourcePhoneNumberArn: str
     wisdomTemplateArn: str
 
 
-class SmsOutboundModeOutputTypeDef(BaseValidatorModel):
+class SmsOutboundModeOutput(BaseValidatorModel):
     agentless: Optional[Dict[str, Any]] = None
 
 
-class SmsOutboundModeTypeDef(BaseValidatorModel):
+class SmsOutboundMode(BaseValidatorModel):
     agentless: Optional[Mapping[str, Any]] = None
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     arn: str
     tags: Mapping[str, str]
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     arn: str
     tagKeys: Sequence[str]
 
 
-class TelephonyChannelSubtypeParametersTypeDef(BaseValidatorModel):
+class TelephonyChannelSubtypeParameters(BaseValidatorModel):
     destinationPhoneNumber: str
     attributes: Mapping[str, str]
     connectSourcePhoneNumber: Optional[str] = None
-    answerMachineDetectionConfig: Optional[AnswerMachineDetectionConfigTypeDef] = None
+    answerMachineDetectionConfig: Optional[AnswerMachineDetectionConfig] = None
 
 
-class TelephonyOutboundConfigTypeDef(BaseValidatorModel):
+class TelephonyOutboundConfig(BaseValidatorModel):
     connectContactFlowId: str
     connectSourcePhoneNumber: Optional[str] = None
-    answerMachineDetectionConfig: Optional[AnswerMachineDetectionConfigTypeDef] = None
+    answerMachineDetectionConfig: Optional[AnswerMachineDetectionConfig] = None
 
 
-class InstanceIdFilterTypeDef(BaseValidatorModel):
+class InstanceIdFilter(BaseValidatorModel):
     pass
 
 
-class CampaignFiltersTypeDef(BaseValidatorModel):
-    instanceIdFilter: Optional[InstanceIdFilterTypeDef] = None
+class CampaignFilters(BaseValidatorModel):
+    instanceIdFilter: Optional[InstanceIdFilter] = None
 
 
-class CommunicationLimitsOutputTypeDef(BaseValidatorModel):
-    communicationLimitsList: Optional[List[CommunicationLimitTypeDef]] = None
+class CommunicationLimitsOutput(BaseValidatorModel):
+    communicationLimitsList: Optional[List[CommunicationLimit]] = None
 
 
-class CommunicationLimitsTypeDef(BaseValidatorModel):
-    communicationLimitsList: Optional[Sequence[CommunicationLimitTypeDef]] = None
+class CommunicationLimits(BaseValidatorModel):
+    communicationLimitsList: Optional[Sequence[CommunicationLimit]] = None
 
 
-class EmptyResponseMetadataTypeDef(BaseValidatorModel):
-    ResponseMetadata: ResponseMetadataTypeDef
+class EmptyResponseMetadata(BaseValidatorModel):
+    ResponseMetadata: ResponseMetadata
 
 
-class GetCampaignStateResponseTypeDef(BaseValidatorModel):
+class GetCampaignStateResponse(BaseValidatorModel):
     state: CampaignStateType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
+class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class EmailChannelSubtypeConfigOutputTypeDef(BaseValidatorModel):
-    outboundMode: EmailOutboundModeOutputTypeDef
-    defaultOutboundConfig: EmailOutboundConfigTypeDef
+class EmailChannelSubtypeConfigOutput(BaseValidatorModel):
+    outboundMode: EmailOutboundModeOutput
+    defaultOutboundConfig: EmailOutboundConfig
     capacity: Optional[float] = None
 
 
-class EmailChannelSubtypeConfigTypeDef(BaseValidatorModel):
-    outboundMode: EmailOutboundModeTypeDef
-    defaultOutboundConfig: EmailOutboundConfigTypeDef
+class EmailChannelSubtypeConfig(BaseValidatorModel):
+    outboundMode: EmailOutboundMode
+    defaultOutboundConfig: EmailOutboundConfig
     capacity: Optional[float] = None
 
 
-class InstanceConfigTypeDef(BaseValidatorModel):
+class InstanceConfig(BaseValidatorModel):
     connectInstanceId: str
     serviceLinkedRoleArn: str
-    encryptionConfig: EncryptionConfigTypeDef
+    encryptionConfig: EncryptionConfig
 
 
-class StartInstanceOnboardingJobRequestTypeDef(BaseValidatorModel):
+class StartInstanceOnboardingJobRequest(BaseValidatorModel):
     connectInstanceId: str
-    encryptionConfig: EncryptionConfigTypeDef
+    encryptionConfig: EncryptionConfig
 
 
-class SourceTypeDef(BaseValidatorModel):
+class Source(BaseValidatorModel):
     customerProfilesSegmentArn: Optional[str] = None
-    eventTrigger: Optional[EventTriggerTypeDef] = None
+    eventTrigger: Optional[EventTrigger] = None
 
 
-class GetCampaignStateBatchResponseTypeDef(BaseValidatorModel):
-    successfulRequests: List[SuccessfulCampaignStateResponseTypeDef]
-    failedRequests: List[FailedCampaignStateResponseTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetCampaignStateBatchResponse(BaseValidatorModel):
+    successfulRequests: List[SuccessfulCampaignStateResponse]
+    failedRequests: List[FailedCampaignStateResponse]
+    ResponseMetadata: ResponseMetadata
 
 
-class GetInstanceOnboardingJobStatusResponseTypeDef(BaseValidatorModel):
-    connectInstanceOnboardingJobStatus: InstanceOnboardingJobStatusTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetInstanceOnboardingJobStatusResponse(BaseValidatorModel):
+    connectInstanceOnboardingJobStatus: InstanceOnboardingJobStatus
+    ResponseMetadata: ResponseMetadata
 
 
-class StartInstanceOnboardingJobResponseTypeDef(BaseValidatorModel):
-    connectInstanceOnboardingJobStatus: InstanceOnboardingJobStatusTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class StartInstanceOnboardingJobResponse(BaseValidatorModel):
+    connectInstanceOnboardingJobStatus: InstanceOnboardingJobStatus
+    ResponseMetadata: ResponseMetadata
 
 
-class IntegrationConfigTypeDef(BaseValidatorModel):
-    customerProfiles: Optional[CustomerProfilesIntegrationConfigTypeDef] = None
-    qConnect: Optional[QConnectIntegrationConfigTypeDef] = None
+class IntegrationConfig(BaseValidatorModel):
+    customerProfiles: Optional[CustomerProfilesIntegrationConfig] = None
+    qConnect: Optional[QConnectIntegrationConfig] = None
 
 
-class IntegrationIdentifierTypeDef(BaseValidatorModel):
-    customerProfiles: Optional[CustomerProfilesIntegrationIdentifierTypeDef] = None
-    qConnect: Optional[QConnectIntegrationIdentifierTypeDef] = None
+class IntegrationIdentifier(BaseValidatorModel):
+    customerProfiles: Optional[CustomerProfilesIntegrationIdentifier] = None
+    qConnect: Optional[QConnectIntegrationIdentifier] = None
 
 
-class IntegrationSummaryTypeDef(BaseValidatorModel):
-    customerProfiles: Optional[CustomerProfilesIntegrationSummaryTypeDef] = None
-    qConnect: Optional[QConnectIntegrationSummaryTypeDef] = None
+class IntegrationSummary(BaseValidatorModel):
+    customerProfiles: Optional[CustomerProfilesIntegrationSummary] = None
+    qConnect: Optional[QConnectIntegrationSummary] = None
 
 
-class ListConnectInstanceIntegrationsRequestPaginateTypeDef(BaseValidatorModel):
+class ListConnectInstanceIntegrationsRequestPaginate(BaseValidatorModel):
     connectInstanceId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class OpenHoursOutputTypeDef(BaseValidatorModel):
-    dailyHours: Optional[Dict[DayOfWeekType, List[TimeRangeTypeDef]]] = None
+class OpenHoursOutput(BaseValidatorModel):
+    dailyHours: Optional[Dict[DayOfWeekType, List[TimeRange]]] = None
 
 
-class OpenHoursTypeDef(BaseValidatorModel):
-    dailyHours: Optional[Mapping[DayOfWeekType, Sequence[TimeRangeTypeDef]]] = None
+class OpenHours(BaseValidatorModel):
+    dailyHours: Optional[Mapping[DayOfWeekType, Sequence[TimeRange]]] = None
 
 
-class TimestampTypeDef(BaseValidatorModel):
+class Timestamp(BaseValidatorModel):
     pass
 
 
-class ProfileOutboundRequestTypeDef(BaseValidatorModel):
+class ProfileOutboundRequest(BaseValidatorModel):
     clientToken: str
     profileId: str
-    expirationTime: Optional[TimestampTypeDef] = None
+    expirationTime: Optional[Timestamp] = None
 
 
-class ScheduleTypeDef(BaseValidatorModel):
-    startTime: TimestampTypeDef
-    endTime: TimestampTypeDef
+class Schedule(BaseValidatorModel):
+    startTime: Timestamp
+    endTime: Timestamp
     refreshFrequency: Optional[str] = None
 
 
-class TelephonyOutboundModeOutputTypeDef(BaseValidatorModel):
-    progressive: Optional[ProgressiveConfigTypeDef] = None
-    predictive: Optional[PredictiveConfigTypeDef] = None
+class TelephonyOutboundModeOutput(BaseValidatorModel):
+    progressive: Optional[ProgressiveConfig] = None
+    predictive: Optional[PredictiveConfig] = None
     agentless: Optional[Dict[str, Any]] = None
 
 
-class TelephonyOutboundModeTypeDef(BaseValidatorModel):
-    progressive: Optional[ProgressiveConfigTypeDef] = None
-    predictive: Optional[PredictiveConfigTypeDef] = None
+class TelephonyOutboundMode(BaseValidatorModel):
+    progressive: Optional[ProgressiveConfig] = None
+    predictive: Optional[PredictiveConfig] = None
     agentless: Optional[Mapping[str, Any]] = None
 
 
-class FailedRequestTypeDef(BaseValidatorModel):
+class FailedRequest(BaseValidatorModel):
     pass
 
 
-class SuccessfulRequestTypeDef(BaseValidatorModel):
+class SuccessfulRequest(BaseValidatorModel):
     pass
 
 
-class PutOutboundRequestBatchResponseTypeDef(BaseValidatorModel):
-    successfulRequests: List[SuccessfulRequestTypeDef]
-    failedRequests: List[FailedRequestTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class PutOutboundRequestBatchResponse(BaseValidatorModel):
+    successfulRequests: List[SuccessfulRequest]
+    failedRequests: List[FailedRequest]
+    ResponseMetadata: ResponseMetadata
 
 
-class FailedProfileOutboundRequestTypeDef(BaseValidatorModel):
+class FailedProfileOutboundRequest(BaseValidatorModel):
     pass
 
 
-class SuccessfulProfileOutboundRequestTypeDef(BaseValidatorModel):
+class SuccessfulProfileOutboundRequest(BaseValidatorModel):
     pass
 
 
-class PutProfileOutboundRequestBatchResponseTypeDef(BaseValidatorModel):
-    successfulRequests: List[SuccessfulProfileOutboundRequestTypeDef]
-    failedRequests: List[FailedProfileOutboundRequestTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class PutProfileOutboundRequestBatchResponse(BaseValidatorModel):
+    successfulRequests: List[SuccessfulProfileOutboundRequest]
+    failedRequests: List[FailedProfileOutboundRequest]
+    ResponseMetadata: ResponseMetadata
 
 
-class RestrictedPeriodsOutputTypeDef(BaseValidatorModel):
-    restrictedPeriodList: Optional[List[RestrictedPeriodTypeDef]] = None
+class RestrictedPeriodsOutput(BaseValidatorModel):
+    restrictedPeriodList: Optional[List[RestrictedPeriod]] = None
 
 
-class RestrictedPeriodsTypeDef(BaseValidatorModel):
-    restrictedPeriodList: Optional[Sequence[RestrictedPeriodTypeDef]] = None
+class RestrictedPeriods(BaseValidatorModel):
+    restrictedPeriodList: Optional[Sequence[RestrictedPeriod]] = None
 
 
-class SmsChannelSubtypeConfigOutputTypeDef(BaseValidatorModel):
-    outboundMode: SmsOutboundModeOutputTypeDef
-    defaultOutboundConfig: SmsOutboundConfigTypeDef
+class SmsChannelSubtypeConfigOutput(BaseValidatorModel):
+    outboundMode: SmsOutboundModeOutput
+    defaultOutboundConfig: SmsOutboundConfig
     capacity: Optional[float] = None
 
 
-class SmsChannelSubtypeConfigTypeDef(BaseValidatorModel):
-    outboundMode: SmsOutboundModeTypeDef
-    defaultOutboundConfig: SmsOutboundConfigTypeDef
+class SmsChannelSubtypeConfig(BaseValidatorModel):
+    outboundMode: SmsOutboundMode
+    defaultOutboundConfig: SmsOutboundConfig
     capacity: Optional[float] = None
 
 
-class ChannelSubtypeParametersTypeDef(BaseValidatorModel):
-    telephony: Optional[TelephonyChannelSubtypeParametersTypeDef] = None
-    sms: Optional[SmsChannelSubtypeParametersTypeDef] = None
-    email: Optional[EmailChannelSubtypeParametersTypeDef] = None
+class ChannelSubtypeParameters(BaseValidatorModel):
+    telephony: Optional[TelephonyChannelSubtypeParameters] = None
+    sms: Optional[SmsChannelSubtypeParameters] = None
+    email: Optional[EmailChannelSubtypeParameters] = None
 
 
-class ListCampaignsRequestPaginateTypeDef(BaseValidatorModel):
-    filters: Optional[CampaignFiltersTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListCampaignsRequestPaginate(BaseValidatorModel):
+    filters: Optional[CampaignFilters] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListCampaignsRequestTypeDef(BaseValidatorModel):
+class ListCampaignsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
-    filters: Optional[CampaignFiltersTypeDef] = None
+    filters: Optional[CampaignFilters] = None
 
 
-class CampaignSummaryTypeDef(BaseValidatorModel):
+class CampaignSummary(BaseValidatorModel):
     pass
 
 
-class ListCampaignsResponseTypeDef(BaseValidatorModel):
-    campaignSummaryList: List[CampaignSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListCampaignsResponse(BaseValidatorModel):
+    campaignSummaryList: List[CampaignSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class CommunicationLimitsConfigOutputTypeDef(BaseValidatorModel):
-    allChannelSubtypes: Optional[CommunicationLimitsOutputTypeDef] = None
+class CommunicationLimitsConfigOutput(BaseValidatorModel):
+    allChannelSubtypes: Optional[CommunicationLimitsOutput] = None
 
 
-class CommunicationLimitsConfigTypeDef(BaseValidatorModel):
-    allChannelSubtypes: Optional[CommunicationLimitsTypeDef] = None
+class CommunicationLimitsConfig(BaseValidatorModel):
+    allChannelSubtypes: Optional[CommunicationLimits] = None
 
 
-class GetConnectInstanceConfigResponseTypeDef(BaseValidatorModel):
-    connectInstanceConfig: InstanceConfigTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetConnectInstanceConfigResponse(BaseValidatorModel):
+    connectInstanceConfig: InstanceConfig
+    ResponseMetadata: ResponseMetadata
 
 
-class PutConnectInstanceIntegrationRequestTypeDef(BaseValidatorModel):
+class PutConnectInstanceIntegrationRequest(BaseValidatorModel):
     connectInstanceId: str
-    integrationConfig: IntegrationConfigTypeDef
+    integrationConfig: IntegrationConfig
 
 
-class DeleteConnectInstanceIntegrationRequestTypeDef(BaseValidatorModel):
+class DeleteConnectInstanceIntegrationRequest(BaseValidatorModel):
     connectInstanceId: str
-    integrationIdentifier: IntegrationIdentifierTypeDef
+    integrationIdentifier: IntegrationIdentifier
 
 
-class ListConnectInstanceIntegrationsResponseTypeDef(BaseValidatorModel):
-    integrationSummaryList: List[IntegrationSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListConnectInstanceIntegrationsResponse(BaseValidatorModel):
+    integrationSummaryList: List[IntegrationSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class TelephonyChannelSubtypeConfigOutputTypeDef(BaseValidatorModel):
-    outboundMode: TelephonyOutboundModeOutputTypeDef
-    defaultOutboundConfig: TelephonyOutboundConfigTypeDef
+class TelephonyChannelSubtypeConfigOutput(BaseValidatorModel):
+    outboundMode: TelephonyOutboundModeOutput
+    defaultOutboundConfig: TelephonyOutboundConfig
     capacity: Optional[float] = None
     connectQueueId: Optional[str] = None
 
 
-class TelephonyChannelSubtypeConfigTypeDef(BaseValidatorModel):
-    outboundMode: TelephonyOutboundModeTypeDef
-    defaultOutboundConfig: TelephonyOutboundConfigTypeDef
+class TelephonyChannelSubtypeConfig(BaseValidatorModel):
+    outboundMode: TelephonyOutboundMode
+    defaultOutboundConfig: TelephonyOutboundConfig
     capacity: Optional[float] = None
     connectQueueId: Optional[str] = None
 
 
-class TimeWindowOutputTypeDef(BaseValidatorModel):
-    openHours: OpenHoursOutputTypeDef
-    restrictedPeriods: Optional[RestrictedPeriodsOutputTypeDef] = None
+class TimeWindowOutput(BaseValidatorModel):
+    openHours: OpenHoursOutput
+    restrictedPeriods: Optional[RestrictedPeriodsOutput] = None
 
 
-class TimeWindowTypeDef(BaseValidatorModel):
-    openHours: OpenHoursTypeDef
-    restrictedPeriods: Optional[RestrictedPeriodsTypeDef] = None
+class TimeWindow(BaseValidatorModel):
+    openHours: OpenHours
+    restrictedPeriods: Optional[RestrictedPeriods] = None
 
 
-class OutboundRequestTypeDef(BaseValidatorModel):
+class OutboundRequest(BaseValidatorModel):
     clientToken: str
-    expirationTime: TimestampTypeDef
-    channelSubtypeParameters: ChannelSubtypeParametersTypeDef
+    expirationTime: Timestamp
+    channelSubtypeParameters: ChannelSubtypeParameters
 
 
-class ChannelSubtypeConfigOutputTypeDef(BaseValidatorModel):
-    telephony: Optional[TelephonyChannelSubtypeConfigOutputTypeDef] = None
-    sms: Optional[SmsChannelSubtypeConfigOutputTypeDef] = None
-    email: Optional[EmailChannelSubtypeConfigOutputTypeDef] = None
+class ChannelSubtypeConfigOutput(BaseValidatorModel):
+    telephony: Optional[TelephonyChannelSubtypeConfigOutput] = None
+    sms: Optional[SmsChannelSubtypeConfigOutput] = None
+    email: Optional[EmailChannelSubtypeConfigOutput] = None
 
 
-class ChannelSubtypeConfigTypeDef(BaseValidatorModel):
-    telephony: Optional[TelephonyChannelSubtypeConfigTypeDef] = None
-    sms: Optional[SmsChannelSubtypeConfigTypeDef] = None
-    email: Optional[EmailChannelSubtypeConfigTypeDef] = None
+class ChannelSubtypeConfig(BaseValidatorModel):
+    telephony: Optional[TelephonyChannelSubtypeConfig] = None
+    sms: Optional[SmsChannelSubtypeConfig] = None
+    email: Optional[EmailChannelSubtypeConfig] = None
 
 
-class CommunicationTimeConfigOutputTypeDef(BaseValidatorModel):
-    localTimeZoneConfig: LocalTimeZoneConfigOutputTypeDef
-    telephony: Optional[TimeWindowOutputTypeDef] = None
-    sms: Optional[TimeWindowOutputTypeDef] = None
-    email: Optional[TimeWindowOutputTypeDef] = None
+class CommunicationTimeConfigOutput(BaseValidatorModel):
+    localTimeZoneConfig: LocalTimeZoneConfigOutput
+    telephony: Optional[TimeWindowOutput] = None
+    sms: Optional[TimeWindowOutput] = None
+    email: Optional[TimeWindowOutput] = None
 
 
-class CommunicationTimeConfigTypeDef(BaseValidatorModel):
-    localTimeZoneConfig: LocalTimeZoneConfigTypeDef
-    telephony: Optional[TimeWindowTypeDef] = None
-    sms: Optional[TimeWindowTypeDef] = None
-    email: Optional[TimeWindowTypeDef] = None
+class CommunicationTimeConfig(BaseValidatorModel):
+    localTimeZoneConfig: LocalTimeZoneConfig
+    telephony: Optional[TimeWindow] = None
+    sms: Optional[TimeWindow] = None
+    email: Optional[TimeWindow] = None
 
 
-class CampaignTypeDef(BaseValidatorModel):
+class Campaign(BaseValidatorModel):
     pass
 
 
-class DescribeCampaignResponseTypeDef(BaseValidatorModel):
-    campaign: CampaignTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeCampaignResponse(BaseValidatorModel):
+    campaign: Campaign
+    ResponseMetadata: ResponseMetadata
 
 
-class ChannelSubtypeConfigUnionTypeDef(BaseValidatorModel):
+class ChannelSubtypeConfigUnion(BaseValidatorModel):
     pass
 
 
-class ScheduleUnionTypeDef(BaseValidatorModel):
+class ScheduleUnion(BaseValidatorModel):
     pass
 
 
-class CommunicationTimeConfigUnionTypeDef(BaseValidatorModel):
+class CommunicationTimeConfigUnion(BaseValidatorModel):
     pass
 
 
-class CommunicationLimitsConfigUnionTypeDef(BaseValidatorModel):
+class CommunicationLimitsConfigUnion(BaseValidatorModel):
     pass
 
 
-class CreateCampaignRequestTypeDef(BaseValidatorModel):
+class CreateCampaignRequest(BaseValidatorModel):
     name: str
     connectInstanceId: str
-    channelSubtypeConfig: ChannelSubtypeConfigUnionTypeDef
-    source: Optional[SourceTypeDef] = None
+    channelSubtypeConfig: ChannelSubtypeConfigUnion
+    source: Optional[Source] = None
     connectCampaignFlowArn: Optional[str] = None
-    schedule: Optional[ScheduleUnionTypeDef] = None
-    communicationTimeConfig: Optional[CommunicationTimeConfigUnionTypeDef] = None
-    communicationLimitsOverride: Optional[CommunicationLimitsConfigUnionTypeDef] = None
+    schedule: Optional[ScheduleUnion] = None
+    communicationTimeConfig: Optional[CommunicationTimeConfigUnion] = None
+    communicationLimitsOverride: Optional[CommunicationLimitsConfigUnion] = None
     tags: Optional[Mapping[str, str]] = None
 
 

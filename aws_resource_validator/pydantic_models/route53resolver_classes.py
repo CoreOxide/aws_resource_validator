@@ -12,12 +12,12 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.route53resolver_constants import *
 
-class TagTypeDef(BaseValidatorModel):
+class Tag(BaseValidatorModel):
     Key: str
     Value: str
 
 
-class FirewallRuleGroupAssociationTypeDef(BaseValidatorModel):
+class FirewallRuleGroupAssociation(BaseValidatorModel):
     Id: Optional[str] = None
     Arn: Optional[str] = None
     FirewallRuleGroupId: Optional[str] = None
@@ -33,7 +33,7 @@ class FirewallRuleGroupAssociationTypeDef(BaseValidatorModel):
     ModificationTime: Optional[str] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -41,14 +41,14 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class IpAddressUpdateTypeDef(BaseValidatorModel):
+class IpAddressUpdate(BaseValidatorModel):
     IpId: Optional[str] = None
     SubnetId: Optional[str] = None
     Ip: Optional[str] = None
     Ipv6: Optional[str] = None
 
 
-class ResolverEndpointTypeDef(BaseValidatorModel):
+class ResolverEndpoint(BaseValidatorModel):
     Id: Optional[str] = None
     CreatorRequestId: Optional[str] = None
     Arn: Optional[str] = None
@@ -67,12 +67,12 @@ class ResolverEndpointTypeDef(BaseValidatorModel):
     Protocols: Optional[List[ProtocolType]] = None
 
 
-class AssociateResolverQueryLogConfigRequestTypeDef(BaseValidatorModel):
+class AssociateResolverQueryLogConfigRequest(BaseValidatorModel):
     ResolverQueryLogConfigId: str
     ResourceId: str
 
 
-class ResolverQueryLogConfigAssociationTypeDef(BaseValidatorModel):
+class ResolverQueryLogConfigAssociation(BaseValidatorModel):
     Id: Optional[str] = None
     ResolverQueryLogConfigId: Optional[str] = None
     ResourceId: Optional[str] = None
@@ -82,13 +82,13 @@ class ResolverQueryLogConfigAssociationTypeDef(BaseValidatorModel):
     CreationTime: Optional[str] = None
 
 
-class AssociateResolverRuleRequestTypeDef(BaseValidatorModel):
+class AssociateResolverRuleRequest(BaseValidatorModel):
     ResolverRuleId: str
     VPCId: str
     Name: Optional[str] = None
 
 
-class ResolverRuleAssociationTypeDef(BaseValidatorModel):
+class ResolverRuleAssociation(BaseValidatorModel):
     Id: Optional[str] = None
     ResolverRuleId: Optional[str] = None
     Name: Optional[str] = None
@@ -97,7 +97,7 @@ class ResolverRuleAssociationTypeDef(BaseValidatorModel):
     StatusMessage: Optional[str] = None
 
 
-class FirewallDomainListTypeDef(BaseValidatorModel):
+class FirewallDomainList(BaseValidatorModel):
     Id: Optional[str] = None
     Arn: Optional[str] = None
     Name: Optional[str] = None
@@ -110,7 +110,7 @@ class FirewallDomainListTypeDef(BaseValidatorModel):
     ModificationTime: Optional[str] = None
 
 
-class FirewallRuleGroupTypeDef(BaseValidatorModel):
+class FirewallRuleGroup(BaseValidatorModel):
     Id: Optional[str] = None
     Arn: Optional[str] = None
     Name: Optional[str] = None
@@ -124,7 +124,7 @@ class FirewallRuleGroupTypeDef(BaseValidatorModel):
     ModificationTime: Optional[str] = None
 
 
-class CreateFirewallRuleRequestTypeDef(BaseValidatorModel):
+class CreateFirewallRuleRequest(BaseValidatorModel):
     CreatorRequestId: str
     FirewallRuleGroupId: str
     Priority: int
@@ -141,7 +141,7 @@ class CreateFirewallRuleRequestTypeDef(BaseValidatorModel):
     ConfidenceThreshold: Optional[ConfidenceThresholdType] = None
 
 
-class FirewallRuleTypeDef(BaseValidatorModel):
+class FirewallRule(BaseValidatorModel):
     FirewallRuleGroupId: Optional[str] = None
     FirewallDomainListId: Optional[str] = None
     FirewallThreatProtectionId: Optional[str] = None
@@ -161,7 +161,7 @@ class FirewallRuleTypeDef(BaseValidatorModel):
     ConfidenceThreshold: Optional[ConfidenceThresholdType] = None
 
 
-class OutpostResolverTypeDef(BaseValidatorModel):
+class OutpostResolver(BaseValidatorModel):
     Arn: Optional[str] = None
     CreationTime: Optional[str] = None
     ModificationTime: Optional[str] = None
@@ -175,13 +175,13 @@ class OutpostResolverTypeDef(BaseValidatorModel):
     OutpostArn: Optional[str] = None
 
 
-class IpAddressRequestTypeDef(BaseValidatorModel):
+class IpAddressRequest(BaseValidatorModel):
     SubnetId: str
     Ip: Optional[str] = None
     Ipv6: Optional[str] = None
 
 
-class ResolverQueryLogConfigTypeDef(BaseValidatorModel):
+class ResolverQueryLogConfig(BaseValidatorModel):
     Id: Optional[str] = None
     OwnerId: Optional[str] = None
     Status: Optional[ResolverQueryLogConfigStatusType] = None
@@ -194,64 +194,64 @@ class ResolverQueryLogConfigTypeDef(BaseValidatorModel):
     CreationTime: Optional[str] = None
 
 
-class DeleteFirewallDomainListRequestTypeDef(BaseValidatorModel):
+class DeleteFirewallDomainListRequest(BaseValidatorModel):
     FirewallDomainListId: str
 
 
-class DeleteFirewallRuleGroupRequestTypeDef(BaseValidatorModel):
+class DeleteFirewallRuleGroupRequest(BaseValidatorModel):
     FirewallRuleGroupId: str
 
 
-class DeleteFirewallRuleRequestTypeDef(BaseValidatorModel):
+class DeleteFirewallRuleRequest(BaseValidatorModel):
     FirewallRuleGroupId: str
     FirewallDomainListId: Optional[str] = None
     FirewallThreatProtectionId: Optional[str] = None
     Qtype: Optional[str] = None
 
 
-class DeleteOutpostResolverRequestTypeDef(BaseValidatorModel):
+class DeleteOutpostResolverRequest(BaseValidatorModel):
     Id: str
 
 
-class DeleteResolverEndpointRequestTypeDef(BaseValidatorModel):
+class DeleteResolverEndpointRequest(BaseValidatorModel):
     ResolverEndpointId: str
 
 
-class DeleteResolverQueryLogConfigRequestTypeDef(BaseValidatorModel):
+class DeleteResolverQueryLogConfigRequest(BaseValidatorModel):
     ResolverQueryLogConfigId: str
 
 
-class DeleteResolverRuleRequestTypeDef(BaseValidatorModel):
+class DeleteResolverRuleRequest(BaseValidatorModel):
     ResolverRuleId: str
 
 
-class DisassociateFirewallRuleGroupRequestTypeDef(BaseValidatorModel):
+class DisassociateFirewallRuleGroupRequest(BaseValidatorModel):
     FirewallRuleGroupAssociationId: str
 
 
-class DisassociateResolverQueryLogConfigRequestTypeDef(BaseValidatorModel):
+class DisassociateResolverQueryLogConfigRequest(BaseValidatorModel):
     ResolverQueryLogConfigId: str
     ResourceId: str
 
 
-class DisassociateResolverRuleRequestTypeDef(BaseValidatorModel):
+class DisassociateResolverRuleRequest(BaseValidatorModel):
     VPCId: str
     ResolverRuleId: str
 
 
-class FilterTypeDef(BaseValidatorModel):
+class Filter(BaseValidatorModel):
     Name: Optional[str] = None
     Values: Optional[Sequence[str]] = None
 
 
-class FirewallConfigTypeDef(BaseValidatorModel):
+class FirewallConfig(BaseValidatorModel):
     Id: Optional[str] = None
     ResourceId: Optional[str] = None
     OwnerId: Optional[str] = None
     FirewallFailOpen: Optional[FirewallFailOpenStatusType] = None
 
 
-class FirewallDomainListMetadataTypeDef(BaseValidatorModel):
+class FirewallDomainListMetadata(BaseValidatorModel):
     Id: Optional[str] = None
     Arn: Optional[str] = None
     Name: Optional[str] = None
@@ -259,7 +259,7 @@ class FirewallDomainListMetadataTypeDef(BaseValidatorModel):
     ManagedOwnerName: Optional[str] = None
 
 
-class FirewallRuleGroupMetadataTypeDef(BaseValidatorModel):
+class FirewallRuleGroupMetadata(BaseValidatorModel):
     Id: Optional[str] = None
     Arn: Optional[str] = None
     Name: Optional[str] = None
@@ -268,87 +268,87 @@ class FirewallRuleGroupMetadataTypeDef(BaseValidatorModel):
     ShareStatus: Optional[ShareStatusType] = None
 
 
-class GetFirewallConfigRequestTypeDef(BaseValidatorModel):
+class GetFirewallConfigRequest(BaseValidatorModel):
     ResourceId: str
 
 
-class GetFirewallDomainListRequestTypeDef(BaseValidatorModel):
+class GetFirewallDomainListRequest(BaseValidatorModel):
     FirewallDomainListId: str
 
 
-class GetFirewallRuleGroupAssociationRequestTypeDef(BaseValidatorModel):
+class GetFirewallRuleGroupAssociationRequest(BaseValidatorModel):
     FirewallRuleGroupAssociationId: str
 
 
-class GetFirewallRuleGroupPolicyRequestTypeDef(BaseValidatorModel):
+class GetFirewallRuleGroupPolicyRequest(BaseValidatorModel):
     Arn: str
 
 
-class GetFirewallRuleGroupRequestTypeDef(BaseValidatorModel):
+class GetFirewallRuleGroupRequest(BaseValidatorModel):
     FirewallRuleGroupId: str
 
 
-class GetOutpostResolverRequestTypeDef(BaseValidatorModel):
+class GetOutpostResolverRequest(BaseValidatorModel):
     Id: str
 
 
-class GetResolverConfigRequestTypeDef(BaseValidatorModel):
+class GetResolverConfigRequest(BaseValidatorModel):
     ResourceId: str
 
 
-class ResolverConfigTypeDef(BaseValidatorModel):
+class ResolverConfig(BaseValidatorModel):
     Id: Optional[str] = None
     ResourceId: Optional[str] = None
     OwnerId: Optional[str] = None
     AutodefinedReverse: Optional[ResolverAutodefinedReverseStatusType] = None
 
 
-class GetResolverDnssecConfigRequestTypeDef(BaseValidatorModel):
+class GetResolverDnssecConfigRequest(BaseValidatorModel):
     ResourceId: str
 
 
-class ResolverDnssecConfigTypeDef(BaseValidatorModel):
+class ResolverDnssecConfig(BaseValidatorModel):
     Id: Optional[str] = None
     OwnerId: Optional[str] = None
     ResourceId: Optional[str] = None
     ValidationStatus: Optional[ResolverDNSSECValidationStatusType] = None
 
 
-class GetResolverEndpointRequestTypeDef(BaseValidatorModel):
+class GetResolverEndpointRequest(BaseValidatorModel):
     ResolverEndpointId: str
 
 
-class GetResolverQueryLogConfigAssociationRequestTypeDef(BaseValidatorModel):
+class GetResolverQueryLogConfigAssociationRequest(BaseValidatorModel):
     ResolverQueryLogConfigAssociationId: str
 
 
-class GetResolverQueryLogConfigPolicyRequestTypeDef(BaseValidatorModel):
+class GetResolverQueryLogConfigPolicyRequest(BaseValidatorModel):
     Arn: str
 
 
-class GetResolverQueryLogConfigRequestTypeDef(BaseValidatorModel):
+class GetResolverQueryLogConfigRequest(BaseValidatorModel):
     ResolverQueryLogConfigId: str
 
 
-class GetResolverRuleAssociationRequestTypeDef(BaseValidatorModel):
+class GetResolverRuleAssociationRequest(BaseValidatorModel):
     ResolverRuleAssociationId: str
 
 
-class GetResolverRulePolicyRequestTypeDef(BaseValidatorModel):
+class GetResolverRulePolicyRequest(BaseValidatorModel):
     Arn: str
 
 
-class GetResolverRuleRequestTypeDef(BaseValidatorModel):
+class GetResolverRuleRequest(BaseValidatorModel):
     ResolverRuleId: str
 
 
-class ImportFirewallDomainsRequestTypeDef(BaseValidatorModel):
+class ImportFirewallDomainsRequest(BaseValidatorModel):
     FirewallDomainListId: str
     Operation: Literal["REPLACE"]
     DomainFileUrl: str
 
 
-class IpAddressResponseTypeDef(BaseValidatorModel):
+class IpAddressResponse(BaseValidatorModel):
     IpId: Optional[str] = None
     SubnetId: Optional[str] = None
     Ip: Optional[str] = None
@@ -359,29 +359,29 @@ class IpAddressResponseTypeDef(BaseValidatorModel):
     ModificationTime: Optional[str] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListFirewallConfigsRequestTypeDef(BaseValidatorModel):
+class ListFirewallConfigsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListFirewallDomainListsRequestTypeDef(BaseValidatorModel):
+class ListFirewallDomainListsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListFirewallDomainsRequestTypeDef(BaseValidatorModel):
+class ListFirewallDomainsRequest(BaseValidatorModel):
     FirewallDomainListId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListFirewallRuleGroupAssociationsRequestTypeDef(BaseValidatorModel):
+class ListFirewallRuleGroupAssociationsRequest(BaseValidatorModel):
     FirewallRuleGroupId: Optional[str] = None
     VpcId: Optional[str] = None
     Priority: Optional[int] = None
@@ -390,12 +390,12 @@ class ListFirewallRuleGroupAssociationsRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
-class ListFirewallRuleGroupsRequestTypeDef(BaseValidatorModel):
+class ListFirewallRuleGroupsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListFirewallRulesRequestTypeDef(BaseValidatorModel):
+class ListFirewallRulesRequest(BaseValidatorModel):
     FirewallRuleGroupId: str
     Priority: Optional[int] = None
     Action: Optional[ActionType] = None
@@ -403,68 +403,68 @@ class ListFirewallRulesRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
-class ListOutpostResolversRequestTypeDef(BaseValidatorModel):
+class ListOutpostResolversRequest(BaseValidatorModel):
     OutpostArn: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListResolverConfigsRequestTypeDef(BaseValidatorModel):
+class ListResolverConfigsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListResolverEndpointIpAddressesRequestTypeDef(BaseValidatorModel):
+class ListResolverEndpointIpAddressesRequest(BaseValidatorModel):
     ResolverEndpointId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class PutFirewallRuleGroupPolicyRequestTypeDef(BaseValidatorModel):
+class PutFirewallRuleGroupPolicyRequest(BaseValidatorModel):
     Arn: str
     FirewallRuleGroupPolicy: str
 
 
-class PutResolverQueryLogConfigPolicyRequestTypeDef(BaseValidatorModel):
+class PutResolverQueryLogConfigPolicyRequest(BaseValidatorModel):
     Arn: str
     ResolverQueryLogConfigPolicy: str
 
 
-class PutResolverRulePolicyRequestTypeDef(BaseValidatorModel):
+class PutResolverRulePolicyRequest(BaseValidatorModel):
     Arn: str
     ResolverRulePolicy: str
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     TagKeys: Sequence[str]
 
 
-class UpdateFirewallConfigRequestTypeDef(BaseValidatorModel):
+class UpdateFirewallConfigRequest(BaseValidatorModel):
     ResourceId: str
     FirewallFailOpen: FirewallFailOpenStatusType
 
 
-class UpdateFirewallDomainsRequestTypeDef(BaseValidatorModel):
+class UpdateFirewallDomainsRequest(BaseValidatorModel):
     FirewallDomainListId: str
     Operation: FirewallDomainUpdateOperationType
     Domains: Sequence[str]
 
 
-class UpdateFirewallRuleGroupAssociationRequestTypeDef(BaseValidatorModel):
+class UpdateFirewallRuleGroupAssociationRequest(BaseValidatorModel):
     FirewallRuleGroupAssociationId: str
     Priority: Optional[int] = None
     MutationProtection: Optional[MutationProtectionStatusType] = None
     Name: Optional[str] = None
 
 
-class UpdateFirewallRuleRequestTypeDef(BaseValidatorModel):
+class UpdateFirewallRuleRequest(BaseValidatorModel):
     FirewallRuleGroupId: str
     FirewallDomainListId: Optional[str] = None
     FirewallThreatProtectionId: Optional[str] = None
@@ -481,381 +481,381 @@ class UpdateFirewallRuleRequestTypeDef(BaseValidatorModel):
     ConfidenceThreshold: Optional[ConfidenceThresholdType] = None
 
 
-class UpdateIpAddressTypeDef(BaseValidatorModel):
+class UpdateIpAddress(BaseValidatorModel):
     IpId: str
     Ipv6: str
 
 
-class UpdateOutpostResolverRequestTypeDef(BaseValidatorModel):
+class UpdateOutpostResolverRequest(BaseValidatorModel):
     Id: str
     Name: Optional[str] = None
     InstanceCount: Optional[int] = None
     PreferredInstanceType: Optional[str] = None
 
 
-class UpdateResolverConfigRequestTypeDef(BaseValidatorModel):
+class UpdateResolverConfigRequest(BaseValidatorModel):
     ResourceId: str
     AutodefinedReverseFlag: AutodefinedReverseFlagType
 
 
-class UpdateResolverDnssecConfigRequestTypeDef(BaseValidatorModel):
+class UpdateResolverDnssecConfigRequest(BaseValidatorModel):
     ResourceId: str
     Validation: ValidationType
 
 
-class AssociateFirewallRuleGroupRequestTypeDef(BaseValidatorModel):
+class AssociateFirewallRuleGroupRequest(BaseValidatorModel):
     CreatorRequestId: str
     FirewallRuleGroupId: str
     VpcId: str
     Priority: int
     Name: str
     MutationProtection: Optional[MutationProtectionStatusType] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class CreateFirewallDomainListRequestTypeDef(BaseValidatorModel):
+class CreateFirewallDomainListRequest(BaseValidatorModel):
     CreatorRequestId: str
     Name: str
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class CreateFirewallRuleGroupRequestTypeDef(BaseValidatorModel):
+class CreateFirewallRuleGroupRequest(BaseValidatorModel):
     CreatorRequestId: str
     Name: str
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class CreateOutpostResolverRequestTypeDef(BaseValidatorModel):
+class CreateOutpostResolverRequest(BaseValidatorModel):
     CreatorRequestId: str
     Name: str
     PreferredInstanceType: str
     OutpostArn: str
     InstanceCount: Optional[int] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class CreateResolverQueryLogConfigRequestTypeDef(BaseValidatorModel):
+class CreateResolverQueryLogConfigRequest(BaseValidatorModel):
     Name: str
     DestinationArn: str
     CreatorRequestId: str
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     ResourceArn: str
-    Tags: Sequence[TagTypeDef]
+    Tags: Sequence[Tag]
 
 
-class AssociateFirewallRuleGroupResponseTypeDef(BaseValidatorModel):
-    FirewallRuleGroupAssociation: FirewallRuleGroupAssociationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class AssociateFirewallRuleGroupResponse(BaseValidatorModel):
+    FirewallRuleGroupAssociation: FirewallRuleGroupAssociation
+    ResponseMetadata: ResponseMetadata
 
 
-class DisassociateFirewallRuleGroupResponseTypeDef(BaseValidatorModel):
-    FirewallRuleGroupAssociation: FirewallRuleGroupAssociationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DisassociateFirewallRuleGroupResponse(BaseValidatorModel):
+    FirewallRuleGroupAssociation: FirewallRuleGroupAssociation
+    ResponseMetadata: ResponseMetadata
 
 
-class GetFirewallRuleGroupAssociationResponseTypeDef(BaseValidatorModel):
-    FirewallRuleGroupAssociation: FirewallRuleGroupAssociationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetFirewallRuleGroupAssociationResponse(BaseValidatorModel):
+    FirewallRuleGroupAssociation: FirewallRuleGroupAssociation
+    ResponseMetadata: ResponseMetadata
 
 
-class GetFirewallRuleGroupPolicyResponseTypeDef(BaseValidatorModel):
+class GetFirewallRuleGroupPolicyResponse(BaseValidatorModel):
     FirewallRuleGroupPolicy: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetResolverQueryLogConfigPolicyResponseTypeDef(BaseValidatorModel):
+class GetResolverQueryLogConfigPolicyResponse(BaseValidatorModel):
     ResolverQueryLogConfigPolicy: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetResolverRulePolicyResponseTypeDef(BaseValidatorModel):
+class GetResolverRulePolicyResponse(BaseValidatorModel):
     ResolverRulePolicy: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ImportFirewallDomainsResponseTypeDef(BaseValidatorModel):
+class ImportFirewallDomainsResponse(BaseValidatorModel):
     Id: str
     Name: str
     Status: FirewallDomainListStatusType
     StatusMessage: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListFirewallDomainsResponseTypeDef(BaseValidatorModel):
+class ListFirewallDomainsResponse(BaseValidatorModel):
     Domains: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListFirewallRuleGroupAssociationsResponseTypeDef(BaseValidatorModel):
-    FirewallRuleGroupAssociations: List[FirewallRuleGroupAssociationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListFirewallRuleGroupAssociationsResponse(BaseValidatorModel):
+    FirewallRuleGroupAssociations: List[FirewallRuleGroupAssociation]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
-    Tags: List[TagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListTagsForResourceResponse(BaseValidatorModel):
+    Tags: List[Tag]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class PutFirewallRuleGroupPolicyResponseTypeDef(BaseValidatorModel):
+class PutFirewallRuleGroupPolicyResponse(BaseValidatorModel):
     ReturnValue: bool
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class PutResolverQueryLogConfigPolicyResponseTypeDef(BaseValidatorModel):
+class PutResolverQueryLogConfigPolicyResponse(BaseValidatorModel):
     ReturnValue: bool
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class PutResolverRulePolicyResponseTypeDef(BaseValidatorModel):
+class PutResolverRulePolicyResponse(BaseValidatorModel):
     ReturnValue: bool
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateFirewallDomainsResponseTypeDef(BaseValidatorModel):
+class UpdateFirewallDomainsResponse(BaseValidatorModel):
     Id: str
     Name: str
     Status: FirewallDomainListStatusType
     StatusMessage: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateFirewallRuleGroupAssociationResponseTypeDef(BaseValidatorModel):
-    FirewallRuleGroupAssociation: FirewallRuleGroupAssociationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateFirewallRuleGroupAssociationResponse(BaseValidatorModel):
+    FirewallRuleGroupAssociation: FirewallRuleGroupAssociation
+    ResponseMetadata: ResponseMetadata
 
 
-class AssociateResolverEndpointIpAddressRequestTypeDef(BaseValidatorModel):
+class AssociateResolverEndpointIpAddressRequest(BaseValidatorModel):
     ResolverEndpointId: str
-    IpAddress: IpAddressUpdateTypeDef
+    IpAddress: IpAddressUpdate
 
 
-class DisassociateResolverEndpointIpAddressRequestTypeDef(BaseValidatorModel):
+class DisassociateResolverEndpointIpAddressRequest(BaseValidatorModel):
     ResolverEndpointId: str
-    IpAddress: IpAddressUpdateTypeDef
+    IpAddress: IpAddressUpdate
 
 
-class AssociateResolverEndpointIpAddressResponseTypeDef(BaseValidatorModel):
-    ResolverEndpoint: ResolverEndpointTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class AssociateResolverEndpointIpAddressResponse(BaseValidatorModel):
+    ResolverEndpoint: ResolverEndpoint
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateResolverEndpointResponseTypeDef(BaseValidatorModel):
-    ResolverEndpoint: ResolverEndpointTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateResolverEndpointResponse(BaseValidatorModel):
+    ResolverEndpoint: ResolverEndpoint
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteResolverEndpointResponseTypeDef(BaseValidatorModel):
-    ResolverEndpoint: ResolverEndpointTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeleteResolverEndpointResponse(BaseValidatorModel):
+    ResolverEndpoint: ResolverEndpoint
+    ResponseMetadata: ResponseMetadata
 
 
-class DisassociateResolverEndpointIpAddressResponseTypeDef(BaseValidatorModel):
-    ResolverEndpoint: ResolverEndpointTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DisassociateResolverEndpointIpAddressResponse(BaseValidatorModel):
+    ResolverEndpoint: ResolverEndpoint
+    ResponseMetadata: ResponseMetadata
 
 
-class GetResolverEndpointResponseTypeDef(BaseValidatorModel):
-    ResolverEndpoint: ResolverEndpointTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetResolverEndpointResponse(BaseValidatorModel):
+    ResolverEndpoint: ResolverEndpoint
+    ResponseMetadata: ResponseMetadata
 
 
-class ListResolverEndpointsResponseTypeDef(BaseValidatorModel):
+class ListResolverEndpointsResponse(BaseValidatorModel):
     MaxResults: int
-    ResolverEndpoints: List[ResolverEndpointTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResolverEndpoints: List[ResolverEndpoint]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class UpdateResolverEndpointResponseTypeDef(BaseValidatorModel):
-    ResolverEndpoint: ResolverEndpointTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateResolverEndpointResponse(BaseValidatorModel):
+    ResolverEndpoint: ResolverEndpoint
+    ResponseMetadata: ResponseMetadata
 
 
-class AssociateResolverQueryLogConfigResponseTypeDef(BaseValidatorModel):
-    ResolverQueryLogConfigAssociation: ResolverQueryLogConfigAssociationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class AssociateResolverQueryLogConfigResponse(BaseValidatorModel):
+    ResolverQueryLogConfigAssociation: ResolverQueryLogConfigAssociation
+    ResponseMetadata: ResponseMetadata
 
 
-class DisassociateResolverQueryLogConfigResponseTypeDef(BaseValidatorModel):
-    ResolverQueryLogConfigAssociation: ResolverQueryLogConfigAssociationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DisassociateResolverQueryLogConfigResponse(BaseValidatorModel):
+    ResolverQueryLogConfigAssociation: ResolverQueryLogConfigAssociation
+    ResponseMetadata: ResponseMetadata
 
 
-class GetResolverQueryLogConfigAssociationResponseTypeDef(BaseValidatorModel):
-    ResolverQueryLogConfigAssociation: ResolverQueryLogConfigAssociationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetResolverQueryLogConfigAssociationResponse(BaseValidatorModel):
+    ResolverQueryLogConfigAssociation: ResolverQueryLogConfigAssociation
+    ResponseMetadata: ResponseMetadata
 
 
-class ListResolverQueryLogConfigAssociationsResponseTypeDef(BaseValidatorModel):
+class ListResolverQueryLogConfigAssociationsResponse(BaseValidatorModel):
     TotalCount: int
     TotalFilteredCount: int
-    ResolverQueryLogConfigAssociations: List[ResolverQueryLogConfigAssociationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResolverQueryLogConfigAssociations: List[ResolverQueryLogConfigAssociation]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class AssociateResolverRuleResponseTypeDef(BaseValidatorModel):
-    ResolverRuleAssociation: ResolverRuleAssociationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class AssociateResolverRuleResponse(BaseValidatorModel):
+    ResolverRuleAssociation: ResolverRuleAssociation
+    ResponseMetadata: ResponseMetadata
 
 
-class DisassociateResolverRuleResponseTypeDef(BaseValidatorModel):
-    ResolverRuleAssociation: ResolverRuleAssociationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DisassociateResolverRuleResponse(BaseValidatorModel):
+    ResolverRuleAssociation: ResolverRuleAssociation
+    ResponseMetadata: ResponseMetadata
 
 
-class GetResolverRuleAssociationResponseTypeDef(BaseValidatorModel):
-    ResolverRuleAssociation: ResolverRuleAssociationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetResolverRuleAssociationResponse(BaseValidatorModel):
+    ResolverRuleAssociation: ResolverRuleAssociation
+    ResponseMetadata: ResponseMetadata
 
 
-class ListResolverRuleAssociationsResponseTypeDef(BaseValidatorModel):
+class ListResolverRuleAssociationsResponse(BaseValidatorModel):
     MaxResults: int
-    ResolverRuleAssociations: List[ResolverRuleAssociationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResolverRuleAssociations: List[ResolverRuleAssociation]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class CreateFirewallDomainListResponseTypeDef(BaseValidatorModel):
-    FirewallDomainList: FirewallDomainListTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateFirewallDomainListResponse(BaseValidatorModel):
+    FirewallDomainList: FirewallDomainList
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteFirewallDomainListResponseTypeDef(BaseValidatorModel):
-    FirewallDomainList: FirewallDomainListTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeleteFirewallDomainListResponse(BaseValidatorModel):
+    FirewallDomainList: FirewallDomainList
+    ResponseMetadata: ResponseMetadata
 
 
-class GetFirewallDomainListResponseTypeDef(BaseValidatorModel):
-    FirewallDomainList: FirewallDomainListTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetFirewallDomainListResponse(BaseValidatorModel):
+    FirewallDomainList: FirewallDomainList
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateFirewallRuleGroupResponseTypeDef(BaseValidatorModel):
-    FirewallRuleGroup: FirewallRuleGroupTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateFirewallRuleGroupResponse(BaseValidatorModel):
+    FirewallRuleGroup: FirewallRuleGroup
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteFirewallRuleGroupResponseTypeDef(BaseValidatorModel):
-    FirewallRuleGroup: FirewallRuleGroupTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeleteFirewallRuleGroupResponse(BaseValidatorModel):
+    FirewallRuleGroup: FirewallRuleGroup
+    ResponseMetadata: ResponseMetadata
 
 
-class GetFirewallRuleGroupResponseTypeDef(BaseValidatorModel):
-    FirewallRuleGroup: FirewallRuleGroupTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetFirewallRuleGroupResponse(BaseValidatorModel):
+    FirewallRuleGroup: FirewallRuleGroup
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateFirewallRuleResponseTypeDef(BaseValidatorModel):
-    FirewallRule: FirewallRuleTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateFirewallRuleResponse(BaseValidatorModel):
+    FirewallRule: FirewallRule
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteFirewallRuleResponseTypeDef(BaseValidatorModel):
-    FirewallRule: FirewallRuleTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeleteFirewallRuleResponse(BaseValidatorModel):
+    FirewallRule: FirewallRule
+    ResponseMetadata: ResponseMetadata
 
 
-class ListFirewallRulesResponseTypeDef(BaseValidatorModel):
-    FirewallRules: List[FirewallRuleTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListFirewallRulesResponse(BaseValidatorModel):
+    FirewallRules: List[FirewallRule]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class UpdateFirewallRuleResponseTypeDef(BaseValidatorModel):
-    FirewallRule: FirewallRuleTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateFirewallRuleResponse(BaseValidatorModel):
+    FirewallRule: FirewallRule
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateOutpostResolverResponseTypeDef(BaseValidatorModel):
-    OutpostResolver: OutpostResolverTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateOutpostResolverResponse(BaseValidatorModel):
+    OutpostResolver: OutpostResolver
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteOutpostResolverResponseTypeDef(BaseValidatorModel):
-    OutpostResolver: OutpostResolverTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeleteOutpostResolverResponse(BaseValidatorModel):
+    OutpostResolver: OutpostResolver
+    ResponseMetadata: ResponseMetadata
 
 
-class GetOutpostResolverResponseTypeDef(BaseValidatorModel):
-    OutpostResolver: OutpostResolverTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetOutpostResolverResponse(BaseValidatorModel):
+    OutpostResolver: OutpostResolver
+    ResponseMetadata: ResponseMetadata
 
 
-class ListOutpostResolversResponseTypeDef(BaseValidatorModel):
-    OutpostResolvers: List[OutpostResolverTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListOutpostResolversResponse(BaseValidatorModel):
+    OutpostResolvers: List[OutpostResolver]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class UpdateOutpostResolverResponseTypeDef(BaseValidatorModel):
-    OutpostResolver: OutpostResolverTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateOutpostResolverResponse(BaseValidatorModel):
+    OutpostResolver: OutpostResolver
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateResolverEndpointRequestTypeDef(BaseValidatorModel):
+class CreateResolverEndpointRequest(BaseValidatorModel):
     CreatorRequestId: str
     SecurityGroupIds: Sequence[str]
     Direction: ResolverEndpointDirectionType
-    IpAddresses: Sequence[IpAddressRequestTypeDef]
+    IpAddresses: Sequence[IpAddressRequest]
     Name: Optional[str] = None
     OutpostArn: Optional[str] = None
     PreferredInstanceType: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
     ResolverEndpointType: Optional[ResolverEndpointTypeType] = None
     Protocols: Optional[Sequence[ProtocolType]] = None
 
 
-class CreateResolverQueryLogConfigResponseTypeDef(BaseValidatorModel):
-    ResolverQueryLogConfig: ResolverQueryLogConfigTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateResolverQueryLogConfigResponse(BaseValidatorModel):
+    ResolverQueryLogConfig: ResolverQueryLogConfig
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteResolverQueryLogConfigResponseTypeDef(BaseValidatorModel):
-    ResolverQueryLogConfig: ResolverQueryLogConfigTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeleteResolverQueryLogConfigResponse(BaseValidatorModel):
+    ResolverQueryLogConfig: ResolverQueryLogConfig
+    ResponseMetadata: ResponseMetadata
 
 
-class GetResolverQueryLogConfigResponseTypeDef(BaseValidatorModel):
-    ResolverQueryLogConfig: ResolverQueryLogConfigTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetResolverQueryLogConfigResponse(BaseValidatorModel):
+    ResolverQueryLogConfig: ResolverQueryLogConfig
+    ResponseMetadata: ResponseMetadata
 
 
-class ListResolverQueryLogConfigsResponseTypeDef(BaseValidatorModel):
+class ListResolverQueryLogConfigsResponse(BaseValidatorModel):
     TotalCount: int
     TotalFilteredCount: int
-    ResolverQueryLogConfigs: List[ResolverQueryLogConfigTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResolverQueryLogConfigs: List[ResolverQueryLogConfig]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class TargetAddressTypeDef(BaseValidatorModel):
+class TargetAddress(BaseValidatorModel):
     pass
 
 
-class CreateResolverRuleRequestTypeDef(BaseValidatorModel):
+class CreateResolverRuleRequest(BaseValidatorModel):
     CreatorRequestId: str
     RuleType: RuleTypeOptionType
     Name: Optional[str] = None
     DomainName: Optional[str] = None
-    TargetIps: Optional[Sequence[TargetAddressTypeDef]] = None
+    TargetIps: Optional[Sequence[TargetAddress]] = None
     ResolverEndpointId: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class ResolverRuleConfigTypeDef(BaseValidatorModel):
+class ResolverRuleConfig(BaseValidatorModel):
     Name: Optional[str] = None
-    TargetIps: Optional[Sequence[TargetAddressTypeDef]] = None
+    TargetIps: Optional[Sequence[TargetAddress]] = None
     ResolverEndpointId: Optional[str] = None
 
 
-class ResolverRuleTypeDef(BaseValidatorModel):
+class ResolverRule(BaseValidatorModel):
     Id: Optional[str] = None
     CreatorRequestId: Optional[str] = None
     Arn: Optional[str] = None
@@ -864,7 +864,7 @@ class ResolverRuleTypeDef(BaseValidatorModel):
     StatusMessage: Optional[str] = None
     RuleType: Optional[RuleTypeOptionType] = None
     Name: Optional[str] = None
-    TargetIps: Optional[List[TargetAddressTypeDef]] = None
+    TargetIps: Optional[List[TargetAddress]] = None
     ResolverEndpointId: Optional[str] = None
     OwnerId: Optional[str] = None
     ShareStatus: Optional[ShareStatusType] = None
@@ -872,235 +872,235 @@ class ResolverRuleTypeDef(BaseValidatorModel):
     ModificationTime: Optional[str] = None
 
 
-class ListResolverDnssecConfigsRequestTypeDef(BaseValidatorModel):
+class ListResolverDnssecConfigsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+    Filters: Optional[Sequence[Filter]] = None
 
 
-class ListResolverEndpointsRequestTypeDef(BaseValidatorModel):
+class ListResolverEndpointsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+    Filters: Optional[Sequence[Filter]] = None
 
 
-class ListResolverQueryLogConfigAssociationsRequestTypeDef(BaseValidatorModel):
+class ListResolverQueryLogConfigAssociationsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+    Filters: Optional[Sequence[Filter]] = None
     SortBy: Optional[str] = None
     SortOrder: Optional[SortOrderType] = None
 
 
-class ListResolverQueryLogConfigsRequestTypeDef(BaseValidatorModel):
+class ListResolverQueryLogConfigsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+    Filters: Optional[Sequence[Filter]] = None
     SortBy: Optional[str] = None
     SortOrder: Optional[SortOrderType] = None
 
 
-class ListResolverRuleAssociationsRequestTypeDef(BaseValidatorModel):
+class ListResolverRuleAssociationsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+    Filters: Optional[Sequence[Filter]] = None
 
 
-class ListResolverRulesRequestTypeDef(BaseValidatorModel):
+class ListResolverRulesRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+    Filters: Optional[Sequence[Filter]] = None
 
 
-class GetFirewallConfigResponseTypeDef(BaseValidatorModel):
-    FirewallConfig: FirewallConfigTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetFirewallConfigResponse(BaseValidatorModel):
+    FirewallConfig: FirewallConfig
+    ResponseMetadata: ResponseMetadata
 
 
-class ListFirewallConfigsResponseTypeDef(BaseValidatorModel):
-    FirewallConfigs: List[FirewallConfigTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListFirewallConfigsResponse(BaseValidatorModel):
+    FirewallConfigs: List[FirewallConfig]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class UpdateFirewallConfigResponseTypeDef(BaseValidatorModel):
-    FirewallConfig: FirewallConfigTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateFirewallConfigResponse(BaseValidatorModel):
+    FirewallConfig: FirewallConfig
+    ResponseMetadata: ResponseMetadata
 
 
-class ListFirewallDomainListsResponseTypeDef(BaseValidatorModel):
-    FirewallDomainLists: List[FirewallDomainListMetadataTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListFirewallDomainListsResponse(BaseValidatorModel):
+    FirewallDomainLists: List[FirewallDomainListMetadata]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListFirewallRuleGroupsResponseTypeDef(BaseValidatorModel):
-    FirewallRuleGroups: List[FirewallRuleGroupMetadataTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListFirewallRuleGroupsResponse(BaseValidatorModel):
+    FirewallRuleGroups: List[FirewallRuleGroupMetadata]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class GetResolverConfigResponseTypeDef(BaseValidatorModel):
-    ResolverConfig: ResolverConfigTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetResolverConfigResponse(BaseValidatorModel):
+    ResolverConfig: ResolverConfig
+    ResponseMetadata: ResponseMetadata
 
 
-class ListResolverConfigsResponseTypeDef(BaseValidatorModel):
-    ResolverConfigs: List[ResolverConfigTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListResolverConfigsResponse(BaseValidatorModel):
+    ResolverConfigs: List[ResolverConfig]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class UpdateResolverConfigResponseTypeDef(BaseValidatorModel):
-    ResolverConfig: ResolverConfigTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateResolverConfigResponse(BaseValidatorModel):
+    ResolverConfig: ResolverConfig
+    ResponseMetadata: ResponseMetadata
 
 
-class GetResolverDnssecConfigResponseTypeDef(BaseValidatorModel):
-    ResolverDNSSECConfig: ResolverDnssecConfigTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetResolverDnssecConfigResponse(BaseValidatorModel):
+    ResolverDNSSECConfig: ResolverDnssecConfig
+    ResponseMetadata: ResponseMetadata
 
 
-class ListResolverDnssecConfigsResponseTypeDef(BaseValidatorModel):
-    ResolverDnssecConfigs: List[ResolverDnssecConfigTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListResolverDnssecConfigsResponse(BaseValidatorModel):
+    ResolverDnssecConfigs: List[ResolverDnssecConfig]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class UpdateResolverDnssecConfigResponseTypeDef(BaseValidatorModel):
-    ResolverDNSSECConfig: ResolverDnssecConfigTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateResolverDnssecConfigResponse(BaseValidatorModel):
+    ResolverDNSSECConfig: ResolverDnssecConfig
+    ResponseMetadata: ResponseMetadata
 
 
-class ListResolverEndpointIpAddressesResponseTypeDef(BaseValidatorModel):
+class ListResolverEndpointIpAddressesResponse(BaseValidatorModel):
     MaxResults: int
-    IpAddresses: List[IpAddressResponseTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    IpAddresses: List[IpAddressResponse]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListFirewallConfigsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListFirewallConfigsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListFirewallDomainListsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListFirewallDomainListsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListFirewallDomainsRequestPaginateTypeDef(BaseValidatorModel):
+class ListFirewallDomainsRequestPaginate(BaseValidatorModel):
     FirewallDomainListId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListFirewallRuleGroupAssociationsRequestPaginateTypeDef(BaseValidatorModel):
+class ListFirewallRuleGroupAssociationsRequestPaginate(BaseValidatorModel):
     FirewallRuleGroupId: Optional[str] = None
     VpcId: Optional[str] = None
     Priority: Optional[int] = None
     Status: Optional[FirewallRuleGroupAssociationStatusType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListFirewallRuleGroupsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListFirewallRuleGroupsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListFirewallRulesRequestPaginateTypeDef(BaseValidatorModel):
+class ListFirewallRulesRequestPaginate(BaseValidatorModel):
     FirewallRuleGroupId: str
     Priority: Optional[int] = None
     Action: Optional[ActionType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListOutpostResolversRequestPaginateTypeDef(BaseValidatorModel):
+class ListOutpostResolversRequestPaginate(BaseValidatorModel):
     OutpostArn: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListResolverConfigsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListResolverConfigsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListResolverDnssecConfigsRequestPaginateTypeDef(BaseValidatorModel):
-    Filters: Optional[Sequence[FilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListResolverDnssecConfigsRequestPaginate(BaseValidatorModel):
+    Filters: Optional[Sequence[Filter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListResolverEndpointIpAddressesRequestPaginateTypeDef(BaseValidatorModel):
+class ListResolverEndpointIpAddressesRequestPaginate(BaseValidatorModel):
     ResolverEndpointId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListResolverEndpointsRequestPaginateTypeDef(BaseValidatorModel):
-    Filters: Optional[Sequence[FilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListResolverEndpointsRequestPaginate(BaseValidatorModel):
+    Filters: Optional[Sequence[Filter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListResolverQueryLogConfigAssociationsRequestPaginateTypeDef(BaseValidatorModel):
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+class ListResolverQueryLogConfigAssociationsRequestPaginate(BaseValidatorModel):
+    Filters: Optional[Sequence[Filter]] = None
     SortBy: Optional[str] = None
     SortOrder: Optional[SortOrderType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListResolverQueryLogConfigsRequestPaginateTypeDef(BaseValidatorModel):
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+class ListResolverQueryLogConfigsRequestPaginate(BaseValidatorModel):
+    Filters: Optional[Sequence[Filter]] = None
     SortBy: Optional[str] = None
     SortOrder: Optional[SortOrderType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListResolverRuleAssociationsRequestPaginateTypeDef(BaseValidatorModel):
-    Filters: Optional[Sequence[FilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListResolverRuleAssociationsRequestPaginate(BaseValidatorModel):
+    Filters: Optional[Sequence[Filter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListResolverRulesRequestPaginateTypeDef(BaseValidatorModel):
-    Filters: Optional[Sequence[FilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListResolverRulesRequestPaginate(BaseValidatorModel):
+    Filters: Optional[Sequence[Filter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListTagsForResourceRequestPaginateTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequestPaginate(BaseValidatorModel):
     ResourceArn: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class UpdateResolverEndpointRequestTypeDef(BaseValidatorModel):
+class UpdateResolverEndpointRequest(BaseValidatorModel):
     ResolverEndpointId: str
     Name: Optional[str] = None
     ResolverEndpointType: Optional[ResolverEndpointTypeType] = None
-    UpdateIpAddresses: Optional[Sequence[UpdateIpAddressTypeDef]] = None
+    UpdateIpAddresses: Optional[Sequence[UpdateIpAddress]] = None
     Protocols: Optional[Sequence[ProtocolType]] = None
 
 
-class UpdateResolverRuleRequestTypeDef(BaseValidatorModel):
+class UpdateResolverRuleRequest(BaseValidatorModel):
     ResolverRuleId: str
-    Config: ResolverRuleConfigTypeDef
+    Config: ResolverRuleConfig
 
 
-class CreateResolverRuleResponseTypeDef(BaseValidatorModel):
-    ResolverRule: ResolverRuleTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateResolverRuleResponse(BaseValidatorModel):
+    ResolverRule: ResolverRule
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteResolverRuleResponseTypeDef(BaseValidatorModel):
-    ResolverRule: ResolverRuleTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeleteResolverRuleResponse(BaseValidatorModel):
+    ResolverRule: ResolverRule
+    ResponseMetadata: ResponseMetadata
 
 
-class GetResolverRuleResponseTypeDef(BaseValidatorModel):
-    ResolverRule: ResolverRuleTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetResolverRuleResponse(BaseValidatorModel):
+    ResolverRule: ResolverRule
+    ResponseMetadata: ResponseMetadata
 
 
-class ListResolverRulesResponseTypeDef(BaseValidatorModel):
+class ListResolverRulesResponse(BaseValidatorModel):
     MaxResults: int
-    ResolverRules: List[ResolverRuleTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResolverRules: List[ResolverRule]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class UpdateResolverRuleResponseTypeDef(BaseValidatorModel):
-    ResolverRule: ResolverRuleTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateResolverRuleResponse(BaseValidatorModel):
+    ResolverRule: ResolverRule
+    ResponseMetadata: ResponseMetadata
 
 

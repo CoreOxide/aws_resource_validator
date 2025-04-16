@@ -6,13 +6,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BlobTypeDef
+# Blob
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BlockTypeDef
+# Block
 
 ### BlockIndex
 - **Type**: typing.Optional[int]
@@ -21,7 +21,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ChangedBlockTypeDef
+# ChangedBlock
 
 ### BlockIndex
 - **Type**: typing.Optional[int]
@@ -33,7 +33,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CompleteSnapshotRequestTypeDef
+# CompleteSnapshotRequest
 
 ### SnapshotId
 - **Type**: <class 'str'>
@@ -53,18 +53,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['LINEAR']]
 
 
-# CompleteSnapshotResponseTypeDef
+# CompleteSnapshotResponse
 
 ### Status
 - **Type**: typing.Literal['completed', 'error', 'pending']
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ebs_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ebs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetSnapshotBlockRequestTypeDef
+# GetSnapshotBlockRequest
 
 ### SnapshotId
 - **Type**: <class 'str'>
@@ -79,7 +79,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetSnapshotBlockResponseTypeDef
+# GetSnapshotBlockResponse
 
 ### DataLength
 - **Type**: <class 'int'>
@@ -98,11 +98,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ebs_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ebs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListChangedBlocksRequestTypeDef
+# ListChangedBlocksRequest
 
 ### SecondSnapshotId
 - **Type**: <class 'str'>
@@ -121,10 +121,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListChangedBlocksResponseTypeDef
+# ListChangedBlocksResponse
 
 ### ChangedBlocks
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ebs_classes.ChangedBlockTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ebs_classes.ChangedBlock]
 - **Required**: Yes
 
 ### ExpiryTime
@@ -140,14 +140,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ebs_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ebs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListSnapshotBlocksRequestTypeDef
+# ListSnapshotBlocksRequest
 
 ### SnapshotId
 - **Type**: <class 'str'>
@@ -163,10 +163,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListSnapshotBlocksResponseTypeDef
+# ListSnapshotBlocksResponse
 
 ### Blocks
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ebs_classes.BlockTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ebs_classes.Block]
 - **Required**: Yes
 
 ### ExpiryTime
@@ -182,14 +182,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ebs_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ebs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# PutSnapshotBlockRequestTypeDef
+# PutSnapshotBlockRequest
 
 ### SnapshotId
 - **Type**: <class 'str'>
@@ -200,7 +200,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### BlockData
-- **Type**: <class 'aws_resource_validator.pydantic_models.ebs_classes.BlobTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ebs_classes.Blob'>
 - **Required**: Yes
 
 ### DataLength
@@ -219,7 +219,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# PutSnapshotBlockResponseTypeDef
+# PutSnapshotBlockResponse
 
 ### Checksum
 - **Type**: <class 'str'>
@@ -230,11 +230,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ebs_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ebs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -256,7 +256,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# StartSnapshotRequestTypeDef
+# StartSnapshotRequest
 
 ### VolumeSize
 - **Type**: <class 'int'>
@@ -266,7 +266,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ebs_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ebs_classes.Tag]]
 
 ### Description
 - **Type**: typing.Optional[str]
@@ -284,7 +284,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# StartSnapshotResponseTypeDef
+# StartSnapshotResponse
 
 ### Description
 - **Type**: <class 'str'>
@@ -315,7 +315,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ebs_classes.TagTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ebs_classes.Tag]
 - **Required**: Yes
 
 ### ParentSnapshotId
@@ -331,11 +331,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ebs_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ebs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# TagTypeDef
+# Tag
 
 ### Key
 - **Type**: typing.Optional[str]

@@ -12,50 +12,50 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.sagemaker_geospatial_constants import *
 
-class MultiPolygonGeometryInputOutputTypeDef(BaseValidatorModel):
+class MultiPolygonGeometryInputOutput(BaseValidatorModel):
     Coordinates: List[List[List[List[float]]]]
 
 
-class PolygonGeometryInputOutputTypeDef(BaseValidatorModel):
+class PolygonGeometryInputOutput(BaseValidatorModel):
     Coordinates: List[List[List[float]]]
 
 
-class AssetValueTypeDef(BaseValidatorModel):
+class AssetValue(BaseValidatorModel):
     Href: Optional[str] = None
 
 
-class CloudRemovalConfigInputOutputTypeDef(BaseValidatorModel):
+class CloudRemovalConfigInputOutput(BaseValidatorModel):
     AlgorithmName: Optional[Literal["INTERPOLATION"]] = None
     InterpolationValue: Optional[str] = None
     TargetBands: Optional[List[str]] = None
 
 
-class CloudRemovalConfigInputTypeDef(BaseValidatorModel):
+class CloudRemovalConfigInput(BaseValidatorModel):
     AlgorithmName: Optional[Literal["INTERPOLATION"]] = None
     InterpolationValue: Optional[str] = None
     TargetBands: Optional[Sequence[str]] = None
 
 
-class OperationTypeDef(BaseValidatorModel):
+class Operation(BaseValidatorModel):
     Equation: str
     Name: str
     OutputType: Optional[OutputTypeType] = None
 
 
-class DeleteEarthObservationJobInputTypeDef(BaseValidatorModel):
+class DeleteEarthObservationJobInput(BaseValidatorModel):
     Arn: str
 
 
-class DeleteVectorEnrichmentJobInputTypeDef(BaseValidatorModel):
+class DeleteVectorEnrichmentJobInput(BaseValidatorModel):
     Arn: str
 
 
-class EoCloudCoverInputTypeDef(BaseValidatorModel):
+class EoCloudCoverInput(BaseValidatorModel):
     LowerBound: float
     UpperBound: float
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -63,40 +63,40 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class ExportS3DataInputTypeDef(BaseValidatorModel):
+class ExportS3DataInput(BaseValidatorModel):
     S3Uri: str
     KmsKeyId: Optional[str] = None
 
 
-class VectorEnrichmentJobS3DataTypeDef(BaseValidatorModel):
+class VectorEnrichmentJobS3Data(BaseValidatorModel):
     S3Uri: str
     KmsKeyId: Optional[str] = None
 
 
-class GeoMosaicConfigInputOutputTypeDef(BaseValidatorModel):
+class GeoMosaicConfigInputOutput(BaseValidatorModel):
     AlgorithmName: Optional[AlgorithmNameGeoMosaicType] = None
     TargetBands: Optional[List[str]] = None
 
 
-class GeoMosaicConfigInputTypeDef(BaseValidatorModel):
+class GeoMosaicConfigInput(BaseValidatorModel):
     AlgorithmName: Optional[AlgorithmNameGeoMosaicType] = None
     TargetBands: Optional[Sequence[str]] = None
 
 
-class GetEarthObservationJobInputTypeDef(BaseValidatorModel):
+class GetEarthObservationJobInput(BaseValidatorModel):
     Arn: str
 
 
-class OutputBandTypeDef(BaseValidatorModel):
+class OutputBand(BaseValidatorModel):
     BandName: str
     OutputDataType: OutputTypeType
 
 
-class GetRasterDataCollectionInputTypeDef(BaseValidatorModel):
+class GetRasterDataCollectionInput(BaseValidatorModel):
     Arn: str
 
 
-class GetTileInputTypeDef(BaseValidatorModel):
+class GetTileInput(BaseValidatorModel):
     Arn: str
     ImageAssets: Sequence[str]
     Target: TargetOptionsType
@@ -111,16 +111,16 @@ class GetTileInputTypeDef(BaseValidatorModel):
     TimeRangeFilter: Optional[str] = None
 
 
-class GetVectorEnrichmentJobInputTypeDef(BaseValidatorModel):
+class GetVectorEnrichmentJobInput(BaseValidatorModel):
     Arn: str
 
 
-class VectorEnrichmentJobErrorDetailsTypeDef(BaseValidatorModel):
+class VectorEnrichmentJobErrorDetails(BaseValidatorModel):
     ErrorMessage: Optional[str] = None
     ErrorType: Optional[VectorEnrichmentJobErrorTypeType] = None
 
 
-class PropertiesTypeDef(BaseValidatorModel):
+class Properties(BaseValidatorModel):
     EoCloudCover: Optional[float] = None
     LandsatCloudCoverLand: Optional[float] = None
     Platform: Optional[str] = None
@@ -129,44 +129,44 @@ class PropertiesTypeDef(BaseValidatorModel):
     ViewSunElevation: Optional[float] = None
 
 
-class TemporalStatisticsConfigInputOutputTypeDef(BaseValidatorModel):
+class TemporalStatisticsConfigInputOutput(BaseValidatorModel):
     Statistics: List[TemporalStatisticsType]
     GroupBy: Optional[GroupByType] = None
     TargetBands: Optional[List[str]] = None
 
 
-class ZonalStatisticsConfigInputOutputTypeDef(BaseValidatorModel):
+class ZonalStatisticsConfigInputOutput(BaseValidatorModel):
     Statistics: List[ZonalStatisticsType]
     ZoneS3Path: str
     TargetBands: Optional[List[str]] = None
     ZoneS3PathKmsKeyId: Optional[str] = None
 
 
-class TemporalStatisticsConfigInputTypeDef(BaseValidatorModel):
+class TemporalStatisticsConfigInput(BaseValidatorModel):
     Statistics: Sequence[TemporalStatisticsType]
     GroupBy: Optional[GroupByType] = None
     TargetBands: Optional[Sequence[str]] = None
 
 
-class ZonalStatisticsConfigInputTypeDef(BaseValidatorModel):
+class ZonalStatisticsConfigInput(BaseValidatorModel):
     Statistics: Sequence[ZonalStatisticsType]
     ZoneS3Path: str
     TargetBands: Optional[Sequence[str]] = None
     ZoneS3PathKmsKeyId: Optional[str] = None
 
 
-class LandsatCloudCoverLandInputTypeDef(BaseValidatorModel):
+class LandsatCloudCoverLandInput(BaseValidatorModel):
     LowerBound: float
     UpperBound: float
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListEarthObservationJobInputTypeDef(BaseValidatorModel):
+class ListEarthObservationJobInput(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     SortBy: Optional[str] = None
@@ -174,7 +174,7 @@ class ListEarthObservationJobInputTypeDef(BaseValidatorModel):
     StatusEquals: Optional[EarthObservationJobStatusType] = None
 
 
-class ListEarthObservationJobOutputConfigTypeDef(BaseValidatorModel):
+class ListEarthObservationJobOutputConfig(BaseValidatorModel):
     Arn: str
     CreationTime: datetime
     DurationInSeconds: int
@@ -184,16 +184,16 @@ class ListEarthObservationJobOutputConfigTypeDef(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
-class ListRasterDataCollectionsInputTypeDef(BaseValidatorModel):
+class ListRasterDataCollectionsInput(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
 
-class ListVectorEnrichmentJobInputTypeDef(BaseValidatorModel):
+class ListVectorEnrichmentJobInput(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     SortBy: Optional[str] = None
@@ -201,447 +201,447 @@ class ListVectorEnrichmentJobInputTypeDef(BaseValidatorModel):
     StatusEquals: Optional[str] = None
 
 
-class MapMatchingConfigTypeDef(BaseValidatorModel):
+class MapMatchingConfig(BaseValidatorModel):
     IdAttributeName: str
     TimestampAttributeName: str
     XAttributeName: str
     YAttributeName: str
 
 
-class MultiPolygonGeometryInputTypeDef(BaseValidatorModel):
+class MultiPolygonGeometryInput(BaseValidatorModel):
     Coordinates: Sequence[Sequence[Sequence[Sequence[float]]]]
 
 
-class UserDefinedTypeDef(BaseValidatorModel):
+class UserDefined(BaseValidatorModel):
     Unit: Literal["METERS"]
     Value: float
 
 
-class PlatformInputTypeDef(BaseValidatorModel):
+class PlatformInput(BaseValidatorModel):
     Value: str
     ComparisonOperator: Optional[ComparisonOperatorType] = None
 
 
-class PolygonGeometryInputTypeDef(BaseValidatorModel):
+class PolygonGeometryInput(BaseValidatorModel):
     Coordinates: Sequence[Sequence[Sequence[float]]]
 
 
-class ViewOffNadirInputTypeDef(BaseValidatorModel):
+class ViewOffNadirInput(BaseValidatorModel):
     LowerBound: float
     UpperBound: float
 
 
-class ViewSunAzimuthInputTypeDef(BaseValidatorModel):
+class ViewSunAzimuthInput(BaseValidatorModel):
     LowerBound: float
     UpperBound: float
 
 
-class ViewSunElevationInputTypeDef(BaseValidatorModel):
+class ViewSunElevationInput(BaseValidatorModel):
     LowerBound: float
     UpperBound: float
 
 
-class TimeRangeFilterOutputTypeDef(BaseValidatorModel):
+class TimeRangeFilterOutput(BaseValidatorModel):
     EndTime: datetime
     StartTime: datetime
 
 
-class ReverseGeocodingConfigTypeDef(BaseValidatorModel):
+class ReverseGeocodingConfig(BaseValidatorModel):
     XAttributeName: str
     YAttributeName: str
 
 
-class StopEarthObservationJobInputTypeDef(BaseValidatorModel):
+class StopEarthObservationJobInput(BaseValidatorModel):
     Arn: str
 
 
-class StopVectorEnrichmentJobInputTypeDef(BaseValidatorModel):
+class StopVectorEnrichmentJobInput(BaseValidatorModel):
     Arn: str
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     Tags: Mapping[str, str]
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     TagKeys: Sequence[str]
 
 
-class AreaOfInterestGeometryOutputTypeDef(BaseValidatorModel):
-    MultiPolygonGeometry: Optional[MultiPolygonGeometryInputOutputTypeDef] = None
-    PolygonGeometry: Optional[PolygonGeometryInputOutputTypeDef] = None
+class AreaOfInterestGeometryOutput(BaseValidatorModel):
+    MultiPolygonGeometry: Optional[MultiPolygonGeometryInputOutput] = None
+    PolygonGeometry: Optional[PolygonGeometryInputOutput] = None
 
 
-class CustomIndicesInputOutputTypeDef(BaseValidatorModel):
-    Operations: Optional[List[OperationTypeDef]] = None
+class CustomIndicesInputOutput(BaseValidatorModel):
+    Operations: Optional[List[Operation]] = None
 
 
-class CustomIndicesInputTypeDef(BaseValidatorModel):
-    Operations: Optional[Sequence[OperationTypeDef]] = None
+class CustomIndicesInput(BaseValidatorModel):
+    Operations: Optional[Sequence[Operation]] = None
 
 
-class GetTileOutputTypeDef(BaseValidatorModel):
+class GetTileOutput(BaseValidatorModel):
     BinaryFile: StreamingBody
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
+class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ExportErrorDetailsOutputTypeDef(BaseValidatorModel):
+class ExportErrorDetailsOutput(BaseValidatorModel):
     pass
 
 
-class ExportErrorDetailsTypeDef(BaseValidatorModel):
-    ExportResults: Optional[ExportErrorDetailsOutputTypeDef] = None
-    ExportSourceImages: Optional[ExportErrorDetailsOutputTypeDef] = None
+class ExportErrorDetails(BaseValidatorModel):
+    ExportResults: Optional[ExportErrorDetailsOutput] = None
+    ExportSourceImages: Optional[ExportErrorDetailsOutput] = None
 
 
-class OutputConfigInputTypeDef(BaseValidatorModel):
-    S3Data: ExportS3DataInputTypeDef
+class OutputConfigInput(BaseValidatorModel):
+    S3Data: ExportS3DataInput
 
 
-class ExportVectorEnrichmentJobOutputConfigTypeDef(BaseValidatorModel):
-    S3Data: VectorEnrichmentJobS3DataTypeDef
+class ExportVectorEnrichmentJobOutputConfig(BaseValidatorModel):
+    S3Data: VectorEnrichmentJobS3Data
 
 
-class VectorEnrichmentJobDataSourceConfigInputTypeDef(BaseValidatorModel):
-    S3Data: Optional[VectorEnrichmentJobS3DataTypeDef] = None
+class VectorEnrichmentJobDataSourceConfigInput(BaseValidatorModel):
+    S3Data: Optional[VectorEnrichmentJobS3Data] = None
 
 
-class GeometryTypeDef(BaseValidatorModel):
+class Geometry(BaseValidatorModel):
     pass
 
 
-class ItemSourceTypeDef(BaseValidatorModel):
+class ItemSource(BaseValidatorModel):
     DateTime: datetime
-    Geometry: GeometryTypeDef
+    Geometry: Geometry
     Id: str
-    Assets: Optional[Dict[str, AssetValueTypeDef]] = None
-    Properties: Optional[PropertiesTypeDef] = None
+    Assets: Optional[Dict[str, AssetValue]] = None
+    Properties: Optional[Properties] = None
 
 
-class ListEarthObservationJobInputPaginateTypeDef(BaseValidatorModel):
+class ListEarthObservationJobInputPaginate(BaseValidatorModel):
     SortBy: Optional[str] = None
     SortOrder: Optional[SortOrderType] = None
     StatusEquals: Optional[EarthObservationJobStatusType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListRasterDataCollectionsInputPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListRasterDataCollectionsInputPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListVectorEnrichmentJobInputPaginateTypeDef(BaseValidatorModel):
+class ListVectorEnrichmentJobInputPaginate(BaseValidatorModel):
     SortBy: Optional[str] = None
     SortOrder: Optional[SortOrderType] = None
     StatusEquals: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListEarthObservationJobOutputTypeDef(BaseValidatorModel):
-    EarthObservationJobSummaries: List[ListEarthObservationJobOutputConfigTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListEarthObservationJobOutput(BaseValidatorModel):
+    EarthObservationJobSummaries: List[ListEarthObservationJobOutputConfig]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListVectorEnrichmentJobOutputConfigTypeDef(BaseValidatorModel):
+class ListVectorEnrichmentJobOutputConfig(BaseValidatorModel):
     pass
 
 
-class ListVectorEnrichmentJobOutputTypeDef(BaseValidatorModel):
-    VectorEnrichmentJobSummaries: List[ListVectorEnrichmentJobOutputConfigTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListVectorEnrichmentJobOutput(BaseValidatorModel):
+    VectorEnrichmentJobSummaries: List[ListVectorEnrichmentJobOutputConfig]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class OutputResolutionResamplingInputTypeDef(BaseValidatorModel):
-    UserDefined: UserDefinedTypeDef
+class OutputResolutionResamplingInput(BaseValidatorModel):
+    UserDefined: UserDefined
 
 
-class OutputResolutionStackInputTypeDef(BaseValidatorModel):
+class OutputResolutionStackInput(BaseValidatorModel):
     Predefined: Optional[PredefinedResolutionType] = None
-    UserDefined: Optional[UserDefinedTypeDef] = None
+    UserDefined: Optional[UserDefined] = None
 
 
-class PropertyTypeDef(BaseValidatorModel):
-    EoCloudCover: Optional[EoCloudCoverInputTypeDef] = None
-    LandsatCloudCoverLand: Optional[LandsatCloudCoverLandInputTypeDef] = None
-    Platform: Optional[PlatformInputTypeDef] = None
-    ViewOffNadir: Optional[ViewOffNadirInputTypeDef] = None
-    ViewSunAzimuth: Optional[ViewSunAzimuthInputTypeDef] = None
-    ViewSunElevation: Optional[ViewSunElevationInputTypeDef] = None
+class Property(BaseValidatorModel):
+    EoCloudCover: Optional[EoCloudCoverInput] = None
+    LandsatCloudCoverLand: Optional[LandsatCloudCoverLandInput] = None
+    Platform: Optional[PlatformInput] = None
+    ViewOffNadir: Optional[ViewOffNadirInput] = None
+    ViewSunAzimuth: Optional[ViewSunAzimuthInput] = None
+    ViewSunElevation: Optional[ViewSunElevationInput] = None
 
 
-class VectorEnrichmentJobConfigTypeDef(BaseValidatorModel):
-    MapMatchingConfig: Optional[MapMatchingConfigTypeDef] = None
-    ReverseGeocodingConfig: Optional[ReverseGeocodingConfigTypeDef] = None
+class VectorEnrichmentJobConfig(BaseValidatorModel):
+    MapMatchingConfig: Optional[MapMatchingConfig] = None
+    ReverseGeocodingConfig: Optional[ReverseGeocodingConfig] = None
 
 
-class TimestampTypeDef(BaseValidatorModel):
+class Timestamp(BaseValidatorModel):
     pass
 
 
-class TimeRangeFilterInputTypeDef(BaseValidatorModel):
-    EndTime: TimestampTypeDef
-    StartTime: TimestampTypeDef
+class TimeRangeFilterInput(BaseValidatorModel):
+    EndTime: Timestamp
+    StartTime: Timestamp
 
 
-class AreaOfInterestOutputTypeDef(BaseValidatorModel):
-    AreaOfInterestGeometry: Optional[AreaOfInterestGeometryOutputTypeDef] = None
+class AreaOfInterestOutput(BaseValidatorModel):
+    AreaOfInterestGeometry: Optional[AreaOfInterestGeometryOutput] = None
 
 
-class BandMathConfigInputOutputTypeDef(BaseValidatorModel):
-    CustomIndices: Optional[CustomIndicesInputOutputTypeDef] = None
+class BandMathConfigInputOutput(BaseValidatorModel):
+    CustomIndices: Optional[CustomIndicesInputOutput] = None
     PredefinedIndices: Optional[List[str]] = None
 
 
-class BandMathConfigInputTypeDef(BaseValidatorModel):
-    CustomIndices: Optional[CustomIndicesInputTypeDef] = None
+class BandMathConfigInput(BaseValidatorModel):
+    CustomIndices: Optional[CustomIndicesInput] = None
     PredefinedIndices: Optional[Sequence[str]] = None
 
 
-class ExportEarthObservationJobInputTypeDef(BaseValidatorModel):
+class ExportEarthObservationJobInput(BaseValidatorModel):
     Arn: str
     ExecutionRoleArn: str
-    OutputConfig: OutputConfigInputTypeDef
+    OutputConfig: OutputConfigInput
     ClientToken: Optional[str] = None
     ExportSourceImages: Optional[bool] = None
 
 
-class ExportEarthObservationJobOutputTypeDef(BaseValidatorModel):
+class ExportEarthObservationJobOutput(BaseValidatorModel):
     Arn: str
     CreationTime: datetime
     ExecutionRoleArn: str
     ExportSourceImages: bool
     ExportStatus: EarthObservationJobExportStatusType
-    OutputConfig: OutputConfigInputTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    OutputConfig: OutputConfigInput
+    ResponseMetadata: ResponseMetadata
 
 
-class ExportVectorEnrichmentJobInputTypeDef(BaseValidatorModel):
+class ExportVectorEnrichmentJobInput(BaseValidatorModel):
     Arn: str
     ExecutionRoleArn: str
-    OutputConfig: ExportVectorEnrichmentJobOutputConfigTypeDef
+    OutputConfig: ExportVectorEnrichmentJobOutputConfig
     ClientToken: Optional[str] = None
 
 
-class ExportVectorEnrichmentJobOutputTypeDef(BaseValidatorModel):
+class ExportVectorEnrichmentJobOutput(BaseValidatorModel):
     Arn: str
     CreationTime: datetime
     ExecutionRoleArn: str
     ExportStatus: VectorEnrichmentJobExportStatusType
-    OutputConfig: ExportVectorEnrichmentJobOutputConfigTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    OutputConfig: ExportVectorEnrichmentJobOutputConfig
+    ResponseMetadata: ResponseMetadata
 
 
-class VectorEnrichmentJobInputConfigTypeDef(BaseValidatorModel):
-    DataSourceConfig: VectorEnrichmentJobDataSourceConfigInputTypeDef
+class VectorEnrichmentJobInputConfig(BaseValidatorModel):
+    DataSourceConfig: VectorEnrichmentJobDataSourceConfigInput
     DocumentType: Literal["CSV"]
 
 
-class RasterDataCollectionMetadataTypeDef(BaseValidatorModel):
+class RasterDataCollectionMetadata(BaseValidatorModel):
     pass
 
 
-class ListRasterDataCollectionsOutputTypeDef(BaseValidatorModel):
-    RasterDataCollectionSummaries: List[RasterDataCollectionMetadataTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListRasterDataCollectionsOutput(BaseValidatorModel):
+    RasterDataCollectionSummaries: List[RasterDataCollectionMetadata]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class SearchRasterDataCollectionOutputTypeDef(BaseValidatorModel):
+class SearchRasterDataCollectionOutput(BaseValidatorModel):
     ApproximateResultCount: int
-    Items: List[ItemSourceTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    Items: List[ItemSource]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ResamplingConfigInputOutputTypeDef(BaseValidatorModel):
-    OutputResolution: OutputResolutionResamplingInputTypeDef
+class ResamplingConfigInputOutput(BaseValidatorModel):
+    OutputResolution: OutputResolutionResamplingInput
     AlgorithmName: Optional[AlgorithmNameResamplingType] = None
     TargetBands: Optional[List[str]] = None
 
 
-class ResamplingConfigInputTypeDef(BaseValidatorModel):
-    OutputResolution: OutputResolutionResamplingInputTypeDef
+class ResamplingConfigInput(BaseValidatorModel):
+    OutputResolution: OutputResolutionResamplingInput
     AlgorithmName: Optional[AlgorithmNameResamplingType] = None
     TargetBands: Optional[Sequence[str]] = None
 
 
-class StackConfigInputOutputTypeDef(BaseValidatorModel):
-    OutputResolution: Optional[OutputResolutionStackInputTypeDef] = None
+class StackConfigInputOutput(BaseValidatorModel):
+    OutputResolution: Optional[OutputResolutionStackInput] = None
     TargetBands: Optional[List[str]] = None
 
 
-class StackConfigInputTypeDef(BaseValidatorModel):
-    OutputResolution: Optional[OutputResolutionStackInputTypeDef] = None
+class StackConfigInput(BaseValidatorModel):
+    OutputResolution: Optional[OutputResolutionStackInput] = None
     TargetBands: Optional[Sequence[str]] = None
 
 
-class MultiPolygonGeometryInputUnionTypeDef(BaseValidatorModel):
+class MultiPolygonGeometryInputUnion(BaseValidatorModel):
     pass
 
 
-class PolygonGeometryInputUnionTypeDef(BaseValidatorModel):
+class PolygonGeometryInputUnion(BaseValidatorModel):
     pass
 
 
-class AreaOfInterestGeometryTypeDef(BaseValidatorModel):
-    MultiPolygonGeometry: Optional[MultiPolygonGeometryInputUnionTypeDef] = None
-    PolygonGeometry: Optional[PolygonGeometryInputUnionTypeDef] = None
+class AreaOfInterestGeometry(BaseValidatorModel):
+    MultiPolygonGeometry: Optional[MultiPolygonGeometryInputUnion] = None
+    PolygonGeometry: Optional[PolygonGeometryInputUnion] = None
 
 
-class PropertyFilterTypeDef(BaseValidatorModel):
-    Property: PropertyTypeDef
+class PropertyFilter(BaseValidatorModel):
+    Property: Property
 
 
-class StartVectorEnrichmentJobInputTypeDef(BaseValidatorModel):
+class StartVectorEnrichmentJobInput(BaseValidatorModel):
     ExecutionRoleArn: str
-    InputConfig: VectorEnrichmentJobInputConfigTypeDef
-    JobConfig: VectorEnrichmentJobConfigTypeDef
+    InputConfig: VectorEnrichmentJobInputConfig
+    JobConfig: VectorEnrichmentJobConfig
     Name: str
     ClientToken: Optional[str] = None
     KmsKeyId: Optional[str] = None
     Tags: Optional[Mapping[str, str]] = None
 
 
-class JobConfigInputOutputTypeDef(BaseValidatorModel):
-    BandMathConfig: Optional[BandMathConfigInputOutputTypeDef] = None
+class JobConfigInputOutput(BaseValidatorModel):
+    BandMathConfig: Optional[BandMathConfigInputOutput] = None
     CloudMaskingConfig: Optional[Dict[str, Any]] = None
-    CloudRemovalConfig: Optional[CloudRemovalConfigInputOutputTypeDef] = None
-    GeoMosaicConfig: Optional[GeoMosaicConfigInputOutputTypeDef] = None
+    CloudRemovalConfig: Optional[CloudRemovalConfigInputOutput] = None
+    GeoMosaicConfig: Optional[GeoMosaicConfigInputOutput] = None
     LandCoverSegmentationConfig: Optional[Dict[str, Any]] = None
-    ResamplingConfig: Optional[ResamplingConfigInputOutputTypeDef] = None
-    StackConfig: Optional[StackConfigInputOutputTypeDef] = None
-    TemporalStatisticsConfig: Optional[TemporalStatisticsConfigInputOutputTypeDef] = None
-    ZonalStatisticsConfig: Optional[ZonalStatisticsConfigInputOutputTypeDef] = None
+    ResamplingConfig: Optional[ResamplingConfigInputOutput] = None
+    StackConfig: Optional[StackConfigInputOutput] = None
+    TemporalStatisticsConfig: Optional[TemporalStatisticsConfigInputOutput] = None
+    ZonalStatisticsConfig: Optional[ZonalStatisticsConfigInputOutput] = None
 
 
-class JobConfigInputTypeDef(BaseValidatorModel):
-    BandMathConfig: Optional[BandMathConfigInputTypeDef] = None
+class JobConfigInput(BaseValidatorModel):
+    BandMathConfig: Optional[BandMathConfigInput] = None
     CloudMaskingConfig: Optional[Mapping[str, Any]] = None
-    CloudRemovalConfig: Optional[CloudRemovalConfigInputTypeDef] = None
-    GeoMosaicConfig: Optional[GeoMosaicConfigInputTypeDef] = None
+    CloudRemovalConfig: Optional[CloudRemovalConfigInput] = None
+    GeoMosaicConfig: Optional[GeoMosaicConfigInput] = None
     LandCoverSegmentationConfig: Optional[Mapping[str, Any]] = None
-    ResamplingConfig: Optional[ResamplingConfigInputTypeDef] = None
-    StackConfig: Optional[StackConfigInputTypeDef] = None
-    TemporalStatisticsConfig: Optional[TemporalStatisticsConfigInputTypeDef] = None
-    ZonalStatisticsConfig: Optional[ZonalStatisticsConfigInputTypeDef] = None
+    ResamplingConfig: Optional[ResamplingConfigInput] = None
+    StackConfig: Optional[StackConfigInput] = None
+    TemporalStatisticsConfig: Optional[TemporalStatisticsConfigInput] = None
+    ZonalStatisticsConfig: Optional[ZonalStatisticsConfigInput] = None
 
 
-class PropertyFiltersOutputTypeDef(BaseValidatorModel):
+class PropertyFiltersOutput(BaseValidatorModel):
     LogicalOperator: Optional[Literal["AND"]] = None
-    Properties: Optional[List[PropertyFilterTypeDef]] = None
+    Properties: Optional[List[PropertyFilter]] = None
 
 
-class PropertyFiltersTypeDef(BaseValidatorModel):
+class PropertyFilters(BaseValidatorModel):
     LogicalOperator: Optional[Literal["AND"]] = None
-    Properties: Optional[Sequence[PropertyFilterTypeDef]] = None
+    Properties: Optional[Sequence[PropertyFilter]] = None
 
 
-class AreaOfInterestGeometryUnionTypeDef(BaseValidatorModel):
+class AreaOfInterestGeometryUnion(BaseValidatorModel):
     pass
 
 
-class AreaOfInterestTypeDef(BaseValidatorModel):
-    AreaOfInterestGeometry: Optional[AreaOfInterestGeometryUnionTypeDef] = None
+class AreaOfInterest(BaseValidatorModel):
+    AreaOfInterestGeometry: Optional[AreaOfInterestGeometryUnion] = None
 
 
-class RasterDataCollectionQueryOutputTypeDef(BaseValidatorModel):
+class RasterDataCollectionQueryOutput(BaseValidatorModel):
     RasterDataCollectionArn: str
     RasterDataCollectionName: str
-    TimeRangeFilter: TimeRangeFilterOutputTypeDef
-    AreaOfInterest: Optional[AreaOfInterestOutputTypeDef] = None
-    PropertyFilters: Optional[PropertyFiltersOutputTypeDef] = None
+    TimeRangeFilter: TimeRangeFilterOutput
+    AreaOfInterest: Optional[AreaOfInterestOutput] = None
+    PropertyFilters: Optional[PropertyFiltersOutput] = None
 
 
-class InputConfigOutputTypeDef(BaseValidatorModel):
+class InputConfigOutput(BaseValidatorModel):
     PreviousEarthObservationJobArn: Optional[str] = None
-    RasterDataCollectionQuery: Optional[RasterDataCollectionQueryOutputTypeDef] = None
+    RasterDataCollectionQuery: Optional[RasterDataCollectionQueryOutput] = None
 
 
-class PropertyFiltersUnionTypeDef(BaseValidatorModel):
+class PropertyFiltersUnion(BaseValidatorModel):
     pass
 
 
-class AreaOfInterestUnionTypeDef(BaseValidatorModel):
+class AreaOfInterestUnion(BaseValidatorModel):
     pass
 
 
-class RasterDataCollectionQueryInputTypeDef(BaseValidatorModel):
+class RasterDataCollectionQueryInput(BaseValidatorModel):
     RasterDataCollectionArn: str
-    TimeRangeFilter: TimeRangeFilterInputTypeDef
-    AreaOfInterest: Optional[AreaOfInterestUnionTypeDef] = None
-    PropertyFilters: Optional[PropertyFiltersUnionTypeDef] = None
+    TimeRangeFilter: TimeRangeFilterInput
+    AreaOfInterest: Optional[AreaOfInterestUnion] = None
+    PropertyFilters: Optional[PropertyFiltersUnion] = None
 
 
-class RasterDataCollectionQueryWithBandFilterInputTypeDef(BaseValidatorModel):
-    TimeRangeFilter: TimeRangeFilterInputTypeDef
-    AreaOfInterest: Optional[AreaOfInterestUnionTypeDef] = None
+class RasterDataCollectionQueryWithBandFilterInput(BaseValidatorModel):
+    TimeRangeFilter: TimeRangeFilterInput
+    AreaOfInterest: Optional[AreaOfInterestUnion] = None
     BandFilter: Optional[Sequence[str]] = None
-    PropertyFilters: Optional[PropertyFiltersUnionTypeDef] = None
+    PropertyFilters: Optional[PropertyFiltersUnion] = None
 
 
-class EarthObservationJobErrorDetailsTypeDef(BaseValidatorModel):
+class EarthObservationJobErrorDetails(BaseValidatorModel):
     pass
 
 
-class GetEarthObservationJobOutputTypeDef(BaseValidatorModel):
+class GetEarthObservationJobOutput(BaseValidatorModel):
     Arn: str
     CreationTime: datetime
     DurationInSeconds: int
-    ErrorDetails: EarthObservationJobErrorDetailsTypeDef
+    ErrorDetails: EarthObservationJobErrorDetails
     ExecutionRoleArn: str
-    ExportErrorDetails: ExportErrorDetailsTypeDef
+    ExportErrorDetails: ExportErrorDetails
     ExportStatus: EarthObservationJobExportStatusType
-    InputConfig: InputConfigOutputTypeDef
-    JobConfig: JobConfigInputOutputTypeDef
+    InputConfig: InputConfigOutput
+    JobConfig: JobConfigInputOutput
     KmsKeyId: str
     Name: str
-    OutputBands: List[OutputBandTypeDef]
+    OutputBands: List[OutputBand]
     Status: EarthObservationJobStatusType
     Tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartEarthObservationJobOutputTypeDef(BaseValidatorModel):
+class StartEarthObservationJobOutput(BaseValidatorModel):
     Arn: str
     CreationTime: datetime
     DurationInSeconds: int
     ExecutionRoleArn: str
-    InputConfig: InputConfigOutputTypeDef
-    JobConfig: JobConfigInputOutputTypeDef
+    InputConfig: InputConfigOutput
+    JobConfig: JobConfigInputOutput
     KmsKeyId: str
     Name: str
     Status: EarthObservationJobStatusType
     Tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class InputConfigInputTypeDef(BaseValidatorModel):
+class InputConfigInput(BaseValidatorModel):
     PreviousEarthObservationJobArn: Optional[str] = None
-    RasterDataCollectionQuery: Optional[RasterDataCollectionQueryInputTypeDef] = None
+    RasterDataCollectionQuery: Optional[RasterDataCollectionQueryInput] = None
 
 
-class SearchRasterDataCollectionInputTypeDef(BaseValidatorModel):
+class SearchRasterDataCollectionInput(BaseValidatorModel):
     Arn: str
-    RasterDataCollectionQuery: RasterDataCollectionQueryWithBandFilterInputTypeDef
+    RasterDataCollectionQuery: RasterDataCollectionQueryWithBandFilterInput
     NextToken: Optional[str] = None
 
 
-class JobConfigInputUnionTypeDef(BaseValidatorModel):
+class JobConfigInputUnion(BaseValidatorModel):
     pass
 
 
-class StartEarthObservationJobInputTypeDef(BaseValidatorModel):
+class StartEarthObservationJobInput(BaseValidatorModel):
     ExecutionRoleArn: str
-    InputConfig: InputConfigInputTypeDef
-    JobConfig: JobConfigInputUnionTypeDef
+    InputConfig: InputConfigInput
+    JobConfig: JobConfigInputUnion
     Name: str
     ClientToken: Optional[str] = None
     KmsKeyId: Optional[str] = None

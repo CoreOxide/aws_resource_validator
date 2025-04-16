@@ -12,7 +12,7 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.personalize_runtime_constants import *
 
-class GetActionRecommendationsRequestTypeDef(BaseValidatorModel):
+class GetActionRecommendationsRequest(BaseValidatorModel):
     campaignArn: Optional[str] = None
     userId: Optional[str] = None
     numResults: Optional[int] = None
@@ -20,12 +20,12 @@ class GetActionRecommendationsRequestTypeDef(BaseValidatorModel):
     filterValues: Optional[Mapping[str, str]] = None
 
 
-class PredictedActionTypeDef(BaseValidatorModel):
+class PredictedAction(BaseValidatorModel):
     actionId: Optional[str] = None
     score: Optional[float] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -33,7 +33,7 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class GetPersonalizedRankingRequestTypeDef(BaseValidatorModel):
+class GetPersonalizedRankingRequest(BaseValidatorModel):
     campaignArn: str
     inputList: Sequence[str]
     userId: str
@@ -43,7 +43,7 @@ class GetPersonalizedRankingRequestTypeDef(BaseValidatorModel):
     metadataColumns: Optional[Mapping[str, Sequence[str]]] = None
 
 
-class PredictedItemTypeDef(BaseValidatorModel):
+class PredictedItem(BaseValidatorModel):
     itemId: Optional[str] = None
     score: Optional[float] = None
     promotionName: Optional[str] = None
@@ -51,32 +51,32 @@ class PredictedItemTypeDef(BaseValidatorModel):
     reason: Optional[List[str]] = None
 
 
-class PromotionTypeDef(BaseValidatorModel):
+class Promotion(BaseValidatorModel):
     name: Optional[str] = None
     percentPromotedItems: Optional[int] = None
     filterArn: Optional[str] = None
     filterValues: Optional[Mapping[str, str]] = None
 
 
-class GetActionRecommendationsResponseTypeDef(BaseValidatorModel):
-    actionList: List[PredictedActionTypeDef]
+class GetActionRecommendationsResponse(BaseValidatorModel):
+    actionList: List[PredictedAction]
     recommendationId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetPersonalizedRankingResponseTypeDef(BaseValidatorModel):
-    personalizedRanking: List[PredictedItemTypeDef]
+class GetPersonalizedRankingResponse(BaseValidatorModel):
+    personalizedRanking: List[PredictedItem]
     recommendationId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetRecommendationsResponseTypeDef(BaseValidatorModel):
-    itemList: List[PredictedItemTypeDef]
+class GetRecommendationsResponse(BaseValidatorModel):
+    itemList: List[PredictedItem]
     recommendationId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetRecommendationsRequestTypeDef(BaseValidatorModel):
+class GetRecommendationsRequest(BaseValidatorModel):
     campaignArn: Optional[str] = None
     itemId: Optional[str] = None
     userId: Optional[str] = None
@@ -85,7 +85,7 @@ class GetRecommendationsRequestTypeDef(BaseValidatorModel):
     filterArn: Optional[str] = None
     filterValues: Optional[Mapping[str, str]] = None
     recommenderArn: Optional[str] = None
-    promotions: Optional[Sequence[PromotionTypeDef]] = None
+    promotions: Optional[Sequence[Promotion]] = None
     metadataColumns: Optional[Mapping[str, Sequence[str]]] = None
 
 

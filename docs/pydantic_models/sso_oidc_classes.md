@@ -6,7 +6,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CreateTokenRequestTypeDef
+# CreateTokenRequest
 
 ### clientId
 - **Type**: <class 'str'>
@@ -39,7 +39,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateTokenResponseTypeDef
+# CreateTokenResponse
 
 ### accessToken
 - **Type**: <class 'str'>
@@ -62,11 +62,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_oidc_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_oidc_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateTokenWithIAMRequestTypeDef
+# CreateTokenWithIAMRequest
 
 ### clientId
 - **Type**: <class 'str'>
@@ -104,7 +104,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateTokenWithIAMResponseTypeDef
+# CreateTokenWithIAMResponse
 
 ### accessToken
 - **Type**: <class 'str'>
@@ -135,11 +135,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_oidc_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_oidc_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# RegisterClientRequestTypeDef
+# RegisterClientRequest
 
 ### clientName
 - **Type**: <class 'str'>
@@ -165,7 +165,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RegisterClientResponseTypeDef
+# RegisterClientResponse
 
 ### clientId
 - **Type**: <class 'str'>
@@ -192,11 +192,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_oidc_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_oidc_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -218,7 +218,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# StartDeviceAuthorizationRequestTypeDef
+# StartDeviceAuthorizationRequest
 
 ### clientId
 - **Type**: <class 'str'>
@@ -233,7 +233,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StartDeviceAuthorizationResponseTypeDef
+# StartDeviceAuthorizationResponse
 
 ### deviceCode
 - **Type**: <class 'str'>
@@ -260,7 +260,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_oidc_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_oidc_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

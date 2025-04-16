@@ -6,14 +6,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# EmptyResponseMetadataTypeDef
+# EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesis_video_webrtc_storage_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesis_video_webrtc_storage_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# JoinStorageSessionAsViewerInputTypeDef
+# JoinStorageSessionAsViewerInput
 
 ### channelArn
 - **Type**: <class 'str'>
@@ -24,14 +24,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# JoinStorageSessionInputTypeDef
+# JoinStorageSessionInput
 
 ### channelArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
