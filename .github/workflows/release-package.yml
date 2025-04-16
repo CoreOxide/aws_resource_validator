@@ -2,7 +2,7 @@ name: Release Package
 
 on:
   release:
-    types: [ published ]
+    types: [published]
 
 permissions:
   contents: write
@@ -14,12 +14,12 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # Ensure full history is fetched for version comparison
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v3
         with:
-          python-version: '3.12'
+          python-version: "3.12"
 
       - name: Install dependencies
         run: |
@@ -27,24 +27,19 @@ jobs:
           pip install poetry
 
       - name: Bump version in pyproject.toml
-        continue-on-error: true
         run: |
-          git checkout main
-          git pull origin main --rebase
-          
+          CURRENT_BRANCH=$(git branch --show-current)
           NEW_VERSION=$(poetry version patch | awk '{print $NF}')
           if [[ -z "$NEW_VERSION" ]]; then
             echo "Error: Failed to extract new version!"
             exit 1
           fi
           echo "Bumped version to $NEW_VERSION"
-          
           git config user.name "ytupman"
           git config user.email "yafit.tupman@gmail.com"
-          
           git add pyproject.toml
           git commit -m "Bump version to $NEW_VERSION [skip ci]" || echo "No changes to commit."
-          git push --force origin main
+          git push origin "$CURRENT_BRANCH"
 
       - name: Build package
         run: poetry build -f wheel
